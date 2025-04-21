@@ -1,0 +1,2142 @@
+id,V-score,VL-score,db,name
+PF04860.16,10.0,4.700945886,Pfam,Phage portal protein
+PF10145.13,10.0,4.670598342,Pfam,Phage-related minor tail protein
+PF05065.17,10.0,4.617189124,Pfam,Phage capsid family 
+PF03237.19,10.0,4.566142756,Pfam,"Terminase large subunit, T4likevirus-type, N-terminal"
+PF04466.17,10.0,4.363837529,Pfam,Phage terminase large subunit
+PF17289.6,10.0,4.35320432,Pfam,Terminase RNaseH-like domain
+PF20441.2,10.0,4.335578243,Pfam,"Terminase large subunit, endonuclease domain"
+PF03354.19,10.0,4.295984701,Pfam,"Terminase large subunit, ATPase domain"
+PF05133.18,10.0,4.244845909,Pfam,"Phage portal protein, SPP1 Gp6-like"
+PF03592.20,10.0,4.18568378,Pfam,Terminase small subunit
+PF05876.16,10.0,4.177507642,Pfam,"Phage terminase large subunit gpA, ATPase domain"
+PF05136.17,10.0,4.164679941,Pfam,"Phage portal protein, lambda family"
+PF05521.15,10.0,4.149003452,Pfam,Phage head-tail joining protein
+PF20454.2,10.0,4.144698719,Pfam,"Terminase large subunit gpA, endonuclease domain"
+PF13550.10,10.0,4.128980524,Pfam,Putative phage tail protein
+PF12236.12,10.0,4.106836587,Pfam,Bacteriophage head to tail connecting protein
+PF06605.15,10.0,4.095796794,Pfam,Prophage endopeptidase tail
+PF02305.21,10.0,4.084754963,Pfam,Capsid protein (F protein)
+PF07484.16,10.0,4.064158372,Pfam,Phage Tail Collar Domain
+PF17288.6,10.0,4.061150781,Pfam,Terminase RNAseH like domain
+PF04984.18,10.0,4.046729222,Pfam,Phage tail sheath protein subtilisin-like domain
+PF17482.6,10.0,4.045166448,Pfam,Phage tail sheath C-terminal domain
+PF18906.4,10.0,4.02514195,Pfam,Phage tail tube protein
+PF05119.16,10.0,3.993039232,Pfam,"Phage terminase, small subunit"
+PF03864.19,10.0,3.957128198,Pfam,Phage major capsid protein E
+PF05135.17,10.0,3.941362336,Pfam,Phage gp6-like head-tail connector protein
+PF12571.12,10.0,3.908592239,Pfam,Phage tail-collar fibre protein
+PF16778.9,10.0,3.905634001,Pfam,Phage tail assembly chaperone protein
+PF19821.3,10.0,3.891760401,Pfam,Phage capsid protein
+PF09718.14,10.0,3.858777737,Pfam,Lambda phage tail tape-measure protein (Tape_meas_lam_C)
+PF06152.15,10.0,3.852296966,Pfam,Phage minor capsid protein 2
+PF04883.16,10.0,3.840795899,Pfam,"Bacteriophage HK97-gp10, putative tail-component"
+PF16510.9,10.0,3.825945143,Pfam,Phage P22-like portal protein
+PF09684.14,10.0,3.825296264,Pfam,Phage tail protein (Tail_P2_I)
+PF06791.17,10.0,3.819872822,Pfam,Prophage tail length tape measure protein
+PF18013.5,10.0,3.816771412,Pfam,Phage tail lysozyme
+PF20901.1,10.0,3.807399713,Pfam,"Bacteriophage Sf6, terminase small subunit-like"
+PF02413.21,10.0,3.717753693,Pfam,"Caudovirales tail fibre assembly protein, lambda gpK"
+PF10109.13,10.0,3.704407927,Pfam,"Phage tail assembly chaperone proteins, E, or 41 or 14"
+PF06199.15,10.0,3.704236337,Pfam,Phage tail tube protein
+PF04985.18,10.0,3.704150517,Pfam,Phage tail tube protein FII
+PF05954.15,10.0,3.658011397,Pfam,Phage tail baseplate hub (GPD)
+PF21821.1,10.0,3.649918719,Pfam,Dit-like phage tail protein
+PF03406.17,10.0,3.64601141,Pfam,Phage tail fibre repeat
+PF20911.1,10.0,3.63818964,Pfam,Major capsid protein GP7
+PF05709.15,10.0,3.611617111,Pfam,Phage tail protein RIFT-related domain
+PF07230.15,10.0,3.60906055,Pfam,Bacteriophage T4-like portal protein (Gp20)
+PF05100.16,10.0,3.590507462,Pfam,Phage minor tail protein L 
+PF00073.24,10.0,3.584331224,Pfam,picornavirus capsid protein
+PF05489.16,10.0,3.582177038,Pfam,Phage Tail Protein X
+PF05396.15,10.0,3.56937391,Pfam,Phage T7 capsid assembly protein
+PF07068.15,10.0,3.557386882,Pfam,Major capsid protein Gp23
+PF05939.17,10.0,3.555698895,Pfam,Phage minor tail protein
+PF03906.18,10.0,3.541454429,Pfam,Phage T7 tail fibre protein
+PF08762.14,10.0,3.535420718,Pfam,CRPV capsid protein like
+PF17212.7,10.0,3.515343893,Pfam,Tail tubular protein
+PF05929.15,10.0,3.51308436,Pfam,Phage capsid scaffolding protein (GPO) serine peptidase
+PF06891.15,10.0,3.468642668,Pfam,P2 phage tail completion protein R (GpR)
+PF05944.16,10.0,3.46834733,Pfam,Phage small terminase subunit
+PF16461.9,10.0,3.457427693,Pfam,"Lambda phage tail tube protein, TTP"
+PF05125.16,10.0,3.446692466,Pfam,"Phage major capsid protein, P2 family "
+PF21703.1,10.0,3.445136969,Pfam,Major capsid protein
+PF16903.9,10.0,3.434089638,Pfam,Major capsid protein N-terminus
+PF04451.16,10.0,3.42357352,Pfam,Large eukaryotic DNA virus major capsid protein
+PF12691.11,10.0,3.407050815,Pfam,Bacteriophage minor capsid protein
+PF08890.15,10.0,3.373831145,Pfam,"Phage XkdN-like tail assembly chaperone protein, TAC"
+PF09393.14,10.0,3.363799945,Pfam,Phage tail tube protein
+PF06056.16,10.0,3.353339095,Pfam,Putative ATPase subunit of terminase (gpP-like)
+PF11114.12,10.0,3.351989455,Pfam,Minor capsid protein
+PF05894.16,10.0,3.32756326,Pfam,Podovirus DNA encapsidation protein (Gp16)
+PF21822.1,10.0,3.326540669,Pfam,"Phage tail assembly chaperone protein, TAC"
+PF10618.13,10.0,3.325515663,Pfam,Phage tail tube protein
+PF16724.9,10.0,3.276231958,Pfam,T4-like virus Myoviridae tail sheath stabiliser
+PF20934.1,10.0,3.266936911,Pfam,"Bacillus phage phi29, Tail knob protein gp9, C-terminal domain"
+PF20036.3,10.0,3.225309282,Pfam,Major capsid protein 13-like
+PF08813.15,10.0,3.216429831,Pfam,"Phage tail tube protein, TTP"
+PF16838.9,10.0,3.186956335,Pfam,Caudoviral major tail protein N-terminus
+PF17481.6,10.0,3.165541077,Pfam,Phage tail sheath protein beta-sandwich domain
+PF06763.15,10.0,3.141449773,Pfam,Prophage minor tail protein Z (GPZ)
+PF08400.14,10.0,3.135450699,Pfam,Prophage tail fibre N-terminal
+PF10668.13,10.0,3.116275588,Pfam,Phage terminase small subunit
+PF06841.16,10.0,3.099335278,Pfam,T4-like virus tail tube protein gp19
+PF11836.12,10.0,3.08350262,Pfam,"Phage tail tube protein, GTA-gp10"
+PF21446.1,10.0,3.056904851,Pfam,"Long-tail fiber proximal subunit, C-terminal domain"
+PF08748.15,10.0,3.05422991,Pfam,Phage tail assembly chaperone
+PF12789.11,10.0,3.052693942,Pfam,Phage tail repeat like
+PF21507.1,10.0,3.036628895,Pfam,Sputnik minor capsid protein V18/19
+PF18994.4,9.94,2.997386384,Pfam,Prophage endopeptidase tail N-terminal domain
+PF11650.12,9.65,2.984527313,Pfam,P22 tail accessory factor
+PF18668.5,9.44,2.974971994,Pfam,Tail spike TSP1/Gp66 receptor binding N-terminal domain
+PF12363.12,8.2,2.913813852,Pfam,"Phage tail assembly chaperone protein, TAC"
+PF16460.9,8.15,2.911157609,Pfam,"Phage tail tube, TTP, lambda-like"
+PF04630.16,7.53,2.876794976,Pfam,Phage tail tube protein
+PF10665.13,6.92,2.840106094,Pfam,Minor capsid protein
+PF10963.12,6.81,2.833147112,Pfam,Phage tail assembly chaperone
+PF06120.15,6.65,2.822821645,Pfam,Tail length tape measure protein
+PF16459.9,6.2,2.792391689,Pfam,"Phage tail assembly chaperone, TAC"
+PF11053.12,5.58,2.746634199,Pfam,Terminase DNA packaging enzyme
+PF20753.1,5.33,2.726727209,Pfam,Phage tail C-terminal domain
+PF20195.2,5.02,2.700703717,Pfam,Phage tail protein N-terminal domain
+PF17388.6,4.01,2.603144373,Pfam,Mycobacteriophage tail assembly protein
+PF06805.16,3.82,2.582063363,Pfam,Bacteriophage lambda tail assembly protein I
+PF06894.15,3.07,2.487138375,Pfam,"Bacteriophage lambda tail assembly chaperone, TAC, protein G"
+PF06222.15,2.97,2.472756449,Pfam,Phage tail assembly chaperone
+PF05268.15,2.94,2.46834733,Pfam,Phage tail fibre adhesin Gp38
+PF06141.15,2.69,2.42975228,Pfam,Phage minor tail protein U
+PF06896.15,2.65,2.423245874,Pfam,"Phage tail assembly chaperone proteins, TAC"
+PF06820.16,2.44,2.387389826,Pfam,Putative prophage tail fibre C-terminus
+PF06223.16,2.33,2.367355921,Pfam,Minor tail protein T
+PF16774.9,2.23,2.348304863,Pfam,"Distal tail protein, N-terminal domain"
+PF06673.15,2.22,2.346352974,Pfam,Lactococcus lactis bacteriophage major capsid protein
+PF00945.22,2.12,2.326335861,Pfam,Rhabdovirus nucleocapsid protein
+PF20744.1,1.72,2.235528447,Pfam,Tail fibre protein gp37 trimerization region
+PF09550.14,1.67,2.222716471,Pfam,"Phage tail assembly chaperone protein, TAC"
+PF06488.15,1.67,2.222716471,Pfam,Phage tail tube protein
+PF05733.15,1.58,2.198657087,Pfam,Tenuivirus/Phlebovirus nucleocapsid protein
+PF12264.12,1.52,2.181843588,Pfam,Waikavirus capsid protein 1
+PF05354.15,1.52,2.181843588,Pfam,Phage Head-Tail Attachment
+PF09018.15,1.46,2.164352856,Pfam,P3 major capsid protein
+PF21721.1,1.39,2.1430148,Pfam,Phage tail fibre adhesin Gp38 N-terminal domain
+PF03903.17,1.35,2.130333768,Pfam,Phage T4 tail fibre
+PF00952.21,1.18,2.071882007,Pfam,Bunyavirus nucleocapsid (N) protein
+PF16532.9,1.16,2.064457989,Pfam,Sf6-type phage tail needle knob or tip of some Caudovirales
+PF16462.9,1.1,2.041392685,Pfam,"Phage tail assembly chaperone protein, TAC"
+PF20953.1,1.07,2.029383778,Pfam,Phage tail base-plate attachment protein C-terminal insertion domain
+PF16463.9,1.07,2.029383778,Pfam,Phage tail tube protein family
+PF20955.1,1.06,2.025305865,Pfam,Phage tail base-plate attachment protein C-terminal barrel domain
+PF16792.9,1.06,2.025305865,Pfam,Phage tail base-plate attachment protein N-terminal barrel domain
+PF21560.1,1.02,2.008600172,Pfam,"Long-tail fiber proximal subunit, C-terminal domains"
+PF20954.1,1.0,2.0,Pfam,Phage tail base-plate attachment protein N0 domain
+PF08475.14,1.0,2.0,Pfam,Viral capsid protein 91 N-terminal
+PF03327.18,1.0,2.0,Pfam,Herpesvirus capsid shell protein VP19C
+PF02993.18,1.0,2.0,Pfam,Minor capsid protein VI
+PF10876.12,1.0,2.0,Pfam,"Phage tail assembly chaperone protein, TAC"
+PF01802.21,1.0,2.0,Pfam,Herpesvirus VP23 like capsid protein
+PF03122.18,1.0,2.0,Pfam,Herpes virus major capsid protein
+PF05073.16,1.0,2.0,Pfam,Baculovirus P24 capsid protein
+PF04501.16,1.0,2.0,Pfam,Baculovirus major capsid protein VP39
+PF00973.23,1.0,2.0,Pfam,Paramyxovirus nucleocapsid protein
+PF20608.2,1.0,2.0,Pfam,Phage tail tube protein C-terminal domain
+PF00932.23,1.0,2.0,Pfam,Lamin Tail Domain
+PF01003.23,1.0,2.0,Pfam,Flavivirus capsid protein C
+PF11729.12,1.0,2.0,Pfam,nodavirus capsid protein 
+PF11091.12,1.0,2.0,Pfam,Tail-tube assembly protein
+PF00937.22,1.0,2.0,Pfam,Coronavirus nucleocapsid
+PF09251.14,1.0,2.0,Pfam,Salmonella phage P22 tail-spike
+PF03115.18,1.0,2.0,Pfam,Astrovirus capsid protein nucleoplasmin-like domain
+PF02443.19,1.0,2.0,Pfam,Circovirus capsid protein
+PF07267.15,1.0,2.0,Pfam,Nucleopolyhedrovirus capsid protein P87
+PF17290.6,1.0,2.0,Pfam,Arenavirus nucleocapsid C-terminal domain
+PF00843.21,1.0,2.0,Pfam,Arenavirus nucleocapsid N-terminal domain
+PF16855.9,1.0,2.0,Pfam,Small outer capsid protein
+PF14928.10,1.0,2.0,Pfam,Short tail fibre protein receptor-binding domain
+PF00846.22,1.0,2.0,Pfam,Hantavirus nucleocapsid protein
+PF12604.12,1.0,2.0,Pfam,Tail fibre protein gp37 C terminal domain
+PF11733.12,1.0,2.0,Pfam,Non-capsid protein NP1
+PF02336.19,1.0,2.0,Pfam,Capsid protein VP4
+PF21430.1,1.0,2.0,Pfam,"Distal tail protein pb9, B domain"
+PF01533.20,1.0,2.0,Pfam,Tospovirus nucleocapsid protein
+PF21425.1,1.0,2.0,Pfam,"Distal tail protein pb9, A domain, N-terminal"
+PF06112.15,1.0,2.0,Pfam,Gammaherpesvirus capsid protein
+PF00901.21,1.0,2.0,Pfam,Orbivirus outer capsid protein VP5
+PF00897.21,1.0,2.0,Pfam,Orbivirus inner capsid protein VP7
+PF21562.1,1.0,2.0,Pfam,"G7C, Tail fiber protein, domain 3"
+PF17594.6,1.0,2.0,Pfam,Phage Tail fiber assembly helper gene product 57
+PF03335.17,1.0,2.0,Pfam,Phage tail fibre repeat
+PF07141.15,1.0,2.0,Pfam,Putative bacteriophage terminase small subunit
+PF03035.18,1.0,2.0,Pfam,Calicivirus putative RNA polymerase/capsid protein
+PF09089.14,1.0,2.0,Pfam,"Phage short tail fibre protein gp12, middle domain"
+PF11889.12,1.0,2.0,Pfam,"Capsid protein C, pestivirus"
+PF05993.16,1.0,2.0,Pfam,Reovirus major virion structural protein Mu-1/Mu-1C (M2)
+PF17086.9,1.0,2.0,Pfam,Small capsid protein of Herpesviridae
+PF21685.1,1.0,2.0,Pfam,"Fungal virus Capsid protein, N-terminal domain"
+PF01481.20,1.0,2.0,Pfam,Arterivirus nucleocapsid protein
+PF20837.1,1.0,2.0,Pfam,Major inner capsid protein P1
+PF12226.12,1.0,2.0,Pfam,Turkey astrovirus capsid protein
+PF00898.21,1.0,2.0,Pfam,Orbivirus outer capsid protein VP2
+PF19978.3,1.0,2.0,Pfam,Tail virion protein G7P
+PF20895.1,1.0,2.0,Pfam,"PsV, capsid protein"
+PF01543.21,1.0,2.0,Pfam,Hepatitis C virus capsid protein
+PF00979.21,1.0,2.0,Pfam,"Reovirus outer capsid protein, Sigma 3"
+PF04162.16,1.0,2.0,Pfam,Gyrovirus capsid protein (VP1)
+PF21424.1,1.0,2.0,Pfam,"Distal tail protein pb9, A domain C-terminal"
+PF18965.4,1.0,2.0,Pfam,Outer capsid protein VP3-like
+PF20816.1,1.0,2.0,Pfam,"Picobirnavirus, Capsid protein"
+PF10666.13,1.0,2.0,Pfam,Phage tail assembly chaperone protein Gp14 ()A118
+PF05943.16,1.0,2.0,Pfam,"EvpB/VC_A0108, tail sheath N-terminal domain"
+PF04876.16,1.0,2.0,Pfam,Tenuivirus major non-capsid protein
+PF05880.15,1.0,2.0,Pfam,Fijivirus 64 kDa capsid protein
+PF01576.23,1.0,2.0,Pfam,Myosin tail
+PF18945.4,1.0,2.0,Pfam,"EvpB/VC_A0108, tail sheath gpW/gp25-like domain"
+PF05868.15,1.0,2.0,Pfam,Rotavirus major outer capsid protein VP7
+PF00980.21,1.0,2.0,Pfam,Rotavirus major capsid protein VP6
+PF03246.17,1.0,2.0,Pfam,Pneumovirus nucleocapsid protein
+PF11128.12,1.0,2.0,Pfam,Plant viral coat protein nucleocapsid
+PF21738.1,1.0,2.0,Pfam,Double jelly roll capsid-like protein
+PF07124.15,1.0,2.0,Pfam,Phytoreovirus outer capsid protein P8
+PF11818.12,1.0,2.0,Pfam,C-terminal domain of tail specific protease (DUF3340)
+PF00426.22,1.0,2.0,Pfam,Outer Capsid protein VP4 (Hemagglutinin) Concanavalin-like domain
+PF05750.15,1.0,2.0,Pfam,Rubella capsid protein
+PF17804.5,1.0,2.0,Pfam,Tail specific protease N-terminal domain
+PF16580.9,1.0,2.0,Pfam,C-terminal tail of astrovirus capsid projection or spike
+PF17750.5,1.0,2.0,Pfam,Reovirus sigma C capsid protein triple beta spiral
+PF20828.1,1.0,2.0,Pfam,"Acidianus two-tailed virus, ORF273 protein"
+PF17071.9,1.0,2.0,Pfam,Outer capsid protein VP7
+PF04582.16,1.0,2.0,Pfam,Reovirus sigma C capsid protein C-terminal domain
+PF21434.1,1.0,2.0,Pfam,"Phage G20C small terminase, N-terminal domain"
+PF20855.1,1.0,2.0,Pfam,"CPV Capsid shell protein VP1, small protrusion domain"
+PF09300.14,1.0,2.0,Pfam,"Tectiviridae, minor capsid"
+PF16530.9,1.0,2.0,Pfam,"Infectious hypodermal and haematopoietic necrosis virus, capsid"
+PF02444.20,1.0,2.0,Pfam,Hepatitis E virus ORF-2 (Putative capsid protein)
+PF20745.1,0.88,1.944482672,Pfam,Ig-like domain in tailspike protein
+PF02477.19,0.45,1.653212514,Pfam,Nucleocapsid N protein
+PF03187.18,0.06,0.77815125,Pfam,Corona nucleocapsid I protein
+PF11030.12,0.03,0.477121255,Pfam,Nucleocapsid protein N
+PF21519.1,0.03,0.477121255,Pfam,"Tailspike protein, C-terminal"
+K06909,10.0,4.826871359,KEGG,phage terminase large subunit
+K26586,10.0,4.340364784,KEGG,acetylcholinesterase collagenic tail peptide
+K07474,10.0,4.278890725,KEGG,phage terminase small subunit
+K06907,10.0,4.115344196,KEGG,Bacteriophage tail sheath protein
+K21512,10.0,4.080698623,KEGG,Enterobacteria phage terminase large subunit [EC:3.1.21.4]
+K21523,10.0,4.039850178,KEGG,"Straboviridae terminase, large subunit [EC:3.1.-.-]"
+K26963,10.0,3.975247941,KEGG,Enterobacteria phage portal protein
+K21511,10.0,3.877716801,KEGG,Enterobacteria phage capsid assembly protease [EC:3.4.21.-]
+K26951,10.0,3.848127511,KEGG,Autographiviridae terminase large subunit [EC:3.6.4.- 3.1.21.-]
+K26778,10.0,3.818423855,KEGG,Straboviridae long-tail fiber protein Gp37
+K27053,10.0,3.754806855,KEGG,Tombusviridae capsid protein
+K26782,10.0,3.751202095,KEGG,Straboviridae short tail fiber protein Gp12
+K26943,10.0,3.730540036,KEGG,Autographiviridae portal protein
+K06908,10.0,3.715334684,KEGG,Bacteriophage tail tube protein
+K26980,10.0,3.685293781,KEGG,Enterobacteria phage tail fiber assembly protein
+K21531,10.0,3.667919685,KEGG,Straboviridae tail sheath protein
+K06906,10.0,3.643551369,KEGG,phage tail protein
+K26976,10.0,3.636487896,KEGG,Enterobacteria phage tail tip assembly protein I
+K26945,10.0,3.587710965,KEGG,Autographiviridae tail tubular protein Gp12
+K26765,10.0,3.587037118,KEGG,Straboviridae portal protein
+K26975,10.0,3.576456532,KEGG,Enterobacteria phage tail tip assembly protein K
+K26974,10.0,3.546666025,KEGG,Enterobacteria phage tail tip protein L
+K26944,10.0,3.518382316,KEGG,Autographiviridae tail tubular protein Gp11
+K26754,10.0,3.475089803,KEGG,Straboviridae capsid vertex protein
+K26973,10.0,3.456669629,KEGG,Enterobacteria phage tail tip protein M
+K26947,10.0,3.431363764,KEGG,Autographiviridae capsid assembly scaffolding protein
+K26961,10.0,3.324899497,KEGG,Enterobacteria phage major capsid protein
+K26771,10.0,3.294686624,KEGG,Straboviridae tail completion protein Gp15
+K26774,10.0,3.289588953,KEGG,Straboviridae tail tube protein Gp19
+K26805,10.0,3.248708736,KEGG,Straboviridae tail fiber assembly protein
+K26969,10.0,3.212986185,KEGG,Enterobacteria phage tail tube protein
+K26762,10.0,3.198106999,KEGG,Straboviridae capsid assembly scaffolding protein
+K26775,10.0,3.197004728,KEGG,Straboviridae long-tail fiber proximal subunit
+K16292,10.0,3.104828404,KEGG,KDEL-tailed cysteine endopeptidase [EC:3.4.22.-]
+K26946,10.0,3.09482038,KEGG,Autographiviridae tail fiber protein
+K22014,10.0,3.04060234,KEGG,"Enterobacteria phage terminase small subunit, DNA-packaging protein"
+K21524,10.0,3.035029282,KEGG,"Straboviridae terminase, small subunit"
+K27021,8.89,2.948901761,KEGG,Genomoviridae capsid protein
+K01551,6.23,2.794488047,KEGG,arsenite/tail-anchored protein-transporting ATPase [EC:7.3.2.7 7.3.-.-]
+K26967,5.96,2.77524626,KEGG,Enterobacteria phage tail completion protein
+K19260,3.13,2.495544338,KEGG,Papillomaviridae major capsid protein L1
+K21808,3.1,2.491361694,KEGG,Alphapapillomavirus minor capsid protein L2
+K26970,3.08,2.488550717,KEGG,Enterobacteria phage tail assembly protein G
+K26777,2.93,2.46686762,KEGG,Straboviridae long-tail fiber protein Gp36
+K26772,2.92,2.465382851,KEGG,Tequatrovirus tail tube terminator protein
+K26968,2.67,2.426511261,KEGG,Enterobacteria phage tail tube terminator protein
+K26802,2.48,2.394451681,KEGG,Alphanodavirus capsid protein alpha [EC:3.4.23.44]
+K26795,2.35,2.371067862,KEGG,Straboviridae baseplate tail-tube junction protein Gp54
+K26971,2.08,2.318063335,KEGG,Enterobacteria phage tail assembly protein GT
+K26962,1.95,2.290034611,KEGG,Enterobacteria phage capsid decoration protein
+K26756,1.78,2.250420002,KEGG,Straboviridae highly immunogenic outer capsid protein
+K26966,1.69,2.227886705,KEGG,Enterobacteria phage head-tail connector protein FII
+K25928,1.65,2.217483944,KEGG,Enterovirus capsid protein VP0
+K19252,1.47,2.167317335,KEGG,Dependoparvovirus capsid protein VP1/VP2/VP3
+K19248,1.36,2.133538908,KEGG,Polyomaviridae major capsid protein VP1
+K26511,1.34,2.127104798,KEGG,Bocaparvovirus minor capsid protein VP1 [EC:3.1.1.4]
+K25797,1.26,2.100370545,KEGG,Erythroparvovirus capsid protein VP1/VP2
+K26105,1.19,2.075546961,KEGG,Cytomegalovirus tripartite terminase subunit 3
+K21078,1.09,2.037426498,KEGG,Cytomegalovirus capsid scaffolding protein [EC:3.4.21.97]
+K26952,1.06,2.025305865,KEGG,Autographiviridae terminase small subunit
+K26103,1.0,2.0,KEGG,Cytomegalovirus tripartite terminase subunit 1
+K26020,1.0,2.0,KEGG,Herpesviridae portal protein
+K26018,1.0,2.0,KEGG,Herpesviridae capsid vertex component 2
+K26507,1.0,2.0,KEGG,Lymphocryptovirus capsid scaffolding protein [EC:3.4.21.97]
+K26016,1.0,2.0,KEGG,Herpesviridae triplex capsid protein 2
+K26014,1.0,2.0,KEGG,Herpesviridae major capsid protein
+K26776,1.0,2.0,KEGG,Straboviridae long-tail fiber protein Gp35
+K26760,1.0,2.0,KEGG,"Straboviridae inhibitor of prohead protease Gp21, minor capsid protein"
+K26806,1.0,2.0,KEGG,Straboviridae tail fiber assembly helper protein
+K27013,1.0,2.0,KEGG,Closteroviridae minor capsid protein
+K24106,1.0,2.0,KEGG,SARS coronavirus nucleocapsid protein
+K26007,1.0,2.0,KEGG,Mastadenovirus core-capsid bridging protein
+K25127,1.0,2.0,KEGG,Enterovirus C capsid protein VP1
+K26803,1.0,2.0,KEGG,Straboviridae capsid assembly protein Gp31
+K26755,1.0,2.0,KEGG,Straboviridae small outer capsid protein
+K26017,1.0,2.0,KEGG,Herpesviridae capsid vertex component 1
+K26015,1.0,2.0,KEGG,Herpesviridae triplex capsid protein 1
+K26794,1.0,2.0,KEGG,Straboviridae baseplate tail-tube junction protein Gp48
+K26104,1.0,2.0,KEGG,Cytomegalovirus tripartite terminase subunit 2
+K26000,1.0,2.0,KEGG,Flavivirus capsid protein C
+K25929,1.0,2.0,KEGG,Alphavirus capsid protein [EC:3.4.21.90]
+K23129,1.0,2.0,KEGG,Orthohepadnavirus capsid protein
+K27047,1.0,2.0,KEGG,Rudiviridae major capsid protein
+K26438,1.0,2.0,KEGG,Aquareovirus major inner capsid protein VP3 [EC:3.6.4.13]
+K25306,1.0,2.0,KEGG,HIV capsid protein
+K25052,1.0,2.0,KEGG,HTLV-1 capsid protein
+K25664,1.0,2.0,KEGG,HIV-1 nucleocapsid protein
+K25053,1.0,2.0,KEGG,HTLV-1 nucleocapsid protein
+K27058,1.0,2.0,KEGG,Virgaviridae capsid protein
+K24598,1.0,2.0,KEGG,Rotavirus core capsid protein VP2
+K27008,1.0,2.0,KEGG,Bromovirus capsid protein
+K19249,1.0,2.0,KEGG,Rotavirus outer capsid protein VP4
+K24596,1.0,2.0,KEGG,Rotavirus outer capsid protein VP7
+K24597,1.0,2.0,KEGG,Rotavirus inner capsid protein VP6
+K20521,1.0,2.0,KEGG,myosin tail region-interacting protein MTI1
+phrog_9,10.0,4.49110945,PHROG,terminase large subunit
+phrog_12,10.0,4.473165692,PHROG,portal protein
+phrog_38,10.0,4.46362427,PHROG,terminase large subunit
+phrog_2,10.0,4.387283019,PHROG,terminase large subunit
+phrog_2662,10.0,4.382899152,PHROG,portal protein
+phrog_2699,10.0,4.336299596,PHROG,terminase large subunit
+phrog_5929,10.0,4.267242149,PHROG,portal protein
+phrog_5653,10.0,4.239399593,PHROG,terminase large subunit
+phrog_4758,10.0,4.239099182,PHROG,terminase large subunit
+phrog_1533,10.0,4.226728757,PHROG,tail length tape measure protein
+phrog_4704,10.0,4.191451014,PHROG,tail length tape measure protein
+phrog_3717,10.0,4.182471718,PHROG,terminase large subunit
+phrog_4914,10.0,4.171463165,PHROG,terminase large subunit
+phrog_31,10.0,4.162415036,PHROG,central tail fiber J
+phrog_15,10.0,4.159356612,PHROG,terminase large subunit
+phrog_21,10.0,4.146283113,PHROG,portal protein
+phrog_156,10.0,4.115843404,PHROG,portal protein
+phrog_6672,10.0,4.111665696,PHROG,terminase large subunit
+phrog_332,10.0,4.094890197,PHROG,head-tail adaptor
+phrog_5493,10.0,4.087461966,PHROG,tail length tape measure protein
+phrog_1293,10.0,4.084540532,PHROG,tail length tape measure protein
+phrog_7331,10.0,4.073094865,PHROG,terminase large subunit
+phrog_11518,10.0,4.070037867,PHROG,tail fiber protein
+phrog_979,10.0,4.065766388,PHROG,terminase large subunit
+phrog_1272,10.0,4.065542371,PHROG,tail length tape measure protein
+phrog_327,10.0,4.050920837,PHROG,tail protein
+phrog_376,10.0,4.037267095,PHROG,tail protein
+phrog_113,10.0,4.022428371,PHROG,portal protein
+phrog_38390,10.0,4.021354713,PHROG,tail length tape measure protein
+phrog_10517,10.0,4.018450832,PHROG,terminase large subunit
+phrog_28,10.0,4.018450832,PHROG,tail length tape measure protein
+phrog_2335,10.0,4.018117721,PHROG,tail length tape measure protein
+phrog_32885,10.0,4.002813779,PHROG,tail length tape measure protein
+phrog_2097,10.0,3.995020606,PHROG,tail fiber protein
+phrog_295,10.0,3.988558957,PHROG,tail fiber protein
+phrog_28420,10.0,3.974189191,PHROG,tail length tape measure protein
+phrog_8462,10.0,3.972989227,PHROG,tail length tape measure protein
+phrog_51,10.0,3.970904498,PHROG,terminase small subunit
+phrog_1107,10.0,3.963598963,PHROG,tail length tape measure protein
+phrog_15566,10.0,3.961942883,PHROG,tail protein
+phrog_21311,10.0,3.961705784,PHROG,terminase large subunit
+phrog_30251,10.0,3.959709024,PHROG,terminase large subunit
+phrog_17300,10.0,3.956696565,PHROG,tail length tape measure protein
+phrog_6202,10.0,3.95583201,PHROG,tail fiber protein
+phrog_3519,10.0,3.939668984,PHROG,tail length tape measure protein
+phrog_3336,10.0,3.938569756,PHROG,tail length tape measure protein
+phrog_394,10.0,3.938019097,PHROG,tail protein
+phrog_2589,10.0,3.929470016,PHROG,tail protein
+phrog_5573,10.0,3.925930598,PHROG,terminase large subunit
+phrog_7740,10.0,3.918659293,PHROG,tail length tape measure protein
+phrog_10250,10.0,3.916401304,PHROG,terminase large subunit
+phrog_9116,10.0,3.911849796,PHROG,tail protein
+phrog_381,10.0,3.910891089,PHROG,tail fiber protein
+phrog_675,10.0,3.903524064,PHROG,terminase large subunit
+phrog_339,10.0,3.90330708,PHROG,tail length tape measure protein
+phrog_1068,10.0,3.898834838,PHROG,tail length tape measure protein
+phrog_18345,10.0,3.888516461,PHROG,tail fiber protein
+phrog_988,10.0,3.886603514,PHROG,tail protein
+phrog_2636,10.0,3.88643432,PHROG,tail fiber protein
+phrog_12706,10.0,3.883718202,PHROG,tail length tape measure protein
+phrog_8010,10.0,3.883434294,PHROG,tail length tape measure protein
+phrog_1216,10.0,3.877428941,PHROG,portal protein
+phrog_8713,10.0,3.876448787,PHROG,tail fiber protein
+phrog_27190,10.0,3.874829578,PHROG,tail length tape measure protein
+phrog_25747,10.0,3.873959655,PHROG,tail fiber protein
+phrog_3287,10.0,3.873378736,PHROG,virion structural protein
+phrog_1727,10.0,3.873262459,PHROG,tail protein and host specificity
+phrog_64,10.0,3.866405498,PHROG,portal protein
+phrog_1197,10.0,3.864629725,PHROG,tail protein
+phrog_58,10.0,3.864273697,PHROG,tail length tape measure protein
+phrog_146,10.0,3.864095573,PHROG,portal protein
+phrog_83,10.0,3.862727528,PHROG,terminase small subunit
+phrog_1858,10.0,3.862191031,PHROG,tail fiber protein
+phrog_16297,10.0,3.861295394,PHROG,tail length tape measure protein
+phrog_9959,10.0,3.858416878,PHROG,tail length tape measure protein
+phrog_1640,10.0,3.858176138,PHROG,tail protein
+phrog_16889,10.0,3.85545858,PHROG,tail length tape measure protein
+phrog_7997,10.0,3.845346137,PHROG,tail protein and host specificity
+phrog_23,10.0,3.841234296,PHROG,tail sheath
+phrog_1535,10.0,3.838597253,PHROG,tail length tape measure protein
+phrog_4618,10.0,3.836070809,PHROG,tail collar fiber protein
+phrog_7032,10.0,3.830331993,PHROG,tail fiber protein
+phrog_26,10.0,3.821513528,PHROG,tail completion or Neck1 protein
+phrog_9696,10.0,3.819741297,PHROG,tail length tape measure protein
+phrog_537,10.0,3.815843291,PHROG,portal protein
+phrog_523,10.0,3.808143426,PHROG,tail collar fiber protein
+phrog_1780,10.0,3.806722503,PHROG,tail collar fiber protein
+phrog_52,10.0,3.801609488,PHROG,tail protein
+phrog_859,10.0,3.799064719,PHROG,portal protein
+phrog_6162,10.0,3.796018969,PHROG,tail fiber protein
+phrog_4372,10.0,3.793231447,PHROG,tail length tape measure protein
+phrog_2941,10.0,3.790355546,PHROG,virion structural protein
+phrog_48,10.0,3.783045572,PHROG,tail protein
+phrog_5616,10.0,3.782544284,PHROG,tail fiber protein
+phrog_4200,10.0,3.781180721,PHROG,tail length tape measure protein
+phrog_19943,10.0,3.778440684,PHROG,virion structural protein
+phrog_1162,10.0,3.778078862,PHROG,tail fiber protein
+phrog_2137,10.0,3.777426822,PHROG,tail fiber protein
+phrog_3981,10.0,3.776991585,PHROG,tail length tape measure protein
+phrog_12798,10.0,3.764026608,PHROG,tail length tape measure protein
+phrog_10780,10.0,3.759290033,PHROG,tail length tape measure protein
+phrog_9532,10.0,3.757699625,PHROG,tail fiber protein
+phrog_1608,10.0,3.75709222,PHROG,tail protein
+phrog_309,10.0,3.754883228,PHROG,terminase small subunit
+phrog_145,10.0,3.754654069,PHROG,portal protein
+phrog_105,10.0,3.753353213,PHROG,tail fiber assembly
+phrog_19618,10.0,3.748730556,PHROG,tail collar protein
+phrog_5302,10.0,3.745777218,PHROG,tail protein
+phrog_38058,10.0,3.74225367,PHROG,tail fiber protein
+phrog_1642,10.0,3.739730529,PHROG,virion structural protein
+phrog_23820,10.0,3.737749074,PHROG,tail fiber protein
+phrog_31452,10.0,3.737431201,PHROG,tail length tape measure protein
+phrog_40,10.0,3.736396502,PHROG,head-tail adaptor Ad1
+phrog_329,10.0,3.731185708,PHROG,minor tail protein
+phrog_10153,10.0,3.724603515,PHROG,tail fiber protein
+phrog_24595,10.0,3.722222464,PHROG,virion structural protein
+phrog_2013,10.0,3.718169405,PHROG,lytic tail protein
+phrog_4070,10.0,3.714078165,PHROG,tail length tape measure protein
+phrog_2271,10.0,3.710032699,PHROG,portal protein
+phrog_1686,10.0,3.705778213,PHROG,tail length tape measure protein
+phrog_20119,10.0,3.695218919,PHROG,tail length tape measure protein
+phrog_6547,10.0,3.693375151,PHROG,portal protein
+phrog_104,10.0,3.692053365,PHROG,portal protein
+phrog_1482,10.0,3.688864568,PHROG,terminase small subunit
+phrog_24898,10.0,3.688775655,PHROG,tail fiber protein
+phrog_36964,10.0,3.688152756,PHROG,terminase large subunit
+phrog_6681,10.0,3.685652184,PHROG,terminase large subunit
+phrog_13893,10.0,3.682956926,PHROG,tail protein
+phrog_6002,10.0,3.681241237,PHROG,virion structural protein
+phrog_533,10.0,3.678518379,PHROG,portal protein
+phrog_188,10.0,3.678154038,PHROG,tail fiber assembly protein
+phrog_15528,10.0,3.678062905,PHROG,portal protein
+phrog_195,10.0,3.676876432,PHROG,head-tail adaptor
+phrog_33693,10.0,3.67678503,PHROG,portal protein
+phrog_3904,10.0,3.673573796,PHROG,tail fiber protein
+phrog_5448,10.0,3.672744198,PHROG,tail length tape measure protein
+phrog_14478,10.0,3.672559628,PHROG,virion structural protein
+phrog_5726,10.0,3.669316881,PHROG,tail protein
+phrog_5755,10.0,3.667826379,PHROG,tail length tape measure protein
+phrog_6468,10.0,3.664453929,PHROG,tail fiber protein; host specificity
+phrog_25966,10.0,3.663606708,PHROG,tail length tape measure protein
+phrog_9483,10.0,3.663606708,PHROG,tail length tape measure protein
+phrog_16516,10.0,3.658964843,PHROG,minor tail protein
+phrog_1330,10.0,3.65724713,PHROG,tail protein
+phrog_13289,10.0,3.655138435,PHROG,tail protein
+phrog_3100,10.0,3.652826303,PHROG,tail fiber protein
+phrog_4492,10.0,3.652343055,PHROG,tail fiber protein
+phrog_45,10.0,3.652149605,PHROG,tail tube
+phrog_2148,10.0,3.651471852,PHROG,tail fiber protein
+phrog_25305,10.0,3.650210355,PHROG,tail fiber protein
+phrog_1800,10.0,3.649626887,PHROG,tail collar fiber protein
+phrog_6747,10.0,3.649432223,PHROG,tail length tape measure protein
+phrog_5555,10.0,3.645815118,PHROG,tail protein
+phrog_21962,10.0,3.644241586,PHROG,tail protein
+phrog_222,10.0,3.644143051,PHROG,tail completion or Neck1 protein
+phrog_76,10.0,3.642662331,PHROG,tail protein
+phrog_538,10.0,3.640779477,PHROG,minor tail protein
+phrog_8239,10.0,3.638788667,PHROG,tail fiber protein
+phrog_13892,10.0,3.638589083,PHROG,minor tail protein
+phrog_477,10.0,3.63748973,PHROG,head-tail adaptor Ad1
+phrog_7142,10.0,3.636186895,PHROG,tail protein
+phrog_2606,10.0,3.62910365,PHROG,terminase small subunit
+phrog_6900,10.0,3.628899564,PHROG,tail length tape measure protein
+phrog_31660,10.0,3.626648268,PHROG,tail fiber protein
+phrog_24,10.0,3.626032248,PHROG,tail length tape measure protein
+phrog_33119,10.0,3.624075731,PHROG,long tail fiber protein distal subunit
+phrog_21722,10.0,3.62024019,PHROG,long tail fiber protein distal subunit
+phrog_19921,10.0,3.613524703,PHROG,tail spike protein
+phrog_8469,10.0,3.612359948,PHROG,tail fiber protein
+phrog_2824,10.0,3.607776604,PHROG,virion structural protein
+phrog_4211,10.0,3.606058749,PHROG,tail length tape measure protein
+phrog_165,10.0,3.599227863,PHROG,tail sheath
+phrog_21973,10.0,3.597804842,PHROG,tail protein
+phrog_19976,10.0,3.594171479,PHROG,tail assembly protein
+phrog_9064,10.0,3.592176757,PHROG,portal protein
+phrog_1506,10.0,3.589279221,PHROG,tail length tape measure protein
+phrog_457,10.0,3.587710965,PHROG,tail protein
+phrog_6722,10.0,3.586924708,PHROG,tail fiber protein
+phrog_18,10.0,3.585799009,PHROG,minor tail protein
+phrog_30133,10.0,3.584218112,PHROG,virion structural protein
+phrog_5989,10.0,3.582177038,PHROG,terminase large subunit
+phrog_778,10.0,3.581949658,PHROG,tail assembly protein
+phrog_2631,10.0,3.581494542,PHROG,tail fiber protein
+phrog_4849,10.0,3.577606677,PHROG,tail protein
+phrog_205,10.0,3.575303333,PHROG,tail sheath
+phrog_1716,10.0,3.574841195,PHROG,tail length tape measure protein
+phrog_15437,10.0,3.574031268,PHROG,tail fiber protein
+phrog_213,10.0,3.57391544,PHROG,portal protein
+phrog_4209,10.0,3.569607968,PHROG,tail fiber protein
+phrog_6616,10.0,3.568201724,PHROG,tail protein
+phrog_3925,10.0,3.567849451,PHROG,terminase large subunit
+phrog_449,10.0,3.564784385,PHROG,head-tail adaptor
+phrog_6256,10.0,3.564073979,PHROG,tail fiber protein
+phrog_4581,10.0,3.562887381,PHROG,terminase small subunit
+phrog_30,10.0,3.562292864,PHROG,minor tail protein
+phrog_6459,10.0,3.558588583,PHROG,tail collar protein
+phrog_12032,10.0,3.558108302,PHROG,short tail fiber protein
+phrog_366,10.0,3.555457217,PHROG,tail fiber protein
+phrog_24280,10.0,3.555215405,PHROG,tail fiber adhesin
+phrog_24456,10.0,3.553640336,PHROG,tail fiber protein
+phrog_22896,10.0,3.549493713,PHROG,tail protein
+phrog_22609,10.0,3.548143637,PHROG,tail fiber protein
+phrog_5939,10.0,3.540454614,PHROG,tail protein
+phrog_10581,10.0,3.540329475,PHROG,tail sheath
+phrog_4197,10.0,3.539953842,PHROG,tail length tape measure protein
+phrog_15478,10.0,3.537819095,PHROG,tail length tape measure protein
+phrog_169,10.0,3.534787359,PHROG,tail completion or Neck1 protein
+phrog_14342,10.0,3.533263517,PHROG,lytic tail fiber protein
+phrog_25848,10.0,3.530839779,PHROG,tail fiber protein
+phrog_7025,10.0,3.5289167,PHROG,tail length tape measure protein
+phrog_23013,10.0,3.526726867,PHROG,tail length tape measure protein
+phrog_12171,10.0,3.526597709,PHROG,terminase
+phrog_3792,10.0,3.526339277,PHROG,tail assembly chaperone
+phrog_35520,10.0,3.524266269,PHROG,tail protein
+phrog_21412,10.0,3.522965595,PHROG,tail fiber protein
+phrog_14,10.0,3.519434195,PHROG,minor tail protein
+phrog_5909,10.0,3.517327882,PHROG,terminase large subunit
+phrog_136,10.0,3.514282048,PHROG,tail fiber assembly protein
+phrog_5073,10.0,3.509874285,PHROG,tail fiber protein
+phrog_34934,10.0,3.509874285,PHROG,tail protein
+phrog_991,10.0,3.509068045,PHROG,tail length tape measure protein
+phrog_2048,10.0,3.508529719,PHROG,tail protein
+phrog_4946,10.0,3.505285674,PHROG,tail protein
+phrog_6090,10.0,3.504742636,PHROG,tail length tape measure protein
+phrog_446,10.0,3.504606771,PHROG,tail protein
+phrog_372,10.0,3.501333179,PHROG,tail protein
+phrog_20705,10.0,3.496237545,PHROG,virion structural protein
+phrog_21789,10.0,3.494293769,PHROG,virion structural protein
+phrog_8927,10.0,3.492061605,PHROG,tail length tape measure protein
+phrog_4498,10.0,3.490660653,PHROG,tail length tape measure protein
+phrog_701,10.0,3.485295439,PHROG,virion structural protein
+phrog_1259,10.0,3.483301952,PHROG,baseplate hub subunit and tail lysozyme
+phrog_12082,10.0,3.482301767,PHROG,portal protein
+phrog_68,10.0,3.480868924,PHROG,portal protein
+phrog_18802,10.0,3.480581787,PHROG,virion structural protein
+phrog_14543,10.0,3.480438147,PHROG,virion structural protein
+phrog_14441,10.0,3.476686743,PHROG,tail length tape measure protein
+phrog_19299,10.0,3.476251796,PHROG,terminase large subunit
+phrog_13704,10.0,3.474944335,PHROG,virion structural protein
+phrog_36601,10.0,3.474361976,PHROG,tail fiber protein
+phrog_35419,10.0,3.473048805,PHROG,tail fiber protein
+phrog_1101,10.0,3.472463897,PHROG,tail protein
+phrog_27166,10.0,3.472171147,PHROG,tail length tape measure protein
+phrog_74,10.0,3.471144965,PHROG,terminase small subunit
+phrog_1158,10.0,3.47099817,PHROG,tail assembly chaperone
+phrog_442,10.0,3.469085299,PHROG,head-tail adaptor
+phrog_8780,10.0,3.464042205,PHROG,minor tail protein
+phrog_30742,10.0,3.462697408,PHROG,tail fiber protein
+phrog_179,10.0,3.460296327,PHROG,tail terminator
+phrog_23656,10.0,3.458637849,PHROG,virion structural protein
+phrog_521,10.0,3.455301772,PHROG,tail protein
+phrog_9453,10.0,3.453165393,PHROG,terminase large subunit
+phrog_1645,10.0,3.450710878,PHROG,virion structural protein
+phrog_16855,10.0,3.450557009,PHROG,Gpu-like tail protein
+phrog_426,10.0,3.450249108,PHROG,terminase small subunit
+phrog_1204,10.0,3.447002898,PHROG,tail protein
+phrog_9228,10.0,3.440594262,PHROG,tail length tape measure protein
+phrog_13977,10.0,3.439332694,PHROG,virion structural protein
+phrog_88,10.0,3.438700533,PHROG,major tail protein
+phrog_65,10.0,3.43806745,PHROG,tail terminator
+phrog_117,10.0,3.437116093,PHROG,major tail protein
+phrog_28504,10.0,3.434728542,PHROG,lytic tail fiber protein
+phrog_8716,10.0,3.431202885,PHROG,tail fiber protein
+phrog_8392,10.0,3.430719888,PHROG,portal protein
+phrog_1807,10.0,3.428458774,PHROG,tail fiber protein
+phrog_1924,10.0,3.428134794,PHROG,minor tail protein
+phrog_12846,10.0,3.426836454,PHROG,tail fiber protein; Ig-domain containing
+phrog_28865,10.0,3.424391554,PHROG,tail protein
+phrog_28775,10.0,3.422917981,PHROG,tail length tape measure protein
+phrog_17635,10.0,3.42143939,PHROG,tail fiber protein
+phrog_12312,10.0,3.420945406,PHROG,virion structural protein
+phrog_684,10.0,3.42078062,PHROG,virion structural protein
+phrog_302,10.0,3.420450859,PHROG,virion structural protein
+phrog_18604,10.0,3.419460073,PHROG,minor tail protein
+phrog_400,10.0,3.416973173,PHROG,tail protein
+phrog_3746,10.0,3.416640507,PHROG,terminase large subunit
+phrog_17582,10.0,3.416307587,PHROG,tail fiber protein
+phrog_7037,10.0,3.415140352,PHROG,tail fiber protein
+phrog_541,10.0,3.411788005,PHROG,head-tail adaptor
+phrog_71,10.0,3.410945859,PHROG,head-tail adaptor Ad1
+phrog_3558,10.0,3.409595019,PHROG,tail protein
+phrog_4554,10.0,3.408918021,PHROG,tail protein
+phrog_30543,10.0,3.408409578,PHROG,tail length tape measure protein
+phrog_17672,10.0,3.408070286,PHROG,terminase large subunit
+phrog_1731,10.0,3.405517107,PHROG,virion structural protein
+phrog_347,10.0,3.40534636,PHROG,tail terminator
+phrog_2635,10.0,3.404149249,PHROG,tail protein
+phrog_469,10.0,3.402089351,PHROG,tail protein
+phrog_24754,10.0,3.396896449,PHROG,tail fiber protein
+phrog_15524,10.0,3.394101302,PHROG,terminase large subunit
+phrog_6013,10.0,3.391464412,PHROG,tail protein
+phrog_6121,10.0,3.391464412,PHROG,virion structural protein
+phrog_1699,10.0,3.389166084,PHROG,long tail fiber protein distal subunit
+phrog_34082,10.0,3.388811413,PHROG,tail length tape measure protein
+phrog_17587,10.0,3.388633969,PHROG,tail fiber protein
+phrog_807,10.0,3.387389826,PHROG,major tail protein with Ig-like domain
+phrog_4145,10.0,3.3872118,PHROG,terminase large subunit
+phrog_1889,10.0,3.384890797,PHROG,terminase small subunit
+phrog_19195,10.0,3.384890797,PHROG,virion structural protein
+phrog_3737,10.0,3.384174139,PHROG,tail fiber protein
+phrog_10030,10.0,3.382917135,PHROG,tail length tape measure protein
+phrog_11048,10.0,3.382557322,PHROG,tail sheath
+phrog_2337,10.0,3.38147609,PHROG,tail length tape measure protein
+phrog_158,10.0,3.373647472,PHROG,major tail protein
+phrog_1480,10.0,3.373463722,PHROG,tail sheath
+phrog_4271,10.0,3.372912003,PHROG,tail protein
+phrog_8746,10.0,3.370328008,PHROG,tail fiber assembly protein
+phrog_38233,10.0,3.366422957,PHROG,tail fiber protein
+phrog_14917,10.0,3.36604921,PHROG,tail length tape measure protein
+phrog_496,10.0,3.365862215,PHROG,tail fiber protein
+phrog_32,10.0,3.36361198,PHROG,tail assembly protein
+phrog_2189,10.0,3.360971884,PHROG,tail protein
+phrog_280,10.0,3.357172258,PHROG,virion structural protein
+phrog_103,10.0,3.356217134,PHROG,tail protein
+phrog_8125,10.0,3.354876423,PHROG,tail length tape measure protein
+phrog_588,10.0,3.354492601,PHROG,tail fiber protein and host specificity
+phrog_5292,10.0,3.354108439,PHROG,tail sheath
+phrog_817,10.0,3.352568386,PHROG,tail fiber protein
+phrog_19200,10.0,3.352568386,PHROG,virion structural protein
+phrog_6859,10.0,3.351796307,PHROG,tail fiber protein
+phrog_11355,10.0,3.350635608,PHROG,tail fiber protein
+phrog_33904,10.0,3.349471799,PHROG,tail fiber protein
+phrog_2710,10.0,3.345961542,PHROG,tail fiber protein
+phrog_12925,10.0,3.345373731,PHROG,tail protein
+phrog_794,10.0,3.341434525,PHROG,tail length tape measure protein
+phrog_3827,10.0,3.340047318,PHROG,tail length tape measure protein
+phrog_5339,10.0,3.339252634,PHROG,virion structural protein
+phrog_32829,10.0,3.337858429,PHROG,tail fiber protein
+phrog_5342,10.0,3.337658891,PHROG,tail fiber protein
+phrog_365,10.0,3.33725954,PHROG,tail protein
+phrog_31611,10.0,3.33485569,PHROG,tail collar protein
+phrog_3758,10.0,3.33405144,PHROG,virion structural protein
+phrog_23108,10.0,3.33243846,PHROG,tail length tape measure protein
+phrog_5774,10.0,3.332034277,PHROG,head-tail joining
+phrog_20231,10.0,3.329601248,PHROG,tail protein
+phrog_562,10.0,3.328990855,PHROG,RNA ligase and tail fiber protein attachment catalyst
+phrog_1951,10.0,3.328990855,PHROG,head-tail adaptor
+phrog_5751,10.0,3.32858345,PHROG,terminase large subunit
+phrog_10613,10.0,3.327971624,PHROG,tail length tape measure protein
+phrog_1171,10.0,3.326130957,PHROG,tail spike protein
+phrog_606,10.0,3.323870607,PHROG,terminase small subunit
+phrog_279,10.0,3.323458367,PHROG,tail sheath
+phrog_5997,10.0,3.323045735,PHROG,terminase small subunit
+phrog_2854,10.0,3.322632712,PHROG,tail length tape measure protein
+phrog_9273,10.0,3.322426052,PHROG,terminase small subunit
+phrog_18522,10.0,3.32159843,PHROG,tail protein
+phrog_18627,10.0,3.321391278,PHROG,tail protein
+phrog_4199,10.0,3.321184027,PHROG,minor tail protein
+phrog_7182,10.0,3.321184027,PHROG,tail injection transglycosylase
+phrog_17594,10.0,3.320976677,PHROG,tail length tape measure protein
+phrog_18891,10.0,3.319522449,PHROG,tail length tape measure protein
+phrog_2645,10.0,3.316808752,PHROG,major tail protein
+phrog_26622,10.0,3.314709693,PHROG,tail fiber protein
+phrog_28263,10.0,3.312177356,PHROG,tail fiber protein
+phrog_24607,10.0,3.31196566,PHROG,tail protein
+phrog_22682,10.0,3.307282047,PHROG,tail fiber protein
+phrog_6253,10.0,3.306639441,PHROG,minor tail protein
+phrog_202,10.0,3.306639441,PHROG,distal tail protein Dit
+phrog_15615,10.0,3.306210508,PHROG,virion structural protein
+phrog_2150,10.0,3.299725154,PHROG,terminase
+phrog_18557,10.0,3.298853076,PHROG,terminase large subunit
+phrog_33972,10.0,3.298634783,PHROG,tail protein
+phrog_27786,10.0,3.297760511,PHROG,tail spike protein
+phrog_5510,10.0,3.297541668,PHROG,tail fiber protein
+phrog_396,10.0,3.29380436,PHROG,minor tail protein
+phrog_19556,10.0,3.293141483,PHROG,tail fiber protein; host specificity
+phrog_1833,10.0,3.288919606,PHROG,tail fiber protein
+phrog_28766,10.0,3.288472801,PHROG,tail fiber protein
+phrog_1538,10.0,3.284430734,PHROG,tail length tape measure protein
+phrog_11011,10.0,3.281487888,PHROG,long tail fiber protein distal subunit
+phrog_2545,10.0,3.279438788,PHROG,head-tail adaptor Ad1
+phrog_4036,10.0,3.274157849,PHROG,tail length tape measure protein
+phrog_10775,10.0,3.271609301,PHROG,tail protein
+phrog_389,10.0,3.268343914,PHROG,tail protein XkdN-like
+phrog_18673,10.0,3.267171728,PHROG,tail fiber protein
+phrog_9729,10.0,3.266936911,PHROG,tail fiber protein
+phrog_20739,10.0,3.266231697,PHROG,tail length tape measure protein
+phrog_11226,10.0,3.259115844,PHROG,portal protein
+phrog_7622,10.0,3.259115844,PHROG,terminase large subunit
+phrog_9526,10.0,3.258637283,PHROG,terminase large subunit
+phrog_35587,10.0,3.258158193,PHROG,terminase large subunit
+phrog_1836,10.0,3.254064453,PHROG,tail fiber protein
+phrog_24580,10.0,3.25358029,PHROG,tail fiber protein
+phrog_1419,10.0,3.248953615,PHROG,tail protein
+phrog_1942,10.0,3.248463718,PHROG,tail length tape measure protein
+phrog_17633,10.0,3.246990699,PHROG,minor tail protein
+phrog_430,10.0,3.241795431,PHROG,baseplate hub subunit and tail lysozyme
+phrog_11303,10.0,3.241795431,PHROG,tail fiber protein
+phrog_13339,10.0,3.240299582,PHROG,tail length tape measure protein
+phrog_1082,10.0,3.239299479,PHROG,tail assembly protein
+phrog_2617,10.0,3.238798563,PHROG,short tail fiber protein
+phrog_10334,10.0,3.238547888,PHROG,terminase large subunit
+phrog_211,10.0,3.234517284,PHROG,head-tail adaptor Ad2
+phrog_1980,10.0,3.231214648,PHROG,tail fiber protein
+phrog_7489,10.0,3.230704314,PHROG,tail fiber protein
+phrog_30299,10.0,3.226599905,PHROG,tail fiber protein
+phrog_31460,10.0,3.225825991,PHROG,tail protein
+phrog_4636,10.0,3.224791956,PHROG,tail spike protein
+phrog_227,10.0,3.22297645,PHROG,tail sheath stabilizer
+phrog_6284,10.0,3.222196046,PHROG,tail protein
+phrog_118,10.0,3.221153322,PHROG,head-tail adaptor
+phrog_166,10.0,3.221153322,PHROG,tail protein
+phrog_33450,10.0,3.220108088,PHROG,tail fiber protein
+phrog_693,10.0,3.212187604,PHROG,tail fiber protein
+phrog_1591,10.0,3.211921084,PHROG,tail fiber protein
+phrog_226,10.0,3.211387553,PHROG,minor tail protein
+phrog_2959,10.0,3.208978517,PHROG,minor tail protein
+phrog_24210,10.0,3.20871002,PHROG,tail fiber protein
+phrog_20617,10.0,3.206556044,PHROG,minor tail protein
+phrog_14726,10.0,3.206556044,PHROG,tail fiber protein
+phrog_15695,10.0,3.206015877,PHROG,tail fiber protein
+phrog_25337,10.0,3.204662512,PHROG,tail length tape measure protein
+phrog_13211,10.0,3.202760687,PHROG,baseplate hub subunit and tail lysozyme
+phrog_17230,10.0,3.202215776,PHROG,tail fiber protein/ lysozyme
+phrog_4204,10.0,3.199480915,PHROG,tail terminator
+phrog_176,10.0,3.19893187,PHROG,tail terminator
+phrog_9807,10.0,3.198657087,PHROG,tail length tape measure protein
+phrog_17727,10.0,3.197280558,PHROG,tail length tape measure protein
+phrog_16277,10.0,3.195622944,PHROG,tail length tape measure protein
+phrog_13857,10.0,3.195622944,PHROG,tail protein
+phrog_1302,10.0,3.194791758,PHROG,distal tail protein
+phrog_1623,10.0,3.194236749,PHROG,virion structural protein
+phrog_4542,10.0,3.193402903,PHROG,tail tube protein
+phrog_24709,10.0,3.187520721,PHROG,tail length tape measure protein
+phrog_185,10.0,3.183554534,PHROG,tail tube protein
+phrog_5795,10.0,3.182414652,PHROG,tail protein
+phrog_437,10.0,3.180699201,PHROG,virion structural protein
+phrog_2276,10.0,3.180699201,PHROG,tail length tape measure protein
+phrog_1885,10.0,3.180412633,PHROG,minor tail protein
+phrog_8711,10.0,3.179838928,PHROG,terminase large subunit
+phrog_12796,10.0,3.178113252,PHROG,tail fiber protein
+phrog_885,10.0,3.176958981,PHROG,major tail protein
+phrog_5,10.0,3.174059808,PHROG,tail completion or Neck1 protein
+phrog_337,10.0,3.174059808,PHROG,tail protein
+phrog_8418,10.0,3.173186268,PHROG,portal protein
+phrog_19179,10.0,3.172018809,PHROG,terminase large subunit
+phrog_341,10.0,3.171726454,PHROG,major tail protein
+phrog_3475,10.0,3.167612673,PHROG,minor tail protein
+phrog_17193,10.0,3.16613397,PHROG,tail completion or Neck1 protein
+phrog_4102,10.0,3.165541077,PHROG,terminase small subunit
+phrog_584,10.0,3.160168293,PHROG,major tail protein
+phrog_615,10.0,3.159867847,PHROG,head-tail adaptor
+phrog_820,10.0,3.158663981,PHROG,major tail protein
+phrog_4247,10.0,3.154728207,PHROG,virion structural protein
+phrog_21277,10.0,3.153509989,PHROG,terminase large subunit
+phrog_209,10.0,3.153509989,PHROG,portal protein
+phrog_57,10.0,3.153509989,PHROG,terminase small subunit
+phrog_563,10.0,3.15075644,PHROG,virion structural protein
+phrog_677,10.0,3.146128036,PHROG,baseplate wedge tail fiber protein connector
+phrog_5062,10.0,3.143639235,PHROG,tail length tape measure protein
+phrog_305,10.0,3.142389466,PHROG,tail length tape measure protein
+phrog_19445,10.0,3.14176323,PHROG,tail tip protein Tal
+phrog_230,10.0,3.139564266,PHROG,baseplate tail tube cap
+phrog_2871,10.0,3.139564266,PHROG,tail protein
+phrog_25788,10.0,3.139564266,PHROG,tail fiber protein
+phrog_27,10.0,3.138302698,PHROG,tail completion or Neck1 protein
+phrog_8687,10.0,3.137986733,PHROG,tail protein with peptidase activity
+phrog_14476,10.0,3.136086097,PHROG,virion structural protein
+phrog_11117,10.0,3.135450699,PHROG,portal protein
+phrog_445,10.0,3.135132651,PHROG,terminase small subunit
+phrog_7290,10.0,3.134177108,PHROG,tail fiber assembly protein
+phrog_4128,10.0,3.132579848,PHROG,tail fiber protein
+phrog_907,10.0,3.128076013,PHROG,tail sheath
+phrog_12493,10.0,3.125481266,PHROG,tail protein
+phrog_19630,10.0,3.123851641,PHROG,virion structural protein
+phrog_9413,10.0,3.121887985,PHROG,tail protein and host specificity
+phrog_3547,10.0,3.120902818,PHROG,tail length tape measure protein
+phrog_37649,10.0,3.120573931,PHROG,tail length tape measure protein
+phrog_13674,10.0,3.119585775,PHROG,tail length tape measure protein
+phrog_326,10.0,3.118264726,PHROG,tail protein with endopeptidase domain
+phrog_3279,10.0,3.116607744,PHROG,tail fiber protein
+phrog_13481,10.0,3.115277591,PHROG,tail fiber protein
+phrog_2952,10.0,3.113274692,PHROG,minor tail protein
+phrog_1206,10.0,3.111598525,PHROG,terminase small subunit
+phrog_25042,10.0,3.111598525,PHROG,tail fiber protein
+phrog_22284,10.0,3.11058971,PHROG,tail fiber protein
+phrog_3266,10.0,3.11058971,PHROG,tail completion
+phrog_13714,10.0,3.109240969,PHROG,tail fiber protein
+phrog_2557,10.0,3.108226656,PHROG,virion structural protein
+phrog_13388,10.0,3.106870544,PHROG,tail collar fiber protein
+phrog_34270,10.0,3.106190897,PHROG,tail length tape measure protein
+phrog_680,10.0,3.106190897,PHROG,tail length tape measure protein
+phrog_9478,10.0,3.106190897,PHROG,minor tail protein
+phrog_2810,10.0,3.104828404,PHROG,virion structural protein
+phrog_8892,10.0,3.104145551,PHROG,tail length tape measure protein
+phrog_8460,10.0,3.104145551,PHROG,tail fiber protein
+phrog_10356,10.0,3.103119254,PHROG,virion structural protein
+phrog_350,10.0,3.098297536,PHROG,tail protein
+phrog_12506,10.0,3.095169351,PHROG,tail length tape measure protein
+phrog_23595,10.0,3.094121596,PHROG,minor tail protein
+phrog_22322,10.0,3.094121596,PHROG,tail protein
+phrog_8763,10.0,3.09131516,PHROG,tail protein
+phrog_776,10.0,3.090963077,PHROG,portal protein
+phrog_28779,10.0,3.088844563,PHROG,tail length tape measure protein
+phrog_4440,10.0,3.086715664,PHROG,tail fiber protein
+phrog_15205,10.0,3.084576278,PHROG,tail assembly protein
+phrog_973,10.0,3.083860801,PHROG,tail length tape measure protein
+phrog_6578,10.0,3.080987047,PHROG,tail fiber protein
+phrog_4574,10.0,3.080987047,PHROG,major tail protein
+phrog_12296,10.0,3.077004327,PHROG,tail fiber protein
+phrog_1922,10.0,3.077004327,PHROG,baseplate hub subunit and tail lysozyme
+phrog_29860,10.0,3.075546961,PHROG,virion structural protein
+phrog_1292,10.0,3.074084689,PHROG,tail length tape measure protein
+phrog_11393,10.0,3.073351702,PHROG,tail fiber protein
+phrog_21247,10.0,3.072984745,PHROG,tail protein
+phrog_22285,10.0,3.072984745,PHROG,tail fiber protein
+phrog_26630,10.0,3.070407322,PHROG,tail fiber protein
+phrog_509,10.0,3.069668097,PHROG,terminase small subunit
+phrog_783,10.0,3.068927612,PHROG,head-tail adaptor
+phrog_4201,10.0,3.068185862,PHROG,tail fiber protein
+phrog_17623,10.0,3.067814511,PHROG,tail collar fiber protein
+phrog_11262,10.0,3.067442843,PHROG,tail protein
+phrog_2551,10.0,3.067070856,PHROG,minor tail protein
+phrog_4406,10.0,3.06595298,PHROG,virion structural protein
+phrog_19487,10.0,3.065206128,PHROG,tail length tape measure protein
+phrog_3285,10.0,3.061829307,PHROG,minor tail protein
+phrog_24159,10.0,3.06069784,PHROG,tail fiber protein
+phrog_137,10.0,3.059184618,PHROG,head-tail adaptor Ad1
+phrog_5713,10.0,3.058426024,PHROG,terminase large subunit
+phrog_3398,10.0,3.05804623,PHROG,virion structural protein
+phrog_1180,10.0,3.056142262,PHROG,tail assembly chaperone
+phrog_13980,10.0,3.055378331,PHROG,tail fiber protein
+phrog_21878,10.0,3.05422991,PHROG,tail fiber protein
+phrog_11029,10.0,3.053462605,PHROG,tail protein
+phrog_9570,10.0,3.053078443,PHROG,tail length tape measure protein
+phrog_106,10.0,3.050766311,PHROG,minor tail protein
+phrog_10305,10.0,3.049218023,PHROG,tail fiber protein
+phrog_30509,10.0,3.043755127,PHROG,collagen like minor tail
+phrog_5911,10.0,3.043755127,PHROG,tail protein
+phrog_17840,10.0,3.04060234,PHROG,tail terminator
+phrog_5717,10.0,3.04060234,PHROG,tail protein
+phrog_27577,10.0,3.039414119,PHROG,tail protein
+phrog_38625,10.0,3.03702788,PHROG,tail fiber protein
+phrog_6079,10.0,3.033825694,PHROG,tail protein
+phrog_694,10.0,3.032215703,PHROG,baseplate hub and tail lysozyme
+phrog_32409,10.0,3.029789471,PHROG,tail fiber protein
+phrog_23593,10.0,3.028571253,PHROG,tail protein
+phrog_637,10.0,3.028571253,PHROG,head-tail adaptor Ad3
+phrog_934,10.0,3.026941628,PHROG,tail length tape measure protein
+phrog_6305,10.0,3.026533265,PHROG,tail protein
+phrog_19691,10.0,3.025305865,PHROG,virion structural protein
+phrog_2115,10.0,3.02325246,PHROG,tail protein
+phrog_28748,10.0,3.022428371,PHROG,virion structural protein
+phrog_20242,10.0,3.021189299,PHROG,tail fiber protein
+phrog_384,10.0,3.018284308,PHROG,virion structural protein
+phrog_8443,10.0,3.018284308,PHROG,tail fiber protein
+phrog_25111,10.0,3.01745073,PHROG,tail protein
+phrog_792,10.0,3.013258665,PHROG,major tail protein
+phrog_735,10.0,3.010299957,PHROG,terminase small subunit
+phrog_13286,10.0,3.009025742,PHROG,tail protein
+phrog_10528,10.0,3.005180513,PHROG,major tail protein
+phrog_3304,10.0,3.003891166,PHROG,L-shaped tail fiber protein assembly
+phrog_4563,10.0,3.001733713,PHROG,tail fiber protein
+phrog_75,10.0,3.0,PHROG,head-tail adaptor Ad1
+phrog_476,9.95,2.997823081,PHROG,major tail protein
+phrog_863,9.95,2.997823081,PHROG,tail fiber assembly
+phrog_5454,9.92,2.996511672,PHROG,tail fiber protein
+phrog_6049,9.92,2.996511672,PHROG,tail fiber protein
+phrog_5838,9.88,2.994756945,PHROG,virion structural protein
+phrog_21143,9.86,2.993876915,PHROG,lytic tail fiber protein
+phrog_7049,9.83,2.992553518,PHROG,tail fiber protein
+phrog_490,9.81,2.991669007,PHROG,portal protein
+phrog_36707,9.81,2.991669007,PHROG,tail fiber protein
+phrog_9648,9.8,2.991226076,PHROG,tail protein
+phrog_38392,9.78,2.990338855,PHROG,tail sheath
+phrog_2739,9.68,2.985875357,PHROG,portal protein
+phrog_9851,9.67,2.985426474,PHROG,tail fiber protein
+phrog_11571,9.57,2.980911938,PHROG,tail fiber protein
+phrog_12321,9.53,2.979092901,PHROG,tail fiber protein
+phrog_3095,9.43,2.974511693,PHROG,tail protein with endopeptidase activity
+phrog_21157,9.3,2.968482949,PHROG,minor tail protein
+phrog_28473,9.25,2.966141733,PHROG,tail fiber protein
+phrog_38670,9.23,2.965201701,PHROG,tail fiber protein
+phrog_8003,9.21,2.96425963,PHROG,virion structural protein
+phrog_2491,9.19,2.963315511,PHROG,major tail protein
+phrog_20660,9.17,2.962369336,PHROG,tail length tape measure protein
+phrog_4044,9.11,2.959518377,PHROG,terminase small subunit
+phrog_23960,9.1,2.959041392,PHROG,tail protein
+phrog_6416,9.09,2.958563883,PHROG,tail protein
+phrog_19961,9.07,2.957607287,PHROG,tail fiber protein
+phrog_19855,9.06,2.957128198,PHROG,virion structural protein
+phrog_5662,8.97,2.952792443,PHROG,tail fiber protein
+phrog_27277,8.93,2.950851459,PHROG,tail spike protein
+phrog_24369,8.91,2.949877704,PHROG,tail fiber protein
+phrog_25241,8.86,2.947433722,PHROG,tail length tape measure protein
+phrog_23005,8.84,2.946452265,PHROG,virion structural protein
+phrog_10963,8.82,2.945468585,PHROG,portal protein
+phrog_110,8.81,2.944975908,PHROG,minor tail protein
+phrog_8094,8.81,2.944975908,PHROG,tail appendage
+phrog_26084,8.8,2.944482672,PHROG,tail length tape measure protein
+phrog_14895,8.78,2.943494516,PHROG,tail spike protein
+phrog_35707,8.75,2.942008053,PHROG,tail length tape measure protein
+phrog_891,8.71,2.940018155,PHROG,terminase small subunit
+phrog_9600,8.69,2.939019776,PHROG,tail assembly protein
+phrog_23574,8.67,2.938019097,PHROG,tail length tape measure protein
+phrog_641,8.62,2.935507266,PHROG,terminase small subunit
+phrog_14879,8.6,2.934498451,PHROG,tail fiber protein
+phrog_21537,8.58,2.933487288,PHROG,virion structural protein
+phrog_18484,8.49,2.92890769,PHROG,tail protein
+phrog_361,8.48,2.928395852,PHROG,terminase small subunit
+phrog_4818,8.47,2.92788341,PHROG,tail fiber protein
+phrog_38396,8.42,2.925312091,PHROG,tail protein
+phrog_5255,8.35,2.921686475,PHROG,tail length tape measure protein
+phrog_1196,8.33,2.920645001,PHROG,tail assembly chaperone
+phrog_17885,8.3,2.919078092,PHROG,tail fiber protein
+phrog_9502,8.29,2.918554531,PHROG,tail fiber protein
+phrog_9522,8.26,2.916980047,PHROG,major tail protein
+phrog_238,8.25,2.916453949,PHROG,major tail protein
+phrog_1964,8.22,2.914871818,PHROG,virion structural protein
+phrog_8510,8.2,2.913813852,PHROG,virion structural protein
+phrog_6435,8.18,2.912753304,PHROG,tail length tape measure protein
+phrog_10972,8.16,2.911690159,PHROG,tail fiber protein
+phrog_1932,8.16,2.911690159,PHROG,tail assembly chaperone
+phrog_9574,8.15,2.911157609,PHROG,tail protein
+phrog_16586,8.14,2.910624405,PHROG,tail fiber protein
+phrog_24676,8.12,2.909556029,PHROG,tail length tape measure protein
+phrog_32072,8.12,2.909556029,PHROG,tail protein
+phrog_22033,8.09,2.907948522,PHROG,virion structural protein
+phrog_4217,8.07,2.906873535,PHROG,tail protein
+phrog_16823,8.06,2.906335042,PHROG,tail length tape measure protein
+phrog_19394,8.06,2.906335042,PHROG,tail fiber protein
+phrog_370,8.06,2.906335042,PHROG,terminase small subunit
+phrog_26941,8.05,2.90579588,PHROG,tail protein
+phrog_7579,8.03,2.904715545,PHROG,terminase large subunit
+phrog_3267,8.01,2.903632516,PHROG,tail protein
+phrog_23188,8.0,2.903089987,PHROG,tail length tape measure protein
+phrog_967,7.99,2.902546779,PHROG,baseplate wedge tail fiber protein connector
+phrog_4527,7.98,2.902002891,PHROG,short tail fiber protein
+phrog_2595,7.94,2.899820502,PHROG,head-tail connector protein
+phrog_33134,7.9,2.897627091,PHROG,terminase large subunit
+phrog_1442,7.86,2.895422546,PHROG,tail assembly chaperone
+phrog_15433,7.86,2.895422546,PHROG,tail sheath
+phrog_6465,7.83,2.893761762,PHROG,tail protein
+phrog_1396,7.79,2.891537458,PHROG,tail fiber protein
+phrog_28781,7.78,2.890979597,PHROG,tail spike protein
+phrog_28246,7.76,2.889861721,PHROG,tail assembly protein
+phrog_2163,7.74,2.888740961,PHROG,virion structural protein
+phrog_19914,7.74,2.888740961,PHROG,tail length tape measure protein
+phrog_38183,7.69,2.88592634,PHROG,tail protein
+phrog_910,7.69,2.88592634,PHROG,tail collar fiber protein
+phrog_27932,7.68,2.88536122,PHROG,baseplate hub subunit and tail lysozyme
+phrog_6921,7.68,2.88536122,PHROG,tail fiber protein
+phrog_8985,7.67,2.884795364,PHROG,tail tube protein
+phrog_2837,7.66,2.88422877,PHROG,tail protein
+phrog_7592,7.65,2.883661435,PHROG,tail protein
+phrog_8378,7.59,2.880241776,PHROG,tail fiber protein
+phrog_10508,7.48,2.873901598,PHROG,tail fiber protein
+phrog_9239,7.46,2.872738827,PHROG,tail tubular protein
+phrog_36688,7.39,2.868644438,PHROG,tail length tape measure protein
+phrog_141,7.38,2.868056362,PHROG,terminase small subunit
+phrog_14417,7.36,2.866877814,PHROG,tail fiber protein; host specificity
+phrog_11439,7.34,2.86569606,PHROG,tail fiber protein
+phrog_8875,7.32,2.864511081,PHROG,tail fiber protein
+phrog_26292,7.29,2.862727528,PHROG,tail fiber protein
+phrog_36390,7.28,2.862131379,PHROG,tail spike protein
+phrog_8704,7.25,2.860338007,PHROG,tail protein
+phrog_454,7.24,2.859738566,PHROG,tail fiber protein
+phrog_21546,7.24,2.859738566,PHROG,tail fiber protein
+phrog_37948,7.24,2.859738566,PHROG,virion structural protein
+phrog_2729,7.22,2.858537198,PHROG,virion structural protein
+phrog_788,7.22,2.858537198,PHROG,tail protein
+phrog_2581,7.21,2.857935265,PHROG,virion structural protein
+phrog_18470,7.18,2.856124444,PHROG,portal protein
+phrog_569,7.1,2.851258349,PHROG,tail length tape measure protein
+phrog_3140,7.03,2.846955325,PHROG,tail assembly chaperone
+phrog_24092,7.03,2.846955325,PHROG,tail fiber protein
+phrog_1688,7.03,2.846955325,PHROG,tail assembly chaperone
+phrog_23837,6.97,2.843232778,PHROG,virion structural protein
+phrog_24320,6.89,2.838219222,PHROG,tail length tape measure protein
+phrog_14442,6.88,2.837588438,PHROG,tail protein
+phrog_132,6.86,2.836324116,PHROG,head-tail adaptor
+phrog_12876,6.86,2.836324116,PHROG,terminase large subunit
+phrog_29386,6.86,2.836324116,PHROG,virion structural protein
+phrog_13173,6.85,2.835690571,PHROG,tail fiber protein
+phrog_20620,6.84,2.835056102,PHROG,terminase small subunit
+phrog_1228,6.82,2.833784375,PHROG,tail protein
+phrog_27156,6.76,2.829946696,PHROG,tail spike protein
+phrog_15525,6.75,2.829303773,PHROG,minor tail protein
+phrog_2126,6.72,2.827369273,PHROG,tail fiber protein
+phrog_34575,6.69,2.825426118,PHROG,tail spike protein
+phrog_23412,6.68,2.824776462,PHROG,tail protein
+phrog_853,6.67,2.824125834,PHROG,major tail protein
+phrog_473,6.65,2.822821645,PHROG,virion structural protein
+phrog_37064,6.65,2.822821645,PHROG,tail fiber protein
+phrog_14717,6.54,2.815577748,PHROG,tail protein
+phrog_33098,6.54,2.815577748,PHROG,baseplate hub and tail lysozyme
+phrog_3884,6.53,2.814913181,PHROG,major tail protein
+phrog_4912,6.49,2.812244697,PHROG,tail fiber assembly
+phrog_20787,6.48,2.811575006,PHROG,virion structural protein
+phrog_3753,6.48,2.811575006,PHROG,portal protein
+phrog_10359,6.45,2.809559715,PHROG,minor tail protein
+phrog_10316,6.44,2.808885867,PHROG,tail fiber protein
+phrog_17420,6.42,2.807535028,PHROG,tail protein
+phrog_771,6.4,2.806179974,PHROG,virion structural protein
+phrog_31166,6.4,2.806179974,PHROG,tail fiber protein
+phrog_27845,6.4,2.806179974,PHROG,tail protein
+phrog_23444,6.4,2.806179974,PHROG,terminase small subunit
+phrog_8148,6.39,2.805500858,PHROG,terminase small subunit
+phrog_1819,6.36,2.803457116,PHROG,tail spike protein
+phrog_34405,6.32,2.800717078,PHROG,tail length tape measure protein
+phrog_5577,6.31,2.800029359,PHROG,minor tail protein
+phrog_3817,6.3,2.799340549,PHROG,tail chaperonin
+phrog_25852,6.25,2.795880017,PHROG,virion structural protein
+phrog_3881,6.25,2.795880017,PHROG,head-tail connector protein
+phrog_20900,6.24,2.79518459,PHROG,tail spike protein
+phrog_14766,6.22,2.793790385,PHROG,tail protein
+phrog_5938,6.18,2.790988475,PHROG,head-tail connector protein
+phrog_6211,6.17,2.790285164,PHROG,minor tail protein
+phrog_1806,6.17,2.790285164,PHROG,collagen like minor tail
+phrog_6195,6.15,2.788875116,PHROG,tail protein
+phrog_1141,6.14,2.788168371,PHROG,tail fiber protein
+phrog_14458,6.1,2.785329835,PHROG,tail fiber protein
+phrog_2723,6.03,2.780317312,PHROG,tail length tape measure protein
+phrog_5110,5.96,2.77524626,PHROG,terminase small subunit
+phrog_26143,5.91,2.771587481,PHROG,virion structural protein
+phrog_35830,5.89,2.770115295,PHROG,long tail fiber protein distal subunit
+phrog_8280,5.86,2.767897616,PHROG,tail spike protein with colonic acid degradation activity
+phrog_3791,5.84,2.766412847,PHROG,major tail protein
+phrog_183,5.83,2.765668555,PHROG,tail chaperone protein
+phrog_25325,5.83,2.765668555,PHROG,tail spike protein
+phrog_1037,5.82,2.764922985,PHROG,virion structural protein
+phrog_167,5.81,2.764176132,PHROG,tail length tape measure protein
+phrog_6683,5.79,2.762678564,PHROG,tail fiber protein
+phrog_30994,5.77,2.761175813,PHROG,minor tail protein
+phrog_14572,5.76,2.760422483,PHROG,tail fiber protein
+phrog_1383,5.76,2.760422483,PHROG,virion structural protein
+phrog_15220,5.75,2.759667845,PHROG,virion structural protein
+phrog_16122,5.75,2.759667845,PHROG,virion structural protein
+phrog_7173,5.74,2.758911892,PHROG,tail spike protein
+phrog_746,5.73,2.758154622,PHROG,minor tail protein
+phrog_17312,5.73,2.758154622,PHROG,tail protein
+phrog_508,5.73,2.758154622,PHROG,tail assembly chaperone
+phrog_26467,5.72,2.757396029,PHROG,tail spike protein
+phrog_10909,5.7,2.755874856,PHROG,major tail protein
+phrog_2120,5.67,2.753583059,PHROG,tail length tape measure protein
+phrog_17368,5.67,2.753583059,PHROG,tail length tape measure protein
+phrog_346,5.67,2.753583059,PHROG,minor tail protein
+phrog_793,5.66,2.752816431,PHROG,head-tail adaptor
+phrog_16740,5.66,2.752816431,PHROG,tail protein
+phrog_19528,5.66,2.752816431,PHROG,tail spike protein
+phrog_12329,5.6,2.748188027,PHROG,virion structural protein
+phrog_349,5.58,2.746634199,PHROG,virion structural protein
+phrog_3995,5.58,2.746634199,PHROG,tail protein
+phrog_1795,5.57,2.745855195,PHROG,tail fiber protein
+phrog_19784,5.55,2.744292983,PHROG,tail spike protein
+phrog_416,5.53,2.742725131,PHROG,minor tail protein
+phrog_1756,5.51,2.741151599,PHROG,tail protein
+phrog_6613,5.5,2.740362689,PHROG,tail protein
+phrog_1407,5.45,2.736396502,PHROG,major tail protein
+phrog_441,5.37,2.729974286,PHROG,tail assembly chaperone
+phrog_1182,5.36,2.72916479,PHROG,tail protein
+phrog_18162,5.35,2.728353782,PHROG,tail fiber protein
+phrog_356,5.33,2.726727209,PHROG,minor tail protein
+phrog_19928,5.3,2.72427587,PHROG,virion structural protein
+phrog_32359,5.3,2.72427587,PHROG,terminase large subunit
+phrog_22602,5.28,2.722633923,PHROG,virion structural protein
+phrog_5983,5.25,2.720159303,PHROG,tail protein
+phrog_15100,5.25,2.720159303,PHROG,virion structural protein
+phrog_14558,5.22,2.717670503,PHROG,tail spike protein
+phrog_20878,5.2,2.716003344,PHROG,tail fiber protein
+phrog_15361,5.2,2.716003344,PHROG,portal protein
+phrog_4628,5.18,2.71432976,PHROG,tail fiber assembly
+phrog_7043,5.15,2.711807229,PHROG,tail protein
+phrog_3656,5.14,2.710963119,PHROG,tail assembly chaperone
+phrog_19567,5.08,2.705863712,PHROG,tail fiber protein
+phrog_15455,5.03,2.701567985,PHROG,tail fiber protein
+phrog_4242,5.02,2.700703717,PHROG,tail fiber protein
+phrog_25620,5.0,2.698970004,PHROG,tail collar fiber protein
+phrog_21249,4.99,2.698100546,PHROG,tail protein
+phrog_9784,4.99,2.698100546,PHROG,minor tail protein
+phrog_529,4.95,2.694605199,PHROG,tail fiber protein
+phrog_6942,4.93,2.692846919,PHROG,tail fiber protein
+phrog_34923,4.92,2.691965103,PHROG,tail length tape measure protein
+phrog_2050,4.91,2.691081492,PHROG,virion structural protein
+phrog_1595,4.89,2.689308859,PHROG,terminase small subunit
+phrog_1749,4.88,2.688419822,PHROG,tail assembly chaperone
+phrog_257,4.87,2.687528961,PHROG,minor tail protein
+phrog_9942,4.87,2.687528961,PHROG,tail fiber protein
+phrog_11182,4.86,2.686636269,PHROG,tail spike protein
+phrog_23437,4.86,2.686636269,PHROG,tail protein
+phrog_493,4.85,2.685741739,PHROG,head-tail adaptor Ad1
+phrog_2282,4.85,2.685741739,PHROG,tail fiber protein
+phrog_393,4.8,2.681241237,PHROG,tail assembly chaperone
+phrog_4579,4.79,2.680335513,PHROG,tail protein
+phrog_2666,4.79,2.680335513,PHROG,terminase large subunit
+phrog_38009,4.77,2.678518379,PHROG,tail protein
+phrog_2929,4.72,2.673941999,PHROG,tail fiber protein
+phrog_344,4.71,2.673020907,PHROG,tail assembly chaperone
+phrog_32540,4.7,2.672097858,PHROG,tail fiber protein
+phrog_6126,4.7,2.672097858,PHROG,virion structural protein
+phrog_17640,4.69,2.671172843,PHROG,tail fiber protein
+phrog_5163,4.61,2.663700925,PHROG,minor tail protein
+phrog_6299,4.59,2.661812686,PHROG,terminase small subunit
+phrog_2234,4.59,2.661812686,PHROG,tail spike protein
+phrog_1790,4.58,2.660865478,PHROG,terminase small subunit
+phrog_3493,4.55,2.658011397,PHROG,minor tail protein
+phrog_29731,4.55,2.658011397,PHROG,tail spike protein
+phrog_4798,4.51,2.654176542,PHROG,tail protein
+phrog_1496,4.5,2.653212514,PHROG,terminase small subunit
+phrog_35360,4.5,2.653212514,PHROG,tail fiber protein
+phrog_24494,4.5,2.653212514,PHROG,tail fiber chaperone
+phrog_2538,4.47,2.650307523,PHROG,terminase small subunit
+phrog_18178,4.47,2.650307523,PHROG,portal protein
+phrog_16194,4.46,2.649334859,PHROG,tail protein
+phrog_3779,4.41,2.644438589,PHROG,tail length tape measure protein
+phrog_11445,4.39,2.64246452,PHROG,minor tail protein
+phrog_3589,4.35,2.638489257,PHROG,virion structural protein
+phrog_800,4.33,2.636487896,PHROG,terminase small subunit
+phrog_6977,4.33,2.636487896,PHROG,minor tail protein
+phrog_1326,4.33,2.636487896,PHROG,tail assembly chaperone
+phrog_12050,4.32,2.635483747,PHROG,virion structural protein
+phrog_7376,4.24,2.627365857,PHROG,portal protein
+phrog_31409,4.23,2.626340367,PHROG,tail length tape measure protein
+phrog_12948,4.22,2.625312451,PHROG,tail protein
+phrog_38839,4.22,2.625312451,PHROG,tail fiber protein
+phrog_24786,4.22,2.625312451,PHROG,tail fiber protein
+phrog_23008,4.2,2.62324929,PHROG,tail fiber protein
+phrog_6005,4.19,2.622214023,PHROG,virion structural protein
+phrog_41,4.18,2.621176282,PHROG,major tail protein
+phrog_4971,4.12,2.614897216,PHROG,major tail protein
+phrog_32165,4.11,2.613841822,PHROG,minor tail protein
+phrog_7231,4.11,2.613841822,PHROG,virion structural protein
+phrog_36695,4.11,2.613841822,PHROG,virion structural protein
+phrog_290,4.1,2.612783857,PHROG,minor tail protein
+phrog_10330,4.09,2.611723308,PHROG,virion structural protein
+phrog_13196,4.09,2.611723308,PHROG,major tail protein
+phrog_4900,4.04,2.606381365,PHROG,tail protein
+phrog_17517,4.02,2.604226053,PHROG,tail protein
+phrog_34100,3.99,2.600972896,PHROG,tail protein
+phrog_3645,3.98,2.599883072,PHROG,virion structural protein
+phrog_11196,3.97,2.598790507,PHROG,tail sheath
+phrog_27367,3.93,2.59439255,PHROG,tail fiber protein
+phrog_1289,3.91,2.592176757,PHROG,portal protein
+phrog_4120,3.9,2.591064607,PHROG,minor tail protein
+phrog_1491,3.9,2.591064607,PHROG,tail fiber protein
+phrog_9823,3.9,2.591064607,PHROG,tail fiber protein
+phrog_10938,3.89,2.589949601,PHROG,virion structural protein
+phrog_27199,3.89,2.589949601,PHROG,tail protein
+phrog_4244,3.85,2.58546073,PHROG,tail protein
+phrog_2839,3.83,2.583198774,PHROG,tail sheath
+phrog_7992,3.83,2.583198774,PHROG,tail spike protein
+phrog_7458,3.83,2.583198774,PHROG,tail spike protein
+phrog_1232,3.82,2.582063363,PHROG,tail terminator
+phrog_9863,3.8,2.579783597,PHROG,virion structural protein
+phrog_2012,3.8,2.579783597,PHROG,minor tail protein
+phrog_26502,3.78,2.5774918,PHROG,virion structural protein
+phrog_5667,3.77,2.57634135,PHROG,long tail fiber protein distal subunit
+phrog_8914,3.74,2.572871602,PHROG,virion structural protein
+phrog_1059,3.74,2.572871602,PHROG,head-tail adaptor
+phrog_2125,3.72,2.57054294,PHROG,virion structural protein
+phrog_20905,3.72,2.57054294,PHROG,tail length tape measure protein
+phrog_13768,3.72,2.57054294,PHROG,tail protein
+phrog_28902,3.7,2.568201724,PHROG,major tail protein
+phrog_187,3.69,2.567026366,PHROG,head-tail adaptor
+phrog_5481,3.67,2.564666064,PHROG,tail fiber protein
+phrog_33244,3.64,2.561101384,PHROG,tail fiber protein
+phrog_3432,3.63,2.559906625,PHROG,minor tail protein
+phrog_11591,3.59,2.555094449,PHROG,virion structural protein
+phrog_3860,3.59,2.555094449,PHROG,tail assembly chaperone
+phrog_2915,3.59,2.555094449,PHROG,tail fiber protein
+phrog_2420,3.58,2.553883027,PHROG,tail fiber protein
+phrog_1217,3.57,2.552668216,PHROG,tail protein
+phrog_1004,3.55,2.550228353,PHROG,virion structural protein
+phrog_17612,3.53,2.547774705,PHROG,tail protein
+phrog_3201,3.51,2.545307116,PHROG,tail fiber protein
+phrog_21322,3.51,2.545307116,PHROG,virion structural protein
+phrog_11660,3.5,2.544068044,PHROG,tail protein
+phrog_9370,3.49,2.542825427,PHROG,tail fiber protein
+phrog_42,3.48,2.541579244,PHROG,minor tail protein
+phrog_4976,3.48,2.541579244,PHROG,tail assembly chaperone
+phrog_5297,3.47,2.540329475,PHROG,tail protein
+phrog_3064,3.47,2.540329475,PHROG,terminase
+phrog_1766,3.45,2.537819095,PHROG,tail fiber protein
+phrog_819,3.45,2.537819095,PHROG,tail protein
+phrog_3907,3.45,2.537819095,PHROG,tail terminator
+phrog_37013,3.42,2.534026106,PHROG,tail fiber protein
+phrog_26878,3.4,2.531478917,PHROG,virion structural protein
+phrog_4699,3.39,2.530199698,PHROG,tail tube protein
+phrog_2926,3.38,2.5289167,PHROG,virion structural protein
+phrog_5813,3.34,2.523746467,PHROG,tail assembly chaperone
+phrog_3004,3.34,2.523746467,PHROG,virion structural protein
+phrog_330,3.33,2.522444234,PHROG,tail assembly chaperone
+phrog_24249,3.32,2.521138084,PHROG,tail protein
+phrog_3629,3.32,2.521138084,PHROG,tail tube protein
+phrog_18350,3.31,2.519827994,PHROG,tail fiber protein
+phrog_19966,3.29,2.517195898,PHROG,long tail fiber protein distal subunit
+phrog_879,3.29,2.517195898,PHROG,tail completion or Neck1 protein
+phrog_4176,3.27,2.514547753,PHROG,tail fiber protein
+phrog_7565,3.23,2.509202522,PHROG,minor tail protein
+phrog_22849,3.23,2.509202522,PHROG,tail fiber protein
+phrog_25121,3.21,2.506505032,PHROG,virion structural protein
+phrog_1394,3.19,2.503790683,PHROG,virion structural protein
+phrog_12928,3.18,2.50242712,PHROG,virion structural protein
+phrog_25379,3.18,2.50242712,PHROG,tail protein
+phrog_27381,3.15,2.498310554,PHROG,tail fiber protein
+phrog_837,3.14,2.496929648,PHROG,minor tail protein
+phrog_5078,3.09,2.489958479,PHROG,tail terminator
+phrog_38537,3.06,2.485721426,PHROG,tail fiber protein
+phrog_29076,3.06,2.485721426,PHROG,tail protein
+phrog_16240,3.05,2.484299839,PHROG,portal protein
+phrog_37549,3.03,2.481442629,PHROG,virion structural protein
+phrog_3013,3.03,2.481442629,PHROG,virion structural protein
+phrog_6686,3.03,2.481442629,PHROG,tail tube protein
+phrog_21674,3.02,2.480006943,PHROG,tail protein
+phrog_30152,3.01,2.478566496,PHROG,virion structural protein
+phrog_11703,3.0,2.477121255,PHROG,tail length tape measure protein
+phrog_33406,2.94,2.46834733,PHROG,tail fiber protein
+phrog_2712,2.93,2.46686762,PHROG,tail fiber protein
+phrog_8233,2.93,2.46686762,PHROG,tail assembly chaperone
+phrog_2935,2.93,2.46686762,PHROG,virion structural protein
+phrog_7970,2.92,2.465382851,PHROG,virion structural protein
+phrog_17472,2.92,2.465382851,PHROG,tail protein
+phrog_8258,2.91,2.463892989,PHROG,tail fiber assembly protein
+phrog_15554,2.9,2.462397998,PHROG,portal protein
+phrog_16877,2.88,2.459392488,PHROG,minor tail protein
+phrog_25212,2.88,2.459392488,PHROG,minor tail protein
+phrog_15175,2.88,2.459392488,PHROG,virion structural protein
+phrog_16227,2.86,2.456366033,PHROG,virion structural protein
+phrog_26246,2.86,2.456366033,PHROG,tail protein
+phrog_3242,2.86,2.456366033,PHROG,tail sheath
+phrog_19113,2.85,2.45484486,PHROG,major tail protein
+phrog_972,2.85,2.45484486,PHROG,tail fiber protein proximal subunit
+phrog_1219,2.84,2.45331834,PHROG,tail needle protein
+phrog_22829,2.83,2.451786436,PHROG,tail length tape measure protein
+phrog_6779,2.79,2.445604203,PHROG,tail protein
+phrog_37,2.79,2.445604203,PHROG,tail terminator
+phrog_23676,2.79,2.445604203,PHROG,tail fiber protein
+phrog_34916,2.77,2.442479769,PHROG,tail fiber protein
+phrog_4950,2.76,2.440909082,PHROG,tail fiber protein
+phrog_352,2.76,2.440909082,PHROG,minor tail protein
+phrog_1459,2.75,2.439332694,PHROG,terminase small subunit
+phrog_20475,2.73,2.436162647,PHROG,virion structural protein
+phrog_20001,2.72,2.434568904,PHROG,tail fiber protein
+phrog_4924,2.71,2.432969291,PHROG,short tail fiber protein
+phrog_3639,2.69,2.42975228,PHROG,minor tail protein
+phrog_20401,2.69,2.42975228,PHROG,virion structural protein
+phrog_123,2.67,2.426511261,PHROG,tail terminator
+phrog_978,2.67,2.426511261,PHROG,tail assembly chaperone
+phrog_7121,2.67,2.426511261,PHROG,tail fiber protein
+phrog_8940,2.66,2.424881637,PHROG,capsid assembly protein
+phrog_2248,2.64,2.421603927,PHROG,tail protein
+phrog_4688,2.64,2.421603927,PHROG,minor tail protein
+phrog_12559,2.63,2.419955748,PHROG,terminase small subunit
+phrog_1565,2.61,2.416640507,PHROG,minor tail protein
+phrog_14394,2.6,2.414973348,PHROG,virion structural protein
+phrog_32933,2.6,2.414973348,PHROG,tail spike protein
+phrog_13352,2.59,2.413299764,PHROG,minor tail protein
+phrog_31307,2.58,2.411619706,PHROG,tail protein
+phrog_1348,2.57,2.409933123,PHROG,tail fiber protein
+phrog_763,2.56,2.408239965,PHROG,head-tail adaptor
+phrog_10574,2.56,2.408239965,PHROG,tail length tape measure protein
+phrog_78,2.51,2.399673721,PHROG,tail terminator
+phrog_3430,2.5,2.397940009,PHROG,virion structural protein
+phrog_772,2.49,2.396199347,PHROG,tail fiber protein
+phrog_35923,2.49,2.396199347,PHROG,tail length tape measure protein
+phrog_3185,2.48,2.394451681,PHROG,virion structural protein
+phrog_9983,2.47,2.392696953,PHROG,tail protein
+phrog_23940,2.47,2.392696953,PHROG,tail length tape measure protein
+phrog_3293,2.46,2.390935107,PHROG,virion structural protein
+phrog_5260,2.45,2.389166084,PHROG,tail protein
+phrog_16313,2.45,2.389166084,PHROG,virion structural protein
+phrog_5601,2.45,2.389166084,PHROG,terminase small subunit
+phrog_17797,2.45,2.389166084,PHROG,tail protein
+phrog_754,2.44,2.387389826,PHROG,minor tail protein
+phrog_15460,2.44,2.387389826,PHROG,terminase
+phrog_321,2.43,2.385606274,PHROG,tail completion or Neck1 protein
+phrog_22201,2.42,2.383815366,PHROG,tail fiber protein
+phrog_10067,2.38,2.376576957,PHROG,virion structural protein
+phrog_39,2.38,2.376576957,PHROG,tail assembly protein
+phrog_2343,2.36,2.372912003,PHROG,terminase small subunit
+phrog_1497,2.35,2.371067862,PHROG,portal protein
+phrog_16120,2.33,2.367355921,PHROG,virion structural protein
+phrog_1801,2.3,2.361727836,PHROG,tail fiber protein
+phrog_27497,2.29,2.359835482,PHROG,virion structural protein
+phrog_8272,2.27,2.356025857,PHROG,tail protein
+phrog_12278,2.26,2.354108439,PHROG,tail fiber protein/ lysozyme
+phrog_9232,2.26,2.354108439,PHROG,portal protein
+phrog_1722,2.24,2.350248018,PHROG,tail protein
+phrog_21845,2.24,2.350248018,PHROG,tail length tape measure protein
+phrog_1161,2.23,2.348304863,PHROG,head-tail adaptor
+phrog_16472,2.23,2.348304863,PHROG,tail fiber protein
+phrog_24309,2.22,2.346352974,PHROG,virion structural protein
+phrog_12552,2.2,2.342422681,PHROG,tail protein
+phrog_6183,2.19,2.340444115,PHROG,minor tail protein
+phrog_737,2.19,2.340444115,PHROG,minor tail protein
+phrog_4931,2.19,2.340444115,PHROG,head-tail adaptor
+phrog_6485,2.18,2.338456494,PHROG,tail terminator
+phrog_23968,2.18,2.338456494,PHROG,minor tail protein
+phrog_35518,2.16,2.334453751,PHROG,tail fiber assembly
+phrog_8122,2.14,2.330413773,PHROG,minor tail protein
+phrog_3802,2.12,2.326335861,PHROG,terminase small subunit
+phrog_1036,2.12,2.326335861,PHROG,tail sheath
+phrog_26525,2.11,2.324282455,PHROG,tail fiber protein
+phrog_4697,2.1,2.322219295,PHROG,tail assembly chaperone
+phrog_34521,2.08,2.318063335,PHROG,tail sheath
+phrog_1346,2.08,2.318063335,PHROG,tail protein
+phrog_35697,2.08,2.318063335,PHROG,tail fiber protein
+phrog_1120,2.07,2.315970345,PHROG,tail tube protein
+phrog_1425,2.07,2.315970345,PHROG,hinge connector of long tail fiber protein distal connector
+phrog_287,2.04,2.309630167,PHROG,minor tail protein
+phrog_20633,2.04,2.309630167,PHROG,tail protein
+phrog_1011,2.04,2.309630167,PHROG,virion structural protein
+phrog_7344,2.03,2.307496038,PHROG,terminase small subunit
+phrog_12827,1.99,2.298853076,PHROG,tail protein
+phrog_10512,1.99,2.298853076,PHROG,virion structural protein
+phrog_32822,1.98,2.29666519,PHROG,virion structural protein
+phrog_1696,1.98,2.29666519,PHROG,major tail protein
+phrog_17524,1.96,2.292256071,PHROG,tail protein
+phrog_24361,1.96,2.292256071,PHROG,terminase
+phrog_7975,1.96,2.292256071,PHROG,tail terminator
+phrog_1613,1.96,2.292256071,PHROG,tail assembly chaperone
+phrog_36260,1.95,2.290034611,PHROG,tail fiber protein
+phrog_1390,1.94,2.28780173,PHROG,tail protein
+phrog_25516,1.92,2.283301229,PHROG,virion structural protein
+phrog_15956,1.92,2.283301229,PHROG,tail assembly protein
+phrog_38065,1.92,2.283301229,PHROG,portal protein
+phrog_3354,1.91,2.281033367,PHROG,major capsid protein
+phrog_22561,1.89,2.276461804,PHROG,minor tail protein
+phrog_8455,1.89,2.276461804,PHROG,virion structural protein
+phrog_5102,1.89,2.276461804,PHROG,tail tube protein
+phrog_19249,1.87,2.271841607,PHROG,minor tail protein
+phrog_13015,1.85,2.267171728,PHROG,virion structural protein
+phrog_1887,1.85,2.267171728,PHROG,tail protein
+phrog_3916,1.84,2.264817823,PHROG,tail fiber assembly
+phrog_7389,1.83,2.26245109,PHROG,tail fiber protein
+phrog_1668,1.83,2.26245109,PHROG,tail assembly protein
+phrog_7072,1.82,2.260071388,PHROG,head-tail adaptor
+phrog_8260,1.81,2.257678575,PHROG,virion structural protein
+phrog_17415,1.8,2.255272505,PHROG,terminase large subunit
+phrog_12499,1.8,2.255272505,PHROG,tail fiber protein
+phrog_21400,1.79,2.252853031,PHROG,virion structural protein
+phrog_14644,1.78,2.250420002,PHROG,tail protein
+phrog_11699,1.78,2.250420002,PHROG,minor tail protein
+phrog_153,1.77,2.247973266,PHROG,minor tail protein
+phrog_5240,1.77,2.247973266,PHROG,tail fiber protein
+phrog_6614,1.77,2.247973266,PHROG,minor tail protein
+phrog_23059,1.76,2.245512668,PHROG,tail fiber protein
+phrog_13138,1.75,2.243038049,PHROG,virion structural protein
+phrog_30178,1.74,2.240549248,PHROG,portal protein
+phrog_18372,1.74,2.240549248,PHROG,tail fiber protein
+phrog_38766,1.73,2.238046103,PHROG,virion structural protein
+phrog_26758,1.72,2.235528447,PHROG,tail fiber protein
+phrog_10304,1.71,2.23299611,PHROG,virion structural protein
+phrog_985,1.71,2.23299611,PHROG,virion structural protein
+phrog_17610,1.7,2.230448921,PHROG,tail sheath
+phrog_16040,1.7,2.230448921,PHROG,virion structural protein
+phrog_37651,1.7,2.230448921,PHROG,virion structural protein
+phrog_31940,1.7,2.230448921,PHROG,minor tail protein
+phrog_1125,1.68,2.225309282,PHROG,tail fiber protein
+phrog_1290,1.68,2.225309282,PHROG,head-tail adaptor
+phrog_404,1.67,2.222716471,PHROG,minor tail protein
+phrog_9922,1.67,2.222716471,PHROG,minor tail protein
+phrog_5668,1.67,2.222716471,PHROG,tail fiber protein
+phrog_20303,1.66,2.220108088,PHROG,minor tail protein
+phrog_2155,1.65,2.217483944,PHROG,virion structural protein
+phrog_5413,1.65,2.217483944,PHROG,minor tail protein
+phrog_32680,1.64,2.214843848,PHROG,tail fiber protein
+phrog_12249,1.62,2.209515015,PHROG,tail sheath
+phrog_21562,1.62,2.209515015,PHROG,tail protein
+phrog_4026,1.62,2.209515015,PHROG,minor tail protein
+phrog_5635,1.61,2.206825876,PHROG,head-tail adaptor
+phrog_8147,1.61,2.206825876,PHROG,tail fiber protein
+phrog_20428,1.6,2.204119983,PHROG,tail terminator
+phrog_2624,1.6,2.204119983,PHROG,tail assembly chaperone
+phrog_27974,1.58,2.198657087,PHROG,portal protein
+phrog_20024,1.58,2.198657087,PHROG,tail protein
+phrog_1630,1.58,2.198657087,PHROG,receptor binding tail protein
+phrog_9383,1.57,2.195899652,PHROG,tail protein
+phrog_19602,1.55,2.190331698,PHROG,tail fiber protein
+phrog_20962,1.55,2.190331698,PHROG,minor tail protein
+phrog_20751,1.54,2.187520721,PHROG,virion structural protein
+phrog_2106,1.54,2.187520721,PHROG,minor tail protein
+phrog_27494,1.54,2.187520721,PHROG,virion structural protein
+phrog_30316,1.53,2.184691431,PHROG,tail fiber protein
+phrog_11854,1.51,2.178976947,PHROG,virion structural protein
+phrog_28673,1.51,2.178976947,PHROG,tail protein
+phrog_313,1.5,2.176091259,PHROG,Tail assembly chaperone
+phrog_6587,1.49,2.173186268,PHROG,head-tail connector protein
+phrog_3914,1.49,2.173186268,PHROG,tail assembly chaperone
+phrog_29251,1.48,2.170261715,PHROG,tail length tape measure protein
+phrog_2056,1.47,2.167317335,PHROG,tail fiber protein; host specificity
+phrog_13764,1.47,2.167317335,PHROG,virion structural protein
+phrog_2833,1.46,2.164352856,PHROG,portal protein
+phrog_33,1.46,2.164352856,PHROG,distal tail protein Dit
+phrog_8595,1.45,2.161368002,PHROG,tail assembly chaperone
+phrog_6320,1.45,2.161368002,PHROG,tail fiber protein
+phrog_692,1.45,2.161368002,PHROG,virion structural protein
+phrog_34969,1.45,2.161368002,PHROG,tail protein
+phrog_18023,1.44,2.158362492,PHROG,tail fiber protein
+phrog_621,1.43,2.155336037,PHROG,tail assembly chaperone
+phrog_16991,1.42,2.152288344,PHROG,tail sheath
+phrog_1424,1.4,2.146128036,PHROG,tail protein
+phrog_12500,1.4,2.146128036,PHROG,minor tail protein
+phrog_25875,1.4,2.146128036,PHROG,tail assembly chaperone
+phrog_18582,1.39,2.1430148,PHROG,tail assembly chaperone
+phrog_21620,1.39,2.1430148,PHROG,virion structural protein
+phrog_732,1.38,2.139879086,PHROG,minor tail protein
+phrog_27613,1.38,2.139879086,PHROG,tail protein
+phrog_13572,1.35,2.130333768,PHROG,tail protein with lysin activity
+phrog_9221,1.35,2.130333768,PHROG,tail length tape measure protein
+phrog_31834,1.35,2.130333768,PHROG,tail protein
+phrog_2968,1.35,2.130333768,PHROG,tail protein
+phrog_20512,1.34,2.127104798,PHROG,minor tail protein
+phrog_4577,1.34,2.127104798,PHROG,tail protein
+phrog_34501,1.34,2.127104798,PHROG,tail protein
+phrog_1121,1.33,2.123851641,PHROG,tail fiber adhesin
+phrog_22560,1.33,2.123851641,PHROG,tail protein
+phrog_26672,1.33,2.123851641,PHROG,virion structural protein
+phrog_9667,1.32,2.120573931,PHROG,virion structural protein
+phrog_32314,1.32,2.120573931,PHROG,virion structural protein
+phrog_5334,1.31,2.117271296,PHROG,terminase small subunit
+phrog_17035,1.3,2.113943352,PHROG,minor tail protein
+phrog_553,1.3,2.113943352,PHROG,minor tail protein
+phrog_37552,1.3,2.113943352,PHROG,tail protein
+phrog_5010,1.3,2.113943352,PHROG,tail assembly chaperone
+phrog_2689,1.3,2.113943352,PHROG,minor tail protein
+phrog_23804,1.29,2.11058971,PHROG,virion structural protein
+phrog_13137,1.29,2.11058971,PHROG,tail length tape measure protein
+phrog_31021,1.29,2.11058971,PHROG,tail assembly chaperone
+phrog_19666,1.28,2.10720997,PHROG,tail sheath
+phrog_2322,1.28,2.10720997,PHROG,head-tail connector protein
+phrog_382,1.28,2.10720997,PHROG,minor tail protein with lysin activity
+phrog_2683,1.28,2.10720997,PHROG,minor tail protein
+phrog_20329,1.25,2.096910013,PHROG,virion structural protein
+phrog_1047,1.25,2.096910013,PHROG,tail associated lysin
+phrog_14138,1.25,2.096910013,PHROG,minor tail protein
+phrog_10519,1.24,2.093421685,PHROG,virion structural protein
+phrog_19374,1.23,2.089905111,PHROG,tail protein
+phrog_20280,1.23,2.089905111,PHROG,minor tail protein
+phrog_35653,1.23,2.089905111,PHROG,tail fiber protein
+phrog_33320,1.23,2.089905111,PHROG,tail fiber protein
+phrog_18875,1.22,2.086359831,PHROG,minor tail protein
+phrog_20545,1.22,2.086359831,PHROG,tail sheath
+phrog_7660,1.22,2.086359831,PHROG,tail fiber protein
+phrog_1298,1.2,2.079181246,PHROG,minor tail protein
+phrog_1897,1.2,2.079181246,PHROG,terminase small subunit
+phrog_4644,1.2,2.079181246,PHROG,tail protein
+phrog_2386,1.2,2.079181246,PHROG,virion structural protein
+phrog_32740,1.19,2.075546961,PHROG,tail fiber protein
+phrog_2840,1.19,2.075546961,PHROG,minor tail protein
+phrog_13349,1.19,2.075546961,PHROG,virion structural protein
+phrog_1446,1.18,2.071882007,PHROG,minor tail protein
+phrog_10551,1.18,2.071882007,PHROG,tail assembly chaperone
+phrog_23659,1.16,2.064457989,PHROG,tail protein
+phrog_6959,1.16,2.064457989,PHROG,tail assembly chaperone
+phrog_16048,1.15,2.06069784,PHROG,virion structural protein
+phrog_8183,1.15,2.06069784,PHROG,tail assembly chaperone
+phrog_30703,1.14,2.056904851,PHROG,portal protein
+phrog_8745,1.14,2.056904851,PHROG,tail fiber protein
+phrog_24827,1.13,2.053078443,PHROG,tail protein
+phrog_1433,1.12,2.049218023,PHROG,major tail protein
+phrog_1697,1.11,2.045322979,PHROG,minor tail protein
+phrog_4591,1.1,2.041392685,PHROG,short tail fiber protein
+phrog_14098,1.1,2.041392685,PHROG,tail protein
+phrog_1030,1.1,2.041392685,PHROG,tail needle knob
+phrog_14469,1.09,2.037426498,PHROG,tail fiber protein
+phrog_4411,1.08,2.033423755,PHROG,virion structural protein
+phrog_1432,1.08,2.033423755,PHROG,tail associated lysin
+phrog_12242,1.08,2.033423755,PHROG,tail protein
+phrog_7697,1.08,2.033423755,PHROG,tail fiber protein
+phrog_4014,1.08,2.033423755,PHROG,head-tail adaptor
+phrog_15731,1.08,2.033423755,PHROG,tail assembly chaperone
+phrog_3918,1.07,2.029383778,PHROG,tail fiber protein
+phrog_2186,1.06,2.025305865,PHROG,virion structural protein
+phrog_24271,1.05,2.021189299,PHROG,tail fiber protein
+phrog_759,1.04,2.017033339,PHROG,tail associated cell-wall hydrolase
+phrog_813,1.04,2.017033339,PHROG,head-tail adaptor
+phrog_13571,1.03,2.012837225,PHROG,virion structural protein
+phrog_29022,1.03,2.012837225,PHROG,virion structural protein
+phrog_1351,1.03,2.012837225,PHROG,terminase small subunit
+phrog_13438,1.03,2.012837225,PHROG,tail tube protein
+phrog_33642,1.03,2.012837225,PHROG,tail fiber assembly
+phrog_2756,1.02,2.008600172,PHROG,virion structural protein
+phrog_15641,1.02,2.008600172,PHROG,tail fiber protein
+phrog_21806,1.01,2.004321374,PHROG,minor tail protein
+phrog_2813,1.01,2.004321374,PHROG,virion structural protein
+phrog_1260,1.01,2.004321374,PHROG,minor tail protein
+phrog_21059,1.01,2.004321374,PHROG,virion structural protein
+phrog_13479,1.01,2.004321374,PHROG,tail fiber protein
+phrog_9145,1.01,2.004321374,PHROG,tail length tape measure protein
+phrog_16710,1.0,2.0,PHROG,virion structural protein
+phrog_9766,1.0,2.0,PHROG,tail length tape measure protein
+phrog_4150,1.0,2.0,PHROG,virion structural protein
+phrog_4465,1.0,2.0,PHROG,tail fiber protein
+phrog_13484,1.0,2.0,PHROG,virion structural protein
+phrog_18983,1.0,2.0,PHROG,tail fiber protein
+phrog_23909,1.0,2.0,PHROG,tail fiber protein
+phrog_16150,1.0,2.0,PHROG,tail assembly protein
+phrog_30655,1.0,2.0,PHROG,virion structural protein
+phrog_1154,1.0,2.0,PHROG,long tail fiber protein proximal connector
+phrog_7911,1.0,2.0,PHROG,tail protein
+phrog_12123,1.0,2.0,PHROG,tail spike protein
+phrog_27373,1.0,2.0,PHROG,tail protein
+phrog_300,1.0,2.0,PHROG,tail fiber protein
+phrog_8516,1.0,2.0,PHROG,virion structural protein
+phrog_1015,1.0,2.0,PHROG,tail protein with lysin activity
+phrog_6123,1.0,2.0,PHROG,virion structural protein
+phrog_486,1.0,2.0,PHROG,virion structural protein
+phrog_11373,1.0,2.0,PHROG,tail protein
+phrog_8047,1.0,2.0,PHROG,virion structural protein
+phrog_2015,1.0,2.0,PHROG,tail tube protein
+phrog_38654,1.0,2.0,PHROG,tail protein
+phrog_9777,1.0,2.0,PHROG,tail fiber protein
+phrog_21257,1.0,2.0,PHROG,virion structural protein
+phrog_17335,1.0,2.0,PHROG,tail protein
+phrog_11419,1.0,2.0,PHROG,tail fiber protein
+phrog_37955,1.0,2.0,PHROG,portal protein
+phrog_4277,1.0,2.0,PHROG,tail fiber protein
+phrog_7440,1.0,2.0,PHROG,major tail protein
+phrog_15824,1.0,2.0,PHROG,tail fiber protein proximal subunit
+phrog_15542,1.0,2.0,PHROG,tail sheath
+phrog_22179,1.0,2.0,PHROG,tail fiber protein
+phrog_2875,1.0,2.0,PHROG,virion structural protein
+phrog_5360,1.0,2.0,PHROG,minor tail protein
+phrog_4549,1.0,2.0,PHROG,tail fiber protein
+phrog_17327,1.0,2.0,PHROG,head-tail connector protein
+phrog_27959,1.0,2.0,PHROG,tail fiber protein
+phrog_4988,1.0,2.0,PHROG,tail assembly chaperone
+phrog_23130,1.0,2.0,PHROG,tail protein
+phrog_11502,1.0,2.0,PHROG,tail protein
+phrog_15027,1.0,2.0,PHROG,tail assembly chaperone
+phrog_9017,1.0,2.0,PHROG,tail fiber protein
+phrog_19294,1.0,2.0,PHROG,tail fiber protein
+phrog_26270,1.0,2.0,PHROG,terminase small subunit
+phrog_2804,1.0,2.0,PHROG,virion structural protein
+phrog_12940,1.0,2.0,PHROG,tail fiber protein
+phrog_1913,1.0,2.0,PHROG,tail protein
+phrog_31692,1.0,2.0,PHROG,terminase large subunit
+phrog_36751,1.0,2.0,PHROG,minor tail protein
+phrog_5330,1.0,2.0,PHROG,tail assembly chaperone
+phrog_18911,1.0,2.0,PHROG,virion structural protein
+phrog_21108,1.0,2.0,PHROG,virion structural protein
+phrog_1718,1.0,2.0,PHROG,tail protein
+phrog_4888,1.0,2.0,PHROG,tail assembly chaperone
+phrog_2634,1.0,2.0,PHROG,major tail protein
+phrog_37616,1.0,2.0,PHROG,head-tail connector protein
+phrog_33778,1.0,2.0,PHROG,virion structural protein
+phrog_13912,1.0,2.0,PHROG,minor tail protein
+phrog_20385,1.0,2.0,PHROG,minor tail protein
+phrog_2377,1.0,2.0,PHROG,head-tail adaptor Ad1
+phrog_1842,1.0,2.0,PHROG,tail tube protein
+phrog_20911,1.0,2.0,PHROG,tail spike protein
+phrog_9130,1.0,2.0,PHROG,virion structural protein
+phrog_25867,1.0,2.0,PHROG,tail protein
+phrog_22037,1.0,2.0,PHROG,tail spike protein
+phrog_4398,1.0,2.0,PHROG,tail fiber protein
+phrog_1736,1.0,2.0,PHROG,minor tail protein
+phrog_4588,1.0,2.0,PHROG,virion structural protein
+phrog_6958,1.0,2.0,PHROG,virion structural protein
+phrog_14018,1.0,2.0,PHROG,major tail protein
+phrog_11065,1.0,2.0,PHROG,virion structural protein
+phrog_30532,1.0,2.0,PHROG,tail protein
+phrog_9315,1.0,2.0,PHROG,terminase large subunit
+phrog_7064,1.0,2.0,PHROG,tail protein
+phrog_2325,1.0,2.0,PHROG,minor tail protein
+phrog_748,1.0,2.0,PHROG,head-tail connector protein
+phrog_29507,1.0,2.0,PHROG,virion structural protein
+phrog_19648,1.0,2.0,PHROG,long tail fiber protein proximal connector
+phrog_1002,1.0,2.0,PHROG,tail fiber chaperone
+phrog_9538,1.0,2.0,PHROG,head-tail connector protein
+phrog_892,1.0,2.0,PHROG,tail fiber protein
+phrog_12736,1.0,2.0,PHROG,virion structural protein
+phrog_31603,1.0,2.0,PHROG,terminase
+phrog_2235,1.0,2.0,PHROG,minor tail protein
+phrog_24636,1.0,2.0,PHROG,head-tail connector protein
+phrog_8078,1.0,2.0,PHROG,virion structural protein
+phrog_15881,1.0,2.0,PHROG,tail protein
+phrog_35737,1.0,2.0,PHROG,virion structural protein
+phrog_23570,1.0,2.0,PHROG,virion structural protein
+phrog_33372,1.0,2.0,PHROG,tail assembly chaperone
+phrog_23426,1.0,2.0,PHROG,tail protein
+phrog_4178,1.0,2.0,PHROG,major tail protein
+phrog_10871,1.0,2.0,PHROG,tail length tape measure protein
+phrog_7557,1.0,2.0,PHROG,virion structural protein
+phrog_6782,1.0,2.0,PHROG,tail fiber protein
+phrog_15555,1.0,2.0,PHROG,tail assembly chaperone
+phrog_11922,1.0,2.0,PHROG,tail protein
+phrog_4978,1.0,2.0,PHROG,tail protein
+phrog_1118,1.0,2.0,PHROG,tail assembly chaperone
+phrog_35934,1.0,2.0,PHROG,virion structural protein
+phrog_9770,1.0,2.0,PHROG,virion structural protein
+phrog_3449,1.0,2.0,PHROG,tail collar protein
+phrog_16534,1.0,2.0,PHROG,tail fiber protein
+phrog_25273,1.0,2.0,PHROG,tail assembly chaperone
+phrog_3856,1.0,2.0,PHROG,minor tail protein
+phrog_11690,1.0,2.0,PHROG,tail protein
+phrog_1906,1.0,2.0,PHROG,tail protein
+phrog_2414,1.0,2.0,PHROG,terminase small subunit
+phrog_5287,1.0,2.0,PHROG,minor tail protein
+phrog_3269,1.0,2.0,PHROG,tail protein
+phrog_11649,1.0,2.0,PHROG,tail protein
+phrog_1038,1.0,2.0,PHROG,tail assembly chaperone
+phrog_10405,1.0,2.0,PHROG,virion structural protein
+phrog_7114,1.0,2.0,PHROG,minor tail protein
+phrog_20284,1.0,2.0,PHROG,virion structural protein
+phrog_18735,1.0,2.0,PHROG,terminase small subunit
+phrog_5955,1.0,2.0,PHROG,virion structural protein
+phrog_34561,1.0,2.0,PHROG,terminase small subunit
+phrog_7719,1.0,2.0,PHROG,minor tail protein
+phrog_25927,1.0,2.0,PHROG,tail length tape measure protein
+phrog_28155,1.0,2.0,PHROG,terminase large subunit
+phrog_10093,1.0,2.0,PHROG,tail length tape measure protein
+phrog_23453,1.0,2.0,PHROG,tail fiber protein
+phrog_4714,1.0,2.0,PHROG,tail collar protein
+phrog_21231,1.0,2.0,PHROG,virion structural protein
+phrog_21090,1.0,2.0,PHROG,tail assembly chaperone
+phrog_5556,1.0,2.0,PHROG,tail protein
+phrog_17388,1.0,2.0,PHROG,minor tail protein
+phrog_15324,1.0,2.0,PHROG,tail sheath and receptor binding protein
+phrog_23354,1.0,2.0,PHROG,tail spike protein
+phrog_5340,1.0,2.0,PHROG,terminase large subunit
+phrog_34036,1.0,2.0,PHROG,virion structural protein
+phrog_31602,1.0,2.0,PHROG,virion structural protein
+phrog_7760,1.0,2.0,PHROG,tail fiber protein
+phrog_20192,1.0,2.0,PHROG,tail assembly chaperone
+phrog_23208,1.0,2.0,PHROG,virion structural protein
+phrog_24579,1.0,2.0,PHROG,terminase small subunit
+phrog_29706,1.0,2.0,PHROG,tail spike protein
+phrog_16563,1.0,2.0,PHROG,virion structural protein
+phrog_830,1.0,2.0,PHROG,head-tail connector protein
+phrog_13989,1.0,2.0,PHROG,virion structural protein
+phrog_20604,1.0,2.0,PHROG,virion structural protein
+phrog_20644,1.0,2.0,PHROG,tail length tape measure protein
+phrog_18179,1.0,2.0,PHROG,virion structural protein
+phrog_17763,1.0,2.0,PHROG,head-tail adaptor Ad1
+phrog_15169,1.0,2.0,PHROG,terminase small subunit
+phrog_27130,1.0,2.0,PHROG,tail protein
+phrog_18843,1.0,2.0,PHROG,tail assembly chaperone
+phrog_14236,1.0,2.0,PHROG,tail fiber protein
+phrog_6902,1.0,2.0,PHROG,terminase small subunit
+phrog_22998,1.0,2.0,PHROG,head-tail connector protein
+phrog_14467,1.0,2.0,PHROG,virion structural protein
+phrog_1104,1.0,2.0,PHROG,virion structural protein
+phrog_3096,1.0,2.0,PHROG,tail assembly chaperone
+phrog_9485,1.0,2.0,PHROG,virion structural protein
+phrog_5775,1.0,2.0,PHROG,head-tail connector protein
+phrog_1715,1.0,2.0,PHROG,virion structural protein
+phrog_37198,1.0,2.0,PHROG,tail length tape measure protein chaperone
+phrog_19929,1.0,2.0,PHROG,tail fiber protein
+phrog_22568,1.0,2.0,PHROG,virion structural protein
+phrog_32965,1.0,2.0,PHROG,virion structural protein
+phrog_3484,1.0,2.0,PHROG,tail fiber protein
+phrog_1711,1.0,2.0,PHROG,terminase
+phrog_9229,1.0,2.0,PHROG,tail protein
+phrog_9231,1.0,2.0,PHROG,terminase small subunit
+phrog_21524,1.0,2.0,PHROG,tail protein with lysin activity
+phrog_15312,1.0,2.0,PHROG,virion structural protein
+phrog_4336,1.0,2.0,PHROG,tail assembly chaperone
+phrog_34048,1.0,2.0,PHROG,terminase large subunit
+phrog_9707,1.0,2.0,PHROG,tail protein
+phrog_10244,1.0,2.0,PHROG,tail sheath
+phrog_9525,1.0,2.0,PHROG,tail fiber protein
+phrog_7809,1.0,2.0,PHROG,tail fiber protein
+phrog_6518,1.0,2.0,PHROG,tail fiber protein
+phrog_24891,1.0,2.0,PHROG,virion structural protein
+phrog_3218,1.0,2.0,PHROG,terminase small subunit
+phrog_1063,1.0,2.0,PHROG,terminase small subunit
+phrog_1958,1.0,2.0,PHROG,minor tail protein
+phrog_11190,1.0,2.0,PHROG,virion structural protein
+phrog_32345,1.0,2.0,PHROG,tail fiber protein
+phrog_19395,1.0,2.0,PHROG,tail fiber protein; host specificity
+phrog_18409,1.0,2.0,PHROG,minor tail protein
+phrog_18185,1.0,2.0,PHROG,tail fiber protein
+phrog_35384,1.0,2.0,PHROG,tail assembly chaperone
+phrog_4142,1.0,2.0,PHROG,portal protein
+phrog_1404,1.0,2.0,PHROG,tail protein
+phrog_2867,1.0,2.0,PHROG,virion structural protein
+phrog_2580,1.0,2.0,PHROG,tail fiber protein
+phrog_21185,1.0,2.0,PHROG,tail protein
+phrog_14520,1.0,2.0,PHROG,virion structural protein
+phrog_3890,1.0,2.0,PHROG,straight fibre tail protein
+phrog_15960,1.0,2.0,PHROG,tail assembly chaperone
+phrog_1304,1.0,2.0,PHROG,minor tail protein
+phrog_1929,1.0,2.0,PHROG,head-tail connector protein
+phrog_11431,1.0,2.0,PHROG,virion structural protein
+phrog_7455,1.0,2.0,PHROG,tail protein
+phrog_14541,1.0,2.0,PHROG,virion structural protein
+phrog_9258,1.0,2.0,PHROG,virion structural protein
+phrog_22884,1.0,2.0,PHROG,virion structural protein
+phrog_16496,1.0,2.0,PHROG,portal protein
+phrog_14481,1.0,2.0,PHROG,virion structural protein
+phrog_5449,1.0,2.0,PHROG,virion structural protein
+phrog_14074,1.0,2.0,PHROG,virion structural protein
+phrog_14985,1.0,2.0,PHROG,virion structural protein
+phrog_13377,1.0,2.0,PHROG,virion structural protein
+phrog_1954,1.0,2.0,PHROG,virion structural protein
+phrog_7161,1.0,2.0,PHROG,minor tail protein
+phrog_1440,1.0,2.0,PHROG,virion structural protein
+phrog_10899,1.0,2.0,PHROG,terminase small subunit
+phrog_23545,1.0,2.0,PHROG,virion structural protein
+phrog_14066,1.0,2.0,PHROG,virion structural protein
+phrog_981,1.0,2.0,PHROG,minor tail protein
+phrog_2792,1.0,2.0,PHROG,tail assembly chaperone
+phrog_30740,1.0,2.0,PHROG,minor tail protein
+phrog_19969,1.0,2.0,PHROG,terminase small subunit
+phrog_19670,1.0,2.0,PHROG,virion structural protein
+phrog_3840,1.0,2.0,PHROG,tail assembly chaperone
+phrog_2857,1.0,2.0,PHROG,tail fiber protein
+phrog_1283,1.0,2.0,PHROG,baseplate hub subunit and tail length
+phrog_2992,1.0,2.0,PHROG,tail assembly chaperone
+phrog_38102,1.0,2.0,PHROG,virion structural protein
+phrog_20243,1.0,2.0,PHROG,virion structural protein
+phrog_11032,1.0,2.0,PHROG,tail protein
+phrog_29002,1.0,2.0,PHROG,minor tail protein
+phrog_27398,1.0,2.0,PHROG,tail protein
+phrog_927,1.0,2.0,PHROG,tail completion or Neck1 protein
+phrog_14154,1.0,2.0,PHROG,virion structural protein
+phrog_10433,1.0,2.0,PHROG,minor tail protein
+phrog_25765,1.0,2.0,PHROG,minor tail protein
+phrog_13564,1.0,2.0,PHROG,minor tail protein
+phrog_4540,1.0,2.0,PHROG,baseplate hub and tail lysozyme
+phrog_16641,1.0,2.0,PHROG,tail fiber protein
+phrog_17360,1.0,2.0,PHROG,tail assembly protein
+phrog_30392,1.0,2.0,PHROG,tail sheath
+phrog_19560,1.0,2.0,PHROG,virion structural protein
+phrog_16526,1.0,2.0,PHROG,minor tail protein
+phrog_13217,1.0,2.0,PHROG,minor tail protein
+phrog_11820,1.0,2.0,PHROG,tail assembly chaperone
+phrog_28208,1.0,2.0,PHROG,tail protein
+phrog_31752,1.0,2.0,PHROG,virion structural protein
+phrog_16343,1.0,2.0,PHROG,head-tail adaptor
+phrog_5402,1.0,2.0,PHROG,virion structural protein
+phrog_1108,1.0,2.0,PHROG,portal protein
+phrog_16015,1.0,2.0,PHROG,terminase small subunit
+phrog_15651,1.0,2.0,PHROG,tail fiber protein
+phrog_10326,1.0,2.0,PHROG,virion structural protein
+phrog_11172,1.0,2.0,PHROG,virion structural protein
+phrog_18920,1.0,2.0,PHROG,tail protein
+phrog_36805,1.0,2.0,PHROG,tail length tape measure protein
+phrog_27998,1.0,2.0,PHROG,tail fiber protein
+phrog_2032,1.0,2.0,PHROG,tail fiber assembly protein
+phrog_4413,1.0,2.0,PHROG,minor tail protein
+phrog_4129,1.0,2.0,PHROG,tail assembly chaperone
+phrog_19988,1.0,2.0,PHROG,tail spike protein
+phrog_2836,1.0,2.0,PHROG,tail length tape measure protein
+phrog_12936,1.0,2.0,PHROG,minor tail protein
+phrog_9001,1.0,2.0,PHROG,tail assembly chaperone
+phrog_23042,1.0,2.0,PHROG,tail protein
+phrog_22663,1.0,2.0,PHROG,head-tail connector protein
+phrog_27483,1.0,2.0,PHROG,virion structural protein
+phrog_17031,1.0,2.0,PHROG,tail protein
+phrog_15006,1.0,2.0,PHROG,tail fiber protein
+phrog_9689,1.0,2.0,PHROG,virion structural protein
+phrog_23370,1.0,2.0,PHROG,tail length tape measure protein
+phrog_18703,1.0,2.0,PHROG,tail fiber protein
+phrog_8757,1.0,2.0,PHROG,virion structural protein
+phrog_4464,1.0,2.0,PHROG,tail assembly chaperone
+phrog_18602,1.0,2.0,PHROG,virion structural protein
+phrog_15976,1.0,2.0,PHROG,tail assembly chaperone
+phrog_32204,1.0,2.0,PHROG,tail protein
+phrog_5309,1.0,2.0,PHROG,head-tail adaptor
+phrog_21032,1.0,2.0,PHROG,virion structural protein
+phrog_21995,1.0,2.0,PHROG,tail assembly chaperone
+phrog_12771,1.0,2.0,PHROG,tail completion
+phrog_18512,1.0,2.0,PHROG,tail fiber protein
+phrog_20500,1.0,2.0,PHROG,tail protein
+phrog_17619,1.0,2.0,PHROG,virion structural protein
+phrog_19683,1.0,2.0,PHROG,virion structural protein
+phrog_29312,1.0,2.0,PHROG,tail length tape measure protein
+phrog_2005,1.0,2.0,PHROG,minor tail protein
+phrog_13702,1.0,2.0,PHROG,terminase large subunit
+phrog_12438,1.0,2.0,PHROG,virion structural protein
+phrog_26419,1.0,2.0,PHROG,tail fiber protein
+phrog_12284,1.0,2.0,PHROG,virion structural protein
+phrog_18995,1.0,2.0,PHROG,terminase small subunit
+phrog_576,1.0,2.0,PHROG,tail fiber protein
+phrog_2665,1.0,2.0,PHROG,virion structural protein
+phrog_1917,1.0,2.0,PHROG,virion structural protein
+phrog_13781,1.0,2.0,PHROG,tail spike protein
+phrog_38064,1.0,2.0,PHROG,tail collar protein
+phrog_25756,1.0,2.0,PHROG,minor tail protein
+phrog_14268,1.0,2.0,PHROG,tail assembly chaperone
+phrog_14901,1.0,2.0,PHROG,tail length tape measure protein
+phrog_32568,1.0,2.0,PHROG,tail fiber protein
+phrog_24330,1.0,2.0,PHROG,tail fiber protein
+phrog_6011,1.0,2.0,PHROG,virion structural protein
+phrog_11494,1.0,2.0,PHROG,terminase small subunit
+phrog_35342,1.0,2.0,PHROG,tail fiber protein
+phrog_18270,1.0,2.0,PHROG,virion structural protein
+phrog_18272,1.0,2.0,PHROG,tail assembly chaperone
+phrog_4075,1.0,2.0,PHROG,tail assembly chaperone
+phrog_15727,1.0,2.0,PHROG,virion structural protein
+phrog_12452,1.0,2.0,PHROG,tail tube protein
+phrog_11737,1.0,2.0,PHROG,minor tail protein
+phrog_34993,1.0,2.0,PHROG,terminase
+phrog_24439,1.0,2.0,PHROG,virion structural protein
+phrog_11265,1.0,2.0,PHROG,tail length tape measure protein
+phrog_29891,1.0,2.0,PHROG,virion structural protein
+phrog_16051,1.0,2.0,PHROG,tail length tape measure protein
+phrog_13758,1.0,2.0,PHROG,tail fiber protein
+phrog_3725,1.0,2.0,PHROG,tail completion or Neck1 protein
+phrog_38440,1.0,2.0,PHROG,tail spike protein
+phrog_18629,1.0,2.0,PHROG,tail protein
+phrog_17931,1.0,2.0,PHROG,tail protein
+phrog_11681,1.0,2.0,PHROG,tail assembly chaperone
+phrog_30206,1.0,2.0,PHROG,tail length tape measure protein
+phrog_9604,1.0,2.0,PHROG,tail protein
+phrog_14440,1.0,2.0,PHROG,virion structural protein
+phrog_34605,1.0,2.0,PHROG,minor tail protein
+phrog_32306,1.0,2.0,PHROG,tail protein
+phrog_29134,1.0,2.0,PHROG,tail protein
+phrog_5782,1.0,2.0,PHROG,virion structural protein
+phrog_3783,1.0,2.0,PHROG,tail spike protein
+phrog_1429,1.0,2.0,PHROG,virion structural protein
+phrog_13229,1.0,2.0,PHROG,tail fiber protein
+phrog_14569,1.0,2.0,PHROG,virion structural protein
+phrog_12281,1.0,2.0,PHROG,tail tube protein
+phrog_4251,1.0,2.0,PHROG,minor tail protein
+phrog_2805,1.0,2.0,PHROG,minor tail protein
+phrog_5088,1.0,2.0,PHROG,tail assembly chaperone
+phrog_20420,1.0,2.0,PHROG,virion structural protein
+phrog_38452,1.0,2.0,PHROG,tail protein
+phrog_32131,1.0,2.0,PHROG,virion structural protein
+phrog_26298,1.0,2.0,PHROG,virion structural protein
+phrog_10468,1.0,2.0,PHROG,virion structural protein
+phrog_7764,1.0,2.0,PHROG,virion structural protein
+phrog_16233,1.0,2.0,PHROG,tail fiber protein
+phrog_24534,1.0,2.0,PHROG,tail fiber protein
+phrog_4537,1.0,2.0,PHROG,tail assembly chaperone
+phrog_34807,1.0,2.0,PHROG,collar tail protein for L-shaped tail fibre attachment
+phrog_9326,1.0,2.0,PHROG,virion structural protein
+phrog_23607,1.0,2.0,PHROG,tail assembly chaperone
+phrog_22065,1.0,2.0,PHROG,tail sheath
+phrog_12163,1.0,2.0,PHROG,tail assembly chaperone
+phrog_34952,1.0,2.0,PHROG,tail protein
+phrog_26147,1.0,2.0,PHROG,minor tail protein
+phrog_24134,1.0,2.0,PHROG,virion structural protein
+phrog_7299,1.0,2.0,PHROG,virion structural protein
+phrog_22278,1.0,2.0,PHROG,minor tail protein
+phrog_21844,1.0,2.0,PHROG,tail protein
+phrog_28013,1.0,2.0,PHROG,virion structural protein
+phrog_24919,1.0,2.0,PHROG,tail fiber protein
+phrog_8963,1.0,2.0,PHROG,tail assembly chaperone
+phrog_21358,1.0,2.0,PHROG,tail length tape measure protein
+phrog_33360,1.0,2.0,PHROG,tail length tape measure protein
+phrog_32946,1.0,2.0,PHROG,tail protein
+phrog_3112,1.0,2.0,PHROG,virion structural protein
+phrog_14501,1.0,2.0,PHROG,virion structural protein
+phrog_19041,1.0,2.0,PHROG,virion structural protein
+phrog_10657,1.0,2.0,PHROG,tail fiber protein
+phrog_24638,1.0,2.0,PHROG,baseplate hub subunit and tail lysozyme
+phrog_6953,1.0,2.0,PHROG,tail fiber protein
+phrog_4146,1.0,2.0,PHROG,tail protease
+phrog_14802,1.0,2.0,PHROG,virion structural protein
+phrog_1484,1.0,2.0,PHROG,virion structural protein
+phrog_34893,1.0,2.0,PHROG,tail assembly chaperone
+phrog_16185,1.0,2.0,PHROG,tail protein
+phrog_15493,1.0,2.0,PHROG,tail assembly chaperone
+phrog_33493,1.0,2.0,PHROG,tail assembly chaperone
+phrog_24527,1.0,2.0,PHROG,virion structural protein
+phrog_3575,1.0,2.0,PHROG,major tail protein
+phrog_16990,1.0,2.0,PHROG,virion structural protein
+phrog_6790,1.0,2.0,PHROG,tail protein
+phrog_1421,1.0,2.0,PHROG,virion structural protein
+phrog_1437,1.0,2.0,PHROG,terminase small subunit
+phrog_33183,1.0,2.0,PHROG,tail protein
+phrog_27812,1.0,2.0,PHROG,virion structural protein
+phrog_7821,1.0,2.0,PHROG,virion structural protein
+phrog_5834,1.0,2.0,PHROG,tail length tape measure protein
+phrog_17338,1.0,2.0,PHROG,tail assembly chaperone
+phrog_13911,1.0,2.0,PHROG,virion structural protein
+phrog_26670,1.0,2.0,PHROG,virion structural protein
+phrog_9658,1.0,2.0,PHROG,head-tail connector protein
+phrog_3305,1.0,2.0,PHROG,virion structural protein
+phrog_11176,1.0,2.0,PHROG,head-tail adaptor
+phrog_13565,1.0,2.0,PHROG,tail protein
+phrog_10588,1.0,2.0,PHROG,tail protein
+phrog_4815,1.0,2.0,PHROG,receptor binding tail protein
+phrog_7067,1.0,2.0,PHROG,terminase small subunit
+phrog_17481,1.0,2.0,PHROG,minor tail protein
+phrog_1927,1.0,2.0,PHROG,tail assembly chaperone
+phrog_14484,1.0,2.0,PHROG,virion structural protein
+phrog_9441,1.0,2.0,PHROG,terminase small subunit
+phrog_18596,1.0,2.0,PHROG,virion structural protein
+phrog_1428,1.0,2.0,PHROG,head-tail connector protein
+phrog_8295,1.0,2.0,PHROG,virion structural protein
+phrog_19694,1.0,2.0,PHROG,tail assembly chaperone
+phrog_16053,1.0,2.0,PHROG,tail fiber protein
+phrog_3889,1.0,2.0,PHROG,base plate tail tube protein
+phrog_14064,1.0,2.0,PHROG,tail fiber protein
+phrog_1892,1.0,2.0,PHROG,minor tail protein
+phrog_11338,1.0,2.0,PHROG,tail fiber protein
+phrog_25000,1.0,2.0,PHROG,tail assembly chaperone
+phrog_24656,1.0,2.0,PHROG,virion structural protein
+phrog_19418,1.0,2.0,PHROG,virion structural protein
+phrog_21634,1.0,2.0,PHROG,tail assembly chaperone
+phrog_16481,1.0,2.0,PHROG,virion structural protein
+phrog_10739,1.0,2.0,PHROG,tail length tape measure protein
+phrog_6778,1.0,2.0,PHROG,tail assembly chaperone
+phrog_16215,1.0,2.0,PHROG,virion structural protein
+phrog_4479,1.0,2.0,PHROG,terminase small subunit
+phrog_16530,1.0,2.0,PHROG,virion structural protein
+phrog_16290,1.0,2.0,PHROG,minor tail protein
+phrog_23819,1.0,2.0,PHROG,virion structural protein
+phrog_16305,1.0,2.0,PHROG,virion structural protein
+phrog_13099,1.0,2.0,PHROG,virion structural protein
+phrog_32894,1.0,2.0,PHROG,tail fiber protein
+phrog_29175,1.0,2.0,PHROG,virion structural protein
+phrog_4735,1.0,2.0,PHROG,head-tail adaptor Ad1
+phrog_14882,1.0,2.0,PHROG,virion structural protein
+phrog_17319,1.0,2.0,PHROG,virion structural protein
+phrog_15696,1.0,2.0,PHROG,virion structural protein
+phrog_10309,1.0,2.0,PHROG,head-tail connector protein
+phrog_34571,1.0,2.0,PHROG,tail protein
+phrog_7085,1.0,2.0,PHROG,major tail protein
+phrog_14117,1.0,2.0,PHROG,virion structural protein
+phrog_14121,1.0,2.0,PHROG,virion structural protein
+phrog_2671,1.0,2.0,PHROG,tail fiber protein
+phrog_2691,1.0,2.0,PHROG,tail fiber protein
+phrog_30677,1.0,2.0,PHROG,tail protein
+phrog_19558,1.0,2.0,PHROG,virion structural protein
+phrog_1420,1.0,2.0,PHROG,virion structural protein
+phrog_15848,1.0,2.0,PHROG,terminase large subunit
+phrog_15872,1.0,2.0,PHROG,virion structural protein
+phrog_14883,1.0,2.0,PHROG,virion structural protein
+phrog_26274,1.0,2.0,PHROG,terminase
+phrog_21209,1.0,2.0,PHROG,virion structural protein
+phrog_17968,1.0,2.0,PHROG,virion structural protein
+phrog_15647,1.0,2.0,PHROG,virion structural protein
+phrog_15988,1.0,2.0,PHROG,virion structural protein
+phrog_14971,1.0,2.0,PHROG,virion structural protein
+phrog_20312,1.0,2.0,PHROG,virion structural protein
+phrog_5940,1.0,2.0,PHROG,tail assembly chaperone
+phrog_20398,1.0,2.0,PHROG,virion structural protein
+phrog_13150,1.0,2.0,PHROG,tail protein
+phrog_13168,1.0,2.0,PHROG,terminase
+phrog_10159,1.0,2.0,PHROG,virion structural protein
+phrog_7127,1.0,2.0,PHROG,receptor binding tail protein
+phrog_24741,1.0,2.0,PHROG,virion structural protein
+phrog_7725,1.0,2.0,PHROG,virion structural protein
+phrog_8174,1.0,2.0,PHROG,minor tail protein
+phrog_8764,1.0,2.0,PHROG,virion structural protein
+phrog_19891,1.0,2.0,PHROG,major tail protein
+phrog_16513,1.0,2.0,PHROG,tail assembly chaperone
+phrog_14592,1.0,2.0,PHROG,virion structural protein
+phrog_11229,1.0,2.0,PHROG,long tail fiber protein proximal connector
+phrog_35194,1.0,2.0,PHROG,tail fiber protein
+phrog_33171,1.0,2.0,PHROG,virion structural protein
+phrog_15050,1.0,2.0,PHROG,virion structural protein
+phrog_15373,1.0,2.0,PHROG,L-shaped tail fiber protein assembly
+phrog_21641,1.0,2.0,PHROG,virion structural protein
+phrog_36353,1.0,2.0,PHROG,virion structural protein
+phrog_32382,1.0,2.0,PHROG,tail length tape measure protein
+phrog_12236,1.0,2.0,PHROG,head-tail connector protein
+phrog_7819,1.0,2.0,PHROG,tail length tape measure protein
+phrog_19307,1.0,2.0,PHROG,virion structural protein
+phrog_6879,1.0,2.0,PHROG,head-tail connector protein
+phrog_19979,1.0,2.0,PHROG,virion structural protein
+phrog_16097,1.0,2.0,PHROG,hinge connector of long tail fiber protein distal connector
+phrog_1543,1.0,2.0,PHROG,minor tail protein
+phrog_1857,1.0,2.0,PHROG,head-tail connector protein
+phrog_14976,1.0,2.0,PHROG,virion structural protein
+phrog_14991,1.0,2.0,PHROG,virion structural protein
+phrog_12660,1.0,2.0,PHROG,virion structural protein
+phrog_5357,1.0,2.0,PHROG,tail length tape measure protein
+phrog_3332,1.0,2.0,PHROG,head-tail adaptor
+phrog_16130,1.0,2.0,PHROG,virion structural protein
+phrog_27158,1.0,2.0,PHROG,virion structural protein
+phrog_16503,1.0,2.0,PHROG,terminase
+phrog_14260,1.0,2.0,PHROG,tail protein
+phrog_13258,1.0,2.0,PHROG,virion structural protein
+phrog_37720,1.0,2.0,PHROG,virion structural protein
+phrog_21285,1.0,2.0,PHROG,virion structural protein
+phrog_2811,1.0,2.0,PHROG,virion structural protein
+phrog_14909,1.0,2.0,PHROG,virion structural protein
+phrog_15939,1.0,2.0,PHROG,tail assembly chaperone
+phrog_35334,1.0,2.0,PHROG,tail length tape measure protein
+phrog_33334,1.0,2.0,PHROG,portal protein
+phrog_18813,1.0,2.0,PHROG,head-tail connector protein
+phrog_19293,1.0,2.0,PHROG,virion structural protein
+phrog_4486,1.0,2.0,PHROG,terminase large subunit
+phrog_1465,1.0,2.0,PHROG,terminase
+phrog_19026,1.0,2.0,PHROG,tail assembly chaperone
+phrog_16037,1.0,2.0,PHROG,tail length tape measure protein
+phrog_33260,1.0,2.0,PHROG,minor tail protein
+phrog_28033,1.0,2.0,PHROG,tail assembly chaperone
+phrog_21056,1.0,2.0,PHROG,minor tail protein
+phrog_2677,1.0,2.0,PHROG,tail protein with lysin activity
+phrog_13431,1.0,2.0,PHROG,virion structural protein
+phrog_12717,1.0,2.0,PHROG,tail length tape measure protein
+phrog_16261,1.0,2.0,PHROG,virion structural protein
+phrog_12806,1.0,2.0,PHROG,virion structural protein
+phrog_35449,1.0,2.0,PHROG,minor tail protein
+phrog_31126,1.0,2.0,PHROG,terminase small subunit
+phrog_25860,1.0,2.0,PHROG,tail assembly chaperone
+phrog_20525,1.0,2.0,PHROG,virion structural protein
+phrog_13903,1.0,2.0,PHROG,virion structural protein
+phrog_12634,1.0,2.0,PHROG,virion structural protein
+phrog_12067,1.0,2.0,PHROG,virion structural protein
+phrog_21325,1.0,2.0,PHROG,virion structural protein
+phrog_20369,1.0,2.0,PHROG,tail assembly chaperone
+phrog_16781,1.0,2.0,PHROG,tail assembly chaperone
+phrog_10489,1.0,2.0,PHROG,tail protein
+phrog_32089,1.0,2.0,PHROG,virion structural protein
+phrog_28751,1.0,2.0,PHROG,virion structural protein
+phrog_19838,1.0,2.0,PHROG,virion structural protein
+phrog_22767,1.0,2.0,PHROG,virion structural protein
+phrog_18521,1.0,2.0,PHROG,minor tail protein
+phrog_19553,1.0,2.0,PHROG,minor tail protein
+phrog_2754,1.0,2.0,PHROG,virion structural protein
+phrog_14289,1.0,2.0,PHROG,virion structural protein
+phrog_35486,1.0,2.0,PHROG,tail assembly chaperone
+phrog_33196,1.0,2.0,PHROG,tail assembly chaperone
+phrog_8501,1.0,2.0,PHROG,minor tail protein
+phrog_24558,1.0,2.0,PHROG,virion structural protein
+phrog_20253,1.0,2.0,PHROG,virion structural protein
+phrog_16306,1.0,2.0,PHROG,virion structural protein
+phrog_12946,1.0,2.0,PHROG,virion structural protein
+phrog_12679,1.0,2.0,PHROG,virion structural protein
+phrog_35536,1.0,2.0,PHROG,virion structural protein
+phrog_31826,1.0,2.0,PHROG,virion structural protein
+phrog_26909,1.0,2.0,PHROG,virion structural protein
+phrog_24630,1.0,2.0,PHROG,virion structural protein
+phrog_19401,1.0,2.0,PHROG,virion structural protein
+phrog_20013,1.0,2.0,PHROG,virion structural protein
+phrog_4322,1.0,2.0,PHROG,virion structural protein
+phrog_19486,1.0,2.0,PHROG,head-tail connector protein
+phrog_16108,1.0,2.0,PHROG,tail length tape measure protein
+phrog_20087,1.0,2.0,PHROG,tail protein
+phrog_4963,1.0,2.0,PHROG,tail assembly chaperone
+phrog_12162,1.0,2.0,PHROG,virion structural protein
+phrog_10760,1.0,2.0,PHROG,minor tail protein
+phrog_9452,1.0,2.0,PHROG,terminase small subunit
+phrog_19506,1.0,2.0,PHROG,tail protein
+phrog_22489,1.0,2.0,PHROG,virion structural protein
+phrog_33410,1.0,2.0,PHROG,terminase small subunit
+phrog_8874,1.0,2.0,PHROG,tail fiber protein
+phrog_17043,1.0,2.0,PHROG,minor tail protein
+phrog_34543,1.0,2.0,PHROG,virion structural protein
+phrog_9927,1.0,2.0,PHROG,virion structural protein
+phrog_26999,1.0,2.0,PHROG,tail assembly protein
+phrog_32325,1.0,2.0,PHROG,tail protein
+phrog_29715,1.0,2.0,PHROG,tail assembly chaperone
+phrog_6787,1.0,2.0,PHROG,tail protein
+phrog_25268,1.0,2.0,PHROG,tail protein
+phrog_6834,1.0,2.0,PHROG,terminase small subunit
+phrog_20826,1.0,2.0,PHROG,head-tail connector protein
+phrog_15944,1.0,2.0,PHROG,virion structural protein
+phrog_10095,1.0,2.0,PHROG,terminase large subunit
+phrog_25688,1.0,2.0,PHROG,tail assembly chaperone
+phrog_7074,1.0,2.0,PHROG,head-tail connector protein
+phrog_35314,1.0,2.0,PHROG,head-tail connector protein
+phrog_37994,1.0,2.0,PHROG,virion structural protein
+phrog_30923,1.0,2.0,PHROG,virion structural protein
+phrog_30991,1.0,2.0,PHROG,tail protein
+phrog_25499,1.0,2.0,PHROG,virion structural protein
+phrog_21447,1.0,2.0,PHROG,virion structural protein
+phrog_21199,1.0,2.0,PHROG,tail protein
+phrog_16569,1.0,2.0,PHROG,virion structural protein
+phrog_35471,1.0,2.0,PHROG,virion structural protein
+phrog_33457,1.0,2.0,PHROG,minor tail protein
+phrog_30767,1.0,2.0,PHROG,virion structural protein
+phrog_17345,1.0,2.0,PHROG,minor tail protein
+phrog_18698,1.0,2.0,PHROG,virion structural protein
+phrog_17386,1.0,2.0,PHROG,virion structural protein
+phrog_29020,1.0,2.0,PHROG,virion structural protein
+phrog_32547,1.0,2.0,PHROG,virion structural protein
+phrog_27601,1.0,2.0,PHROG,tail length tape measure protein
+phrog_32593,1.0,2.0,PHROG,tail assembly chaperone
+phrog_30830,1.0,2.0,PHROG,virion structural protein
+phrog_9672,1.0,2.0,PHROG,minor tail protein
+phrog_6633,1.0,2.0,PHROG,tail protein
+phrog_20327,1.0,2.0,PHROG,virion structural protein
+phrog_16470,1.0,2.0,PHROG,terminase small subunit
+phrog_28831,1.0,2.0,PHROG,virion structural protein
+phrog_24506,1.0,2.0,PHROG,tail fiber protein
+phrog_22811,1.0,2.0,PHROG,tail spike protein
+phrog_19915,1.0,2.0,PHROG,tail length tape measure protein
+phrog_6852,1.0,2.0,PHROG,head-tail connector protein
+phrog_18338,1.0,2.0,PHROG,virion structural protein
+phrog_18953,1.0,2.0,PHROG,tail protein
+phrog_15395,1.0,2.0,PHROG,tail protein
+phrog_13081,1.0,2.0,PHROG,tail fiber protein
+phrog_32261,1.0,2.0,PHROG,virion structural protein
+phrog_29954,1.0,2.0,PHROG,virion structural protein
+phrog_25662,1.0,2.0,PHROG,tail assembly protein
+phrog_24650,1.0,2.0,PHROG,head-tail connector protein
+phrog_22666,1.0,2.0,PHROG,virion structural protein
+phrog_19158,1.0,2.0,PHROG,tail length tape measure protein
+phrog_21673,1.0,2.0,PHROG,virion structural protein
+phrog_17190,1.0,2.0,PHROG,virion structural protein
+phrog_15195,1.0,2.0,PHROG,virion structural protein
+phrog_26711,1.0,2.0,PHROG,virion structural protein
+phrog_25416,1.0,2.0,PHROG,virion structural protein
+phrog_22136,1.0,2.0,PHROG,minor tail protein
+phrog_5103,1.0,2.0,PHROG,tail assembly chaperone
+phrog_18868,1.0,2.0,PHROG,virion structural protein
+phrog_2796,1.0,2.0,PHROG,head-tail connector protein
+phrog_35150,1.0,2.0,PHROG,virion structural protein
+phrog_26200,1.0,2.0,PHROG,virion structural protein
+phrog_8823,1.0,2.0,PHROG,terminase small subunit
+phrog_19623,1.0,2.0,PHROG,virion structural protein
+phrog_21523,1.0,2.0,PHROG,virion structural protein
+phrog_19332,1.0,2.0,PHROG,tail protein
+phrog_18907,1.0,2.0,PHROG,virion structural protein
+phrog_19646,1.0,2.0,PHROG,virion structural protein
+phrog_19081,1.0,2.0,PHROG,virion structural protein
+phrog_16388,1.0,2.0,PHROG,virion structural protein
+phrog_12982,1.0,2.0,PHROG,tail fiber protein
+phrog_35249,1.0,2.0,PHROG,tail tube protein
+phrog_32580,1.0,2.0,PHROG,tail assembly chaperone
+phrog_26049,1.0,2.0,PHROG,virion structural protein
+phrog_24935,1.0,2.0,PHROG,virion structural protein
+phrog_21602,1.0,2.0,PHROG,virion structural protein
+phrog_22064,1.0,2.0,PHROG,virion structural protein
+phrog_21678,1.0,2.0,PHROG,virion structural protein
+phrog_20088,1.0,2.0,PHROG,virion structural protein
+phrog_16416,1.0,2.0,PHROG,virion structural protein
+phrog_31306,1.0,2.0,PHROG,virion structural protein
+phrog_27119,1.0,2.0,PHROG,virion structural protein
+phrog_23445,1.0,2.0,PHROG,head-tail connector protein
+phrog_21193,1.0,2.0,PHROG,head-tail connector protein
+phrog_20798,1.0,2.0,PHROG,virion structural protein
+phrog_37752,1.0,2.0,PHROG,tail protein
+phrog_35749,1.0,2.0,PHROG,tail protein
+phrog_27257,1.0,2.0,PHROG,terminase small subunit
+phrog_24577,1.0,2.0,PHROG,virion structural protein
+phrog_23257,1.0,2.0,PHROG,terminase small subunit
+phrog_20522,1.0,2.0,PHROG,virion structural protein
+phrog_20547,1.0,2.0,PHROG,virion structural protein
+phrog_35804,1.0,2.0,PHROG,virion structural protein
+phrog_34570,1.0,2.0,PHROG,virion structural protein
+phrog_29902,1.0,2.0,PHROG,virion structural protein
+phrog_25388,1.0,2.0,PHROG,virion structural protein
+phrog_19410,1.0,2.0,PHROG,virion structural protein
+phrog_21065,1.0,2.0,PHROG,virion structural protein
+phrog_20649,1.0,2.0,PHROG,virion structural protein
+phrog_36300,1.0,2.0,PHROG,virion structural protein
+phrog_37332,1.0,2.0,PHROG,virion structural protein
+phrog_32033,1.0,2.0,PHROG,tail protein

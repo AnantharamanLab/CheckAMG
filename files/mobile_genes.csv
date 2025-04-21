@@ -1,0 +1,593 @@
+id,V-score,VL-score,db,name
+PF00589.26,10.0,4.833414876,Pfam,Phage integrase family
+PF13392.10,10.0,4.533263517,Pfam,HNH endonuclease
+PF01844.27,10.0,4.353646996,Pfam,HNH endonuclease
+PF20441.2,10.0,4.335578243,Pfam,"Terminase large subunit, endonuclease domain"
+PF20454.2,10.0,4.144698719,Pfam,"Terminase large subunit gpA, endonuclease domain"
+PF14279.10,10.0,4.018450832,Pfam,HNH endonuclease
+PF02945.19,10.0,3.933942603,Pfam,Recombination endonuclease VII
+PF07282.15,10.0,3.810568529,Pfam,Putative transposase DNA-binding domain
+PF01385.23,10.0,3.749195042,Pfam,Probable transposase
+PF14659.10,10.0,3.739809599,Pfam,"Phage integrase, N-terminal SAM-like domain"
+PF13102.10,10.0,3.577951128,Pfam,Phage integrase SAM-like domain
+PF05367.15,10.0,3.547528576,Pfam,Phage endonuclease I
+PF09299.15,10.0,3.532627001,Pfam,"Mu transposase, C-terminal"
+PF00665.30,10.0,3.50758604,Pfam,Integrase core domain
+PF08722.15,10.0,3.36567514,Pfam,TnsA-like endonuclease N terminal
+PF13495.10,10.0,3.349471799,Pfam,"Phage integrase, N-terminal SAM-like domain"
+PF19835.3,10.0,3.348110068,Pfam,"Putative endonuclease segE, GIY-YIG domain"
+PF02899.21,10.0,3.261262869,Pfam,"Phage integrase, N-terminal SAM-like domain"
+PF13683.10,10.0,3.162564407,Pfam,Integrase core domain
+PF11645.12,10.0,3.15136985,Pfam,PD-(D/E)XK endonuclease
+PF01527.24,10.0,3.118595365,Pfam,Transposase
+PF02914.19,10.0,3.107888025,Pfam,Bacteriophage Mu transposase
+PF01609.25,10.0,3.077004327,Pfam,Transposase DDE domain
+PF12762.11,10.0,3.067814511,Pfam,ISXO2-like transposase domain
+PF03851.18,10.0,3.062205809,Pfam,UV-endonuclease UvdE
+PF03161.17,10.0,3.047664195,Pfam,LAGLIDADG DNA endonuclease family
+PF04471.16,10.0,3.032215703,Pfam,Restriction endonuclease
+PF01797.20,9.33,2.969881644,Pfam,Transposase IS200 like
+PF01223.27,8.74,2.941511433,Pfam,DNA/RNA non-specific endonuclease
+PF02371.20,8.58,2.933487288,Pfam,Transposase IS116/IS110/IS902 family
+PF01548.21,8.47,2.92788341,Pfam,Transposase
+PF12760.11,8.34,2.921166051,Pfam,Transposase zinc-ribbon domain
+PF09003.14,7.59,2.880241776,Pfam,"Bacteriophage lambda integrase, Arm DNA-binding domain"
+PF09077.15,7.01,2.845718018,Pfam,"Mu B transposition protein, C terminal"
+PF13333.10,6.46,2.810232518,Pfam,Integrase core domain
+PF13022.10,6.35,2.802773725,Pfam,Helix-turn-helix of insertion element transposase
+PF01610.21,5.03,2.701567985,Pfam,Transposase
+PF00872.22,5.01,2.699837726,Pfam,"Transposase, Mutator family"
+PF13391.10,4.87,2.687528961,Pfam,HNH endonuclease
+PF03050.18,4.67,2.669316881,Pfam,Transposase IS66 family
+PF05204.18,4.67,2.669316881,Pfam,Homing endonuclease
+PF03852.19,4.58,2.660865478,Pfam,DNA mismatch endonuclease Vsr
+PF05598.15,4.44,2.64738297,Pfam,Transposase domain (DUF772)
+PF03372.27,4.27,2.630427875,Pfam,Endonuclease/Exonuclease/phosphatase family
+PF13395.10,4.03,2.605305046,Pfam,HNH endonuclease
+PF13358.10,3.95,2.596597096,Pfam,DDE superfamily endonuclease
+PF05066.17,3.89,2.589949601,Pfam,"HB1, ASXL, restriction endonuclease HTH domain"
+PF18780.5,3.84,2.584331224,Pfam,Homing endonuclease associated repeat
+PF09035.14,3.71,2.56937391,Pfam,Excisionase from transposon Tn916
+PF00961.23,3.27,2.514547753,Pfam,LAGLIDADG endonuclease
+PF02920.19,3.03,2.481442629,Pfam,DNA binding domain of tn916 integrase
+PF13340.10,3.01,2.478566496,Pfam,Putative transposase of IS4/5 family (DUF4096)
+PF13007.11,2.65,2.423245874,Pfam,Transposase C of IS166 homeodomain
+PF13005.11,2.61,2.416640507,Pfam,zinc-finger binding domain of transposase IS66
+PF03741.20,2.51,2.399673721,Pfam,Integral membrane protein TerC family
+PF14198.10,2.24,2.350248018,Pfam,Transposon-encoded protein TnpV
+PF13542.10,2.15,2.33243846,Pfam,Helix-turn-helix domain of transposase family ISL3
+PF05685.16,2.15,2.33243846,Pfam,Putative restriction endonuclease
+PF13751.10,2.12,2.326335861,Pfam,Transposase DDE domain
+PF13930.10,2.02,2.305351369,Pfam,DNA/RNA non-specific endonuclease
+PF11867.12,1.95,2.290034611,Pfam,"Type I restriction enzyme HindI endonuclease subunit-like, C-terminal"
+PF20987.1,1.91,2.281033367,Pfam,"Intron-encoded endonuclease 1, DNA-binding domain"
+PF13156.10,1.89,2.276461804,Pfam,Restriction endonuclease
+PF14690.10,1.84,2.264817823,Pfam,zinc-finger of transposase IS204/IS1001/IS1096/IS1165
+PF10107.13,1.82,2.260071388,Pfam,Endonuclease related to archaeal Holliday junction resolvase
+PF04231.17,1.79,2.252853031,Pfam,Endonuclease I
+PF13586.10,1.73,2.238046103,Pfam,Transposase DDE domain
+PF18740.5,1.59,2.201397124,Pfam,EC042_2821-like Restriction Endonuclease-like domain
+PF09563.14,1.56,2.193124598,Pfam,LlaJI restriction endonuclease
+PF12784.11,1.54,2.187520721,Pfam,PD-(D/E)XK nuclease family transposase
+PF13612.10,1.44,2.158362492,Pfam,Transposase DDE domain
+PF19778.3,1.3,2.113943352,Pfam,Endonuclease domain
+PF15515.10,1.16,2.064457989,Pfam,MvaI/BcnI restriction endonuclease family
+PF13701.10,1.08,2.033423755,Pfam,Transposase DDE domain group 1
+PF16795.9,1.0,2.0,Pfam,Archaeal phage integrase
+PF12834.11,1.0,2.0,Pfam,"Phage integrase, N-terminal"
+PF18103.5,1.0,2.0,Pfam,Retroviral integrase C-terminal SH3 domain
+PF18697.5,1.0,2.0,Pfam,Murine leukemia virus (MLV) integrase (IN) C-terminal domain
+PF12482.12,1.0,2.0,Pfam,Phage integrase protein
+PF03400.17,0.95,1.977723605,Pfam,IS1 transposase
+PF04754.16,0.92,1.963787827,Pfam,"Putative transposase, YhgA-like"
+PF09195.15,0.85,1.929418926,Pfam,Restriction endonuclease BglII
+PF17921.5,0.84,1.924279286,Pfam,Integrase zinc binding domain
+PF15648.10,0.78,1.892094603,Pfam,Restriction endonuclease fold toxin 5
+PF13546.10,0.78,1.892094603,Pfam,DDE superfamily endonuclease
+PF06616.15,0.77,1.886490725,Pfam,BsuBI/PstI restriction endonuclease domain
+PF01526.21,0.73,1.86332286,Pfam,Tn3 transposase DDE domain
+PF17728.5,0.73,1.86332286,Pfam,BsuBI/PstI restriction endonuclease HTH domain
+PF13737.10,0.71,1.851258349,Pfam,Transposase DDE domain
+PF14130.10,0.71,1.851258349,Pfam,"Cap4, dsDNA endonuclease domain"
+PF21368.1,0.69,1.838849091,Pfam,"AI2M/AI1M-like, HNH endonuclease"
+PF14202.10,0.67,1.826074803,Pfam,Transposon-encoded protein TnpW
+PF04986.17,0.65,1.812913357,Pfam,Putative transposase
+PF09565.14,0.64,1.806179974,Pfam,NgoFVII restriction endonuclease N-terminal PLD domain
+PF19580.3,0.63,1.799340549,Pfam,Endonuclease/Exonuclease/phosphatase family
+PF12508.12,0.61,1.785329835,Pfam,"Conjugative transposon, TraM"
+PF14319.10,0.59,1.770852012,Pfam,Transposase zinc-binding domain
+PF09491.14,0.57,1.755874856,Pfam,AlwI restriction endonuclease
+PF09124.14,0.57,1.755874856,Pfam,"T4 recombination endonuclease VII, dimerisation"
+PF13359.10,0.55,1.740362689,Pfam,DDE superfamily endonuclease
+PF01939.20,0.54,1.73239376,Pfam,Endonuclease NucS C-terminal domain
+PF12642.11,0.53,1.72427587,Pfam,Conjugative transposon protein TcpC
+PF05551.15,0.5,1.698970004,Pfam,Zinc-binding loop region of homing endonuclease
+PF18541.5,0.48,1.681241237,Pfam,RuvC endonuclease subdomain 3
+PF09553.14,0.48,1.681241237,Pfam,Eco47II restriction endonuclease
+PF09568.14,0.46,1.662757832,Pfam,MjaI restriction endonuclease
+PF08459.15,0.44,1.643452676,Pfam,UvrC RNAse H endonuclease domain
+PF11663.12,0.44,1.643452676,Pfam,"Toxin with endonuclease activity, of toxin-antitoxin system"
+PF14203.10,0.43,1.633468456,Pfam,Putative transposon-transfer assisting protein
+PF09517.14,0.42,1.62324929,Pfam,Eco29kI restriction endonuclease
+PF13613.10,0.39,1.591064607,Pfam,Helix-turn-helix of DDE superfamily endonuclease
+PF04556.16,0.36,1.556302501,Pfam,DpnII restriction endonuclease
+PF09562.14,0.34,1.531478917,Pfam,LlaMI restriction endonuclease
+PF20310.2,0.34,1.531478917,Pfam,Transposon related HTH domain protein
+PF01710.20,0.34,1.531478917,Pfam,Transposase
+PF04555.17,0.32,1.505149978,Pfam,Restriction endonuclease XhoI
+PF10551.13,0.32,1.505149978,Pfam,MULE transposase domain
+PF09564.14,0.3,1.477121255,Pfam,NgoBV restriction endonuclease
+PF02022.23,0.29,1.462397998,Pfam,Integrase Zinc binding domain
+PF09566.14,0.28,1.447158031,Pfam,SacI restriction endonuclease
+PF09561.14,0.28,1.447158031,Pfam,HpaII restriction endonuclease
+PF16592.9,0.28,1.447158031,Pfam,REC lobe of CRISPR-associated endonuclease Cas9
+PF16593.9,0.27,1.431363764,Pfam,Bridge helix of CRISPR-associated endonuclease Cas9
+PF14511.10,0.26,1.414973348,Pfam,Type II restriction endonuclease EcoO109I
+PF02963.20,0.26,1.414973348,Pfam,Restriction endonuclease EcoRI
+PF12183.12,0.26,1.414973348,Pfam,Restriction endonuclease NotI
+PF09217.14,0.25,1.397940009,Pfam,"Restriction endonuclease EcoRII, N-terminal"
+PF04493.18,0.24,1.380211242,Pfam,Endonuclease V
+PF00552.25,0.23,1.361727836,Pfam,Integrase DNA binding domain
+PF13006.11,0.22,1.342422681,Pfam,Insertion element 4 transposase N-terminal
+PF09665.14,0.22,1.342422681,Pfam,Type II restriction endonuclease (RE_Alw26IDE)
+PF12835.11,0.21,1.322219295,Pfam,Integrase
+PF09233.15,0.2,1.301029996,Pfam,Restriction endonuclease EcoRV
+PF10626.13,0.2,1.301029996,Pfam,Conjugative transposon protein TraO
+PF09225.14,0.2,1.301029996,Pfam,Restriction endonuclease PvuII
+PF09556.14,0.19,1.278753601,Pfam,HaeIII restriction endonuclease
+PF01914.21,0.19,1.278753601,Pfam,MarC family integral membrane protein
+PF16595.9,0.18,1.255272505,Pfam,PAM-interacting domain of CRISPR-associated endonuclease Cas9
+PF03732.21,0.15,1.176091259,Pfam,Retrotransposon gag protein
+PF09126.14,0.15,1.176091259,Pfam,Restriction endonuclease NaeI 
+PF21598.1,0.15,1.176091259,Pfam,"Restriction endonuclease PvuRts1 I-like, N-terminal"
+PF02923.19,0.15,1.176091259,Pfam,Restriction endonuclease BamHI
+PF18062.5,0.15,1.176091259,Pfam,Restriction endonuclease AspBHI N-terminal
+PF09519.14,0.14,1.146128036,Pfam,HindVP restriction endonuclease
+PF09520.14,0.14,1.146128036,Pfam,"Type II restriction endonuclease, TdeIII"
+PF09572.14,0.14,1.146128036,Pfam,XamI restriction endonuclease
+PF09504.14,0.13,1.113943352,Pfam,Bsp6I restriction endonuclease
+PF09567.14,0.13,1.113943352,Pfam,MamI restriction endonuclease
+PF21003.1,0.12,1.079181246,Pfam,Endonuclease NucS N-terminal PH-like domain
+PF07863.15,0.12,1.079181246,Pfam,Homologues of TraJ from Bacteroides conjugative transposon
+PF14882.10,0.12,1.079181246,Pfam,Integrase repeat unit
+PF09518.14,0.12,1.079181246,Pfam,HindIII restriction endonuclease
+PF09570.14,0.11,1.041392685,Pfam,SinI restriction endonuclease
+PF17894.5,0.1,1.0,Pfam,Topo homolgy domain in CRISPR-associated endonuclease Cas9
+PF13150.10,0.1,1.0,Pfam,Conjugative transposon protein TraL
+PF07592.15,0.1,1.0,Pfam,Rhodopirellula transposase DDE domain
+PF17893.5,0.1,1.0,Pfam,CRISPR-associated endonuclease Cas9 beta-hairpin domain
+PF09521.14,0.1,1.0,Pfam,NgoPII restriction endonuclease
+PF09571.14,0.09,0.954242509,Pfam,XcyI restriction endonuclease
+PF18643.5,0.09,0.954242509,Pfam,BsaWI restriction endonuclease type 2
+PF11463.12,0.09,0.954242509,Pfam,R.HinP1I restriction endonuclease
+PF09554.14,0.08,0.903089987,Pfam,HaeII restriction endonuclease
+PF15978.9,0.08,0.903089987,Pfam,Tn7-like transposition protein D
+PF11564.12,0.08,0.903089987,Pfam,Restriction endonuclease BpuJI - N terminal
+PF11458.12,0.08,0.903089987,Pfam,Membrane-integrating protein Mistic
+PF07832.15,0.08,0.903089987,Pfam,Cfr10I/Bse634I restriction endonuclease
+PF09552.14,0.08,0.903089987,Pfam,BstXI restriction endonuclease
+PF09605.14,0.07,0.84509804,Pfam,Hypothetical bacterial integral membrane protein (Trep_Strep)
+PF14706.10,0.07,0.84509804,Pfam,Transposase DNA-binding
+PF09208.14,0.07,0.84509804,Pfam,Restriction endonuclease MspI
+PF17158.8,0.07,0.84509804,Pfam,"Membrane-associated sensor, integral membrane domain"
+PF06122.15,0.07,0.84509804,Pfam,Conjugative relaxosome accessory transposon protein
+PF09549.14,0.07,0.84509804,Pfam,Bpu10I restriction endonuclease
+PF09499.14,0.06,0.77815125,Pfam,ApaLI-like restriction endonuclease
+PF10027.13,0.05,0.698970004,Pfam,Predicted integral membrane protein (DUF2269)
+PF09569.14,0.05,0.698970004,Pfam,ScaI restriction endonuclease
+PF14562.10,0.04,0.602059991,Pfam,Restriction endonuclease BglI
+PF10028.13,0.04,0.602059991,Pfam,Predicted integral membrane protein (DUF2270)
+PF21111.1,0.03,0.477121255,Pfam,CDI toxin restriction endonuclease-like domain
+PF08682.14,0.03,0.477121255,Pfam,"Putative endonuclease, protein of unknown function (DUF1780)"
+PF09545.14,0.03,0.477121255,Pfam,AccI restriction endonuclease
+PF09933.13,0.03,0.477121255,Pfam,Predicted small integral membrane protein (DUF2165)
+PF15646.10,0.03,0.477121255,Pfam,Restriction endonuclease fold toxin 2
+PF09955.13,0.03,0.477121255,Pfam,Predicted integral membrane protein (DUF2189)
+PF09516.14,0.03,0.477121255,Pfam,CfrBI restriction endonuclease
+PF15514.10,0.03,0.477121255,Pfam,Restriction endonuclease ThaI
+PF09853.13,0.03,0.477121255,Pfam,Putative transposon-encoded protein (DUF2080)
+PF02281.20,0.03,0.477121255,Pfam,Transposase Tn5 dimerisation domain
+PF21069.1,0.03,0.477121255,Pfam,CRISPR-associated endonuclease Cas9 alpha-helical lobe
+PF09573.14,0.03,0.477121255,Pfam,TaqI restriction endonuclease
+PF01940.20,0.03,0.477121255,Pfam,Integral membrane protein DUF92
+PF02961.18,0.03,0.477121255,Pfam,Barrier to autointegration factor
+PF01498.22,0.03,0.477121255,Pfam,Transposase
+PF13843.10,0.02,0.301029996,Pfam,Transposase IS4
+PF14529.10,0.02,0.301029996,Pfam,Endonuclease-reverse transcriptase
+PF15650.10,0.02,0.301029996,Pfam,Restriction endonuclease fold toxin 9
+PF15647.10,0.02,0.301029996,Pfam,Restriction endonuclease fold toxin 3
+PF09292.14,0.02,0.301029996,Pfam,"Endonuclease VIII-like 1, DNA bind"
+PF08721.15,0.02,0.301029996,Pfam,TnsA endonuclease C terminal
+PF03221.20,0.01,0.0,Pfam,Tc5 transposase DNA-binding domain
+PF09948.13,0.01,0.0,Pfam,Predicted metal-binding integral membrane protein (DUF2182)
+PF09928.13,0.01,0.0,Pfam,Predicted small integral membrane protein (DUF2160)
+PF13691.10,0.01,0.0,Pfam,tRNase Z endonuclease
+PF01974.21,0.01,0.0,Pfam,"tRNA intron endonuclease, catalytic C-terminal domain"
+PF21804.1,0.01,0.0,Pfam,Transposase protein
+PF20700.1,0.01,0.0,Pfam,Mutator-like transposase
+PF13009.10,0.01,0.0,Pfam,Putative integrase
+PF09194.14,0.01,0.0,Pfam,Restriction endonuclease BsobI
+PF08551.14,0.01,0.0,Pfam,Eukaryotic integral membrane protein (DUF1751)
+PF10003.13,0.01,0.0,Pfam,Integral membrane protein (DUF2244)
+PF03184.23,0.01,0.0,Pfam,DDE superfamily endonuclease
+PF21574.1,0.01,0.0,Pfam,"CRISPR-associated endonuclease Cas9, C-terminal domain"
+PF07016.15,0.01,0.0,Pfam,Cysteine-rich acidic integral membrane protein precursor
+PF09226.15,0.01,0.0,Pfam,Restriction endonuclease HincII
+PF08573.14,0.01,0.0,Pfam,DNA endonuclease activator SAE2/CtIP C-terminus
+PF15649.10,0.01,0.0,Pfam,Restriction endonuclease fold toxin 7
+K04763,10.0,4.890951685,KEGG,integrase/recombinase XerD
+K14059,10.0,4.882296801,KEGG,integrase
+K03733,10.0,4.875391202,KEGG,integrase/recombinase XerC
+K25861,10.0,4.397731497,KEGG,DNA annealing helicase and endonuclease ZRANB3 [EC:5.6.2.- 3.1.-.-]
+K07012,10.0,4.036069701,KEGG,CRISPR-associated endonuclease/helicase Cas3 [EC:3.1.-.- 5.6.2.4]
+K26041,10.0,4.030518765,KEGG,Straboviridae intron-associated endonuclease 1 [EC:3.1.-.-]
+K07459,10.0,3.908860173,KEGG,putative ATP-dependent endonuclease of the OLD family
+K07496,10.0,3.890700398,KEGG,putative transposase
+K07497,10.0,3.754730469,KEGG,putative transposase
+K21525,10.0,3.616895426,KEGG,Autographiviridae endonuclease I [EC:3.1.21.2]
+K21039,10.0,3.531734309,KEGG,Escherichia phage integrase [EC:2.7.7.- 3.1.-.-]
+K04764,10.0,3.505828034,KEGG,integration host factor subunit alpha
+K05788,10.0,3.497758718,KEGG,integration host factor subunit beta
+K23398,10.0,3.428782511,KEGG,activating signal cointegrator 1
+K18960,10.0,3.402605242,KEGG,Straboviridae recombination endonuclease VII
+K07482,10.0,3.186391216,KEGG,"transposase, IS30 family"
+K07483,10.0,3.182699903,KEGG,transposase
+K09952,10.0,3.1430148,KEGG,CRISPR-associated endonuclease Csn1 [EC:3.1.-.-]
+K07486,10.0,3.118925753,KEGG,transposase
+K07488,10.0,3.08170727,KEGG,transposase
+K13281,10.0,3.065579715,KEGG,UV DNA damage endonuclease [EC:3.-.-.-]
+K07504,10.0,3.024485668,KEGG,predicted type IV restriction endonuclease
+K07458,8.65,2.937016107,KEGG,"DNA mismatch endonuclease, patch repair protein [EC:3.1.-.-]"
+K07491,8.51,2.92992956,KEGG,REP-associated tyrosine transposase
+K01173,8.29,2.918554531,KEGG,"endonuclease G, mitochondrial"
+K07454,7.17,2.855519156,KEGG,putative restriction endonuclease
+K07461,6.83,2.834420704,KEGG,putative endonuclease
+K07492,6.81,2.833147112,KEGG,putative transposase
+K18663,6.51,2.813580989,KEGG,activating signal cointegrator complex subunit 3 [EC:5.6.2.4]
+K07481,6.48,2.811575006,KEGG,"transposase, IS5 family"
+K17676,5.94,2.773786445,KEGG,cruciform cutting endonuclease 1 [EC:3.1.21.10]
+K07485,5.8,2.763427994,KEGG,transposase
+K08991,5.65,2.752048448,KEGG,crossover junction endonuclease MUS81 [EC:3.1.22.-]
+K07499,5.56,2.745074792,KEGG,putative transposase
+K07487,5.48,2.738780558,KEGG,transposase
+K07493,5.48,2.738780558,KEGG,putative transposase
+K21522,5.29,2.723455672,KEGG,Straboviridae endonuclease V [EC:3.2.2.17]
+K26700,5.23,2.718501689,KEGG,Poxviridae DNA polymerase-beta / AP endonuclease
+K04799,5.12,2.709269961,KEGG,flap endonuclease-1 [EC:3.1.-.-]
+K07484,4.09,2.611723308,KEGG,transposase
+K15078,3.94,2.595496222,KEGG,structure-specific endonuclease subunit SLX1 [EC:3.6.1.-]
+K07494,3.88,2.588831726,KEGG,putative transposase
+K05522,3.57,2.552668216,KEGG,endonuclease VIII [EC:3.2.2.- 4.2.99.18]
+K19056,3.51,2.545307116,KEGG,"AraC family transcriptional regulator, transposon Tn10 TetD protein"
+K07453,3.3,2.51851394,KEGG,putative restriction endonuclease
+K13148,2.95,2.469822016,KEGG,integrator complex subunit 11 [EC:3.1.27.-]
+K08154,2.53,2.403120521,KEGG,"MFS transporter, DHA1 family, 2-module integral membrane pump EmrD"
+K07495,2.45,2.389166084,KEGG,putative transposase
+K07500,2.32,2.365487985,KEGG,DNA endonuclease
+K15049,2.24,2.350248018,KEGG,endonuclease domain-containing 1 protein
+K18828,2.21,2.344392274,KEGG,tRNA(fMet)-specific endonuclease VapC [EC:3.1.-.-]
+K20675,2.11,2.324282455,KEGG,serine protease immune response integrator
+K10567,1.87,2.271841607,KEGG,endonuclease VIII-like 1 [EC:3.2.2.- 4.2.99.18]
+K10771,1.76,2.245512668,KEGG,AP endonuclease 1 [EC:3.1.11.2]
+K10773,1.66,2.220108088,KEGG,endonuclease III [EC:3.2.2.- 4.2.99.18]
+K10772,1.64,2.214843848,KEGG,AP endonuclease 2 [EC:3.1.11.2]
+K05557,1.6,2.204119983,KEGG,"MFS transporter, DHA2 family, integral membrane protein"
+K10568,1.44,2.158362492,KEGG,endonuclease VIII-like 2 [EC:3.2.2.- 4.2.99.18]
+K10569,1.25,2.096910013,KEGG,endonuclease VIII-like 3 [EC:3.2.2.- 4.2.99.18]
+K07457,1.13,2.053078443,KEGG,endonuclease III related protein
+K07503,1.05,2.021189299,KEGG,endonuclease [EC:3.1.-.-]
+K26431,1.0,2.0,KEGG,Asfivirus probable AP endonuclease [EC:3.1.21.-]
+K25056,1.0,2.0,KEGG,HTLV-1 integrase
+K04462,1.0,2.0,KEGG,[histone H3]-lysine9 N-methyltransferase (ecotropic virus integration site 1 protein) [EC:2.1.1.367]
+K24803,1.0,2.0,KEGG,HIV-1 integrase
+K20242,1.0,2.0,KEGG,ecotropic viral integration site 5 protein
+K01152,0.87,1.939519253,KEGG,isftu1 transposase
+K07475,0.72,1.857332496,KEGG,CRISPR-associated endonuclease Cas3-HD [EC:3.1.-.-]
+K07498,0.71,1.851258349,KEGG,putative transposase
+K18320,0.69,1.838849091,KEGG,"transposase, IS6 family"
+K10882,0.61,1.785329835,KEGG,crossover junction endonuclease EME1 [EC:3.1.22.-]
+K07489,0.61,1.785329835,KEGG,transposase
+K18434,0.39,1.591064607,KEGG,type IV secretion system T-DNA border endonuclease VirD2
+K07460,0.31,1.491361694,KEGG,putative endonuclease
+K13146,0.24,1.380211242,KEGG,integrator complex subunit 9
+K19130,0.19,1.278753601,KEGG,CRISPR-associated endonuclease Csy4 [EC:3.1.-.-]
+K21813,0.15,1.176091259,KEGG,endonuclease V [EC:3.1.26.-]
+K13141,0.1,1.0,KEGG,integrator complex subunit 4
+K10883,0.08,0.903089987,KEGG,crossover junction endonuclease EME2
+K15326,0.06,0.77815125,KEGG,tRNA-splicing endonuclease subunit Sen54
+K22594,0.05,0.698970004,KEGG,pogo transposable element with ZNF domain
+K21870,0.03,0.477121255,KEGG,barrier-to-autointegration factor
+K10484,0.03,0.477121255,KEGG,structure-specific endonuclease subunit SLX4 (BTB/POZ domain-containing protein 12)
+K01170,0.01,0.0,KEGG,"tRNA-intron endonuclease, archaea type [EC:4.6.1.16]"
+K00312,0.01,0.0,KEGG,"wingless-type MMTV integration site family, member 3"
+K01357,0.01,0.0,KEGG,"wingless-type MMTV integration site family, member 10"
+K01384,0.01,0.0,KEGG,"wingless-type MMTV integration site family, member 11"
+K00572,0.01,0.0,KEGG,"wingless-type MMTV integration site family, member 7"
+K01064,0.01,0.0,KEGG,"wingless-type MMTV integration site family, member 9"
+K20773,0.01,0.0,KEGG,DNA endonuclease RBBP8 [EC:3.1.-.-]
+K01558,0.01,0.0,KEGG,"wingless-type MMTV integration site family, member 16"
+K00714,0.01,0.0,KEGG,"wingless-type MMTV integration site family, member 8"
+K00408,0.01,0.0,KEGG,"wingless-type MMTV integration site family, member 4"
+K23540,0.01,0.0,KEGG,golgi integral membrane protein 4
+K00444,0.01,0.0,KEGG,"wingless-type MMTV integration site family, member 5"
+K00445,0.01,0.0,KEGG,"wingless-type MMTV integration site family, member 6"
+K15323,0.01,0.0,KEGG,tRNA-splicing endonuclease subunit Sen34 [EC:4.6.1.16]
+K00182,0.01,0.0,KEGG,"wingless-type MMTV integration site family, member 2"
+K03209,0.01,0.0,KEGG,"wingless-type MMTV integration site family, member 1"
+phrog_216,10.0,4.618738233,PHROG,integrase
+phrog_1,10.0,4.578306773,PHROG,integrase
+phrog_59,10.0,4.349995899,PHROG,HNH endonuclease
+phrog_95,10.0,4.311986835,PHROG,integrase
+phrog_99,10.0,4.287980784,PHROG,HNH endonuclease
+phrog_144,10.0,4.254040258,PHROG,HNH endonuclease
+phrog_959,10.0,4.224222186,PHROG,HNH endonuclease
+phrog_1492,10.0,4.190387733,PHROG,HNH endonuclease
+phrog_119,10.0,4.183952786,PHROG,HNH endonuclease
+phrog_4578,10.0,4.166311681,PHROG,HNH endonuclease
+phrog_93,10.0,4.044618146,PHROG,endonuclease
+phrog_3377,10.0,4.042417988,PHROG,HNH endonuclease
+phrog_2081,10.0,4.042299807,PHROG,HNH endonuclease
+phrog_1872,10.0,4.017409009,PHROG,endonuclease
+phrog_8790,10.0,4.007363654,PHROG,restriction endonuclease
+phrog_826,10.0,4.007150105,PHROG,HNH endonuclease
+phrog_3593,10.0,3.95679252,PHROG,HNH endonuclease
+phrog_314,10.0,3.945222317,PHROG,homing endonuclease
+phrog_6254,10.0,3.91603261,PHROG,HNH endonuclease
+phrog_374,10.0,3.884398826,PHROG,HNH endonuclease
+phrog_953,10.0,3.875466416,PHROG,HNH endonuclease
+phrog_5034,10.0,3.861952375,PHROG,NinG/ Rap DNA junction specific endonuclease
+phrog_2633,10.0,3.858236335,PHROG,endonuclease VII
+phrog_77,10.0,3.850094594,PHROG,SbcC-like subunit of palindrome specific endonuclease
+phrog_307,10.0,3.849542252,PHROG,endonuclease VII
+phrog_2914,10.0,3.841296887,PHROG,endonuclease VII
+phrog_171,10.0,3.815909651,PHROG,NinG/ Rap DNA junction specific endonuclease
+phrog_2323,10.0,3.792951708,PHROG,HNH endonuclease
+phrog_506,10.0,3.792461731,PHROG,transposase
+phrog_589,10.0,3.767749367,PHROG,HNH endonuclease
+phrog_310,10.0,3.738384124,PHROG,transposase
+phrog_333,10.0,3.736316808,PHROG,HNH endonuclease
+phrog_100,10.0,3.733839001,PHROG,SbcD-like subunit of palindrome specific endonuclease
+phrog_1314,10.0,3.71432976,PHROG,HNH endonuclease
+phrog_2214,10.0,3.703119346,PHROG,HNH endonuclease
+phrog_296,10.0,3.70018433,PHROG,DNA transposition protein
+phrog_7168,10.0,3.688953463,PHROG,homing endonuclease
+phrog_12300,10.0,3.685831275,PHROG,transposase
+phrog_423,10.0,3.684486292,PHROG,endonuclease VII
+phrog_338,10.0,3.636688448,PHROG,HNH endonuclease
+phrog_16726,10.0,3.633266411,PHROG,HNH endonuclease
+phrog_945,10.0,3.587374172,PHROG,endonuclease
+phrog_2255,10.0,3.583085366,PHROG,HNH endonuclease
+phrog_7269,10.0,3.582517884,PHROG,integrase
+phrog_13964,10.0,3.576801896,PHROG,transposase
+phrog_452,10.0,3.57391544,PHROG,endonuclease
+phrog_4842,10.0,3.564192461,PHROG,HNH endonuclease
+phrog_131,10.0,3.564073979,PHROG,HNH endonuclease
+phrog_3322,10.0,3.537567257,PHROG,endonuclease
+phrog_1891,10.0,3.529045171,PHROG,HNH endonuclease
+phrog_5956,10.0,3.527114112,PHROG,HNH endonuclease
+phrog_2118,10.0,3.518250651,PHROG,HNH endonuclease
+phrog_5718,10.0,3.436957331,PHROG,HNH endonuclease
+phrog_9084,10.0,3.412628521,PHROG,homing endonuclease
+phrog_681,10.0,3.410439786,PHROG,endonuclease
+phrog_20188,10.0,3.395151592,PHROG,endonuclease
+phrog_27028,10.0,3.388456453,PHROG,endonuclease
+phrog_20891,10.0,3.387923467,PHROG,HNH endonuclease
+phrog_559,10.0,3.357363031,PHROG,HNH endonuclease
+phrog_7785,10.0,3.357363031,PHROG,HNH endonuclease
+phrog_14314,10.0,3.347915187,PHROG,HNH endonuclease
+phrog_3106,10.0,3.344588743,PHROG,HNH endonuclease
+phrog_7685,10.0,3.342817315,PHROG,integrase
+phrog_2340,10.0,3.310055738,PHROG,endonuclease
+phrog_7244,10.0,3.302114377,PHROG,integrase
+phrog_3339,10.0,3.29907126,PHROG,homing endonuclease
+phrog_1035,10.0,3.263636069,PHROG,endonuclease VII
+phrog_11531,10.0,3.259832699,PHROG,integrase
+phrog_740,10.0,3.227886705,PHROG,HNH endonuclease
+phrog_14736,10.0,3.223495941,PHROG,HNH endonuclease
+phrog_4645,10.0,3.220892249,PHROG,endonuclease
+phrog_513,10.0,3.198657087,PHROG,transposase
+phrog_655,10.0,3.183554534,PHROG,homing endonuclease
+phrog_10822,10.0,3.170261715,PHROG,HNH endonuclease
+phrog_15471,10.0,3.16879202,PHROG,HNH endonuclease
+phrog_4321,10.0,3.127428778,PHROG,HNH endonuclease
+phrog_96,10.0,3.120573931,PHROG,HNH endonuclease
+phrog_5123,10.0,3.114610984,PHROG,homing endonuclease with GIY-YIG motif
+phrog_1571,10.0,3.096562438,PHROG,HNH endonuclease
+phrog_157,10.0,3.078456818,PHROG,transposase
+phrog_7545,10.0,3.074084689,PHROG,HNH endonuclease
+phrog_17507,10.0,3.059563418,PHROG,endonuclease VII
+phrog_35854,10.0,3.043755127,PHROG,HNH endonuclease
+phrog_8420,10.0,3.033825694,PHROG,endonuclease
+phrog_274,10.0,3.027757205,PHROG,DNA endonuclease V
+phrog_5046,10.0,3.007747778,PHROG,HNH endonuclease
+phrog_10730,10.0,3.000867722,PHROG,HNH endonuclease
+phrog_956,9.21,2.96425963,PHROG,transposase
+phrog_8446,9.21,2.96425963,PHROG,HNH endonuclease
+phrog_2297,9.13,2.960470778,PHROG,DNA endonuclease
+phrog_2577,9.08,2.958085849,PHROG,transposase
+phrog_2199,8.87,2.94792362,PHROG,transposase
+phrog_4225,7.88,2.896526217,PHROG,endonuclease
+phrog_1271,7.88,2.896526217,PHROG,HNH endonuclease
+phrog_4646,7.62,2.881954971,PHROG,transposase
+phrog_25190,7.55,2.877946952,PHROG,integrase
+phrog_7370,7.51,2.875639937,PHROG,HNH endonuclease
+phrog_1985,7.39,2.868644438,PHROG,HNH endonuclease
+phrog_8660,7.34,2.86569606,PHROG,HNH endonuclease
+phrog_14913,6.62,2.820857989,PHROG,HNH endonuclease
+phrog_14515,6.59,2.818885415,PHROG,HNH endonuclease
+phrog_17283,6.47,2.810904281,PHROG,HNH endonuclease
+phrog_11865,6.44,2.808885867,PHROG,endonuclease VII
+phrog_23783,6.21,2.7930916,PHROG,integrase
+phrog_6620,6.2,2.792391689,PHROG,transposase
+phrog_10426,6.02,2.779596491,PHROG,integrase
+phrog_4285,5.99,2.777426822,PHROG,transposase
+phrog_16880,5.88,2.769377326,PHROG,endonuclease
+phrog_15463,5.78,2.761927838,PHROG,HNH endonuclease
+phrog_1183,5.49,2.739572344,PHROG,endonuclease V N-glycosylase UV repair enzyme
+phrog_3281,5.37,2.729974286,PHROG,endonuclease VII
+phrog_19446,5.34,2.727541257,PHROG,homing endonuclease
+phrog_2331,5.01,2.699837726,PHROG,transposase
+phrog_12131,5.0,2.698970004,PHROG,homing endonuclease
+phrog_3312,4.74,2.675778342,PHROG,endonuclease
+phrog_13076,4.61,2.663700925,PHROG,endonuclease
+phrog_30377,4.51,2.654176542,PHROG,HNH endonuclease
+phrog_9545,4.47,2.650307523,PHROG,HNH endonuclease
+phrog_1157,4.43,2.646403726,PHROG,transposase
+phrog_2321,4.3,2.633468456,PHROG,Ref-like RecA filament endonuclease
+phrog_10088,4.2,2.62324929,PHROG,homing endonuclease
+phrog_9645,4.13,2.615950052,PHROG,HNH endonuclease
+phrog_4234,4.1,2.612783857,PHROG,HNH endonuclease
+phrog_5749,4.07,2.609594409,PHROG,transposase
+phrog_1808,4.05,2.607455023,PHROG,HNH endonuclease
+phrog_12400,3.82,2.582063363,PHROG,HNH endonuclease
+phrog_10495,3.81,2.580924976,PHROG,HNH endonuclease
+phrog_9508,3.77,2.57634135,PHROG,HNH endonuclease
+phrog_8463,3.67,2.564666064,PHROG,transposase
+phrog_688,3.63,2.559906625,PHROG,transposase
+phrog_6050,3.51,2.545307116,PHROG,HNH endonuclease
+phrog_11688,3.41,2.532754379,PHROG,transposase
+phrog_3356,3.24,2.51054501,PHROG,transposase
+phrog_3118,3.06,2.485721426,PHROG,HNH endonuclease
+phrog_14437,2.99,2.475671188,PHROG,endonuclease
+phrog_15137,2.97,2.472756449,PHROG,endonuclease
+phrog_151,2.93,2.46686762,PHROG,transposase
+phrog_5200,2.93,2.46686762,PHROG,HNH endonuclease
+phrog_623,2.74,2.437750563,PHROG,transposase
+phrog_960,2.42,2.383815366,PHROG,HNH endonuclease
+phrog_5830,2.41,2.382017043,PHROG,integrase
+phrog_3035,2.25,2.352182518,PHROG,transposase
+phrog_21421,2.14,2.330413773,PHROG,integrase
+phrog_865,2.09,2.320146286,PHROG,HNH endonuclease
+phrog_10081,2.06,2.31386722,PHROG,transposase
+phrog_7363,2.03,2.307496038,PHROG,homing endonuclease
+phrog_4723,2.02,2.305351369,PHROG,endonuclease VII
+phrog_16945,2.0,2.301029996,PHROG,endonuclease
+phrog_2393,1.98,2.29666519,PHROG,transposase
+phrog_23251,1.93,2.285557309,PHROG,HNH endonuclease
+phrog_3598,1.82,2.260071388,PHROG,transposase
+phrog_11023,1.75,2.243038049,PHROG,homing endonuclease with LAGLIDADG motif
+phrog_10696,1.75,2.243038049,PHROG,HNH endonuclease
+phrog_4716,1.71,2.23299611,PHROG,transposase
+phrog_8048,1.66,2.220108088,PHROG,HNH endonuclease
+phrog_25184,1.63,2.212187604,PHROG,HNH endonuclease
+phrog_5389,1.57,2.195899652,PHROG,transposase
+phrog_25061,1.52,2.181843588,PHROG,HNH endonuclease
+phrog_19169,1.51,2.178976947,PHROG,endonuclease
+phrog_13470,1.5,2.176091259,PHROG,HNH endonuclease
+phrog_20005,1.46,2.164352856,PHROG,endonuclease VII
+phrog_16589,1.38,2.139879086,PHROG,restriction endonuclease
+phrog_3300,1.34,2.127104798,PHROG,transposase
+phrog_33747,1.3,2.113943352,PHROG,transposase
+phrog_12324,1.27,2.103803721,PHROG,intron-like DNA endonuclease
+phrog_37023,1.25,2.096910013,PHROG,endonuclease
+phrog_15522,1.23,2.089905111,PHROG,HNH endonuclease
+phrog_8828,1.23,2.089905111,PHROG,HNH endonuclease
+phrog_11604,1.23,2.089905111,PHROG,HNH endonuclease
+phrog_1013,1.13,2.053078443,PHROG,transposase
+phrog_20162,1.12,2.049218023,PHROG,HNH endonuclease
+phrog_19902,1.12,2.049218023,PHROG,HNH endonuclease
+phrog_5411,1.06,2.025305865,PHROG,HNH endonuclease
+phrog_9443,1.04,2.017033339,PHROG,HNH endonuclease
+phrog_1631,1.01,2.004321374,PHROG,transposase
+phrog_23285,0.97,1.986771734,PHROG,HNH endonuclease
+phrog_24751,0.93,1.968482949,PHROG,HNH endonuclease
+phrog_12434,0.91,1.959041392,PHROG,HNH endonuclease
+phrog_1639,0.9,1.954242509,PHROG,restriction endonuclease
+phrog_2262,0.84,1.924279286,PHROG,transposase
+phrog_28142,0.84,1.924279286,PHROG,HNH endonuclease
+phrog_22048,0.82,1.913813852,PHROG,HNH endonuclease
+phrog_7951,0.79,1.897627091,PHROG,transposase
+phrog_10378,0.78,1.892094603,PHROG,HNH endonuclease
+phrog_16016,0.77,1.886490725,PHROG,HNH endonuclease
+phrog_36860,0.74,1.86923172,PHROG,HNH endonuclease
+phrog_720,0.73,1.86332286,PHROG,transposase
+phrog_25862,0.73,1.86332286,PHROG,HNH endonuclease
+phrog_33760,0.71,1.851258349,PHROG,HNH endonuclease
+phrog_10820,0.7,1.84509804,PHROG,HNH endonuclease
+phrog_17698,0.69,1.838849091,PHROG,transposase
+phrog_11704,0.67,1.826074803,PHROG,transposase
+phrog_36646,0.66,1.819543936,PHROG,restriction endonuclease II
+phrog_17577,0.65,1.812913357,PHROG,restriction endonuclease
+phrog_24351,0.63,1.799340549,PHROG,endonuclease VII
+phrog_22514,0.57,1.755874856,PHROG,HNH endonuclease
+phrog_2422,0.52,1.716003344,PHROG,transposase
+phrog_34723,0.52,1.716003344,PHROG,integrase
+phrog_1111,0.48,1.681241237,PHROG,endonuclease
+phrog_34557,0.47,1.672097858,PHROG,integrase
+phrog_24148,0.47,1.672097858,PHROG,HNH endonuclease
+phrog_1191,0.42,1.62324929,PHROG,transposase
+phrog_3978,0.39,1.591064607,PHROG,endonuclease
+phrog_13862,0.38,1.579783597,PHROG,endonuclease
+phrog_1360,0.37,1.568201724,PHROG,DenB-like DNA endonuclease IV
+phrog_5351,0.36,1.556302501,PHROG,HNH endonuclease
+phrog_9208,0.35,1.544068044,PHROG,integrase
+phrog_23961,0.3,1.477121255,PHROG,endonuclease
+phrog_15209,0.29,1.462397998,PHROG,endonuclease
+phrog_17657,0.29,1.462397998,PHROG,HNH endonuclease
+phrog_12824,0.27,1.431363764,PHROG,endonuclease
+phrog_21964,0.27,1.431363764,PHROG,HNH endonuclease
+phrog_5127,0.27,1.431363764,PHROG,integrase
+phrog_34741,0.26,1.414973348,PHROG,endonuclease
+phrog_6086,0.25,1.397940009,PHROG,HNH endonuclease
+phrog_30357,0.24,1.380211242,PHROG,endonuclease
+phrog_6156,0.23,1.361727836,PHROG,endonuclease
+phrog_18366,0.22,1.342422681,PHROG,restriction endonuclease II
+phrog_9496,0.22,1.342422681,PHROG,endonuclease
+phrog_25983,0.21,1.322219295,PHROG,HNH endonuclease
+phrog_15427,0.2,1.301029996,PHROG,endonuclease
+phrog_20467,0.19,1.278753601,PHROG,HNH endonuclease
+phrog_25551,0.19,1.278753601,PHROG,homing endonuclease
+phrog_7504,0.19,1.278753601,PHROG,homing endonuclease
+phrog_12980,0.19,1.278753601,PHROG,HNH endonuclease
+phrog_28079,0.19,1.278753601,PHROG,restriction endonuclease II
+phrog_25420,0.19,1.278753601,PHROG,HNH endonuclease
+phrog_3379,0.18,1.255272505,PHROG,endonuclease
+phrog_22377,0.16,1.204119983,PHROG,restriction endonuclease II
+phrog_30443,0.15,1.176091259,PHROG,HNH endonuclease
+phrog_29037,0.15,1.176091259,PHROG,endonuclease
+phrog_33554,0.13,1.113943352,PHROG,HNH endonuclease
+phrog_9366,0.12,1.079181246,PHROG,transposase
+phrog_24671,0.12,1.079181246,PHROG,integrase
+phrog_27406,0.12,1.079181246,PHROG,endonuclease
+phrog_29095,0.11,1.041392685,PHROG,endonuclease
+phrog_18411,0.11,1.041392685,PHROG,homing endonuclease
+phrog_7426,0.11,1.041392685,PHROG,HNH endonuclease
+phrog_35175,0.1,1.0,PHROG,HNH endonuclease
+phrog_36562,0.1,1.0,PHROG,transposase
+phrog_32871,0.1,1.0,PHROG,integrase
+phrog_20015,0.1,1.0,PHROG,endonuclease
+phrog_20724,0.09,0.954242509,PHROG,HNH endonuclease
+phrog_17889,0.09,0.954242509,PHROG,endonuclease
+phrog_12576,0.09,0.954242509,PHROG,HNH endonuclease
+phrog_24545,0.09,0.954242509,PHROG,HNH endonuclease
+phrog_19978,0.09,0.954242509,PHROG,HNH endonuclease
+phrog_6890,0.09,0.954242509,PHROG,endonuclease
+phrog_18250,0.08,0.903089987,PHROG,integrase
+phrog_10553,0.08,0.903089987,PHROG,HNH endonuclease
+phrog_32453,0.08,0.903089987,PHROG,HNH endonuclease
+phrog_4227,0.08,0.903089987,PHROG,endonuclease nicking abasic sites generated by host uracil glycosylase Ung
+phrog_14097,0.08,0.903089987,PHROG,HNH endonuclease
+phrog_7030,0.08,0.903089987,PHROG,HNH endonuclease
+phrog_7091,0.08,0.903089987,PHROG,HNH endonuclease
+phrog_29143,0.08,0.903089987,PHROG,HNH endonuclease
+phrog_6763,0.07,0.84509804,PHROG,activator of host PrrC lysyl-tRNA endonuclease
+phrog_21054,0.07,0.84509804,PHROG,HNH endonuclease
+phrog_19810,0.07,0.84509804,PHROG,DNA endonuclease V
+phrog_26163,0.06,0.77815125,PHROG,homing endonuclease
+phrog_22533,0.05,0.698970004,PHROG,endonuclease
+phrog_11336,0.05,0.698970004,PHROG,HNH endonuclease
+phrog_10486,0.05,0.698970004,PHROG,transposase
+phrog_23136,0.05,0.698970004,PHROG,integrase
+phrog_4208,0.04,0.602059991,PHROG,HNH endonuclease
+phrog_27175,0.04,0.602059991,PHROG,transposase
+phrog_3404,0.03,0.477121255,PHROG,HNH endonuclease
+phrog_24252,0.03,0.477121255,PHROG,HNH endonuclease
+phrog_34032,0.03,0.477121255,PHROG,endonuclease
+phrog_24477,0.03,0.477121255,PHROG,HNH endonuclease
+phrog_33155,0.02,0.301029996,PHROG,HNH endonuclease
+phrog_16133,0.02,0.301029996,PHROG,HNH endonuclease
+phrog_14449,0.02,0.301029996,PHROG,transposase
+phrog_12473,0.02,0.301029996,PHROG,endonuclease
+phrog_33459,0.01,0.0,PHROG,HNH endonuclease
+phrog_37862,0.01,0.0,PHROG,endonuclease
+phrog_33635,0.01,0.0,PHROG,endonuclease

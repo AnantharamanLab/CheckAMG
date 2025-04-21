@@ -1,0 +1,528 @@
+id	V-score	VL-score	db	name
+PF05272.15	10.0	3.886716274	Pfam	Virulence-associated protein E-like domain
+PF04717.16	10.0	3.729893404	Pfam	Type VI secretion system/phage-baseplate injector OB domain
+PF07927.16	10.0	3.386855529	Pfam	HicA toxin of bacterial toxin-antitoxin,
+PF02452.21	10.0	3.376576957	Pfam	PemK-like, MazF-like toxin of type II toxin-antitoxin system
+PF15919.9	10.0	3.260548373	Pfam	HicB_like antitoxin of bacterial toxin-antitoxin system
+PF05016.19	8.81	2.944975908	Pfam	ParE toxin of type II toxin-antitoxin system, parDE
+PF10614.13	7.82	2.893206753	Pfam	Type VIII secretion system (T8SS), CsgF protein
+PF02604.23	5.82	2.764922985	Pfam	Antitoxin Phd_YefM, type II toxin-antitoxin system
+PF04232.16	5.37	2.729974286	Pfam	Stage V sporulation protein S (SpoVS)
+PF04365.17	5.34	2.727541257	Pfam	Ribonuclease toxin, BrnT, of type II toxin-antitoxin system
+PF14384.10	5.25	2.720159303	Pfam	BrnA antitoxin of type II toxin-antitoxin system
+PF00263.25	4.87	2.687528961	Pfam	Bacterial type II and III secretion system protein
+PF10412.13	4.8	2.681241237	Pfam	Type IV secretion-system coupling protein DNA-binding domain
+PF05015.17	4.7	2.672097858	Pfam	RelE-like toxin of type II toxin-antitoxin system HigB
+PF08769.15	4.59	2.661812686	Pfam	Sporulation initiation factor Spo0A C terminal
+PF18962.4	4.34	2.63748973	Pfam	Secretion system C-terminal sorting domain
+PF13310.10	4.31	2.63447727	Pfam	Virulence protein RhuM family
+PF21277.1	4.12	2.614897216	Pfam	Type VI secretion system spike protein VgrG3-like, C-terminal
+PF15738.9	3.01	2.478566496	Pfam	Bacterial toxin of type II toxin-antitoxin system, YafQ 
+PF13585.10	2.6	2.414973348	Pfam	CHU_C Type IX secretion signal domain
+PF10685.13	2.31	2.36361198	Pfam	Stress-induced bacterial acidophilic repeat motif
+PF08845.14	2.26	2.354108439	Pfam	Toxin SymE, type I toxin-antitoxin system
+PF09907.13	2.23	2.348304863	Pfam	HigB_toxin, RelE-like toxic component of a toxin-antitoxin system
+PF00437.24	2.22	2.346352974	Pfam	Type II/IV secretion system protein
+PF06769.18	2.17	2.336459734	Pfam	YoeB-like toxin of bacterial type II toxin-antitoxin system
+PF09388.14	2.08	2.318063335	Pfam	Spo0E like sporulation regulatory protein
+PF15731.9	1.95	2.290034611	Pfam	Antitoxin component of bacterial toxin-antitoxin system, MqsA
+PF11160.12	1.93	2.285557309	Pfam	Hypervirulence associated proteins TUDOR domain
+PF13957.10	1.62	2.209515015	Pfam	Toxin YafO, type II toxin-antitoxin system
+PF12116.12	1.59	2.201397124	Pfam	Stage III sporulation protein D
+PF11319.12	1.54	2.187520721	Pfam	Type VI secretion system VasI, EvfG, VC_A0118
+PF06296.16	1.2	2.079181246	Pfam	RelE toxin of RelE / RelB toxin-antitoxin system
+PF13958.10	1.14	2.056904851	Pfam	Toxin ToxN, type III toxin-antitoxin system
+PF03472.19	1.06	2.025305865	Pfam	Autoinducer binding domain
+PF13018.10	1.02	2.008600172	Pfam	Extended Signal Peptide of Type V secretion system
+PF04686.16	1.01	2.004321374	Pfam	Streptomyces sporulation and cell division protein, SsgA
+PF13437.10	1.0	2.0	Pfam	HlyD family secretion protein
+PF15284.10	1.0	2.0	Pfam	Phage-encoded virulence factor
+PF08486.14	0.98	1.991226076	Pfam	Stage II sporulation protein
+PF05638.16	0.95	1.977723605	Pfam	Type VI secretion system effector, Hcp
+PF03693.18	0.88	1.944482672	Pfam	Bacterial antitoxin of ParD toxin-antitoxin type II system and RHH
+PF03958.21	0.83	1.919078092	Pfam	Bacterial type II/III secretion system short domain
+PF12843.11	0.81	1.908485019	Pfam	Putative quorum-sensing-regulated virulence factor
+PF15781.9	0.77	1.886490725	Pfam	ParE-like toxin of type II bacterial toxin-antitoxin system
+PF05860.17	0.75	1.875061263	Pfam	TPS secretion domain
+PF00582.30	0.73	1.86332286	Pfam	Universal stress protein family
+PF13753.10	0.68	1.832508913	Pfam	Putative flagellar system-associated repeat
+PF06755.16	0.59	1.770852012	Pfam	CbtA_toxin of type IV toxin-antitoxin system
+PF14113.10	0.57	1.755874856	Pfam	Type VI secretion system (T6SS), amidase effector protein 4
+PF11903.12	0.57	1.755874856	Pfam	ParD-like antitoxin of type II bacterial toxin-antitoxin system
+PF00345.24	0.54	1.73239376	Pfam	Pili and flagellar-assembly chaperone, PapD N-terminal domain
+PF00482.27	0.53	1.72427587	Pfam	Type II secretion system (T2SS), protein F
+PF13296.10	0.53	1.72427587	Pfam	Putative type VI secretion system Rhs element Vgr
+PF04386.17	0.5	1.698970004	Pfam	Stringent starvation protein B
+PF00765.21	0.5	1.698970004	Pfam	Autoinducer synthase
+PF05977.17	0.5	1.698970004	Pfam	Transmembrane secretion effector
+PF15723.9	0.45	1.653212514	Pfam	Motility quorum-sensing regulator, toxin of MqsA
+PF11663.12	0.44	1.643452676	Pfam	Toxin with endonuclease activity, of toxin-antitoxin system
+PF08178.15	0.4	1.602059991	Pfam	GnsA/GnsB toxin of bacterial toxin-antitoxin system
+PF15970.9	0.38	1.579783597	Pfam	HicB_like antitoxin of bacterial toxin-antitoxin system
+PF11927.12	0.35	1.544068044	Pfam	Haem-dependent oxidative N-demethylase, alpha subunit-like
+PF03865.17	0.33	1.51851394	Pfam	Haemolysin secretion/activation protein ShlB/FhaC/HecB
+PF03534.17	0.3	1.477121255	Pfam	Salmonella virulence plasmid 65kDa B protein
+PF10957.12	0.29	1.462397998	Pfam	Sporulation protein Cse60
+PF03883.18	0.23	1.361727836	Pfam	Peroxide stress protein YaaA
+PF07228.16	0.18	1.255272505	Pfam	Stage II sporulation protein E (SpoIIE)
+PF12441.12	0.18	1.255272505	Pfam	CopG antitoxin of type II toxin-antitoxin system
+PF03961.17	0.18	1.255272505	Pfam	Flagellar Assembly Protein A beta solenoid domain
+PF15714.9	0.16	1.204119983	Pfam	Stage V sporulation protein T C-terminal, transcription factor
+PF19568.3	0.15	1.176091259	Pfam	Sporulation stage III, protein AA
+PF01052.24	0.14	1.146128036	Pfam	Type III flagellar switch regulator (C-ring) FliN C-term
+PF10798.12	0.12	1.079181246	Pfam	Biofilm development protein YmgB/AriR
+PF07876.16	0.12	1.079181246	Pfam	Stress responsive A/B Barrel Domain
+PF12910.11	0.12	1.079181246	Pfam	Antitoxin of toxin-antitoxin, RelE / RelB, TA system
+PF05364.18	0.12	1.079181246	Pfam	Salmonella type III secretion SopE effector N-terminus
+PF06289.15	0.11	1.041392685	Pfam	Flagellar and Swarming motility proteins
+PF09857.13	0.1	1.0	Pfam	Putative toxin of bacterial toxin-antitoxin pair
+PF02154.19	0.1	1.0	Pfam	Flagellar motor switch protein FliM
+PF07451.15	0.09	0.954242509	Pfam	Stage V sporulation protein AD (SpoVAD)
+PF06744.16	0.09	0.954242509	Pfam	Type VI secretion protein IcmF C2-like domain
+PF03631.19	0.09	0.954242509	Pfam	Virulence factor BrkB
+PF12468.12	0.09	0.954242509	Pfam	Type III secretion system leucine rich repeat protein
+PF02561.18	0.09	0.954242509	Pfam	Flagellar protein FliS
+PF03543.18	0.08	0.903089987	Pfam	Yersinia/Haemophilus virulence surface antigen
+PF10498.13	0.08	0.903089987	Pfam	Intra-flagellar transport protein 57
+PF21070.1	0.08	0.903089987	Pfam	Type VI secretion protein IcmF helical domain
+PF06996.15	0.08	0.903089987	Pfam	Type VI secretion, TssG
+PF09486.14	0.08	0.903089987	Pfam	Bacterial type III secretion protein (HrpB7)
+PF06812.16	0.08	0.903089987	Pfam	ImpA, N-terminal, type VI secretion system
+PF11203.12	0.08	0.903089987	Pfam	Putative type VII ESX secretion system translocon, EccE
+PF13955.10	0.08	0.903089987	Pfam	Toxin Fst, type I toxin-antitoxin system
+PF02049.22	0.07	0.84509804	Pfam	Flagellar hook-basal body complex protein FliE
+PF11751.12	0.07	0.84509804	Pfam	Type IX secretion system membrane protein PorP/SprF
+PF05591.16	0.07	0.84509804	Pfam	Type VI secretion system, VipA, VC_A0107 or Hcp2
+PF01944.21	0.07	0.84509804	Pfam	Stage II sporulation protein M
+PF07996.15	0.07	0.84509804	Pfam	Type IV secretion system proteins
+PF05947.16	0.07	0.84509804	Pfam	Type VI secretion system, TssF
+PF08334.15	0.06	0.77815125	Pfam	Type II secretion system (T2SS), protein G
+PF14185.10	0.06	0.77815125	Pfam	Antitoxin SpoIISB, type II toxin-antitoxin system
+PF15905.9	0.06	0.77815125	Pfam	Hyaluronan mediated motility receptor N-terminal
+PF21725.1	0.06	0.77815125	Pfam	Putative T7SS secretion signal domain
+PF06429.17	0.06	0.77815125	Pfam	Flagellar basal body rod FlgEFG protein C-terminal
+PF07454.15	0.06	0.77815125	Pfam	Stage II sporulation protein P (SpoIIP)
+PF18895.4	0.06	0.77815125	Pfam	Type IV secretion system pilin
+PF05526.15	0.06	0.77815125	Pfam	Rhodococcus equi virulence-associated protein
+PF05280.15	0.06	0.77815125	Pfam	Flagellar transcriptional activator (FlhC)
+PF11202.12	0.06	0.77815125	Pfam	Tellurite-like stress resistance cysteine protease StiP
+PF08970.14	0.06	0.77815125	Pfam	Sporulation inhibitor A
+PF12790.11	0.06	0.77815125	Pfam	Type VI secretion lipoprotein, VasD, EvfM, TssJ, VC_A0113
+PF05936.16	0.06	0.77815125	Pfam	Bacterial Type VI secretion, VC_A0110, EvfL, ImpJ, VasE
+PF17561.6	0.05	0.698970004	Pfam	Type VI secretion system, TssO
+PF03934.17	0.05	0.698970004	Pfam	Type II secretion system (T2SS), protein K
+PF20439.2	0.05	0.698970004	Pfam	Sporulation stage IV protein A, C-terminal
+PF06986.15	0.05	0.698970004	Pfam	F-type Type IV secretion system, TraN
+PF07195.16	0.05	0.698970004	Pfam	Flagellar hook-associated protein 2 C-terminus
+PF06257.15	0.05	0.698970004	Pfam	Biofilm formation stimulator VEG
+PF06686.15	0.05	0.698970004	Pfam	Stage III sporulation protein AC/AD protein family
+PF12486.12	0.04	0.602059991	Pfam	Type VI secretion system, EvfB, or VasL
+PF09850.13	0.04	0.602059991	Pfam	Type VI secretion system protein DotU
+PF08183.15	0.04	0.602059991	Pfam	Stage V sporulation protein family
+PF11181.12	0.04	0.602059991	Pfam	Heat induced stress protein YflT domain
+PF16989.9	0.04	0.602059991	Pfam	Type VI secretion, EvfE, EvfF, ImpA, BimE, VC_A0119, VasJ
+PF02465.22	0.04	0.602059991	Pfam	Flagellar hook-associated protein 2 N-terminus
+PF07559.18	0.04	0.602059991	Pfam	Flagellar basal body protein FlaE
+PF12164.12	0.03	0.477121255	Pfam	Stage V sporulation protein AA
+PF04620.16	0.03	0.477121255	Pfam	Flagellar filament outer layer protein Flaa
+PF10646.13	0.03	0.477121255	Pfam	Sporulation and spore germination
+PF16538.9	0.03	0.477121255	Pfam	Flagellar assembly protein T, C-terminal domain
+PF17555.6	0.03	0.477121255	Pfam	Type VI secretion system, TssN
+PF08817.14	0.03	0.477121255	Pfam	WXG100 protein secretion system (Wss), protein YukD
+PF03862.17	0.03	0.477121255	Pfam	SpoVAC/SpoVAEB sporulation membrane protein
+PF03419.17	0.03	0.477121255	Pfam	Sporulation factor SpoIIGA
+PF09551.14	0.03	0.477121255	Pfam	Stage II sporulation protein R (spore_II_R)
+PF05108.17	0.03	0.477121255	Pfam	Type VII secretion system ESX-1, transport TM domain B
+PF09579.14	0.03	0.477121255	Pfam	Sporulation protein YtfJ (Spore_YtfJ)
+PF05247.17	0.03	0.477121255	Pfam	Flagellar transcriptional activator (FlhD)
+PF17541.6	0.03	0.477121255	Pfam	Type VI secretion system, TssC, VipB
+PF11393.12	0.03	0.477121255	Pfam	Type-IV b secretion system, inner-membrane complex component
+PF10139.13	0.02	0.301029996	Pfam	Putative bacterial virulence factor
+PF02512.18	0.02	0.301029996	Pfam	Virulence determinant
+PF13940.10	0.02	0.301029996	Pfam	Toxin Ldr, type I toxin-antitoxin system
+PF12293.12	0.02	0.301029996	Pfam	Putative outer membrane core complex of type IVb secretion
+PF19732.3	0.02	0.301029996	Pfam	Stage II sporulation protein E N-terminal
+PF09546.14	0.02	0.301029996	Pfam	Stage III sporulation protein AE (spore_III_AE)
+PF16695.9	0.02	0.301029996	Pfam	Type VI secretion system (T6SS), amidase immunity protein
+PF18270.5	0.02	0.301029996	Pfam	Virulence factor Evf
+PF20560.2	0.02	0.301029996	Pfam	Motility protein A N-terminal
+PF14620.10	0.02	0.301029996	Pfam	YpeB sporulation, PepSY1 and PepSY2 domains
+PF10140.13	0.02	0.301029996	Pfam	WXG100 protein secretion system (Wss), protein YukC
+PF11846.12	0.02	0.301029996	Pfam	Virulence factor membrane-bound polymerase, C-terminal
+PF02050.20	0.02	0.301029996	Pfam	Flagellar FliJ protein
+PF09547.14	0.02	0.301029996	Pfam	Stage IV sporulation protein A, ATPase domain
+PF06057.15	0.02	0.301029996	Pfam	Bacterial virulence protein (VirJ)
+PF21545.1	0.02	0.301029996	Pfam	T7SS, ESX-1 secretion system protein EccA1, N-terminal domain
+PF21611.1	0.02	0.301029996	Pfam	Avirulence protein, C-terminal domain
+PF07309.15	0.02	0.301029996	Pfam	Flagellar protein FlaF
+PF20438.2	0.02	0.301029996	Pfam	Stage IV sporulation protein A, middle domain
+PF12945.11	0.02	0.301029996	Pfam	Flagellar protein YcgR
+PF16539.9	0.01	0.0	Pfam	Flagellar assembly protein T, middle domain
+PF17735.5	0.01	0.0	Pfam	Biofilm surface layer A
+PF08345.15	0.01	0.0	Pfam	Flagellar M-ring protein C-terminal
+PF13782.10	0.01	0.0	Pfam	Stage V sporulation protein AB
+PF10799.12	0.01	0.0	Pfam	Biofilm formation protein (YliH/bssR)
+PF03963.18	0.01	0.0	Pfam	Flagellar hook capping protein - N-terminal region
+PF09867.13	0.01	0.0	Pfam	TagF N-terminal domain, Type VI secretion system-associated
+PF04888.16	0.01	0.0	Pfam	Secretion system effector C (SseC) like family
+PF07254.16	0.01	0.0	Pfam	Membrane-bound toxin component of toxin-antitoxin system
+PF14931.10	0.01	0.0	Pfam	Intraflagellar transport complex B, subunit 20
+PF09560.14	0.01	0.0	Pfam	Sporulation protein YunB (Spo_YunB)
+PF20232.2	0.01	0.0	Pfam	C-terminal domain of Type VI secretion system FHA protein
+PF07378.15	0.01	0.0	Pfam	Flagellar protein FlbT
+PF09581.14	0.01	0.0	Pfam	Stage III sporulation protein AF (Spore_III_AF)
+PF20250.2	0.01	0.0	Pfam	Flagellar Assembly Protein A N-terminal region
+PF03536.19	0.01	0.0	Pfam	Salmonella virulence-associated 28kDa protein
+PF17001.9	0.01	0.0	Pfam	Type III secretion basal body protein I, YscI, HrpB, PscI
+PF16548.9	0.01	0.0	Pfam	Flagellar assembly protein T, N-terminal domain
+PF07317.16	0.01	0.0	Pfam	Flagellar regulator YcgR, PilZN domain
+PF21543.1	0.01	0.0	Pfam	Virulence regulatory factor CvfB, second domain
+PF07520.15	0.01	0.0	Pfam	Virulence factor SrfB
+PF20898.1	0.01	0.0	Pfam	P-type Type IV secretion system, TraN
+PF13652.10	0.01	0.0	Pfam	Putative quorum-sensing-regulated virulence factor
+PF09613.14	0.01	0.0	Pfam	Bacterial type III secretion protein (HrpB1_HrpK)
+PF05394.15	0.01	0.0	Pfam	Avirulence protein
+PF09548.14	0.01	0.0	Pfam	Stage III sporulation protein AB (spore_III_AB)
+PF14070.10	0.01	0.0	Pfam	Putative motility protein
+PF03538.18	0.01	0.0	Pfam	Salmonella virulence plasmid 28.1kDa A protein
+PF08988.14	0.01	0.0	Pfam	Type III secretion system, cytoplasmic E component of needle
+PF04518.16	0.01	0.0	Pfam	Effector from type III secretion system
+PF03748.18	0.01	0.0	Pfam	Flagellar basal body-associated protein FliL
+K19449	10.0	4.335217116	KEGG	XRE family transcriptional regulator, master regulator for biofilm formation
+K20391	10.0	3.79761373	KEGG	HTH-type transcriptional regulator, pleiotropic regulator of extracellular virulence genes
+K22918	10.0	3.715418323	KEGG	typhoid toxin secretion A
+K20480	10.0	3.684126926	KEGG	HTH-type transcriptional regulator, quorum sensing regulator NprR
+K07782	10.0	3.59206567	KEGG	LuxR family transcriptional regulator, quorum-sensing system regulator SdiA
+K14979	10.0	3.583312152	KEGG	two-component system, LuxR family, secretion system response regulator SsrB
+K04562	10.0	3.54863506	KEGG	flagellar biosynthesis protein FlhG
+K06386	10.0	3.531478917	KEGG	stage II sporulation protein Q
+K18098	10.0	3.519565501	KEGG	LuxR family transcriptional regulator, quorum-sensing system regulator BjaR1
+K02450	10.0	3.505828034	KEGG	general secretion pathway protein A
+K14989	10.0	3.442166086	KEGG	two-component system, NarL family, secretion system response regulator SalR
+K20918	10.0	3.411282913	KEGG	LuxR family transcriptional regulator, positive regulator of biofilm formation
+K19666	10.0	3.405517107	KEGG	LuxR family transcriptional regulator, quorum-sensing system regulator SolR
+K06401	10.0	3.380934463	KEGG	stage IV sporulation protein FA
+K02490	10.0	3.379849179	KEGG	two-component system, response regulator, stage 0 sporulation protein F
+K10916	10.0	3.37621185	KEGG	two-component system, CAI-1 autoinducer sensor kinase/phosphatase CqsS [EC:2.7.13.3 3.1.3.-]
+K19731	10.0	3.371067862	KEGG	LuxR family transcriptional regulator, quorum-sensing system regulator CciR
+K18304	10.0	3.353531559	KEGG	LuxR family transcriptional regulator, quorum-sensing system regulator LasR
+K02658	10.0	3.352568386	KEGG	twitching motility two-component system response regulator PilH
+K06267	10.0	3.32776749	KEGG	hyaluronan-mediated motility receptor
+K15850	10.0	3.326540669	KEGG	two-component system, autoinducer 1 sensor kinase/phosphatase LuxN [EC:2.7.13.3 3.1.3.-]
+K12536	10.0	3.314077992	KEGG	ATP-binding cassette, subfamily C, type I secretion system permease/ATPase
+K20977	10.0	3.304921162	KEGG	two-component system, HptB-dependent secretion and biofilm response regulator
+K10909	10.0	3.270212855	KEGG	two-component system, autoinducer 2 sensor kinase/phosphatase LuxQ [EC:2.7.13.3 3.1.3.-]
+K25152	10.0	3.268577972	KEGG	gliding motility-associated transport system ATP-binding protein
+K14978	10.0	3.257678575	KEGG	two-component system, LuxR family, secretion system sensor histidine kinase SsrA
+K27086	10.0	3.25358029	KEGG	ESX secretion system protein EccC
+K15421	10.0	3.252610341	KEGG	secretion-regulating guanine nucleotide exchange factor
+K07699	10.0	3.248708736	KEGG	two-component system, response regulator, stage 0 sporulation protein A
+K02491	10.0	3.239549721	KEGG	two-component system, sporulation sensor kinase A [EC:2.7.13.3]
+K13533	10.0	3.235528447	KEGG	two-component system, sporulation sensor kinase E [EC:2.7.13.3]
+K02657	10.0	3.220369632	KEGG	twitching motility two-component system response regulator PilG
+K07331	10.0	3.219060332	KEGG	archaeal flagellar protein FlaH
+K12771	10.0	3.211921084	KEGG	sporulation-specific protein 1 [EC:2.7.11.1]
+K07698	10.0	3.207634367	KEGG	two-component system, sporulation sensor kinase C [EC:2.7.13.3]
+K11904	10.0	3.18610838	KEGG	type VI secretion system secreted protein VgrG
+K11907	10.0	3.18582536	KEGG	type VI secretion system protein VasG
+K12537	10.0	3.154423973	KEGG	membrane fusion protein, type I secretion system
+K11889	10.0	3.14332713	KEGG	type VI secretion system protein ImpN [EC:2.7.11.1]
+K20334	10.0	3.117933835	KEGG	LuxR family transcriptional regulator, quorum-sensing system regulator CviR
+K13532	10.0	3.117602692	KEGG	two-component system, sporulation sensor kinase D [EC:2.7.13.3]
+K19734	10.0	3.104487111	KEGG	LuxR family transcriptional regulator, quorum-sensing system regulator ExpR
+K19336	10.0	3.100370545	KEGG	cyclic-di-GMP-binding biofilm dispersal mediator protein
+K07697	10.0	3.093421685	KEGG	two-component system, sporulation sensor kinase B [EC:2.7.13.3]
+K08293	10.0	3.043362278	KEGG	sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]
+K04769	10.0	3.011993115	KEGG	AbrB family transcriptional regulator, stage V sporulation protein T
+K25873	10.0	3.011570444	KEGG	LuxR family transcriptional regulator, quorum-sensing system regulator RaiR
+K27084	9.21	2.96425963	KEGG	ESX secretion system protein EccA
+K06348	8.82	2.945468585	KEGG	sporulation inhibitor KapD
+K09491	8.58	2.933487288	KEGG	stress 70 protein chaperone microsome-associated 60kDa protein
+K19733	8.27	2.91750551	KEGG	LuxR family transcriptional regulator, quorum-sensing system regulator SinR
+K03205	8.05	2.90579588	KEGG	type IV secretion system protein VirD4 [EC:7.4.2.8]
+K06413	7.02	2.846337112	KEGG	stage V sporulation protein K
+K06417	7.01	2.845718018	KEGG	stage VI sporulation protein D
+K02456	6.13	2.787460475	KEGG	general secretion pathway protein G
+K27043	5.77	2.761175813	KEGG	XRE family transcriptional regulator, stress-response regulator
+K06412	5.75	2.759667845	KEGG	stage V sporulation protein G
+K06416	5.4	2.73239376	KEGG	stage V sporulation protein S
+K19417	5.34	2.727541257	KEGG	XRE family transcriptional regulator, biofilm formation regulator
+K02453	5.07	2.705007959	KEGG	general secretion pathway protein D
+K21218	5.01	2.699837726	KEGG	sodium-type flagellar protein MotY
+K22489	4.9	2.69019608	KEGG	MarR family transcriptional regulator, temperature-dependent positive regulator of motility
+K18099	4.83	2.683947131	KEGG	LuxR family transcriptional regulator, quorum-sensing system regulator RhlR
+K03219	4.83	2.683947131	KEGG	type III secretion protein C
+K03199	4.79	2.680335513	KEGG	type IV secretion system protein VirB4 [EC:7.4.2.8]
+K21603	4.43	2.646403726	KEGG	two-component system, OmpR family, flagellar system response regulator FtcR
+K03810	4.26	2.629409599	KEGG	virulence factor
+K23773	4.26	2.629409599	KEGG	LysR family transcriptional regulator, flagellar master operon regulator
+K20530	4.18	2.621176282	KEGG	type IV secretion system protein TrbE [EC:7.4.2.8]
+K10859	4.12	2.614897216	KEGG	DNA oxidative demethylase [EC:1.14.11.33]
+K20919	4.03	2.605305046	KEGG	sigma-54 dependent transcriptional regulator, positive regulator of biofilm formation
+K07804	3.4	2.531478917	KEGG	putatice virulence related protein PagC
+K23778	3.38	2.5289167	KEGG	TetR/AcrR family transcriptional regulator, regulator of biofilm formation and stress response
+K21697	3.35	2.525044807	KEGG	LuxR family transcriptional regulator, quorum-sensing system regulator VjbR
+K21217	3.32	2.521138084	KEGG	sodium-type polar flagellar protein MotX
+K10941	3.21	2.506505032	KEGG	sigma-54 dependent transcriptional regulator, flagellar regulatory protein
+K02457	3.19	2.503790683	KEGG	general secretion pathway protein H
+K02660	3.18	2.50242712	KEGG	twitching motility protein PilJ
+K20252	3.08	2.488550717	KEGG	LuxR family transcriptional regulator, quorum-sensing system regulator CinR
+K03919	3.0	2.477121255	KEGG	DNA oxidative demethylase [EC:1.14.11.33]
+K11905	2.86	2.456366033	KEGG	type VI secretion system protein
+K22042	2.74	2.437750563	KEGG	ArsR family transcriptional regulator, virulence genes transcriptional regulator
+K13593	2.42	2.383815366	KEGG	cyclic-di-GMP phosphodiesterase, flagellum assembly factor TipF
+K09553	2.38	2.376576957	KEGG	stress-induced-phosphoprotein 1
+K11909	2.34	2.369215857	KEGG	type VI secretion system protein VasI
+K07570	2.27	2.356025857	KEGG	general stress protein 13
+K21453	2.23	2.348304863	KEGG	TetR/AcrR family transcriptional regulator, biofilm operon repressor
+K16474	2.19	2.340444115	KEGG	intraflagellar transport protein 88
+K03196	2.09	2.320146286	KEGG	type IV secretion system protein VirB11 [EC:7.4.2.8]
+K20527	2.0	2.301029996	KEGG	type IV secretion system protein TrbB [EC:7.4.2.8]
+K20253	1.99	2.298853076	KEGG	LuxR family transcriptional regulator, quorum-sensing system regulator BisR
+K07934	1.98	2.29666519	KEGG	intraflagellar transport protein 27
+K22504	1.96	2.292256071	KEGG	type III secretion system outer membrane ring protein
+K06415	1.95	2.290034611	KEGG	stage V sporulation protein R
+K07332	1.94	2.28780173	KEGG	archaeal flagellar protein FlaI
+K02454	1.74	2.240549248	KEGG	general secretion pathway protein E [EC:7.4.2.8]
+K06380	1.62	2.209515015	KEGG	stage II sporulation protein B
+K06283	1.62	2.209515015	KEGG	putative DeoR family transcriptional regulator, stage III sporulation protein D
+K25615	1.51	2.178976947	KEGG	sperm flagellar protein 2
+K02005	1.49	2.173186268	KEGG	HlyD family secretion protein
+K03194	1.47	2.167317335	KEGG	type IV secretion system protein VirB1
+K06409	1.47	2.167317335	KEGG	stage V sporulation protein B
+K25519	1.44	2.158362492	KEGG	putative sporulation hydrolase
+K06359	1.41	2.149219113	KEGG	response regulator aspartate phosphatase A (stage 0 sporulation protein L) [EC:3.1.-.-]
+K20540	1.4	2.146128036	KEGG	LuxR family transcriptional regulator, quorum-sensing system regulator CepR2
+K02669	1.4	2.146128036	KEGG	twitching motility protein PilT
+K06402	1.34	2.127104798	KEGG	stage IV sporulation protein FB [EC:3.4.24.-]
+K06381	1.33	2.123851641	KEGG	stage II sporulation protein D
+K01993	1.33	2.123851641	KEGG	HlyD family secretion protein
+K10915	1.2	2.079181246	KEGG	CAI-1 autoinducer synthase [EC:2.3.-.-]
+K19656	1.17	2.068185862	KEGG	intraflagellar transport protein 122
+K02670	1.16	2.064457989	KEGG	twitching motility protein PilU
+K02022	1.15	2.06069784	KEGG	HlyD family secretion protein
+K02397	1.13	2.053078443	KEGG	flagellar hook-associated protein 3 FlgL
+K11935	1.13	2.053078443	KEGG	biofilm PGA synthesis protein PgaA
+K19672	1.09	2.037426498	KEGG	intraflagellar transport protein 140
+K12083	1.09	2.037426498	KEGG	type IV secretion system protein PtlH [EC:7.4.2.8]
+K08384	1.07	2.029383778	KEGG	stage V sporulation protein D (sporulation-specific penicillin-binding protein)
+K07344	1.01	2.004321374	KEGG	type IV secretion system protein TrbL
+K19678	1.0	2.0	KEGG	intraflagellar transport protein 80
+K19437	1.0	2.0	KEGG	Simplexvirus neurovirulence factor ICP34.5
+K11919	1.0	2.0	KEGG	type VI secretion system lysozyme-related protein
+K11903	0.96	1.982271233	KEGG	type VI secretion system secreted protein Hcp
+K06376	0.95	1.977723605	KEGG	stage 0 sporulation regulatory protein
+K19679	0.87	1.939519253	KEGG	intraflagellar transport protein 74
+K03600	0.87	1.939519253	KEGG	stringent starvation protein B
+K04060	0.84	1.924279286	KEGG	type III secretion protein Y
+K06378	0.79	1.897627091	KEGG	stage II sporulation protein AA (anti-sigma F factor antagonist)
+K03599	0.75	1.875061263	KEGG	stringent starvation protein A
+K06149	0.72	1.857332496	KEGG	universal stress protein A
+K24084	0.7	1.84509804	KEGG	quorum-quenching protein AidA
+K14055	0.7	1.84509804	KEGG	universal stress protein E
+K15368	0.69	1.838849091	KEGG	secretion system chaperone SscA
+K14988	0.67	1.826074803	KEGG	two-component system, NarL family, secretion system sensor histidine kinase SalK
+K14061	0.64	1.806179974	KEGG	universal stress protein F
+K11892	0.63	1.799340549	KEGG	type VI secretion system protein ImpK
+K11932	0.61	1.785329835	KEGG	universal stress protein G
+K19769	0.61	1.785329835	KEGG	stress-induced protein 1
+K02459	0.55	1.740362689	KEGG	general secretion pathway protein J
+K12538	0.51	1.707570176	KEGG	outer membrane protein, type I secretion system
+K20978	0.5	1.698970004	KEGG	HptB-dependent secretion and biofilm anti anti-sigma factor
+K03201	0.49	1.69019608	KEGG	type IV secretion system protein VirB6
+K02464	0.47	1.672097858	KEGG	general secretion pathway protein O [EC:3.4.23.43 2.1.1.-]
+K13651	0.47	1.672097858	KEGG	motility quorum-sensing regulator / GCU-specific mRNA interferase toxin
+K07333	0.46	1.662757832	KEGG	archaeal flagellar protein FlaJ
+K20533	0.43	1.633468456	KEGG	type IV secretion system protein TrbI
+K11216	0.43	1.633468456	KEGG	autoinducer-2 kinase [EC:2.7.1.189]
+K12148	0.41	1.612783857	KEGG	biofilm regulator BssS
+K11894	0.41	1.612783857	KEGG	type VI secretion system protein ImpI
+K19676	0.41	1.612783857	KEGG	intraflagellar transport protein 172
+K09825	0.4	1.602059991	KEGG	Fur family transcriptional regulator, peroxide stress response regulator
+K07935	0.4	1.602059991	KEGG	intraflagellar transport protein 22
+K11913	0.4	1.602059991	KEGG	type VI secretion system protein
+K07326	0.39	1.591064607	KEGG	hemolysin activation/secretion protein
+K18434	0.39	1.591064607	KEGG	type IV secretion system T-DNA border endonuclease VirD2
+K27092	0.36	1.556302501	KEGG	ESX secretion-associated protein EspI
+K03195	0.35	1.544068044	KEGG	type IV secretion system protein VirB10
+K20329	0.34	1.531478917	KEGG	IclR family transcriptional regulator, positive regulator for flagellar biogenesis
+K11017	0.34	1.531478917	KEGG	hemolysin activation/secretion protein
+K12080	0.3	1.477121255	KEGG	type IV secretion system protein PtlC [EC:7.4.2.8]
+K11244	0.29	1.462397998	KEGG	cell wall integrity and stress response component
+K02455	0.28	1.447158031	KEGG	general secretion pathway protein F
+K06379	0.28	1.447158031	KEGG	stage II sporulation protein AB (anti-sigma F factor) [EC:2.7.11.1]
+K10923	0.27	1.431363764	KEGG	AraC family transcriptional regulator, TCP pilus virulence regulatory protein
+K22297	0.27	1.431363764	KEGG	Fur family transcriptional regulator, stress-responsive regulator
+K03204	0.26	1.414973348	KEGG	type IV secretion system protein VirB9
+K12151	0.25	1.397940009	KEGG	multiple stress resistance protein BhsA
+K20532	0.25	1.397940009	KEGG	type IV secretion system protein TrbG
+K13654	0.25	1.397940009	KEGG	GntR family transcriptional regulator, colanic acid and biofilm gene transcriptional regulator
+K19624	0.24	1.380211242	KEGG	LysR family transcriptional regulator, virulence genes transcriptional regulator
+K13650	0.24	1.380211242	KEGG	MqsR-controlled colanic acid and biofilm protein A
+K06390	0.23	1.361727836	KEGG	stage III sporulation protein AA
+K12082	0.23	1.361727836	KEGG	type IV secretion system protein PtlG
+K06399	0.22	1.342422681	KEGG	stage IV sporulation protein B [EC:3.4.21.116]
+K20531	0.22	1.342422681	KEGG	type IV secretion system protein TrbF
+K02452	0.19	1.278753601	KEGG	general secretion pathway protein C
+K19778	0.19	1.278753601	KEGG	acid stress chaperone HdeB
+K02416	0.18	1.255272505	KEGG	flagellar motor switch protein FliM
+K02458	0.17	1.230448921	KEGG	general secretion pathway protein I
+K20266	0.17	1.230448921	KEGG	type IV secretion system protein TrbJ
+K02404	0.15	1.176091259	KEGG	flagellar biosynthesis protein FlhF
+K21976	0.15	1.176091259	KEGG	probable RcsB/C two-component-system connector, global regulator of biofilm formation and acid-resistance
+K03200	0.15	1.176091259	KEGG	type IV secretion system protein VirB5
+K12516	0.14	1.146128036	KEGG	putative surface-exposed virulence protein
+K03224	0.14	1.146128036	KEGG	ATP synthase in type III secretion protein N [EC:7.4.2.8]
+K14064	0.13	1.113943352	KEGG	universal stress protein C
+K02417	0.12	1.079181246	KEGG	flagellar motor switch protein FliN
+K11891	0.12	1.079181246	KEGG	type VI secretion system protein ImpL
+K11896	0.12	1.079181246	KEGG	type VI secretion system protein ImpG
+K02385	0.12	1.079181246	KEGG	flagellar protein FlbD
+K03203	0.12	1.079181246	KEGG	type IV secretion system protein VirB8
+K02412	0.11	1.041392685	KEGG	flagellum-specific ATP synthase [EC:7.4.2.8]
+K07327	0.11	1.041392685	KEGG	archaeal flagellar protein FlaD
+K22506	0.11	1.041392685	KEGG	type III secretion system ATPase [EC:7.4.2.8]
+K06408	0.11	1.041392685	KEGG	stage V sporulation protein AF
+K03225	0.11	1.041392685	KEGG	type III secretion protein Q
+K25153	0.1	1.0	KEGG	gliding motility-associatede transport system auxiliary component
+K11910	0.1	1.0	KEGG	type VI secretion system protein VasJ
+K02407	0.09	0.954242509	KEGG	flagellar hook-associated protein 2
+K02422	0.09	0.954242509	KEGG	flagellar secretion chaperone FliS
+K24105	0.09	0.954242509	KEGG	mutual gliding-motility protein MglA
+K03198	0.09	0.954242509	KEGG	type IV secretion system protein VirB3
+K25151	0.09	0.954242509	KEGG	gliding motility-associated transport system permease protein
+K06406	0.09	0.954242509	KEGG	stage V sporulation protein AD
+K11900	0.09	0.954242509	KEGG	type VI secretion system protein ImpC
+K03708	0.08	0.903089987	KEGG	transcriptional regulator of stress and heat shock response
+K02410	0.08	0.903089987	KEGG	flagellar motor switch protein FliG
+K06384	0.08	0.903089987	KEGG	stage II sporulation protein M
+K11893	0.08	0.903089987	KEGG	type VI secretion system protein ImpJ
+K11895	0.08	0.903089987	KEGG	type VI secretion system protein ImpH
+K11899	0.08	0.903089987	KEGG	type VI secretion system protein ImpD
+K26995	0.08	0.903089987	KEGG	sporulation delaying protein B
+K11902	0.08	0.903089987	KEGG	type VI secretion system protein ImpA
+K02402	0.07	0.84509804	KEGG	flagellar transcriptional activator FlhC
+K02408	0.07	0.84509804	KEGG	flagellar hook-basal body complex protein FliE
+K23943	0.07	0.84509804	KEGG	type III secretion system effector arginine glycosyltransferase
+K23944	0.07	0.84509804	KEGG	type III secretion system effector arginine glycosyltransferase
+K23945	0.07	0.84509804	KEGG	type III secretion system effector
+K20529	0.07	0.84509804	KEGG	type IV secretion system protein TrbD
+K12085	0.07	0.84509804	KEGG	type IV secretion system protein PtlF
+K11901	0.07	0.84509804	KEGG	type VI secretion system protein ImpB
+K11911	0.07	0.84509804	KEGG	type VI secretion system protein VasL
+K02460	0.06	0.77815125	KEGG	general secretion pathway protein K
+K06377	0.06	0.77815125	KEGG	sporulation-control protein
+K06385	0.06	0.77815125	KEGG	stage II sporulation protein P
+K06389	0.06	0.77815125	KEGG	stage II sporulation protein SB
+K06398	0.06	0.77815125	KEGG	stage IV sporulation protein A
+K13439	0.06	0.77815125	KEGG	cysteine protease avirulence protein AvrRpt2 [EC:3.4.22.-]
+K02659	0.06	0.77815125	KEGG	twitching motility protein PilI
+K27091	0.06	0.77815125	KEGG	ESX secretion-associated protein EspG
+K19334	0.06	0.77815125	KEGG	biofilm protein TabA
+K02391	0.06	0.77815125	KEGG	flagellar basal-body rod protein FlgF
+K02392	0.06	0.77815125	KEGG	flagellar basal-body rod protein FlgG
+K02396	0.06	0.77815125	KEGG	flagellar hook-associated protein 1
+K11906	0.06	0.77815125	KEGG	type VI secretion system protein VasD
+K15366	0.06	0.77815125	KEGG	salmonella plasmid virulence protein B
+K19735	0.06	0.77815125	KEGG	LysR family transcriptional regulator, quorum-sensing system regulator MvfR
+K19777	0.06	0.77815125	KEGG	acid stress chaperone HdeA
+K06371	0.05	0.698970004	KEGG	developmental checkpoint coupling sporulation initiation to replication initiation
+K07822	0.05	0.698970004	KEGG	archaeal flagellar protein FlaC
+K13626	0.05	0.698970004	KEGG	flagellar assembly factor FliW
+K03197	0.05	0.698970004	KEGG	type IV secretion system protein VirB2
+K02388	0.05	0.698970004	KEGG	flagellar basal-body rod protein FlgC
+K02390	0.05	0.698970004	KEGG	flagellar hook protein FlgE
+K02403	0.04	0.602059991	KEGG	flagellar transcriptional activator FlhD
+K06382	0.04	0.602059991	KEGG	stage II sporulation protein E [EC:3.1.3.16]
+K06392	0.04	0.602059991	KEGG	stage III sporulation protein AC
+K06396	0.04	0.602059991	KEGG	stage III sporulation protein AG
+K13440	0.04	0.602059991	KEGG	cysteine protease avirulence protein AvrPphB [EC:3.4.22.-]
+K20528	0.04	0.602059991	KEGG	type IV secretion system protein TrbC
+K27099	0.04	0.602059991	KEGG	ESX secretion-associated protein EspB
+K02387	0.04	0.602059991	KEGG	flagellar basal-body rod protein FlgB
+K10910	0.04	0.602059991	KEGG	autoinducer 2-binding periplasmic protein LuxP
+K06603	0.04	0.602059991	KEGG	flagellar protein FlaG
+K02400	0.03	0.477121255	KEGG	flagellar biosynthesis protein FlhA
+K06383	0.03	0.477121255	KEGG	stage II sporulation protein GA (sporulation sigma-E factor processing peptidase) [EC:3.4.23.-]
+K06387	0.03	0.477121255	KEGG	stage II sporulation protein R
+K11897	0.03	0.477121255	KEGG	type VI secretion system protein ImpF
+K27085	0.03	0.477121255	KEGG	ESX secretion system ATPase EccB
+K06405	0.03	0.477121255	KEGG	stage V sporulation protein AC
+K06407	0.03	0.477121255	KEGG	stage V sporulation protein AE
+K03220	0.03	0.477121255	KEGG	type III secretion protein D
+K03230	0.03	0.477121255	KEGG	type III secretion protein V
+K25059	0.02	0.301029996	KEGG	replication stress response regulator SDE2
+K02401	0.02	0.301029996	KEGG	flagellar biosynthesis protein FlhB
+K02409	0.02	0.301029996	KEGG	flagellar M-ring protein FliF
+K02419	0.02	0.301029996	KEGG	flagellar biosynthesis protein FliP
+K06394	0.02	0.301029996	KEGG	stage III sporulation protein AE
+K06397	0.02	0.301029996	KEGG	stage III sporulation protein AH
+K11898	0.02	0.301029996	KEGG	type VI secretion system protein ImpE
+K02383	0.02	0.301029996	KEGG	flagellar protein FlbB
+K22510	0.02	0.301029996	KEGG	type III secretion system export apparatus switch protein
+K13820	0.02	0.301029996	KEGG	flagellar biosynthesis protein FliR/FlhB
+K12078	0.02	0.301029996	KEGG	type IV secretion system protein PtlA
+K12079	0.02	0.301029996	KEGG	type IV secretion system protein PtlB
+K12081	0.02	0.301029996	KEGG	type IV secretion system protein PtlE
+K06403	0.02	0.301029996	KEGG	stage V sporulation protein AA
+K16473	0.02	0.301029996	KEGG	intraflagellar transport protein 20
+K24344	0.02	0.301029996	KEGG	flagellar H-ring protein FlgO
+K06601	0.02	0.301029996	KEGG	flagellar biosynthesis repressor protein FlbT
+K06602	0.02	0.301029996	KEGG	flagellar biosynthesis activator protein FlaF
+K21989	0.02	0.301029996	KEGG	calcium permeable stress-gated cation channel
+K11937	0.02	0.301029996	KEGG	biofilm PGA synthesis protein PgaD
+K14065	0.02	0.301029996	KEGG	universal stress protein D
+K03222	0.02	0.301029996	KEGG	type III secretion protein J
+K03229	0.02	0.301029996	KEGG	type III secretion protein U
+K18984	0.01	0.0	KEGG	secretion system chaperone SsaE
+K02413	0.01	0.0	KEGG	flagellar protein FliJ
+K02415	0.01	0.0	KEGG	flagellar protein FliL
+K02451	0.01	0.0	KEGG	general secretion pathway protein B
+K02461	0.01	0.0	KEGG	general secretion pathway protein L
+K06375	0.01	0.0	KEGG	stage 0 sporulation protein B (sporulation initiation phosphotransferase) [EC:2.7.-.-]
+K06391	0.01	0.0	KEGG	stage III sporulation protein AB
+K06395	0.01	0.0	KEGG	stage III sporulation protein AF
+K05527	0.01	0.0	KEGG	BolA family transcriptional regulator, general stress-responsive regulator
+K13455	0.01	0.0	KEGG	avirulence protein
+K11890	0.01	0.0	KEGG	type VI secretion system protein ImpM
+K27087	0.01	0.0	KEGG	ESX secretion system protein EccD
+K27088	0.01	0.0	KEGG	ESX secretion system protein EccE
+K19685	0.01	0.0	KEGG	intraflagellar transport protein 56
+K18373	0.01	0.0	KEGG	type III secretion protein HrpB1
+K18380	0.01	0.0	KEGG	type III secretion control protein HpaB
+K21087	0.01	0.0	KEGG	flagellar brake protein
+K20267	0.01	0.0	KEGG	type IV secretion system protein TrbH
+K02389	0.01	0.0	KEGG	flagellar basal-body rod modification protein FlgD
+K22505	0.01	0.0	KEGG	type III secretion system inner membrane ring protein
+K22507	0.01	0.0	KEGG	type III secretion system export apparatus protein
+K22513	0.01	0.0	KEGG	type III secretion system protein
+K04638	0.01	0.0	KEGG	intraflagellar transport protein 57
+K15126	0.01	0.0	KEGG	type III secretion system cytotoxic effector protein
+K06404	0.01	0.0	KEGG	stage V sporulation protein AB
+K24343	0.01	0.0	KEGG	flagellar H-ring protein FlgT
+K06437	0.01	0.0	KEGG	sigma-E controlled sporulation protein
+K20952	0.01	0.0	KEGG	rugosity and biofilm structure modulator C
+K20953	0.01	0.0	KEGG	rugosity and biofilm structure modulator A
+K12773	0.01	0.0	KEGG	sporulation-regulated protein 3
+K27101	0.01	0.0	KEGG	ESX secretion-associated protein EspK
+K04061	0.01	0.0	KEGG	flagellar biosynthesis protein
+K03221	0.01	0.0	KEGG	type III secretion protein F
+K03223	0.01	0.0	KEGG	type III secretion protein L
+K03226	0.01	0.0	KEGG	type III secretion protein R
+phrog_497	10.0	3.363799945	PHROG	toxin-antitoxin system HicB-like
+phrog_4681	10.0	3.006037955	PHROG	antitoxin from a toxin-antitoxin system
+phrog_35646	4.54	2.657055853	PHROG	sporulation protein
+phrog_36746	2.92	2.465382851	PHROG	antitoxin from a toxin-antitoxin system
+phrog_4692	2.72	2.434568904	PHROG	antitoxin from a toxin-antitoxin system
+phrog_16914	2.29	2.359835482	PHROG	sporulation protein
+phrog_11726	1.09	2.037426498	PHROG	sporulation stage III protein D
+phrog_2268	0.99	1.995635195	PHROG	antitoxin from a toxin-antitoxin system
+phrog_258	0.88	1.944482672	PHROG	virulence associated
+phrog_10856	0.51	1.707570176	PHROG	sporulation protein
+phrog_6929	0.44	1.643452676	PHROG	universal stress protein
+phrog_8458	0.43	1.633468456	PHROG	flagellar protein
+phrog_3402	0.32	1.505149978	PHROG	antitoxin from a toxin-antitoxin system
+phrog_8945	0.18	1.255272505	PHROG	stringent starvation protein Sspb-like
+phrog_6494	0.15	1.176091259	PHROG	antitoxin from a toxin-antitoxin system
+phrog_4052	0.09	0.954242509	PHROG	PAGK virulence factor
+phrog_19414	0.01	0.0	PHROG	antitoxin from a toxin-antitoxin system
