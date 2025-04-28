@@ -2,17 +2,16 @@
 
 import os
 import sys
+import math
 import resource
 import platform
-from Bio.SeqRecord import SeqRecord
 from pyfastatools import Parser, write_fasta
 from pathlib import Path
 import logging
 from multiprocessing import Pool
+os.environ["POLARS_MAX_THREADS"] = str(snakemake.threads)
 import polars as pl
 import pymuscle5
-
-os.environ["POLARS_MAX_THREADS"] = str(snakemake.threads)
 
 def set_memory_limit(limit_in_gb):
     """
@@ -41,6 +40,13 @@ print("========================================================================\
 with open(log_file, "a") as log:
     log.write("========================================================================\n     Step 20/22: Align the filtered protein clusters with PyMuscle5     \n========================================================================\n")
 
+
+# Module‐level globals for worker processes
+sequences_dict = None
+_acc_prefix = None
+_output_dir = None
+_aligner_threads = None
+    
 def load_filtered_clusters(cluster_file):
     """
     Loads the filtered protein clusters file (TSV with no header),
@@ -66,9 +72,10 @@ def get_clusters_to_proteins(clusters_df, dblookup_df):
     Produces a DataFrame with columns: protein_cluster_rep, proteins (list of protein_names).
     """
     merged_df = clusters_df.join(dblookup_df, on="numeric_id")
-    return merged_df.group_by("protein_cluster_rep").agg([
+    merged_df = merged_df.group_by("protein_cluster_rep").agg([
         pl.col("protein_name").alias("proteins")
-    ])
+    ]).sort('protein_cluster_rep').with_row_index('index',offset=1) # Stable index: sort by cluster name
+    return merged_df
 
 def extract_sequences_from_fasta(fasta_path, protein_ids):
     """
@@ -84,14 +91,70 @@ def extract_sequences_from_fasta(fasta_path, protein_ids):
             sequences[record.header.name] = record
     return sequences
 
-def remove_cluster_seqs_from_dict(protein_ids, sequences_dict):
+def init_worker(seqs, acc_prefix, output_dir, aligner_threads):
     """
-    Removes sequences in 'protein_ids' from sequences_dict to free memory.
-    """
-    for pid in protein_ids:
-        if pid in sequences_dict:
-            del sequences_dict[pid]
+    Initialize globals for each worker process.
 
+    seqs: dict of protein_id -> sequences (str) loaded from FASTA
+    acc_prefix: prefix for output filenames
+    output_dir: base directory where "aligned/" subfolder lives
+    aligner_threads: number of threads passed to pymuscle5.Aligner (per cluster)
+    """
+    global sequences_dict, _acc_prefix, _output_dir, _aligner_threads
+    sequences_dict = seqs
+    _acc_prefix = acc_prefix
+    _output_dir = output_dir
+    _aligner_threads = aligner_threads
+
+def align_cluster_worker(args):
+    """
+    For a single cluster, filter or align:
+
+    1. Fetch sequences from sequences_dict.
+    2. If no sequences, skip.
+    3. If exactly one sequence or all sequences identical:
+       - Write FASTA directly to aligned/.
+       - Return accession basename.
+    4. Otherwise:
+       - Run PyMuscle5 alignment with one thread.
+       - Write MSA to aligned/.
+       - Return accession basename.
+
+    Returns (cluster_name, protein_list, accession_or_None).
+    """
+    cluster_name, protein_list, idx = args
+    accession = f"{_acc_prefix}_{idx}"
+    aligned_dir = Path(_output_dir) / "aligned"
+    aligned_dir.mkdir(parents=True, exist_ok=True)
+    out_path = aligned_dir / f"{accession}.aligned.fasta"
+
+    # Gather records
+    recs = [ sequences_dict[p] for p in protein_list if p in sequences_dict ]
+    if not recs:
+        logger.warning(f"No sequences found for cluster {cluster_name}. Skipping.")
+        return (cluster_name, protein_list, None)
+
+    # Singleton or identical
+    seqs_set = { str(r.seq) for r in recs }
+    if len(recs) == 1 or len(seqs_set) == 1:
+        with out_path.open('w') as fh:
+            for rec in recs:
+                write_fasta(rec, fh)
+        return (cluster_name, protein_list, accession)
+
+    # Multi-sequence alignment
+    seq_objs = [ pymuscle5.Sequence(r.header.name.encode(), r.seq.encode()) for r in recs ]
+    aligner = pymuscle5.Aligner(threads=_aligner_threads)
+    msa = aligner.align(seq_objs)
+    with out_path.open('w') as fh:
+        for seq in msa.sequences:
+            fh.write(f">{seq.name.decode()}\n{seq.sequence.decode()}\n")
+    return (cluster_name, protein_list, accession)
+
+def remove_cluster_seqs_from_dict(protein_ids, seq_dict):
+    for pid in protein_ids:
+        seq_dict.pop(pid, None)
+        
 def write_sequences_to_file(seq_list, path_out):
     """
     Writes a list of records to path_out in FASTA format.
@@ -100,62 +163,6 @@ def write_sequences_to_file(seq_list, path_out):
         for seq in seq_list:
             write_fasta(seq, outfile)
 
-def align_cluster_serial(cluster_name, protein_ids, local_seq_dict, output_dir, acc_prefix, index, aligner_threads):
-    """
-    Performs a single-cluster alignment serially in the main process.
-    If the cluster is a singleton or all sequences are identical, it writes them out without running PyMuscle5.
-    Otherwise, it calls PyMuscle5.Aligner with the aligner_threads argument.
-    Returns the accession basename, or None if no sequences found.
-    """
-    accession = f"{acc_prefix}_{index}"
-    aligned_dir = Path(output_dir) / "aligned"
-    aligned_dir.mkdir(parents=True, exist_ok=True)
-    aligned_fasta_path = aligned_dir / f"{accession}.aligned.fasta"
-
-    cluster_records = [local_seq_dict[pid] for pid in protein_ids if pid in local_seq_dict]
-    if not cluster_records:
-        logger.warning(f"No sequences found for cluster {cluster_name}. Skipping.")
-        return None
-
-    if len(cluster_records) == 1:
-        write_sequences_to_file(cluster_records, aligned_fasta_path)
-        return aligned_fasta_path.stem.split(".")[0]
-
-    seq_strings = {str(rec.seq) for rec in cluster_records}
-    if len(seq_strings) == 1:
-        write_sequences_to_file(cluster_records, aligned_fasta_path)
-        return aligned_fasta_path.stem.split(".")[0]
-
-    sequences_for_alignment = [
-        pymuscle5.Sequence(
-            rec.header.name.encode(),
-            rec.seq.encode()
-        )
-        for rec in cluster_records
-        ]
-
-    # Pass the desired number of threads to PyMuscle5's Aligner
-    aligner = pymuscle5.Aligner(threads=aligner_threads)
-    msa = aligner.align(sequences_for_alignment)
-
-    with aligned_fasta_path.open('w') as out:
-        for seq in msa.sequences:
-            out.write(f">{seq.name.decode()}\n{seq.sequence.decode()}\n")
-    return aligned_fasta_path.stem.split(".")[0]
-
-def serial_align_clusters(truly_multi_clusters, sequences_dict, output_dir, acc_prefix, aligner_threads):
-    """
-    Processes each cluster sequentially (serially) using the shared sequences_dict.
-    Returns a dictionary mapping cluster_name -> accession_basename.
-    """
-    prot_clust_to_accession = {}
-    for cluster_name, prot_list, idx in truly_multi_clusters:
-        basename = align_cluster_serial(cluster_name, prot_list, sequences_dict, output_dir, acc_prefix, idx, aligner_threads)
-        if basename is not None:
-            prot_clust_to_accession[cluster_name] = basename
-        remove_cluster_seqs_from_dict(prot_list, sequences_dict)
-    return prot_clust_to_accession
-
 def main():
     cluster_file = snakemake.params.cluster_file
     dblookup_file = snakemake.params.dblookup
@@ -163,13 +170,14 @@ def main():
     acc_prefix = snakemake.params.acc_prefix
     prot_clust_to_accession_path = snakemake.params.prot_clust_to_accession
     output_dir = snakemake.params.wdir
-    threads = snakemake.threads  # Pass this to PyMuscle5's internal thread pool for each alignment.
+    threads = snakemake.threads
     mem_limit = snakemake.resources.mem
 
     logger.info("Starting protein cluster alignment with PyMuscle5...")
     set_memory_limit(mem_limit)
     logger.debug(f"Memory limit set to {mem_limit:,} GB.")
     
+    # Load data
     clusters_df = load_filtered_clusters(cluster_file)
     dblookup_df = load_dblookup(dblookup_file)
     num_clusters = clusters_df['protein_cluster_rep'].n_unique()
@@ -177,58 +185,56 @@ def main():
     logger.info(f"There are {num_clusters:,} clusters, covering {num_proteins:,} proteins in total.")
 
     cluster_info = get_clusters_to_proteins(clusters_df, dblookup_df)
+
+    # Gather all protein IDs
     protein_ids = set()
-    for row in cluster_info.iter_rows(named=True):
-        protein_ids.update(row['proteins'])
+    for prots in cluster_info['proteins'].to_list():
+        protein_ids.update(prots)
 
-    sequences_dict = extract_sequences_from_fasta(fasta, protein_ids)
-    total_loaded = len(sequences_dict)
+    # Load sequences
+    sequences_dict_local = extract_sequences_from_fasta(fasta, protein_ids)
+    total_loaded = len(sequences_dict_local)
     logger.debug(f"Loaded {total_loaded:,} protein sequences in memory initially.")
+    Path(output_dir, 'aligned').mkdir(parents=True, exist_ok=True)
 
-    Path(output_dir, "aligned").mkdir(parents=True, exist_ok=True)
-
-    # Phase 1: Filter out singletons or identical clusters.
-    truly_multi_clusters = []
-    prot_clust_to_accession = {}
-    singletons_count = 0
-    identical_count = 0
-
-    cluster_index = 0
+    # Phase 1 logging
+    singletons, identical = 0, 0
     for row in cluster_info.iter_rows(named=True):
-        cluster_index += 1
-        cluster_name = row['protein_cluster_rep']
-        prot_list = row['proteins']
-        cluster_records = [sequences_dict[pid] for pid in prot_list if pid in sequences_dict]
-        if not cluster_records:
-            logger.warning(f"No sequences found for cluster {cluster_name}. Skipping.")
-            continue
+        prots = row['proteins']
+        recs = [sequences_dict_local[p] for p in prots if p in sequences_dict_local]
+        if len(recs)==1: singletons+=1
+        elif len(recs)>1 and len({str(r.seq) for r in recs})==1: identical+=1
+    logger.info(f"Filtered out {singletons:,} singleton clusters and {identical:,} identical clusters.")
 
-        if len(cluster_records) == 1:
-            out_path = Path(output_dir) / "aligned" / f"{acc_prefix}_{cluster_index}.aligned.fasta"
-            write_sequences_to_file(cluster_records, out_path)
-            prot_clust_to_accession[cluster_name] = out_path.stem.split(".")[0]
-            remove_cluster_seqs_from_dict(prot_list, sequences_dict)
-            singletons_count += 1
-        else:
-            seq_strings = {str(rec.seq) for rec in cluster_records}
-            if len(seq_strings) == 1:
-                out_path = Path(output_dir) / "aligned" / f"{acc_prefix}_{cluster_index}.aligned.fasta"
-                write_sequences_to_file(cluster_records, out_path)
-                prot_clust_to_accession[cluster_name] = out_path.stem.split(".")[0]
-                remove_cluster_seqs_from_dict(prot_list, sequences_dict)
-                identical_count += 1
-            else:
-                truly_multi_clusters.append((cluster_name, prot_list, cluster_index))
+    # Existing
+    aligned_dir = Path(output_dir)/'aligned'
+    existing = {f.stem for f in aligned_dir.glob(f"{acc_prefix}_*.aligned.fasta") if f.stat().st_size>0}
+    logger.info(f"Found {len(existing):,} existing alignments to skip.")
 
-    filtered_loaded = len(sequences_dict)
-    logger.debug(f"Filtered out {singletons_count:,} singleton clusters and {identical_count:,} identical clusters.")
-    logger.debug(f"Remaining clusters to align: {len(truly_multi_clusters):,}.")
-    logger.debug(f"Memory dictionary reduced from {total_loaded:,} to {filtered_loaded:,} sequences after filtering.")
+    # Prepare args
+    cluster_args = []
+    for row in cluster_info.iter_rows(named=True):
+        idx=row['index']; name=row['protein_cluster_rep']; prots=row['proteins']
+        if f"{acc_prefix}_{idx}" not in existing:
+            cluster_args.append((name,prots,idx))
 
-    # Phase 2: Align the truly multi clusters serially (using PyMuscle5's internal threading)
-    if truly_multi_clusters:
-        partial_res = serial_align_clusters(truly_multi_clusters, sequences_dict, output_dir, acc_prefix, threads)
-        prot_clust_to_accession.update(partial_res)
+    # Compute chunks
+    PER_MB=10; safe_mb=mem_limit*1024*0.75
+    max_jobs=max(1,int(safe_mb/PER_MB)); n_workers=min(max_jobs,threads,os.cpu_count())
+    batch_size=n_workers*100; num_chunks=math.ceil(len(cluster_args)/batch_size)
+    logger.info(f"Will process in sequences in chunks of {num_chunks:,} (chunk size = {batch_size:, clusters}) with up to {n_workers:,} workers.")
+
+    # Parallel
+    prot_clust_to_accession={}
+    processed_clusters=0; processed_proteins=0
+    init_args=(sequences_dict_local,acc_prefix,output_dir,1)
+    with Pool(n_workers,initializer=init_worker,initargs=init_args) as pool:
+        for name,prots,acc in pool.imap_unordered(align_cluster_worker,cluster_args,chunksize=500):
+            processed_clusters+=1; processed_proteins+=len(prots)
+            if acc: prot_clust_to_accession[name]=acc
+            remove_cluster_seqs_from_dict(prots,sequences_dict_local)
+            if processed_clusters%batch_size==0:
+                logger.info(f"Processed {processed_clusters:,}/{len(cluster_args):,} clusters ({processed_proteins:,} proteins)")
 
     # Phase 3: Check for clusters with empty or no alignment output
     unaligned_clusters = []
