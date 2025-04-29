@@ -222,7 +222,7 @@ def main():
     PER_MB=10; safe_mb=mem_limit*1024*0.75
     max_jobs=max(1,int(safe_mb/PER_MB)); n_workers=min(max_jobs,threads,os.cpu_count())
     batch_size=n_workers*100; num_chunks=math.ceil(len(cluster_args)/batch_size)
-    logger.info(f"Will process in sequences in chunks of {num_chunks:,} (chunk size = {batch_size:, clusters}) with up to {n_workers:,} workers.")
+    logger.info(f"Will process in sequences in chunks of {num_chunks:,} (chunk size = {batch_size:,} clusters) with up to {n_workers:,} workers.")
 
     # Parallel
     prot_clust_to_accession={}
