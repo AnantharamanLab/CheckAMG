@@ -126,7 +126,6 @@ def align_cluster_worker(args):
     cluster_name, protein_list, idx = args
     accession = f"{_acc_prefix}_{idx}"
     aligned_dir = Path(_output_dir) / "aligned"
-    aligned_dir.mkdir(parents=True, exist_ok=True)
     out_path = aligned_dir / f"{accession}.aligned.fasta"
 
     # Gather records
@@ -151,6 +150,19 @@ def align_cluster_worker(args):
         for seq in msa.sequences:
             fh.write(f">{seq.name.decode()}\n{seq.sequence.decode()}\n")
     return (cluster_name, protein_list, accession)
+
+def super_worker(group):
+    """
+    Aligns a list of clusters in one call to reduce IPC overhead.
+    Returns a list of (cluster_name, protein_list, accession) for those succeeded.
+    """
+    results = []
+    for args in group:
+        name, prots, idx = args
+        _, _, acc = align_cluster_worker((name, prots, idx))
+        if acc:
+            results.append((name, prots, acc))
+    return results
 
 def remove_cluster_seqs_from_dict(protein_ids, seq_dict):
     for pid in protein_ids:
@@ -264,30 +276,44 @@ def main():
     # Compute chunks
     PER_MB=10; safe_mb=mem_limit*1024*0.75
     max_jobs=max(1,int(safe_mb/PER_MB)); n_workers=min(max_jobs,threads,os.cpu_count())
-    batch_size = n_workers * 100
+    batch_size = n_workers * 10000
     num_chunks = math.ceil(total_clusters / batch_size)
-    logger.info(f"Processing in {num_chunks} chunks of {batch_size:,} clusters each, with up to {n_workers} workers...")
+    logger.debug(f"Processing in {num_chunks} chunks of {batch_size:,} clusters each, with up to {n_workers} workers...")
 
-    # Parallel
+    # grouping for super_worker
+    GROUP_SIZE = 200
+    groups = [
+        cluster_args[i:i+GROUP_SIZE]
+        for i in range(0, total_clusters, GROUP_SIZE)
+    ]
+    num_groups = len(groups)
+    logger.info(f"Processing in {num_groups:,} groups of ~{GROUP_SIZE:,} clusters each with up to {threads} workers...")
+
+    # parallel
     init_args = (sequences_dict_local, acc_prefix, output_dir, 1)
     start = time.time()
-    prot_clust_to_accession={}
     processed_clusters = 0
     processed_proteins = 0
-    LOG_INTERVAL = 1000
 
-    with Pool(n_workers, initializer=init_worker, initargs=init_args) as pool:
-        for name, prots, acc in pool.imap_unordered(align_cluster_worker, cluster_args, chunksize=batch_size):
-            processed_clusters += 1
-            processed_proteins += len(prots)
-            if acc:
+    with Pool(threads, initializer=init_worker, initargs=init_args) as pool:
+        for gi, results in enumerate(pool.imap(super_worker, groups), start=1):
+            group = groups[gi-1]
+            processed_clusters += len(group)
+            processed_proteins += sum(len(plist) for _, plist, _ in group)
+            for name, prots, acc in results:
                 prot_clust_to_accession[name] = acc
-            remove_cluster_seqs_from_dict(prots, sequences_dict_local)
+                remove_cluster_seqs_from_dict(prots, sequences_dict_local)
 
-            if processed_clusters % LOG_INTERVAL == 0:
-                logger.info(f"Processed {processed_clusters:,}/{total_clusters:,} clusters "
-                            f"({processed_proteins:,} proteins); "
-                            f"ETA ~{(total_clusters-processed_clusters)/(processed_clusters/(time.time()-start)): .1f} s")
+            # log a single line per chunk
+            elapsed = time.time() - start
+            rate    = processed_clusters / elapsed
+            rem     = total_clusters - processed_clusters
+            eta_h   = rem / rate / 3600
+            logger.info(
+                f"Completed group {gi}/{num_groups}: "
+                f"{processed_clusters:,}/{total_clusters:,} clusters, "
+                f"{processed_proteins:,} proteins aligned (η≈{eta_h:.1f} h)"
+            )
 
     # Phase 3: Check for clusters with empty or no alignment output
     unaligned_clusters = []
