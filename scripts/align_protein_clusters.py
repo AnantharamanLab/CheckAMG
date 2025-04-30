@@ -256,8 +256,7 @@ def main():
 
     already_singleton = singleton_accessions & existing
     already_identical = identical_accessions & existing
-    logger.info(f"There are {len(already_singleton):,} singleton and {len(already_identical):,} identical clusters that were already processed and will be skipped.")
-    logger.info(f"Filtered out {singletons:,} singleton clusters and {identical:,} identical clusters (that weren't already processed).")
+    logger.info(f"Filtered out {singletons:,} singleton clusters and {identical:,} identical clusters.")
 
     # Build list of clusters still to align in parallel
     cluster_args = []
