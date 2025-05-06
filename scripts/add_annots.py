@@ -40,7 +40,7 @@ def prefix_columns(dataframe, prefix):
     # Select 'sequence' only once, and prefix other columns as needed
     cols_to_select = [pl.col("sequence")]
     cols_to_select.extend(
-        pl.col(col).alias(f"{prefix}_{col}") for col in dataframe.columns if col not in ["sequence", "db"]
+        pl.col(col).alias(f"{prefix}_{col}") for col in dataframe.columns if col not in ["sequence", "db", "score"]
     )
     return dataframe.select(cols_to_select)
 

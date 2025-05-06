@@ -166,50 +166,62 @@ def summarize_annot_table(table, hmm_descriptions):
         ])
     )
 
-    ## 3. Turn them into a struct, then a list via map_elements()
+    # 3. Cast scores to Float64, but *also* compute the real max before filling nulls
     score_cols = [
         "KEGG_score", "Pfam_score",
         "dbCAN_score", "METABOLIC_score", "PHROG_score",
     ]
-    table = table.with_columns([
-        pl.struct(score_cols).map_elements(
-            lambda row: list(row.values()).index(max(row.values())),
-            return_dtype=pl.Int64
-        ).alias("best_idx")
-    ])
+    table = (
+        table
+        .with_columns([
+            # the real max, ignoring nulls entirely
+            pl.max_horizontal(score_cols).alias("max_score"),
+            # now fill nulls to index into them safely
+            *(pl.col(c).cast(pl.Float64).fill_null(float("-inf")).alias(c) for c in score_cols)
+        ])
+    )
 
-    ## Map best_idx = 0 => KEGG, 1 => Pfam, 2 => dbCAN, 3 => METABOLIC, 4 => PHROG
-    db_names = ["KEGG", "Pfam", "dbCAN", "METABOLIC", "PHROG"]
-    hmm_id_cols = ["KEGG_hmm_id", "Pfam_hmm_id", "dbCAN_hmm_id", "METABOLIC_hmm_id", "PHROG_hmm_id"]
-    desc_cols = ["KEGG_Description", "Pfam_Description", "dbCAN_Description", 
-                "METABOLIC_Description", "PHROG_Description"]
+    # 4. Build best_idx but leave it null if no real scores existed
+    table = table.with_columns(
+        pl.when(pl.col("max_score").is_null())
+        .then(None) # if all scores were null
+        .otherwise(
+            pl.struct(score_cols).map_elements(
+                lambda row: list(row.values()).index(max(row.values())),
+                return_dtype=pl.Int64
+            )
+        )
+        .alias("best_idx")
+    )
+
+    table = table.drop("max_score")
 
     ## 4. Use `best_idx` to fill in the top_hit_* columns
     table = table.with_columns([
         # top_hit_hmm_id
-        pl.when(pl.col("best_idx") == 0).then(pl.col(hmm_id_cols[0]))
-        .when(pl.col("best_idx") == 1).then(pl.col(hmm_id_cols[1]))
-        .when(pl.col("best_idx") == 2).then(pl.col(hmm_id_cols[2]))
-        .when(pl.col("best_idx") == 3).then(pl.col(hmm_id_cols[3]))
-        .when(pl.col("best_idx") == 4).then(pl.col(hmm_id_cols[4]))
+        pl.when(pl.col("best_idx") == 0).then(pl.col("KEGG_hmm_id"))
+        .when(pl.col("best_idx") == 1).then(pl.col("Pfam_hmm_id"))
+        .when(pl.col("best_idx") == 2).then(pl.col("dbCAN_hmm_id"))
+        .when(pl.col("best_idx") == 3).then(pl.col("METABOLIC_hmm_id"))
+        .when(pl.col("best_idx") == 4).then(pl.col("PHROG_hmm_id"))
         .otherwise(pl.lit(None))
         .alias("top_hit_hmm_id"),
 
         # top_hit_description
-        pl.when(pl.col("best_idx") == 0).then(pl.col(desc_cols[0]))
-        .when(pl.col("best_idx") == 1).then(pl.col(desc_cols[1]))
-        .when(pl.col("best_idx") == 2).then(pl.col(desc_cols[2]))
-        .when(pl.col("best_idx") == 3).then(pl.col(desc_cols[3]))
-        .when(pl.col("best_idx") == 4).then(pl.col(desc_cols[4]))
+        pl.when(pl.col("best_idx") == 0).then(pl.col("KEGG_Description"))
+        .when(pl.col("best_idx") == 1).then(pl.col("Pfam_Description"))
+        .when(pl.col("best_idx") == 2).then(pl.col("dbCAN_Description"))
+        .when(pl.col("best_idx") == 3).then(pl.col("METABOLIC_Description"))
+        .when(pl.col("best_idx") == 4).then(pl.col("PHROG_Description"))
         .otherwise(pl.lit(None))
         .alias("top_hit_description"),
 
         # top_hit_db
-        pl.when(pl.col("best_idx") == 0).then(pl.lit(db_names[0]))
-        .when(pl.col("best_idx") == 1).then(pl.lit(db_names[1]))
-        .when(pl.col("best_idx") == 2).then(pl.lit(db_names[2]))
-        .when(pl.col("best_idx") == 3).then(pl.lit(db_names[3]))
-        .when(pl.col("best_idx") == 4).then(pl.lit(db_names[4]))
+        pl.when(pl.col("best_idx") == 0).then(pl.lit("KEGG"))
+        .when(pl.col("best_idx") == 1).then(pl.lit("Pfam"))
+        .when(pl.col("best_idx") == 2).then(pl.lit("dbCAN"))
+        .when(pl.col("best_idx") == 3).then(pl.lit("METABOLIC"))
+        .when(pl.col("best_idx") == 4).then(pl.lit("PHROG"))
         .otherwise(pl.lit(None))
         .alias("top_hit_db"),
     ])
@@ -416,7 +428,7 @@ def main():
     physiology_table_out = filter_physiology_annots(annot_table, physiology_table, false_phys_substrings_desc)
     regulation_table_out = filter_regulation_annots(annot_table, regulation_table, false_reg_substrings_desc)
     
-    drop_cols = ["window_avg_KEGG_VL-score_viral", "window_avg_Pfam_VL-score_viral", "top_hit_hmm_id_clean", "pfam_hmm_id_clean"]
+    drop_cols = ["window_avg_KEGG_VL-score_viral", "window_avg_Pfam_VL-score_viral", "top_hit_hmm_id_clean", "Pfam_hmm_id_clean"]
     for col in drop_cols:
         if col in annot_table.columns:
             annot_table = annot_table.drop(col)
