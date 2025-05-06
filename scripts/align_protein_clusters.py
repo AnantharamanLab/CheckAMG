@@ -101,11 +101,12 @@ def init_worker(seqs, acc_prefix, output_dir, aligner_threads):
     output_dir: base directory where "aligned/" subfolder lives
     aligner_threads: number of threads passed to pymuscle5.Aligner (per cluster)
     """
-    global sequences_dict, _acc_prefix, _output_dir, _aligner_threads
+    global sequences_dict, _acc_prefix, _output_dir, _aligner_threads, _aligner
     sequences_dict = seqs
     _acc_prefix = acc_prefix
     _output_dir = output_dir
     _aligner_threads = aligner_threads
+    _aligner = pymuscle5.Aligner(threads=_aligner_threads)
 
 def align_cluster_worker(args):
     """
@@ -144,8 +145,7 @@ def align_cluster_worker(args):
 
     # Multi-sequence alignment
     seq_objs = [ pymuscle5.Sequence(r.header.name.encode(), r.seq.encode()) for r in recs ]
-    aligner = pymuscle5.Aligner(threads=_aligner_threads)
-    msa = aligner.align(seq_objs)
+    msa = _aligner.align(seq_objs)
     with out_path.open('w') as fh:
         for seq in msa.sequences:
             fh.write(f">{seq.name.decode()}\n{seq.sequence.decode()}\n")
@@ -219,98 +219,78 @@ def main():
     }
     logger.info(f"Found {len(existing):,} existing alignments to skip.")
 
-    # Phase 1: serially write out and remove singleton & identical clusters
     prot_clust_to_accession = {}
-    singletons, identical = 0, 0
-    singleton_accessions = set()
-    identical_accessions = set()
-    
+    singletons = identical = 0
+
     for row in cluster_info.iter_rows(named=True):
-        idx = row['index']
+        idx  = row['index']
         name = row['protein_cluster_rep']
         prots = row['proteins']
-        accession = f"{acc_prefix}_{idx}"
-
-        # skip clusters we've already output
-        if accession in existing:
+        acc  = f"{acc_prefix}_{idx}"
+        if acc in existing:
             continue
 
         recs = [sequences_dict_local[p] for p in prots if p in sequences_dict_local]
         if len(recs) == 1:
             singletons += 1
-            singleton_accessions.add(f"{acc_prefix}_{idx}")
         elif len(recs) > 1 and len({str(r.seq) for r in recs}) == 1:
             identical += 1
-            identical_accessions.add(f"{acc_prefix}_{idx}")
         else:
-            # multi‐sequence clusters are left for parallel
             continue
 
-        # write FASTA directly for singleton/identical
-        out_path = aligned_dir / f"{accession}.aligned.fasta"
-        write_sequences_to_file(recs, out_path)
-        prot_clust_to_accession[name] = accession
-
-        # free memory
-        remove_cluster_seqs_from_dict(prots, sequences_dict_local)
+        write_sequences_to_file(recs, aligned_dir / f"{acc}.aligned.fasta")
+        prot_clust_to_accession[name] = acc
 
     logger.info(f"Filtered out {singletons:,} singleton clusters and {identical:,} identical clusters.")
 
-    # Build list of clusters still to align in parallel
-    cluster_args = []
-    for row in cluster_info.iter_rows(named=True):
-        idx = row['index']
-        name = row['protein_cluster_rep']
-        prots = row['proteins']
-        accession = f"{acc_prefix}_{idx}"
-        if accession not in existing and name not in prot_clust_to_accession:
-            cluster_args.append((name, prots, idx))
+    # ─── free big dict before multiprocessing copies it ────────────────
+    del sequences_dict_local                       # ← new
+    import gc; gc.collect()                        # ← new
 
-    total_clusters = len(cluster_args)
-    total_proteins = sum(len(prots) for _, prots, _ in cluster_args)
-    logger.info(f"There are {total_clusters:,} clusters ({total_proteins:,} proteins) to align.")
-    
-    # Compute chunks
-    PER_MB=10; safe_mb=mem_limit*1024*0.75
-    max_jobs=max(1,int(safe_mb/PER_MB)); n_workers=min(max_jobs,threads,os.cpu_count())
-    batch_size = n_workers * 10000
-    num_chunks = math.ceil(total_clusters / batch_size)
-    logger.debug(f"Processing in {num_chunks} chunks of {batch_size:,} clusters each, with up to {n_workers} workers...")
-
-    # grouping for super_worker
-    GROUP_SIZE = 200
-    groups = [
-        cluster_args[i:i+GROUP_SIZE]
-        for i in range(0, total_clusters, GROUP_SIZE)
+    # ─── build list of clusters still to align ─────────────────────────
+    cluster_args = [
+        (row['protein_cluster_rep'], row['proteins'], row['index'])
+        for row in cluster_info.iter_rows(named=True)
+        if f"{acc_prefix}_{row['index']}" not in existing
+           and row['protein_cluster_rep'] not in prot_clust_to_accession
     ]
-    num_groups = len(groups)
-    logger.info(f"Processing in {num_groups:,} groups of ~{GROUP_SIZE:,} clusters each with up to {threads} workers...")
+    total_clusters = len(cluster_args)
+    total_proteins = sum(len(p) for _, p, _ in cluster_args)
+    logger.info(f"There are {total_clusters:,} clusters ({total_proteins:,} proteins) to align.")
 
-    # parallel
-    init_args = (sequences_dict_local, acc_prefix, output_dir, 1)
-    start = time.time()
+    # ─── sharding parameters ───────────────────────────────────────────
+    WAVES = 10                                     # ← new (≈10 % per wave)
+    GROUP_SIZE = 1000                              # keep batching
+    workers = min(threads, os.cpu_count())
+
+    wave_size = max(1, math.ceil(total_clusters / WAVES))
     processed_clusters = 0
-    processed_proteins = 0
+    start_all = time.time()
 
-    with Pool(threads, initializer=init_worker, initargs=init_args) as pool:
-        for gi, results in enumerate(pool.imap(super_worker, groups), start=1):
-            group = groups[gi-1]
-            processed_clusters += len(group)
-            processed_proteins += sum(len(plist) for _, plist, _ in group)
-            for name, prots, acc in results:
-                prot_clust_to_accession[name] = acc
-                remove_cluster_seqs_from_dict(prots, sequences_dict_local)
+    for wstart in range(0, total_clusters, wave_size):          # ← new loop
+        wave_args = cluster_args[wstart : wstart + wave_size]
 
-            # log a single line per chunk
-            elapsed = time.time() - start
-            rate    = processed_clusters / elapsed
-            rem     = total_clusters - processed_clusters
-            eta_h   = rem / rate / 3600
-            logger.info(
-                f"Completed group {gi}/{num_groups}: "
-                f"{processed_clusters:,}/{total_clusters:,} clusters, "
-                f"{processed_proteins:,} proteins aligned (η≈{eta_h:.1f} h)"
-            )
+        # gather seqs only for this wave
+        wave_ids = {pid for _, plist, _ in wave_args for pid in plist}
+        seqs_wave = extract_sequences_from_fasta(fasta, wave_ids)   # ← new
+
+        groups = [wave_args[i:i+GROUP_SIZE] for i in range(0, len(wave_args), GROUP_SIZE)]
+        init_args = (seqs_wave, acc_prefix, output_dir, 1)
+
+        with Pool(workers, initializer=init_worker, initargs=init_args) as pool:
+            for results in pool.imap(super_worker, groups):
+                for name, _, acc in results:
+                    prot_clust_to_accession[name] = acc
+                processed_clusters += len(results)
+                if processed_clusters % 10000 == 0:
+                    rate = processed_clusters / (time.time() - start_all)
+                    eta  = (total_clusters - processed_clusters) / rate / 3600
+                    logger.info(f"{processed_clusters:,}/{total_clusters:,} clusters aligned "
+                                f"(η≈{eta:3.1f} h)")
+
+        # clear per‑wave seqs after the pool exits
+        del seqs_wave                                   # ← new
+        gc.collect()                                    # ← new
 
     # Phase 3: Check for clusters with empty or no alignment output
     unaligned_clusters = []
