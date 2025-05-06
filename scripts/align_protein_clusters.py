@@ -254,8 +254,6 @@ def main():
         # free memory
         remove_cluster_seqs_from_dict(prots, sequences_dict_local)
 
-    already_singleton = singleton_accessions & existing
-    already_identical = identical_accessions & existing
     logger.info(f"Filtered out {singletons:,} singleton clusters and {identical:,} identical clusters.")
 
     # Build list of clusters still to align in parallel
