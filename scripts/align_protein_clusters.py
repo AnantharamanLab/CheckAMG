@@ -13,6 +13,7 @@ import time
 os.environ["POLARS_MAX_THREADS"] = str(snakemake.threads)
 import polars as pl
 import pymuscle5
+import gc; gc.collect()
 
 def set_memory_limit(limit_in_gb):
     """
@@ -243,11 +244,8 @@ def main():
 
     logger.info(f"Filtered out {singletons:,} singleton clusters and {identical:,} identical clusters.")
 
-    # ─── free big dict before multiprocessing copies it ────────────────
-    del sequences_dict_local                       # ← new
-    import gc; gc.collect()                        # ← new
+    del sequences_dict_local
 
-    # ─── build list of clusters still to align ─────────────────────────
     cluster_args = [
         (row['protein_cluster_rep'], row['proteins'], row['index'])
         for row in cluster_info.iter_rows(named=True)
@@ -258,21 +256,20 @@ def main():
     total_proteins = sum(len(p) for _, p, _ in cluster_args)
     logger.info(f"There are {total_clusters:,} clusters ({total_proteins:,} proteins) to align.")
 
-    # ─── sharding parameters ───────────────────────────────────────────
-    WAVES = 10                                     # ← new (≈10 % per wave)
-    GROUP_SIZE = 1000                              # keep batching
+    WAVES = 10
+    GROUP_SIZE = 1000
     workers = min(threads, os.cpu_count())
 
     wave_size = max(1, math.ceil(total_clusters / WAVES))
     processed_clusters = 0
     start_all = time.time()
 
-    for wstart in range(0, total_clusters, wave_size):          # ← new loop
+    for wstart in range(0, total_clusters, wave_size):
         wave_args = cluster_args[wstart : wstart + wave_size]
 
         # gather seqs only for this wave
         wave_ids = {pid for _, plist, _ in wave_args for pid in plist}
-        seqs_wave = extract_sequences_from_fasta(fasta, wave_ids)   # ← new
+        seqs_wave = extract_sequences_from_fasta(fasta, wave_ids)
 
         groups = [wave_args[i:i+GROUP_SIZE] for i in range(0, len(wave_args), GROUP_SIZE)]
         init_args = (seqs_wave, acc_prefix, output_dir, 1)
@@ -289,10 +286,10 @@ def main():
                                 f"(η≈{eta:3.1f} h)")
 
         # clear per‑wave seqs after the pool exits
-        del seqs_wave                                   # ← new
-        gc.collect()                                    # ← new
+        del seqs_wave
+        gc.collect()
 
-    # Phase 3: Check for clusters with empty or no alignment output
+    # Check for clusters with empty or no alignment output
     unaligned_clusters = []
     for row in cluster_info.iter_rows(named=True):
         c = row['protein_cluster_rep']
