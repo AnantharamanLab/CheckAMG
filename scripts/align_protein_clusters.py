@@ -21,10 +21,6 @@ from numba import njit, prange
 import gc
 
 def set_memory_limit(limit_in_gb):
-    """
-    Sets a memory limit (in GB) for this process on Linux (per-process).
-    Does not cap combined usage if multiple processes run in parallel.
-    """
     current_os = platform.system()
     if current_os == "Linux":
         limit_in_bytes = limit_in_gb * 1024 * 1024 * 1024
@@ -58,6 +54,7 @@ _FASTA_IDX     = None
 LARGE_CLUSTER_SIZE = 128
 Rec = namedtuple("Rec", ["header", "seq"])
 class Header:
+    """Minimal FASTA header object compatible with write_fasta()"""
     def __init__(self, name, desc=""):
         self.name = name
         self.desc = desc
@@ -93,7 +90,11 @@ def get_clusters_to_proteins(clusters_df, dblookup_df):
     return merged_df
 
 def extract_sequences_indexed(ids):
-    """Random‑access fetch using pyfastx; returns {id: Rec}."""
+    """
+    Retrieve amino acid sequences from pyfastx index for a set of protein IDs.
+    Removes terminal stop codons if present.
+    Returns a dict of {protein_id: Rec}
+    """
     d = {}
     for pid in ids:
         try:
@@ -105,7 +106,7 @@ def extract_sequences_indexed(ids):
 
 def write_sequences_to_file(seq_list, path_out):
     """
-    Writes a list of records to path_out in FASTA format.
+    Write a list of Rec sequences to a FASTA file.
     """
     with path_out.open('w') as outfile:
         for seq in seq_list:
@@ -113,16 +114,15 @@ def write_sequences_to_file(seq_list, path_out):
             
 @lru_cache(maxsize=100_000)
 def _mk_seq(name: bytes, seq: bytes):
+    """
+    Create a PyMuscle5 Sequence object from name and sequence.
+    Cached to avoid recomputing for identical sequences.
+    """
     return pymuscle5.Sequence(name, seq)
 
 def init_worker(acc_prefix, output_dir, aligner_threads):
     """
-    Initialize globals for each worker process.
-
-    seqs: dict of protein_id -> sequences (str) loaded from FASTA
-    acc_prefix: prefix for output filenames
-    output_dir: base directory where "aligned/" subfolder lives
-    aligner_threads: number of threads passed to pymuscle5.Aligner (per cluster)
+    Initialize aligners and global paths for multiprocessing workers.
     """
     global _acc_prefix, _output_dir, _aligner_fast, _aligner_full, _famsa
     _acc_prefix  = acc_prefix
@@ -133,6 +133,10 @@ def init_worker(acc_prefix, output_dir, aligner_threads):
 
 @njit(cache=True, fastmath=True)
 def hamming(a: bytes, b: bytes) -> int:
+    """
+    Compute Hamming distance between two byte strings.
+    Used for quickly determining near-identical sequences.
+    """
     n = len(a)
     mism = 0
     for i in prange(n):
@@ -141,6 +145,13 @@ def hamming(a: bytes, b: bytes) -> int:
     return mism
 
 def align_cluster_worker(args):
+    """
+    Aligns one protein cluster:
+    - Skip singleton or identical sequences
+    - Use pyFAMSA for large clusters
+    - Use PyMuscle5 for smaller clusters (faster or refined depending on size)
+    Returns (cluster_name, accession).
+    """
     cluster_name, protein_list, idx = args
     acc   = f"{_acc_prefix}_{idx}"
     out_f = Path(_output_dir, "aligned", f"{acc}.aligned.fasta")
@@ -181,8 +192,7 @@ def align_cluster_worker(args):
 
 def super_worker(group):
     """
-    Aligns a list of clusters in one call to reduce IPC overhead.
-    Returns a list of (cluster_name, accession) for those succeeded.
+    Batch-process a group of cluster alignment tasks to reduce IPC cost.
     """
     return [align_cluster_worker(a) for a in group]
         
