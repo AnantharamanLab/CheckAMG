@@ -6,14 +6,18 @@ import math
 import resource
 import platform
 from pyfastatools import Parser, write_fasta
+from pyfastx import Fasta
+from collections import namedtuple
 from pathlib import Path
 import logging
 from multiprocessing import Pool
+from functools import lru_cache
 import time
 os.environ["POLARS_MAX_THREADS"] = str(snakemake.threads)
 import polars as pl
 import pymuscle5
-import gc; gc.collect()
+import pyfamsa
+import gc
 
 def set_memory_limit(limit_in_gb):
     """
@@ -45,9 +49,17 @@ with open(log_file, "a") as log:
 
 # Module‐level globals for worker processes
 sequences_dict = None
-_acc_prefix = None
-_output_dir = None
-_aligner_threads = None
+_acc_prefix    = None
+_output_dir    = None
+_aligner_fast  = None
+_aligner_full  = None 
+_FASTA_IDX     = None
+LARGE_CLUSTER_SIZE = 128
+Rec = namedtuple("Rec", ["header", "seq"])
+class Header:
+    def __init__(self, name, desc=""):
+        self.name = name
+        self.desc = desc
     
 def load_filtered_clusters(cluster_file):
     """
@@ -79,21 +91,30 @@ def get_clusters_to_proteins(clusters_df, dblookup_df):
     ]).sort('protein_cluster_rep').with_row_index('index',offset=1) # Stable index: sort by cluster name
     return merged_df
 
-def extract_sequences_from_fasta(fasta_path, protein_ids):
-    """
-    Loads sequences from the given FASTA into memory,
-    but only for the protein_ids of interest.
-    Returns a dict { protein_id: record }
-    """
-    sequences = {}
-    for record in Parser(fasta_path):
-        if record.header.name in protein_ids:
-            # Remove any '*' from the Seq at load time
-            record.seq = record.seq.replace("*", "")
-            sequences[record.header.name] = record
-    return sequences
+def extract_sequences_indexed(ids):
+    """Random‑access fetch using pyfastx; returns {id: Rec}."""
+    d = {}
+    for pid in ids:
+        try:
+            seq = _FASTA_IDX[pid].seq
+            d[pid] = Rec(Header(pid), seq.replace("*", ""))
+        except KeyError:
+            continue
+    return d
 
-def init_worker(seqs, acc_prefix, output_dir, aligner_threads):
+def write_sequences_to_file(seq_list, path_out):
+    """
+    Writes a list of records to path_out in FASTA format.
+    """
+    with path_out.open('w') as outfile:
+        for seq in seq_list:
+            write_fasta(seq, outfile)
+            
+@lru_cache(maxsize=100_000)
+def _mk_seq(name: bytes, seq: bytes):
+    return pymuscle5.Sequence(name, seq)
+
+def init_worker(acc_prefix, output_dir, aligner_threads):
     """
     Initialize globals for each worker process.
 
@@ -102,85 +123,64 @@ def init_worker(seqs, acc_prefix, output_dir, aligner_threads):
     output_dir: base directory where "aligned/" subfolder lives
     aligner_threads: number of threads passed to pymuscle5.Aligner (per cluster)
     """
-    global sequences_dict, _acc_prefix, _output_dir, _aligner_threads, _aligner
-    sequences_dict = seqs
-    _acc_prefix = acc_prefix
-    _output_dir = output_dir
-    _aligner_threads = aligner_threads
-    _aligner = pymuscle5.Aligner(threads=_aligner_threads)
+    global _acc_prefix, _output_dir, _aligner_fast, _aligner_full, _famsa
+    _acc_prefix  = acc_prefix
+    _output_dir  = output_dir
+    _aligner_fast = pymuscle5.Aligner(threads=1, refine_iterations=0)
+    _aligner_full = pymuscle5.Aligner(threads=1)
+    _famsa = pyfamsa.Aligner(threads=aligner_threads)
 
 def align_cluster_worker(args):
-    """
-    For a single cluster, filter or align:
-
-    1. Fetch sequences from sequences_dict.
-    2. If no sequences, skip.
-    3. If exactly one sequence or all sequences identical:
-       - Write FASTA directly to aligned/.
-       - Return accession basename.
-    4. Otherwise:
-       - Run PyMuscle5 alignment with one thread.
-       - Write MSA to aligned/.
-       - Return accession basename.
-
-    Returns (cluster_name, protein_list, accession_or_None).
-    """
     cluster_name, protein_list, idx = args
-    accession = f"{_acc_prefix}_{idx}"
-    aligned_dir = Path(_output_dir) / "aligned"
-    out_path = aligned_dir / f"{accession}.aligned.fasta"
+    acc   = f"{_acc_prefix}_{idx}"
+    out_f = Path(_output_dir, "aligned", f"{acc}.aligned.fasta")
 
-    # Gather records
-    recs = [ sequences_dict[p] for p in protein_list if p in sequences_dict ]
+    recs = [sequences_dict[p] for p in protein_list if p in sequences_dict]
     if not recs:
-        logger.warning(f"No sequences found for cluster {cluster_name}. Skipping.")
-        return (cluster_name, protein_list, None)
+        return None
 
-    # Singleton or identical
-    seqs_set = { str(r.seq) for r in recs }
-    if len(recs) == 1 or len(seqs_set) == 1:
-        with out_path.open('w') as fh:
-            for rec in recs:
-                write_fasta(rec, fh)
-        return (cluster_name, protein_list, accession)
+    if len(recs) == 1 or len({r.seq for r in recs}) == 1:
+        with out_f.open("w") as fh:
+            for r in recs: write_fasta(r, fh)
+        return (cluster_name, acc)
 
-    # Multi-sequence alignment
-    seq_objs = [ pymuscle5.Sequence(r.header.name.encode(), r.seq.encode()) for r in recs ]
-    msa = _aligner.align(seq_objs)
-    with out_path.open('w') as fh:
-        for seq in msa.sequences:
-            fh.write(f">{seq.name.decode()}\n{seq.sequence.decode()}\n")
-    return (cluster_name, protein_list, accession)
+    if len(recs) == 2 and len(recs[0].seq) == len(recs[1].seq):
+        max_mism = max(1, int(0.01 * len(recs[0].seq))) # 1 % of length, min 1
+        mism = sum(a != b for a, b in zip(recs[0].seq, recs[1].seq))
+        if mism <= max_mism:
+            write_sequences_to_file(recs, out_f)
+            return (cluster_name, acc)
+    
+    # Use pyFAMSA for large clusters
+    if len(recs) > LARGE_CLUSTER_SIZE:
+        seqs = [pyfamsa.Sequence(r.header.name.encode(), r.seq.encode()) for r in recs]
+        msa  = _famsa.align(seqs) # thread‑safe, no files
+        with out_f.open("w") as fh:
+            for s in msa: # PyFAMSA MSA iterable
+                fh.write(f">{s.id.decode()}\n{s.sequence.decode()}\n")
+        return (cluster_name, acc)
+    
+    # Use PyMuscle5 for remaining clusters
+    seq_objs = [_mk_seq(r.header.name.encode(), r.seq.encode()) for r in recs]
+    aligner  = _aligner_fast if len(recs) <= 8 else _aligner_full
+    msa = aligner.align(seq_objs)
+    with out_f.open("w") as fh:
+        for s in msa.sequences:
+            fh.write(f">{s.name.decode()}\n{s.sequence.decode()}\n")
+    return (cluster_name, acc)
 
 def super_worker(group):
     """
     Aligns a list of clusters in one call to reduce IPC overhead.
-    Returns a list of (cluster_name, protein_list, accession) for those succeeded.
+    Returns a list of (cluster_name, accession) for those succeeded.
     """
-    results = []
-    for args in group:
-        name, prots, idx = args
-        _, _, acc = align_cluster_worker((name, prots, idx))
-        if acc:
-            results.append((name, prots, acc))
-    return results
-
-def remove_cluster_seqs_from_dict(protein_ids, seq_dict):
-    for pid in protein_ids:
-        seq_dict.pop(pid, None)
+    return [align_cluster_worker(a) for a in group]
         
-def write_sequences_to_file(seq_list, path_out):
-    """
-    Writes a list of records to path_out in FASTA format.
-    """
-    with path_out.open('w') as outfile:
-        for seq in seq_list:
-            write_fasta(seq, outfile)
-
 def main():
     cluster_file = snakemake.params.cluster_file
     dblookup_file = snakemake.params.dblookup
-    fasta = snakemake.params.all_filtered_prots
+    input_prot_dir = snakemake.params.input_prot_dir
+    confidence_levels = snakemake.params.confidence_levels
     acc_prefix = snakemake.params.acc_prefix
     prot_clust_to_accession_path = snakemake.params.prot_clust_to_accession
     output_dir = snakemake.params.wdir
@@ -190,6 +190,41 @@ def main():
     logger.info("Starting protein cluster alignment with PyMuscle5...")
     set_memory_limit(mem_limit)
     logger.debug(f"Memory limit set to {mem_limit:,} GB.")
+    
+    # Build paths for each confidence level file
+    input_faa_paths = [os.path.join(input_prot_dir, f"{level}_confidence_viral.faa") for level in confidence_levels]
+    logger.debug(f"Input protein files: {input_faa_paths}")
+    assert len(input_faa_paths) > 0, "No input protein files found. Please check the input directory."
+
+    if len(input_faa_paths) == 1:
+        fasta = input_faa_paths[0]
+        logger.debug(f"Using {fasta} as the input protein file.")
+    elif len(input_faa_paths) == 2:
+        fasta = os.path.join(input_prot_dir, f"{"_".join(confidence_levels)}_confidence_viral.faa")
+        unique_records = {}
+        for faa_path in input_faa_paths:
+            # Parse each fasta file
+            for record in Parser(faa_path):
+                # Use the record's id as a key for uniqueness;
+                # if a record with the same ID is already seen, it is skipped.
+                unique_records[record.header.name] = record
+        # Write the union (non-redundant records) to the output fasta file.
+        with open(fasta, "w") as outfile:
+            for record in unique_records.values():
+                write_fasta(record, outfile)
+        logger.debug(f"Combined protein file created: {fasta}")
+        logger.debug(f"Using {fasta} as the input protein file.")
+    elif len(input_faa_paths) == 3:
+        fasta = os.path.join(input_prot_dir, "filtered_proteins.faa")
+        logger.debug(f"Using {fasta} as the input protein file.")
+    else:
+        fasta = None
+        logger.error("More than 3 or less than 1 confidence levels provided. Please check the input files.")
+        raise ValueError("More than 3 or less than 1 confidence levels provided. Please check the input files.")
+
+    # build pyfastx index once
+    global _FASTA_IDX
+    _FASTA_IDX = Fasta(str(fasta), build_index=True)
     
     # Load data
     clusters_df = load_filtered_clusters(cluster_file)
@@ -206,7 +241,7 @@ def main():
         protein_ids.update(prots)
 
     # Load sequences
-    sequences_dict_local = extract_sequences_from_fasta(fasta, protein_ids)
+    sequences_dict_local = extract_sequences_indexed(protein_ids)
     total_loaded = len(sequences_dict_local)
     logger.debug(f"Loaded {total_loaded:,} protein sequences in memory initially.")
     Path(output_dir, 'aligned').mkdir(parents=True, exist_ok=True)
@@ -256,28 +291,35 @@ def main():
     total_proteins = sum(len(p) for _, p, _ in cluster_args)
     logger.info(f"There are {total_clusters:,} clusters ({total_proteins:,} proteins) to align.")
 
-    WAVES = 10
-    GROUP_SIZE = 1000
+    
     workers = min(threads, os.cpu_count())
-
+    RAM_BUDGET_GB = 20
+    BYTES_PER_SEQ = 250
+    seqs_per_wave = (RAM_BUDGET_GB * 1024**3) // (BYTES_PER_SEQ * workers)
+    avg_cluster_size = total_proteins / total_clusters
+    clusters_per_wave = max(1, int(seqs_per_wave / avg_cluster_size))
+    WAVES = max(1, math.ceil(total_clusters / clusters_per_wave))
+    logger.debug(f"Auto‑tuned WAVES to {WAVES:,} for {RAM_BUDGET_GB:,} GB peak RAM.")
+    GROUP_SIZE = workers * 20
+    logger.debug(f"Auto‑tuned GROUP_SIZE to {GROUP_SIZE:,} for {workers:,} workers.")
     wave_size = max(1, math.ceil(total_clusters / WAVES))
     processed_clusters = 0
     start_all = time.time()
 
     for wstart in range(0, total_clusters, wave_size):
-        wave_args = cluster_args[wstart : wstart + wave_size]
-
-        # gather seqs only for this wave
-        wave_ids = {pid for _, plist, _ in wave_args for pid in plist}
-        seqs_wave = extract_sequences_from_fasta(fasta, wave_ids)
-
-        groups = [wave_args[i:i+GROUP_SIZE] for i in range(0, len(wave_args), GROUP_SIZE)]
-        init_args = (seqs_wave, acc_prefix, output_dir, 1)
-
-        with Pool(workers, initializer=init_worker, initargs=init_args) as pool:
-            for results in pool.imap(super_worker, groups):
-                for name, _, acc in results:
-                    prot_clust_to_accession[name] = acc
+        wave = cluster_args[wstart : wstart + wave_size]
+        wave_ids = {pid for _, plist, _ in wave for pid in plist}
+        global sequences_dict
+        sequences_dict = extract_sequences_indexed(wave_ids)
+        groups = [wave[i:i+GROUP_SIZE] for i in range(0, len(wave), GROUP_SIZE)]
+        initargs = (acc_prefix, output_dir, 1)
+        
+        with Pool(workers, initializer=init_worker, initargs=initargs) as pool:
+            for results in pool.imap_unordered(super_worker, groups):
+                for res in results:
+                    if res:
+                        name, acc = res
+                        prot_clust_to_accession[name] = acc
                 processed_clusters += len(results)
                 if processed_clusters % 10000 == 0:
                     rate = processed_clusters / (time.time() - start_all)
@@ -286,7 +328,7 @@ def main():
                                 f"(η≈{eta:3.1f} h)")
 
         # clear per‑wave seqs after the pool exits
-        del seqs_wave
+        sequences_dict = None
         gc.collect()
 
     # Check for clusters with empty or no alignment output
