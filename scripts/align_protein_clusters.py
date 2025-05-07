@@ -17,6 +17,7 @@ os.environ["POLARS_MAX_THREADS"] = str(snakemake.threads)
 import polars as pl
 import pymuscle5
 import pyfamsa
+from numba import njit, prange
 import gc
 
 def set_memory_limit(limit_in_gb):
@@ -130,6 +131,15 @@ def init_worker(acc_prefix, output_dir, aligner_threads):
     _aligner_full = pymuscle5.Aligner(threads=1)
     _famsa = pyfamsa.Aligner(threads=aligner_threads)
 
+@njit(cache=True, fastmath=True)
+def hamming(a: bytes, b: bytes) -> int:
+    n = len(a)
+    mism = 0
+    for i in prange(n):
+        if a[i] != b[i]:
+            mism += 1
+    return mism
+
 def align_cluster_worker(args):
     cluster_name, protein_list, idx = args
     acc   = f"{_acc_prefix}_{idx}"
@@ -146,7 +156,7 @@ def align_cluster_worker(args):
 
     if len(recs) == 2 and len(recs[0].seq) == len(recs[1].seq):
         max_mism = max(1, int(0.01 * len(recs[0].seq))) # 1 % of length, min 1
-        mism = sum(a != b for a, b in zip(recs[0].seq, recs[1].seq))
+        mism = hamming(recs[0].seq.encode(), recs[1].seq.encode())
         if mism <= max_mism:
             write_sequences_to_file(recs, out_f)
             return (cluster_name, acc)
@@ -313,15 +323,16 @@ def main():
         sequences_dict = extract_sequences_indexed(wave_ids)
         groups = [wave[i:i+GROUP_SIZE] for i in range(0, len(wave), GROUP_SIZE)]
         initargs = (acc_prefix, output_dir, 1)
-        
+        last_logged = 0
         with Pool(workers, initializer=init_worker, initargs=initargs) as pool:
             for results in pool.imap_unordered(super_worker, groups):
+                # count EVERY cluster that was scheduled, not only successful alignments
+                processed_clusters += GROUP_SIZE
                 for res in results:
                     if res:
                         name, acc = res
                         prot_clust_to_accession[name] = acc
-                processed_clusters += len(results)
-                if processed_clusters % 10000 == 0:
+                if processed_clusters // 10_000 > last_logged:
                     rate = processed_clusters / (time.time() - start_all)
                     eta  = (total_clusters - processed_clusters) / rate / 3600
                     logger.info(f"{processed_clusters:,}/{total_clusters:,} clusters aligned "
