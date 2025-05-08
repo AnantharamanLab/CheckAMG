@@ -38,10 +38,11 @@ logging.basicConfig(
     ]
 )
 logger = logging.getLogger()
+logging.getLogger("numba").setLevel(logging.INFO)
 
-print("========================================================================\n     Step 20/22: Align the filtered protein clusters with PyMuscle5     \n========================================================================")
+print("========================================================================\n            Step 20/22: Align the filtered protein clusters             \n========================================================================")
 with open(log_file, "a") as log:
-    log.write("========================================================================\n     Step 20/22: Align the filtered protein clusters with PyMuscle5     \n========================================================================\n")
+    log.write("========================================================================\n            Step 20/22: Align the filtered protein clusters             \n========================================================================\n")
 
 
 # Module‐level globals for worker processes
@@ -195,6 +196,15 @@ def super_worker(group):
     Batch-process a group of cluster alignment tasks to reduce IPC cost.
     """
     return [align_cluster_worker(a) for a in group]
+
+def _fmt_eta(hours_remaining: float) -> str:
+    """Return ETA as dd:hh:mm:ss (some may be 0)."""
+    total_seconds = int(round(hours_remaining * 3600))
+    days,  sec = divmod(total_seconds, 86_400) # 86400 s = 24 h
+    hours, sec = divmod(sec, 3_600)
+    minutes, sec = divmod(sec, 60)
+
+    return f"{days}d:{hours:02d}h:{minutes:02d}m:{sec}s"
         
 def main():
     cluster_file = snakemake.params.cluster_file
@@ -269,7 +279,7 @@ def main():
     # Existing alignments on disk
     aligned_dir = Path(output_dir) / 'aligned'
     existing = {
-        f.stem.replace(".aligned.fasta", "")
+        f.stem.replace(".aligned", "")
         for f in aligned_dir.glob(f"{acc_prefix}_*.aligned.fasta")
         if f.stat().st_size > 0
     }
@@ -310,45 +320,51 @@ def main():
     total_clusters = len(cluster_args)
     total_proteins = sum(len(p) for _, p, _ in cluster_args)
     logger.info(f"There are {total_clusters:,} clusters ({total_proteins:,} proteins) to align.")
-
-    
     workers = min(threads, os.cpu_count())
-    RAM_BUDGET_GB = 20
-    BYTES_PER_SEQ = 250
-    seqs_per_wave = (RAM_BUDGET_GB * 1024**3) // (BYTES_PER_SEQ * workers)
-    avg_cluster_size = total_proteins / total_clusters
-    clusters_per_wave = max(1, int(seqs_per_wave / avg_cluster_size))
-    WAVES = max(1, math.ceil(total_clusters / clusters_per_wave))
-    logger.debug(f"Auto‑tuned WAVES to {WAVES:,} for {RAM_BUDGET_GB:,} GB peak RAM.")
-    GROUP_SIZE = workers * 20
-    logger.debug(f"Auto‑tuned GROUP_SIZE to {GROUP_SIZE:,} for {workers:,} workers.")
-    wave_size = max(1, math.ceil(total_clusters / WAVES))
-    processed_clusters = 0
+    GB_PER_WAVE = 3
+    est_bytes = total_proteins * 250 # rough upper bound
+    max_in_ram = (GB_PER_WAVE * workers) * (1 << 30)
+    WAVES = max(1, math.ceil(est_bytes / max_in_ram))
+    GROUP_SIZE = max( min(1_000, # never exceed 1 000
+                        math.ceil(total_clusters / (workers * 20))),
+                    10) # but at least 10
+
+    wave_size  = math.ceil(total_clusters / WAVES)
+    logger.debug(f"Auto‑tuned WAVES={WAVES}, GROUP_SIZE={GROUP_SIZE}, wave_size={wave_size}")
+
     start_all = time.time()
+    finished_total = 0
+    next_log = 10_000
+    LOG_EVERY = 10_000 
 
     for wstart in range(0, total_clusters, wave_size):
-        wave = cluster_args[wstart : wstart + wave_size]
+        wave      = cluster_args[wstart : wstart + wave_size]
+
+        # pull only the sequences required for this wave into shared memory
         wave_ids = {pid for _, plist, _ in wave for pid in plist}
         global sequences_dict
         sequences_dict = extract_sequences_indexed(wave_ids)
-        groups = [wave[i:i+GROUP_SIZE] for i in range(0, len(wave), GROUP_SIZE)]
-        initargs = (acc_prefix, output_dir, 1)
-        last_logged = 0
-        with Pool(workers, initializer=init_worker, initargs=initargs) as pool:
-            for results in pool.imap_unordered(super_worker, groups):
-                # count EVERY cluster that was scheduled, not only successful alignments
-                processed_clusters += GROUP_SIZE
-                for res in results:
+
+        # slice the wave into smaller groups for the worker pool
+        groups = [wave[i : i + GROUP_SIZE] for i in range(0, len(wave), GROUP_SIZE)]
+
+        with Pool(workers, initializer=init_worker,
+                initargs=(acc_prefix, output_dir, 1)) as pool:
+
+            for grp_idx, results in enumerate(pool.imap_unordered(super_worker, groups)):
+                finished_total += len(results) # true completions
+
+                for res in results: # store accessions
                     if res:
                         name, acc = res
                         prot_clust_to_accession[name] = acc
-                if processed_clusters // 10_000 > last_logged:
-                    rate = processed_clusters / (time.time() - start_all)
-                    eta  = (total_clusters - processed_clusters) / rate / 3600
-                    logger.info(f"{processed_clusters:,}/{total_clusters:,} clusters aligned "
-                                f"(η≈{eta:3.1f} h)")
 
-        # clear per‑wave seqs after the pool exits
+                while finished_total >= next_log:
+                    rate = finished_total / (time.time() - start_all)
+                    hrs = (total_clusters - finished_total) / rate / 3600
+                    logger.info(f"{finished_total:,}/{total_clusters:,} clusters aligned (estimated time remaining: {_fmt_eta(hrs)})...")
+                    next_log += LOG_EVERY
+                    
         sequences_dict = None
         gc.collect()
 
