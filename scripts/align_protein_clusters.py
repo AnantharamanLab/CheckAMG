@@ -17,7 +17,6 @@ os.environ["POLARS_MAX_THREADS"] = str(snakemake.threads)
 import polars as pl
 import pymuscle5
 import pyfamsa
-from numba import njit, prange
 import gc
 
 def set_memory_limit(limit_in_gb):
@@ -38,7 +37,6 @@ logging.basicConfig(
     ]
 )
 logger = logging.getLogger()
-logging.getLogger("numba").setLevel(logging.INFO)
 
 print("========================================================================\n            Step 20/22: Align the filtered protein clusters             \n========================================================================")
 with open(log_file, "a") as log:
@@ -132,19 +130,6 @@ def init_worker(acc_prefix, output_dir, aligner_threads):
     _aligner_full = pymuscle5.Aligner(threads=1)
     _famsa = pyfamsa.Aligner(threads=aligner_threads)
 
-@njit(cache=True, fastmath=True)
-def hamming(a: bytes, b: bytes) -> int:
-    """
-    Compute Hamming distance between two byte strings.
-    Used for quickly determining near-identical sequences.
-    """
-    n = len(a)
-    mism = 0
-    for i in prange(n):
-        if a[i] != b[i]:
-            mism += 1
-    return mism
-
 def align_cluster_worker(args):
     """
     Aligns one protein cluster:
@@ -165,13 +150,6 @@ def align_cluster_worker(args):
         with out_f.open("w") as fh:
             for r in recs: write_fasta(r, fh)
         return (cluster_name, acc)
-
-    if len(recs) == 2 and len(recs[0].seq) == len(recs[1].seq):
-        max_mism = max(1, int(0.01 * len(recs[0].seq))) # 1 % of length, min 1
-        mism = hamming(recs[0].seq.encode(), recs[1].seq.encode())
-        if mism <= max_mism:
-            write_sequences_to_file(recs, out_f)
-            return (cluster_name, acc)
     
     # Use pyFAMSA for large clusters
     if len(recs) > LARGE_CLUSTER_SIZE:
@@ -184,7 +162,8 @@ def align_cluster_worker(args):
     
     # Use PyMuscle5 for remaining clusters
     seq_objs = [_mk_seq(r.header.name.encode(), r.seq.encode()) for r in recs]
-    aligner  = _aligner_fast if len(recs) <= 8 else _aligner_full
+    # aligner  = _aligner_fast if len(recs) <= 8 else _aligner_full
+    aligner  = _aligner_full
     msa = aligner.align(seq_objs)
     with out_f.open("w") as fh:
         for s in msa.sequences:
@@ -334,8 +313,18 @@ def main():
 
     start_all = time.time()
     finished_total = 0
-    next_log = 10_000
-    LOG_EVERY = 10_000 
+    if total_clusters >= 100_000:
+        LOG_EVERY = 10_000
+        next_log = 10_000
+    elif total_clusters >= 10_000:
+        LOG_EVERY = 1_000
+        next_log = 1_000
+    elif total_clusters >= 1_000:
+        LOG_EVERY = 100
+        next_log = 100
+    else:
+        LOG_EVERY = 10
+        next_log = 10
 
     for wstart in range(0, total_clusters, wave_size):
         wave      = cluster_args[wstart : wstart + wave_size]
