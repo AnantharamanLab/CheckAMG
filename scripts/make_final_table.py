@@ -31,13 +31,13 @@ logging.basicConfig(
 logger = logging.getLogger()
 
 if snakemake.params.build_or_annotate =="build":
-    print("========================================================================\n     Step 22/22: Writing the final summarized auxiliary gene table      \n========================================================================")
+    print("========================================================================\n         Step 22/22: Write the final summarized database table          \n========================================================================")
     with open(log_file, "a") as log:
-        log.write("========================================================================\n     Step 22/22: Writing the final summarized auxiliary gene table      \n========================================================================\n")
+        log.write("========================================================================\n         Step 22/22: Write the final summarized database table          \n========================================================================\n")
 elif snakemake.params.build_or_annotate == "annotate":
-    print("========================================================================\n     Step 11/11: Writing the final summarized auxiliary gene table      \n========================================================================")
+    print("========================================================================\n      Step 11/11: Write the final summarized auxiliary gene table       \n========================================================================")
     with open(log_file, "a") as log:
-        log.write("========================================================================\n     Step 11/11: Writing the final summarized auxiliary gene table      \n========================================================================\n")
+        log.write("========================================================================\n      Step 11/11: Writing the final summarized auxiliary gene table       \n========================================================================\n")
 
 def build_protein_metrics(aux_scores_df: pl.DataFrame, hmm_df: pl.DataFrame) -> pl.DataFrame:
     """
@@ -329,76 +329,87 @@ def classify_proteins(final_df, metabolism_df, physiology_df, regulatory_df, bui
 
     return final_df
 
-# Function to join the auxiliary status, hmm dataframe, all genes dataframe, and classification for CheckAMG build mode
-def merge_dataframes_build(aux_metric_df, hmm_df, all_genes_df, gene_index_df, metabolism_df, physiology_df, regulatory_df, aux_status_df):
-    # Log available columns before joining
-    logger.debug(f"Columns in aux_metric_df: {aux_metric_df.columns}")
-    dups_in_am = (
-        aux_metric_df
-        .group_by("Protein")
-        .agg(pl.count("Protein").alias("count"))
-        .filter(pl.col("count") > 1)
-    )
-    logger.debug(f"Duplicates in aux_metric_df: {dups_in_am}")
-    logger.debug(f"Columns in aux_status_df: {aux_status_df.columns}")
-    dups_in_as = (
-        aux_status_df
-        .group_by("hmm")
-        .agg(pl.count("hmm").alias("count"))
-        .filter(pl.col("count") > 1)
-    )
-    logger.debug(f"Duplicates in aux_status_df: {dups_in_as}")
-    logger.debug(f"Columns in hmm_df: {hmm_df.columns}")
-    dups_in_hmm = (
-        hmm_df
-        .group_by("Protein")
-        .agg(pl.count("Protein").alias("count"))
-        .filter(pl.col("count") > 1)
-    )
-    logger.debug(f"Duplicate proteins in hmm_df: {dups_in_hmm}")
-    logger.debug(f"Columns in all_genes_df: {all_genes_df.columns}")
-    dups_in_ag = (
-        all_genes_df
-        .group_by("Protein")
-        .agg(pl.count("Protein").alias("count"))
-        .filter(pl.col("count") > 1)
-    )
-    logger.debug(f"Duplicates in all_genes_df: {dups_in_ag}")
-    logger.debug(f"Columns in gene_index_df: {gene_index_df.columns}")
-    dups_in_gi = (
-        gene_index_df
-        .group_by("Protein")
-        .agg(pl.count("Protein").alias("count"))
-        .filter(pl.col("count") > 1)
-    )
-    logger.debug(f"Duplicates in gene_index_df: {dups_in_gi}")
+def merge_dataframes_build(
+    aux_metric_df: pl.DataFrame,
+    hmm_df: pl.DataFrame,
+    all_genes_df: pl.DataFrame,
+    gene_index_df: pl.DataFrame,
+    metabolism_df: pl.DataFrame,
+    physiology_df: pl.DataFrame,
+    regulatory_df: pl.DataFrame,
+    aux_status_df: pl.DataFrame,
+    tmp_duckdb_path: str,
+    threads: int
+):
+    # 1) Determine dynamic column lists BEFORE trimming
+    quantile_cols = [c for c in aux_metric_df.columns if c.endswith('Quantile')]
+    score_cols    = [c for c in aux_metric_df.columns if c.endswith('Auxiliary Score')]
+    cluster_cols  = [c for c in gene_index_df.columns if c != 'Protein']
 
-    # Join the auxiliary status and auxiliary metrics dfs
-    merged_df = (
-        aux_metric_df.lazy()
-        .join(aux_status_df.lazy(), on="hmm", how="full")
-        .lazy()
-    )
-    # Join with the other data
-    merged_df = (
-        merged_df
-        .join(hmm_df.lazy(), on="hmm", how="left")
-        .join(all_genes_df.lazy(), on="Protein", how="left")
-        .join(gene_index_df.lazy(), on="Protein", how="left")
-        .collect()
-    )
+    # 2) Register DataFrames in DuckDB
+    con = duckdb.connect(tmp_duckdb_path)
+    con.execute(f"SET threads={threads}")
+    con.execute(f"SET memory_limit = '{round(int(threads * 5))}GB'") # From DuckDB docs: Aim for 5-10 GB memory per thread
+    # trim aux_metric to only the columns needed
+    aux_metric_trimmed = aux_metric_df.select(['Protein','hmm'] + quantile_cols + score_cols)
+    con.register('aux_metric', aux_metric_trimmed)
+    # trim aux_status to only hmm and auxiliary_status
+    aux_status_trimmed = aux_status_df.select(['hmm','auxiliary_status'])
+    con.register('aux_status', aux_status_trimmed)
+    con.register('hmm', hmm_df)
+    con.register('genes', all_genes_df)
+    con.register('gidx', gene_index_df)
 
-    # Log result
-    logger.debug(f"Merged dataframe shape: {merged_df.shape}")
-    logger.debug(f"Columns in merged_df: {merged_df.columns}")
-    
-    merged_df = classify_proteins(merged_df, metabolism_df, physiology_df, regulatory_df, "build").unique()
-    
-    # Clean up memory
-    del aux_metric_df, hmm_df, all_genes_df, gene_index_df, metabolism_df, physiology_df, regulatory_df
-    gc.collect()
+    # 3) Build SQL SELECT list
+    select_parts = [
+        'aux_metric.Protein',
+        'aux_metric.hmm',
+        'aux_status."auxiliary_status"'
+    ]
+    select_parts += [f'aux_metric."{c}"' for c in quantile_cols + score_cols]
 
-    return merged_df
+    # Gene columns
+    gene_cols = [
+        'Contig','Genome',
+        'Circular_Contig','Virus_Like_Window',
+        'Viral_Flanking_Genes_Upstream','Viral_Flanking_Genes_Downstream',
+        'MGE_Flanking_Genes',
+        'KEGG_hmm_id','KEGG_Description',
+        'Pfam_hmm_id','Pfam_Description',
+        'dbCAN_hmm_id','dbCAN_Description',
+        'METABOLIC_hmm_id','METABOLIC_Description',
+        'PHROG_hmm_id','PHROG_Description',
+        'top_hit_hmm_id','top_hit_description','top_hit_db'
+    ]
+    select_parts += [f'genes."{c}"' for c in gene_cols]
+    select_parts += [f'gidx."{c}"' for c in cluster_cols]
+
+    select_sql = ', '.join(select_parts)
+
+    # 4) Execute join in DuckDB
+    sql = f"""
+    SELECT {select_sql}
+    FROM aux_metric
+    JOIN aux_status    USING(hmm)
+    JOIN hmm           USING(Protein)
+    JOIN genes         USING(Protein)
+    JOIN gidx          USING(Protein)
+    """
+    arrow_tbl = con.execute(sql).arrow()
+    merged_df = pl.from_arrow(arrow_tbl)
+    con.close()
+
+    # 5) Apply classification and dedupe
+    result = classify_proteins(
+        merged_df,
+        metabolism_df,
+        physiology_df,
+        regulatory_df,
+        build_or_annotate='build'
+    ).unique()
+
+    return result
+
 
 # Function to join the auxiliary status, hmm dataframe, all genes dataframe, and classification for CheckAMG annotate mode
 def merge_dataframes_genome(all_genes_df, metabolism_df, physiology_df, regulatory_df):
@@ -482,6 +493,7 @@ def main():
     regulatory_path = snakemake.params.regulation_table
     final_table_path = snakemake.params.final_table
     mem_limit = snakemake.resources.mem
+    threads = snakemake.threads
     set_memory_limit(mem_limit)
         
     all_genes_df = pl.read_csv(all_genes_path, separator='\t')
@@ -511,10 +523,13 @@ def main():
         family_status_df = build_family_aux_status(aux_scores_df, hmm_df)
 
         # 3) Merge with everything else
+        tmp_duckdb_path = all_genes_path.replace(".tsv", "_tmp.duckdb")
         final_df = merge_dataframes_build(
             aux_metric_df, hmm_df, all_genes_df, gene_index_df,
-            metabolism_df, physiology_df, regulatory_df, family_status_df
+            metabolism_df, physiology_df, regulatory_df, family_status_df,
+            tmp_duckdb_path, threads
         )
+        os.remove(tmp_duckdb_path)
         
         # Sort and write the final table output
         classification_order = {"metabolic": 0, "physiological": 1, "regulatory": 2, "unclassified": 3}
@@ -737,6 +752,8 @@ def main():
         # Write the family-level table to DuckDB
         duck_fam_path = family_level_path.replace(".tsv", ".duckdb")
         con = duckdb.connect(duck_fam_path)
+        con.execute(f"SET threads={threads}")
+        con.execute(f"SET memory_limit = '{round(int(threads * 5))}GB'") # From DuckDB docs: Aim for 5-10 GB memory per thread
         con.execute(f"DROP TABLE IF EXISTS {acc_prefix}_protein_families")
         con.register(f"df", family_level_df)
         con.execute(f"CREATE TABLE {acc_prefix}_protein_families AS SELECT * FROM df")
