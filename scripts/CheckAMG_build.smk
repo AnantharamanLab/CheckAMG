@@ -490,7 +490,8 @@ rule align_protein_clusters:
     params:
         cluster_file = os.path.join(config["paths"]["output_dir"], "wdir", "mmseqs_filtered_clusters", "filtered_clusters.tsv"),
         dblookup = os.path.join(config["paths"]["output_dir"], "wdir", "mmseqs_filtered_clusters", "filtered_prots.db.lookup"),
-        all_filtered_prots = os.path.join(config["paths"]["output_dir"], "results", "protein_sequences", "filtered_proteins.faa"),
+        input_prot_dir = os.path.join(config["paths"]["output_dir"], "results", "protein_sequences"),
+        confidence_levels = config["confidence_levels"],
         acc_prefix = config["hmm_acc_prefix"],
         prot_clust_to_accession = os.path.join(config["paths"]["output_dir"], "wdir", "mmseqs_filtered_clusters", "cluster_names.tsv"),
         wdir = os.path.join(config["paths"]["output_dir"], "wdir", "protein_cluster_msa"),
