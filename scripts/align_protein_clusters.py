@@ -196,7 +196,7 @@ def main():
     threads = snakemake.threads
     mem_limit = snakemake.resources.mem
 
-    logger.info("Starting protein cluster alignment with PyMuscle5...")
+    logger.info("Starting protein cluster alignment...")
     set_memory_limit(mem_limit)
     logger.debug(f"Memory limit set to {mem_limit:,} GB.")
     
@@ -319,12 +319,9 @@ def main():
     elif total_clusters >= 10_000:
         LOG_EVERY = 1_000
         next_log = 1_000
-    elif total_clusters >= 1_000:
+    else:
         LOG_EVERY = 100
         next_log = 100
-    else:
-        LOG_EVERY = 10
-        next_log = 10
 
     for wstart in range(0, total_clusters, wave_size):
         wave      = cluster_args[wstart : wstart + wave_size]
@@ -378,7 +375,7 @@ def main():
     mapping_list = [(key, value) for key, value in prot_clust_to_accession.items()]
     df = pl.DataFrame(mapping_list, schema=['protein_cluster_rep', 'accession'], orient="row")
     df.write_csv(prot_clust_to_accession_path, separator='\t')
-    logger.info("Protein cluster alignment with PyMuscle5 completed.")
+    logger.info("Protein cluster alignment completed.")
 
 if __name__ == "__main__":
     main()
