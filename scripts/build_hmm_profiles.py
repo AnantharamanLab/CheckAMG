@@ -30,9 +30,9 @@ logging.basicConfig(
 )
 logger = logging.getLogger()
 
-print("========================================================================\n Step 21/22: Build HMM profiles from the aux protein cluster alignments\n========================================================================")
+print("========================================================================\n   Step 21/22: Build HMM profiles from the protein cluster alignments  \n========================================================================")
 with open(log_file, "a") as log:
-    log.write("========================================================================\n Step 21/22: Build HMM profiles from the aux protein cluster alignments\n========================================================================\n")
+    log.write("========================================================================\n   Step 21/22: Build HMM profiles from the protein cluster alignments  \n========================================================================\n")
 
 def read_prot_clust_to_accession(file_path):
     """
@@ -120,7 +120,7 @@ def main():
     mem_limit = snakemake.resources.mem
     set_memory_limit(mem_limit)
 
-    logger.info("Building HMM profiles from auxiliary protein alignments...")
+    logger.info("Building HMM profiles from protein multiple sequence alignments...")
     
     # Create output directory if it doesn't exist
     os.makedirs(output_dir, exist_ok=True)
