@@ -167,7 +167,7 @@ def write_organized_files_build(organized_dict, prot_records, outdir):
                 # else:
                 #     logger.warning(f"Protein '{protein}' not found in the loaded protein records.")
 
-def organize_proteins_genome(category_table_path, category, all_genes_df):
+def organize_proteins_annotate(category_table_path, category, all_genes_df):
     """
     Organizes proteins based on annotations.
     This function reads metabolic/regulatory/physiology gene data and gene annotations from specified file paths.
@@ -230,7 +230,7 @@ def organize_proteins_genome(category_table_path, category, all_genes_df):
         "avgs_all": all_category_genes
     }
 
-def write_organized_files_genome(organized_dict, category, category_table_path, prot_records, output_dir):
+def write_organized_files_annotate(organized_dict, category, category_table_path, prot_records, output_dir):
     """
     Writes organized protein sequences to separate FASTA files based on the provided categories.
     
@@ -304,14 +304,14 @@ def main():
         
         for category in ["metabolic", "regulatory", "physiology"]:
             if category == "metabolic":
-                organized_dict = organize_proteins_genome(metab_table_path, category, all_genes_df)
-                write_organized_files_genome(organized_dict, category, metab_table_path, prot_records, fasta_outdir)
+                organized_dict = organize_proteins_annotate(metab_table_path, category, all_genes_df)
+                write_organized_files_annotate(organized_dict, category, metab_table_path, prot_records, fasta_outdir)
             elif category == "regulatory":
-                organized_dict = organize_proteins_genome(reg_table_path, category, all_genes_df)
-                write_organized_files_genome(organized_dict, category, reg_table_path, prot_records, fasta_outdir)
+                organized_dict = organize_proteins_annotate(reg_table_path, category, all_genes_df)
+                write_organized_files_annotate(organized_dict, category, reg_table_path, prot_records, fasta_outdir)
             elif category == "physiology":
-                organized_dict = organize_proteins_genome(phys_table_path, category, all_genes_df)
-                write_organized_files_genome(organized_dict, category, phys_table_path, prot_records, fasta_outdir)
+                organized_dict = organize_proteins_annotate(phys_table_path, category, all_genes_df)
+                write_organized_files_annotate(organized_dict, category, phys_table_path, prot_records, fasta_outdir)
                 
         logger.debug(f"Results were written to {fasta_outdir}.")
         logger.info(f"Organization completed.")
