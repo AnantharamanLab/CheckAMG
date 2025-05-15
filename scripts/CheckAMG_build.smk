@@ -517,6 +517,7 @@ rule build_hmm_profiles:
     params:
         outdir = os.path.join(config["paths"]["output_dir"], "results", "hmm_profiles"),
         alignments_dir = os.path.join(config["paths"]["output_dir"], "wdir", "protein_cluster_msa", "aligned"),
+        alignments_dir_parent = os.path.join(config["paths"]["output_dir"], "wdir", "protein_cluster_msa"),
         prot_clust_to_accession = os.path.join(config["paths"]["output_dir"], "wdir", "mmseqs_filtered_clusters", "cluster_names.tsv"),
         output_table = os.path.join(config["paths"]["output_dir"], "results", "hmms.tsv"),
         debug = bool(config["debug"]),

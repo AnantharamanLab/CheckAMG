@@ -10,6 +10,9 @@ from pyfastatools import Parser
 from concurrent.futures import ThreadPoolExecutor, as_completed
 os.environ["POLARS_MAX_THREADS"] = str(snakemake.threads)
 import polars as pl
+import random
+import glob
+import shutil
 
 def set_memory_limit(limit_in_gb):
     current_os = platform.system()
@@ -113,6 +116,7 @@ def parallel_build_hmm_profiles(prot_clust_to_accession, aligned_dir, output_dir
 
 def main():
     aligned_dir = snakemake.params.alignments_dir
+    aligned_dir_parent = snakemake.params.alignments_dir_parent
     output_dir = snakemake.params.outdir
     prot_clust_to_accession_path = snakemake.params.prot_clust_to_accession
     output_table_path = snakemake.params.output_table
@@ -164,9 +168,38 @@ def main():
     logger.info(f"Total HMM profiles: {total_families:,}")
     logger.info(f"Singleton families: {singleton_count:,}")
     logger.info(f"Multi-sequence families: {multi_count:,}")
-
+    
+    # Sanity checks
+    if total_families == 0:
+        logger.error("No HMM profiles were built. Please check the input files.")
+        raise RuntimeError("No HMM profiles were built. Please check the input files.")
+    if singleton_count + multi_count != total_families:
+        logger.error(f"Mismatch in family counts: {total_families:,}. Should be number of singleton families ({singleton_count:,}) + multi-sequence families ({multi_count:,}) Please check the input files.")
+        raise RuntimeError(f"Mismatch in family counts: {total_families:,}. Should be number of singleton families ({singleton_count:,}) + multi-sequence families ({multi_count:,}) Please check the input files.")
+    # Check a random subsample of 10 output HMM files and ensure they are not empty
+    hmm_files = glob.glob(os.path.join(output_dir, "*.hmm"))
+    if hmm_files:
+        sample_files = random.sample(hmm_files, min(10, len(hmm_files)))
+        for file in sample_files:
+            if os.stat(file).st_size == 0:
+                logger.error(f"HMM file {file} is empty.")
+                raise RuntimeError(f"HMM file {file} is empty.")
+            with open(file, 'r') as f:
+                lines = f.readlines()
+                if len(lines) < 2:
+                    logger.error(f"HMM file {file} has less than 2 lines.")
+                    raise RuntimeError(f"HMM file {file} has less than 2 lines.")
+    else:
+        logger.error("No HMM files found in the output directory.")
+        raise RuntimeError("No HMM files found in the output directory.")
+    
     # Save the output table to a file
     output_df.write_csv(output_table_path, separator='\t')
+    
+    # Remove the folder with the aligned FASTA files
+    logger.debug("Removing the aligned FASTA files directory...")
+    if os.path.exists(aligned_dir_parent):
+        shutil.rmtree(aligned_dir_parent)
     
     logger.info("Building HMM profiles and output table completed.")
     logger.info(f"Total HMM profiles built: {len(output_df['hmm'].unique()):,}")
