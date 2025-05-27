@@ -95,6 +95,15 @@ def generate_config(args):
         if level not in ["high", "medium", "low"]:
             raise ValueError(f"Invalid confidence level specified: {level}. Valid choices are ['high', 'medium', 'low']")
         
+    try:
+        min_lscores = [float(lscore) for lscore in (args.min_window_avg_Lscores).split(",")]
+        min_lscores = {"KEGG": min_lscores[0], "Pfam": min_lscores[1], "PHROG": min_lscores[2]}
+    except ValueError:
+        raise ValueError(f"Invalid format for --min_window_avg_Lscores: {args.min_window_avg_Lscores} It should be a comma-separated list of floating points.")
+    if len(min_lscores) != 3:
+        raise ValueError(f"Please provide exactly three values for --min_window_avg_Lscores (KEGG, Pfam, PHROG).")
+    
+        
     config = {
         "input_single_contig_genomes": os.path.abspath(args.genomes),
         "input_vmag_fastas": vmag_fasta_files,
@@ -114,7 +123,7 @@ def generate_config(args):
         "confidence_levels": confidence_levels,
         "exclude_singletons": args.exclude_singletons,
         "annotation_percent_threshold": args.min_annot,
-        "min_window_avg_lscore": args.min_window_avg_Lscore,
+        "min_window_avg_lscores": min_lscores,
         "window_size": args.window_size,
         "minimum_flank_vscore": args.min_flank_Vscore,
         "max_flank_length": args.max_flank,

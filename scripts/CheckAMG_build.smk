@@ -190,7 +190,7 @@ rule genome_context:
         gene_index_annotated = os.path.join(config["paths"]["output_dir"], "wdir", "gene_index_annotated.tsv"),
         circular_contigs = os.path.join(config["paths"]["output_dir"], "wdir", "circular_contigs.tsv"),
         annotation_percent_threshold = config["annotation_percent_threshold"],
-        min_window_avg_lscore = config["min_window_avg_lscore"],
+        min_window_avg_lscores = config["min_window_avg_lscores"],
         window_size = config["window_size"],
         minimum_flank_vscore = config["minimum_flank_vscore"],
         max_flank_length = config["max_flank_length"],

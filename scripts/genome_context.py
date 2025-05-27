@@ -55,8 +55,10 @@ def calculate_contig_statistics(data, circular_contigs):
     stats = data.group_by("contig", maintain_order=True).agg([
         pl.col("KEGG_V-score").mean().alias("contig_avg_KEGG_V-score"),
         pl.col("Pfam_V-score").mean().alias("contig_avg_Pfam_V-score"),
+        pl.col("PHROG_V-score").mean().alias("contig_avg_PHROG_V-score"),
         pl.col("KEGG_VL-score").mean().alias("contig_avg_KEGG_VL-score"),
-        pl.col("Pfam_VL-score").mean().alias("contig_avg_Pfam_VL-score")
+        pl.col("Pfam_VL-score").mean().alias("contig_avg_Pfam_VL-score"),
+        pl.col("PHROG_VL-score").mean().alias("contig_avg_PHROG_VL-score")
     ])
     result = data.join(stats, on="contig")
     result = result.with_columns(pl.col("contig").is_in(circular_contigs).alias("circular_contig"))
@@ -111,29 +113,36 @@ def window_avg(scores, lengths, window_size, minimum_percentage):
 
 def process_window_statistics_for_contig(contig, data, window_size, minimum_percentage):
     """
-    Calculate window averages for KEGG_VL-score, Pfam_VL-score, KEGG_V-score, Pfam_V-score
-    using a two-pointer approach for a single contig.
+    Calculate window averages for KEGG_VL-score, Pfam_VL-score, PHROG_VL-score,
+    KEGG_V-score, Pfam_V-score, PHROG_V-score using a two-pointer approach for
+    a single contig.
     """
     df = data.filter(pl.col("contig") == contig)
     lengths = df["gene_length_bases"].to_numpy()
     kegg_vl = df["KEGG_VL-score"].to_numpy()
     pfam_vl = df["Pfam_VL-score"].to_numpy()
+    phrog_vl = df["PHROG_VL-score"].to_numpy()
     kegg_v = df["KEGG_V-score"].to_numpy()
     pfam_v = df["Pfam_V-score"].to_numpy()
+    phrog_v = df["PHROG_V-score"].to_numpy()
 
     if len(lengths) == 0:
         return df
 
     kegg_vl_out = window_avg(kegg_vl, lengths, window_size, minimum_percentage)
     pfam_vl_out = window_avg(pfam_vl, lengths, window_size, minimum_percentage)
+    phrog_vl_out = window_avg(phrog_vl, lengths, window_size, minimum_percentage)
     kegg_v_out = window_avg(kegg_v, lengths, window_size, minimum_percentage)
     pfam_v_out = window_avg(pfam_v, lengths, window_size, minimum_percentage)
+    phrog_v_out = window_avg(phrog_v, lengths, window_size, minimum_percentage)
 
     df = df.with_columns([
         pl.Series("window_avg_KEGG_VL-score", kegg_vl_out),
         pl.Series("window_avg_Pfam_VL-score", pfam_vl_out),
+        pl.Series("window_avg_PHROG_VL-score", phrog_vl_out),
         pl.Series("window_avg_KEGG_V-score", kegg_v_out),
-        pl.Series("window_avg_Pfam_V-score", pfam_v_out)
+        pl.Series("window_avg_Pfam_V-score", pfam_v_out),
+        pl.Series("window_avg_PHROG_V-score", phrog_v_out)
     ])
     return df
 
@@ -151,12 +160,17 @@ def calculate_window_statistics(data, window_size, minimum_percentage, n_cpus):
         ))
     return pl.concat(results, how="vertical")
 
-def check_window_avg_lscore(data, min_window_avg_lscore):
+def check_window_avg_lscore(data, min_window_avg_lscores):
+    min_window_avg_lscore_kegg = min_window_avg_lscores["KEGG"]
+    min_window_avg_lscore_pfam = min_window_avg_lscores["Pfam"]
+    min_window_avg_lscore_phrog = min_window_avg_lscores["PHROG"]
     data = data.with_columns([
-        pl.when((pl.col('window_avg_KEGG_VL-score') > min_window_avg_lscore) | (pl.col('window_avg_Pfam_VL-score') > min_window_avg_lscore))
+        pl.when((pl.col('window_avg_KEGG_VL-score') > min_window_avg_lscore_kegg))
         .then(True).otherwise(False).alias('window_avg_KEGG_VL-score_viral'),
-        pl.when((pl.col('window_avg_KEGG_VL-score') > min_window_avg_lscore) | (pl.col('window_avg_Pfam_VL-score') > min_window_avg_lscore))
-        .then(True).otherwise(False).alias('window_avg_Pfam_VL-score_viral')
+        pl.when( (pl.col('window_avg_Pfam_VL-score') > min_window_avg_lscore_pfam))
+        .then(True).otherwise(False).alias('window_avg_Pfam_VL-score_viral'),
+        pl.when((pl.col('window_avg_PHROG_VL-score') > min_window_avg_lscore_phrog))
+        .then(True).otherwise(False).alias('window_avg_PHROG_VL-score_viral'),
     ])
     return data
 
@@ -333,7 +347,7 @@ def check_flanking_insertions(contig_data, mobile_accessions, max_flank_length):
     })
     return contig_data.join(flanks_df, on=["contig", "gene_number"])
 
-def process_genomes(data, circular_contigs, minimum_percentage, min_window_avg_lscore,
+def process_genomes(data, circular_contigs, minimum_percentage, min_window_avg_lscores,
                     window_size, max_flank_length, minimum_vscore, use_hallmark=False,
                     hallmark_accessions=None, mobile_accessions=None, n_cpus=1):
     logger.debug(f"Calculating lengths for {data.shape[0]:,} genes.")
@@ -348,9 +362,9 @@ def process_genomes(data, circular_contigs, minimum_percentage, min_window_avg_l
     logger.debug(f"Data before calculating window statistics: {data.head()}")
     logger.debug(f"Column dtypes before conversion: {data.schema}")
     score_columns = [
-        "KEGG_V-score","KEGG_VL-score","Pfam_V-score","Pfam_VL-score",
-        "PHROG_V-score","PHROG_VL-score","contig_avg_KEGG_V-score","contig_avg_Pfam_V-score",
-        "contig_avg_KEGG_VL-score","contig_avg_Pfam_VL-score"
+        "KEGG_V-score","KEGG_VL-score","Pfam_V-score","Pfam_VL-score","PHROG_V-score","PHROG_VL-score",
+        "contig_avg_KEGG_V-score","contig_avg_Pfam_V-score","contig_avg_PHROG_V-score",
+        "contig_avg_KEGG_VL-score","contig_avg_Pfam_VL-score", "contig_avg_PHROG_VL-score"
     ]
     for col in score_columns:
         if col in data.columns:
@@ -360,7 +374,7 @@ def process_genomes(data, circular_contigs, minimum_percentage, min_window_avg_l
     # Parallel window statistics calculated per contig.
     data = calculate_window_statistics(data, window_size, minimum_percentage, n_cpus)
     logger.debug(f"Data before calculating window average VL-scores: {data.head()}")
-    data = check_window_avg_lscore(data, min_window_avg_lscore)
+    data = check_window_avg_lscore(data, min_window_avg_lscores)
     data = data.unique()
 
     # Parallel verification of flanking regions by partitioning by contig.
@@ -403,7 +417,7 @@ def main():
     output_file = snakemake.params.context_table
     circular_contigs_file = snakemake.params.circular_contigs
     minimum_percentage = snakemake.params.annotation_percent_threshold
-    min_window_avg_lscore = snakemake.params.min_window_avg_lscore
+    min_window_avg_lscores = snakemake.params.min_window_avg_lscores
     window_size = snakemake.params.window_size
     minimum_vscore = snakemake.params.minimum_flank_vscore
     max_flank_length = snakemake.params.max_flank_length
@@ -445,7 +459,7 @@ def main():
         mobile_ids = set(mobile_genes_data['id'])
 
     processed_data = process_genomes(
-        data, circular_contigs, minimum_percentage, min_window_avg_lscore,
+        data, circular_contigs, minimum_percentage, min_window_avg_lscores,
         window_size, max_flank_length, minimum_vscore,
         use_hallmark, hallmark_ids, mobile_ids, n_cpus
     )

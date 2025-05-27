@@ -69,6 +69,7 @@ def summarize_annot_table(table, hmm_descriptions):
         "PHROG_V-score",
         "window_avg_KEGG_VL-score_viral",
         "window_avg_Pfam_VL-score_viral",
+        "window_avg_PHROG_VL-score_viral",
         "KEGG_verified_flank_up",
         "KEGG_verified_flank_down",
         "Pfam_verified_flank_up",
@@ -123,9 +124,9 @@ def summarize_annot_table(table, hmm_descriptions):
     if "db_right" in table.columns:
         table = table.drop("db_right")
     
-    # Mark genes within virus-like windows (KEGG or Pfam)
+    # Mark genes within virus-like windows (KEGG, Pfam, or PHROG)
     table = table.with_columns(
-        pl.when(pl.col("window_avg_KEGG_VL-score_viral") | pl.col("window_avg_Pfam_VL-score_viral"))
+        pl.when(pl.col("window_avg_KEGG_VL-score_viral") | pl.col("window_avg_Pfam_VL-score_viral") | pl.col("window_avg_PHROG_VL-score_viral"))
         .then(True)
         .otherwise(False)
         .alias("Virus_Like_Window")
@@ -428,7 +429,7 @@ def main():
     physiology_table_out = filter_physiology_annots(annot_table, physiology_table, false_phys_substrings_desc)
     regulation_table_out = filter_regulation_annots(annot_table, regulation_table, false_reg_substrings_desc)
     
-    drop_cols = ["window_avg_KEGG_VL-score_viral", "window_avg_Pfam_VL-score_viral", "top_hit_hmm_id_clean", "Pfam_hmm_id_clean"]
+    drop_cols = ["window_avg_KEGG_VL-score_viral", "window_avg_Pfam_VL-score_viral", "window_avg_PHROG_VL-score_viral", "top_hit_hmm_id_clean", "Pfam_hmm_id_clean"]
     for col in drop_cols:
         if col in annot_table.columns:
             annot_table = annot_table.drop(col)
