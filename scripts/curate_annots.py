@@ -130,8 +130,7 @@ def summarize_annot_table(table, hmm_descriptions):
         .then(True)
         .otherwise(False)
         .alias("Virus_Like_Window")
-    ])
-
+    )
     
     # Mark genes with viral flanking genes
     table = table.with_columns(
