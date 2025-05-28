@@ -125,70 +125,9 @@ def summarize_annot_table(table, hmm_descriptions):
         table = table.drop("db_right")
     
     # Mark genes within virus-like windows (KEGG, Pfam, or PHROG)
-    table = table.with_columns([
+    table = table.with_columns(
         pl.when(pl.col("window_avg_KEGG_VL-score_viral") | pl.col("window_avg_Pfam_VL-score_viral") | pl.col("window_avg_PHROG_VL-score_viral"))
-        # # Valid VL scores for all three databases
-        # pl.when(
-        #     pl.col("window_avg_KEGG_VL-score_viral").is_not_null() &
-        #     pl.col("window_avg_Pfam_VL-score_viral").is_not_null() &
-        #     pl.col("window_avg_PHROG_VL-score_viral").is_not_null()
-        # ).then(
-        #     pl.col("window_avg_KEGG_VL-score_viral") &
-        #     pl.col("window_avg_Pfam_VL-score_viral") &
-        #     pl.col("window_avg_PHROG_VL-score_viral")
-        # )
-        # # Valid VL scores for KEGG and Pfam, but not PHROG
-        # .when(
-        #     pl.col("window_avg_KEGG_VL-score_viral").is_not_null() &
-        #     pl.col("window_avg_Pfam_VL-score_viral").is_not_null() &
-        #     pl.col("window_avg_PHROG_VL-score_viral").is_null()
-        # ).then(
-        #     pl.col("window_avg_KEGG_VL-score_viral") &
-        #     pl.col("window_avg_Pfam_VL-score_viral")
-        # )
-        # # Valid VL scores for KEGG and PHROG, but not Pfam
-        # .when(
-        #     pl.col("window_avg_KEGG_VL-score_viral").is_not_null() &
-        #     pl.col("window_avg_Pfam_VL-score_viral").is_null() &
-        #     pl.col("window_avg_PHROG_VL-score_viral").is_not_null()
-        # ).then(
-        #     pl.col("window_avg_KEGG_VL-score_viral") &
-        #     pl.col("window_avg_PHROG_VL-score_viral")
-        # )
-        # # Valid VL scores for Pfam and PHROG, but not KEGG
-        # .when(
-        #     pl.col("window_avg_KEGG_VL-score_viral").is_null() &
-        #     pl.col("window_avg_Pfam_VL-score_viral").is_not_null() &
-        #     pl.col("window_avg_PHROG_VL-score_viral").is_not_null()
-        # ).then(
-        #     pl.col("window_avg_Pfam_VL-score_viral") &
-        #     pl.col("window_avg_PHROG_VL-score_viral")
-        # )
-        # # Valid VL score for KEGG only
-        # .when(
-        #     pl.col("window_avg_KEGG_VL-score_viral").is_not_null() &
-        #     pl.col("window_avg_Pfam_VL-score_viral").is_null() &
-        #     pl.col("window_avg_PHROG_VL-score_viral").is_null()
-        # ).then(
-        #     pl.col("window_avg_KEGG_VL-score_viral")
-        # )
-        # # Valid VL score for Pfam only
-        # .when(
-        #     pl.col("window_avg_KEGG_VL-score_viral").is_null() &
-        #     pl.col("window_avg_Pfam_VL-score_viral").is_not_null() &
-        #     pl.col("window_avg_PHROG_VL-score_viral").is_null()
-        # ).then(
-        #     pl.col("window_avg_Pfam_VL-score_viral")
-        # )
-        # # Valid VL score for PHROG only
-        # .when(
-        #     pl.col("window_avg_KEGG_VL-score_viral").is_null() &
-        #     pl.col("window_avg_Pfam_VL-score_viral").is_null() &
-        #     pl.col("window_avg_PHROG_VL-score_viral").is_not_null()
-        # ).then(
-        #     pl.col("window_avg_PHROG_VL-score_viral")
-        # )
-        # Otherwise False (not virus-like)
+        .then(True)
         .otherwise(False)
         .alias("Virus_Like_Window")
     ])
