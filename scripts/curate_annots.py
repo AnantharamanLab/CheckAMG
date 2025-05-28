@@ -36,6 +36,20 @@ elif snakemake.params.build_or_annotate == "annotate":
     with open(log_file, "a") as log:
         log.write("========================================================================\n   Step 9/11: Curate the predicted functions based on genomic context   \n========================================================================\n")
 
+def compute_virus_like_window(df):
+    kegg = pl.col("window_avg_KEGG_VL-score_viral")
+    pfam = pl.col("window_avg_Pfam_VL-score_viral")
+    phrog = pl.col("window_avg_PHROG_VL-score_viral")
+
+    return df.with_columns(
+        (
+            # Count how many of the 3 are not null and True
+            (kegg.fill_null(False).cast(pl.Boolean) +
+             pfam.fill_null(False).cast(pl.Boolean) +
+             phrog.fill_null(False).cast(pl.Boolean)) >= 1
+        ).alias("Virus_Like_Window")
+    )
+
 def summarize_annot_table(table, hmm_descriptions):
     """
     Summarizes the table with gene annotations by selecting relevant columns,
@@ -125,12 +139,7 @@ def summarize_annot_table(table, hmm_descriptions):
         table = table.drop("db_right")
     
     # Mark genes within virus-like windows (KEGG, Pfam, or PHROG)
-    table = table.with_columns(
-        pl.when(pl.col("window_avg_KEGG_VL-score_viral") | pl.col("window_avg_Pfam_VL-score_viral") | pl.col("window_avg_PHROG_VL-score_viral"))
-        .then(True)
-        .otherwise(False)
-        .alias("Virus_Like_Window")
-    )
+    table = compute_virus_like_window(table)
     
     # Mark genes with viral flanking genes
     table = table.with_columns(
