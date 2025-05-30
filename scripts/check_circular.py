@@ -10,8 +10,7 @@
 # 2. complete_genomes.py - https://bitbucket.org/berkeleylab/checkv/src/master/checkv/modules/complete_genomes.py
 #
 # These modifications allow for assessing sequence completeness based on direct terminal repeats (DTRs)
-# without having to run CheckV in its entirety. Thus, this script just checks for circularity
-# and inverted terminal repeats (ITRs) without reliance on CheckV-generated intermediate files.
+# and inverted terminal repeats (ITRs) without having to run CheckV in its entirety.
 
 import os
 import sys
