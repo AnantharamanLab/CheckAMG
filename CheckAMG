@@ -67,8 +67,8 @@ def main():
                                    "(default: %(default)s).")
      annotate_parser.add_argument("-c", "--cov_fraction", type=float, required=False, default=0.5,
                               help="Minimum covered fraction for HMM alignments (default: %(default)s).")
-     annotate_parser.add_argument("-L", "--min_window_avg_Lscores", type=str, required=False, default="3.5,3.0,2.5",
-                              help="Minimum average VL-scores (in order: KEGG,Pfam,PHROG) of all genes on a window required for a window to be considered potentially viral (default: %(default)s).")
+     annotate_parser.add_argument("-L", "--min_window_avg_Lscores", type=str, required=False, default="3.25,3.0,2.5",
+                              help="Minimum average VL-scores (in order: KEGG,Pfam,PHROG) of all genes required for a window to be considered potentially viral (default: %(default)s).")
      annotate_parser.add_argument("-Z", "--window_size", type=int, required=False, default=10000,
                               help="Size in base pairs of the window used to calculate the average VL-score of genes on a contig (default: %(default)s).")
      annotate_parser.add_argument("-F", "--max_flank", type=int, required=False, default=10000,
@@ -148,8 +148,8 @@ def main():
                               help="Minimum percentage (0.0-1.0) of genes in a genome/contig required to have been assigned a "
                                    "functional annotation using the CheckAMG database to be considered for contextual analysis. "
                                    "(default: %(default)s).")
-     build_parser.add_argument("-L", "--min_window_avg_Lscores", type=str, required=False, default="3.5,3.0,2.5",
-                              help="Minimum average VL-scores (in order: KEGG,Pfam,PHROG) of all genes on a window required for a window to be considered potentially viral (default: %(default)s).")
+     build_parser.add_argument("-L", "--min_window_avg_Lscores", type=str, required=False, default="3.25,3.0,2.5",
+                              help="Minimum average VL-scores (in order: KEGG,Pfam,PHROG) of all genes required for a window to be considered potentially viral (default: %(default)s).")
      build_parser.add_argument("-Z", "--window_size", type=int, required=False, default=10000,
                               help="Size in base pairs of the window used to calculate the average VL-score of genes on a contig (default: %(default)s).")
      build_parser.add_argument("-F", "--max_flank", type=int, required=False, default=10000,
