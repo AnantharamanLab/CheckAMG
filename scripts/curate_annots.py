@@ -37,16 +37,28 @@ elif snakemake.params.build_or_annotate == "annotate":
         log.write("========================================================================\n   Step 9/11: Curate the predicted functions based on genomic context   \n========================================================================\n")
 
 def compute_virus_like_window(df):
-    kegg = pl.col("window_avg_KEGG_VL-score_viral")
-    pfam = pl.col("window_avg_Pfam_VL-score_viral")
-    phrog = pl.col("window_avg_PHROG_VL-score_viral")
+    """
+    Returns True if all non-null values are True.
+    Returns False if any non-null value is False.
+    Returns False if all are null.
+    """
+    def all_non_null_true(k, p, h):
+        values = [k, p, h]
+        non_null = [v for v in values if v is not None]
+        return all(non_null) if non_null else False
 
     return df.with_columns(
-        (
-            # Count how many of the 3 are not null and True
-            (kegg.fill_null(False).cast(pl.Boolean) +
-             pfam.fill_null(False).cast(pl.Boolean) +
-             phrog.fill_null(False).cast(pl.Boolean)) >= 1
+        pl.struct([
+            "window_avg_KEGG_VL-score_viral",
+            "window_avg_Pfam_VL-score_viral",
+            "window_avg_PHROG_VL-score_viral"
+        ]).map_elements(
+            lambda s: all_non_null_true(
+                s["window_avg_KEGG_VL-score_viral"],
+                s["window_avg_Pfam_VL-score_viral"],
+                s["window_avg_PHROG_VL-score_viral"]
+            ),
+            return_dtype=pl.Boolean
         ).alias("Virus_Like_Window")
     )
 
