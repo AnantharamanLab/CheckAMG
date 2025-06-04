@@ -294,26 +294,43 @@ def filter_false_substrings(table, false_substrings_desc):
     """
     Filter results to exclude false positives based on descriptions.
     """
-    for substring in false_substrings_desc:
-        table = table.filter(
-            ~(
-                pl.col("KEGG_Description").str.contains(substring).fill_null(False) |
-                pl.col("Pfam_Description").str.contains(substring).fill_null(False) |
-                pl.col("dbCAN_Description").str.contains(substring).fill_null(False) |
-                pl.col("METABOLIC_Description").str.contains(substring).fill_null(False) |
-                pl.col("PHROG_Description").str.contains(substring).fill_null(False)
-            )
-        )
+    # columns to examine
+    desc_cols = [
+        c for c in table.columns
+        if c.endswith("_Description")
+    ]
+    if "name" in table.columns: # main annotation column
+        desc_cols.append("name")
+    if not desc_cols:
+        return table, table.head(0) # nothing to screen
+
+    # compile regex per keyword
+    specials = {"lysin", "adp"} # special cases for lysine, NADP, etc.
+    compiled = {}
+    for kw in false_substrings_desc:
+        low = kw.lower()
+        if low in specials:
+            compiled[kw] = rf"(?i)\b{re.escape(low)}\b"
+        else:
+            compiled[kw] = rf"(?i){re.escape(kw)}"
+
+    for raw_kw, regex in compiled.items():
+        # OR masks across all description columns
+        mask = None
+        for col in desc_cols:
+            col_mask = pl.col(col).str.contains(regex, literal=False).fill_null(False)
+            mask = col_mask if mask is None else (mask | col_mask)
+
+        table = table.filter(~mask)
+
     return table
 
 def filter_metabolism_annots(table, metabolism_table, false_metab_substrings):
     """
     Identify metabolism-related genes based on input metabolism table.
     by checking any of the five HMM ID columns for membership in metabolism_table["id"].
-    Also, apply false-substring filtering to remove non-metabolic genes,
-    with exceptions where bad substrings appear only as part of allowed keywords.
+    Also, apply false-substring filtering to remove non-metabolic genes.
     """
-    # Step 1: Filter by metabolism table membership
     condition = (
         pl.col("KEGG_hmm_id").is_in(metabolism_table["id"]) |
         pl.col("Pfam_hmm_id_clean").is_in(metabolism_table["id"]) |
@@ -322,45 +339,26 @@ def filter_metabolism_annots(table, metabolism_table, false_metab_substrings):
         pl.col("PHROG_hmm_id").is_in(metabolism_table["id"])
     )
     table = table.filter(condition)
-
-    # Step 2: Regex-safe filter on description column
-    allowed_keywords = ["lysine", "Lysine", "NADP", "NADPH", "NADP+"]
-
-    # Precompile regex to match bad substrings that are NOT part of allowed keywords
-    def build_bad_pattern(bad, allowed_list):
-        # Escape allowed keywords containing special characters
-        allowed_escaped = [re.escape(kw) for kw in allowed_list if bad in kw]
-        # Negative lookahead for all allowed keywords containing the bad substring
-        if allowed_escaped:
-            # Look for bad substring not immediately followed by rest of an allowed word
-            pattern = rf"\b{re.escape(bad)}(?!({'|'.join([kw[len(bad):] for kw in allowed_escaped])}))"
-        else:
-            pattern = rf"\b{re.escape(bad)}\b"
-        return re.compile(pattern)
-
-    bad_patterns = [build_bad_pattern(bad, allowed_keywords) for bad in false_metab_substrings]
-
-    def is_valid_description(desc: str) -> bool:
-        if not desc:
-            return True
-        return not any(p.search(desc) for p in bad_patterns)
-
-    table = table.filter(
-        pl.col("top_hit_description").map_elements(is_valid_description, return_dtype=pl.Boolean).fill_null(True)
-    )
-
-    # Step 3: dbCAN-specific filtering
-    false_substrings_dbcan_id = ["CBM", "GT", "GH"]
+    
+    # Apply false-substring filtering
+    table = filter_false_substrings(table, false_metab_substrings)
+    
+    # dcCAN/CAZyme-spescific false AMGs 
+    false_substrings_dbcan_id = [
+        "CBM", # Carbohydrate-binding modules usually match to tail peptides used for receptor binding
+        "GT", # Glycosyltransferases
+        "GH", # Glycoside hydrolases
+    ]   
     for substring in false_substrings_dbcan_id:
-        table = table.filter(
-            ~pl.col("dbCAN_hmm_id").str.contains(substring).fill_null(False)
-        )
+        table = table.filter(~(pl.col("dbCAN_hmm_id").str.contains(substring).fill_null(False)))
+    
+    # Drop the temporary 'top_hit_hmm_id_clean' column
+    table = table.drop("top_hit_hmm_id_clean")
 
-    # Step 4: Drop and deduplicate
-    if "top_hit_hmm_id_clean" in table.columns:
-        table = table.drop("top_hit_hmm_id_clean")
-
-    return table.unique().sort(["Genome", "Contig", "Protein"])
+    # Remove duplicates, if any (this happens sometimes if the input table also had duplciates)
+    table = table.unique()
+    
+    return table.sort(["Genome", "Contig", "Protein"])
 
 def filter_physiology_annots(table, physiology_table, false_phys_substrings):
     """
