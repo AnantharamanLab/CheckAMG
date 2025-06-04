@@ -346,7 +346,7 @@ def filter_metabolism_annots(table, metabolism_table, false_metab_substrings):
         return not any(p.search(desc) for p in bad_patterns)
 
     table = table.filter(
-        pl.col("top_hit_description").apply(is_valid_description).fill_null(True)
+        pl.col("top_hit_description").map_elements(is_valid_description, return_dtype=pl.Boolean).fill_null(True)
     )
 
     # Step 3: dbCAN-specific filtering
