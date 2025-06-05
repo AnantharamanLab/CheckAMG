@@ -311,14 +311,15 @@ def filter_false_substrings(table, false_substrings_desc):
 
     compiled = {}
     for kw in false_substrings_desc:
-        kw_lower = kw.lower()
-        if kw_lower in specials:
+        kw_lc = kw.lower()
+        if kw_lc in specials:
             # word boundary match
-            compiled[kw] = rf"(?i)\b{re.escape(kw_lower)}\b"
+            compiled[kw] = rf"(?i)\b{re.escape(kw_lc)}\b"
         elif is_exact_ec(kw):
             # match only full EC numbers followed by end/bracket/space
             # e.g., EC:4.2.2.2 should not match EC:4.2.2.21
-            compiled[kw] = rf"(?i)\b{re.escape(kw)}(?=$|[\]\s\)])"
+            ec_number = kw.split()[-1] if " " in kw else kw.split(":")[-1]
+            compiled[kw] = rf"(?i)\bEC[:\s]{re.escape(ec_number)}\b"
         else:
             # normal case-insensitive contains
             compiled[kw] = rf"(?i){re.escape(kw)}"
