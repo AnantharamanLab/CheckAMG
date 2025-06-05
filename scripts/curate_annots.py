@@ -293,29 +293,37 @@ def summarize_annot_table(table, hmm_descriptions):
 def filter_false_substrings(table, false_substrings_desc):
     """
     Filter results to exclude false positives based on descriptions.
+    - Special EC filters: distinguish between exact EC matches vs. class/subclass matches.
+    - Special word-boundary filters for 'lysin' and 'ADP'
     """
     # columns to examine
-    desc_cols = [
-        c for c in table.columns
-        if c.endswith("_Description")
-    ]
-    if "name" in table.columns: # main annotation column
+    desc_cols = [c for c in table.columns if c.endswith("_Description")]
+    if "name" in table.columns:
         desc_cols.append("name")
     if not desc_cols:
-        return table, table.head(0) # nothing to screen
+        return table
 
-    # compile regex per keyword
-    specials = {"lysin", "adp"} # special cases for lysine, NADP, etc.
+    specials = {"lysin", "adp"}
+
+    def is_exact_ec(keyword):
+        # Match EC:1.2.3.4 or EC 1.2.3.4
+        return bool(re.fullmatch(r"EC[:\s]\d+\.\d+\.\d+\.\d+", keyword))
+
     compiled = {}
     for kw in false_substrings_desc:
-        low = kw.lower()
-        if low in specials:
-            compiled[kw] = rf"(?i)\b{re.escape(low)}\b"
+        kw_lower = kw.lower()
+        if kw_lower in specials:
+            # word boundary match
+            compiled[kw] = rf"(?i)\b{re.escape(kw_lower)}\b"
+        elif is_exact_ec(kw):
+            # match only full EC numbers followed by end/bracket/space
+            # e.g., EC:4.2.2.2 should not match EC:4.2.2.21
+            compiled[kw] = rf"(?i)\b{re.escape(kw)}(?=$|[\]\s\)])"
         else:
+            # normal case-insensitive contains
             compiled[kw] = rf"(?i){re.escape(kw)}"
 
     for raw_kw, regex in compiled.items():
-        # OR masks across all description columns
         mask = None
         for col in desc_cols:
             col_mask = pl.col(col).str.contains(regex, literal=False).fill_null(False)
