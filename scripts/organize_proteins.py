@@ -9,6 +9,7 @@ import resource
 import platform
 os.environ["POLARS_MAX_THREADS"] = str(snakemake.threads)
 import polars as pl
+from concurrent.futures import ThreadPoolExecutor
 
 # Function to set memory limit in GB
 def set_memory_limit(limit_in_gb):
@@ -150,19 +151,24 @@ def organize_proteins_build(all_genes_df):
 
     return {"high": high_conf, "medium": medium_conf, "low": low_conf}
 
+def write_fasta_str(record):
+    return f">{record.id} {record.description}\n{str(record.seq)}\n"
+
 def write_organized_files_build(organized_dict, prot_records, outdir):
     filename_dict = {
         "high": "high_confidence_viral.faa",
         "medium": "medium_confidence_viral.faa",
         "low": "low_confidence_viral.faa"
     }
+
     os.makedirs(outdir, exist_ok=True)
+
     for level, proteins in organized_dict.items():
         output_fasta = os.path.join(outdir, filename_dict[level])
         with open(output_fasta, "w") as out_f:
             for protein in proteins:
-                if protein in prot_records:
-                    record = prot_records[protein]
+                record = prot_records.get(protein)
+                if record is not None:
                     write_fasta(record, out_f)
                 # else:
                 #     logger.warning(f"Protein '{protein}' not found in the loaded protein records.")
@@ -243,10 +249,16 @@ def write_organized_files_annotate(organized_dict, category, category_table_path
     None
     """
     
+    # Read category annotation table and convert to lookup dictionary
     category_genes_df = pl.read_csv(category_table_path, separator='\t')
-    
+    category_genes_lookup = {
+        row["Protein"]: row for row in category_genes_df.iter_rows(named=True)
+    }
+
+    # Get acronym prefix for output files
     acronym = {"metabolic": "AMG", "regulatory": "AReG", "physiology": "APG"}.get(category, "Unknown")
     
+    # Define output filenames by confidence level
     filename_dict = {
         "avgs_high" : f"{acronym}s_high_confidence.faa",
         "avgs_medium" : f"{acronym}s_medium_confidence.faa",
@@ -254,21 +266,30 @@ def write_organized_files_annotate(organized_dict, category, category_table_path
         "avgs_all" : f"{acronym}s_all.faa"
     }
     
+    # Create output directory if it doesn't exist
     output_subdir = os.path.join(output_dir, f"faa_{category}")
     os.makedirs(output_subdir, exist_ok=True)
-    
-    for key, protein_names in organized_dict.items():
+
+    def write_fasta_file(key, protein_names):
         output_fasta = os.path.join(output_subdir, filename_dict[key])
-        
-        with open(output_fasta, "w") as out_fasta:
-            for protein_name in protein_names:
-                if protein_name in prot_records:
-                    protein_row = category_genes_df.filter(category_genes_df['Protein'] == protein_name).to_dict(as_series=False)
-                    if protein_row:
-                        adjust_sequence_header(prot_records[protein_name], protein_row)
-                    write_fasta(prot_records[protein_name], out_fasta)
-                else:
-                    logger.warning(f"Protein '{protein_name}' not found in the loaded protein records.")
+        fasta_lines = []
+
+        for protein_name in protein_names:
+            if protein_name in prot_records:
+                protein_row = category_genes_lookup.get(protein_name)
+                if protein_row:
+                    adjust_sequence_header(prot_records[protein_name], protein_row)
+                fasta_lines.append(write_fasta_str(prot_records[protein_name]))
+            else:
+                logger.warning(f"Protein '{protein_name}' not found in the loaded protein records.")
+
+        with open(output_fasta, "w") as out_f:
+            out_f.write("".join(fasta_lines))
+    
+    # Write each confidence level file in parallel
+    with ThreadPoolExecutor() as executor:
+        for key, protein_names in organized_dict.items():
+            executor.submit(write_fasta_file, key, protein_names)
 
 def main():
     metab_table_path = snakemake.params.metabolism_table
