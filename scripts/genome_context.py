@@ -165,11 +165,11 @@ def check_window_avg_lscore(data, min_window_avg_lscores):
     min_window_avg_lscore_pfam = min_window_avg_lscores["Pfam"]
     min_window_avg_lscore_phrog = min_window_avg_lscores["PHROG"]
     data = data.with_columns([
-        pl.when((pl.col('window_avg_KEGG_VL-score') > min_window_avg_lscore_kegg))
+        pl.when((pl.col('window_avg_KEGG_VL-score') >= min_window_avg_lscore_kegg))
         .then(True).otherwise(False).alias('window_avg_KEGG_VL-score_viral'),
-        pl.when( (pl.col('window_avg_Pfam_VL-score') > min_window_avg_lscore_pfam))
+        pl.when( (pl.col('window_avg_Pfam_VL-score') >= min_window_avg_lscore_pfam))
         .then(True).otherwise(False).alias('window_avg_Pfam_VL-score_viral'),
-        pl.when((pl.col('window_avg_PHROG_VL-score') > min_window_avg_lscore_phrog))
+        pl.when((pl.col('window_avg_PHROG_VL-score') >= min_window_avg_lscore_phrog))
         .then(True).otherwise(False).alias('window_avg_PHROG_VL-score_viral'),
     ])
     return data
