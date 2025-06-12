@@ -37,31 +37,43 @@ elif snakemake.params.build_or_annotate == "annotate":
     with open(log_file, "a") as log:
         log.write("========================================================================\n   Step 9/11: Curate the predicted functions based on genomic context   \n========================================================================\n")
 
+# def compute_virus_like_window(df):
+#     """
+#     Returns True if all non-null values are True.
+#     Returns False if any non-null value is False.
+#     Returns False if all are null.
+#     """
+#     def all_non_null_true(k, p, h):
+#         values = [k, p, h]
+#         non_null = [v for v in values if v is not None]
+#         return all(non_null) if non_null else False
+
+#     return df.with_columns(
+#         pl.struct([
+#             "window_avg_KEGG_VL-score_viral",
+#             "window_avg_Pfam_VL-score_viral",
+#             "window_avg_PHROG_VL-score_viral"
+#         ]).map_elements(
+#             lambda s: all_non_null_true(
+#                 s["window_avg_KEGG_VL-score_viral"],
+#                 s["window_avg_Pfam_VL-score_viral"],
+#                 s["window_avg_PHROG_VL-score_viral"]
+#             ),
+#             return_dtype=pl.Boolean
+#         ).alias("Virus_Like_Window")
+#     )
+
 def compute_virus_like_window(df):
     """
-    Returns True if all non-null values are True.
-    Returns False if any non-null value is False.
-    Returns False if all are null.
+    Returns True if any of the three window average columns are True.
     """
-    def all_non_null_true(k, p, h):
-        values = [k, p, h]
-        non_null = [v for v in values if v is not None]
-        return all(non_null) if non_null else False
-
-    return df.with_columns(
-        pl.struct([
-            "window_avg_KEGG_VL-score_viral",
-            "window_avg_Pfam_VL-score_viral",
-            "window_avg_PHROG_VL-score_viral"
-        ]).map_elements(
-            lambda s: all_non_null_true(
-                s["window_avg_KEGG_VL-score_viral"],
-                s["window_avg_Pfam_VL-score_viral"],
-                s["window_avg_PHROG_VL-score_viral"]
-            ),
-            return_dtype=pl.Boolean
-        ).alias("Virus_Like_Window")
+    df = df.with_columns(
+        pl.when(pl.col("window_avg_KEGG_VL-score_viral") & pl.col("window_avg_Pfam_VL-score_viral") & pl.col("window_avg_PHROG_VL-score_viral"))
+        .then(True)
+        .otherwise(False)
+        .alias("Virus_Like_Window")
     )
+    return df
 
 def summarize_annot_table(table, hmm_descriptions):
     """
@@ -82,11 +94,13 @@ def summarize_annot_table(table, hmm_descriptions):
         "circular_contig",
         "genome",
         "KEGG_hmm_id",
+        "FOAM_hmm_id",
         "Pfam_hmm_id",
         "dbCAN_hmm_id",
         "METABOLIC_hmm_id",
         "PHROG_hmm_id",
         "KEGG_score",
+        "FOAM_score",
         "Pfam_score",
         "dbCAN_score",
         "METABOLIC_score",
@@ -126,6 +140,11 @@ def summarize_annot_table(table, hmm_descriptions):
     
     # Join with KEGG descriptions
     table = table.join(hmm_descriptions, left_on="KEGG_hmm_id", right_on="id", how="left").rename({"name": "KEGG_Description"})
+    if "db_right" in table.columns:
+        table = table.drop("db_right")
+    
+    # Join with FOAM descriptions
+    table = table.join(hmm_descriptions, left_on="FOAM_hmm_id", right_on="id", how="left").rename({"name": "FOAM_Description"})
     if "db_right" in table.columns:
         table = table.drop("db_right")
     
@@ -182,6 +201,7 @@ def summarize_annot_table(table, hmm_descriptions):
         table
         .with_columns([
             pl.col("KEGG_score").cast(pl.Float64).fill_null(float('-inf')),
+            pl.col("FOAM_score").cast(pl.Float64).fill_null(float('-inf')),
             pl.col("Pfam_score").cast(pl.Float64).fill_null(float('-inf')),
             pl.col("dbCAN_score").cast(pl.Float64).fill_null(float('-inf')),
             pl.col("METABOLIC_score").cast(pl.Float64).fill_null(float('-inf')),
@@ -191,7 +211,7 @@ def summarize_annot_table(table, hmm_descriptions):
 
     # 3. Cast scores to Float64, but *also* compute the real max before filling nulls
     score_cols = [
-        "KEGG_score", "Pfam_score",
+        "KEGG_score", "FOAM_score", "Pfam_score",
         "dbCAN_score", "METABOLIC_score", "PHROG_score",
     ]
     table = (
@@ -223,28 +243,31 @@ def summarize_annot_table(table, hmm_descriptions):
     table = table.with_columns([
         # top_hit_hmm_id
         pl.when(pl.col("best_idx") == 0).then(pl.col("KEGG_hmm_id"))
-        .when(pl.col("best_idx") == 1).then(pl.col("Pfam_hmm_id"))
-        .when(pl.col("best_idx") == 2).then(pl.col("dbCAN_hmm_id"))
-        .when(pl.col("best_idx") == 3).then(pl.col("METABOLIC_hmm_id"))
-        .when(pl.col("best_idx") == 4).then(pl.col("PHROG_hmm_id"))
+        .when(pl.col("best_idx") == 1).then(pl.col("FOAM_hmm_id"))
+        .when(pl.col("best_idx") == 2).then(pl.col("Pfam_hmm_id"))
+        .when(pl.col("best_idx") == 3).then(pl.col("dbCAN_hmm_id"))
+        .when(pl.col("best_idx") == 4).then(pl.col("METABOLIC_hmm_id"))
+        .when(pl.col("best_idx") == 5).then(pl.col("PHROG_hmm_id"))
         .otherwise(pl.lit(None))
         .alias("top_hit_hmm_id"),
 
         # top_hit_description
         pl.when(pl.col("best_idx") == 0).then(pl.col("KEGG_Description"))
-        .when(pl.col("best_idx") == 1).then(pl.col("Pfam_Description"))
-        .when(pl.col("best_idx") == 2).then(pl.col("dbCAN_Description"))
-        .when(pl.col("best_idx") == 3).then(pl.col("METABOLIC_Description"))
-        .when(pl.col("best_idx") == 4).then(pl.col("PHROG_Description"))
+        .when(pl.col("best_idx") == 1).then(pl.col("FOAM_Description"))
+        .when(pl.col("best_idx") == 2).then(pl.col("Pfam_Description"))
+        .when(pl.col("best_idx") == 3).then(pl.col("dbCAN_Description"))
+        .when(pl.col("best_idx") == 4).then(pl.col("METABOLIC_Description"))
+        .when(pl.col("best_idx") == 5).then(pl.col("PHROG_Description"))
         .otherwise(pl.lit(None))
         .alias("top_hit_description"),
 
         # top_hit_db
         pl.when(pl.col("best_idx") == 0).then(pl.lit("KEGG"))
-        .when(pl.col("best_idx") == 1).then(pl.lit("Pfam"))
-        .when(pl.col("best_idx") == 2).then(pl.lit("dbCAN"))
-        .when(pl.col("best_idx") == 3).then(pl.lit("METABOLIC"))
-        .when(pl.col("best_idx") == 4).then(pl.lit("PHROG"))
+        .when(pl.col("best_idx") == 1).then(pl.lit("FOAM"))
+        .when(pl.col("best_idx") == 2).then(pl.lit("Pfam"))
+        .when(pl.col("best_idx") == 3).then(pl.lit("dbCAN"))
+        .when(pl.col("best_idx") == 4).then(pl.lit("METABOLIC"))
+        .when(pl.col("best_idx") == 5).then(pl.lit("PHROG"))
         .otherwise(pl.lit(None))
         .alias("top_hit_db"),
     ])
@@ -262,6 +285,8 @@ def summarize_annot_table(table, hmm_descriptions):
         "PHROG_V-score",
         "KEGG_hmm_id",
         "KEGG_Description",
+        "FOAM_hmm_id",
+        "FOAM_Description",
         "Pfam_hmm_id",
         "Pfam_Description",
         "dbCAN_hmm_id",
@@ -342,6 +367,7 @@ def filter_metabolism_annots(table, metabolism_table, false_metab_substrings):
     """
     condition = (
         pl.col("KEGG_hmm_id").is_in(metabolism_table["id"]) |
+        pl.col("FOAM_hmm_id").is_in(metabolism_table["id"]) |
         pl.col("Pfam_hmm_id_clean").is_in(metabolism_table["id"]) |
         pl.col("dbCAN_hmm_id").is_in(metabolism_table["id"]) |
         pl.col("METABOLIC_hmm_id").is_in(metabolism_table["id"]) |
@@ -377,6 +403,7 @@ def filter_physiology_annots(table, physiology_table, false_phys_substrings):
     """
     condition = (
         pl.col("KEGG_hmm_id").is_in(physiology_table["id"]) |
+        pl.col("FOAM_hmm_id").is_in(physiology_table["id"]) |
         pl.col("Pfam_hmm_id_clean").is_in(physiology_table["id"]) |
         pl.col("dbCAN_hmm_id").is_in(physiology_table["id"]) |
         pl.col("METABOLIC_hmm_id").is_in(physiology_table["id"]) |
@@ -404,6 +431,7 @@ def filter_regulation_annots(table, regulation_table, false_reg_substrings):
     """
     condition = (
         pl.col("KEGG_hmm_id").is_in(regulation_table["id"]) |
+        pl.col("FOAM_hmm_id").is_in(regulation_table["id"]) |
         pl.col("Pfam_hmm_id_clean").is_in(regulation_table["id"]) |
         pl.col("dbCAN_hmm_id").is_in(regulation_table["id"]) |
         pl.col("METABOLIC_hmm_id").is_in(regulation_table["id"]) |

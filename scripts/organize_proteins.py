@@ -66,7 +66,7 @@ def adjust_sequence_header(record, protein):
 
 def determine_phrog_description(protein):
     """Determines PHROG-based description for a record."""
-    db_fields = [('dbCAN_hmm_id', 'dbCAN_Description'), ('KEGG_hmm_id', 'KEGG_Description'), ('METABOLIC_hmm_id', 'METABOLIC_Description'), ('Pfam_hmm_id', 'Pfam_Description')]
+    db_fields = [('dbCAN_hmm_id', 'dbCAN_Description'), ('KEGG_hmm_id', 'KEGG_Description'), ('FOAM_hmm_id', 'FOAM_Description'), ('METABOLIC_hmm_id', 'METABOLIC_Description'), ('Pfam_hmm_id', 'Pfam_Description')]
     for hmm_id, desc in db_fields:
         if protein[hmm_id] and protein[desc]:
             return f'"{protein[hmm_id]} {protein[desc]}"'
@@ -81,28 +81,24 @@ def viral_origin_confidence(circular, viral_window, viral_flank_up, viral_flank_
     # 1a) If both viral flanks are present, confidence is raised
     # 1b) If only one viral flank is present but the contig is circular, confidence is still raised
     # 1c) If neither viral flank is present, confidence is lowered
-    if viral_flank_up and viral_flank_down:
+    if viral_flank_up:
         confidence_score += 1
-    elif (viral_flank_up or viral_flank_down) and circular:
+    if viral_flank_down:
         confidence_score += 1
-    else:
-        confidence_score += 0
+    if circular:
+        confidence_score += 1
     # 2) Being in a viral window raises confidence,
     #    Not being in a viral window lowers confidence
     if viral_window:
         confidence_score += 1
-    else:
-        confidence_score += 0
     # 3) Being flanked by MGE genes lowers confidence,
     #    not being flanked by MGE genes raises confidence
     if not mge_flank:
         confidence_score += 1
-    else:
-        confidence_score += 0
     
-    if confidence_score == 3:
+    if confidence_score >= 4:
         return "high"
-    elif confidence_score == 2:
+    elif confidence_score < 4 and confidence_score > 1:
         return "medium"
     elif confidence_score <= 1:
         return "low"

@@ -66,22 +66,26 @@ def widen_hmm_results(hmm_results_df):
     return hmm_results_df_wide
 
 def assign_db(db_path):
-    if "KEGG" in db_path or "kegg" in db_path or "kofam" in db_path:
+    if "KEGG" in str(db_path) or "kegg" in str(db_path) or "kofam" in str(db_path):
         return "KEGG"
-    elif "Pfam" in db_path or "pfam" in db_path:
+    elif "FOAM" in str(db_path) or "foam" in str(db_path):
+        return "FOAM"
+    elif "Pfam" in str(db_path) or "pfam" in str(db_path):
         return "Pfam"
-    elif "dbcan" in db_path or "dbCAN" in db_path or "dbCan" in db_path:
+    elif "dbcan" in str(db_path) or "dbCAN" in str(db_path) or "dbCan" in str(db_path):
         return "dbCAN"
-    elif "METABOLIC_custom" in db_path or "metabolic_custom" in db_path:
+    elif "METABOLIC_custom" in str(db_path) or "metabolic_custom" in str(db_path):
         return "METABOLIC"
-    elif "VOG" in db_path or "vog" in db_path:
+    elif "VOG" in str(db_path) or "vog" in str(db_path):
         return "VOG"
-    elif "eggNOG" in db_path or "eggnog" in db_path:
+    elif "eggNOG" in str(db_path) or "eggnog" in str(db_path):
         return "eggNOG"
-    elif "PHROG" in db_path or "phrog" in db_path:
+    elif "PHROG" in str(db_path) or "phrog" in str(db_path):
         return "PHROG"
+    elif "user_custom" in str(db_path):
+        return "user_custom"
     else:
-        return None 
+        return None
     
 def main():
     tsv = snakemake.params.gene_index
