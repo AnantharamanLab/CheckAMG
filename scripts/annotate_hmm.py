@@ -7,23 +7,28 @@ import platform
 import logging
 os.environ["POLARS_MAX_THREADS"] = str(snakemake.threads)
 import polars as pl
-import collections
-import math
-import pyhmmer
-from pyhmmer import easel, plan7
-from pyhmmer.errors import AllocationError, EaselError
-from pyfastatools import Parser, write_fasta
+from pathlib import Path
+from pyhmmer import easel, plan7, hmmer
 import load_prot_paths
 import uuid
-import gc
+from multiprocessing import Pool
 from datetime import datetime
+from pyfastatools import Parser, write_fasta
+import math
+from math import ceil
+from collections import defaultdict
+from tqdm import tqdm
+from functools import partial
+
+# Global cache of pre-loaded HMM models, shared by forked workers via copy-on-write
+HMM_MODELS = {}
 
 def set_memory_limit(limit_in_gb):
     current_os = platform.system()
     if current_os == "Linux":
         limit_in_bytes = limit_in_gb * 1024 * 1024 * 1024
         resource.setrlimit(resource.RLIMIT_AS, (limit_in_bytes, limit_in_bytes))
-        
+
 log_level = logging.DEBUG if snakemake.params.debug else logging.INFO
 log_file = snakemake.params.log
 logging.basicConfig(
@@ -36,7 +41,7 @@ logging.basicConfig(
     ]
 )
 logger = logging.getLogger()
-        
+
 if snakemake.params.build_or_annotate =="build":
     print("========================================================================\n                Step 5/22: Assign functions to proteins                 \n========================================================================")
     with open(log_file, "a") as log:
@@ -46,31 +51,34 @@ elif snakemake.params.build_or_annotate == "annotate":
     with open(log_file, "a") as log:
         log.write("========================================================================\n                Step 5/11: Assign functions to proteins                 \n========================================================================\n")
 
-def load_hmms(hmmdb_path):
-    """Load HMM profiles from a given HMM database file."""
-    with plan7.HMMFile(hmmdb_path) as hmm_file:
-        hmms = list(hmm_file)
-    return hmms
-
-def filter_results(results):
-    """Filter the search results to keep only the best scoring hit for each sequence within each database."""
-    best_results = {}
-    for result in results:
-        key = (result.sequence, result.db_path)
-        if key not in best_results or result.score > best_results[key].score:
-            best_results[key] = result
-    return list(best_results.values())
-
-def get_hmm_coverage(domain):
-    """Calculate the alignment coverage for a given domain."""
-    n_aligned_positions = domain.alignment.hmm_to - domain.alignment.hmm_from + 1
-    return n_aligned_positions / domain.alignment.hmm_length
+def assign_db(db_path):
+    if "KEGG" in str(db_path) or "kegg" in str(db_path) or "kofam" in str(db_path):
+        return "KEGG"
+    elif "FOAM" in str(db_path) or "foam" in str(db_path):
+        return "FOAM"
+    elif "Pfam" in str(db_path) or "pfam" in str(db_path):
+        return "Pfam"
+    elif "dbcan" in str(db_path) or "dbCAN" in str(db_path) or "dbCan" in str(db_path):
+        return "dbCAN"
+    elif "METABOLIC_custom" in str(db_path) or "metabolic_custom" in str(db_path):
+        return "METABOLIC"
+    elif "VOG" in str(db_path) or "vog" in str(db_path):
+        return "VOG"
+    elif "eggNOG" in str(db_path) or "eggnog" in str(db_path):
+        return "eggNOG"
+    elif "PHROG" in str(db_path) or "phrog" in str(db_path):
+        return "PHROG"
+    elif "user_custom" in str(db_path):
+        return "user_custom"
+    else:
+        return None 
 
 def extract_query_info(hits, db_path):
-    """Extract query information depending on the database."""
-    if "Pfam" in db_path:
+    if "Pfam" in str(db_path) or "pfam" in str(db_path):
         hmm_id = hits.query_accession.decode()
-    elif "eggNOG" in db_path:
+    elif "FOAM" in str(db_path) or "foam" in str(db_path):
+        hmm_id = hits.query_accession.decode()
+    elif "eggNOG" in str(db_path) or "eggnog" in str(db_path):
         hmm_id = hits.query_name.decode().split(".")[0]
     else:
         query_name = hits.query_name.decode()
@@ -80,218 +88,185 @@ def extract_query_info(hits, db_path):
             hmm_id = query_name.replace("_alignment", "").replace(".mafft", "").replace(".txt", "").replace(".hmm", "").replace("_protein.alignment", "")
     return hmm_id
 
-def run_hmmsearch_on_chunk(sequence_chunk, hmm_list, db_path, e_value_threshold, num_cpus, cov_fraction, output_path):
-    Result = collections.namedtuple("Result", ["hmm_id", "sequence", "score", "db_path", "hmm_coverage"])
-    results = []
-
-    # Create the amino acid alphabet
-    aa_alphabet = easel.Alphabet.amino()
-
-    # Read sequences
-    with easel.SequenceFile(sequence_chunk, format="fasta", digital=True, alphabet=aa_alphabet) as seqs_file:
-        proteins = list(seqs_file)
-
-    # Search each sequence using hmm profiles
-    for hits in pyhmmer.hmmsearch(queries=hmm_list, sequences=proteins, cpus=num_cpus, E=e_value_threshold):
-        for hit in hits:
-            for domain in hit.domains.included:
-                hmm_coverage = get_hmm_coverage(domain)
-                if hmm_coverage >= cov_fraction:
-                    hmm_id = extract_query_info(hits, db_path)
-                    results.append(Result(hmm_id, hit.name.decode(), hit.score, db_path, hmm_coverage))
-    filtered_results = filter_results(results)
-
-    # Write the results to a temporary file
-    with open(output_path, "w") as output_file:
-        for result in filtered_results:
-            output_file.write(f"{result.hmm_id}\t{result.sequence}\t{result.score}\t{result.db_path}\t{result.hmm_coverage}\n")
-
-    # Clean up memory
-    del results, filtered_results, proteins
-    gc.collect()
-        
 def aggregate_sequences(prots):
-    """Aggregate all sequences from all fasta files into a single list."""
     all_sequences = []
     for fasta_file in prots:
-        sequences = list(Parser(fasta_file).all())
-        all_sequences.extend(sequences)
+        all_sequences.extend(Parser(fasta_file).all())
     return all_sequences
 
 def split_aggregated_sequences(all_sequences, chunk_size):
-    """Split aggregated sequences into evenly sized chunks."""
     for i in range(0, len(all_sequences), chunk_size):
         yield all_sequences[i:i + chunk_size]
 
-def determine_chunk_size(n_sequences, mem_limit, est_bytes_per_seq=32768, max_chunk_fraction=0.8):
-    """
-    Determine chunk size such that the total memory used per chunk is
-    no more than max_chunk_fraction (e.g., 80%) of the maximum memory.
-    
-    Parameters:
-    - n_sequences: Total number of sequences.
-    - mem_limit: Maximum allowable memory in GB.
-    - est_bytes_per_seq: Estimated memory used per sequence in bytes.
-    - max_chunk_fraction: Fraction of mem_limit to target per chunk.
-    
-    Returns:
-    - The number of sequences per chunk.
-    """
-    # Total estimated memory needed for all sequences in bytes.
+def determine_chunk_size(n_sequences, mem_limit, est_bytes_per_seq=32768, max_chunk_fraction=0.8, n_processes=1):
     total_bytes = n_sequences * est_bytes_per_seq
-    
-    # Allowed memory per chunk in bytes.
-    allowed_bytes = max_chunk_fraction * mem_limit * (1024**3)
-    
-    # Determine the number of chunks required so that each chunk's memory usage does not exceed the allowed_bytes.
-    n_chunks = math.ceil(total_bytes / allowed_bytes)
-    n_chunks = max(1, n_chunks) # Ensure at least one chunk.
-    
-    # Compute the chunk size by splitting the total sequences into n_chunks.
-    chunk_size = math.ceil(n_sequences / n_chunks)
-    return chunk_size
+    allowed_bytes = max_chunk_fraction * mem_limit * (1024**3) / n_processes
+    n_chunks = max(1, math.ceil(total_bytes / allowed_bytes), n_processes)
+    return math.ceil(n_sequences / n_chunks)
 
-def process_database(hmmdb_path, aggregated_sequences, output_dir, e_value_threshold, num_cpus, cov_fraction, chunk_size, run_id):
-    hmm_list = load_hmms(hmmdb_path)
+def filter_hmm_results(tsv_path, hmm_path, out_path):
+    db = assign_db(hmm_path)
+    results = {}
 
-    chunk_id = 0
-    for chunk in split_aggregated_sequences(aggregated_sequences, chunk_size):
-        chunk_file = os.path.join(output_dir, f"{run_id}_chunk_{chunk_id}.fasta")
-        with open(chunk_file, "w") as f:
-            for record in chunk:
-                write_fasta(record, f)
+    # Load hits and keep only the best one per sequence
+    with open(tsv_path) as f:
+        for line in f:
+            parts = line.strip().split('\t')
+            if len(parts) < 7:
+                continue
+            sequence, hmm_id, evalue, score, length, start, end = parts
+            evalue = float(evalue)
+            score = float(score)
+            start = int(start)
+            end = int(end)
+            key = sequence
 
-        output_path = os.path.join(output_dir, f"{run_id}_results_{os.path.basename(hmmdb_path)}_{chunk_id}.tsv")
-        run_hmmsearch_on_chunk(chunk_file, hmm_list, hmmdb_path, e_value_threshold, num_cpus, cov_fraction, output_path)
+            current_best = results.get(key)
+            new_hit = (hmm_id, score, int(length), int(start), int(end), evalue)
 
-        # Remove chunk file to save space
-        os.remove(chunk_file)
-        del chunk
-        gc.collect()
+            if current_best is None:
+                results[key] = new_hit
+            else:
+                # Keep hit with better (lower) evalue, or higher score if evalue is the same
+                if new_hit[5] < current_best[5] or (new_hit[5] == current_best[5] and new_hit[1] > current_best[1]):
+                    results[key] = new_hit
 
-        chunk_id += 1
+    # Write best hit per sequence
+    with open(out_path, 'w') as out:
+        out.write("hmm_id\tsequence\tscore\tcoverage\tdb\n")
+        for seq, hit in results.items():
+            hmm_id, score, length, start, end, _ = hit
+            coverage = (end - start + 1) / length
+            out.write(f"{hmm_id}\t{seq}\t{score:.6f}\t{coverage:.3f}\t{db}\n")
 
-    del hmm_list
-    gc.collect()
+def _hmm_worker(args):
+    return hmmsearch_worker(*args)
 
-def combine_results(output_dir, run_id):
-    combined_results = []
-
-    for file_name in os.listdir(output_dir):
-        if file_name.startswith(f"{run_id}_results_") and file_name.endswith(".tsv"):
-            file_path = os.path.join(output_dir, file_name)
-            if os.path.getsize(file_path) > 0:  # Skip empty files
-                chunk_df = pl.read_csv(file_path, separator="\t", has_header=False)
-                chunk_df.columns = ["hmm_id", "sequence", "score", "db_path", "hmm_coverage"]
-                combined_results.append(chunk_df)
-                del chunk_df
-                # gc.collect()
-
-    if combined_results:
-        combined_df = pl.concat(combined_results)
-        del combined_results
-        gc.collect()
-        return combined_df
-    else:
-        logging.error("No HMMsearch results found; all CSV files are empty.")
-        raise ValueError("No valid data found in any result files.")
-
-def assign_db(db_path):
-    """Assign the database label based on db_path."""
-    if "KEGG" in db_path or "kegg" in db_path or "kofam" in db_path:
-        return "KEGG"
-    elif "Pfam" in db_path or "pfam" in db_path:
-        return "Pfam"
-    elif "dbcan" in db_path or "dbCAN" in db_path or "dbCan" in db_path:
-        return "dbCAN"
-    elif "METABOLIC_custom" in db_path or "metabolic_custom" in db_path:
-        return "METABOLIC"
-    elif "VOG" in db_path or "vog" in db_path:
-        return "VOG"
-    elif "eggNOG" in db_path or "eggnog" in db_path:
-        return "eggNOG"
-    elif "PHROG" in db_path or "phrog" in db_path:
-        return "PHROG"
-    elif "user_custom" in db_path:
-        return "user_custom"
-    else:
-        return None 
-
+def hmmsearch_worker(key, seq_path, db_str, seq_lengths, out_dir, min_coverage, min_score, evalue, cpus):
+    outfile = Path(out_dir) / f"{key}_search.tsv"
+    errfile = Path(out_dir) / f"{key}_search.err"
+    alphabet = easel.Alphabet.amino()
+    hmm_list = HMM_MODELS[db_str]
+    with open(outfile, 'w') as out, open(errfile, 'w') as err, \
+         easel.SequenceFile(seq_path, digital=True, alphabet=alphabet) as seqs:
+        for hits in hmmer.hmmsearch(queries=hmm_list, sequences=seqs, E=evalue, cpus=cpus):
+            hmm_id = extract_query_info(hits, db_str)
+            for hit in hits:
+                for dom in hit.domains.included:
+                    a = dom.alignment
+                    hit_name = hit.name.decode()
+                    alignment_len = a.target_to - a.target_from + 1
+                    coverage = alignment_len / seq_lengths[hit_name]
+                    if coverage < min_coverage and dom.score < min_score:
+                        continue
+                    out.write(f"{hit_name}\t{hmm_id}\t{hit.evalue:.1E}\t{dom.score:.6f}\t{hit.length}\t{a.target_from}\t{a.target_to}\n")
+    return str(outfile)
+        
 def main():
     protein_dir = snakemake.params.protein_dir
-    wdir = snakemake.params.wdir 
+    wdir = snakemake.params.wdir
     hmm_vscores = snakemake.params.hmm_vscores
     cov_fraction = snakemake.params.cov_fraction
     db_dir = snakemake.params.db_dir
-    output = snakemake.params.vscores
-    all_hmm_results = snakemake.params.all_hmm_results
-    num_cpus = snakemake.threads
+    output = Path(snakemake.params.vscores)
+    all_hmm_results = Path(snakemake.params.all_hmm_results)
+    num_threads = snakemake.threads
     mem_limit = snakemake.resources.mem
+    minscore = snakemake.params.min_bitscore
+    evalue = snakemake.params.max_evalue
 
     logger.info("Protein HMM alignments starting...")
-    logger.debug(f"Maximum memory allowed to be allocated: {mem_limit} GB")
-    set_memory_limit(mem_limit)
-            
-    prots = load_prot_paths.load_prots(protein_dir)
-    
-    # Aggregate sequences from all files
-    aggregated_sequences = aggregate_sequences(prots)
-    
-    # Determine chunk size
-    n_sequences = len(aggregated_sequences)
-    chunk_size = determine_chunk_size(n_sequences, mem_limit)
-    logger.debug(f"Chunk size: {chunk_size:,} sequences per chunk, for {n_sequences//chunk_size} chunks.")
-    
+
     run_id = f"{datetime.now().strftime('%Y%m%d_%H%M%S')}_{uuid.uuid4().hex[:8]}"
-    tmp_dir = os.path.join(wdir, f"pyhmmer_tmp_{run_id}")
-    os.makedirs(tmp_dir, exist_ok=True)
-    priority_order = ["KEGG", "PHROG", "VOG", "Pfam", "eggNOG", "dbCAN", "METABOLIC", "user_custom"]
+    tmp_dir = Path(wdir) / f"hmmsearch_tmp_{run_id}"
+    tmp_dir.mkdir(parents=True, exist_ok=True)
 
-    # Load database paths
-    hmmdbs = [os.path.join(db_dir, db) for db in os.listdir(db_dir) if db.endswith('.H3M') or db.endswith('.h3m')]
+    aggregated = aggregate_sequences(load_prot_paths.load_prots(protein_dir))
+    seq_lengths = defaultdict(int)
+    seq_lengths.update({rec.header.name: len(rec.seq) for rec in aggregated})
+    logger.debug(f"Memory limit set to {mem_limit} GB")
+    set_memory_limit(mem_limit)
 
-    # Sort databases based on the priority order
-    hmmdbs_sorted = sorted(hmmdbs, key=lambda x: priority_order.index(assign_db(x)) if assign_db(x) in priority_order else float('inf'))
+    priority_order = ["KEGG", "FOAM", "PHROG", "VOG", "Pfam", "eggNOG", "dbCAN", "METABOLIC", "user_custom"]
+    hmm_paths = sorted([Path(db_dir) / f for f in os.listdir(db_dir) if f.endswith(('.H3M', '.h3m'))],
+                    key=lambda x: priority_order.index(assign_db(x)) if assign_db(x) in priority_order else float('inf'))
+    
+    
+    for db in hmm_paths:
+        db_str = str(db)
+        HMM_MODELS[db_str] = list(plan7.HMMFile(db_str))
 
-    logger.info(f"Loading HMM profiles.")
+    aggregated = aggregate_sequences(load_prot_paths.load_prots(protein_dir))
+    seq_lengths = {rec.header.name: len(rec.seq) for rec in aggregated}
 
-    for hmmdb_path in hmmdbs_sorted:
-        db_label = assign_db(hmmdb_path)
-        logger.info(f"Running HMMsearch against database: {db_label}")
+    db_counts = {db: sum(1 for _ in plan7.HMMFile(str(db))) for db in hmm_paths}
+    total_models = sum(db_counts.values())
+    OVERSUB = 10
+    total_tasks = num_threads * OVERSUB
+    jobs = []
+    N = len(aggregated)
+
+    for db in hmm_paths:
+        db_str = str(db)
+        tasks = max(1, round(total_tasks * db_counts[db] / total_models))
+        cs = ceil(N / tasks)
+        for i in range(0, N, cs):
+            chunk = aggregated[i:i+cs]
+            chunk_file = Path(tmp_dir) / f"chunk_{db.stem}_{i//cs}.faa"
+            with open(chunk_file, 'w') as f:
+                for rec in chunk:
+                    write_fasta(rec, f)
+            jobs.append((
+                f"{db.stem}_{i//cs}", chunk_file, db_str,
+                seq_lengths, tmp_dir, cov_fraction, minscore, evalue, 1
+            ))
+
+    logger.info(f"Running HMMsearch with {num_threads} maximum jobs in parallel...")
+    # Run HMMsearch in parallel
+    result_paths = []
+    with Pool(processes=num_threads) as pool:
+        for res in tqdm(pool.imap_unordered(_hmm_worker, jobs), total=len(jobs), desc="HMMsearches"):
+            result_paths.append(res)
+
+    # Combine and filter result files
+    logger.info("Combining and filtering HMMscan results...")
+    filtered_paths = []
+    for result_path in result_paths:
+        hmm_path = result_path.split("_chunk")[0] + ".h3m"
+        filtered_path = result_path.replace("_search.tsv", "_filtered.tsv")
+        logger.debug(f"Filtering results from {result_path} using {hmm_path} to {filtered_path}")
+        filter_hmm_results(result_path, hmm_path, filtered_path)
+        filtered_paths.append(filtered_path)
+
+    schema = {
+        "hmm_id": pl.Utf8,
+        "sequence": pl.Utf8,
+        "score": pl.Float64,
+        "hmm_coverage": pl.Float64,
+        "db": pl.Utf8
+    }
+
+    dfs = []
+    for p in filtered_paths:
         try:
-            process_database(hmmdb_path, aggregated_sequences, tmp_dir, 1E-10, num_cpus, cov_fraction, chunk_size, run_id)
-        except (AllocationError, EaselError, SystemError, MemoryError) as e:
-            logging.error(f"Memory limit exceeded. Please increase the memory limit or reduce the number of input sequences. Error: {e}")
-            raise
+            df = pl.read_csv(p, separator="\t", schema=schema, ignore_errors=True)
+            dfs.append(df)
+        except Exception as e:
+            logger.warning(f"Failed to load {p}: {e}")
 
-    logger.info("Combining results from all databases.")
-    combined_df = combine_results(tmp_dir, run_id)
-
-    # Format the final DataFrame
-    combined_df = combined_df.rename({"hmm_id": "id"})
-    combined_df = combined_df.with_columns(pl.col("db_path").map_elements(assign_db, return_dtype=pl.Utf8).alias("db"))
-    combined_df = combined_df.drop('db_path')
-    combined_df = combined_df.rename({"id": "hmm_id"})
-    combined_df = combined_df.sort(['sequence', 'score', 'db', 'hmm_id'])
-
-    # Write all hmm results to file
+    combined_df = pl.concat(dfs)
     combined_df.write_csv(all_hmm_results, separator="\t")
 
-    # Load V-scores CSV
     vscores_df = pl.read_csv(hmm_vscores, schema_overrides={"id": pl.Utf8, "V-score": pl.Float64, "VL-score": pl.Float64, "db": pl.Categorical, "name": pl.Utf8})
-
-    # Merge with V-scores and filter
-    merged_df = combined_df.join(vscores_df, left_on='hmm_id', right_on='id', how='left').filter(pl.col("V-score").is_not_null())
-    merged_df = merged_df.drop('name', 'db_right')
-    merged_df = merged_df.sort(['sequence', 'score', 'V-score', 'db'])
+    merged_df = combined_df.rename({"hmm_id": "id"}).join(vscores_df, on="id", how="left").filter(pl.col("V-score").is_not_null())
+    merged_df = merged_df.drop("name", "db_right").rename({"id": "hmm_id"})
+    merged_df = merged_df.sort(["sequence", "score", "V-score", "db"])
     merged_df.write_csv(output, separator="\t")
-    
-    # Cleanup: remove temporary files if needed
-    for file_name in os.listdir(tmp_dir):
-        file_path = os.path.join(tmp_dir, file_name)
-        os.remove(file_path)
-    os.rmdir(tmp_dir)
-    
+
+    for f in tmp_dir.iterdir():
+        f.unlink()
+    tmp_dir.rmdir()
+
     logger.info("Protein HMM alignments completed.")
 
 if __name__ == "__main__":

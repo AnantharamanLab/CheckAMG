@@ -147,6 +147,8 @@ rule assign_annots:
         wdir = os.path.join(config["paths"]["output_dir"], "wdir"),
         db_dir = config["paths"]["db_dir"],
         cov_fraction = config["cov_fraction"],
+        min_bitscore = 50,
+        max_evalue = 1e-5,
         debug = bool(config["debug"]),
         log = config["log"]
     threads:

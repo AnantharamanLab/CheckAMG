@@ -115,6 +115,8 @@ rule assign_annots:
         hmm_vscores = os.path.join(config["paths"]["files_dir"], "vscores.csv"),
         wdir = os.path.join(config["paths"]["output_dir"], "wdir"),
         cov_fraction = config["mmseqs_params"]["cov_fraction"],
+        min_bitscore = 50,
+        max_evalue = 1e-5,
         vscores = os.path.join(config["paths"]["output_dir"], "wdir", "vscores.tsv"),
         all_hmm_results = os.path.join(config["paths"]["output_dir"], "wdir", "hmm_results.tsv"),
         db_dir = config["paths"]["db_dir"],
