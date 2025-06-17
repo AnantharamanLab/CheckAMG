@@ -339,13 +339,14 @@ def filter_metabolism_annots(table, metabolism_table, false_metab_substrings):
     by checking any of the five HMM ID columns for membership in metabolism_table["id"].
     Also, apply false-substring filtering to remove non-metabolic genes.
     """
+    metab_ids = metabolism_table["id"].to_list()
     condition = (
-        pl.col("KEGG_hmm_id").is_in(metabolism_table["id"]) |
-        pl.col("FOAM_hmm_id").is_in(metabolism_table["id"]) |
-        pl.col("Pfam_hmm_id_clean").is_in(metabolism_table["id"]) |
-        pl.col("dbCAN_hmm_id").is_in(metabolism_table["id"]) |
-        pl.col("METABOLIC_hmm_id").is_in(metabolism_table["id"]) |
-        pl.col("PHROG_hmm_id").is_in(metabolism_table["id"])
+        pl.col("KEGG_hmm_id").is_in(metab_ids) |
+        pl.col("FOAM_hmm_id").is_in(metab_ids) |
+        pl.col("Pfam_hmm_id_clean").is_in(metab_ids) |
+        pl.col("dbCAN_hmm_id").is_in(metab_ids) |
+        pl.col("METABOLIC_hmm_id").is_in(metab_ids) |
+        pl.col("PHROG_hmm_id").is_in(metab_ids)
     )
     table = table.filter(condition)
     
@@ -375,13 +376,14 @@ def filter_physiology_annots(table, physiology_table, false_phys_substrings):
     by checking any of the five HMM ID columns for membership in physiology_table["id"].
     Also, apply false-substring filtering to remove non-physiological genes.
     """
+    phys_ids = physiology_table["id"].to_list()
     condition = (
-        pl.col("KEGG_hmm_id").is_in(physiology_table["id"]) |
-        pl.col("FOAM_hmm_id").is_in(physiology_table["id"]) |
-        pl.col("Pfam_hmm_id_clean").is_in(physiology_table["id"]) |
-        pl.col("dbCAN_hmm_id").is_in(physiology_table["id"]) |
-        pl.col("METABOLIC_hmm_id").is_in(physiology_table["id"]) |
-        pl.col("PHROG_hmm_id").is_in(physiology_table["id"])
+        pl.col("KEGG_hmm_id").is_in(phys_ids) |
+        pl.col("FOAM_hmm_id").is_in(phys_ids) |
+        pl.col("Pfam_hmm_id_clean").is_in(phys_ids) |
+        pl.col("dbCAN_hmm_id").is_in(phys_ids) |
+        pl.col("METABOLIC_hmm_id").is_in(phys_ids) |
+        pl.col("PHROG_hmm_id").is_in(phys_ids)
     )
     table = table.filter(condition)
     
@@ -403,13 +405,14 @@ def filter_regulation_annots(table, regulation_table, false_reg_substrings):
     by checking any of the five HMM ID columns for membership in regulation_table["id"].
     Also, apply false-substring filtering to remove non-regulatory genes.
     """
+    reg_ids = regulation_table["id"].to_list()
     condition = (
-        pl.col("KEGG_hmm_id").is_in(regulation_table["id"]) |
-        pl.col("FOAM_hmm_id").is_in(regulation_table["id"]) |
-        pl.col("Pfam_hmm_id_clean").is_in(regulation_table["id"]) |
-        pl.col("dbCAN_hmm_id").is_in(regulation_table["id"]) |
-        pl.col("METABOLIC_hmm_id").is_in(regulation_table["id"]) |
-        pl.col("PHROG_hmm_id").is_in(regulation_table["id"])
+        pl.col("KEGG_hmm_id").is_in(reg_ids) |
+        pl.col("FOAM_hmm_id").is_in(reg_ids) |
+        pl.col("Pfam_hmm_id_clean").is_in(reg_ids) |
+        pl.col("dbCAN_hmm_id").is_in(reg_ids) |
+        pl.col("METABOLIC_hmm_id").is_in(reg_ids) |
+        pl.col("PHROG_hmm_id").is_in(reg_ids)
     )
     table = table.filter(condition)
     
