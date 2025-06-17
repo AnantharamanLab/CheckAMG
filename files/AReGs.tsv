@@ -34,6 +34,7 @@ K10779	10.0	3.964118143	KEGG	transcriptional regulator ATRX
 K11642	10.0	3.937969003	KEGG	chromodomain-helicase-DNA-binding protein 3 [EC:5.6.2.-]
 K07726	10.0	3.911902996	KEGG	putative transcriptional regulator
 K07727	10.0	3.910143961	KEGG	putative transcriptional regulator
+K04078	10.0	3.910143961	KEGG	chaperonin GroES
 K14438	10.0	3.889077493	KEGG	chromodomain-helicase-DNA-binding protein 9 [EC:5.6.2.-]
 K03091	10.0	3.883547879	KEGG	RNA polymerase sigma-E/F/G factor
 K03087	10.0	3.859618579	KEGG	RNA polymerase nonessential primary-like sigma factor
@@ -53,7 +54,9 @@ K15546	10.0	3.704665185	KEGG	XRE family transcriptional regulator, aerobic/anaer
 K07689	10.0	3.696618459	KEGG	two-component system, NarL family, invasion response regulator UvrY
 K20480	10.0	3.684126926	KEGG	HTH-type transcriptional regulator, quorum sensing regulator NprR
 K03089	10.0	3.669316881	KEGG	RNA polymerase sigma-32 factor
+K04077	10.0	3.666517981	KEGG	chaperonin GroEL [EC:5.6.1.7]
 K07692	10.0	3.659345636	KEGG	two-component system, NarL family, response regulator DegU
+K22447	10.0	3.647480773	KEGG	archaeal chaperonin
 K07696	10.0	3.645618738	KEGG	two-component system, NarL family, response regulator NreC
 K03093	10.0	3.645225712	KEGG	RNA polymerase sigma-I factor
 K11624	10.0	3.64028263	KEGG	two-component system, NarL family, response regulator YdfI
@@ -1479,6 +1482,7 @@ PF03374.18	10.0	4.084540532	Pfam	Phage antirepressor protein KilAC domain
 PF13730.10	10.0	4.056523724	Pfam	Helix-turn-helix domain
 PF16778.9	10.0	3.905634001	Pfam	Phage tail assembly chaperone protein
 PF09669.14	10.0	3.899108858	Pfam	Phage regulatory protein Rha (Phage_pRha)
+PF00166.25	10.0	3.890644536	Pfam	Chaperonin 10 Kd subunit
 PF08299.15	10.0	3.890029586	Pfam	Bacterial dnaA protein helix-turn-helix
 PF02467.20	10.0	3.820857989	Pfam	Transcription factor WhiB
 PF10991.12	10.0	3.820135752	Pfam	Enterobacter phage Enc34, ssDNA-binding protein
@@ -1489,6 +1493,7 @@ PF13356.10	10.0	3.724767246	Pfam	Arm DNA-binding domain
 PF20557.2	10.0	3.708845638	Pfam	Putative DnaT-like ssDNA binding protein
 PF10109.13	10.0	3.704407927	Pfam	Phage tail assembly chaperone proteins, E, or 41 or 14
 PF14090.10	10.0	3.680426171	Pfam	Helix-turn-helix domain
+PF00118.28	10.0	3.657533888	Pfam	TCP-1/cpn60 chaperonin family
 PF00196.23	10.0	3.613736141	Pfam	Bacterial regulatory proteins, luxR family
 PF00216.25	10.0	3.593618308	Pfam	Bacterial DNA-binding protein
 PF08804.14	10.0	3.581835924	Pfam	gp32 DNA binding protein like
@@ -2002,6 +2007,7 @@ phrog_112	10.0	3.691876823	PHROG	Gp2.5-like ssDNA binding protein and ssDNA anne
 phrog_1670	10.0	3.681512587	PHROG	DNA binding protein
 phrog_2657	10.0	3.658393026	PHROG	transcriptional regulator
 phrog_63	10.0	3.652439748	PHROG	anti-repressor Ant
+phrog_5725	10.0	3.65195607	PHROG	chaperonin groEL
 phrog_518	10.0	3.648457594	PHROG	Rha-like transcriptional regulator
 phrog_9438	10.0	3.625106575	PHROG	anti-repressor
 phrog_624	10.0	3.583991799	PHROG	DNA binding protein
@@ -2053,6 +2059,7 @@ phrog_532	10.0	3.174931594	PHROG	late transcriptional activator
 phrog_4936	10.0	3.174059808	PHROG	transcriptional regulator
 phrog_12631	10.0	3.167317335	PHROG	single strand DNA binding protein
 phrog_769	10.0	3.154119526	PHROG	transcriptional repressor
+phrog_13932	10.0	3.139564266	PHROG	co-chaperonin GroES
 phrog_242	10.0	3.11991541	PHROG	translation repressor
 phrog_3636	10.0	3.119255889	PHROG	DNA binding protein
 phrog_2328	10.0	3.117602692	PHROG	transcriptional repressor
@@ -2105,6 +2112,7 @@ phrog_8008	6.87	2.836956737	PHROG	DNA binding protein
 phrog_4952	6.87	2.836956737	PHROG	signal peptide motif
 phrog_378	6.68	2.824776462	PHROG	single strand DNA binding protein
 phrog_3	6.59	2.818885415	PHROG	transcriptional repressor
+phrog_3817	6.3	2.799340549	PHROG	tail chaperonin
 phrog_575	6.24	2.79518459	PHROG	Cox-like excisionase and repressor
 phrog_12791	6.15	2.788875116	PHROG	sigma factor for late transcription
 phrog_228	6.03	2.780317312	PHROG	Arc-like repressor
@@ -2149,6 +2157,7 @@ phrog_1232	3.82	2.582063363	PHROG	tail terminator
 phrog_9759	3.77	2.57634135	PHROG	DNA binding protein
 phrog_4834	3.74	2.572871602	PHROG	CII-like transcriptional activator
 phrog_152	3.7	2.568201724	PHROG	RinB-like transcriptional activator
+phrog_3188	3.67	2.564666064	PHROG	co-chaperonin GroES
 phrog_6831	3.67	2.564666064	PHROG	transcriptional regulator
 phrog_3767	3.66	2.563481085	PHROG	nucleoid associated protein
 phrog_278	3.65	2.562292864	PHROG	transcriptional regulator
