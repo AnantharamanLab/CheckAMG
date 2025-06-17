@@ -1,476 +1,4 @@
 id	V-score	VL-score	db	name
-PF01381.26	10.0	4.823363359	Pfam	Helix-turn-helix
-PF13560.10	10.0	4.494516355	Pfam	Helix-turn-helix domain
-PF12844.11	10.0	4.403463701	Pfam	Helix-turn-helix domain
-PF13884.10	10.0	4.330657235	Pfam	Chaperone of endosialidase
-PF12728.11	10.0	4.163727736	Pfam	Helix-turn-helix domain
-PF13443.10	10.0	4.137417415	Pfam	Cro/C1-type HTH DNA-binding domain
-PF03374.18	10.0	4.084540532	Pfam	Phage antirepressor protein KilAC domain
-PF13730.10	10.0	4.056523724	Pfam	Helix-turn-helix domain
-PF16778.9	10.0	3.905634001	Pfam	Phage tail assembly chaperone protein
-PF09669.14	10.0	3.899108858	Pfam	Phage regulatory protein Rha (Phage_pRha)
-PF08299.15	10.0	3.890029586	Pfam	Bacterial dnaA protein helix-turn-helix
-PF02467.20	10.0	3.820857989	Pfam	Transcription factor WhiB
-PF10991.12	10.0	3.820135752	Pfam	Enterobacter phage Enc34, ssDNA-binding protein
-PF07282.15	10.0	3.810568529	Pfam	Putative transposase DNA-binding domain
-PF04545.20	10.0	3.735997884	Pfam	Sigma-70, region 4
-PF04542.18	10.0	3.730055152	Pfam	Sigma-70 region 2
-PF13356.10	10.0	3.724767246	Pfam	Arm DNA-binding domain
-PF10109.13	10.0	3.704407927	Pfam	Phage tail assembly chaperone proteins, E, or 41 or 14
-PF14090.10	10.0	3.680426171	Pfam	Helix-turn-helix domain
-PF00196.23	10.0	3.613736141	Pfam	Bacterial regulatory proteins, luxR family
-PF00216.25	10.0	3.593618308	Pfam	Bacterial DNA-binding protein
-PF08346.16	10.0	3.58069694	Pfam	AntA/AntB antirepressor
-PF10073.13	10.0	3.556302501	Pfam	GapR-like, DNA-binding domain
-PF06892.15	10.0	3.549248557	Pfam	Phage regulatory protein CII (CP76)
-PF08281.16	10.0	3.546172368	Pfam	Sigma-70, region 4
-PF12323.12	10.0	3.506505032	Pfam	Helix-turn-helix domain
-PF14549.10	10.0	3.465234095	Pfam	DNA-binding transcriptional regulator Cro
-PF08765.15	10.0	3.443106457	Pfam	Mor transcription activator family
-PF02586.18	10.0	3.430236353	Pfam	SOS response associated peptidase (SRAP)
-PF00072.28	10.0	3.41480628	Pfam	Response regulator receiver domain
-PF07750.15	10.0	3.387389826	Pfam	GcrA cell cycle regulator
-PF02599.20	10.0	3.383994789	Pfam	Global regulator protein family
-PF08890.15	10.0	3.373831145	Pfam	Phage XkdN-like tail assembly chaperone protein, TAC
-PF13936.10	10.0	3.354300562	Pfam	Helix-turn-helix domain
-PF05930.16	10.0	3.349665984	Pfam	Prophage CP4-57 regulatory protein (AlpA)
-PF21822.1	10.0	3.326540669	Pfam	Phage tail assembly chaperone protein, TAC
-PF07022.17	10.0	3.298853076	Pfam	Bacteriophage CI repressor helix-turn-helix domain
-PF14657.10	10.0	3.271841607	Pfam	Arm DNA-binding domain
-PF13540.10	10.0	3.246252312	Pfam	Regulator of chromosome condensation (RCC1) repeat
-PF02357.23	10.0	3.239799818	Pfam	Transcription termination factor nusG
-PF00313.26	10.0	3.235528447	Pfam	'Cold-shock' DNA-binding domain
-PF00415.22	10.0	3.223236273	Pfam	Regulator of chromosome condensation (RCC1) repeat
-PF13693.10	10.0	3.19838213	Pfam	Winged helix-turn-helix DNA-binding
-PF12167.12	10.0	3.18582536	Pfam	Arm DNA-binding domain
-PF02796.19	10.0	3.151063253	Pfam	Helix-turn-helix domain of resolvase
-PF00392.25	10.0	3.148910993	Pfam	Bacterial regulatory proteins, gntR family
-PF06530.16	10.0	3.148602655	Pfam	Phage antitermination protein Q
-PF01818.21	10.0	3.11991541	Pfam	Bacteriophage translational regulator
-PF17293.6	10.0	3.116939647	Pfam	Arm DNA-binding domain
-PF16805.9	10.0	3.11058971	Pfam	Phage late-transcription coactivator
-PF21265.1	10.0	3.07371835	Pfam	Single-stranded DNA-binding protein, Bacteriophage T7
-PF13518.10	10.0	3.07114529	Pfam	Helix-turn-helix domain
-PF02316.20	10.0	3.068927612	Pfam	Mu DNA-binding domain
-PF16452.9	10.0	3.067070856	Pfam	Bacteriophage CI repressor C-terminal domain
-PF08748.15	10.0	3.05422991	Pfam	Phage tail assembly chaperone
-PF04947.18	10.0	3.044931546	Pfam	Poxvirus Late Transcription Factor VLTF3 like
-PF11112.12	10.0	3.04060234	Pfam	Pyocin activator protein PrtN
-PF07432.17	10.0	3.032215703	Pfam	Histone H1-like protein Hc1
-PF13620.10	10.0	3.024074987	Pfam	Carboxypeptidase regulatory-like domain
-PF00486.32	10.0	3.006893708	Pfam	Transcriptional regulatory protein, C terminal
-PF00158.30	9.89	2.995196292	Pfam	Sigma-54 interaction domain
-PF01096.22	9.65	2.984527313	Pfam	Transcription factor S-II (TFIIS)
-PF03589.17	9.29	2.968015714	Pfam	Antitermination protein
-PF13411.10	9.17	2.962369336	Pfam	MerR HTH family regulatory protein
-PF17948.5	9.15	2.961421094	Pfam	DnaT DNA-binding domain
-PF00376.27	8.75	2.942008053	Pfam	MerR family regulatory protein
-PF12363.12	8.2	2.913813852	Pfam	Phage tail assembly chaperone protein, TAC
-PF04539.20	7.69	2.88592634	Pfam	Sigma-70 region 3
-PF06323.15	7.64	2.883093359	Pfam	Phage antitermination protein Q
-PF09003.14	7.59	2.880241776	Pfam	Bacteriophage lambda integrase, Arm DNA-binding domain
-PF04245.17	7.18	2.856124444	Pfam	37-kD nucleoid-associated bacterial protein
-PF00382.23	7.17	2.855519156	Pfam	Transcription factor TFIIB repeat
-PF17427.6	6.98	2.843855423	Pfam	Phage Single-stranded DNA-binding protein
-PF10963.12	6.81	2.833147112	Pfam	Phage tail assembly chaperone
-PF13022.10	6.35	2.802773725	Pfam	Helix-turn-helix of insertion element transposase
-PF16459.9	6.2	2.792391689	Pfam	Phage tail assembly chaperone, TAC
-PF12833.11	6.12	2.786751422	Pfam	Helix-turn-helix domain
-PF02954.23	5.4	2.73239376	Pfam	Bacterial regulatory protein, Fis family
-PF00816.25	5.25	2.720159303	Pfam	H-NS histone family
-PF00140.24	5.21	2.716837723	Pfam	Sigma-70 factor, region 1.2
-PF00352.25	4.82	2.683047038	Pfam	Transcription factor TFIID (or TATA-binding protein, TBP)
-PF10412.13	4.8	2.681241237	Pfam	Type IV secretion-system coupling protein DNA-binding domain
-PF05443.15	4.64	2.666517981	Pfam	ROS/MUCR transcriptional regulator protein
-PF00126.31	4.57	2.6599162	Pfam	Bacterial regulatory helix-turn-helix protein, lysR family
-PF00165.27	4.53	2.656098202	Pfam	Bacterial regulatory helix-turn-helix proteins, AraC family
-PF13412.10	4.43	2.646403726	Pfam	Winged helix-turn-helix DNA-binding
-PF13744.10	4.13	2.615950052	Pfam	Helix-turn-helix domain
-PF00440.27	3.74	2.572871602	Pfam	Bacterial regulatory proteins, tetR family
-PF04397.19	3.59	2.555094449	Pfam	LytTr DNA-binding domain
-PF06116.16	3.56	2.551449998	Pfam	Transcriptional activator RinB
-PF02229.20	3.33	2.522444234	Pfam	Transcriptional Coactivator p15 (PC4)
-PF20038.3	3.28	2.515873844	Pfam	Helix-turn-helix domain
-PF03551.18	3.09	2.489958479	Pfam	Transcriptional regulator PadR-like family
-PF06894.15	3.07	2.487138375	Pfam	Bacteriophage lambda tail assembly chaperone, TAC, protein G
-PF06222.15	2.97	2.472756449	Pfam	Phage tail assembly chaperone
-PF20450.2	2.96	2.471291711	Pfam	Papillomavirus E1, DNA-binding domain
-PF00015.25	2.81	2.44870632	Pfam	Methyl-accepting chemotaxis protein (MCP) signalling domain
-PF06896.15	2.65	2.423245874	Pfam	Phage tail assembly chaperone proteins, TAC
-PF13585.10	2.6	2.414973348	Pfam	CHU_C Type IX secretion signal domain
-PF04647.19	2.53	2.403120521	Pfam	Accessory gene regulator B
-PF10502.13	2.49	2.396199347	Pfam	Signal peptidase, peptidase S26
-PF11126.12	2.44	2.387389826	Pfam	Transcriptional regulator DsbA
-PF10743.13	2.43	2.385606274	Pfam	Regulatory phage protein cox
-PF01022.24	2.25	2.352182518	Pfam	Bacterial regulatory protein, arsR family
-PF09339.14	2.22	2.346352974	Pfam	IclR helix-turn-helix domain
-PF14532.10	2.16	2.334453751	Pfam	Sigma-54 interaction domain
-PF00850.23	2.16	2.334453751	Pfam	Histone deacetylase domain
-PF13542.10	2.15	2.33243846	Pfam	Helix-turn-helix domain of transposase family ISL3
-PF12840.11	2.15	2.33243846	Pfam	Helix-turn-helix domain
-PF09388.14	2.08	2.318063335	Pfam	Spo0E like sporulation regulatory protein
-PF13545.10	2.04	2.309630167	Pfam	Crp-like helix-turn-helix domain
-PF20987.1	1.91	2.281033367	Pfam	Intron-encoded endonuclease 1, DNA-binding domain
-PF07500.18	1.84	2.264817823	Pfam	Transcription factor S-II (TFIIS), central domain
-PF02082.24	1.84	2.264817823	Pfam	Iron-dependent Transcriptional regulator
-PF05464.15	1.68	2.225309282	Pfam	Phi-29-like late genes activator (early protein GP4)
-PF09550.14	1.67	2.222716471	Pfam	Phage tail assembly chaperone protein, TAC
-PF14250.10	1.58	2.198657087	Pfam	AbrB-like transcriptional regulator
-PF13556.10	1.43	2.155336037	Pfam	PucR C-terminal helix-turn-helix domain
-PF00125.28	1.4	2.146128036	Pfam	Core histone H2A/H2B/H3/H4
-PF07494.15	1.31	2.117271296	Pfam	Two component regulator propeller
-PF04025.16	1.24	2.093421685	Pfam	Extracellular matrix regulatory protein A-like
-PF00356.25	1.22	2.086359831	Pfam	Bacterial regulatory proteins, lacI family
-PF00249.35	1.17	2.068185862	Pfam	Myb-like DNA-binding domain
-PF01358.22	1.17	2.068185862	Pfam	Poly A polymerase regulatory subunit
-PF01638.21	1.12	2.049218023	Pfam	HxlR-like helix-turn-helix
-PF16462.9	1.1	2.041392685	Pfam	Phage tail assembly chaperone protein, TAC
-PF11740.12	1.09	2.037426498	Pfam	Plasmid replication region DNA-binding N-term
-PF06069.15	1.09	2.037426498	Pfam	PerC transcriptional activator
-PF13921.10	1.08	2.033423755	Pfam	Myb-like DNA-binding domain
-PF05459.16	1.02	2.008600172	Pfam	Herpesvirus transcriptional regulator family
-PF13018.10	1.02	2.008600172	Pfam	Extended Signal Peptide of Type V secretion system
-PF12645.11	1.01	2.004321374	Pfam	Helix-turn-helix domain
-PF19575.3	1.01	2.004321374	Pfam	Helix-turn-helix domain
-PF10876.12	1.0	2.0	Pfam	Phage tail assembly chaperone protein, TAC
-PF03728.17	1.0	2.0	Pfam	Viral DNA-binding protein, zinc binding domain
-PF02236.21	1.0	2.0	Pfam	Viral DNA-binding protein, all alpha domain
-PF15969.9	1.0	2.0	Pfam	Intracellular sensor of Lambda phage, Abi component
-PF04661.16	1.0	2.0	Pfam	Poxvirus I3 ssDNA-binding protein
-PF04441.17	1.0	2.0	Pfam	Poxvirus early transcription factor (VETF), large subunit
-PF03326.17	1.0	2.0	Pfam	Herpesvirus transcription activation factor (transactivator)
-PF05718.16	1.0	2.0	Pfam	Poxvirus intermediate transcription factor
-PF03295.18	1.0	2.0	Pfam	Poxvirus trans-activator protein A1 C-terminal
-PF03355.18	1.0	2.0	Pfam	Viral Trans-Activator Protein
-PF03084.18	1.0	2.0	Pfam	Reoviral Sigma1/Sigma2 family
-PF03310.17	1.0	2.0	Pfam	Caulimovirus DNA-binding protein
-PF11507.12	1.0	2.0	Pfam	Ebola virus-specific transcription factor VP30
-PF00979.21	1.0	2.0	Pfam	Reovirus outer capsid protein, Sigma 3
-PF10666.13	1.0	2.0	Pfam	Phage tail assembly chaperone protein Gp14 ()A118
-PF02905.18	1.0	2.0	Pfam	Epstein Barr virus nuclear antigen-1, DNA-binding domain
-PF20800.1	1.0	2.0	Pfam	Xanthomonas phage Xp10 Transcription regulator P7
-PF17750.5	1.0	2.0	Pfam	Reovirus sigma C capsid protein triple beta spiral
-PF04582.16	1.0	2.0	Pfam	Reovirus sigma C capsid protein C-terminal domain
-PF01664.20	1.0	2.0	Pfam	Reovirus viral attachment protein sigma 1
-PF00981.21	1.0	2.0	Pfam	Rotavirus RNA-binding Protein 53 (NS53)
-PF13338.10	0.97	1.986771734	Pfam	Transcriptional regulator, AbiEi antitoxin
-PF03965.20	0.96	1.982271233	Pfam	Penicillinase repressor
-PF12729.11	0.95	1.977723605	Pfam	Four helix bundle sensory module for signal transduction
-PF17878.5	0.92	1.963787827	Pfam	Single-stranded DNA-binding protein
-PF04940.16	0.92	1.963787827	Pfam	Sensors of blue-light using FAD
-PF07879.15	0.86	1.934498451	Pfam	PHB/PHA accumulation regulator DNA-binding domain
-PF16518.9	0.84	1.924279286	Pfam	T3SS negative regulator,GrlR
-PF00963.22	0.83	1.919078092	Pfam	Cohesin domain
-PF04297.18	0.79	1.897627091	Pfam	Putative helix-turn-helix protein, YlxM / p13 like
-PF18801.5	0.78	1.892094603	Pfam	response regulator aspartate phosphatase H, N terminal
-PF18883.4	0.75	1.875061263	Pfam	Autochaperone Domain Type 1
-PF03430.17	0.7	1.84509804	Pfam	Trans-activating transcriptional regulator
-PF01272.23	0.7	1.84509804	Pfam	Transcription elongation factor, GreA/GreB, C-term
-PF13404.10	0.67	1.826074803	Pfam	AsnC-type helix-turn-helix domain
-PF04650.21	0.65	1.812913357	Pfam	YSIRK type signal peptide
-PF20731.1	0.65	1.812913357	Pfam	NgoFVII C-terminal B3-like DNA-binding domain
-PF03333.17	0.65	1.812913357	Pfam	Adhesin biosynthesis transcription regulatory protein
-PF02877.18	0.64	1.806179974	Pfam	Poly(ADP-ribose) polymerase, regulatory domain
-PF00808.27	0.64	1.806179974	Pfam	Histone-like transcription factor (CBF/NF-Y) and archaeal histone
-PF11423.12	0.64	1.806179974	Pfam	Regulatory protein Mnt
-PF08220.16	0.64	1.806179974	Pfam	DeoR-like helix-turn-helix domain
-PF07638.15	0.63	1.799340549	Pfam	ECF sigma factor
-PF04218.17	0.61	1.785329835	Pfam	CENP-B N-terminal DNA-binding domain
-PF17613.6	0.61	1.785329835	Pfam	Modifier of transcription
-PF03979.18	0.58	1.763427994	Pfam	Sigma-70 factor, region 1.1
-PF17765.5	0.58	1.763427994	Pfam	MmyB-like transcription regulator ligand binding domain
-PF14493.10	0.57	1.755874856	Pfam	Helix-turn-helix domain
-PF13413.10	0.57	1.755874856	Pfam	Helix-turn-helix domain
-PF06543.16	0.56	1.748188027	Pfam	Lactococcus bacteriophage repressor
-PF01978.23	0.55	1.740362689	Pfam	Sugar-specific transcriptional regulator TrmB
-PF00345.24	0.54	1.73239376	Pfam	Pili and flagellar-assembly chaperone, PapD N-terminal domain
-PF09010.14	0.52	1.716003344	Pfam	Anti-Sigma Factor A
-PF14947.10	0.5	1.698970004	Pfam	Winged helix-turn-helix
-PF03449.19	0.5	1.698970004	Pfam	Transcription elongation factor, N-terminal
-PF20432.2	0.49	1.69019608	Pfam	Antitoxin Xre-like helix-turn-helix domain
-PF15777.9	0.49	1.69019608	Pfam	Tryptophan RNA-binding attenuator protein inhibitory protein
-PF08536.15	0.48	1.681241237	Pfam	Whirly transcription factor
-PF15723.9	0.45	1.653212514	Pfam	Motility quorum-sensing regulator, toxin of MqsA
-PF18024.5	0.44	1.643452676	Pfam	Helix-turn-helix domain
-PF18134.5	0.44	1.643452676	Pfam	Adenylyl/Guanylyl and SMODS C-terminal sensor domain
-PF14608.10	0.43	1.633468456	Pfam	RNA-binding, Nab2-type zinc finger
-PF03614.17	0.43	1.633468456	Pfam	Repressor of phase-1 flagellin
-PF04546.17	0.42	1.62324929	Pfam	Sigma-70, non-essential region
-PF02753.21	0.4	1.602059991	Pfam	Pili assembly chaperone PapD, C-terminal domain
-PF08123.17	0.4	1.602059991	Pfam	Histone methylation protein DOT1
-PF13613.10	0.39	1.591064607	Pfam	Helix-turn-helix of DDE superfamily endonuclease
-PF03294.18	0.39	1.591064607	Pfam	RNA polymerase-associated transcription specificity factor, Rap94
-PF17755.5	0.39	1.591064607	Pfam	UvrA DNA-binding domain
-PF02482.23	0.38	1.579783597	Pfam	Sigma 54 modulation protein / S30EA ribosomal protein
-PF17548.6	0.36	1.556302501	Pfam	Histone-like Protein p6
-PF14278.10	0.36	1.556302501	Pfam	Transcriptional regulator C-terminal region
-PF07382.15	0.36	1.556302501	Pfam	Histone H1-like nucleoprotein HC2
-PF10796.13	0.35	1.544068044	Pfam	Sigma-S stabilisation anti-adaptor protein
-PF16529.9	0.34	1.531478917	Pfam	WD40 region of Ge1, enhancer of mRNA-decapping protein
-PF12171.12	0.33	1.51851394	Pfam	Zinc-finger double-stranded RNA-binding
-PF01475.23	0.32	1.505149978	Pfam	Ferric uptake regulator family
-PF04761.16	0.32	1.505149978	Pfam	Lactococcus bacteriophage putative transcription regulator
-PF09345.14	0.31	1.491361694	Pfam	SiaC family regulatory phosphoprotein
-PF18145.5	0.3	1.477121255	Pfam	SMODS-associated and fused to various effectors sensor domain
-PF02257.19	0.3	1.477121255	Pfam	RFX DNA-binding domain
-PF13463.10	0.29	1.462397998	Pfam	Winged helix DNA-binding domain
-PF02583.21	0.29	1.462397998	Pfam	Metal-sensitive transcriptional repressor
-PF00452.23	0.28	1.447158031	Pfam	Apoptosis regulator proteins, Bcl-2 family
-PF05225.20	0.28	1.447158031	Pfam	helix-turn-helix, Psq domain
-PF18430.5	0.28	1.447158031	Pfam	Putative DNA-binding domain
-PF00543.26	0.26	1.414973348	Pfam	Nitrogen regulatory protein P-II
-PF11099.12	0.26	1.414973348	Pfam	Apoptosis regulator M11L like
-PF04767.16	0.26	1.414973348	Pfam	DNA-binding 11 kDa phosphoprotein
-PF00455.26	0.26	1.414973348	Pfam	DeoR C terminal sensor domain
-PF01325.23	0.25	1.397940009	Pfam	Iron dependent repressor, N-terminal DNA binding domain
-PF09114.14	0.24	1.380211242	Pfam	Transcription factor MotA, activation domain
-PF19258.3	0.23	1.361727836	Pfam	KxYKxGKxW signal peptide
-PF01418.21	0.22	1.342422681	Pfam	Helix-turn-helix domain, rpiR family
-PF19192.4	0.22	1.342422681	Pfam	Response receiver domain
-PF06160.16	0.21	1.322219295	Pfam	Septation ring formation regulator, EzrA
-PF04552.17	0.2	1.301029996	Pfam	Sigma-54, DNA binding domain
-PF21029.1	0.19	1.278753601	Pfam	Regulator of MON1-CCZ1 complex, N-terminal
-PF03704.21	0.19	1.278753601	Pfam	Bacterial transcriptional activator domain
-PF01252.22	0.18	1.255272505	Pfam	Signal peptidase (SPase) II
-PF08671.14	0.18	1.255272505	Pfam	Anti-repressor SinI
-PF08222.15	0.18	1.255272505	Pfam	CodY helix-turn-helix domain
-PF04963.17	0.18	1.255272505	Pfam	Sigma-54 factor, core binding domain
-PF11776.12	0.18	1.255272505	Pfam	Nickel/cobalt transporter regulator
-PF01371.23	0.17	1.230448921	Pfam	Trp repressor protein
-PF11459.12	0.17	1.230448921	Pfam	Transcriptional regulator, AbiEi antitoxin, Type IV TA system
-PF21501.1	0.17	1.230448921	Pfam	Protein LANA1-like, DNA-binding domain
-PF12320.12	0.17	1.230448921	Pfam	Type 5 capsule protein repressor C-terminal domain
-PF15714.9	0.16	1.204119983	Pfam	Stage V sporulation protein T C-terminal, transcription factor
-PF00585.22	0.16	1.204119983	Pfam	C-terminal regulatory domain of Threonine dehydratase
-PF17194.8	0.16	1.204119983	Pfam	Transcriptional regulator, AbiEi antitoxin N-terminal domain
-PF02742.19	0.15	1.176091259	Pfam	Iron dependent repressor, metal binding and dimerisation domain
-PF05068.16	0.15	1.176091259	Pfam	Mannitol repressor
-PF00309.24	0.14	1.146128036	Pfam	Sigma-54 factor, Activator interacting domain (AID)
-PF16221.9	0.14	1.146128036	Pfam	winged helix-turn-helix
-PF05233.17	0.14	1.146128036	Pfam	PHB accumulation regulatory domain
-PF01052.24	0.14	1.146128036	Pfam	Type III flagellar switch regulator (C-ring) FliN C-term
-PF10771.13	0.12	1.079181246	Pfam	Winged helix-turn-helix domain (DUF2582)
-PF00170.25	0.12	1.079181246	Pfam	bZIP transcription factor
-PF20317.2	0.12	1.079181246	Pfam	Helix-turn-helix domain
-PF00605.21	0.12	1.079181246	Pfam	Interferon regulatory factor transcription factor
-PF00325.24	0.12	1.079181246	Pfam	Bacterial regulatory proteins, crp family
-PF12625.11	0.12	1.079181246	Pfam	Arabinose-binding domain of AraC transcription regulator, N-term
-PF16520.9	0.12	1.079181246	Pfam	ssRNA-binding matrix protein of Bornaviridae
-PF21259.1	0.12	1.079181246	Pfam	HTH-type transcriptional regulator Rgg, C-terminal domain
-PF02575.20	0.11	1.041392685	Pfam	YbaB/EbfC DNA-binding family
-PF21531.1	0.11	1.041392685	Pfam	DNA-binding protein Rv2175c, wHTH domain
-PF20308.2	0.11	1.041392685	Pfam	Tetratricopeptide Repeats-Sensor
-PF16509.9	0.11	1.041392685	Pfam	TrfB plasmid transcriptional repressor
-PF07695.15	0.11	1.041392685	Pfam	7TM diverse intracellular signalling
-PF15977.9	0.11	1.041392685	Pfam	Winged helix-turn-helix DNA binding
-PF10401.13	0.11	1.041392685	Pfam	Interferon-regulatory factor 3
-PF05854.15	0.11	1.041392685	Pfam	Non-histone chromosomal protein MC1
-PF01614.22	0.11	1.041392685	Pfam	Bacterial transcriptional regulator
-PF01518.20	0.11	1.041392685	Pfam	Sigma NS protein
-PF09952.13	0.1	1.0	Pfam	Transcriptional regulator, AbiEi antitoxin, Type IV TA system
-PF09439.14	0.1	1.0	Pfam	Signal recognition particle receptor beta subunit
-PF14246.10	0.09	0.954242509	Pfam	AefR-like transcriptional repressor, C-terminal domain
-PF08900.15	0.09	0.954242509	Pfam	Transcriptional regulator AcaB
-PF02334.20	0.09	0.954242509	Pfam	Replication terminator protein
-PF06719.17	0.09	0.954242509	Pfam	AraC-type transcriptional regulator N-terminus
-PF08350.14	0.09	0.954242509	Pfam	Methanogenesis regulatory protein FilR1, middle domain
-PF09607.14	0.09	0.954242509	Pfam	Brinker DNA-binding domain
-PF13453.10	0.09	0.954242509	Pfam	Transcription factor zinc-finger
-PF01155.23	0.09	0.954242509	Pfam	Hydrogenase/urease nickel incorporation, metallochaperone, hypA
-PF16591.9	0.08	0.903089987	Pfam	Helical bimodular sensor domain
-PF16321.9	0.08	0.903089987	Pfam	Sigma 54 modulation/S30EA ribosomal protein C terminus
-PF21321.1	0.08	0.903089987	Pfam	Putative DNA-binding HTH domain
-PF18557.5	0.08	0.903089987	Pfam	Anti-sigma factor NepR
-PF01287.24	0.08	0.903089987	Pfam	Eukaryotic elongation factor 5A hypusine, DNA-binding OB fold
-PF07497.16	0.08	0.903089987	Pfam	Rho termination factor, RNA-binding domain
-PF17152.8	0.08	0.903089987	Pfam	Periplasmic sensor domain
-PF06971.17	0.08	0.903089987	Pfam	Putative DNA-binding protein N-terminus
-PF08221.15	0.07	0.84509804	Pfam	RNA polymerase III subunit RPC82 helix-turn-helix domain
-PF10119.13	0.07	0.84509804	Pfam	Predicted methyltransferase regulatory domain
-PF14706.10	0.07	0.84509804	Pfam	Transposase DNA-binding
-PF16751.9	0.07	0.84509804	Pfam	Anti-sigma-D factor RsdA to sigma factor binding region
-PF10722.13	0.07	0.84509804	Pfam	Putative bacterial sensory transduction regulator
-PF17158.8	0.07	0.84509804	Pfam	Membrane-associated sensor, integral membrane domain
-PF02978.23	0.07	0.84509804	Pfam	Signal peptide binding domain
-PF06877.15	0.06	0.77815125	Pfam	Regulator of ribonuclease activity B
-PF06682.16	0.06	0.77815125	Pfam	SOCE-associated regulatory factor of calcium homoeostasis
-PF10114.13	0.06	0.77815125	Pfam	Sensory domain found in PocR
-PF21725.1	0.06	0.77815125	Pfam	Putative T7SS secretion signal domain
-PF08280.15	0.06	0.77815125	Pfam	M protein trans-acting positive regulator (MGA) HTH domain
-PF05280.15	0.06	0.77815125	Pfam	Flagellar transcriptional activator (FlhC)
-PF14689.10	0.06	0.77815125	Pfam	Sensor_kinase_SpoOB-type, alpha-helical domain
-PF21085.1	0.06	0.77815125	Pfam	CusS sensor domain
-PF08133.15	0.06	0.77815125	Pfam	Anticodon nuclease activator family
-PF06133.15	0.06	0.77815125	Pfam	Control of competence regulator ComK, YlbF/YmcA
-PF13601.10	0.06	0.77815125	Pfam	Winged helix DNA-binding domain
-PF09905.13	0.06	0.77815125	Pfam	DNA-binding protein VF530
-PF15511.10	0.05	0.698970004	Pfam	Centromere kinetochore component CENP-T histone fold
-PF16859.9	0.05	0.698970004	Pfam	Tetracyclin repressor-like, C-terminal domain
-PF04366.16	0.05	0.698970004	Pfam	Las17-binding protein actin regulator
-PF10258.13	0.05	0.698970004	Pfam	Phosphorylated adapter RNA export protein, RNA-binding domain
-PF10707.13	0.05	0.698970004	Pfam	PhoP regulatory network protein YrbL
-PF13636.10	0.05	0.698970004	Pfam	RNA-binding PUA-like domain of methyltransferase RsmF
-PF01316.25	0.05	0.698970004	Pfam	Arginine repressor, DNA binding domain
-PF08327.15	0.05	0.698970004	Pfam	Activator of Hsp90 ATPase homolog 1-like protein
-PF02863.22	0.05	0.698970004	Pfam	Arginine repressor, C-terminal domain
-PF18556.5	0.05	0.698970004	Pfam	Bacterial Tetracyclin repressor,  C-terminal domain
-PF06956.15	0.05	0.698970004	Pfam	Regulator of RNA terminal phosphate cyclase
-PF03981.16	0.05	0.698970004	Pfam	Ubiquinol-cytochrome C chaperone
-PF14848.10	0.05	0.698970004	Pfam	DNA-binding domain
-PF16721.9	0.05	0.698970004	Pfam	Zinc-finger like, probable DNA-binding
-PF00615.23	0.04	0.602059991	Pfam	Regulator of G protein signaling domain
-PF10099.13	0.04	0.602059991	Pfam	Anti-sigma-K factor rskA
-PF04314.17	0.04	0.602059991	Pfam	Copper chaperone PCu(A)C
-PF08755.15	0.04	0.602059991	Pfam	Hemimethylated DNA-binding protein YccV like
-PF13305.10	0.04	0.602059991	Pfam	Tetracyclin repressor-like, C-terminal domain
-PF21750.1	0.04	0.602059991	Pfam	Probable sensor domain DACNH
-PF02748.19	0.04	0.602059991	Pfam	Aspartate carbamoyltransferase regulatory chain, metal binding domain
-PF04309.16	0.04	0.602059991	Pfam	Glycerol-3-phosphate responsive antiterminator
-PF07180.15	0.03	0.477121255	Pfam	CaiF/GrlA transcriptional regulator
-PF03707.20	0.03	0.477121255	Pfam	Bacterial signalling protein N terminal repeat
-PF00539.22	0.03	0.477121255	Pfam	Transactivating regulatory protein (Tat)
-PF04910.18	0.03	0.477121255	Pfam	Transcriptional repressor TCF25
-PF21752.1	0.03	0.477121255	Pfam	Probable sensor domain DACNG
-PF17940.5	0.03	0.477121255	Pfam	Tetracyclin repressor-like, C-terminal domain
-PF13977.10	0.03	0.477121255	Pfam	BetI-type transcriptional repressor, C-terminal
-PF01948.22	0.03	0.477121255	Pfam	Aspartate carbamoyltransferase regulatory chain, allosteric domain
-PF21644.1	0.03	0.477121255	Pfam	Histone H3 binding protein ORF158L-like
-PF07417.16	0.03	0.477121255	Pfam	Sigma factor-binding transcriptional regulator Crl
-PF17937.5	0.03	0.477121255	Pfam	Tetracyclin repressor-like, C-terminal domain
-PF05932.17	0.03	0.477121255	Pfam	Tir chaperone protein (CesT) family
-PF08918.14	0.03	0.477121255	Pfam	PhoQ Sensor
-PF17151.8	0.03	0.477121255	Pfam	Periplasmic sensor domain
-PF09734.13	0.03	0.477121255	Pfam	RNA polymerase III transcription factor (TF)IIIC subunit HTH domain
-PF14502.10	0.03	0.477121255	Pfam	Helix-turn-helix domain
-PF07704.15	0.03	0.477121255	Pfam	Rv0623-like transcription factor
-PF16527.9	0.03	0.477121255	Pfam	Two-component sensor protein CpxA, periplasmic domain
-PF06506.15	0.03	0.477121255	Pfam	Propionate catabolism activator
-PF17155.8	0.03	0.477121255	Pfam	Gammaproteobacterial periplasmic sensor domain
-PF08521.14	0.03	0.477121255	Pfam	Two-component sensor kinase N-terminal
-PF16934.9	0.03	0.477121255	Pfam	Two-component Enterococcus faecalis cytolysin (EFC)
-PF00010.30	0.03	0.477121255	Pfam	Helix-loop-helix DNA-binding domain
-PF17178.8	0.03	0.477121255	Pfam	Membrane-associated sensor
-PF21689.1	0.03	0.477121255	Pfam	Sensor protein TorS, sensor domain
-PF15286.10	0.03	0.477121255	Pfam	Apoptosis regulator M11, B cell 2 leukaemia/lymphoma like
-PF00538.23	0.03	0.477121255	Pfam	linker histone H1 and H5 family
-PF05247.17	0.03	0.477121255	Pfam	Flagellar transcriptional activator (FlhD)
-PF17764.5	0.03	0.477121255	Pfam	3'DNA-binding domain (3'BD)
-PF13036.10	0.03	0.477121255	Pfam	Peptidoglycan-synthase activator LpoB
-PF14184.10	0.03	0.477121255	Pfam	Regulatory protein YrvL
-PF04845.17	0.02	0.301029996	Pfam	PurA ssDNA and RNA-binding protein
-PF20714.1	0.02	0.301029996	Pfam	DpiA-like helix-turn-helix domain
-PF11250.12	0.02	0.301029996	Pfam	Fantastic Four meristem regulator
-PF17774.5	0.02	0.301029996	Pfam	Putative RNA-binding domain in YlmH
-PF05043.17	0.02	0.301029996	Pfam	Mga helix-turn-helix domain
-PF18158.5	0.02	0.301029996	Pfam	Adaptive response protein AidB N-terminal domain
-PF07441.15	0.02	0.301029996	Pfam	SigmaK-factor processing regulatory protein BofA
-PF17159.8	0.02	0.301029996	Pfam	Membrane-associated sensor domain
-PF04640.18	0.02	0.301029996	Pfam	PLATZ transcription factor
-PF16767.9	0.02	0.301029996	Pfam	Sensor domain of alginate biosynthesis sensor protein KinB
-PF02294.22	0.02	0.301029996	Pfam	7kD DNA-binding domain
-PF07764.15	0.02	0.301029996	Pfam	Omega Transcriptional Repressor
-PF02702.21	0.02	0.301029996	Pfam	Osmosensitive K+ channel His kinase sensor domain
-PF16925.9	0.02	0.301029996	Pfam	Tetracyclin repressor-like, C-terminal domain
-PF17156.8	0.02	0.301029996	Pfam	Gammaproteobacterial periplasmic sensor domain
-PF17850.5	0.02	0.301029996	Pfam	CysA C-terminal regulatory domain
-PF07381.15	0.02	0.301029996	Pfam	Winged helix DNA-binding domain (DUF1495)
-PF12660.11	0.02	0.301029996	Pfam	Putative zinc-finger of transcription factor IIIC complex
-PF18226.5	0.02	0.301029996	Pfam	LasR-specific antiactivator QslA
-PF08361.15	0.02	0.301029996	Pfam	MAATS-type transcriptional repressor, C-terminal region
-PF03439.17	0.02	0.301029996	Pfam	Early transcription elongation factor of RNA pol II, NGN section
-PF01995.20	0.02	0.301029996	Pfam	NrpR regulatory domains NRD1 and 2
-PF17035.9	0.02	0.301029996	Pfam	Bromodomain extra-terminal - transcription regulation
-PF03872.17	0.02	0.301029996	Pfam	Anti sigma-E protein RseA, N-terminal domain
-PF17153.8	0.02	0.301029996	Pfam	Periplasmic sensor domain, extracellular
-PF02909.21	0.02	0.301029996	Pfam	Tetracyclin repressor-like, C-terminal domain
-PF18580.5	0.02	0.301029996	Pfam	SUN2 helix-turn-helix domain
-PF14417.10	0.02	0.301029996	Pfam	MEDS: MEthanogen/methylotroph, DcmR Sensory domain
-PF01111.23	0.02	0.301029996	Pfam	Cyclin-dependent kinase regulatory subunit
-PF14901.10	0.02	0.301029996	Pfam	Cleavage inducing molecular chaperone
-PF09413.14	0.02	0.301029996	Pfam	Putative prokaryotic signal transducing protein
-PF14850.10	0.02	0.301029996	Pfam	DNA-binding domain of Proline dehydrogenase
-PF20552.2	0.02	0.301029996	Pfam	Recombinase-like helix-turn-helix domain
-PF03873.17	0.02	0.301029996	Pfam	Anti sigma-E protein RseA, C-terminal domain
-PF10723.13	0.02	0.301029996	Pfam	Replication regulatory protein RepB
-PF10545.13	0.02	0.301029996	Pfam	Alcohol dehydrogenase transcription factor Myb/SANT-like
-PF00424.22	0.02	0.301029996	Pfam	REV protein (anti-repression trans-activator protein)
-PF04246.16	0.02	0.301029996	Pfam	Positive regulator of sigma(E), RseC/MucC
-PF13591.10	0.02	0.301029996	Pfam	MerR HTH family regulatory protein
-PF06603.15	0.02	0.301029996	Pfam	UpxZ family of transcription anti-terminator antagonists
-PF14827.10	0.02	0.301029996	Pfam	Double sensory domain of two-component sensor kinase
-PF17938.5	0.02	0.301029996	Pfam	Tetracyclin repressor-like, C-terminal domain
-PF13800.10	0.02	0.301029996	Pfam	Sigma factor regulator N-terminal
-PF21597.1	0.02	0.301029996	Pfam	Transcriptional regulator SbtR-like, C-terminal domain
-PF07905.15	0.02	0.301029996	Pfam	Purine catabolism regulatory protein-like family
-PF13399.10	0.02	0.301029996	Pfam	LytR cell envelope-related transcriptional attenuator
-PF05261.15	0.02	0.301029996	Pfam	TraM protein, DNA-binding
-PF21179.1	0.02	0.301029996	Pfam	DNA-binding protein BldD-like, C-terminal domain
-PF13791.10	0.02	0.301029996	Pfam	Sigma factor regulator C-terminal
-PF16211.9	0.01	0.0	Pfam	C-terminus of histone H2A
-PF02200.20	0.01	0.0	Pfam	STE like transcription factor
-PF06135.16	0.01	0.0	Pfam	IreB regulatory phosphoprotein
-PF03221.20	0.01	0.0	Pfam	Tc5 transposase DNA-binding domain
-PF02252.22	0.01	0.0	Pfam	Proteasome activator pa28 beta subunit
-PF00447.21	0.01	0.0	Pfam	HSF-type DNA-binding
-PF17154.8	0.01	0.0	Pfam	Gammaproteobacterial periplasmic sensor domain
-PF02269.20	0.01	0.0	Pfam	Transcription initiation factor IID, 18kD subunit
-PF12298.12	0.01	0.0	Pfam	Eukaryotic mitochondrial regulator protein
-PF10497.13	0.01	0.0	Pfam	Zinc-finger domain of monoamine-oxidase A repressor R1
-PF03095.19	0.01	0.0	Pfam	Phosphotyrosyl phosphate activator (PTPA) protein
-PF18791.5	0.01	0.0	Pfam	Transport inhibitor response 1 protein domain
-PF13144.10	0.01	0.0	Pfam	Chaperone for flagella basal body P-ring formation
-PF21636.1	0.01	0.0	Pfam	Protein phosphatase 1 regulatory subunit 21, C-terminal
-PF12793.11	0.01	0.0	Pfam	Sugar transport-related sRNA regulator N-term
-PF17929.5	0.01	0.0	Pfam	Tetracyclin repressor-like, C-terminal domain
-PF08381.15	0.01	0.0	Pfam	Transcription factor regulating root and shoot growth via Pin3
-PF09679.14	0.01	0.0	Pfam	Type-F conjugative transfer system pilin chaperone (TraQ)
-PF09209.15	0.01	0.0	Pfam	HTH-type transcriptional dual regulator CecR, C-terminal domain
-PF17934.5	0.01	0.0	Pfam	Tetracyclin repressor-like, C-terminal domain
-PF21100.1	0.01	0.0	Pfam	MCM protein C-terminal winged helix-turn-helix domain
-PF12763.11	0.01	0.0	Pfam	Cytoskeletal-regulatory complex EF hand
-PF12324.12	0.01	0.0	Pfam	Helix-turn-helix domain of alkylmercury lyase
-PF03131.21	0.01	0.0	Pfam	bZIP Maf transcription factor
-PF05004.17	0.01	0.0	Pfam	Interferon-related developmental regulator (IFRD)
-PF04316.17	0.01	0.0	Pfam	Anti-sigma-28 factor, FlgM
-PF21751.1	0.01	0.0	Pfam	Probable sensor domain DACNV
-PF06550.15	0.01	0.0	Pfam	Signal-peptide peptidase, presenilin aspartyl protease
-PF16787.9	0.01	0.0	Pfam	Centromere DNA-binding protein complex CBF3 subunit, domain 2
-PF17918.5	0.01	0.0	Pfam	Tetracyclin repressor-like, C-terminal domain
-PF03975.17	0.01	0.0	Pfam	CheD chemotactic sensory transduction
-PF19187.4	0.01	0.0	Pfam	PafC helix-turn-helix domain
-PF02454.20	0.01	0.0	Pfam	Sigma 1s protein
-PF05389.16	0.01	0.0	Pfam	Negative regulator of genetic competence (MecA)
-PF16806.9	0.01	0.0	Pfam	Antiactivator protein ExsD N-terminal domain
-PF07317.16	0.01	0.0	Pfam	Flagellar regulator YcgR, PilZN domain
-PF03280.18	0.01	0.0	Pfam	Proteobacterial lipase chaperone protein
-PF17923.5	0.01	0.0	Pfam	Tetracyclin repressor-like, C-terminal domain
-PF21543.1	0.01	0.0	Pfam	Virulence regulatory factor CvfB, second domain
-PF21220.1	0.01	0.0	Pfam	RecQ-1-like, helix-turn-helix domain
-PF10428.13	0.01	0.0	Pfam	RAM signalling pathway protein
-PF10151.13	0.01	0.0	Pfam	TMEM214, C-terminal, caspase 4 activator
-PF17723.5	0.01	0.0	Pfam	Ribbon-Helix-Helix transcriptional regulator family
-PF05609.16	0.01	0.0	Pfam	Lamina-associated polypeptide 1, AAA+ activator domain
-PF07037.15	0.01	0.0	Pfam	Transcription regulator YfeC-like
-PF18535.5	0.01	0.0	Pfam	Gal11 activator-binding domain (ABD1)
-PF18719.5	0.01	0.0	Pfam	ArlS sensor domain
-PF17920.5	0.01	0.0	Pfam	Tetracyclin repressor-like, C-terminal domain
-PF02895.18	0.01	0.0	Pfam	Signal transducing histidine kinase, homodimeric domain
-PF17925.5	0.01	0.0	Pfam	Tetracyclin repressor-like, C-terminal domain
-PF16524.9	0.01	0.0	Pfam	Periplasmic domain of Sensor histidine kinase RisS
-PF08573.14	0.01	0.0	Pfam	DNA endonuclease activator SAE2/CtIP C-terminus
-PF01905.20	0.01	0.0	Pfam	CRISPR-associated negative auto-regulator DevR/Csa2
-PF21227.1	0.01	0.0	Pfam	Myb-like DNA-binding domain
-PF15695.9	0.01	0.0	Pfam	Rec (regulator of expression encoded by corf) of HERV-K-113
-PF20302.2	0.01	0.0	Pfam	HisK-N-like globin domain of the ASK signalosome
-PF10163.13	0.01	0.0	Pfam	Transcription factor e(y)2
-PF09748.13	0.01	0.0	Pfam	Transcription factor subunit Med10 of Mediator complex
-PF21563.1	0.01	0.0	Pfam	Methyl-accepting chemotaxis sensory transducer, class 40H, sensor
-PF19352.3	0.01	0.0	Pfam	Tetracyclin repressor-like, C-terminal domain
-PF07073.16	0.01	0.0	Pfam	Modulator of Rho-dependent transcription termination (ROF)
-PF10955.12	0.01	0.0	Pfam	Anti-sigma-F factor Fin
-PF07584.15	0.01	0.0	Pfam	Aerotolerance regulator N-terminal
-PF05978.20	0.01	0.0	Pfam	Ion channel regulatory protein UNC-93
-PF05145.16	0.01	0.0	Pfam	Transition state regulatory protein AbrB
 K22300	10.0	4.775552198	KEGG	HTH-type transcriptional regulator, cell division transcriptional repressor
 K07729	10.0	4.700201653	KEGG	putative transcriptional regulator
 K22299	10.0	4.563291188	KEGG	HTH-type transcriptional regulator, competence development regulator
@@ -500,6 +28,7 @@ K14436	10.0	4.097500252	KEGG	chromodomain-helicase-DNA-binding protein 6 [EC:5.6
 K14435	10.0	4.045987606	KEGG	chromodomain-helicase-DNA-binding protein 5 [EC:5.6.2.-]
 K07110	10.0	4.042221002	KEGG	XRE family transcriptional regulator, fatty acid utilization regulator
 K20091	10.0	4.021478732	KEGG	chromodomain-helicase-DNA-binding protein 2 [EC:5.6.2.-]
+K04494	10.0	3.981999714	KEGG	chromodomain helicase DNA binding protein 8 [EC:5.6.2.-]
 K11367	10.0	3.97308165	KEGG	chromodomain-helicase-DNA-binding protein 1 [EC:5.6.2.-]
 K10779	10.0	3.964118143	KEGG	transcriptional regulator ATRX
 K11642	10.0	3.937969003	KEGG	chromodomain-helicase-DNA-binding protein 3 [EC:5.6.2.-]
@@ -1068,6 +597,7 @@ K18140	2.67	2.426511261	KEGG	TetR/AcrR family transcriptional regulator, acrEF/e
 K26968	2.67	2.426511261	KEGG	Enterobacteria phage tail tube terminator protein
 K11914	2.65	2.423245874	KEGG	sigma-54 dependent transcriptional regulator
 K06599	2.6	2.414973348	KEGG	AraC family transcriptional regulator, chemosensory pili system protein ChpD
+K07571	2.59	2.413299764	KEGG	S1 RNA binding domain protein
 K26993	2.59	2.413299764	KEGG	ArsR family transcriptional regulator, repressor of sdpIR and other operons
 K16138	2.59	2.413299764	KEGG	TetR/AcrR family transcriptional regulator, repressor for uid operon
 K21756	2.53	2.403120521	KEGG	LysR family transcriptional regulator, cis,cis-muconate-responsive activator of cat and ben genes
@@ -1391,6 +921,7 @@ K21555	0.57	1.755874856	KEGG	CRP/FNR family transcriptional regulator, carbon mo
 K03687	0.57	1.755874856	KEGG	molecular chaperone GrpE
 K13209	0.57	1.755874856	KEGG	RNA-binding protein EWS
 K07780	0.56	1.748188027	KEGG	AraC family transcriptional regulator, transcriptional regulator required for anaerobic and stationary phase induction of genes
+K14946	0.55	1.740362689	KEGG	RNA binding protein fox-1
 K09188	0.55	1.740362689	KEGG	[histone H3]-lysine4 N-trimethyltransferase MLL3 [EC:2.1.1.354]
 K19587	0.55	1.740362689	KEGG	Rrf2 family transcriptional regulator, repressor of oqxAB
 K21828	0.54	1.73239376	KEGG	CRP/FNR family transcriptional regulator, arginine deiminase pathway regulator
@@ -1775,6 +1306,7 @@ K04083	0.04	0.602059991	KEGG	molecular chaperone Hsp33
 K22496	0.03	0.477121255	KEGG	repressor RFG1/ROX1
 K22980	0.03	0.477121255	KEGG	capsule synthesis positive regulator AcpB
 K02425	0.03	0.477121255	KEGG	regulator of sigma S factor FliZ
+K12965	0.03	0.477121255	KEGG	Z-DNA binding protein 1
 K15075	0.03	0.477121255	KEGG	DNA repair/transcription protein MET18/MMS19
 K06383	0.03	0.477121255	KEGG	stage II sporulation protein GA (sporulation sigma-E factor processing peptidase) [EC:3.4.23.-]
 K22109	0.03	0.477121255	KEGG	HTH-type transcriptional regulator, glycine betaine synthesis regulator
@@ -1937,6 +1469,523 @@ K06698	0.01	0.0	KEGG	proteasome activator subunit 3 (PA28 gamma)
 K09720	0.01	0.0	KEGG	HTH-type transcriptional regulator, global nitrogen regulator NrpRI
 K17605	0.01	0.0	KEGG	serine/threonine-protein phosphatase 2A activator
 K18492	0.01	0.0	KEGG	insulin gene enhancer protein ISL-2
+PF01381.26	10.0	4.823363359	Pfam	Helix-turn-helix
+PF13560.10	10.0	4.494516355	Pfam	Helix-turn-helix domain
+PF12844.11	10.0	4.403463701	Pfam	Helix-turn-helix domain
+PF13884.10	10.0	4.330657235	Pfam	Chaperone of endosialidase
+PF12728.11	10.0	4.163727736	Pfam	Helix-turn-helix domain
+PF13443.10	10.0	4.137417415	Pfam	Cro/C1-type HTH DNA-binding domain
+PF03374.18	10.0	4.084540532	Pfam	Phage antirepressor protein KilAC domain
+PF13730.10	10.0	4.056523724	Pfam	Helix-turn-helix domain
+PF16778.9	10.0	3.905634001	Pfam	Phage tail assembly chaperone protein
+PF09669.14	10.0	3.899108858	Pfam	Phage regulatory protein Rha (Phage_pRha)
+PF08299.15	10.0	3.890029586	Pfam	Bacterial dnaA protein helix-turn-helix
+PF02467.20	10.0	3.820857989	Pfam	Transcription factor WhiB
+PF10991.12	10.0	3.820135752	Pfam	Enterobacter phage Enc34, ssDNA-binding protein
+PF07282.15	10.0	3.810568529	Pfam	Putative transposase DNA-binding domain
+PF04545.20	10.0	3.735997884	Pfam	Sigma-70, region 4
+PF04542.18	10.0	3.730055152	Pfam	Sigma-70 region 2
+PF13356.10	10.0	3.724767246	Pfam	Arm DNA-binding domain
+PF20557.2	10.0	3.708845638	Pfam	Putative DnaT-like ssDNA binding protein
+PF10109.13	10.0	3.704407927	Pfam	Phage tail assembly chaperone proteins, E, or 41 or 14
+PF14090.10	10.0	3.680426171	Pfam	Helix-turn-helix domain
+PF00196.23	10.0	3.613736141	Pfam	Bacterial regulatory proteins, luxR family
+PF00216.25	10.0	3.593618308	Pfam	Bacterial DNA-binding protein
+PF08804.14	10.0	3.581835924	Pfam	gp32 DNA binding protein like
+PF08346.16	10.0	3.58069694	Pfam	AntA/AntB antirepressor
+PF10073.13	10.0	3.556302501	Pfam	GapR-like, DNA-binding domain
+PF06892.15	10.0	3.549248557	Pfam	Phage regulatory protein CII (CP76)
+PF08281.16	10.0	3.546172368	Pfam	Sigma-70, region 4
+PF12323.12	10.0	3.506505032	Pfam	Helix-turn-helix domain
+PF14549.10	10.0	3.465234095	Pfam	DNA-binding transcriptional regulator Cro
+PF01726.20	10.0	3.461498527	Pfam	LexA DNA binding domain
+PF08765.15	10.0	3.443106457	Pfam	Mor transcription activator family
+PF02586.18	10.0	3.430236353	Pfam	SOS response associated peptidase (SRAP)
+PF00072.28	10.0	3.41480628	Pfam	Response regulator receiver domain
+PF07750.15	10.0	3.387389826	Pfam	GcrA cell cycle regulator
+PF02599.20	10.0	3.383994789	Pfam	Global regulator protein family
+PF08890.15	10.0	3.373831145	Pfam	Phage XkdN-like tail assembly chaperone protein, TAC
+PF13936.10	10.0	3.354300562	Pfam	Helix-turn-helix domain
+PF05930.16	10.0	3.349665984	Pfam	Prophage CP4-57 regulatory protein (AlpA)
+PF21822.1	10.0	3.326540669	Pfam	Phage tail assembly chaperone protein, TAC
+PF07022.17	10.0	3.298853076	Pfam	Bacteriophage CI repressor helix-turn-helix domain
+PF03869.18	10.0	3.2929203	Pfam	Arc-like DNA binding domain
+PF14657.10	10.0	3.271841607	Pfam	Arm DNA-binding domain
+PF13540.10	10.0	3.246252312	Pfam	Regulator of chromosome condensation (RCC1) repeat
+PF02357.23	10.0	3.239799818	Pfam	Transcription termination factor nusG
+PF00313.26	10.0	3.235528447	Pfam	Cold-shock' DNA-binding domain
+PF00415.22	10.0	3.223236273	Pfam	Regulator of chromosome condensation (RCC1) repeat
+PF13693.10	10.0	3.19838213	Pfam	Winged helix-turn-helix DNA-binding
+PF12167.12	10.0	3.18582536	Pfam	Arm DNA-binding domain
+PF02796.19	10.0	3.151063253	Pfam	Helix-turn-helix domain of resolvase
+PF00392.25	10.0	3.148910993	Pfam	Bacterial regulatory proteins, gntR family
+PF06530.16	10.0	3.148602655	Pfam	Phage antitermination protein Q
+PF11056.12	10.0	3.147676324	Pfam	Recombination, repair and ssDNA binding protein UvsY
+PF01818.21	10.0	3.11991541	Pfam	Bacteriophage translational regulator
+PF17293.6	10.0	3.116939647	Pfam	Arm DNA-binding domain
+PF16805.9	10.0	3.11058971	Pfam	Phage late-transcription coactivator
+PF21265.1	10.0	3.07371835	Pfam	Single-stranded DNA-binding protein, Bacteriophage T7
+PF13518.10	10.0	3.07114529	Pfam	Helix-turn-helix domain
+PF02316.20	10.0	3.068927612	Pfam	Mu DNA-binding domain
+PF16452.9	10.0	3.067070856	Pfam	Bacteriophage CI repressor C-terminal domain
+PF08748.15	10.0	3.05422991	Pfam	Phage tail assembly chaperone
+PF09039.15	10.0	3.053078443	Pfam	Mu DNA binding, I gamma subdomain
+PF04947.18	10.0	3.044931546	Pfam	Poxvirus Late Transcription Factor VLTF3 like
+PF11112.12	10.0	3.04060234	Pfam	Pyocin activator protein PrtN
+PF07432.17	10.0	3.032215703	Pfam	Histone H1-like protein Hc1
+PF13620.10	10.0	3.024074987	Pfam	Carboxypeptidase regulatory-like domain
+PF00486.32	10.0	3.006893708	Pfam	Transcriptional regulatory protein, C terminal
+PF00158.30	9.89	2.995196292	Pfam	Sigma-54 interaction domain
+PF01096.22	9.65	2.984527313	Pfam	Transcription factor S-II (TFIIS)
+PF03589.17	9.29	2.968015714	Pfam	Antitermination protein
+PF18662.5	9.24	2.965671971	Pfam	Cch helix turn helix domain
+PF13411.10	9.17	2.962369336	Pfam	MerR HTH family regulatory protein
+PF17948.5	9.15	2.961421094	Pfam	DnaT DNA-binding domain
+PF00376.27	8.75	2.942008053	Pfam	MerR family regulatory protein
+PF12363.12	8.2	2.913813852	Pfam	Phage tail assembly chaperone protein, TAC
+PF04539.20	7.69	2.88592634	Pfam	Sigma-70 region 3
+PF06323.15	7.64	2.883093359	Pfam	Phage antitermination protein Q
+PF09003.14	7.59	2.880241776	Pfam	Bacteriophage lambda integrase, Arm DNA-binding domain
+PF04245.17	7.18	2.856124444	Pfam	37-kD nucleoid-associated bacterial protein
+PF00382.23	7.17	2.855519156	Pfam	Transcription factor TFIIB repeat
+PF17427.6	6.98	2.843855423	Pfam	Phage Single-stranded DNA-binding protein
+PF10963.12	6.81	2.833147112	Pfam	Phage tail assembly chaperone
+PF13022.10	6.35	2.802773725	Pfam	Helix-turn-helix of insertion element transposase
+PF16459.9	6.2	2.792391689	Pfam	Phage tail assembly chaperone, TAC
+PF12833.11	6.12	2.786751422	Pfam	Helix-turn-helix domain
+PF02954.23	5.4	2.73239376	Pfam	Bacterial regulatory protein, Fis family
+PF00816.25	5.25	2.720159303	Pfam	H-NS histone family
+PF00140.24	5.21	2.716837723	Pfam	Sigma-70 factor, region 1.2
+PF01396.23	4.99	2.698100546	Pfam	Topoisomerase DNA binding C4 zinc finger
+PF00352.25	4.82	2.683047038	Pfam	Transcription factor TFIID (or TATA-binding protein, TBP)
+PF10412.13	4.8	2.681241237	Pfam	Type IV secretion-system coupling protein DNA-binding domain
+PF05443.15	4.64	2.666517981	Pfam	ROS/MUCR transcriptional regulator protein
+PF00126.31	4.57	2.6599162	Pfam	Bacterial regulatory helix-turn-helix protein, lysR family
+PF00165.27	4.53	2.656098202	Pfam	Bacterial regulatory helix-turn-helix proteins, AraC family
+PF13412.10	4.43	2.646403726	Pfam	Winged helix-turn-helix DNA-binding
+PF00035.30	4.21	2.624282096	Pfam	Double-stranded RNA binding motif
+PF13744.10	4.13	2.615950052	Pfam	Helix-turn-helix domain
+PF00440.27	3.74	2.572871602	Pfam	Bacterial regulatory proteins, tetR family
+PF04397.19	3.59	2.555094449	Pfam	LytTr DNA-binding domain
+PF06116.16	3.56	2.551449998	Pfam	Transcriptional activator RinB
+PF02229.20	3.33	2.522444234	Pfam	Transcriptional Coactivator p15 (PC4)
+PF20038.3	3.28	2.515873844	Pfam	Helix-turn-helix domain
+PF00575.27	3.2	2.505149978	Pfam	S1 RNA binding domain
+PF03551.18	3.09	2.489958479	Pfam	Transcriptional regulator PadR-like family
+PF06894.15	3.07	2.487138375	Pfam	Bacteriophage lambda tail assembly chaperone, TAC, protein G
+PF02920.19	3.03	2.481442629	Pfam	DNA binding domain of tn916 integrase
+PF06222.15	2.97	2.472756449	Pfam	Phage tail assembly chaperone
+PF20450.2	2.96	2.471291711	Pfam	Papillomavirus E1, DNA-binding domain
+PF00015.25	2.81	2.44870632	Pfam	Methyl-accepting chemotaxis protein (MCP) signalling domain
+PF06896.15	2.65	2.423245874	Pfam	Phage tail assembly chaperone proteins, TAC
+PF13585.10	2.6	2.414973348	Pfam	CHU_C Type IX secretion signal domain
+PF04647.19	2.53	2.403120521	Pfam	Accessory gene regulator B
+PF10502.13	2.49	2.396199347	Pfam	Signal peptidase, peptidase S26
+PF11126.12	2.44	2.387389826	Pfam	Transcriptional regulator DsbA
+PF10743.13	2.43	2.385606274	Pfam	Regulatory phage protein cox
+PF01022.24	2.25	2.352182518	Pfam	Bacterial regulatory protein, arsR family
+PF09339.14	2.22	2.346352974	Pfam	IclR helix-turn-helix domain
+PF14532.10	2.16	2.334453751	Pfam	Sigma-54 interaction domain
+PF00850.23	2.16	2.334453751	Pfam	Histone deacetylase domain
+PF05670.17	2.16	2.334453751	Pfam	NFACT protein RNA binding domain
+PF13542.10	2.15	2.33243846	Pfam	Helix-turn-helix domain of transposase family ISL3
+PF12840.11	2.15	2.33243846	Pfam	Helix-turn-helix domain
+PF09388.14	2.08	2.318063335	Pfam	Spo0E like sporulation regulatory protein
+PF13545.10	2.04	2.309630167	Pfam	Crp-like helix-turn-helix domain
+PF20987.1	1.91	2.281033367	Pfam	Intron-encoded endonuclease 1, DNA-binding domain
+PF07500.18	1.84	2.264817823	Pfam	Transcription factor S-II (TFIIS), central domain
+PF02082.24	1.84	2.264817823	Pfam	Iron-dependent Transcriptional regulator
+PF05464.15	1.68	2.225309282	Pfam	Phi-29-like late genes activator (early protein GP4)
+PF09550.14	1.67	2.222716471	Pfam	Phage tail assembly chaperone protein, TAC
+PF14250.10	1.58	2.198657087	Pfam	AbrB-like transcriptional regulator
+PF13556.10	1.43	2.155336037	Pfam	PucR C-terminal helix-turn-helix domain
+PF00125.28	1.4	2.146128036	Pfam	Core histone H2A/H2B/H3/H4
+PF16773.9	1.35	2.130333768	Pfam	Lactococcus phage single-stranded DNA binding protein
+PF07494.15	1.31	2.117271296	Pfam	Two component regulator propeller
+PF04025.16	1.24	2.093421685	Pfam	Extracellular matrix regulatory protein A-like
+PF00356.25	1.22	2.086359831	Pfam	Bacterial regulatory proteins, lacI family
+PF00249.35	1.17	2.068185862	Pfam	Myb-like DNA-binding domain
+PF01358.22	1.17	2.068185862	Pfam	Poly A polymerase regulatory subunit
+PF01638.21	1.12	2.049218023	Pfam	HxlR-like helix-turn-helix
+PF01588.24	1.11	2.045322979	Pfam	Putative tRNA binding domain
+PF16462.9	1.1	2.041392685	Pfam	Phage tail assembly chaperone protein, TAC
+PF11740.12	1.09	2.037426498	Pfam	Plasmid replication region DNA-binding N-term
+PF06069.15	1.09	2.037426498	Pfam	PerC transcriptional activator
+PF04786.16	1.08	2.033423755	Pfam	ssDNA binding protein
+PF13921.10	1.08	2.033423755	Pfam	Myb-like DNA-binding domain
+PF05459.16	1.02	2.008600172	Pfam	Herpesvirus transcriptional regulator family
+PF13018.10	1.02	2.008600172	Pfam	Extended Signal Peptide of Type V secretion system
+PF12645.11	1.01	2.004321374	Pfam	Helix-turn-helix domain
+PF19575.3	1.01	2.004321374	Pfam	Helix-turn-helix domain
+PF10876.12	1.0	2.0	Pfam	Phage tail assembly chaperone protein, TAC
+PF03728.17	1.0	2.0	Pfam	Viral DNA-binding protein, zinc binding domain
+PF02236.21	1.0	2.0	Pfam	Viral DNA-binding protein, all alpha domain
+PF15969.9	1.0	2.0	Pfam	Intracellular sensor of Lambda phage, Abi component
+PF04661.16	1.0	2.0	Pfam	Poxvirus I3 ssDNA-binding protein
+PF04441.17	1.0	2.0	Pfam	Poxvirus early transcription factor (VETF), large subunit
+PF03326.17	1.0	2.0	Pfam	Herpesvirus transcription activation factor (transactivator)
+PF05718.16	1.0	2.0	Pfam	Poxvirus intermediate transcription factor
+PF03295.18	1.0	2.0	Pfam	Poxvirus trans-activator protein A1 C-terminal
+PF03355.18	1.0	2.0	Pfam	Viral Trans-Activator Protein
+PF03084.18	1.0	2.0	Pfam	Reoviral Sigma1/Sigma2 family
+PF03310.17	1.0	2.0	Pfam	Caulimovirus DNA-binding protein
+PF11507.12	1.0	2.0	Pfam	Ebola virus-specific transcription factor VP30
+PF00979.21	1.0	2.0	Pfam	Reovirus outer capsid protein, Sigma 3
+PF10666.13	1.0	2.0	Pfam	Phage tail assembly chaperone protein Gp14 ()A118
+PF02905.18	1.0	2.0	Pfam	Epstein Barr virus nuclear antigen-1, DNA-binding domain
+PF20800.1	1.0	2.0	Pfam	Xanthomonas phage Xp10 Transcription regulator P7
+PF16852.9	1.0	2.0	Pfam	Herpes viral adaptor-to-host cellular mRNA binding domain
+PF17750.5	1.0	2.0	Pfam	Reovirus sigma C capsid protein triple beta spiral
+PF04582.16	1.0	2.0	Pfam	Reovirus sigma C capsid protein C-terminal domain
+PF01664.20	1.0	2.0	Pfam	Reovirus viral attachment protein sigma 1
+PF00981.21	1.0	2.0	Pfam	Rotavirus RNA-binding Protein 53 (NS53)
+PF13338.10	0.97	1.986771734	Pfam	Transcriptional regulator, AbiEi antitoxin
+PF00747.21	0.97	1.986771734	Pfam	ssDNA binding protein
+PF03965.20	0.96	1.982271233	Pfam	Penicillinase repressor
+PF12729.11	0.95	1.977723605	Pfam	Four helix bundle sensory module for signal transduction
+PF02919.19	0.93	1.968482949	Pfam	Eukaryotic DNA topoisomerase I, DNA binding fragment
+PF17878.5	0.92	1.963787827	Pfam	Single-stranded DNA-binding protein
+PF04940.16	0.92	1.963787827	Pfam	Sensors of blue-light using FAD
+PF07879.15	0.86	1.934498451	Pfam	PHB/PHA accumulation regulator DNA-binding domain
+PF16518.9	0.84	1.924279286	Pfam	T3SS negative regulator,GrlR
+PF00963.22	0.83	1.919078092	Pfam	Cohesin domain
+PF04297.18	0.79	1.897627091	Pfam	Putative helix-turn-helix protein, YlxM / p13 like
+PF17426.6	0.78	1.892094603	Pfam	Putative Gamma DNA binding protein G5P
+PF18801.5	0.78	1.892094603	Pfam	response regulator aspartate phosphatase H, N terminal
+PF18883.4	0.75	1.875061263	Pfam	Autochaperone Domain Type 1
+PF03430.17	0.7	1.84509804	Pfam	Trans-activating transcriptional regulator
+PF01272.23	0.7	1.84509804	Pfam	Transcription elongation factor, GreA/GreB, C-term
+PF13404.10	0.67	1.826074803	Pfam	AsnC-type helix-turn-helix domain
+PF04650.21	0.65	1.812913357	Pfam	YSIRK type signal peptide
+PF20731.1	0.65	1.812913357	Pfam	NgoFVII C-terminal B3-like DNA-binding domain
+PF03333.17	0.65	1.812913357	Pfam	Adhesin biosynthesis transcription regulatory protein
+PF02877.18	0.64	1.806179974	Pfam	Poly(ADP-ribose) polymerase, regulatory domain
+PF00808.27	0.64	1.806179974	Pfam	Histone-like transcription factor (CBF/NF-Y) and archaeal histone
+PF11423.12	0.64	1.806179974	Pfam	Regulatory protein Mnt
+PF08220.16	0.64	1.806179974	Pfam	DeoR-like helix-turn-helix domain
+PF07638.15	0.63	1.799340549	Pfam	ECF sigma factor
+PF09278.15	0.63	1.799340549	Pfam	MerR, DNA binding
+PF04218.17	0.61	1.785329835	Pfam	CENP-B N-terminal DNA-binding domain
+PF17613.6	0.61	1.785329835	Pfam	Modifier of transcription
+PF03979.18	0.58	1.763427994	Pfam	Sigma-70 factor, region 1.1
+PF01035.24	0.58	1.763427994	Pfam	6-O-methylguanine DNA methyltransferase, DNA binding domain
+PF17765.5	0.58	1.763427994	Pfam	MmyB-like transcription regulator ligand binding domain
+PF14493.10	0.57	1.755874856	Pfam	Helix-turn-helix domain
+PF13413.10	0.57	1.755874856	Pfam	Helix-turn-helix domain
+PF06543.16	0.56	1.748188027	Pfam	Lactococcus bacteriophage repressor
+PF01978.23	0.55	1.740362689	Pfam	Sugar-specific transcriptional regulator TrmB
+PF00345.24	0.54	1.73239376	Pfam	Pili and flagellar-assembly chaperone, PapD N-terminal domain
+PF09010.14	0.52	1.716003344	Pfam	Anti-Sigma Factor A
+PF14947.10	0.5	1.698970004	Pfam	Winged helix-turn-helix
+PF03449.19	0.5	1.698970004	Pfam	Transcription elongation factor, N-terminal
+PF20432.2	0.49	1.69019608	Pfam	Antitoxin Xre-like helix-turn-helix domain
+PF15777.9	0.49	1.69019608	Pfam	Tryptophan RNA-binding attenuator protein inhibitory protein
+PF08536.15	0.48	1.681241237	Pfam	Whirly transcription factor
+PF15723.9	0.45	1.653212514	Pfam	Motility quorum-sensing regulator, toxin of MqsA
+PF05741.17	0.45	1.653212514	Pfam	Nanos RNA binding domain
+PF18024.5	0.44	1.643452676	Pfam	Helix-turn-helix domain
+PF18134.5	0.44	1.643452676	Pfam	Adenylyl/Guanylyl and SMODS C-terminal sensor domain
+PF14608.10	0.43	1.633468456	Pfam	RNA-binding, Nab2-type zinc finger
+PF03614.17	0.43	1.633468456	Pfam	Repressor of phase-1 flagellin
+PF04546.17	0.42	1.62324929	Pfam	Sigma-70, non-essential region
+PF02753.21	0.4	1.602059991	Pfam	Pili assembly chaperone PapD, C-terminal domain
+PF08123.17	0.4	1.602059991	Pfam	Histone methylation protein DOT1
+PF13613.10	0.39	1.591064607	Pfam	Helix-turn-helix of DDE superfamily endonuclease
+PF03294.18	0.39	1.591064607	Pfam	RNA polymerase-associated transcription specificity factor, Rap94
+PF17755.5	0.39	1.591064607	Pfam	UvrA DNA-binding domain
+PF02482.23	0.38	1.579783597	Pfam	Sigma 54 modulation protein / S30EA ribosomal protein
+PF17548.6	0.36	1.556302501	Pfam	Histone-like Protein p6
+PF14278.10	0.36	1.556302501	Pfam	Transcriptional regulator C-terminal region
+PF07382.15	0.36	1.556302501	Pfam	Histone H1-like nucleoprotein HC2
+PF10796.13	0.35	1.544068044	Pfam	Sigma-S stabilisation anti-adaptor protein
+PF16529.9	0.34	1.531478917	Pfam	WD40 region of Ge1, enhancer of mRNA-decapping protein
+PF12171.12	0.33	1.51851394	Pfam	Zinc-finger double-stranded RNA-binding
+PF01475.23	0.32	1.505149978	Pfam	Ferric uptake regulator family
+PF04761.16	0.32	1.505149978	Pfam	Lactococcus bacteriophage putative transcription regulator
+PF09345.14	0.31	1.491361694	Pfam	SiaC family regulatory phosphoprotein
+PF18145.5	0.3	1.477121255	Pfam	SMODS-associated and fused to various effectors sensor domain
+PF02257.19	0.3	1.477121255	Pfam	RFX DNA-binding domain
+PF13463.10	0.29	1.462397998	Pfam	Winged helix DNA-binding domain
+PF02583.21	0.29	1.462397998	Pfam	Metal-sensitive transcriptional repressor
+PF00452.23	0.28	1.447158031	Pfam	Apoptosis regulator proteins, Bcl-2 family
+PF05225.20	0.28	1.447158031	Pfam	helix-turn-helix, Psq domain
+PF18430.5	0.28	1.447158031	Pfam	Putative DNA-binding domain
+PF00543.26	0.26	1.414973348	Pfam	Nitrogen regulatory protein P-II
+PF11099.12	0.26	1.414973348	Pfam	Apoptosis regulator M11L like
+PF04767.16	0.26	1.414973348	Pfam	DNA-binding 11 kDa phosphoprotein
+PF00455.26	0.26	1.414973348	Pfam	DeoR C terminal sensor domain
+PF01325.23	0.25	1.397940009	Pfam	Iron dependent repressor, N-terminal DNA binding domain
+PF09114.14	0.24	1.380211242	Pfam	Transcription factor MotA, activation domain
+PF19258.3	0.23	1.361727836	Pfam	KxYKxGKxW signal peptide
+PF00552.25	0.23	1.361727836	Pfam	Integrase DNA binding domain
+PF04967.16	0.23	1.361727836	Pfam	HTH DNA binding domain
+PF01418.21	0.22	1.342422681	Pfam	Helix-turn-helix domain, rpiR family
+PF19192.4	0.22	1.342422681	Pfam	Response receiver domain
+PF06160.16	0.21	1.322219295	Pfam	Septation ring formation regulator, EzrA
+PF10458.13	0.21	1.322219295	Pfam	Valyl tRNA synthetase tRNA binding arm
+PF04552.17	0.2	1.301029996	Pfam	Sigma-54, DNA binding domain
+PF21029.1	0.19	1.278753601	Pfam	Regulator of MON1-CCZ1 complex, N-terminal
+PF03704.21	0.19	1.278753601	Pfam	Bacterial transcriptional activator domain
+PF01252.22	0.18	1.255272505	Pfam	Signal peptidase (SPase) II
+PF08671.14	0.18	1.255272505	Pfam	Anti-repressor SinI
+PF08222.15	0.18	1.255272505	Pfam	CodY helix-turn-helix domain
+PF04963.17	0.18	1.255272505	Pfam	Sigma-54 factor, core binding domain
+PF11776.12	0.18	1.255272505	Pfam	Nickel/cobalt transporter regulator
+PF01371.23	0.17	1.230448921	Pfam	Trp repressor protein
+PF11459.12	0.17	1.230448921	Pfam	Transcriptional regulator, AbiEi antitoxin, Type IV TA system
+PF21501.1	0.17	1.230448921	Pfam	Protein LANA1-like, DNA-binding domain
+PF12320.12	0.17	1.230448921	Pfam	Type 5 capsule protein repressor C-terminal domain
+PF15714.9	0.16	1.204119983	Pfam	Stage V sporulation protein T C-terminal, transcription factor
+PF00585.22	0.16	1.204119983	Pfam	C-terminal regulatory domain of Threonine dehydratase
+PF17194.8	0.16	1.204119983	Pfam	Transcriptional regulator, AbiEi antitoxin N-terminal domain
+PF02742.19	0.15	1.176091259	Pfam	Iron dependent repressor, metal binding and dimerisation domain
+PF18297.5	0.15	1.176091259	Pfam	NFACT protein RNA binding domain
+PF03880.19	0.15	1.176091259	Pfam	DbpA RNA binding domain
+PF12329.12	0.15	1.176091259	Pfam	TATA element modulatory factor 1 DNA binding
+PF05068.16	0.15	1.176091259	Pfam	Mannitol repressor
+PF00309.24	0.14	1.146128036	Pfam	Sigma-54 factor, Activator interacting domain (AID)
+PF16221.9	0.14	1.146128036	Pfam	winged helix-turn-helix
+PF05233.17	0.14	1.146128036	Pfam	PHB accumulation regulatory domain
+PF01052.24	0.14	1.146128036	Pfam	Type III flagellar switch regulator (C-ring) FliN C-term
+PF03123.19	0.13	1.113943352	Pfam	CAT RNA binding domain
+PF10771.13	0.12	1.079181246	Pfam	Winged helix-turn-helix domain (DUF2582)
+PF00170.25	0.12	1.079181246	Pfam	bZIP transcription factor
+PF20317.2	0.12	1.079181246	Pfam	Helix-turn-helix domain
+PF00605.21	0.12	1.079181246	Pfam	Interferon regulatory factor transcription factor
+PF00325.24	0.12	1.079181246	Pfam	Bacterial regulatory proteins, crp family
+PF12625.11	0.12	1.079181246	Pfam	Arabinose-binding domain of AraC transcription regulator, N-term
+PF16520.9	0.12	1.079181246	Pfam	ssRNA-binding matrix protein of Bornaviridae
+PF21259.1	0.12	1.079181246	Pfam	HTH-type transcriptional regulator Rgg, C-terminal domain
+PF02575.20	0.11	1.041392685	Pfam	YbaB/EbfC DNA-binding family
+PF21531.1	0.11	1.041392685	Pfam	DNA-binding protein Rv2175c, wHTH domain
+PF20308.2	0.11	1.041392685	Pfam	Tetratricopeptide Repeats-Sensor
+PF16509.9	0.11	1.041392685	Pfam	TrfB plasmid transcriptional repressor
+PF07695.15	0.11	1.041392685	Pfam	7TM diverse intracellular signalling
+PF15977.9	0.11	1.041392685	Pfam	Winged helix-turn-helix DNA binding
+PF10401.13	0.11	1.041392685	Pfam	Interferon-regulatory factor 3
+PF03726.18	0.11	1.041392685	Pfam	Polyribonucleotide nucleotidyltransferase, RNA binding domain
+PF00298.23	0.11	1.041392685	Pfam	Ribosomal protein L11, RNA binding domain
+PF05854.15	0.11	1.041392685	Pfam	Non-histone chromosomal protein MC1
+PF01614.22	0.11	1.041392685	Pfam	Bacterial transcriptional regulator
+PF01518.20	0.11	1.041392685	Pfam	Sigma NS protein
+PF09952.13	0.1	1.0	Pfam	Transcriptional regulator, AbiEi antitoxin, Type IV TA system
+PF09439.14	0.1	1.0	Pfam	Signal recognition particle receptor beta subunit
+PF14246.10	0.09	0.954242509	Pfam	AefR-like transcriptional repressor, C-terminal domain
+PF08900.15	0.09	0.954242509	Pfam	Transcriptional regulator AcaB
+PF02334.20	0.09	0.954242509	Pfam	Replication terminator protein
+PF06719.17	0.09	0.954242509	Pfam	AraC-type transcriptional regulator N-terminus
+PF08350.14	0.09	0.954242509	Pfam	Methanogenesis regulatory protein FilR1, middle domain
+PF09607.14	0.09	0.954242509	Pfam	Brinker DNA-binding domain
+PF13453.10	0.09	0.954242509	Pfam	Transcription factor zinc-finger
+PF01155.23	0.09	0.954242509	Pfam	Hydrogenase/urease nickel incorporation, metallochaperone, hypA
+PF16591.9	0.08	0.903089987	Pfam	Helical bimodular sensor domain
+PF16321.9	0.08	0.903089987	Pfam	Sigma 54 modulation/S30EA ribosomal protein C terminus
+PF21321.1	0.08	0.903089987	Pfam	Putative DNA-binding HTH domain
+PF18557.5	0.08	0.903089987	Pfam	Anti-sigma factor NepR
+PF01287.24	0.08	0.903089987	Pfam	Eukaryotic elongation factor 5A hypusine, DNA-binding OB fold
+PF07497.16	0.08	0.903089987	Pfam	Rho termination factor, RNA-binding domain
+PF17152.8	0.08	0.903089987	Pfam	Periplasmic sensor domain
+PF06971.17	0.08	0.903089987	Pfam	Putative DNA-binding protein N-terminus
+PF08221.15	0.07	0.84509804	Pfam	RNA polymerase III subunit RPC82 helix-turn-helix domain
+PF10119.13	0.07	0.84509804	Pfam	Predicted methyltransferase regulatory domain
+PF14706.10	0.07	0.84509804	Pfam	Transposase DNA-binding
+PF16751.9	0.07	0.84509804	Pfam	Anti-sigma-D factor RsdA to sigma factor binding region
+PF10722.13	0.07	0.84509804	Pfam	Putative bacterial sensory transduction regulator
+PF18607.5	0.07	0.84509804	Pfam	ParA helix turn helix domain
+PF17158.8	0.07	0.84509804	Pfam	Membrane-associated sensor, integral membrane domain
+PF02978.23	0.07	0.84509804	Pfam	Signal peptide binding domain
+PF06877.15	0.06	0.77815125	Pfam	Regulator of ribonuclease activity B
+PF06682.16	0.06	0.77815125	Pfam	SOCE-associated regulatory factor of calcium homoeostasis
+PF10114.13	0.06	0.77815125	Pfam	Sensory domain found in PocR
+PF21725.1	0.06	0.77815125	Pfam	Putative T7SS secretion signal domain
+PF08280.15	0.06	0.77815125	Pfam	M protein trans-acting positive regulator (MGA) HTH domain
+PF05280.15	0.06	0.77815125	Pfam	Flagellar transcriptional activator (FlhC)
+PF14689.10	0.06	0.77815125	Pfam	Sensor_kinase_SpoOB-type, alpha-helical domain
+PF21085.1	0.06	0.77815125	Pfam	CusS sensor domain
+PF08133.15	0.06	0.77815125	Pfam	Anticodon nuclease activator family
+PF06133.15	0.06	0.77815125	Pfam	Control of competence regulator ComK, YlbF/YmcA
+PF13601.10	0.06	0.77815125	Pfam	Winged helix DNA-binding domain
+PF09905.13	0.06	0.77815125	Pfam	DNA-binding protein VF530
+PF15608.10	0.06	0.77815125	Pfam	PELOTA RNA binding domain
+PF15511.10	0.05	0.698970004	Pfam	Centromere kinetochore component CENP-T histone fold
+PF16859.9	0.05	0.698970004	Pfam	Tetracyclin repressor-like, C-terminal domain
+PF04366.16	0.05	0.698970004	Pfam	Las17-binding protein actin regulator
+PF10258.13	0.05	0.698970004	Pfam	Phosphorylated adapter RNA export protein, RNA-binding domain
+PF10707.13	0.05	0.698970004	Pfam	PhoP regulatory network protein YrbL
+PF13636.10	0.05	0.698970004	Pfam	RNA-binding PUA-like domain of methyltransferase RsmF
+PF01316.25	0.05	0.698970004	Pfam	Arginine repressor, DNA binding domain
+PF08327.15	0.05	0.698970004	Pfam	Activator of Hsp90 ATPase homolog 1-like protein
+PF02863.22	0.05	0.698970004	Pfam	Arginine repressor, C-terminal domain
+PF18556.5	0.05	0.698970004	Pfam	Bacterial Tetracyclin repressor,  C-terminal domain
+PF06956.15	0.05	0.698970004	Pfam	Regulator of RNA terminal phosphate cyclase
+PF03981.16	0.05	0.698970004	Pfam	Ubiquinol-cytochrome C chaperone
+PF14848.10	0.05	0.698970004	Pfam	DNA-binding domain
+PF16721.9	0.05	0.698970004	Pfam	Zinc-finger like, probable DNA-binding
+PF00615.23	0.04	0.602059991	Pfam	Regulator of G protein signaling domain
+PF10099.13	0.04	0.602059991	Pfam	Anti-sigma-K factor rskA
+PF04314.17	0.04	0.602059991	Pfam	Copper chaperone PCu(A)C
+PF21715.1	0.04	0.602059991	Pfam	CggR N-terminal DNA binding domain
+PF08755.15	0.04	0.602059991	Pfam	Hemimethylated DNA-binding protein YccV like
+PF13305.10	0.04	0.602059991	Pfam	Tetracyclin repressor-like, C-terminal domain
+PF21750.1	0.04	0.602059991	Pfam	Probable sensor domain DACNH
+PF02748.19	0.04	0.602059991	Pfam	Aspartate carbamoyltransferase regulatory chain, metal binding domain
+PF04309.16	0.04	0.602059991	Pfam	Glycerol-3-phosphate responsive antiterminator
+PF07180.15	0.03	0.477121255	Pfam	CaiF/GrlA transcriptional regulator
+PF03707.20	0.03	0.477121255	Pfam	Bacterial signalling protein N terminal repeat
+PF00539.22	0.03	0.477121255	Pfam	Transactivating regulatory protein (Tat)
+PF04910.18	0.03	0.477121255	Pfam	Transcriptional repressor TCF25
+PF21752.1	0.03	0.477121255	Pfam	Probable sensor domain DACNG
+PF17940.5	0.03	0.477121255	Pfam	Tetracyclin repressor-like, C-terminal domain
+PF13977.10	0.03	0.477121255	Pfam	BetI-type transcriptional repressor, C-terminal
+PF21473.1	0.03	0.477121255	Pfam	Single-stranded DNA binding protein Ssb-like, OB fold
+PF01948.22	0.03	0.477121255	Pfam	Aspartate carbamoyltransferase regulatory chain, allosteric domain
+PF21644.1	0.03	0.477121255	Pfam	Histone H3 binding protein ORF158L-like
+PF07417.16	0.03	0.477121255	Pfam	Sigma factor-binding transcriptional regulator Crl
+PF17937.5	0.03	0.477121255	Pfam	Tetracyclin repressor-like, C-terminal domain
+PF05932.17	0.03	0.477121255	Pfam	Tir chaperone protein (CesT) family
+PF08918.14	0.03	0.477121255	Pfam	PhoQ Sensor
+PF17151.8	0.03	0.477121255	Pfam	Periplasmic sensor domain
+PF09734.13	0.03	0.477121255	Pfam	RNA polymerase III transcription factor (TF)IIIC subunit HTH domain
+PF14502.10	0.03	0.477121255	Pfam	Helix-turn-helix domain
+PF07704.15	0.03	0.477121255	Pfam	Rv0623-like transcription factor
+PF11473.12	0.03	0.477121255	Pfam	RNA binding protein B2
+PF16527.9	0.03	0.477121255	Pfam	Two-component sensor protein CpxA, periplasmic domain
+PF06506.15	0.03	0.477121255	Pfam	Propionate catabolism activator
+PF17155.8	0.03	0.477121255	Pfam	Gammaproteobacterial periplasmic sensor domain
+PF18272.5	0.03	0.477121255	Pfam	single-stranded DNA binding TraI N-terminal subdomain
+PF08521.14	0.03	0.477121255	Pfam	Two-component sensor kinase N-terminal
+PF16934.9	0.03	0.477121255	Pfam	Two-component Enterococcus faecalis cytolysin (EFC)
+PF00010.30	0.03	0.477121255	Pfam	Helix-loop-helix DNA-binding domain
+PF17178.8	0.03	0.477121255	Pfam	Membrane-associated sensor
+PF21689.1	0.03	0.477121255	Pfam	Sensor protein TorS, sensor domain
+PF15286.10	0.03	0.477121255	Pfam	Apoptosis regulator M11, B cell 2 leukaemia/lymphoma like
+PF18243.5	0.03	0.477121255	Pfam	Metal-independent restriction enzyme BfiI DNA binding domain
+PF00538.23	0.03	0.477121255	Pfam	linker histone H1 and H5 family
+PF05247.17	0.03	0.477121255	Pfam	Flagellar transcriptional activator (FlhD)
+PF17764.5	0.03	0.477121255	Pfam	3'DNA-binding domain (3'BD)
+PF13036.10	0.03	0.477121255	Pfam	Peptidoglycan-synthase activator LpoB
+PF14184.10	0.03	0.477121255	Pfam	Regulatory protein YrvL
+PF04845.17	0.02	0.301029996	Pfam	PurA ssDNA and RNA-binding protein
+PF20714.1	0.02	0.301029996	Pfam	DpiA-like helix-turn-helix domain
+PF11250.12	0.02	0.301029996	Pfam	Fantastic Four meristem regulator
+PF17774.5	0.02	0.301029996	Pfam	Putative RNA-binding domain in YlmH
+PF05043.17	0.02	0.301029996	Pfam	Mga helix-turn-helix domain
+PF18158.5	0.02	0.301029996	Pfam	Adaptive response protein AidB N-terminal domain
+PF07441.15	0.02	0.301029996	Pfam	SigmaK-factor processing regulatory protein BofA
+PF17159.8	0.02	0.301029996	Pfam	Membrane-associated sensor domain
+PF04640.18	0.02	0.301029996	Pfam	PLATZ transcription factor
+PF16767.9	0.02	0.301029996	Pfam	Sensor domain of alginate biosynthesis sensor protein KinB
+PF02294.22	0.02	0.301029996	Pfam	7kD DNA-binding domain
+PF07764.15	0.02	0.301029996	Pfam	Omega Transcriptional Repressor
+PF02702.21	0.02	0.301029996	Pfam	Osmosensitive K+ channel His kinase sensor domain
+PF16925.9	0.02	0.301029996	Pfam	Tetracyclin repressor-like, C-terminal domain
+PF17156.8	0.02	0.301029996	Pfam	Gammaproteobacterial periplasmic sensor domain
+PF17850.5	0.02	0.301029996	Pfam	CysA C-terminal regulatory domain
+PF07381.15	0.02	0.301029996	Pfam	Winged helix DNA-binding domain (DUF1495)
+PF12660.11	0.02	0.301029996	Pfam	Putative zinc-finger of transcription factor IIIC complex
+PF18226.5	0.02	0.301029996	Pfam	LasR-specific antiactivator QslA
+PF08361.15	0.02	0.301029996	Pfam	MAATS-type transcriptional repressor, C-terminal region
+PF03439.17	0.02	0.301029996	Pfam	Early transcription elongation factor of RNA pol II, NGN section
+PF01995.20	0.02	0.301029996	Pfam	NrpR regulatory domains NRD1 and 2
+PF17035.9	0.02	0.301029996	Pfam	Bromodomain extra-terminal - transcription regulation
+PF00806.23	0.02	0.301029996	Pfam	Pumilio-family RNA binding repeat
+PF03872.17	0.02	0.301029996	Pfam	Anti sigma-E protein RseA, N-terminal domain
+PF17153.8	0.02	0.301029996	Pfam	Periplasmic sensor domain, extracellular
+PF02909.21	0.02	0.301029996	Pfam	Tetracyclin repressor-like, C-terminal domain
+PF18580.5	0.02	0.301029996	Pfam	SUN2 helix-turn-helix domain
+PF14417.10	0.02	0.301029996	Pfam	MEDS: MEthanogen/methylotroph, DcmR Sensory domain
+PF01111.23	0.02	0.301029996	Pfam	Cyclin-dependent kinase regulatory subunit
+PF14901.10	0.02	0.301029996	Pfam	Cleavage inducing molecular chaperone
+PF09413.14	0.02	0.301029996	Pfam	Putative prokaryotic signal transducing protein
+PF14850.10	0.02	0.301029996	Pfam	DNA-binding domain of Proline dehydrogenase
+PF20552.2	0.02	0.301029996	Pfam	Recombinase-like helix-turn-helix domain
+PF02362.25	0.02	0.301029996	Pfam	B3 DNA binding domain
+PF03873.17	0.02	0.301029996	Pfam	Anti sigma-E protein RseA, C-terminal domain
+PF10723.13	0.02	0.301029996	Pfam	Replication regulatory protein RepB
+PF10545.13	0.02	0.301029996	Pfam	Alcohol dehydrogenase transcription factor Myb/SANT-like
+PF00424.22	0.02	0.301029996	Pfam	REV protein (anti-repression trans-activator protein)
+PF04246.16	0.02	0.301029996	Pfam	Positive regulator of sigma(E), RseC/MucC
+PF13591.10	0.02	0.301029996	Pfam	MerR HTH family regulatory protein
+PF06603.15	0.02	0.301029996	Pfam	UpxZ family of transcription anti-terminator antagonists
+PF14827.10	0.02	0.301029996	Pfam	Double sensory domain of two-component sensor kinase
+PF17938.5	0.02	0.301029996	Pfam	Tetracyclin repressor-like, C-terminal domain
+PF13800.10	0.02	0.301029996	Pfam	Sigma factor regulator N-terminal
+PF21597.1	0.02	0.301029996	Pfam	Transcriptional regulator SbtR-like, C-terminal domain
+PF07905.15	0.02	0.301029996	Pfam	Purine catabolism regulatory protein-like family
+PF13399.10	0.02	0.301029996	Pfam	LytR cell envelope-related transcriptional attenuator
+PF05261.15	0.02	0.301029996	Pfam	TraM protein, DNA-binding
+PF21179.1	0.02	0.301029996	Pfam	DNA-binding protein BldD-like, C-terminal domain
+PF13791.10	0.02	0.301029996	Pfam	Sigma factor regulator C-terminal
+PF16211.9	0.01	0.0	Pfam	C-terminus of histone H2A
+PF02200.20	0.01	0.0	Pfam	STE like transcription factor
+PF06135.16	0.01	0.0	Pfam	IreB regulatory phosphoprotein
+PF10373.13	0.01	0.0	Pfam	Est1 DNA/RNA binding domain
+PF03221.20	0.01	0.0	Pfam	Tc5 transposase DNA-binding domain
+PF02252.22	0.01	0.0	Pfam	Proteasome activator pa28 beta subunit
+PF00447.21	0.01	0.0	Pfam	HSF-type DNA-binding
+PF17154.8	0.01	0.0	Pfam	Gammaproteobacterial periplasmic sensor domain
+PF02269.20	0.01	0.0	Pfam	Transcription initiation factor IID, 18kD subunit
+PF12298.12	0.01	0.0	Pfam	Eukaryotic mitochondrial regulator protein
+PF10497.13	0.01	0.0	Pfam	Zinc-finger domain of monoamine-oxidase A repressor R1
+PF03095.19	0.01	0.0	Pfam	Phosphotyrosyl phosphate activator (PTPA) protein
+PF18791.5	0.01	0.0	Pfam	Transport inhibitor response 1 protein domain
+PF13144.10	0.01	0.0	Pfam	Chaperone for flagella basal body P-ring formation
+PF21636.1	0.01	0.0	Pfam	Protein phosphatase 1 regulatory subunit 21, C-terminal
+PF12793.11	0.01	0.0	Pfam	Sugar transport-related sRNA regulator N-term
+PF17929.5	0.01	0.0	Pfam	Tetracyclin repressor-like, C-terminal domain
+PF08381.15	0.01	0.0	Pfam	Transcription factor regulating root and shoot growth via Pin3
+PF09679.14	0.01	0.0	Pfam	Type-F conjugative transfer system pilin chaperone (TraQ)
+PF11972.12	0.01	0.0	Pfam	HTH DNA binding domain
+PF09209.15	0.01	0.0	Pfam	HTH-type transcriptional dual regulator CecR, C-terminal domain
+PF17934.5	0.01	0.0	Pfam	Tetracyclin repressor-like, C-terminal domain
+PF21100.1	0.01	0.0	Pfam	MCM protein C-terminal winged helix-turn-helix domain
+PF12763.11	0.01	0.0	Pfam	Cytoskeletal-regulatory complex EF hand
+PF12324.12	0.01	0.0	Pfam	Helix-turn-helix domain of alkylmercury lyase
+PF03131.21	0.01	0.0	Pfam	bZIP Maf transcription factor
+PF05004.17	0.01	0.0	Pfam	Interferon-related developmental regulator (IFRD)
+PF04316.17	0.01	0.0	Pfam	Anti-sigma-28 factor, FlgM
+PF21751.1	0.01	0.0	Pfam	Probable sensor domain DACNV
+PF06550.15	0.01	0.0	Pfam	Signal-peptide peptidase, presenilin aspartyl protease
+PF16787.9	0.01	0.0	Pfam	Centromere DNA-binding protein complex CBF3 subunit, domain 2
+PF17918.5	0.01	0.0	Pfam	Tetracyclin repressor-like, C-terminal domain
+PF03975.17	0.01	0.0	Pfam	CheD chemotactic sensory transduction
+PF19187.4	0.01	0.0	Pfam	PafC helix-turn-helix domain
+PF02454.20	0.01	0.0	Pfam	Sigma 1s protein
+PF05389.16	0.01	0.0	Pfam	Negative regulator of genetic competence (MecA)
+PF16806.9	0.01	0.0	Pfam	Antiactivator protein ExsD N-terminal domain
+PF07317.16	0.01	0.0	Pfam	Flagellar regulator YcgR, PilZN domain
+PF03280.18	0.01	0.0	Pfam	Proteobacterial lipase chaperone protein
+PF17923.5	0.01	0.0	Pfam	Tetracyclin repressor-like, C-terminal domain
+PF21543.1	0.01	0.0	Pfam	Virulence regulatory factor CvfB, second domain
+PF14709.11	0.01	0.0	Pfam	double strand RNA binding domain from DEAD END PROTEIN 1
+PF21220.1	0.01	0.0	Pfam	RecQ-1-like, helix-turn-helix domain
+PF10428.13	0.01	0.0	Pfam	RAM signalling pathway protein
+PF10151.13	0.01	0.0	Pfam	TMEM214, C-terminal, caspase 4 activator
+PF17723.5	0.01	0.0	Pfam	Ribbon-Helix-Helix transcriptional regulator family
+PF05609.16	0.01	0.0	Pfam	Lamina-associated polypeptide 1, AAA+ activator domain
+PF07037.15	0.01	0.0	Pfam	Transcription regulator YfeC-like
+PF18535.5	0.01	0.0	Pfam	Gal11 activator-binding domain (ABD1)
+PF18719.5	0.01	0.0	Pfam	ArlS sensor domain
+PF17920.5	0.01	0.0	Pfam	Tetracyclin repressor-like, C-terminal domain
+PF02895.18	0.01	0.0	Pfam	Signal transducing histidine kinase, homodimeric domain
+PF17925.5	0.01	0.0	Pfam	Tetracyclin repressor-like, C-terminal domain
+PF16524.9	0.01	0.0	Pfam	Periplasmic domain of Sensor histidine kinase RisS
+PF08573.14	0.01	0.0	Pfam	DNA endonuclease activator SAE2/CtIP C-terminus
+PF18553.5	0.01	0.0	Pfam	PheRS DNA binding domain 3
+PF01905.20	0.01	0.0	Pfam	CRISPR-associated negative auto-regulator DevR/Csa2
+PF21227.1	0.01	0.0	Pfam	Myb-like DNA-binding domain
+PF15695.9	0.01	0.0	Pfam	Rec (regulator of expression encoded by corf) of HERV-K-113
+PF20302.2	0.01	0.0	Pfam	HisK-N-like globin domain of the ASK signalosome
+PF10163.13	0.01	0.0	Pfam	Transcription factor e(y)2
+PF09748.13	0.01	0.0	Pfam	Transcription factor subunit Med10 of Mediator complex
+PF21563.1	0.01	0.0	Pfam	Methyl-accepting chemotaxis sensory transducer, class 40H, sensor
+PF19352.3	0.01	0.0	Pfam	Tetracyclin repressor-like, C-terminal domain
+PF07073.16	0.01	0.0	Pfam	Modulator of Rho-dependent transcription termination (ROF)
+PF10955.12	0.01	0.0	Pfam	Anti-sigma-F factor Fin
+PF07584.15	0.01	0.0	Pfam	Aerotolerance regulator N-terminal
+PF05978.20	0.01	0.0	Pfam	Ion channel regulatory protein UNC-93
+PF05145.16	0.01	0.0	Pfam	Transition state regulatory protein AbrB
+phrog_44	10.0	4.417621138	PHROG	single strand DNA binding protein
 phrog_130	10.0	4.05979054	PHROG	anti-repressor Ant
 phrog_4	10.0	4.058653742	PHROG	transcriptional repressor
 phrog_2011	10.0	4.032376971	PHROG	anti-repressor Ant
@@ -1949,10 +1998,13 @@ phrog_2977	10.0	3.900476371	PHROG	anti-repressor
 phrog_6201	10.0	3.822102669	PHROG	CI-like repressor
 phrog_472	10.0	3.777789187	PHROG	WhiB transcriptional factor
 phrog_9976	10.0	3.72582999	PHROG	anti-repressor
+phrog_112	10.0	3.691876823	PHROG	Gp2.5-like ssDNA binding protein and ssDNA annealing protein
+phrog_1670	10.0	3.681512587	PHROG	DNA binding protein
 phrog_2657	10.0	3.658393026	PHROG	transcriptional regulator
 phrog_63	10.0	3.652439748	PHROG	anti-repressor Ant
 phrog_518	10.0	3.648457594	PHROG	Rha-like transcriptional regulator
 phrog_9438	10.0	3.625106575	PHROG	anti-repressor
+phrog_624	10.0	3.583991799	PHROG	DNA binding protein
 phrog_2967	10.0	3.568670978	PHROG	transcriptional regulator
 phrog_5817	10.0	3.558828525	PHROG	anti-repressor Ant
 phrog_821	10.0	3.55351894	PHROG	transcriptional regulator
@@ -1961,6 +2013,7 @@ phrog_3792	10.0	3.526339277	PHROG	tail assembly chaperone
 phrog_995	10.0	3.522052801	PHROG	transcriptional regulator
 phrog_15968	10.0	3.519040039	PHROG	anti-repressor
 phrog_14211	10.0	3.49037992	PHROG	anti-repressor
+phrog_1994	10.0	3.478277832	PHROG	DNA binding protein
 phrog_1158	10.0	3.47099817	PHROG	tail assembly chaperone
 phrog_858	10.0	3.468937806	PHROG	starvation-inducible transcriptional regulator
 phrog_850	10.0	3.467312063	PHROG	RNA-binding protein
@@ -1969,18 +2022,26 @@ phrog_351	10.0	3.458335626	PHROG	RNA polymerase sigma factor
 phrog_129	10.0	3.455758203	PHROG	transcriptional regulator
 phrog_36	10.0	3.447468131	PHROG	transcriptional regulator
 phrog_1726	10.0	3.447158031	PHROG	anti-repressor
+phrog_14652	10.0	3.443262987	PHROG	DNA binding protein
 phrog_65	10.0	3.43806745	PHROG	tail terminator
 phrog_347	10.0	3.40534636	PHROG	tail terminator
 phrog_377	10.0	3.404149249	PHROG	anti-repressor Ant
+phrog_379	10.0	3.403977964	PHROG	DNA binding protein
 phrog_986	10.0	3.392872745	PHROG	RNA-binding protein
+phrog_18154	10.0	3.380573003	PHROG	single strand DNA binding protein
 phrog_101	10.0	3.36398783	PHROG	CII-like transcriptional activator
+phrog_6015	10.0	3.363047595	PHROG	single strand DNA binding protein
+phrog_4932	10.0	3.360214613	PHROG	single strand DNA binding protein
 phrog_14459	10.0	3.329194415	PHROG	transcriptional regulator WhiB-like
 phrog_603	10.0	3.325720858	PHROG	transcriptional regulator
 phrog_10324	10.0	3.325310372	PHROG	anti-repressor Ant
 phrog_234	10.0	3.322426052	PHROG	late sigma transcription factor
 phrog_2127	10.0	3.299725154	PHROG	anti-repressor
+phrog_224	10.0	3.281033367	PHROG	single strand DNA binding protein
+phrog_4151	10.0	3.2757719	PHROG	DNA binding protein
 phrog_2439	10.0	3.268811904	PHROG	transcriptional regulator
 phrog_836	10.0	3.264817823	PHROG	late transcriptional activator
+phrog_27667	10.0	3.264345507	PHROG	single strand DNA binding protein
 phrog_1760	10.0	3.230448921	PHROG	anti-repressor
 phrog_524	10.0	3.229937686	PHROG	anti-repressor Ant
 phrog_4792	10.0	3.204933522	PHROG	anti-repressor
@@ -1990,8 +2051,10 @@ phrog_176	10.0	3.19893187	PHROG	tail terminator
 phrog_409	10.0	3.189770956	PHROG	transcriptional regulator
 phrog_532	10.0	3.174931594	PHROG	late transcriptional activator
 phrog_4936	10.0	3.174059808	PHROG	transcriptional regulator
+phrog_12631	10.0	3.167317335	PHROG	single strand DNA binding protein
 phrog_769	10.0	3.154119526	PHROG	transcriptional repressor
 phrog_242	10.0	3.11991541	PHROG	translation repressor
+phrog_3636	10.0	3.119255889	PHROG	DNA binding protein
 phrog_2328	10.0	3.117602692	PHROG	transcriptional repressor
 phrog_9500	10.0	3.111934276	PHROG	CsrA-like regulator
 phrog_997	10.0	3.104487111	PHROG	replication terminator
@@ -2000,7 +2063,9 @@ phrog_2379	10.0	3.084933575	PHROG	anti-repressor
 phrog_7755	10.0	3.082066934	PHROG	anti-repressor
 phrog_2345	10.0	3.08170727	PHROG	transcriptional regulator
 phrog_7220	10.0	3.066325925	PHROG	regulator of chromosome condensation
+phrog_1305	10.0	3.062957834	PHROG	DNA binding protein
 phrog_1180	10.0	3.056142262	PHROG	tail assembly chaperone
+phrog_925	10.0	3.047664195	PHROG	HTH DNA binding protein
 phrog_17840	10.0	3.04060234	PHROG	tail terminator
 phrog_248	10.0	3.027757205	PHROG	transcriptional activator
 phrog_12112	10.0	3.021602716	PHROG	transcriptional regulator WhiB-like
@@ -2009,11 +2074,15 @@ phrog_4219	9.89	2.995196292	PHROG	regulator of chromosome condensation
 phrog_10071	9.84	2.992995098	PHROG	transcriptional regulator WhiB-like
 phrog_5527	9.82	2.992111488	PHROG	transcriptional regulator
 phrog_147	9.78	2.990338855	PHROG	transcriptional regulator
+phrog_20695	9.22	2.964730921	PHROG	DNA binding protein
+phrog_1192	9.15	2.961421094	PHROG	single strand DNA binding protein
+phrog_37920	9.1	2.959041392	PHROG	HTH DNA binding protein
 phrog_390	9.04	2.95616843	PHROG	Arc-like repressor
 phrog_6499	8.91	2.949877704	PHROG	transcriptional regulator
 phrog_15204	8.82	2.945468585	PHROG	anti-repressor
 phrog_6386	8.71	2.940018155	PHROG	transcription antiterminator
 phrog_3673	8.64	2.936513742	PHROG	Arc-like repressor
+phrog_7364	8.46	2.927370363	PHROG	single strand DNA binding protein
 phrog_1196	8.33	2.920645001	PHROG	tail assembly chaperone
 phrog_34054	8.21	2.914343157	PHROG	transcriptional repressor
 phrog_1932	8.16	2.911690159	PHROG	tail assembly chaperone
@@ -2023,12 +2092,18 @@ phrog_1442	7.86	2.895422546	PHROG	tail assembly chaperone
 phrog_638	7.84	2.894316063	PHROG	transcriptional regulator
 phrog_16766	7.75	2.889301703	PHROG	regulator of chromosome condensation
 phrog_1368	7.58	2.879669206	PHROG	transcriptional regulator
+phrog_756	7.47	2.873320602	PHROG	DNA binding protein
 phrog_4608	7.44	2.871572936	PHROG	anti-repressor
 phrog_536	7.42	2.870403905	PHROG	transcriptional regulator
 phrog_385	7.19	2.85672889	PHROG	transcriptional regulator
+phrog_743	7.17	2.855519156	PHROG	single strand DNA binding protein
 phrog_3140	7.03	2.846955325	PHROG	tail assembly chaperone
 phrog_1688	7.03	2.846955325	PHROG	tail assembly chaperone
+phrog_11420	6.99	2.844477176	PHROG	DNA binding protein
+phrog_7011	6.92	2.840106094	PHROG	Gp2.5-like ssDNA binding protein and ssDNA annealing protein
+phrog_8008	6.87	2.836956737	PHROG	DNA binding protein
 phrog_4952	6.87	2.836956737	PHROG	signal peptide motif
+phrog_378	6.68	2.824776462	PHROG	single strand DNA binding protein
 phrog_3	6.59	2.818885415	PHROG	transcriptional repressor
 phrog_575	6.24	2.79518459	PHROG	Cox-like excisionase and repressor
 phrog_12791	6.15	2.788875116	PHROG	sigma factor for late transcription
@@ -2037,8 +2112,11 @@ phrog_183	5.83	2.765668555	PHROG	tail chaperone protein
 phrog_35458	5.8	2.763427994	PHROG	CII-like regulator
 phrog_508	5.73	2.758154622	PHROG	tail assembly chaperone
 phrog_7906	5.71	2.756636108	PHROG	Arc-like transcriptional regulator
+phrog_9908	5.6	2.748188027	PHROG	DNA binding protein
 phrog_10300	5.58	2.746634199	PHROG	transcriptional regulator
+phrog_664	5.56	2.745074792	PHROG	DNA binding protein
 phrog_8448	5.45	2.736396502	PHROG	anti-repressor
+phrog_1199	5.44	2.7355989	PHROG	single strand DNA binding protein
 phrog_9665	5.39	2.731588765	PHROG	transcriptional regulator
 phrog_441	5.37	2.729974286	PHROG	tail assembly chaperone
 phrog_362	5.34	2.727541257	PHROG	transcriptional repressor
@@ -2047,14 +2125,17 @@ phrog_5823	5.19	2.715167358	PHROG	transcriptional regulator
 phrog_3656	5.14	2.710963119	PHROG	tail assembly chaperone
 phrog_1190	5.09	2.706717782	PHROG	RNA polymerase sigma factor
 phrog_1749	4.88	2.688419822	PHROG	tail assembly chaperone
+phrog_597	4.82	2.683047038	PHROG	DNA binding protein
 phrog_393	4.8	2.681241237	PHROG	tail assembly chaperone
 phrog_8	4.76	2.677606953	PHROG	transcriptional regulator
 phrog_344	4.71	2.673020907	PHROG	tail assembly chaperone
 phrog_3282	4.64	2.666517981	PHROG	sigma factor
 phrog_5736	4.62	2.664641976	PHROG	transcriptional regulator
 phrog_191	4.54	2.657055853	PHROG	CII-like transcriptional activator
+phrog_7778	4.54	2.657055853	PHROG	single strand DNA binding protein
 phrog_24494	4.5	2.653212514	PHROG	tail fiber chaperone
 phrog_20738	4.4	2.643452676	PHROG	anti-repressor
+phrog_9721	4.4	2.643452676	PHROG	single strand DNA binding protein
 phrog_30599	4.34	2.63748973	PHROG	transcriptional regulator
 phrog_1326	4.33	2.636487896	PHROG	tail assembly chaperone
 phrog_725	4.31	2.63447727	PHROG	CII-like regulator
@@ -2065,9 +2146,11 @@ phrog_38161	3.99	2.600972896	PHROG	Arc-like transcriptional regulator
 phrog_12107	3.94	2.595496222	PHROG	transcriptional repressor
 phrog_2790	3.93	2.59439255	PHROG	excisionase and transcriptional regulator
 phrog_1232	3.82	2.582063363	PHROG	tail terminator
+phrog_9759	3.77	2.57634135	PHROG	DNA binding protein
 phrog_4834	3.74	2.572871602	PHROG	CII-like transcriptional activator
 phrog_152	3.7	2.568201724	PHROG	RinB-like transcriptional activator
 phrog_6831	3.67	2.564666064	PHROG	transcriptional regulator
+phrog_3767	3.66	2.563481085	PHROG	nucleoid associated protein
 phrog_278	3.65	2.562292864	PHROG	transcriptional regulator
 phrog_3860	3.59	2.555094449	PHROG	tail assembly chaperone
 phrog_1728	3.58	2.553883027	PHROG	transcriptional regulator
@@ -2081,7 +2164,10 @@ phrog_34068	3.32	2.521138084	PHROG	RNA polymerase sigma factor
 phrog_6928	3.31	2.519827994	PHROG	transcriptional repressor
 phrog_7148	3.3	2.51851394	PHROG	transcriptional repressor
 phrog_1373	3.26	2.5132176	PHROG	transcriptional regulator
+phrog_6243	3.22	2.507855872	PHROG	single strand DNA binding protein
+phrog_14578	3.17	2.501059262	PHROG	single strand DNA binding protein
 phrog_1124	3.16	2.499687083	PHROG	transcriptional regulator
+phrog_9002	3.11	2.492760389	PHROG	single strand DNA binding protein
 phrog_3960	3.11	2.492760389	PHROG	transcriptional regulator
 phrog_5078	3.09	2.489958479	PHROG	tail terminator
 phrog_2334	3.09	2.489958479	PHROG	transcriptional regulator
@@ -2092,6 +2178,8 @@ phrog_92	2.71	2.432969291	PHROG	DNA packaging chaperone FI
 phrog_2474	2.7	2.431363764	PHROG	MerR-like transcriptional regulator
 phrog_123	2.67	2.426511261	PHROG	tail terminator
 phrog_978	2.67	2.426511261	PHROG	tail assembly chaperone
+phrog_1835	2.63	2.419955748	PHROG	HTH DNA binding protein
+phrog_1456	2.62	2.418301291	PHROG	DNA binding protein
 phrog_3638	2.58	2.411619706	PHROG	CII-like transcriptional activator
 phrog_1324	2.57	2.409933123	PHROG	transcriptional activator
 phrog_3512	2.54	2.404833717	PHROG	sigma factor
@@ -2099,11 +2187,18 @@ phrog_25900	2.54	2.404833717	PHROG	transcriptional regulator
 phrog_639	2.52	2.401400541	PHROG	transcriptional regulator
 phrog_78	2.51	2.399673721	PHROG	tail terminator
 phrog_66	2.29	2.359835482	PHROG	excisionase and transcriptional regulator
+phrog_16278	2.26	2.354108439	PHROG	HTH DNA binding protein
+phrog_14932	2.24	2.350248018	PHROG	DNA binding protein
+phrog_1725	2.19	2.340444115	PHROG	DNA binding protein
 phrog_6485	2.18	2.338456494	PHROG	tail terminator
 phrog_3929	2.1	2.322219295	PHROG	transcriptional repressor
 phrog_4697	2.1	2.322219295	PHROG	tail assembly chaperone
+phrog_4441	2.09	2.320146286	PHROG	HTH DNA binding protein
+phrog_2866	2.08	2.318063335	PHROG	single strand DNA binding protein
+phrog_37976	2.08	2.318063335	PHROG	DNA binding protein
 phrog_6506	2.06	2.31386722	PHROG	Arc-like repressor
 phrog_25909	2.01	2.303196057	PHROG	transcription antiterminator
+phrog_26484	2.01	2.303196057	PHROG	DNA binding protein
 phrog_272	2.0	2.301029996	PHROG	Cox-like excisionase and repressor
 phrog_7975	1.96	2.292256071	PHROG	tail terminator
 phrog_1613	1.96	2.292256071	PHROG	tail assembly chaperone
@@ -2117,6 +2212,7 @@ phrog_4779	1.81	2.257678575	PHROG	transcriptional regulator
 phrog_16553	1.75	2.243038049	PHROG	transcriptional repressor
 phrog_18104	1.73	2.238046103	PHROG	transcriptional regulator
 phrog_4053	1.73	2.238046103	PHROG	transcriptional regulator
+phrog_668	1.73	2.238046103	PHROG	HTH DNA binding protein
 phrog_3949	1.71	2.23299611	PHROG	transcriptional repressor
 phrog_3431	1.64	2.214843848	PHROG	Arc-like repressor
 phrog_15865	1.64	2.214843848	PHROG	RNA polymerase sigma factor
@@ -2124,6 +2220,7 @@ phrog_31800	1.63	2.212187604	PHROG	transcriptional regulator
 phrog_357	1.63	2.212187604	PHROG	transcriptional repressor
 phrog_20428	1.6	2.204119983	PHROG	tail terminator
 phrog_2624	1.6	2.204119983	PHROG	tail assembly chaperone
+phrog_1337	1.6	2.204119983	PHROG	DNA binding protein
 phrog_1539	1.59	2.201397124	PHROG	Arc-like repressor
 phrog_7732	1.59	2.201397124	PHROG	transcriptional regulator
 phrog_1400	1.56	2.193124598	PHROG	Srd anti-sigma factor
@@ -2135,14 +2232,19 @@ phrog_929	1.46	2.164352856	PHROG	RstB sensor of two protein system
 phrog_8595	1.45	2.161368002	PHROG	tail assembly chaperone
 phrog_4583	1.45	2.161368002	PHROG	transcriptional repressor
 phrog_4836	1.44	2.158362492	PHROG	CII-like regulator
+phrog_867	1.43	2.155336037	PHROG	DNA binding domain
 phrog_621	1.43	2.155336037	PHROG	tail assembly chaperone
 phrog_25875	1.4	2.146128036	PHROG	tail assembly chaperone
+phrog_2339	1.4	2.146128036	PHROG	HTH DNA binding protein
 phrog_18582	1.39	2.1430148	PHROG	tail assembly chaperone
 phrog_3037	1.39	2.1430148	PHROG	transcriptional repressor
 phrog_10886	1.38	2.139879086	PHROG	transcriptional regulator
 phrog_6480	1.37	2.136720567	PHROG	Arc-like repressor
+phrog_1278	1.35	2.130333768	PHROG	single strand DNA binding protein
+phrog_10639	1.35	2.130333768	PHROG	DNA binding protein
 phrog_15752	1.34	2.127104798	PHROG	protein kinase; inhibitor of host transcription; positively regulates RNaseIII; negatively on RNaseE
 phrog_1076	1.33	2.123851641	PHROG	FmdB-like transcriptional regulator
+phrog_2391	1.32	2.120573931	PHROG	DNA binding protein
 phrog_7950	1.3	2.113943352	PHROG	transcriptional repressor
 phrog_5010	1.3	2.113943352	PHROG	tail assembly chaperone
 phrog_31021	1.29	2.11058971	PHROG	tail assembly chaperone
@@ -2150,17 +2252,21 @@ phrog_3887	1.28	2.10720997	PHROG	transcriptional regulator
 phrog_20159	1.27	2.103803721	PHROG	transcriptional repressor
 phrog_1687	1.26	2.100370545	PHROG	MarR family transcrition regulator
 phrog_1831	1.25	2.096910013	PHROG	transcriptional regulator
+phrog_3642	1.25	2.096910013	PHROG	HTH DNA binding protein
 phrog_14076	1.19	2.075546961	PHROG	transcriptional regulator
 phrog_10551	1.18	2.071882007	PHROG	tail assembly chaperone
 phrog_10396	1.18	2.071882007	PHROG	transcriptional activator
 phrog_6959	1.16	2.064457989	PHROG	tail assembly chaperone
 phrog_5767	1.15	2.06069784	PHROG	sigma factor
+phrog_15004	1.15	2.06069784	PHROG	single strand DNA binding protein
 phrog_8183	1.15	2.06069784	PHROG	tail assembly chaperone
+phrog_517	1.14	2.056904851	PHROG	HTH DNA binding protein
 phrog_9425	1.14	2.056904851	PHROG	transcriptional repressor
 phrog_10365	1.12	2.049218023	PHROG	late transcriptional activator
 phrog_2902	1.12	2.049218023	PHROG	anti-repressor
 phrog_14639	1.1	2.041392685	PHROG	cro-like repressor
 phrog_15731	1.08	2.033423755	PHROG	tail assembly chaperone
+phrog_20051	1.07	2.029383778	PHROG	DNA binding protein
 phrog_32691	1.06	2.025305865	PHROG	RNA polymerase sigma factor
 phrog_38620	1.05	2.021189299	PHROG	transcriptional regulator
 phrog_1671	1.02	2.008600172	PHROG	MotB-like transcriptional regulator
@@ -2226,26 +2332,38 @@ phrog_25688	1.0	2.0	PHROG	tail assembly chaperone
 phrog_32593	1.0	2.0	PHROG	tail assembly chaperone
 phrog_5103	1.0	2.0	PHROG	tail assembly chaperone
 phrog_32580	1.0	2.0	PHROG	tail assembly chaperone
+phrog_11256	0.95	1.977723605	PHROG	DNA binding protein
 phrog_2198	0.94	1.973127854	PHROG	Alt-like transcription activator
 phrog_12831	0.94	1.973127854	PHROG	transcriptional repressor
+phrog_686	0.94	1.973127854	PHROG	HTH DNA binding protein
+phrog_31301	0.92	1.963787827	PHROG	DNA binding protein
 phrog_8397	0.88	1.944482672	PHROG	CsrA-like regulator
 phrog_6223	0.87	1.939519253	PHROG	transcriptional repressor
+phrog_1867	0.86	1.934498451	PHROG	single strand DNA binding protein
 phrog_36225	0.86	1.934498451	PHROG	transcriptional regulator
+phrog_12720	0.85	1.929418926	PHROG	DNA binding protein
 phrog_1702	0.84	1.924279286	PHROG	transcriptional repressor
 phrog_4592	0.82	1.913813852	PHROG	decoy of host sigma70
 phrog_3910	0.82	1.913813852	PHROG	transcriptional regulator
 phrog_17477	0.82	1.913813852	PHROG	anti-repressor
 phrog_19047	0.79	1.897627091	PHROG	transcriptional regulator
 phrog_11187	0.79	1.897627091	PHROG	transcriptional regulator
+phrog_11145	0.78	1.892094603	PHROG	DNA binding protein
 phrog_17569	0.77	1.886490725	PHROG	RNA polymerase sigma factor
+phrog_1410	0.75	1.875061263	PHROG	single strand DNA binding protein
+phrog_1607	0.75	1.875061263	PHROG	single strand DNA binding protein
 phrog_2608	0.72	1.857332496	PHROG	transcriptional activator
+phrog_1303	0.72	1.857332496	PHROG	DNA binding protein
 phrog_5301	0.71	1.851258349	PHROG	transcriptional repressor
+phrog_8473	0.71	1.851258349	PHROG	single strand DNA binding protein
 phrog_2789	0.7	1.84509804	PHROG	transcriptional regulator
 phrog_7146	0.7	1.84509804	PHROG	transcriptional regulator
+phrog_1568	0.69	1.838849091	PHROG	DNA binding protein
 phrog_12354	0.69	1.838849091	PHROG	transcriptional regulator
 phrog_2440	0.68	1.832508913	PHROG	transcriptional regulator
 phrog_633	0.67	1.826074803	PHROG	transcriptional regulator
 phrog_19579	0.66	1.819543936	PHROG	transcriptional regulator
+phrog_1144	0.66	1.819543936	PHROG	single strand DNA binding protein
 phrog_847	0.66	1.819543936	PHROG	anti-repressor Ant
 phrog_14341	0.66	1.819543936	PHROG	transcriptional repressor
 phrog_9926	0.65	1.812913357	PHROG	transcriptional regulator WhiB-like
@@ -2254,29 +2372,45 @@ phrog_1234	0.63	1.799340549	PHROG	Mrh transcription modulator under heat shock
 phrog_9103	0.62	1.792391689	PHROG	transcriptional repressor
 phrog_1746	0.61	1.785329835	PHROG	transcriptional repressor
 phrog_4738	0.6	1.77815125	PHROG	transcriptional repressor
+phrog_534	0.6	1.77815125	PHROG	DNA binding protein
 phrog_3557	0.6	1.77815125	PHROG	transcriptional regulator
+phrog_6370	0.59	1.770852012	PHROG	dsDNA binding protein
+phrog_6463	0.59	1.770852012	PHROG	HTH DNA binding protein
 phrog_18157	0.57	1.755874856	PHROG	transcriptional repressor
 phrog_2620	0.57	1.755874856	PHROG	excisionase and transcriptional regulator
 phrog_17513	0.55	1.740362689	PHROG	transcriptional regulator
+phrog_11503	0.55	1.740362689	PHROG	HTH DNA binding protein
 phrog_1025	0.55	1.740362689	PHROG	RNA polymerase sigma factor
+phrog_4745	0.54	1.73239376	PHROG	DNA binding protein
 phrog_22202	0.53	1.72427587	PHROG	transcription factor
 phrog_19097	0.52	1.716003344	PHROG	transcriptional repressor
 phrog_1077	0.52	1.716003344	PHROG	transcriptional regulator
+phrog_12375	0.51	1.707570176	PHROG	DNA binding protein
 phrog_1166	0.5	1.698970004	PHROG	anti-sigma factor
+phrog_955	0.5	1.698970004	PHROG	HTH DNA binding protein
+phrog_20486	0.48	1.681241237	PHROG	DNA binding protein
+phrog_14857	0.48	1.681241237	PHROG	HTH DNA binding protein
 phrog_17048	0.48	1.681241237	PHROG	anti-repressor
 phrog_1070	0.48	1.681241237	PHROG	anti-sigma factor
+phrog_1098	0.48	1.681241237	PHROG	HTH DNA binding protein
 phrog_19880	0.47	1.672097858	PHROG	transcriptional regulator
+phrog_3855	0.45	1.653212514	PHROG	HTH DNA binding protein
+phrog_32288	0.45	1.653212514	PHROG	HTH DNA binding protein
 phrog_1253	0.43	1.633468456	PHROG	inhibitor of host transcription
 phrog_1444	0.42	1.62324929	PHROG	transcriptional repressor
 phrog_35297	0.42	1.62324929	PHROG	CI-like repressor
+phrog_12881	0.41	1.612783857	PHROG	DNA binding protein
 phrog_8214	0.41	1.612783857	PHROG	Arc-like repressor
 phrog_3288	0.41	1.612783857	PHROG	transcriptional regulator
 phrog_868	0.41	1.612783857	PHROG	transcriptional activator
+phrog_5738	0.4	1.602059991	PHROG	single strand DNA binding protein
 phrog_38027	0.4	1.602059991	PHROG	transcriptional repressor
 phrog_2856	0.38	1.579783597	PHROG	transcriptional regulator
 phrog_18342	0.37	1.568201724	PHROG	transcriptional repressor
 phrog_2838	0.36	1.556302501	PHROG	transcriptional repressor
+phrog_12965	0.36	1.556302501	PHROG	DNA binding protein
 phrog_10889	0.34	1.531478917	PHROG	anti-repressor
+phrog_2311	0.34	1.531478917	PHROG	HTH DNA binding protein
 phrog_31604	0.34	1.531478917	PHROG	transcriptional regulator WhiB-like
 phrog_1345	0.33	1.51851394	PHROG	MotA-like activator of middle period transcription
 phrog_4416	0.32	1.505149978	PHROG	transcriptional regulator
@@ -2284,93 +2418,173 @@ phrog_1704	0.32	1.505149978	PHROG	Lpa-like transcriptional activator
 phrog_582	0.32	1.505149978	PHROG	Arc-like repressor
 phrog_1821	0.31	1.491361694	PHROG	transcriptional regulator WhiB-like
 phrog_12561	0.3	1.477121255	PHROG	transcriptional regulator
+phrog_4629	0.3	1.477121255	PHROG	HTH DNA binding domain protein
+phrog_10100	0.29	1.462397998	PHROG	HTH DNA binding protein
+phrog_15534	0.28	1.447158031	PHROG	HTH DNA binding protein
 phrog_13512	0.28	1.447158031	PHROG	transcriptional regulator
+phrog_10045	0.28	1.447158031	PHROG	HTH DNA binding protein
+phrog_22141	0.28	1.447158031	PHROG	DNA binding protein
 phrog_19643	0.26	1.414973348	PHROG	RNA polymerase sigma factor
 phrog_27555	0.25	1.397940009	PHROG	transcriptional regulator
 phrog_34341	0.25	1.397940009	PHROG	transcriptional regulator
+phrog_14387	0.24	1.380211242	PHROG	HTH DNA binding protein
 phrog_12391	0.24	1.380211242	PHROG	transcriptional regulator
 phrog_14147	0.24	1.380211242	PHROG	transcriptional regulator
 phrog_2639	0.23	1.361727836	PHROG	Arc-like repressor
+phrog_7126	0.23	1.361727836	PHROG	HTH DNA binding protein
 phrog_19935	0.22	1.342422681	PHROG	RNA-binding protein
+phrog_33884	0.22	1.342422681	PHROG	HTH DNA binding protein
+phrog_5497	0.21	1.322219295	PHROG	HTH DNA binding protein
 phrog_14304	0.21	1.322219295	PHROG	transcriptional regulator WhiB-like
+phrog_10086	0.21	1.322219295	PHROG	HTH DNA binding protein
+phrog_9390	0.21	1.322219295	PHROG	DNA binding protein
 phrog_13730	0.21	1.322219295	PHROG	transcriptional repressor
 phrog_12780	0.21	1.322219295	PHROG	RNA polymerase sigma factor
 phrog_13880	0.2	1.301029996	PHROG	transcriptional regulator
+phrog_32341	0.2	1.301029996	PHROG	DNA binding protein
 phrog_7007	0.19	1.278753601	PHROG	MotB-like transcriptional regulator
 phrog_7325	0.19	1.278753601	PHROG	CopG-like transcriptional repressor
+phrog_21912	0.19	1.278753601	PHROG	DNA binding protein
+phrog_36984	0.19	1.278753601	PHROG	DNA binding protein
 phrog_32717	0.18	1.255272505	PHROG	transcriptional regulator
 phrog_7620	0.18	1.255272505	PHROG	transcriptional regulator
 phrog_7387	0.18	1.255272505	PHROG	transcriptional regulator
+phrog_20078	0.18	1.255272505	PHROG	DNA binding protein
 phrog_8794	0.18	1.255272505	PHROG	sigma factor
 phrog_4164	0.17	1.230448921	PHROG	histone family DNA-binding
 phrog_13895	0.17	1.230448921	PHROG	transcriptional regulator
 phrog_15970	0.16	1.204119983	PHROG	transcriptional regulator
+phrog_1877	0.16	1.204119983	PHROG	DNA binding protein
 phrog_23196	0.16	1.204119983	PHROG	transcriptional regulator
+phrog_5414	0.16	1.204119983	PHROG	HTH DNA binding protein
 phrog_9217	0.15	1.176091259	PHROG	transcriptional regulator
 phrog_11451	0.15	1.176091259	PHROG	CI-like repressor
 phrog_37057	0.15	1.176091259	PHROG	transcriptional regulator
+phrog_3178	0.14	1.146128036	PHROG	Arc-like DNA binding domain
+phrog_14847	0.14	1.146128036	PHROG	single strand DNA binding protein
+phrog_15020	0.14	1.146128036	PHROG	HTH DNA binding protein
+phrog_10342	0.14	1.146128036	PHROG	DNA binding protein
 phrog_27605	0.14	1.146128036	PHROG	transcriptional repressor
+phrog_6401	0.14	1.146128036	PHROG	DNA binding protein
+phrog_8522	0.13	1.113943352	PHROG	HTH DNA binding protein
+phrog_25914	0.13	1.113943352	PHROG	HTH DNA binding protein
 phrog_5632	0.13	1.113943352	PHROG	Nun-like transcription termination factor
 phrog_20450	0.12	1.079181246	PHROG	transcriptional repressor
 phrog_10808	0.12	1.079181246	PHROG	transcriptional regulator
+phrog_2511	0.12	1.079181246	PHROG	HTH DNA binding protein
+phrog_15118	0.12	1.079181246	PHROG	HTH DNA binding protein
 phrog_14474	0.12	1.079181246	PHROG	transcriptional regulator
+phrog_10190	0.12	1.079181246	PHROG	DNA binding protein
+phrog_7170	0.12	1.079181246	PHROG	HTH DNA binding protein
 phrog_34700	0.11	1.041392685	PHROG	transcriptional regulator
+phrog_18318	0.11	1.041392685	PHROG	HTH DNA binding protein
 phrog_11622	0.11	1.041392685	PHROG	transcriptional regulator
 phrog_10377	0.11	1.041392685	PHROG	transcriptional regulator
+phrog_7061	0.11	1.041392685	PHROG	HTH DNA binding protein
 phrog_8990	0.11	1.041392685	PHROG	sigma 54 modulation protein/ribosomal protein S30EA
+phrog_25163	0.11	1.041392685	PHROG	DNA binding protein
 phrog_6488	0.1	1.0	PHROG	anti-repressor
 phrog_2441	0.1	1.0	PHROG	decoy of host sigma32
 phrog_10802	0.1	1.0	PHROG	transcriptional regulator WhiB-like
+phrog_19923	0.1	1.0	PHROG	DNA binding protein
 phrog_6267	0.1	1.0	PHROG	transcriptional repressor
 phrog_17318	0.1	1.0	PHROG	transcriptional regulator
 phrog_13041	0.1	1.0	PHROG	transcriptional regulator
 phrog_11046	0.1	1.0	PHROG	transcriptional regulator
 phrog_13814	0.09	0.954242509	PHROG	transcriptional regulator
 phrog_13841	0.09	0.954242509	PHROG	transcriptional regulator
+phrog_11513	0.09	0.954242509	PHROG	DNA binding protein
 phrog_38489	0.09	0.954242509	PHROG	replication terminator
+phrog_19644	0.09	0.954242509	PHROG	DNA binding protein
+phrog_16351	0.09	0.954242509	PHROG	DNA binding protein
 phrog_16084	0.09	0.954242509	PHROG	transcriptional regulator
+phrog_14634	0.09	0.954242509	PHROG	DNA binding protein
+phrog_14995	0.09	0.954242509	PHROG	single strand DNA binding protein
 phrog_11069	0.09	0.954242509	PHROG	transcriptional regulator WhiB-like
+phrog_12987	0.09	0.954242509	PHROG	DNA binding protein
 phrog_9969	0.09	0.954242509	PHROG	transcriptional regulator
 phrog_17715	0.09	0.954242509	PHROG	inhibitor of host transcription
 phrog_14101	0.09	0.954242509	PHROG	transcriptional regulator
+phrog_17821	0.08	0.903089987	PHROG	HTH DNA binding protein
 phrog_18890	0.08	0.903089987	PHROG	transcriptional regulator
+phrog_6826	0.08	0.903089987	PHROG	HTH DNA binding protein
 phrog_18034	0.08	0.903089987	PHROG	transcriptional regulator WhiB-like
 phrog_12301	0.08	0.903089987	PHROG	transcriptional regulator
+phrog_13059	0.08	0.903089987	PHROG	HTH DNA binding protein
 phrog_25387	0.08	0.903089987	PHROG	late promoter transcriptional regulator
+phrog_4003	0.08	0.903089987	PHROG	DNA binding protein
+phrog_20602	0.08	0.903089987	PHROG	DNA binding protein
 phrog_11411	0.08	0.903089987	PHROG	Arc-like repressor
 phrog_34632	0.08	0.903089987	PHROG	transcriptional regulator
+phrog_25401	0.08	0.903089987	PHROG	DNA binding protein
 phrog_6763	0.07	0.84509804	PHROG	activator of host PrrC lysyl-tRNA endonuclease
+phrog_12501	0.07	0.84509804	PHROG	HTH DNA binding protein
+phrog_1763	0.07	0.84509804	PHROG	HTH DNA binding protein
 phrog_22267	0.07	0.84509804	PHROG	transcriptional regulator WhiB-like
 phrog_13027	0.07	0.84509804	PHROG	transcriptional regulator
+phrog_11615	0.07	0.84509804	PHROG	DNA binding protein
 phrog_31815	0.07	0.84509804	PHROG	transcriptional regulator
+phrog_14131	0.07	0.84509804	PHROG	DNA binding protein
 phrog_37093	0.07	0.84509804	PHROG	transcriptional regulator
 phrog_23169	0.07	0.84509804	PHROG	transcriptional regulator
 phrog_12817	0.06	0.77815125	PHROG	transcriptional regulator
+phrog_19906	0.06	0.77815125	PHROG	DNA binding protein
 phrog_13687	0.06	0.77815125	PHROG	transcriptional regulator
 phrog_17403	0.06	0.77815125	PHROG	transcriptional regulator
+phrog_16727	0.06	0.77815125	PHROG	single strand DNA binding protein
+phrog_16239	0.05	0.698970004	PHROG	HTH DNA binding protein
+phrog_35117	0.05	0.698970004	PHROG	HTH DNA binding protein
+phrog_32138	0.05	0.698970004	PHROG	DNA binding protein
+phrog_35571	0.05	0.698970004	PHROG	DNA binding protein
 phrog_15150	0.05	0.698970004	PHROG	transcriptional regulator
+phrog_13172	0.05	0.698970004	PHROG	HTH DNA binding protein
 phrog_35956	0.05	0.698970004	PHROG	anti-repressor
 phrog_33376	0.05	0.698970004	PHROG	translation repressor
+phrog_8403	0.05	0.698970004	PHROG	DNA binding protein
 phrog_20723	0.04	0.602059991	PHROG	transcription factor
 phrog_18893	0.04	0.602059991	PHROG	transcriptional regulator
 phrog_31496	0.04	0.602059991	PHROG	transcriptional regulator
+phrog_18600	0.04	0.602059991	PHROG	DNA binding protein
+phrog_16014	0.04	0.602059991	PHROG	HTH DNA binding protein
+phrog_17383	0.04	0.602059991	PHROG	DNA binding protein
+phrog_10331	0.04	0.602059991	PHROG	DNA binding protein
 phrog_22350	0.04	0.602059991	PHROG	transcription factor
 phrog_20952	0.04	0.602059991	PHROG	transcriptional regulator
+phrog_16411	0.04	0.602059991	PHROG	HTH DNA binding protein
 phrog_16198	0.04	0.602059991	PHROG	transcriptional repressor
+phrog_12757	0.04	0.602059991	PHROG	HTH DNA binding protein
 phrog_13786	0.04	0.602059991	PHROG	transcriptional regulator
+phrog_12474	0.04	0.602059991	PHROG	DNA binding protein
+phrog_11473	0.04	0.602059991	PHROG	HTH DNA binding protein
+phrog_11488	0.04	0.602059991	PHROG	DNA binding protein
 phrog_27454	0.04	0.602059991	PHROG	RNA polymerase sigma factor
 phrog_19859	0.03	0.477121255	PHROG	transcriptional regulator
 phrog_33133	0.03	0.477121255	PHROG	anti-repressor
 phrog_26873	0.03	0.477121255	PHROG	inhibitor of transcription initiation and antiterminator
 phrog_4580	0.03	0.477121255	PHROG	transcription factor
+phrog_11359	0.03	0.477121255	PHROG	DNA binding protein
+phrog_38530	0.03	0.477121255	PHROG	HTH DNA binding protein
+phrog_10626	0.03	0.477121255	PHROG	DNA binding protein
 phrog_18707	0.03	0.477121255	PHROG	anti-repressor
 phrog_13162	0.03	0.477121255	PHROG	transcriptional regulator
 phrog_31093	0.03	0.477121255	PHROG	Arc-like repressor
+phrog_19532	0.03	0.477121255	PHROG	DNA binding protein
+phrog_15890	0.02	0.301029996	PHROG	single strand DNA binding protein
+phrog_12258	0.02	0.301029996	PHROG	HTH DNA binding protein
 phrog_13968	0.02	0.301029996	PHROG	transcriptional regulator
+phrog_38557	0.02	0.301029996	PHROG	DNA binding protein
+phrog_35869	0.02	0.301029996	PHROG	DNA binding protein
+phrog_31591	0.02	0.301029996	PHROG	HTH DNA binding protein
 phrog_24325	0.02	0.301029996	PHROG	transcriptional regulator
+phrog_19438	0.02	0.301029996	PHROG	DNA binding protein
+phrog_15148	0.02	0.301029996	PHROG	HTH DNA binding protein
+phrog_15152	0.02	0.301029996	PHROG	HTH DNA binding protein
+phrog_27751	0.02	0.301029996	PHROG	DNA binding protein
 phrog_2745	0.01	0.0	PHROG	transcriptional repressor
 phrog_24504	0.01	0.0	PHROG	transcriptional regulator
 phrog_22230	0.01	0.0	PHROG	transcriptional regulator
 phrog_32591	0.01	0.0	PHROG	transcriptional regulator
+phrog_27635	0.01	0.0	PHROG	HTH DNA binding protein
 phrog_25610	0.01	0.0	PHROG	transcriptional regulator WhiB-like
 phrog_23090	0.01	0.0	PHROG	transcriptional regulator
+phrog_21644	0.01	0.0	PHROG	DNA binding protein
