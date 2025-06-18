@@ -62,12 +62,15 @@ def summarize_annot_table(table, hmm_descriptions):
         "contig",
         "circular_contig",
         "genome",
+        "gene_number",
+        
         "KEGG_hmm_id",
         "FOAM_hmm_id",
         "Pfam_hmm_id",
         "dbCAN_hmm_id",
         "METABOLIC_hmm_id",
         "PHROG_hmm_id",
+        
         "KEGG_score",
         "FOAM_score",
         "Pfam_score",
@@ -81,19 +84,22 @@ def summarize_annot_table(table, hmm_descriptions):
         "dbCAN_coverage",
         "METABOLIC_coverage",
         "PHROG_coverage",
-        
+
         "KEGG_V-score",
         "Pfam_V-score",
         "PHROG_V-score",
+        
         "window_avg_KEGG_VL-score_viral",
         "window_avg_Pfam_VL-score_viral",
         "window_avg_PHROG_VL-score_viral",
+        
         "KEGG_verified_flank_up",
         "KEGG_verified_flank_down",
         "Pfam_verified_flank_up",
         "Pfam_verified_flank_down",
         "PHROG_verified_flank_up",
         "PHROG_verified_flank_down",
+        
         "KEGG_MGE_flank",
         "Pfam_MGE_flank",
         "PHROG_MGE_flank"
@@ -259,36 +265,46 @@ def summarize_annot_table(table, hmm_descriptions):
         "Protein",
         "contig",
         "genome",
+        "gene_number",
+        
         "KEGG_V-score",
         "Pfam_V-score",
         "PHROG_V-score",
+        
         "KEGG_hmm_id",
         "KEGG_Description",
         "KEGG_score",
         "KEGG_coverage",
+        
         "FOAM_hmm_id",
         "FOAM_Description",
         "FOAM_score",
         "FOAM_coverage",
+        
         "Pfam_hmm_id",
         "Pfam_Description",
         "Pfam_score",
         "Pfam_coverage",
+        
         "dbCAN_hmm_id",
         "dbCAN_Description",
         "dbCAN_score",
         "dbCAN_coverage",
+        
         "METABOLIC_hmm_id",
         "METABOLIC_Description",
         "METABOLIC_score",
         "METABOLIC_coverage",
+        
         "PHROG_hmm_id",
         "PHROG_Description",
         "PHROG_score",
         "PHROG_coverage",
+        
         "top_hit_hmm_id",
         "top_hit_description",
         "top_hit_db",
+        
         "circular_contig",
         "Virus_Like_Window",
         "Viral_Flanking_Genes_Upstream",
@@ -304,7 +320,7 @@ def summarize_annot_table(table, hmm_descriptions):
     # Remove duplicates, if any (this happens sometimes if the input table also had duplciates)
     table = table.unique()
     
-    return table.sort(["Genome", "Contig", "Protein"])
+    return table.sort(["Genome", "Contig", "gene_number"])
 
 def filter_false_substrings(table, false_substring_table, bypass_min_bitscore, bypass_min_cov, valid_hmm_ids):
     """
@@ -402,7 +418,7 @@ def filter_metabolism_annots(table, metabolism_table, false_substring_table, byp
     # Remove duplicates, if any (this happens sometimes if the input table also had duplciates)
     table = table.unique()
     
-    return table.sort(["Genome", "Contig", "Protein"])
+    return table.sort(["Genome", "Contig", "gene_number"])
 
 def filter_physiology_annots(table, physiology_table, false_phys_substrings, bypass_min_bitscore, bypass_min_cov):
     """
@@ -430,7 +446,7 @@ def filter_physiology_annots(table, physiology_table, false_phys_substrings, byp
     # Remove duplicates, if any (this happens sometimes if the input table also had duplciates)
     table = table.unique()
     
-    return table.sort(["Genome", "Contig", "Protein"])
+    return table.sort(["Genome", "Contig", "gene_number"])
 
 def filter_regulation_annots(table, regulation_table, false_reg_substrings, bypass_min_bitscore, bypass_min_cov):
     """
@@ -458,7 +474,7 @@ def filter_regulation_annots(table, regulation_table, false_reg_substrings, bypa
     # Remove duplicates, if any (this happens sometimes if the input table also had duplciates)
     table = table.unique()
     
-    return table.sort(["Genome", "Contig", "Protein"])
+    return table.sort(["Genome", "Contig", "gene_number"])
 
 def main():
     input_table  = snakemake.params.context_table
@@ -505,20 +521,30 @@ def main():
         pl.col("Pfam_hmm_id").str.replace(r'\.\d+$', '', literal=False).alias("Pfam_hmm_id_clean"),
     )
     
-    metabolism_table_out = filter_metabolism_annots(annot_table, metabolism_table, false_metab_substring_table, bypass_min_bitscore, bypass_min_cov)
-    physiology_table_out = filter_physiology_annots(annot_table, physiology_table, false_phys_substring_table, bypass_min_bitscore, bypass_min_cov)
-    regulation_table_out = filter_regulation_annots(annot_table, regulation_table, false_reg_substring_table, bypass_min_bitscore, bypass_min_cov)
-    
-    drop_cols = ["window_avg_KEGG_VL-score_viral", "window_avg_Pfam_VL-score_viral", "window_avg_PHROG_VL-score_viral", "top_hit_hmm_id_clean", "Pfam_hmm_id_clean"]
-    for col in drop_cols:
-        if col in annot_table.columns:
-            annot_table = annot_table.drop(col)
-        if col in metabolism_table_out.columns:
-            metabolism_table_out = metabolism_table_out.drop(col)
-        if col in physiology_table_out.columns:
-            physiology_table_out = physiology_table_out.drop(col)
-        if col in regulation_table_out.columns:
-            regulation_table_out = regulation_table_out.drop(col)
+    drop_cols = ["gene_number", "window_avg_KEGG_VL-score_viral", "window_avg_Pfam_VL-score_viral", "window_avg_PHROG_VL-score_viral", "top_hit_hmm_id_clean", "Pfam_hmm_id_clean"]
+    out_dfs = {
+        "annot_table": annot_table,
+        "metabolism_table_out": filter_metabolism_annots(annot_table, metabolism_table, false_metab_substring_table, bypass_min_bitscore, bypass_min_cov),
+        "physiology_table_out": filter_physiology_annots(annot_table, physiology_table, false_phys_substring_table, bypass_min_bitscore, bypass_min_cov),
+        "regulation_table_out": filter_regulation_annots(annot_table, regulation_table, false_reg_substring_table, bypass_min_bitscore, bypass_min_cov)
+    }
+    for table in out_dfs.keys():
+        df = out_dfs[table]
+        df = df.drop([col for col in df.columns if col in drop_cols])
+        replacements = []
+        for col in df.columns:
+            if col.endswith("_score"):
+                replacements.append(
+                    pl.when(pl.col(col) == -float("inf"))
+                    .then(None)
+                    .otherwise(pl.col(col))
+                    .alias(col)
+                )
+        if replacements:
+            df = df.with_columns(replacements)
+        out_dfs[table] = df
+        
+    annot_table, metabolism_table_out, physiology_table_out, regulation_table_out = out_dfs["annot_table"], out_dfs["metabolism_table_out"], out_dfs["physiology_table_out"], out_dfs["regulation_table_out"]
 
     annot_table.write_csv(all_annot_out_table, separator="\t")
     metabolism_table_out.write_csv(out_metabolism_table, separator="\t")
