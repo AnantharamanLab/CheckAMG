@@ -9,7 +9,7 @@ import resource
 import platform
 os.environ["POLARS_MAX_THREADS"] = str(snakemake.threads)
 import polars as pl
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 # Function to set memory limit in GB
 def set_memory_limit(limit_in_gb):
@@ -102,7 +102,7 @@ def viral_origin_confidence(circular, viral_window, viral_flank_up, viral_flank_
         raise ValueError(f"Unexpected confidence score: {confidence_score}. This should not happen.")
 
 def write_fasta_str(record):
-    return f">{record.id} {record.description}\n{str(record.seq)}\n"
+    return f">{record.header.name} {record.header.desc}\n{str(record.seq)}\n"
 
 def organize_proteins(category_table_path, category, all_genes_df):
     """
@@ -219,8 +219,12 @@ def write_organized_files(organized_dict, category, category_table_path, prot_re
     
     # Write each confidence level file in parallel
     with ThreadPoolExecutor() as executor:
-        for key, protein_names in organized_dict.items():
+        futures = [
             executor.submit(write_fasta_file, key, protein_names)
+            for key, protein_names in organized_dict.items()
+        ]
+        for f in as_completed(futures):
+            f.result()
 
 def main():
     metab_table_path = snakemake.params.metabolism_table
