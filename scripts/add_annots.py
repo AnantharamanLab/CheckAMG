@@ -40,20 +40,26 @@ def prefix_columns(dataframe, prefix):
     return dataframe.select(cols_to_select)
 
 def widen_hmm_results(hmm_results_df):
-    # Ensure sorting for deterministic behavior
+    # Ensure consistent ordering
     hmm_results_df = hmm_results_df.sort(["sequence", "db"])
-    
-    # Create a new column for each combination of `db` and the associated scores/ids/V-scores
+
+    dbs = hmm_results_df.select("db").unique().to_series().to_list()
+
     hmm_results_df = hmm_results_df.with_columns([
-        pl.when(pl.col("db") == db).then(pl.col(col)).otherwise(None).alias(f"{db}_{col}")
-        for db in hmm_results_df.select("db").unique().to_series().to_list()
-        for col in ["score", "hmm_id"]
+        pl.when(pl.col("db") == db).then(pl.col("score")).otherwise(None).alias(f"{db}_score")
+        for db in dbs
+    ] + [
+        pl.when(pl.col("db") == db).then(pl.col("hmm_id")).otherwise(None).alias(f"{db}_hmm_id")
+        for db in dbs
+    ] + [
+        pl.when(pl.col("db") == db).then(pl.col("hmm_coverage")).otherwise(None).alias(f"{db}_coverage")
+        for db in dbs
     ])
 
-    # Remove the original score, hmm_id, and db columns as they are now redundant
-    hmm_results_df = hmm_results_df.drop(["score", "hmm_id", "db"])
+    # Drop original columns
+    hmm_results_df = hmm_results_df.drop(["score", "hmm_id", "hmm_coverage", "db"])
 
-    # Pivot the DataFrame to widen it, aggregating by sequence and filling missing values as needed
+    # Aggregate by sequence
     hmm_results_df_wide = hmm_results_df.group_by("sequence", maintain_order=True).agg([
         pl.max(col).alias(col) for col in hmm_results_df.columns if col != "sequence"
     ])

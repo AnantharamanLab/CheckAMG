@@ -176,7 +176,7 @@ def filter_and_save_single_contig_proteins(input_file, output_folder, min_num_se
         contig_cds[contig_id].append(record)
 
     args = [
-        (contig_id, [(rec.header.name, rec.seq) for rec in records], min_num_sequences)
+        (contig_id, [(rec.header.name, rec.header.desc, rec.seq) for rec in records], min_num_sequences)
         for contig_id, records in contig_cds.items()
     ]
 
@@ -184,14 +184,17 @@ def filter_and_save_single_contig_proteins(input_file, output_folder, min_num_se
         filtered_results = list(tqdm(pool.imap_unordered(extract_and_filter_contig_group, args),
                                      total=len(args), desc="Filtering contigs", unit="contigs"))
 
+    total_orfs = 0
     single_contig_output_file = os.path.join(output_folder, "single_contig_proteins.faa")
     with open(single_contig_output_file, "w") as output_handle:
         for result in filtered_results:
             if result is None:
                 continue
             _, records_data = result
-            for name, seq in records_data:
-                write_fasta(Record(name, seq), output_handle)
+            for name, desc, seq in records_data:
+                total_orfs += 1
+                write_fasta(Record(Header(name, desc), seq), output_handle)
+    logger.info(f"Filtered single-contig genomes: {len(contig_cds):,} contigs and {total_orfs:,} ORFs retained")
 
 def get_totals_after_filtering(input_files, min_num_sequences, single_contig_file):
     """

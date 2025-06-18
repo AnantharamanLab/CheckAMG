@@ -46,7 +46,6 @@ print("========================================================================\
 with open(log_file, "a") as log:
     log.write("========================================================================\n                Step 5/11: Assign functions to proteins                 \n========================================================================\n")
 
-
 def assign_db(db_path):
     if "KEGG" in str(db_path) or "kegg" in str(db_path) or "kofam" in str(db_path):
         return "KEGG"
