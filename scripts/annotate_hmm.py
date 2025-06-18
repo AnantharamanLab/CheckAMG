@@ -221,7 +221,7 @@ def main():
     # Run HMMsearch in parallel
     result_paths = []
     with Pool(processes=num_threads) as pool:
-        for res in tqdm(pool.imap_unordered(_hmm_worker, jobs), total=len(jobs), desc="HMMsearches", unit="chunk"):
+        for res in tqdm(pool.imap_unordered(_hmm_worker, jobs), total=len(jobs), desc="HMMsearches", unit="chunks"):
             result_paths.append(res)
 
     # Combine and filter result files
