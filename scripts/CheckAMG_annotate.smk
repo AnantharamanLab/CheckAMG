@@ -12,7 +12,6 @@ if input_type == "nucl":
         output:
             touch(os.path.join(config["paths"]["output_dir"], "wdir", "filter_by_length.done"))
         params:
-            build_or_annotate = "annotate",
             input_single_contig_genomes = config["input_single_contig_genomes"],
             input_vmag_fastas = config["input_vmag_fastas"],
             min_len = config["min_len"],
@@ -35,7 +34,6 @@ if input_type == "nucl":
         output:
             touch(os.path.join(config["paths"]["output_dir"], "wdir", "check_circular.done"))
         params:
-            build_or_annotate = "annotate",
             input_single_contig_genomes = os.path.join(config["paths"]["output_dir"], "wdir", "filtered_input", "filtered_fna_by_length", "single_contig_genomes.fna"),
             input_vmag_fastas = os.path.join(config["paths"]["output_dir"], "wdir", "filtered_input", "filtered_fna_by_length", "vMAG_fna"),
             tr_min_len = 20,
@@ -64,7 +62,6 @@ if input_type == "nucl":
         output:
             touch(os.path.join(config["paths"]["output_dir"], "wdir", "run_pyrodigal_gv.done"))
         params:
-            build_or_annotate = "annotate",
             input_single_contig_genomes = os.path.join(config["paths"]["output_dir"], "wdir", "filtered_input", "filtered_fna_by_length", "single_contig_genomes.fna"),
             input_vmag_fastas = os.path.join(config["paths"]["output_dir"], "wdir", "filtered_input", "filtered_fna_by_length", "vMAG_fna"),
             wdir = os.path.join(config["paths"]["output_dir"], "wdir"),
@@ -90,7 +87,6 @@ if input_type == "nucl":
         output:
             touch(os.path.join(config["paths"]["output_dir"], "wdir", "filter_by_cds.done"))
         params:
-            build_or_annotate = "annotate",
             input_type = config["input_type"],
             input_prot_subdir = os.path.join(config["paths"]["output_dir"], "wdir", "pyrodigal-gv"),
             min_cds = config["min_cds"],
@@ -112,7 +108,6 @@ elif input_type == "prot":
         output:
             touch(os.path.join(config["paths"]["output_dir"], "wdir", "filter_by_cds.done"))
         params:
-            build_or_annotate = "annotate",
             input_type = config["input_type"],
             input_single_contig_prots = config["input_single_contig_prots"],
             input_vmag_prots = config["input_vmag_prots"],
@@ -139,7 +134,6 @@ rule assign_annots:
     output:
         touch(os.path.join(config["paths"]["output_dir"], "wdir", "annotate_hmm.done"))
     params:
-        build_or_annotate = "annotate",
         protein_dir = os.path.join(config["paths"]["output_dir"], "wdir", "filtered_input", "filtered_faa_by_cds"),
         hmm_vscores = os.path.join(config["paths"]["files_dir"], "vscores.csv"),
         vscores = os.path.join(config["paths"]["output_dir"], "wdir", "vscores.tsv"),
@@ -168,7 +162,6 @@ rule index_genes:
     output:
         touch(os.path.join(config["paths"]["output_dir"], "wdir", "index_genes.done"))
     params:
-        build_or_annotate = "annotate",
         cluster_taxa_levels = None,
         gene_index = os.path.join(config["paths"]["output_dir"], "wdir", "gene_index.tsv"),
         vscores = os.path.join(config["paths"]["output_dir"], "wdir", "vscores.tsv"),
@@ -194,7 +187,6 @@ rule add_annots:
     output:
         touch(os.path.join(config["paths"]["output_dir"], "wdir", "add_annots.done"))
     params:
-        build_or_annotate = "annotate",
         gene_index = os.path.join(config["paths"]["output_dir"], "wdir", "gene_index.tsv"),
         gene_index_annotated = os.path.join(config["paths"]["output_dir"], "wdir", "gene_index_annotated.tsv"),
         vscores = os.path.join(config["paths"]["output_dir"], "wdir", "vscores.tsv"),
@@ -218,7 +210,6 @@ rule genome_context:
     output:
         touch(os.path.join(config["paths"]["output_dir"], "wdir", "genome_context.done"))
     params:
-        build_or_annotate = "annotate",
         outparent = os.path.join(config["paths"]["output_dir"], "results"),
         context_table = os.path.join(config["paths"]["output_dir"], "results", "genes_genomic_context.tsv"),
         gene_index_annotated = os.path.join(config["paths"]["output_dir"], "wdir", "gene_index_annotated.tsv"),
@@ -251,7 +242,6 @@ rule curate_annots:
     output:
         touch(os.path.join(config["paths"]["output_dir"], "wdir", "curate_results.done"))
     params:
-        build_or_annotate = "annotate",
         context_table = os.path.join(config["paths"]["output_dir"], "results", "genes_genomic_context.tsv"),
         metabolism_table = os.path.join(config["paths"]["files_dir"], "AMGs.tsv"),
         physiology_table = os.path.join(config["paths"]["files_dir"], "APGs.tsv"),
@@ -259,11 +249,13 @@ rule curate_annots:
         metabolism_table_out = os.path.join(config["paths"]["output_dir"], "results", "metabolic_genes_curated.tsv"),
         physiology_table_out = os.path.join(config["paths"]["output_dir"], "results", "physiology_genes_curated.tsv"),
         regulation_table_out = os.path.join(config["paths"]["output_dir"], "results", "regulation_genes_curated.tsv"),
+        bypass_min_bitscore = 80,
+        bypass_min_cov = 0.8,
         all_annot_out_table = os.path.join(config["paths"]["output_dir"], "results", "gene_annotations.tsv"),
         hmm_ref = os.path.join(config["paths"]["files_dir"], "hmm_id_to_name.csv"),
-        false_amgs = os.path.join(config["paths"]["files_dir"], "false_amgs.txt"),
-        false_apgs = os.path.join(config["paths"]["files_dir"], "false_apgs.txt"),
-        false_aregs = os.path.join(config["paths"]["files_dir"], "false_aregs.txt"),
+        false_amgs = os.path.join(config["paths"]["files_dir"], "false_amgs.csv"),
+        false_apgs = os.path.join(config["paths"]["files_dir"], "false_apgs.csv"),
+        false_aregs = os.path.join(config["paths"]["files_dir"], "false_aregs.csv"),
         debug = bool(config["debug"]),
         log = config["log"]
     threads:
@@ -282,7 +274,6 @@ rule organize_proteins:
     output:
         touch(os.path.join(config["paths"]["output_dir"], "wdir", "organize_proteins.done"))
     params:
-        build_or_annotate = "annotate",
         metabolism_table = os.path.join(config["paths"]["output_dir"], "results", "metabolic_genes_curated.tsv"),
         physiology_table = os.path.join(config["paths"]["output_dir"], "results", "physiology_genes_curated.tsv"),
         regulation_table = os.path.join(config["paths"]["output_dir"], "results", "regulation_genes_curated.tsv"),
@@ -307,7 +298,6 @@ rule make_final_table:
     output:
         touch(os.path.join(config["paths"]["output_dir"], "wdir", "make_final_table.done"))
     params:
-        build_or_annotate = "annotate",
         all_genes_annotated = os.path.join(config["paths"]["output_dir"], "results", "gene_annotations.tsv"),
         gene_index = os.path.join(config["paths"]["output_dir"], "wdir", "gene_index.tsv"),
         metabolism_table = os.path.join(config["paths"]["output_dir"], "results", "metabolic_genes_curated.tsv"),

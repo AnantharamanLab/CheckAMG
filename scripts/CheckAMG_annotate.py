@@ -173,6 +173,10 @@ def run_snakemake(config_path, args):
                 "--quiet", "all"
             ]
         subprocess.run(snakemake_command)
-        logger.info("CheckAMG annotate complete.")
+        log_file_path = os.path.join(os.path.abspath(args.output), 'PhAuxDB_build.log')
+        print("========================================================================\n              The CheckAMG annotate pipeline is complete               \n========================================================================")
+        with open(log_file_path, "a") as log:
+            log.write("========================================================================\n              The CheckAMG annotate pipeline is complete               \n========================================================================\n")
+
     except subprocess.CalledProcessError as e:
         logger.error("CheckAMG annotate ended prematurely with an error!")

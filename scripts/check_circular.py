@@ -17,7 +17,8 @@ import sys
 import logging
 import re
 import collections
-import multiprocessing as mp
+from multiprocessing import Pool
+from tqdm import tqdm
 import resource
 import platform
 from pyfastatools import Parser
@@ -41,14 +42,9 @@ logging.basicConfig(
 )
 logger = logging.getLogger()
 
-if snakemake.params.build_or_annotate =="build":
-    print("========================================================================\n     Step 2/22: Check the circularity of the input genome sequences    \n========================================================================")
-    with open(log_file, "a") as log:
-        log.write("========================================================================\n     Step 2/22: Check the circularity of the input genome sequences    \n========================================================================\n")
-elif snakemake.params.build_or_annotate == "annotate":
-    print("========================================================================\n     Step 2/11: Check the circularity of the input genome sequences    \n========================================================================")
-    with open(log_file, "a") as log:
-        log.write("========================================================================\n     Step 2/11: Check the circularity of the input genome sequences    \n========================================================================\n")
+print("========================================================================\n     Step 2/11: Check the circularity of the input genome sequences    \n========================================================================")
+with open(log_file, "a") as log:
+    log.write("========================================================================\n     Step 2/11: Check the circularity of the input genome sequences    \n========================================================================\n")
 
 # Genome class
 class Genome:
@@ -152,25 +148,28 @@ def process_genomes_batch(genome_records, k, tr_min_len, tr_max_len, tr_max_coun
     return processed_genomes
 
 def parallel_processing(input_files, k, tr_min_len, tr_max_len, tr_max_count, tr_max_ambig, tr_max_basefreq, kmer_max_freq, num_workers):
-    # Read genome records from all input files
     genome_records = []
     for input_file in input_files:
         genome_records.extend([(record.header.name, record.seq) for record in Parser(input_file)])
 
-    # Divide genome records into chunks for parallel processing
     chunk_size = max(1, len(genome_records) // num_workers)
     genome_chunks = [
         genome_records[i:i + chunk_size] for i in range(0, len(genome_records), chunk_size)
     ]
 
-    # Process chunks in parallel
-    with mp.Pool(processes=num_workers) as pool:
-        results = pool.starmap(
-            process_genomes_batch,
-            [(chunk, k, tr_min_len, tr_max_len, tr_max_count, tr_max_ambig, tr_max_basefreq, kmer_max_freq) for chunk in genome_chunks]
-        )
+    with Pool(processes=num_workers) as pool:
+        async_results = [
+            pool.apply_async(
+                process_genomes_batch,
+                args=(chunk, k, tr_min_len, tr_max_len, tr_max_count, tr_max_ambig, tr_max_basefreq, kmer_max_freq)
+            )
+            for chunk in genome_chunks
+        ]
+        
+        results = []
+        for r in tqdm(async_results, desc="Checking circularity", unit="contig", total=len(async_results)):
+            results.append(r.get())
 
-    # Combine all results into a single dictionary
     combined_genomes = {}
     for result in results:
         combined_genomes.update(result)

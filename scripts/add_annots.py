@@ -27,14 +27,9 @@ logging.basicConfig(
 )
 logger = logging.getLogger()
 
-if snakemake.params.build_or_annotate =="build":
-    print("========================================================================\n     Step 7/22: Merge functional annotations with protein metadata      \n========================================================================")
-    with open(log_file, "a") as log:
-        log.write("========================================================================\n     Step 7/22: Merge functional annotations with protein metadata      \n========================================================================\n")
-elif snakemake.params.build_or_annotate == "annotate":
-    print("========================================================================\n     Step 7/11: Merge functional annotations with protein metadata      \n========================================================================")
-    with open(log_file, "a") as log:
-        log.write("========================================================================\n     Step 7/11: Merge functional annotations with protein metadata      \n========================================================================\n")
+print("========================================================================\n     Step 7/11: Merge functional annotations with protein metadata      \n========================================================================")
+with open(log_file, "a") as log:
+    log.write("========================================================================\n     Step 7/11: Merge functional annotations with protein metadata      \n========================================================================\n")
 
 def prefix_columns(dataframe, prefix):
     # Select 'sequence' only once, and prefix other columns as needed

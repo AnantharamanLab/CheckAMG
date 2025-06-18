@@ -42,14 +42,10 @@ logging.basicConfig(
 )
 logger = logging.getLogger()
 
-if snakemake.params.build_or_annotate =="build":
-    print("========================================================================\n                Step 5/22: Assign functions to proteins                 \n========================================================================")
-    with open(log_file, "a") as log:
-        log.write("========================================================================\n                Step 5/22: Assign functions to proteins                 \n========================================================================\n")
-elif snakemake.params.build_or_annotate == "annotate":
-    print("========================================================================\n                Step 5/11: Assign functions to proteins                 \n========================================================================")
-    with open(log_file, "a") as log:
-        log.write("========================================================================\n                Step 5/11: Assign functions to proteins                 \n========================================================================\n")
+print("========================================================================\n                Step 5/11: Assign functions to proteins                 \n========================================================================")
+with open(log_file, "a") as log:
+    log.write("========================================================================\n                Step 5/11: Assign functions to proteins                 \n========================================================================\n")
+
 
 def assign_db(db_path):
     if "KEGG" in str(db_path) or "kegg" in str(db_path) or "kofam" in str(db_path):
@@ -75,13 +71,13 @@ def assign_db(db_path):
 
 def extract_query_info(hits, db_path):
     if "Pfam" in str(db_path) or "pfam" in str(db_path):
-        hmm_id = hits.query_accession.decode()
+        hmm_id = hits.query.accession.decode()
     elif "FOAM" in str(db_path) or "foam" in str(db_path):
-        hmm_id = hits.query_accession.decode()
+        hmm_id = hits.query.accession.decode()
     elif "eggNOG" in str(db_path) or "eggnog" in str(db_path):
-        hmm_id = hits.query_name.decode().split(".")[0]
+        hmm_id = hits.query.name.decode().split(".")[0]
     else:
-        query_name = hits.query_name.decode()
+        query_name = hits.query.name.decode()
         if ".wlink.txt.mafft" in query_name:
             hmm_id = query_name.split(".")[1]
         else:
@@ -150,8 +146,8 @@ def hmmsearch_worker(key, seq_path, db_str, seq_lengths, out_dir, min_coverage, 
     with open(outfile, 'w') as out, open(errfile, 'w') as err, \
          easel.SequenceFile(seq_path, digital=True, alphabet=alphabet) as seqs:
         for hits in hmmer.hmmsearch(queries=hmm_list, sequences=seqs, E=evalue, cpus=cpus):
-            hmm_id = extract_query_info(hits, db_str)
             for hit in hits:
+                hmm_id = extract_query_info(hits, db_str)
                 for dom in hit.domains.included:
                     a = dom.alignment
                     hit_name = hit.name.decode()
@@ -225,7 +221,7 @@ def main():
     # Run HMMsearch in parallel
     result_paths = []
     with Pool(processes=num_threads) as pool:
-        for res in tqdm(pool.imap_unordered(_hmm_worker, jobs), total=len(jobs), desc="HMMsearches"):
+        for res in tqdm(pool.imap_unordered(_hmm_worker, jobs), total=len(jobs), desc="HMMsearches", unit="chunk"):
             result_paths.append(res)
 
     # Combine and filter result files

@@ -34,14 +34,9 @@ logging.basicConfig(
 )
 logger = logging.getLogger()
 
-if snakemake.params.build_or_annotate =="build":
-    print("========================================================================\n  Step 18/22: Organize proteins based on their viral origin confidence   \n========================================================================")
-    with open(log_file, "a") as log:
-        log.write("========================================================================\n  Step 18/22: Organize proteins based on their viral origin confidence   \n========================================================================\n")
-elif snakemake.params.build_or_annotate == "annotate":
-    print("========================================================================\n   Step 10/11: Organize proteins into putative AMGs, APGs, and AReGs    \n========================================================================")
-    with open(log_file, "a") as log:
-        log.write("========================================================================\n   Step 10/11: Organize proteins into putative AMGs, APGs, and AReGs    \n========================================================================\n")
+print("========================================================================\n   Step 10/11: Organize proteins into putative AMGs, APGs, and AReGs    \n========================================================================")
+with open(log_file, "a") as log:
+    log.write("========================================================================\n   Step 10/11: Organize proteins into putative AMGs, APGs, and AReGs    \n========================================================================\n")
 
 def load_protein_sequences(prot_paths):
     """Loads protein sequences from provided FASTA files into a dictionary."""
@@ -105,71 +100,11 @@ def viral_origin_confidence(circular, viral_window, viral_flank_up, viral_flank_
     else:
         logger.error(f"Unexpected confidence score: {confidence_score}. This should not happen.")
         raise ValueError(f"Unexpected confidence score: {confidence_score}. This should not happen.")
-        
-def organize_proteins_build(all_genes_df):
-    """
-    Organizes protein identifiers based on viral origin confidence determined by genomic context.
-
-    This function takes a DataFrame (all_genes_df) containing gene annotation data with required columns:
-    'Protein', 'Circular_Contig', 'Virus_Like_Window', 'Viral_Flanking_Genes_Upstream', 'Viral_Flanking_Genes_Downstream', and 'MGE_Flanking_Genes'.
-    It determines the confidence level for each protein using the viral_origin_confidence function and then
-    groups the proteins into three sets: high confidence, medium confidence, and low confidence.
-
-    Returns:
-        dict: A dictionary with keys 'high', 'medium', and 'low' corresponding to sets of protein identifiers.
-    """
-    high_conf = set()
-    medium_conf = set()
-    low_conf = set()
-    
-    # Extract relevant columns and iterate over each gene record from all annotations
-    genes_info = all_genes_df.select(["Protein", "Circular_Contig", "Virus_Like_Window",
-                                       "Viral_Flanking_Genes_Upstream", "Viral_Flanking_Genes_Downstream",
-                                       "MGE_Flanking_Genes"]).to_dicts()
-    for gene in genes_info:
-        protein = gene["Protein"]
-        circular = gene["Circular_Contig"]
-        viral_window = gene["Virus_Like_Window"]
-        viral_flank_up = gene["Viral_Flanking_Genes_Upstream"]
-        viral_flank_down = gene["Viral_Flanking_Genes_Downstream"]
-        mge_flank = gene["MGE_Flanking_Genes"]
-        confidence = viral_origin_confidence(circular, viral_window, viral_flank_up, viral_flank_down, mge_flank)
-        if confidence == "high":
-            high_conf.add(protein)
-        elif confidence == "medium":
-            medium_conf.add(protein)
-        else:
-            low_conf.add(protein)
-
-    logger.info(f"{len(high_conf):,} genes classified as HIGH confidence viral origin.")
-    logger.info(f"{len(medium_conf):,} genes classified as MEDIUM confidence viral origin.")
-    logger.info(f"{len(low_conf):,} genes classified as LOW confidence viral origin.")
-
-    return {"high": high_conf, "medium": medium_conf, "low": low_conf}
 
 def write_fasta_str(record):
     return f">{record.id} {record.description}\n{str(record.seq)}\n"
 
-def write_organized_files_build(organized_dict, prot_records, outdir):
-    filename_dict = {
-        "high": "high_confidence_viral.faa",
-        "medium": "medium_confidence_viral.faa",
-        "low": "low_confidence_viral.faa"
-    }
-
-    os.makedirs(outdir, exist_ok=True)
-
-    for level, proteins in organized_dict.items():
-        output_fasta = os.path.join(outdir, filename_dict[level])
-        with open(output_fasta, "w") as out_f:
-            for protein in proteins:
-                record = prot_records.get(protein)
-                if record is not None:
-                    write_fasta(record, out_f)
-                # else:
-                #     logger.warning(f"Protein '{protein}' not found in the loaded protein records.")
-
-def organize_proteins_annotate(category_table_path, category, all_genes_df):
+def organize_proteins(category_table_path, category, all_genes_df):
     """
     Organizes proteins based on annotations.
     This function reads metabolic/regulatory/physiology gene data and gene annotations from specified file paths.
@@ -232,7 +167,7 @@ def organize_proteins_annotate(category_table_path, category, all_genes_df):
         "avgs_all": all_category_genes
     }
 
-def write_organized_files_annotate(organized_dict, category, category_table_path, prot_records, output_dir):
+def write_organized_files(organized_dict, category, category_table_path, prot_records, output_dir):
     """
     Writes organized protein sequences to separate FASTA files based on the provided categories.
     
@@ -291,51 +226,32 @@ def main():
     metab_table_path = snakemake.params.metabolism_table
     phys_table_path = snakemake.params.physiology_table
     reg_table_path = snakemake.params.regulation_table
-    build_or_annotate = snakemake.params.build_or_annotate
     all_genes_path = snakemake.params.all_genes_annotated
     mem_limit = snakemake.resources.mem
     set_memory_limit(mem_limit)    
 
-    if build_or_annotate == "build":
-        logger.info("Organizing the filtered proteins based on the confidence of their viral origin...")
-        
-        outdir = snakemake.params.outdir
-        prot_paths = [os.path.join(outdir, "filtered_proteins.faa")]
-        prot_records = load_protein_sequences(prot_paths)
-        all_genes_df = pl.read_csv(all_genes_path, separator='\t')
-        organized_dict = organize_proteins_build(all_genes_df)
-        write_organized_files_build(organized_dict, prot_records, outdir)
-        
-        logger.debug(f"Results were written to {outdir}.")
-        logger.info(f"Organization completed.")
-        
-    elif build_or_annotate == "annotate":
-        logger.info("Organizing proteins based on annotations and writing AMG/AReG/APG classifications...")
-        
-        input_prots_dir = snakemake.params.protein_dir
-        fasta_outdir = snakemake.params.aux_fasta_dir
-        prot_paths = load_prot_paths.load_prots(input_prots_dir)
-        prot_records = load_protein_sequences(prot_paths)
-        
-        all_genes_df = pl.read_csv(all_genes_path, separator='\t')
-        
-        for category in ["metabolic", "regulatory", "physiology"]:
-            if category == "metabolic":
-                organized_dict = organize_proteins_annotate(metab_table_path, category, all_genes_df)
-                write_organized_files_annotate(organized_dict, category, metab_table_path, prot_records, fasta_outdir)
-            elif category == "regulatory":
-                organized_dict = organize_proteins_annotate(reg_table_path, category, all_genes_df)
-                write_organized_files_annotate(organized_dict, category, reg_table_path, prot_records, fasta_outdir)
-            elif category == "physiology":
-                organized_dict = organize_proteins_annotate(phys_table_path, category, all_genes_df)
-                write_organized_files_annotate(organized_dict, category, phys_table_path, prot_records, fasta_outdir)
-                
-        logger.debug(f"Results were written to {fasta_outdir}.")
-        logger.info(f"Organization completed.")
+    logger.info("Organizing proteins based on annotations and writing AMG/AReG/APG classifications...")
     
-    else:
-        logging.error(f"Invalid option for build_or_annotate: {build_or_annotate}")
-        raise ValueError(f"Invalid option for build_or_annotate: {build_or_annotate}")
+    input_prots_dir = snakemake.params.protein_dir
+    fasta_outdir = snakemake.params.aux_fasta_dir
+    prot_paths = load_prot_paths.load_prots(input_prots_dir)
+    prot_records = load_protein_sequences(prot_paths)
+    
+    all_genes_df = pl.read_csv(all_genes_path, separator='\t')
+    
+    for category in ["metabolic", "regulatory", "physiology"]:
+        if category == "metabolic":
+            organized_dict = organize_proteins(metab_table_path, category, all_genes_df)
+            write_organized_files(organized_dict, category, metab_table_path, prot_records, fasta_outdir)
+        elif category == "regulatory":
+            organized_dict = organize_proteins(reg_table_path, category, all_genes_df)
+            write_organized_files(organized_dict, category, reg_table_path, prot_records, fasta_outdir)
+        elif category == "physiology":
+            organized_dict = organize_proteins(phys_table_path, category, all_genes_df)
+            write_organized_files(organized_dict, category, phys_table_path, prot_records, fasta_outdir)
+            
+    logger.debug(f"Results were written to {fasta_outdir}.")
+    logger.info(f"Organization completed.")
     
 if __name__ == "__main__":
     main()

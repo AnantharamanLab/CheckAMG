@@ -30,14 +30,9 @@ logging.basicConfig(
 )
 logger = logging.getLogger()
 
-if snakemake.params.build_or_annotate =="build":
-    print("========================================================================\n        Step 4/22: Filter the input sequences by number of CDSs         \n========================================================================")
-    with open(log_file, "a") as log:
-        log.write("========================================================================\n        Step 4/22: Filter the input sequences by number of CDSs         \n========================================================================\n")
-elif snakemake.params.build_or_annotate == "annotate":
-    print("========================================================================\n        Step 4/11: Filter the input sequences by number of CDSs         \n========================================================================")
-    with open(log_file, "a") as log:
-        log.write("========================================================================\n        Step 4/11: Filter the input sequences by number of CDSs         \n========================================================================\n")
+print("========================================================================\n        Step 4/11: Filter the input sequences by number of CDSs         \n========================================================================")
+with open(log_file, "a") as log:
+    log.write("========================================================================\n        Step 4/11: Filter the input sequences by number of CDSs         \n========================================================================\n")
 
 def count_cds_and_filter_by_contig(file_path, min_cds):
     """

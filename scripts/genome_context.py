@@ -7,6 +7,8 @@ import polars as pl
 import numpy as np
 from numba import njit
 import concurrent.futures
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from tqdm import tqdm
 import logging
 
 def set_memory_limit(limit_in_gb):
@@ -29,14 +31,9 @@ logging.basicConfig(
 logger = logging.getLogger()
 logging.getLogger("numba").setLevel(logging.INFO)
 
-if snakemake.params.build_or_annotate == "build":
-    print("========================================================================\n         Step 8/22: Analyze the genomic context of annotations          \n========================================================================")
-    with open(log_file, "a") as log:
-        log.write("========================================================================\n         Step 8/22: Analyze the genomic context of annotations          \n========================================================================\n")
-elif snakemake.params.build_or_annotate == "annotate":
-    print("========================================================================\n         Step 8/11: Analyze the genomic context of annotations          \n========================================================================")
-    with open(log_file, "a") as log:
-        log.write("========================================================================\n         Step 8/11: Analyze the genomic context of annotations          \n========================================================================\n")
+print("========================================================================\n         Step 8/11: Analyze the genomic context of annotations          \n========================================================================")
+with open(log_file, "a") as log:
+    log.write("========================================================================\n         Step 8/11: Analyze the genomic context of annotations          \n========================================================================\n")
 
 def calculate_gene_lengths(data):
     """
@@ -152,12 +149,16 @@ def calculate_window_statistics(data, window_size, minimum_percentage, n_cpus):
     """
     data = data.sort(["contig", "gene_number"])
     contigs = data["contig"].unique().to_list()
-    # Use ThreadPoolExecutor to process each contig concurrently.
+
     with concurrent.futures.ThreadPoolExecutor(max_workers=n_cpus) as executor:
-        results = list(executor.map(
-            lambda c: process_window_statistics_for_contig(c, data, window_size, minimum_percentage),
-            contigs
-        ))
+        futures = [
+            executor.submit(
+                process_window_statistics_for_contig,
+                contig, data, window_size, minimum_percentage
+            )
+            for contig in contigs
+        ]
+        results = [f.result() for f in tqdm(concurrent.futures.as_completed(futures), total=len(futures), desc="Calculating sliding-window averages", unit="contig")]
     return pl.concat(results, how="vertical")
 
 def check_window_avg_lscore(data, min_window_avg_lscores):
@@ -382,31 +383,34 @@ def process_genomes(data, circular_contigs, minimum_percentage, min_window_avg_l
         logger.info("Verifying flanking hallmark genes.")
         logger.debug(f"Data before verifying flanking hallmark genes: {data.head()}")
         contig_dfs = data.partition_by("contig")
-        with concurrent.futures.ThreadPoolExecutor(max_workers=n_cpus) as executor:
-            results = list(executor.map(
-                lambda df: verify_flanking_hallmark(df, hallmark_accessions, max_flank_length),
-                contig_dfs
-            ))
+        with ThreadPoolExecutor(max_workers=n_cpus) as executor:
+            futures = [
+                executor.submit(verify_flanking_hallmark, df, hallmark_accessions, max_flank_length)
+                for df in contig_dfs
+            ]
+            results = [f.result() for f in tqdm(as_completed(futures), total=len(futures), desc="Checking flanks for viral hallmarks", unit="contig")]
         data = pl.concat(results, how="vertical")
     else:
         logger.info("Verifying flanking V-scores.")
         logger.debug(f"Data before verifying flanking V-scores: {data.head()}")
         contig_dfs = data.partition_by("contig")
-        with concurrent.futures.ThreadPoolExecutor(max_workers=n_cpus) as executor:
-            results = list(executor.map(
-                lambda df: verify_flanking_vscores(df, minimum_vscore, max_flank_length),
-                contig_dfs
-            ))
+        with ThreadPoolExecutor(max_workers=n_cpus) as executor:
+            futures = [
+                executor.submit(verify_flanking_vscores, df, minimum_vscore, max_flank_length)
+                for df in contig_dfs
+            ]
+            results = [f.result() for f in tqdm(as_completed(futures), total=len(futures), desc=f"Checking flanks for V-score={minimum_vscore}", unit="contig")]
         data = pl.concat(results, how="vertical")
 
     logger.info("Checking for genes in potential mobile genetic element regions.")
     logger.debug(f"Data before checking for flanking insertions: {data.head()}")
     contig_dfs = data.partition_by("contig")
-    with concurrent.futures.ThreadPoolExecutor(max_workers=n_cpus) as executor:
-        results = list(executor.map(
-            lambda df: check_flanking_insertions(df, mobile_accessions, max_flank_length),
-            contig_dfs
-        ))
+    with ThreadPoolExecutor(max_workers=n_cpus) as executor:
+        futures = [
+            executor.submit(check_flanking_insertions, df, mobile_accessions, max_flank_length)
+            for df in contig_dfs
+        ]
+        results = [f.result() for f in tqdm(as_completed(futures), total=len(futures), desc="Checking flanks for mobile genes", unit="contig")]
     data = pl.concat(results, how="vertical")
 
     data = data.unique().sort(["genome", "contig", "gene_number"])

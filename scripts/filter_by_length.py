@@ -28,14 +28,9 @@ logging.basicConfig(
 )
 logger = logging.getLogger()
 
-if snakemake.params.build_or_annotate =="build":
-    print("========================================================================\n            Step 1/22: Filter the input sequences by length             \n========================================================================")
-    with open(log_file, "a") as log:
-        log.write("========================================================================\n            Step 1/22: Filter the input sequences by length             \n========================================================================\n")
-elif snakemake.params.build_or_annotate == "annotate":
-    print("========================================================================\n            Step 1/11: Filter the input sequences by length             \n========================================================================")
-    with open(log_file, "a") as log:
-        log.write("========================================================================\n            Step 1/11: Filter the input sequences by length             \n========================================================================\n")
+print("========================================================================\n            Step 1/11: Filter the input sequences by length             \n========================================================================")
+with open(log_file, "a") as log:
+    log.write("========================================================================\n            Step 1/11: Filter the input sequences by length             \n========================================================================\n")
 
 # Function to filter genomes by length
 def filter_genomes_by_length(genome_records, min_length):

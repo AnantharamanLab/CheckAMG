@@ -4,7 +4,7 @@ import argparse
 import textwrap
 import sys
 import psutil
-from scripts import checkAMG_ASCII, CheckAMG_build, CheckAMG_annotate
+from scripts import checkAMG_ASCII, CheckAMG_annotate
 
 available_memory_gb = psutil.virtual_memory().available / (1024 ** 3) # Get available memory in GB
 
@@ -102,80 +102,9 @@ def main():
           description="Executes CheckAMG annotate, de_novo, and aggregate in tandem.",
           formatter_class=CustomHelpFormatter)
      
-     build_parser = subparsers.add_parser(
-          "build", help="Build a statistically-supported, automatically-curated auxiliary gene database.",
-          description="Build a statistically-supported, automatically-curated auxiliary gene database.",
-          formatter_class=CustomHelpFormatter)
-
-     build_required = build_parser.add_argument_group('required arguments')
-     build_required.add_argument("-d", "--db_dir", type=str, required=True,
-                              help="Path to CheckAMG database files (Required).")
-     build_required.add_argument("-o", "--output", type=str, required=True,
-                              help="Output directory for all generated files and folders (Required).")
-     build_required.add_argument("-g", "--genomes", type=str, required=False,
-                              help="Input viral genome(s) in nucleotide fasta format (.fna or .fasta). Expectation is that "
-                                   "individual virus genomes are single contigs.")
-     build_required.add_argument("-v", "--vmags", type=str, required=False,
-                              help="Path to folder containing vMAGs (multiple contigs) rather than single-contig viral genomes. "
-                                   "Expectation is that the folder contains one .fna or .fasta file "
-                                   "per virus genome and that each genome contains multiple contigs.")
-
-     build_parser.add_argument("-l", "--min_len", type=int, required=False, default = 5000,
-                              help="Minimum length in base pairs for input sequences (default: %(default)s).")
-     build_parser.add_argument("-f", "--min_orf", type=int, required=False, default = 4,
-                              help="Minimum number of open reading frames (proteins) inferred by pyrodigal-gv for input sequences (default: %(default)s).")
-     build_parser.add_argument("--sensitivity", type=float, required=False, default=7.5,
-                              help="MMseqs2 maximum search sensitivity (default: %(default)s).")
-     build_parser.add_argument("--min_seq_id", type=float, required=False, default=0.5,
-                              help="MMseqs2 minimum sequence identity (default: %(default)s).")
-     build_parser.add_argument("-c", "--cov_fraction", type=float, required=False, default=0.5,
-                              help="Minimum covered fraction for MMseqs2 and HMM alignments (default: %(default)s).")
-     build_parser.add_argument("-r", "--cluster_ranks", type=str, required=False, default="class,family,genus",
-                              help="Comma-separated list of taxonomic level(s) at which to cluster genomes. Can provide a "
-                                   "single rank or multiple. If multiple ranks are provided, they must be in order class > "
-                                   "family > genus > species (default: %(default)s). Choices: class, family, genus, species.")
-     build_parser.add_argument("-a", "--confidence_levels", type=str, required=False, default="high",
-                              help="Comma-separated list of the levels of confidence (that a given protein is of viral origin) to use "
-                                   "for the final database. Can provide a single level or multiple. If multiple levels are provided, they must "
-                                   "be in order high > medium > low (default: %(default)s, e.g. high,medium). Choices: high, medium, low.")
-     build_parser.add_argument("-x", "--exclude_singletons", required=False, default=True, action=argparse.BooleanOptionalAction,
-                              help="Exclude proteins from genomes that did not cluster with any other genomes (singleton genomes) "
-                              "and proteins that did not cluster with any other proteins (singleton proteins) before calculating "
-                              "auxiliary scores. This will prevent the final database from being over-saturated with proteins that "
-                              "were predicted to be auxiliary merely because they were underrepresented in the starting database "
-                              "(but it will also remove truly 'one-of-a-kind' proteins) (default: %(default)s).")
-     build_parser.add_argument("-n", "--min_annot", type=float, required=False, default=0.20,
-                              help="Minimum percentage (0.0-1.0) of genes in a genome/contig required to have been assigned a "
-                                   "functional annotation using the CheckAMG database to be considered for contextual analysis. "
-                                   "(default: %(default)s).")
-     build_parser.add_argument("-L", "--min_window_avg_Lscores", type=str, required=False, default="3.25,3.0,2.5",
-                              help="Minimum average VL-scores (in order: KEGG,Pfam,PHROG) of all genes required for a window to be considered potentially viral (default: %(default)s).")
-     build_parser.add_argument("-Z", "--window_size", type=int, required=False, default=10000,
-                              help="Size in base pairs of the window used to calculate the average VL-score of genes on a contig (default: %(default)s).")
-     build_parser.add_argument("-F", "--max_flank", type=int, required=False, default=10000,
-                              help="Maximum length in base pairs to check on the left/right flanks of potentially auxiliary genes when checking for virus-like genes and non-virus-like genes (default: %(default)s).")
-     build_parser.add_argument("-V", "--min_flank_Vscore", type=float, required=False, default=10.0,
-                              help="Minimum V-score of genes in flanking regions required to verify a potential auxiliary gene as viral and not host sequence contamination (0.0-10.0) (default: %(default)s).")
-     build_parser.add_argument("-H", "--use_hallmark", required=False, default=False, action=argparse.BooleanOptionalAction,
-                              help="Use viral hallmark gene annotations instead of V-scores when checking flanking regions of potential auxiliary genes for viral verification (default: %(default)s).")
-     build_parser.add_argument("--hmm_prefix", type=str, required=False, default="custom",
-                              help="Prefix for generated HMM profile accessions (default: %(default)s).")
-     build_parser.add_argument("-t", "--threads", type=int, required=False, default=10,
-                              help="Maximum number of threads to use (default: %(default)s).")
-     build_parser.add_argument("-m", "--mem", type=int, required=False, default=round(available_memory_gb*0.80), # 80% of available memory
-                              help="Maximum amount of memory allowed to be allocated in GB (default: 80%% of available [%(default)s]).")
-     build_parser.add_argument("--debug", required=False, default=False, action=argparse.BooleanOptionalAction,
-                              help="Log CheckAMG build with debug-level detail (default: %(default)s).")
-
      args = parser.parse_args()
      if args.command == "download":
           print("Database download functionality will be implemented here.")
-     elif args.command == "build":
-          if not args.genomes and not args.vmags:
-               parser.error("At least one of --genomes or --vmags is required.")
-          CheckAMG_build.create_output_dir(args.output)
-          config_path = CheckAMG_build.generate_config(args)
-          CheckAMG_build.run_snakemake(config_path, args)
      elif args.command == "annotate":
           if args.input_type == "nucl" and not args.genomes and not args.vmags:
                parser.error("At least one of --genomes or --vmags is required when --input_type is 'nucl'.")

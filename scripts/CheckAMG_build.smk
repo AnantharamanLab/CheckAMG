@@ -227,6 +227,8 @@ rule curate_annots:
         metabolism_table_out = os.path.join(config["paths"]["output_dir"], "results", "metabolic_genes_curated.tsv"),
         physiology_table_out = os.path.join(config["paths"]["output_dir"], "results", "physiology_genes_curated.tsv"),
         regulation_table_out = os.path.join(config["paths"]["output_dir"], "results", "regulation_genes_curated.tsv"),
+        bypass_min_bitscore = 80,
+        bypass_min_cov = 0.8,
         all_annot_out_table = os.path.join(config["paths"]["output_dir"], "results", "gene_annotations.tsv"),
         hmm_ref = os.path.join(config["paths"]["files_dir"], "hmm_id_to_name.csv"),
         false_amgs = os.path.join(config["paths"]["files_dir"], "false_amgs.txt"),

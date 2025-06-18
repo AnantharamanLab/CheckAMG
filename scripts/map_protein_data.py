@@ -4,7 +4,6 @@ import os
 import sys
 import resource
 import platform
-import gc
 from pathlib import Path
 import logging
 os.environ["POLARS_MAX_THREADS"] = str(snakemake.threads)
@@ -30,14 +29,9 @@ logging.basicConfig(
 )
 logger = logging.getLogger()
 
-if snakemake.params.build_or_annotate =="build":
-    print("========================================================================\n            Step 6/22: Map gene- and genome-level metadata             \n========================================================================")
-    with open(log_file, "a") as log:
-        log.write("========================================================================\n            Step 6/22: Map gene- and genome-level metadata             \n========================================================================\n")
-elif snakemake.params.build_or_annotate == "annotate":
-    print("========================================================================\n            Step 6/11: Map gene- and genome-level metadata             \n========================================================================")
-    with open(log_file, "a") as log:
-        log.write("========================================================================\n            Step 6/11: Map gene- and genome-level metadata             \n========================================================================\n")
+print("========================================================================\n            Step 6/11: Map gene- and genome-level metadata             \n========================================================================")
+with open(log_file, "a") as log:
+    log.write("========================================================================\n            Step 6/11: Map gene- and genome-level metadata             \n========================================================================\n")
 
 def parse_faa_file(faa_file, is_vMAG=False):
     """

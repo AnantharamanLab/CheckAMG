@@ -29,15 +29,9 @@ logging.basicConfig(
     ]
 )
 logger = logging.getLogger()
-
-if snakemake.params.build_or_annotate =="build":
-    print("========================================================================\n   Step 3/22: Predict and translate ORFs in genomes with pyrodigal-GV  \n========================================================================")
-    with open(log_file, "a") as log:
-        log.write("========================================================================\n   Step 3/22: Predict and translate ORFs in genomes with pyrodigal-GV  \n========================================================================\n")
-elif snakemake.params.build_or_annotate == "annotate":
-    print("========================================================================\n   Step 3/11: Predict and translate ORFs in genomes with pyrodigal-GV  \n========================================================================")
-    with open(log_file, "a") as log:
-        log.write("========================================================================\n   Step 3/11: Predict and translate ORFs in genomes with pyrodigal-GV  \n========================================================================\n")
+print("========================================================================\n   Step 3/11: Predict and translate ORFs in genomes with pyrodigal-GV  \n========================================================================")
+with open(log_file, "a") as log:
+    log.write("========================================================================\n   Step 3/11: Predict and translate ORFs in genomes with pyrodigal-GV  \n========================================================================\n")
 
 def run_metapyrodigal(input_fasta: Optional[str],
                       vmag_fasta_dir: Optional[str],

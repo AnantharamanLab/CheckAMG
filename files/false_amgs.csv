@@ -1,0 +1,322 @@
+substring,type
+EC:3.1.21.,hard
+EC:3.1.26.,hard
+EC:3.1.27.,hard
+nuclease,hard
+EC 3.1.21.,hard
+EC 3.1.26.,hard
+EC 3.1.27.,hard
+EC:3.2.,soft
+EC 3.2.,soft
+glycosylhydrolase,soft
+EC:3.2.1.17,soft
+EC 3.2.1.17,soft
+lysozyme,hard
+muramidase,hard
+endolysin,hard
+Endolysin,hard
+lysin,hard
+Lysin,hard
+EC:2.4.,soft
+EC 2.4.,soft
+toxin,hard
+Toxin,hard
+phospholipase,soft
+Phospholipase,soft
+Glycosyltransferase,soft
+glycosyltransferase,soft
+Glycosyl transferase,soft
+glycosyl transferase,soft
+Glycosyl hydrolase,soft
+glycosyl hydrolase,soft
+Glycoside hydrolase,soft
+glycoside hydrolase,soft
+adenylyltransferase,soft
+peptidase,soft
+Concanavalin A-like lectin/glucanases superfamily,soft
+Concanavalin A-like lectin,soft
+Lipopolysaccharide,soft
+lipopolysaccharide,soft
+acyl carrier,soft
+acyl-carrier,soft
+Acyl carrier,soft
+Acyl-carrier,soft
+pectate lyase,soft
+Pectate lyase,soft
+EC:4.2.2.2,soft
+EC 4.2.2.2,soft
+Histidine phosphatase,soft
+histidine phosphatase,soft
+histidinol phosphatase,soft
+Histidinol phosphatase,soft
+histidinol-phosphatase,soft
+Histidinol-phosphatase,soft
+D-glycero-beta-D-manno-heptose-7-phosphate kinase,soft
+EC:2.7.1.167,soft
+EC 2.7.1.167,soft
+EC:2.7.1,soft
+EC 2.7.1,soft
+peptidoglycan,hard
+Peptidoglycan,hard
+adhesin,hard
+Adhesin,hard
+receptor,hard
+Receptor,hard
+transcriptional,hard
+transcription,hard
+tRNA synthetase,hard
+tRNA,hard
+rhodanese-like domain,hard
+Rhodanese-like domain,hard
+baseplate,hard
+phage head,hard
+phage tail,hard
+portal,hard
+virion structural,hard
+virion structure,hard
+Ig-like domain,hard
+immunoglobulin,hard
+receptor,hard
+head decoration,hard
+head morphogenesis,hard
+tail fiber,hard
+tail fibre,hard
+tail peptide,hard
+tail protein,hard
+tail spike,hard
+tail assembly,hard
+tail terminator,hard
+tail length,hard
+head protein,hard
+head vertex,hard
+capsid,hard
+Ribonucleotide Reductase,hard
+Ribonucleotide reductase,hard
+ribonucleotide reductase,hard
+ribonucleoside-diphosphate reductase,hard
+Ribonucleoside-diphosphate reductase,hard
+Nucleoside diphosphate,hard
+nucleoside diphosphate,hard
+Nucleoside-diphosphate,hard
+nucleoside-diphosphate,hard
+dihydrofolate reductase,hard
+Dihydrofolate reductase,hard
+ATP cone,hard
+EC 2.7.1.48,hard
+EC:2.7.1.48,hard
+uridine/cytidine kinase,hard
+Uridine/cytidine kinase,hard
+uridine-cytidine kinase,hard
+Uridine-cytidine kinase,hard
+uridine kinase,hard
+Uridine kinase,hard
+UCK2,hard
+EC 4.1.1.23,hard
+EC:4.1.1.23,hard
+orotidine-5'-phosphate decarboxylase,hard
+Orotidine-5'-phosphate decarboxylase,hard
+Orotidine 5'-phosphate decarboxylase,hard
+orotidine 5'-phosphate decarboxylase,hard
+EC 2.4.2.10,hard
+EC:2.4.2.10,hard
+Orotate phosphoribosyltransferase,hard
+orotate phosphoribosyltransferase,hard
+EC 3.5.2.3,hard
+EC:3.5.2.3,hard
+Dihydroorotase,hard
+dihydroorotase,hard
+carbamoylaspartic dehydrase,hard
+Carbamoylaspartic dehydrase,hard
+Carbamoylaspartic Dehydrase,hard
+dihydroorotate hydrolase,hard
+Dihydroorotate hydrolase,hard
+Dihydroorotate Hydrolase,hard
+EC 1.3.5.2,hard
+EC:1.3.5.2,hard
+dihydroorotate dehydrogenase,hard
+Dihydroorotate dehydrogenase,hard
+"Dihydroorotate Dehydrogenase
+EC 6.3.5.5""",hard
+EC:6.3.5.5,hard
+carbamoyl-phosphate synthase,hard
+Carbamoyl-phosphate synthase,hard
+carbamoyl phosphate synthase,hard
+Carbamoyl phosphate synthase,hard
+carbamoyl-phosphate synthetase,hard
+Carbamoyl-phosphate synthetase,hard
+carbamoyl phosphate synthetase,hard
+Carbamoyl phosphate synthetase,hard
+aspartate carbamoyltransferase,hard
+Aspartate carbamoyltransferase,hard
+carbamylaspartotranskinase,hard
+aspartate transcarbamylase,hard
+aspartate carbamyltransferase,hard
+Thymidylate synthase,hard
+thymidylate synthase,hard
+EC:2.1.,hard
+EC 2.1.,hard
+methyltransferase,hard
+methylase,hard
+methylation,hard
+Methyltransferase,hard
+Methylase,hard
+methylase,hard
+UDP-glucose/GDP-mannose dehydrogenase,hard
+nucleotide,hard
+Nucleotide,hard
+nucleoside,hard
+Nucleoside,hard
+AAA domain,hard
+dTDP,hard
+dUDP,hard
+dADP,hard
+dCDP,hard
+dGDP,hard
+dCMP,hard
+TDP,hard
+TTP,hard
+UDP,hard
+UTP,hard
+ADP,hard
+CDP,hard
+CTP,hard
+GDP,hard
+GTP,hard
+CMP,hard
+CDP,hard
+CTP,hard
+SPFH domain / Band 7 family,hard
+PLD-like domain,hard
+deoxyribose,hard
+Deoxyribose,hard
+Nucleotidyl transferase,hard
+nucleotidyl transferase,hard
+nucleotidyltransferase,hard
+Nucleotidyltransferase,hard
+thymidylyltransferase,hard
+Thymidylyltransferase,hard
+adenosyltransferase,hard
+Adenosyltransferase,hard
+cytidylyltransferase,hard
+Cytidylyltransferase,hard
+phosphoribosyltransferase,hard
+Phosphoribosyltransferase,hard
+EC:2.7.7.,hard
+EC 2.7.7.,hard
+Sigma-70,hard
+sigma-70,hard
+sigma70,hard
+Sigma70,hard
+DNA polymerase,hard
+DNA Polymerase,hard
+resolvase,hard
+Resolvase,hard
+transposase,hard
+Transposase,hard
+STAS domain,hard
+SIS domain,hard
+NUDIX,hard
+Cytidylate kinase,hard
+cytidylate kinase,hard
+CMP kinase,hard
+CMPK,hard
+4Fe-4S ferredoxin,soft
+Fe-coproporphyrin III synthase,soft
+ahbC,soft
+AhbC,soft
+Radical SAM superfamily,soft
+radical SAM domain,soft
+radical SAM,soft
+Radical SAM,soft
+anaerobic magnesium-protoporphyrin IX monomethyl ester cyclase,soft
+"phosphoribosyl 1,2-cyclic phosphate phosphodiesterase",soft
+metal-dependent hydrolase,soft
+NAD synthetase,soft
+NAD+ synthetase,soft
+NAD synthase,soft
+NAD+ synthase,soft
+shikimate dehydrogenase,soft
+ParB-like partition protein,soft
+ParB,soft
+parB,soft
+Carbon-nitrogen hydrolase,soft
+carbon-nitrogen hydrolase,soft
+terminase,hard
+Terminase,hard
+histidinol phosphate aminotransferase,soft
+Histidinol phosphate aminotransferase,soft
+histidinol-phosphate aminotransferase,soft
+Histidinol-phosphate aminotransferase,soft
+QueA,hard
+queA,hard
+QueB,hard
+queB,hard
+QueC,hard
+queC,hard
+QueD,hard
+queD,hard
+QueE,hard
+queE,hard
+QueF,hard
+queF,hard
+Queuosine,hard
+queuosine,hard
+7-cyano-7-deazaguanine synthase,hard
+6-carboxytetrahydropterin,hard
+CPH4 synthase,hard
+EC 4.1.2.50,hard
+EC:4.1.2.50,hard
+6-pyruvoyltetrahydropterin,hard
+6-pyruvoyl tetrahydrobiopterin,hard
+EC 4.2.3.12,hard
+EC:4.2.3.12,hard
+DsrC like protein,hard
+S-adenosylmethionine decarboxylase,soft
+S-adenosylmethionine synthetase,soft
+methionine sulfoxide reductase,soft
+Methionine sulfoxide reductase,soft
+methionine-sulfoxide reductase,soft
+Methionine-sulfoxide reductase,soft
+adenosylmethionine---8-amino-7-oxononanoate aminotransferase,soft
+Adenosylmethionine---8-amino-7-oxononanoate aminotransferase,soft
+adenosylmethionine-8-amino-7-oxononanoate aminotransferase,soft
+Adenosylmethionine-8-amino-7-oxononanoate aminotransferase,soft
+chitinase,soft
+Chitinase,soft
+chitosanase,soft
+Chitosanase,soft
+hldE,hard
+HldE,hard
+waaE,hard
+WaaE,hard
+hldD,hard
+HldD,hard
+ADP-L-glycero-D-manno-heptose-6-epimerase,hard
+waaD,hard
+WaaD,hard
+trxA,hard
+TrxA,hard
+thioredoxin reductase,hard
+Thioredoxin reductase,hard
+waaC,hard
+WaaC,hard
+Lipopolysaccharide heptosyltransferase,hard
+lipopolysaccharide heptosyltransferase,hard
+gmhA,hard
+GmhA,hard
+Phosphoheptose isomerase,hard
+phosphoheptose isomerase,hard
+igaA,hard
+IgaA,hard
+membrane transport,hard
+membrane-transport,hard
+Membrane transport,hard
+Membrane-transport,hard
+sporulation,hard
+Sporulation,hard
+two-component system,hard
+two component system,hard
+Two-component system,hard
+Two component system,hard
+resistance,hard
+Resistance,hard

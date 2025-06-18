@@ -1,0 +1,38 @@
+substring,type
+methyltransferase,hard
+methylase,hard
+transposase,hard
+integrase,hard
+excisionase,hard
+exonuclease,hard
+endonuclease,hard
+recombinase,hard
+restriction,hard
+topoisomerase,hard
+primase,hard
+spacer,hard
+CRISPR,hard
+adaptation,hard
+replication,hard
+baseplate,hard
+phage head,hard
+phage tail,hard
+portal,hard
+capsid,hard
+virion structural,hard
+virion structure,hard
+Ig-like domain,hard
+immunoglobulin,hard
+receptor,hard
+head decoration,hard
+head morphogenesis,hard
+head vertex,hard
+tail fiber,hard
+tail fibre,hard
+tail peptide,hard
+tail protein,hard
+tail spike,hard
+tail assembly,hard
+tail terminator,hard
+tail length,hard
+head protein,hard

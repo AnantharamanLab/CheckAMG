@@ -28,14 +28,9 @@ logging.basicConfig(
 )
 logger = logging.getLogger()
 
-if snakemake.params.build_or_annotate =="build":
-    print("========================================================================\n  Step 9/22: Curate the predicted functions based on genomic context   \n========================================================================")
-    with open(log_file, "a") as log:
-        log.write("========================================================================\n  Step 9/22: Curate the predicted functions based on genomic context   \n========================================================================\n")
-elif snakemake.params.build_or_annotate == "annotate":
-    print("========================================================================\n   Step 9/11: Curate the predicted functions based on genomic context   \n========================================================================")
-    with open(log_file, "a") as log:
-        log.write("========================================================================\n   Step 9/11: Curate the predicted functions based on genomic context   \n========================================================================\n")
+print("========================================================================\n   Step 9/11: Curate the predicted functions based on genomic context   \n========================================================================")
+with open(log_file, "a") as log:
+    log.write("========================================================================\n   Step 9/11: Curate the predicted functions based on genomic context   \n========================================================================\n")
 
 def compute_virus_like_window(df):
     """
@@ -79,6 +74,14 @@ def summarize_annot_table(table, hmm_descriptions):
         "dbCAN_score",
         "METABOLIC_score",
         "PHROG_score",
+        
+        "KEGG_coverage",
+        "FOAM_coverage",
+        "Pfam_coverage",
+        "dbCAN_coverage",
+        "METABOLIC_coverage",
+        "PHROG_coverage",
+        
         "KEGG_V-score",
         "Pfam_V-score",
         "PHROG_V-score",
@@ -100,6 +103,8 @@ def summarize_annot_table(table, hmm_descriptions):
             if col.endswith("_id"):
                 dtype = pl.Utf8
             elif col.endswith("_score"):
+                dtype = pl.Float64
+            elif col.endswith("_coverage"):
                 dtype = pl.Float64
             elif "_VL-score_viral" in col:
                 dtype = pl.Boolean
@@ -259,16 +264,28 @@ def summarize_annot_table(table, hmm_descriptions):
         "PHROG_V-score",
         "KEGG_hmm_id",
         "KEGG_Description",
+        "KEGG_score",
+        "KEGG_coverage",
         "FOAM_hmm_id",
         "FOAM_Description",
+        "FOAM_score",
+        "FOAM_coverage",
         "Pfam_hmm_id",
         "Pfam_Description",
+        "Pfam_score",
+        "Pfam_coverage",
         "dbCAN_hmm_id",
         "dbCAN_Description",
+        "dbCAN_score",
+        "dbCAN_coverage",
         "METABOLIC_hmm_id",
         "METABOLIC_Description",
+        "METABOLIC_score",
+        "METABOLIC_coverage",
         "PHROG_hmm_id",
         "PHROG_Description",
+        "PHROG_score",
+        "PHROG_coverage",
         "top_hit_hmm_id",
         "top_hit_description",
         "top_hit_db",
@@ -289,51 +306,77 @@ def summarize_annot_table(table, hmm_descriptions):
     
     return table.sort(["Genome", "Contig", "Protein"])
 
-def filter_false_substrings(table, false_substrings_desc):
+def filter_false_substrings(table, false_substring_table, bypass_min_bitscore, bypass_min_cov, valid_hmm_ids):
     """
     Filter results to exclude false positives based on descriptions.
     - Special EC filters: distinguish between exact EC matches vs. class/subclass matches.
     - Special word-boundary filters for 'lysin' and 'ADP'
     """
-    # columns to examine
-    desc_cols = [c for c in table.columns if c.endswith("_Description")]
-    if "name" in table.columns:
-        desc_cols.append("name")
-    if not desc_cols:
-        return table
+    sources = ["KEGG", "FOAM", "Pfam", "dbCAN", "METABOLIC", "PHROG"]
+    desc_cols = [f"{src}_Description" for src in sources]
 
     specials = {"lysin", "adp"}
 
     def is_exact_ec(keyword):
-        # Match EC:1.2.3.4 or EC 1.2.3.4
         return bool(re.fullmatch(r"EC[:\s]\d+\.\d+\.\d+\.\d+", keyword))
 
-    compiled = {}
-    for kw in false_substrings_desc:
+    hard_patterns = []
+    soft_patterns = []
+    for kw, kw_type in zip(false_substring_table["substring"], false_substring_table["type"]):
         kw_lc = kw.lower()
         if kw_lc in specials:
-            # word boundary match
-            compiled[kw] = rf"(?i)\b{re.escape(kw_lc)}\b"
+            pattern = rf"(?i)\b{re.escape(kw_lc)}\b"
         elif is_exact_ec(kw):
-            # match only full EC numbers followed by end/bracket/space
-            # e.g., EC:4.2.2.2 should not match EC:4.2.2.21
             ec_number = kw.split()[-1] if " " in kw else kw.split(":")[-1]
-            compiled[kw] = rf"(?i)\bEC[:\s]{re.escape(ec_number)}\b"
+            pattern = rf"(?i)\bEC[:\s]{re.escape(ec_number)}\b"
         else:
-            # normal case-insensitive contains
-            compiled[kw] = rf"(?i){re.escape(kw)}"
+            pattern = rf"(?i){re.escape(kw)}"
 
-    for raw_kw, regex in compiled.items():
-        mask = None
-        for col in desc_cols:
-            col_mask = pl.col(col).str.contains(regex, literal=False).fill_null(False)
-            mask = col_mask if mask is None else (mask | col_mask)
+        if kw_type.lower() == "hard":
+            hard_patterns.append(pattern)
+        elif kw_type.lower() == "soft":
+            soft_patterns.append(pattern)
 
-        table = table.filter(~mask)
+    def build_pattern_flags(patterns, desc_cols):
+        exprs = [
+            pl.col(col).str.contains(pat, literal=False).fill_null(False)
+            for pat in patterns for col in desc_cols
+        ]
+        return pl.any_horizontal(exprs) if exprs else pl.lit(False)
 
-    return table
+    def build_soft_valid_flags(patterns, table, hmm_ids_in_group):
+        exprs = []
+        for pat in patterns:
+            for src in ["KEGG", "FOAM", "Pfam", "dbCAN", "METABOLIC", "PHROG"]:
+                desc_col = f"{src}_Description"
+                score_col = f"{src}_score"
+                cov_col = f"{src}_coverage"
+                id_col = f"{src}_hmm_id"
+                
+                exprs.append(
+                    pl.col(desc_col).str.contains(pat, literal=False).fill_null(False) &
+                    pl.col(id_col).is_in(hmm_ids_in_group) &
+                    pl.col(score_col).cast(pl.Float64).fill_null(float("-inf")).is_finite() &
+                    (pl.col(score_col).cast(pl.Float64).fill_null(float("-inf")) >= bypass_min_bitscore) &
+                    pl.col(cov_col).cast(pl.Float64).fill_null(float("-inf")).is_finite() &
+                    (pl.col(cov_col).cast(pl.Float64).fill_null(float("-inf")) >= bypass_min_cov)
+                )
+        return pl.any_horizontal(exprs) if exprs else pl.lit(False)
 
-def filter_metabolism_annots(table, metabolism_table, false_metab_substrings):
+    # Build flags
+    table = table.with_columns([
+        build_pattern_flags(hard_patterns, desc_cols).alias("HARD_MATCH"),
+        build_pattern_flags(soft_patterns, desc_cols).alias("SOFT_MATCH"),
+        build_soft_valid_flags(soft_patterns, table, valid_hmm_ids).alias("SOFT_VALID"),
+    ])
+
+    table_filtered = table.filter(
+        (~pl.col("HARD_MATCH")) & ((~pl.col("SOFT_MATCH")) | pl.col("SOFT_VALID"))
+    )
+
+    return table_filtered.drop(["HARD_MATCH", "SOFT_MATCH", "SOFT_VALID"])
+
+def filter_metabolism_annots(table, metabolism_table, false_substring_table, bypass_min_bitscore, bypass_min_cov):
     """
     Identify metabolism-related genes based on input metabolism table.
     by checking any of the five HMM ID columns for membership in metabolism_table["id"].
@@ -351,16 +394,7 @@ def filter_metabolism_annots(table, metabolism_table, false_metab_substrings):
     table = table.filter(condition)
     
     # Apply false-substring filtering
-    table = filter_false_substrings(table, false_metab_substrings)
-    
-    # dcCAN/CAZyme-spescific false AMGs 
-    false_substrings_dbcan_id = [
-        "CBM", # Carbohydrate-binding modules usually match to tail peptides used for receptor binding
-        "GT", # Glycosyltransferases
-        "GH", # Glycoside hydrolases
-    ]   
-    for substring in false_substrings_dbcan_id:
-        table = table.filter(~(pl.col("dbCAN_hmm_id").str.contains(substring).fill_null(False)))
+    table = filter_false_substrings(table, false_substring_table, bypass_min_bitscore, bypass_min_cov, metab_ids)
     
     # Drop the temporary 'top_hit_hmm_id_clean' column
     table = table.drop("top_hit_hmm_id_clean")
@@ -370,7 +404,7 @@ def filter_metabolism_annots(table, metabolism_table, false_metab_substrings):
     
     return table.sort(["Genome", "Contig", "Protein"])
 
-def filter_physiology_annots(table, physiology_table, false_phys_substrings):
+def filter_physiology_annots(table, physiology_table, false_phys_substrings, bypass_min_bitscore, bypass_min_cov):
     """
     Identify physiology-related genes based on input physiology table.
     by checking any of the five HMM ID columns for membership in physiology_table["id"].
@@ -388,7 +422,7 @@ def filter_physiology_annots(table, physiology_table, false_phys_substrings):
     table = table.filter(condition)
     
     # Apply false-substring filtering
-    table = filter_false_substrings(table, false_phys_substrings)
+    table = filter_false_substrings(table, false_phys_substrings, bypass_min_bitscore, bypass_min_cov, phys_ids)
     
     # Drop the temporary 'top_hit_hmm_id_clean' column
     table = table.drop("top_hit_hmm_id_clean")
@@ -398,8 +432,7 @@ def filter_physiology_annots(table, physiology_table, false_phys_substrings):
     
     return table.sort(["Genome", "Contig", "Protein"])
 
-
-def filter_regulation_annots(table, regulation_table, false_reg_substrings):
+def filter_regulation_annots(table, regulation_table, false_reg_substrings, bypass_min_bitscore, bypass_min_cov):
     """
     Identify regulation-related genes based on input regulation table.
     by checking any of the five HMM ID columns for membership in regulation_table["id"].
@@ -417,7 +450,7 @@ def filter_regulation_annots(table, regulation_table, false_reg_substrings):
     table = table.filter(condition)
     
     # Apply false-substring filtering
-    table = filter_false_substrings(table, false_reg_substrings)
+    table = filter_false_substrings(table, false_reg_substrings, bypass_min_bitscore, bypass_min_cov, reg_ids)
     
     # Drop the temporary 'top_hit_hmm_id_clean' column
     table = table.drop("top_hit_hmm_id_clean")
@@ -436,6 +469,8 @@ def main():
     false_metab_substrings = snakemake.params.false_amgs
     false_phys_substrings = snakemake.params.false_apgs
     false_reg_substrings = snakemake.params.false_aregs
+    bypass_min_bitscore = snakemake.params.bypass_min_bitscore
+    bypass_min_cov = snakemake.params.bypass_min_cov
     out_metabolism_table = snakemake.params.metabolism_table_out
     out_physiology_table = snakemake.params.physiology_table_out
     out_regulation_table = snakemake.params.regulation_table_out
@@ -454,23 +489,13 @@ def main():
     hmm_descriptions = pl.read_csv(hmm_ref, schema={"id": pl.Utf8, "db": pl.Utf8, "name": pl.Utf8})
     hmm_descriptions = hmm_descriptions.select(["id", "db", "name"])
     
-    metabolism_table = pl.read_csv(metabolism_ref, separator="\t")
-    physiology_table = pl.read_csv(physiology_ref, separator="\t")
-    regulation_table = pl.read_csv(regulation_ref, separator="\t")
+    metabolism_table = pl.read_csv(metabolism_ref, separator="\t", schema={"id": pl.Utf8, "V-score": pl.Float32, "VL-score": pl.Float32, "db": pl.Utf8, "name": pl.Utf8})
+    physiology_table = pl.read_csv(physiology_ref, separator="\t", schema={"id": pl.Utf8, "V-score": pl.Float32, "VL-score": pl.Float32, "db": pl.Utf8, "name": pl.Utf8})
+    regulation_table = pl.read_csv(regulation_ref, separator="\t", schema={"id": pl.Utf8, "V-score": pl.Float32, "VL-score": pl.Float32, "db": pl.Utf8, "name": pl.Utf8})
     
-    false_metab_substrings_desc = []
-    false_phys_substrings_desc = []
-    false_reg_substrings_desc = []
-
-    for textfile, substrings_list in zip(
-        [false_metab_substrings, false_phys_substrings, false_reg_substrings],
-        [false_metab_substrings_desc, false_phys_substrings_desc, false_reg_substrings_desc]
-    ):
-        with open(textfile, 'r') as file:
-            for line in file.readlines():
-                if line.startswith("#") or line.strip() == "":
-                    continue
-                substrings_list.append(line.strip().replace('"', ''))
+    false_metab_substring_table = pl.read_csv(false_metab_substrings)
+    false_phys_substring_table = pl.read_csv(false_phys_substrings)
+    false_reg_substring_table = pl.read_csv(false_reg_substrings)
     
     annot_table = summarize_annot_table(table, hmm_descriptions)
     
@@ -480,9 +505,9 @@ def main():
         pl.col("Pfam_hmm_id").str.replace(r'\.\d+$', '', literal=False).alias("Pfam_hmm_id_clean"),
     )
     
-    metabolism_table_out = filter_metabolism_annots(annot_table, metabolism_table, false_metab_substrings_desc)
-    physiology_table_out = filter_physiology_annots(annot_table, physiology_table, false_phys_substrings_desc)
-    regulation_table_out = filter_regulation_annots(annot_table, regulation_table, false_reg_substrings_desc)
+    metabolism_table_out = filter_metabolism_annots(annot_table, metabolism_table, false_metab_substring_table, bypass_min_bitscore, bypass_min_cov)
+    physiology_table_out = filter_physiology_annots(annot_table, physiology_table, false_phys_substring_table, bypass_min_bitscore, bypass_min_cov)
+    regulation_table_out = filter_regulation_annots(annot_table, regulation_table, false_reg_substring_table, bypass_min_bitscore, bypass_min_cov)
     
     drop_cols = ["window_avg_KEGG_VL-score_viral", "window_avg_Pfam_VL-score_viral", "window_avg_PHROG_VL-score_viral", "top_hit_hmm_id_clean", "Pfam_hmm_id_clean"]
     for col in drop_cols:
