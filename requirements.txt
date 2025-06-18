@@ -14,6 +14,7 @@ charset-normalizer        3.4.2                    pypi_0    pypi
 conda-inject              1.3.2                    pypi_0    pypi
 configargparse            1.7.1                    pypi_0    pypi
 connection-pool           0.0.3                    pypi_0    pypi
+datrie                    0.8.2                    pypi_0    pypi
 docutils                  0.21.2                   pypi_0    pypi
 dpath                     2.2.0                    pypi_0    pypi
 fastjsonschema            2.21.1                   pypi_0    pypi
@@ -53,7 +54,7 @@ plac                      1.4.5                    pypi_0    pypi
 platformdirs              4.3.8                    pypi_0    pypi
 polars-u64-idx            1.30.0                   pypi_0    pypi
 psutil                    7.0.0                    pypi_0    pypi
-pulp                      3.2.1                    pypi_0    pypi
+pulp                      2.9.0                    pypi_0    pypi
 pyfastatools              2.5.0                    pypi_0    pypi
 pyhmmer                   0.11.1                   pypi_0    pypi
 pyrodigal                 3.5.2                    pypi_0    pypi
@@ -68,12 +69,12 @@ rpds-py                   0.25.1                   pypi_0    pypi
 setuptools                80.9.0             pyhff2d567_0    conda-forge
 smart-open                7.1.0                    pypi_0    pypi
 smmap                     5.0.2                    pypi_0    pypi
-snakemake                 9.6.0                    pypi_0    pypi
+snakemake                 8.23.2                   pypi_0    pypi
 snakemake-interface-common 1.18.0                   pypi_0    pypi
 snakemake-interface-executor-plugins 9.3.5                    pypi_0    pypi
 snakemake-interface-logger-plugins 1.2.3                    pypi_0    pypi
 snakemake-interface-report-plugins 1.1.0                    pypi_0    pypi
-snakemake-interface-storage-plugins 4.2.1                    pypi_0    pypi
+snakemake-interface-storage-plugins 3.5.0                    pypi_0    pypi
 tabulate                  0.9.0                    pypi_0    pypi
 throttler                 1.2.2                    pypi_0    pypi
 tk                        8.6.13          noxft_hd72426e_102    conda-forge
