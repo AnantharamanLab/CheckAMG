@@ -7,9 +7,10 @@ import resource
 import platform
 import shutil
 import multiprocessing as mp
-from pyfastatools import Parser, write_fasta
-from textwrap import wrap
+from pyfastatools import Parser, write_fasta, Record, Header
 from collections import defaultdict
+from functools import partial
+from tqdm import tqdm
 
 def set_memory_limit(limit_in_gb):
     current_os = platform.system()
@@ -104,17 +105,19 @@ def process_prot_input(input_single_contig_prots, input_vmag_prots):
     
     return input_files, has_single_contig, has_vmag_files
 
-def get_totals_before_filtering(input_files):
+def get_totals_before_filtering(input_files, single_contig_file):
     """
     Calculate total contigs and amino-acid sequences before filtering.
 
     Parameters:
     - input_files (list): List of protein file paths.
+    - single_contig_file (str): Path to the single-contig protein file, if applicable.
 
     Returns:
     - total_contigs (int): Number of contigs before filtering.
     - total_amino_acid_sequences (int): Number of amino-acid sequences before filtering.
     """
+    total_genomes = 0
     total_contigs = 0
     total_amino_acid_sequences = 0
 
@@ -123,54 +126,74 @@ def get_totals_before_filtering(input_files):
         for record in Parser(file_path):
             contig_id = record.header.name.rsplit("_", 1)[0]
             contig_counts.setdefault(contig_id, []).append(record)
+            
+        if file_path == single_contig_file:
+            total_genomes += len(contig_counts)
+        else:
+            total_genomes += 1
         total_contigs += len(contig_counts)
         total_amino_acid_sequences += sum(len(records) for records in contig_counts.values())
 
-    return total_contigs, total_amino_acid_sequences
+    return total_genomes, total_contigs, total_amino_acid_sequences
 
+def process_vmag_file(vmag_file, output_folder, min_num_sequences):
+    filtered_contigs = count_cds_and_filter_by_contig(vmag_file, min_num_sequences)
+    output_file = os.path.join(output_folder, os.path.basename(vmag_file))
+    with open(output_file, "w") as output_handle:
+        for records in filtered_contigs.values():
+            for record in records:
+                write_fasta(record, output_handle)
+    return len(filtered_contigs), sum(len(v) for v in filtered_contigs.values())
 
 def filter_and_save_vmag_proteins(input_files, output_folder, min_num_sequences):
-    """
-    Filters and saves vMAG proteins based on CDS count.
+    vmag_files = [f for f in input_files if "vMAG_proteins" in f]
+    if not vmag_files:
+        return
 
-    Parameters:
-    - input_files (list): List of vMAG protein file paths.
-    - output_folder (str): Directory to save filtered vMAG proteins.
-    - min_num_sequences (int): Minimum number of CDS per contig for filtering.
-    """
     vmag_output_folder = os.path.join(output_folder, "vMAG_proteins")
     os.makedirs(vmag_output_folder, exist_ok=True)
 
-    for vmag_file in input_files:
-        if "vMAG_proteins" in vmag_file:
-            filtered_contigs = count_cds_and_filter_by_contig(vmag_file, min_num_sequences)
-            output_file = os.path.join(vmag_output_folder, os.path.basename(vmag_file))
+    logger.info(f"Processing {len(vmag_files)} vMAG files...")
 
-            with open(output_file, "w") as output_handle:
-                for seq_name in filtered_contigs.keys():
-                    for record in filtered_contigs[seq_name]:
-                        write_fasta(record, output_handle)
+    with mp.Pool(processes=mp.cpu_count()) as pool:
+        func = partial(process_vmag_file, output_folder=vmag_output_folder, min_num_sequences=min_num_sequences)
+        results = list(tqdm(pool.imap_unordered(func, vmag_files), total=len(vmag_files), desc="Filtering vMAGs", unit="files"))
 
+    total_contigs = sum(r[0] for r in results)
+    total_orfs = sum(r[1] for r in results)
+    logger.info(f"Filtered vMAGs: {total_contigs:,} contigs and {total_orfs:,} ORFs retained")
+
+def extract_and_filter_contig_group(args):
+    contig_id, records, min_num_sequences = args
+    if len(records) >= min_num_sequences:
+        return contig_id, records
+    return None
 
 def filter_and_save_single_contig_proteins(input_file, output_folder, min_num_sequences):
-    """
-    Filters and saves single-contig proteins based on CDS count.
+    contig_cds = defaultdict(list)
+    for record in Parser(input_file):
+        contig_id = record.header.name.rsplit("_", 1)[0]
+        contig_cds[contig_id].append(record)
 
-    Parameters:
-    - input_file (str): Single-contig protein file path.
-    - output_folder (str): Directory to save filtered single-contig proteins.
-    - min_num_sequences (int): Minimum number of CDS per contig for filtering.
-    """
-    filtered_single_contig = count_cds_and_filter_by_contig(input_file, min_num_sequences)
+    args = [
+        (contig_id, [(rec.header.name, rec.seq) for rec in records], min_num_sequences)
+        for contig_id, records in contig_cds.items()
+    ]
+
+    with mp.Pool(processes=mp.cpu_count()) as pool:
+        filtered_results = list(tqdm(pool.imap_unordered(extract_and_filter_contig_group, args),
+                                     total=len(args), desc="Filtering contigs", unit="contigs"))
 
     single_contig_output_file = os.path.join(output_folder, "single_contig_proteins.faa")
     with open(single_contig_output_file, "w") as output_handle:
-        for seq_name in filtered_single_contig.keys():
-            for record in filtered_single_contig[seq_name]:
-                write_fasta(record, output_handle)
+        for result in filtered_results:
+            if result is None:
+                continue
+            _, records_data = result
+            for name, seq in records_data:
+                write_fasta(Record(name, seq), output_handle)
 
-
-def get_totals_after_filtering(input_files, min_num_sequences):
+def get_totals_after_filtering(input_files, min_num_sequences, single_contig_file):
     """
     Calculate total contigs and amino-acid sequences after filtering.
 
@@ -182,15 +205,20 @@ def get_totals_after_filtering(input_files, min_num_sequences):
     - total_filtered_contigs (int): Number of contigs after filtering.
     - total_filtered_amino_acid_sequences (int): Number of amino-acid sequences after filtering.
     """
+    total_filtered_genomes = 0
     total_filtered_contigs = 0
     total_filtered_amino_acid_sequences = 0
 
     for file_path in input_files:
         filtered_contigs = count_cds_and_filter_by_contig(file_path, min_num_sequences)
         total_filtered_contigs += len(filtered_contigs)
+        if file_path == single_contig_file:
+            total_filtered_genomes += len(filtered_contigs)
+        else:
+            total_filtered_genomes += 1
         total_filtered_amino_acid_sequences += sum(len(cds) for cds in filtered_contigs.values())
 
-    return total_filtered_contigs, total_filtered_amino_acid_sequences
+    return total_filtered_genomes, total_filtered_contigs, total_filtered_amino_acid_sequences
 
 def main():
     input_type = snakemake.params.input_type
@@ -219,9 +247,14 @@ def main():
         logger.error(f"Invalid input type specified: {input_type}")
         raise ValueError(f"Invalid input type specified: {input_type}")
 
+    if has_single_contig:
+        single_contig_file = input_files[0]
+    else:
+        single_contig_file = None
+        
     # Totals before filtering
-    total_contigs, total_amino_acid_sequences = get_totals_before_filtering(input_files)
-    logger.info(f"Total contigs before filtering: {total_contigs:,}")
+    total_genomes, total_contigs, total_amino_acid_sequences = get_totals_before_filtering(input_files, single_contig_file)
+    logger.info(f"Total contigs before filtering: {total_contigs:,} ({total_genomes:,} genomes)")
     logger.info(f"Total amino-acid sequences before filtering: {total_amino_acid_sequences:,}")
 
     # Ensure output folder exists
@@ -237,9 +270,9 @@ def main():
         filter_and_save_single_contig_proteins(input_files[0], output_folder, min_num_sequences)
 
     # Totals after filtering
-    total_filtered_contigs, total_filtered_amino_acid_sequences = get_totals_after_filtering(input_files, min_num_sequences)
+    total_filtered_genomes, total_filtered_contigs, total_filtered_amino_acid_sequences = get_totals_after_filtering(input_files, min_num_sequences, single_contig_file)
 
-    logger.info(f"Total contigs after filtering: {total_filtered_contigs:,}")
+    logger.info(f"Total contigs after filtering: {total_filtered_contigs:,} ({total_filtered_genomes:,} genomes)")
     logger.info(f"Total amino-acid sequences after filtering: {total_filtered_amino_acid_sequences:,}")
     
     # Remove original pyrodigal-gv directory to save space

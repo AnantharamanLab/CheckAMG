@@ -6,8 +6,8 @@ import logging
 import resource
 import platform
 import multiprocessing as mp
-from pyfastatools import Parser
-from textwrap import wrap
+from tqdm import tqdm
+from pyfastatools import Parser, Record, Header, write_fasta
 
 def set_memory_limit(limit_in_gb):
     current_os = platform.system()
@@ -33,28 +33,54 @@ with open(log_file, "a") as log:
     log.write("========================================================================\n            Step 1/11: Filter the input sequences by length             \n========================================================================\n")
 
 # Function to filter genomes by length
-def filter_genomes_by_length(genome_records, min_length):
-    """Filter genomes by length."""
-    filtered_records = [(header, seq) for (header, seq) in genome_records if len(seq) >= min_length]
-    return filtered_records
+def filter_single_record_by_length(args):
+    name, seq, min_length = args
+    return (name, seq) if len(seq) >= min_length else None
 
 # Parallel processing function
 def parallel_processing(input_files, min_length, num_workers):
-    # Read genome records from all input files
-    genome_records = []
+    all_records = []
+    seq_to_source = {}
+    genome_names = set()
+
+    # Preprocess all records
     for input_file in input_files:
-        records = [(record.header.name, record.seq) for record in Parser(input_file)]
-        genome_records.append((input_file, records))
-    logger.info(f"Number of input sequences: {sum(len(records) for _, records in genome_records):,}")
-    
-    # Process each file in parallel
+        for record in Parser(input_file):
+            name = record.header.name
+            seq = record.seq
+            all_records.append((name, seq))
+            seq_to_source[name] = (input_file, record)
+            if input_file == snakemake.params.input_single_contig_genomes:
+                genome_names.add(name)
+        if input_file != snakemake.params.input_single_contig_genomes:
+            genome_names.add(input_file)
+
+    logger.info(f"Number of input sequences: {len(all_records):,} ({len(genome_names):,} genomes)")
+
+    # Prepare args for multiprocessing
+    args = [(name, seq, min_length) for name, seq in all_records]
+
+    # Filter
     with mp.Pool(processes=num_workers) as pool:
-        results = pool.starmap(
-            filter_genomes_by_length,
-            [(records, min_length) for _, records in genome_records]
+        filtered = list(
+            tqdm(
+                pool.imap_unordered(filter_single_record_by_length, args),
+                total=len(args),
+                desc="Filtering sequences",
+                unit="sequences"
+            )
         )
 
-    return list(zip([file for file, _ in genome_records], results))
+    # Remove filtered-out entries
+    filtered = [item for item in filtered if item is not None]
+
+    # Rebuild full Record objects and group by file
+    grouped = {}
+    for name, _ in filtered:
+        source_file, record = seq_to_source[name]
+        grouped.setdefault(source_file, []).append(record)
+
+    return list(grouped.items())
 
 def main():
     input_fasta = snakemake.params.input_single_contig_genomes
@@ -83,27 +109,25 @@ def main():
     filtered_genomes = parallel_processing(input_files, min_length, num_workers)
 
     single_contig_output_file = os.path.join(output_folder, "single_contig_genomes.fna")
+    genome_names_filtered = set()
     for input_file, records in filtered_genomes:
         if input_file == input_fasta:
             with open(single_contig_output_file, "w") as output_handle:
                 for record in records:
-                    output_handle.write(f">{record[0]}\n")
-                    for line in wrap(record[1], width=75):
-                        output_handle.write(f"{line}\n")
+                    genome_names_filtered.add(record.header.name)
+                    write_fasta(record, output_handle)
         else:
-            if len(input_files) > 1:
-                output_file = os.path.join(vmag_output_folder, os.path.basename(input_file))
-                if output_file.endswith(".fasta"):
-                    output_file = output_file.replace(".fasta", ".fna")
-                elif output_file.endswith(".fa"):
-                    output_file = output_file.replace(".fa", ".fna")                    
-                with open(output_file, "w") as output_handle:
-                    for record in records:
-                        output_handle.write(f">{record[0]}\n")
-                        for line in wrap(record[1], width=75):
-                            output_handle.write(f"{line}\n")
+            genome_names_filtered.add(input_file)
+            output_file = os.path.join(vmag_output_folder, os.path.basename(input_file))
+            if output_file.endswith(".fasta"):
+                output_file = output_file.replace(".fasta", ".fna")
+            elif output_file.endswith(".fa"):
+                output_file = output_file.replace(".fa", ".fna")                    
+            with open(output_file, "w") as output_handle:
+                for record in records:
+                    write_fasta(record, output_handle)
 
-    logger.info(f"Number of sequences filtered by length: {sum(len(records) for _, records in filtered_genomes):,}")
+    logger.info(f"Number of sequences filtered by length: {sum(len(records) for _, records in filtered_genomes):,} ({len(genome_names_filtered):,} genomes)")
     logger.info("Genome length filtering completed.")
 
 if __name__ == "__main__":

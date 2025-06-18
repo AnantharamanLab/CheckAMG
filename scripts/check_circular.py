@@ -147,34 +147,69 @@ def process_genomes_batch(genome_records, k, tr_min_len, tr_max_len, tr_max_coun
         processed_genomes[genome.id] = genome
     return processed_genomes
 
-def parallel_processing(input_files, k, tr_min_len, tr_max_len, tr_max_count, tr_max_ambig, tr_max_basefreq, kmer_max_freq, num_workers):
-    genome_records = []
-    for input_file in input_files:
-        genome_records.extend([(record.header.name, record.seq) for record in Parser(input_file)])
+def process_genomes_batch_wrapper(batch, k, tr_min_len, tr_max_len, tr_max_count, tr_max_ambig, tr_max_basefreq, kmer_max_freq):
+    combined = {}
+    for genome_records in batch:
+        result = process_genomes_batch(genome_records, k, tr_min_len, tr_max_len, tr_max_count, tr_max_ambig, tr_max_basefreq, kmer_max_freq)
+        combined.update(result)
+    return combined
 
-    chunk_size = max(1, len(genome_records) // num_workers)
+def parallel_processing(single_contig_fasta, input_files, k, tr_min_len, tr_max_len, tr_max_count, tr_max_ambig, tr_max_basefreq, kmer_max_freq, num_workers):
+    genome_units = []
+    contig_to_genome = {}
+
+    for input_file in input_files:
+        if not os.path.isfile(input_file):
+            logger.error(f"Input file not found: {input_file}")
+            raise FileNotFoundError(f"Input file not found: {input_file}")
+        records = [(record.header.name, record.seq) for record in Parser(input_file)]
+        if not records:
+            logger.error(f"No sequences parsed from: {input_file}. Is it empty or not in FASTA format?")
+            raise ValueError(f"No sequences parsed from: {input_file}. Is it empty or not in FASTA format?")
+        logger.debug(f"{input_file}: {len(records)} records")
+
+        if input_file == snakemake.params.input_single_contig_genomes:
+            # Split by contig ID
+            contig_groups = {}
+            for name, seq in records:
+                contig_to_genome[name] = name
+                contig_id = name.rsplit("_", 1)[0]
+                contig_groups.setdefault(contig_id, []).append((name, seq))
+            logger.debug(f"{input_file}: {len(contig_groups)} contig groups (treated as genomes)")
+            genome_units.extend(contig_groups.values())
+        else:
+            # Treat each vMAG file as one genome unit
+            for record in records:
+                contig_to_genome[record[0]] = input_file
+            genome_units.append(records)
+
+    logger.info(f"Total sequences to check: {len(contig_to_genome):,} ({len(genome_units):,} genomes)")
+
+    # Chunk into processing batches
+    chunk_size = max(1, len(genome_units) // num_workers)
     genome_chunks = [
-        genome_records[i:i + chunk_size] for i in range(0, len(genome_records), chunk_size)
+        genome_units[i:i + chunk_size] for i in range(0, len(genome_units), chunk_size)
     ]
 
     with Pool(processes=num_workers) as pool:
         async_results = [
             pool.apply_async(
-                process_genomes_batch,
+                process_genomes_batch_wrapper,
                 args=(chunk, k, tr_min_len, tr_max_len, tr_max_count, tr_max_ambig, tr_max_basefreq, kmer_max_freq)
             )
             for chunk in genome_chunks
         ]
-        
+
         results = []
-        for r in tqdm(async_results, desc="Checking circularity", unit="contig", total=len(async_results)):
+        for r in tqdm(async_results, desc="Checking circularity", unit="chunks", total=len(async_results)):
             results.append(r.get())
 
+    # Combine all results
     combined_genomes = {}
     for result in results:
         combined_genomes.update(result)
 
-    return combined_genomes
+    return combined_genomes, contig_to_genome
 
 def main():
     input_fasta = snakemake.params.input_single_contig_genomes
@@ -213,8 +248,8 @@ def main():
             raise FileNotFoundError("No input single-contig virus genome or vMAG files found.")
 
     # Process genomes in parallel
-    genomes = parallel_processing(input_files, k, tr_min_len, tr_max_len, tr_max_count, tr_max_ambig, tr_max_basefreq, kmer_max_freq, num_workers)
-
+    sequences, contig_to_genome = parallel_processing(input_fasta, input_files, k, tr_min_len, tr_max_len, tr_max_count, tr_max_ambig, tr_max_basefreq, kmer_max_freq, num_workers)
+    
     # Write results to output
     with open(output_path, "w") as out:
         header = [
@@ -223,7 +258,7 @@ def main():
             "repeat_mode_base_freq", "repeat_seq"
         ]
         out.write("\t".join(header) + "\n")
-        for genome in genomes.values():
+        for genome in sequences.values():
             if genome.tr.type is not None:
                 row = [
                     genome.id, genome.length, genome.kmer_freq, genome.tr.type,
@@ -232,8 +267,8 @@ def main():
                 ]
                 out.write("\t".join(map(str, row)) + "\n")
 
-    logger.info(f"Number of sequences checked: {len(genomes):,}")
-    logger.info(f"Number of circular sequences detected: {len([g for g in genomes.values() if g.tr.type is not None]):,}")
+    logger.info(f"Number of sequences checked: {len(sequences):,} ({len(set(contig_to_genome.values())):,} genomes)")
+    logger.info(f"Number of circular sequences detected: {len([g for g in sequences.values() if g.tr.type is not None]):,}")
     logger.info("Circularity check completed.")
 
 if __name__ == "__main__":
