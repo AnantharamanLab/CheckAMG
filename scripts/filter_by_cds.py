@@ -157,7 +157,7 @@ def filter_and_save_vmag_proteins(input_files, output_folder, min_num_sequences)
 
     with mp.Pool(processes=mp.cpu_count()) as pool:
         func = partial(process_vmag_file, output_folder=vmag_output_folder, min_num_sequences=min_num_sequences)
-        results = list(tqdm(pool.imap_unordered(func, vmag_files), total=len(vmag_files), desc="Filtering vMAGs", unit="files"))
+        results = list(tqdm(pool.imap_unordered(func, vmag_files), total=len(vmag_files), desc="Filtering vMAGs", unit="file"))
 
     total_contigs = sum(r[0] for r in results)
     total_orfs = sum(r[1] for r in results)
@@ -182,7 +182,7 @@ def filter_and_save_single_contig_proteins(input_file, output_folder, min_num_se
 
     with mp.Pool(processes=mp.cpu_count()) as pool:
         filtered_results = list(tqdm(pool.imap_unordered(extract_and_filter_contig_group, args),
-                                     total=len(args), desc="Filtering contigs", unit="contigs"))
+                                     total=len(args), desc="Filtering contigs", unit="contig"))
 
     total_orfs = 0
     single_contig_output_file = os.path.join(output_folder, "single_contig_proteins.faa")

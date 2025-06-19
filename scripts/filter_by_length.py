@@ -67,7 +67,7 @@ def parallel_processing(input_files, min_length, num_workers):
                 pool.imap_unordered(filter_single_record_by_length, args),
                 total=len(args),
                 desc="Filtering sequences",
-                unit="sequences"
+                unit="sequence"
             )
         )
 

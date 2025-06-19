@@ -201,7 +201,7 @@ def parallel_processing(single_contig_fasta, input_files, k, tr_min_len, tr_max_
         ]
 
         results = []
-        for r in tqdm(async_results, desc="Checking circularity", unit="chunks", total=len(async_results)):
+        for r in tqdm(async_results, desc="Checking circularity", unit="chunk", total=len(async_results)):
             results.append(r.get())
 
     # Combine all results

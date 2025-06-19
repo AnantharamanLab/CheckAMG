@@ -158,7 +158,7 @@ def calculate_window_statistics(data, window_size, minimum_percentage, n_cpus):
             )
             for contig in contigs
         ]
-        results = [f.result() for f in tqdm(concurrent.futures.as_completed(futures), total=len(futures), desc="Calculating sliding-window averages", unit="contigs")]
+        results = [f.result() for f in tqdm(concurrent.futures.as_completed(futures), total=len(futures), desc="Calculating sliding-window averages", unit="contig")]
     return pl.concat(results, how="vertical")
 
 def check_window_avg_lscore(data, min_window_avg_lscores):
@@ -388,7 +388,7 @@ def process_genomes(data, circular_contigs, minimum_percentage, min_window_avg_l
                 executor.submit(verify_flanking_hallmark, df, hallmark_accessions, max_flank_length)
                 for df in contig_dfs
             ]
-            results = [f.result() for f in tqdm(as_completed(futures), total=len(futures), desc="Checking flanks for viral hallmarks", unit="contigs")]
+            results = [f.result() for f in tqdm(as_completed(futures), total=len(futures), desc="Checking flanks for viral hallmarks", unit="contig")]
         data = pl.concat(results, how="vertical")
     else:
         logger.info("Verifying flanking V-scores.")
@@ -399,7 +399,7 @@ def process_genomes(data, circular_contigs, minimum_percentage, min_window_avg_l
                 executor.submit(verify_flanking_vscores, df, minimum_vscore, max_flank_length)
                 for df in contig_dfs
             ]
-            results = [f.result() for f in tqdm(as_completed(futures), total=len(futures), desc=f"Checking flanks for V-score={minimum_vscore}", unit="contigs")]
+            results = [f.result() for f in tqdm(as_completed(futures), total=len(futures), desc=f"Checking flanks for V-score={minimum_vscore}", unit="contig")]
         data = pl.concat(results, how="vertical")
 
     logger.info("Checking for genes in potential mobile genetic element regions.")
@@ -410,7 +410,7 @@ def process_genomes(data, circular_contigs, minimum_percentage, min_window_avg_l
             executor.submit(check_flanking_insertions, df, mobile_accessions, max_flank_length)
             for df in contig_dfs
         ]
-        results = [f.result() for f in tqdm(as_completed(futures), total=len(futures), desc="Checking flanks for mobile genes", unit="contigs")]
+        results = [f.result() for f in tqdm(as_completed(futures), total=len(futures), desc="Checking flanks for mobile genes", unit="contig")]
     data = pl.concat(results, how="vertical")
 
     data = data.unique().sort(["genome", "contig", "gene_number"])
