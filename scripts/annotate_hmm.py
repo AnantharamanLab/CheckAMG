@@ -23,6 +23,16 @@ from functools import partial
 # Global cache of pre-loaded HMM models, shared by forked workers via copy-on-write
 HMM_MODELS = {}
 
+# Global caches for thresholds
+KEGG_THRESHOLDS = {}
+
+# Load KEGG thresholds
+KEGG_THRESHOLDS_PATH = snakemake.params.kegg_cutoff_file
+if Path(KEGG_THRESHOLDS_PATH).exists():
+    df = pl.read_csv(KEGG_THRESHOLDS_PATH)
+    KEGG_THRESHOLDS = dict(zip(df["id"].to_list(), df["threshold"].to_list()))
+
+
 def set_memory_limit(limit_in_gb):
     current_os = platform.system()
     if current_os == "Linux":
@@ -137,24 +147,59 @@ def filter_hmm_results(tsv_path, hmm_path, out_path):
 def _hmm_worker(args):
     return hmmsearch_worker(*args)
 
-def hmmsearch_worker(key, seq_path, db_str, seq_lengths, out_dir, min_coverage, min_score, evalue, cpus):
+def get_kegg_threshold(hmm_id):
+    return KEGG_THRESHOLDS.get(hmm_id, None)
+
+def hmmsearch_worker(key, seq_path, db_str, seq_lengths, out_dir, min_coverage, min_score, min_bitscore_fraction, evalue, cpus):
     outfile = Path(out_dir) / f"{key}_search.tsv"
     errfile = Path(out_dir) / f"{key}_search.err"
     alphabet = easel.Alphabet.amino()
     hmm_list = HMM_MODELS[db_str]
+    db = assign_db(db_str)
+
     with open(outfile, 'w') as out, open(errfile, 'w') as err, \
          easel.SequenceFile(seq_path, digital=True, alphabet=alphabet) as seqs:
-        for hits in hmmer.hmmsearch(queries=hmm_list, sequences=seqs, E=evalue, cpus=cpus):
+        for hits in hmmer.hmmsearch(queries=hmm_list, sequences=seqs, E=0.1, cpus=cpus): # Use a permissive evalue to ensure reproducibility when chunk size changes due to different memory limits
+            hmm = hits.query  # plan7.HMM object
+            hmm_id = extract_query_info(hits, db_str)
             for hit in hits:
-                hmm_id = extract_query_info(hits, db_str)
+                hit_name = hit.name.decode()
                 for dom in hit.domains.included:
                     a = dom.alignment
-                    hit_name = hit.name.decode()
                     alignment_len = a.target_to - a.target_from + 1
                     coverage = alignment_len / seq_lengths[hit_name]
-                    if coverage < min_coverage and dom.score < min_score:
-                        continue
+
+                    # Apply GA/TC cutoffs where available
+                    if db == "Pfam" and hmm.cutoffs.gathering is not None:
+                        if dom.score < hmm.cutoffs.gathering1: # use sequence-level GA, not domain GA
+                            continue
+                        
+                    elif db == "KEGG":
+                        kegg_thresh = get_kegg_threshold(hmm_id)
+                        if kegg_thresh is not None and dom.score < kegg_thresh:
+                            # Apply a heuristic like `anvi-run-kegg-kofams` from Anvi'o does, since KEGG thresholds are sometimes too strict
+                            if hit.evalue > evalue or dom.score < min_bitscore_fraction * kegg_thresh:
+                                continue
+                        elif kegg_thresh is None and (dom.score < min_score or coverage < min_coverage):
+                            continue
+                        
+                    elif db == "FOAM" and hmm.cutoffs.trusted is not None:
+                        if dom.score < hmm.cutoffs.trusted1: # use sequence-level TC, not domain TC
+                            # Apply the same heuristic as KEGG, since FOAM comes from KEGG
+                            if hit.evalue > evalue or dom.score < min_bitscore_fraction * hmm.cutoffs.trusted1:
+                                continue
+                            
+                    elif db == "METABOLIC" and hmm.cutoffs.gathering is not None:
+                        if dom.score < hmm.cutoffs.gathering1: # use sequence-level GA, not domain GA
+                            continue
+                        
+                    else:
+                        # fallback filtering
+                        if dom.score < min_score or coverage < min_coverage:
+                            continue
+
                     out.write(f"{hit_name}\t{hmm_id}\t{hit.evalue:.1E}\t{dom.score:.6f}\t{hit.length}\t{a.target_from}\t{a.target_to}\n")
+
     return str(outfile)
         
 def main():
@@ -168,6 +213,7 @@ def main():
     num_threads = snakemake.threads
     mem_limit = snakemake.resources.mem
     minscore = snakemake.params.min_bitscore
+    min_bitscore_fraction = snakemake.params.min_bitscore_fraction_heuristic
     evalue = snakemake.params.max_evalue
 
     logger.info("Protein HMM alignments starting...")
@@ -213,14 +259,14 @@ def main():
                     write_fasta(rec, f)
             jobs.append((
                 f"{db.stem}_{i//cs}", chunk_file, db_str,
-                seq_lengths, tmp_dir, cov_fraction, minscore, evalue, 1
+                seq_lengths, tmp_dir, cov_fraction, minscore, min_bitscore_fraction, evalue, 1
             ))
-
+    
     logger.info(f"Running HMMsearch with {num_threads} maximum jobs in parallel...")
     # Run HMMsearch in parallel
     result_paths = []
     with Pool(processes=num_threads) as pool:
-        for res in tqdm(pool.imap_unordered(_hmm_worker, jobs), total=len(jobs), desc="HMMsearches", unit="chunks"):
+        for res in tqdm(pool.imap_unordered(_hmm_worker, jobs), total=len(jobs), desc="HMMsearches", unit="chunk"):
             result_paths.append(res)
 
     # Combine and filter result files

@@ -8,6 +8,7 @@ import platform
 os.environ["POLARS_MAX_THREADS"] = str(snakemake.threads)
 import polars as pl
 import re
+from pathlib import Path
 
 def set_memory_limit(limit_in_gb):
     current_os = platform.system()
@@ -32,6 +33,20 @@ print("========================================================================\
 with open(log_file, "a") as log:
     log.write("========================================================================\n   Step 9/11: Curate the predicted functions based on genomic context   \n========================================================================\n")
 
+# Global caches for thresholds
+KEGG_THRESHOLDS = {}
+FOAM_THRESHOLDS = {}
+
+# Load KEGG and FOAM thresholds
+KEGG_THRESHOLDS_PATH = snakemake.params.kegg_cutoff_file
+if Path(KEGG_THRESHOLDS_PATH).exists():
+    df = pl.read_csv(KEGG_THRESHOLDS_PATH)
+    KEGG_THRESHOLDS = dict(zip(df["id"].to_list(), df["threshold"].to_list()))
+FOAM_THRESHOLDS_PATH = snakemake.params.foam_cutoff_file
+if Path(FOAM_THRESHOLDS_PATH).exists():
+    df = pl.read_csv(FOAM_THRESHOLDS_PATH)
+    FOAM_THRESHOLDS = dict(zip(df["id"].to_list(), df["cutoff_full"].to_list()))
+    
 def compute_virus_like_window(df):
     """
     Returns True if any of the three window average columns are True.
@@ -368,14 +383,30 @@ def filter_false_substrings(table, false_substring_table, bypass_min_bitscore, b
                 score_col = f"{src}_score"
                 cov_col = f"{src}_coverage"
                 id_col = f"{src}_hmm_id"
-                
+
+                # Use KEGG or FOAM-specific thresholds (trusted cutoffs) if available
+                if src == "KEGG":
+                    score_thresh_expr = (
+                        pl.when(pl.col(id_col).is_in(list(KEGG_THRESHOLDS.keys())))
+                        .then(pl.col(id_col).replace_strict(KEGG_THRESHOLDS))
+                        .otherwise(bypass_min_bitscore)
+                    )
+                elif src == "FOAM":
+                    score_thresh_expr = (
+                        pl.when(pl.col(id_col).is_in(list(FOAM_THRESHOLDS.keys())))
+                        .then(pl.col(id_col).replace_strict(FOAM_THRESHOLDS))
+                        .otherwise(bypass_min_bitscore)
+                    )
+                else:
+                    score_thresh_expr = pl.lit(bypass_min_bitscore)
+
                 exprs.append(
                     pl.col(desc_col).str.contains(pat, literal=False).fill_null(False) &
                     pl.col(id_col).is_in(hmm_ids_in_group) &
                     pl.col(score_col).cast(pl.Float64).fill_null(float("-inf")).is_finite() &
-                    (pl.col(score_col).cast(pl.Float64).fill_null(float("-inf")) >= bypass_min_bitscore) &
+                    (pl.col(score_col).cast(pl.Float64) >= score_thresh_expr) &
                     pl.col(cov_col).cast(pl.Float64).fill_null(float("-inf")).is_finite() &
-                    (pl.col(cov_col).cast(pl.Float64).fill_null(float("-inf")) >= bypass_min_cov)
+                    (pl.col(cov_col).cast(pl.Float64) >= bypass_min_cov)
                 )
         return pl.any_horizontal(exprs) if exprs else pl.lit(False)
 

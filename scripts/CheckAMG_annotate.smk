@@ -142,7 +142,9 @@ rule assign_annots:
         db_dir = config["paths"]["db_dir"],
         cov_fraction = config["cov_fraction"],
         min_bitscore = 50,
+        min_bitscore_fraction_heuristic = 0.5,
         max_evalue = 1e-5,
+        kegg_cutoff_file = os.path.join(config["paths"]["files_dir"], "KEGG_cutoffs.csv"),
         debug = bool(config["debug"]),
         log = config["log"]
     threads:
@@ -251,6 +253,8 @@ rule curate_annots:
         regulation_table_out = os.path.join(config["paths"]["output_dir"], "results", "regulation_genes_curated.tsv"),
         bypass_min_bitscore = 80,
         bypass_min_cov = 0.8,
+        kegg_cutoff_file = os.path.join(config["paths"]["files_dir"], "KEGG_cutoffs.csv"),
+        foam_cutoff_file = os.path.join(config["paths"]["files_dir"], "FOAM_cutoffs.csv"),
         all_annot_out_table = os.path.join(config["paths"]["output_dir"], "results", "gene_annotations.tsv"),
         hmm_ref = os.path.join(config["paths"]["files_dir"], "hmm_id_to_name.csv"),
         false_amgs = os.path.join(config["paths"]["files_dir"], "false_amgs.csv"),
