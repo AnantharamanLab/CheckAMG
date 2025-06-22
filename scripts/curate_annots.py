@@ -384,18 +384,21 @@ def filter_false_substrings(table, false_substring_table, bypass_min_bitscore, b
                 cov_col = f"{src}_coverage"
                 id_col = f"{src}_hmm_id"
 
-                # Use KEGG or FOAM-specific thresholds (trusted cutoffs) if available
+                score_col_casted = pl.col(score_col).cast(pl.Float64).fill_null(float("-inf"))
+                cov_col_casted = pl.col(cov_col).cast(pl.Float64).fill_null(float("-inf"))
+
+                # Source-specific threshold expression
                 if src == "KEGG":
                     score_thresh_expr = (
                         pl.when(pl.col(id_col).is_in(list(KEGG_THRESHOLDS.keys())))
-                        .then(pl.col(id_col).replace_strict(KEGG_THRESHOLDS))
-                        .otherwise(bypass_min_bitscore)
+                        .then(pl.col(id_col).map_elements(lambda x: KEGG_THRESHOLDS.get(x, bypass_min_bitscore), return_dtype=pl.Float64))
+                        .otherwise(pl.lit(bypass_min_bitscore))
                     )
                 elif src == "FOAM":
                     score_thresh_expr = (
                         pl.when(pl.col(id_col).is_in(list(FOAM_THRESHOLDS.keys())))
-                        .then(pl.col(id_col).replace_strict(FOAM_THRESHOLDS))
-                        .otherwise(bypass_min_bitscore)
+                        .then(pl.col(id_col).map_elements(lambda x: FOAM_THRESHOLDS.get(x, bypass_min_bitscore), return_dtype=pl.Float64))
+                        .otherwise(pl.lit(bypass_min_bitscore))
                     )
                 else:
                     score_thresh_expr = pl.lit(bypass_min_bitscore)
@@ -403,11 +406,12 @@ def filter_false_substrings(table, false_substring_table, bypass_min_bitscore, b
                 exprs.append(
                     pl.col(desc_col).str.contains(pat, literal=False).fill_null(False) &
                     pl.col(id_col).is_in(hmm_ids_in_group) &
-                    pl.col(score_col).cast(pl.Float64).fill_null(float("-inf")).is_finite() &
-                    (pl.col(score_col).cast(pl.Float64) >= score_thresh_expr) &
-                    pl.col(cov_col).cast(pl.Float64).fill_null(float("-inf")).is_finite() &
-                    (pl.col(cov_col).cast(pl.Float64) >= bypass_min_cov)
+                    score_col_casted.is_finite() &
+                    (score_col_casted >= score_thresh_expr) &
+                    cov_col_casted.is_finite() &
+                    (cov_col_casted >= bypass_min_cov)
                 )
+
         return pl.any_horizontal(exprs) if exprs else pl.lit(False)
 
     # Build flags
