@@ -47,17 +47,6 @@ if Path(FOAM_THRESHOLDS_PATH).exists():
     df = pl.read_csv(FOAM_THRESHOLDS_PATH)
     FOAM_THRESHOLDS = dict(zip(df["id"].to_list(), df["cutoff_full"].to_list()))
     
-def compute_virus_like_window(df):
-    """
-    Returns True if any of the three window average columns are True.
-    """
-    df = df.with_columns(
-        pl.when(pl.col("window_avg_KEGG_VL-score_viral") | pl.col("window_avg_Pfam_VL-score_viral") | pl.col("window_avg_PHROG_VL-score_viral"))
-        .then(True)
-        .otherwise(False)
-        .alias("Virus_Like_Window")
-    )
-    return df
 
 def summarize_annot_table(table, hmm_descriptions):
     """
@@ -115,9 +104,16 @@ def summarize_annot_table(table, hmm_descriptions):
         "PHROG_verified_flank_up",
         "PHROG_verified_flank_down",
         
+        "Viral_Flanking_Genes_Upstream",
+        "Viral_Flanking_Genes_Downstream",
+        
         "KEGG_MGE_flank",
         "Pfam_MGE_flank",
-        "PHROG_MGE_flank"
+        "PHROG_MGE_flank",
+        
+        "MGE_Flanking_Genes",
+        
+        "Viral_Origin_Confidence"
     ]
     for col in required_cols:
         if col not in table.columns:
@@ -169,31 +165,6 @@ def summarize_annot_table(table, hmm_descriptions):
     table = table.join(hmm_descriptions, left_on="PHROG_hmm_id", right_on="id", how="left").rename({"name": "PHROG_Description"})
     if "db_right" in table.columns:
         table = table.drop("db_right")
-    
-    # Mark genes within virus-like windows (KEGG, Pfam, or PHROG)
-    table = compute_virus_like_window(table)
-    
-    # Mark genes with viral flanking genes
-    table = table.with_columns(
-        pl.when(pl.col("KEGG_verified_flank_up") | pl.col("Pfam_verified_flank_up") | pl.col("PHROG_verified_flank_up"))
-        .then(True)
-        .otherwise(False)
-        .alias("Viral_Flanking_Genes_Upstream")
-    )
-    table = table.with_columns(
-        pl.when(pl.col("KEGG_verified_flank_down") | pl.col("Pfam_verified_flank_down") | pl.col("PHROG_verified_flank_down"))
-        .then(True)
-        .otherwise(False)
-        .alias("Viral_Flanking_Genes_Downstream")
-    )
-    
-    # Mark genes with MGE flanking genes
-    table = table.with_columns(
-        pl.when(pl.col("KEGG_MGE_flank") | pl.col("Pfam_MGE_flank") | pl.col("PHROG_MGE_flank"))
-        .then(True)
-        .otherwise(False)
-        .alias("MGE_Flanking_Genes")
-    )
     
     # Infer best HMM hits based on bit scores
     ## 1. Cast all relevant scores to Float64, replacing null with -inf
@@ -321,7 +292,7 @@ def summarize_annot_table(table, hmm_descriptions):
         "top_hit_db",
         
         "circular_contig",
-        "Virus_Like_Window",
+        "Viral_Origin_Confidence",
         "Viral_Flanking_Genes_Upstream",
         "Viral_Flanking_Genes_Downstream",
         "MGE_Flanking_Genes"

@@ -161,19 +161,86 @@ def calculate_window_statistics(data, window_size, minimum_percentage, n_cpus):
         results = [f.result() for f in tqdm(concurrent.futures.as_completed(futures), total=len(futures), desc="Calculating sliding-window averages", unit="contig")]
     return pl.concat(results, how="vertical")
 
-def check_window_avg_lscore(data, min_window_avg_lscores):
-    min_window_avg_lscore_kegg = min_window_avg_lscores["KEGG"]
-    min_window_avg_lscore_pfam = min_window_avg_lscores["Pfam"]
-    min_window_avg_lscore_phrog = min_window_avg_lscores["PHROG"]
-    data = data.with_columns([
-        pl.when((pl.col('window_avg_KEGG_VL-score') >= min_window_avg_lscore_kegg))
-        .then(True).otherwise(False).alias('window_avg_KEGG_VL-score_viral'),
-        pl.when( (pl.col('window_avg_Pfam_VL-score') >= min_window_avg_lscore_pfam))
-        .then(True).otherwise(False).alias('window_avg_Pfam_VL-score_viral'),
-        pl.when((pl.col('window_avg_PHROG_VL-score') >= min_window_avg_lscore_phrog))
-        .then(True).otherwise(False).alias('window_avg_PHROG_VL-score_viral'),
+def viral_origin_confidence(df, score_weights=None, score_thresholds=(2.3, 3.0)):
+    if score_weights is None:
+        score_weights = {"KEGG": 0.25, "Pfam": 0.25, "PHROG": 0.5}
+
+    # Combine flanking and MGE flags
+    df = df.with_columns([
+        (pl.col("KEGG_verified_flank_up") | pl.col("Pfam_verified_flank_up") | pl.col("PHROG_verified_flank_up"))
+            .alias("Viral_Flanking_Genes_Upstream"),
+        (pl.col("KEGG_verified_flank_down") | pl.col("Pfam_verified_flank_down") | pl.col("PHROG_verified_flank_down"))
+            .alias("Viral_Flanking_Genes_Downstream"),
+        (pl.col("KEGG_MGE_flank") | pl.col("Pfam_MGE_flank") | pl.col("PHROG_MGE_flank"))
+            .alias("MGE_Flanking_Genes")
     ])
-    return data
+
+    # Compute virus-likeness score
+    df = df.with_columns([
+        (
+            score_weights["KEGG"] * pl.col("window_avg_KEGG_VL-score") +
+            score_weights["Pfam"] * pl.col("window_avg_Pfam_VL-score") +
+            score_weights["PHROG"] * pl.col("window_avg_PHROG_VL-score")
+        ).alias("virus_likeness_score")
+    ])
+
+    # Strong individual domain scores
+    df = df.with_columns([
+        ((pl.col("window_avg_KEGG_VL-score") >= 2.9).cast(pl.Int8) +
+         (pl.col("window_avg_Pfam_VL-score") >= 2.9).cast(pl.Int8) +
+         (pl.col("window_avg_PHROG_VL-score") >= 2.9).cast(pl.Int8)).alias("strong_2_9_count"),
+        ((pl.col("window_avg_KEGG_VL-score") >= 3.2) |
+         (pl.col("window_avg_Pfam_VL-score") >= 3.2) |
+         (pl.col("window_avg_PHROG_VL-score") >= 3.2)).alias("very_strong_3_2")
+    ])
+
+    # Flank score
+    df = df.with_columns([
+        pl.when(pl.col("Viral_Flanking_Genes_Upstream") & pl.col("Viral_Flanking_Genes_Downstream"))
+            .then(2)
+        .when(pl.col("Viral_Flanking_Genes_Upstream") | pl.col("Viral_Flanking_Genes_Downstream") |
+              (pl.col("circular_contig") & (pl.col("Viral_Flanking_Genes_Upstream") | pl.col("Viral_Flanking_Genes_Downstream"))))
+            .then(1)
+        .otherwise(0)
+        .alias("flank_score")
+    ])
+
+    # MGE penalty
+    df = df.with_columns([
+        (pl.col("MGE_Flanking_Genes") & (pl.col("virus_likeness_score") < 3.0)).alias("mge_penalty")
+    ])
+
+    # Confidence assignment
+    df = df.with_columns([
+        pl.when(pl.col("virus_likeness_score") >= 3.5)
+            .then(pl.lit("high"))
+        .when((pl.col("virus_likeness_score") >= 3.2) & (pl.col("flank_score") >= 1) & (~pl.col("MGE_Flanking_Genes")))
+            .then(pl.lit("high"))
+        .when((pl.col("virus_likeness_score") >= score_thresholds[1]) & (pl.col("flank_score") >= 1))
+            .then(pl.lit("high"))
+        .when(pl.col("virus_likeness_score") >= score_thresholds[0])
+            .then(
+                pl.when((pl.col("flank_score") >= 1) |
+                        (pl.col("strong_2_9_count") >= 2) |
+                        (pl.col("very_strong_3_2")))
+                .then(
+                    pl.when(~pl.col("mge_penalty")).then(pl.lit("medium")).otherwise(pl.lit("low"))
+                )
+                .otherwise(pl.lit("low"))
+            )
+        .otherwise(pl.lit("low"))
+        .alias("Viral_Origin_Confidence")
+    ]).drop(
+        [
+            'virus_likeness_score',
+            'strong_2_9_count',
+            'very_strong_3_2',
+            'flank_score',
+            'mge_penalty'
+        ]
+    )
+
+    return df
 
 @njit
 def flank_two_pointer_vscores(lengths, scores, max_flank_length, min_vscore):
@@ -348,7 +415,7 @@ def check_flanking_insertions(contig_data, mobile_accessions, max_flank_length):
     })
     return contig_data.join(flanks_df, on=["contig", "gene_number"])
 
-def process_genomes(data, circular_contigs, minimum_percentage, min_window_avg_lscores,
+def process_genomes(data, circular_contigs, minimum_percentage,
                     window_size, max_flank_length, minimum_vscore, use_hallmark=False,
                     hallmark_accessions=None, mobile_accessions=None, n_cpus=1):
     logger.debug(f"Calculating lengths for {data.shape[0]:,} genes.")
@@ -374,8 +441,6 @@ def process_genomes(data, circular_contigs, minimum_percentage, min_window_avg_l
 
     # Parallel window statistics calculated per contig.
     data = calculate_window_statistics(data, window_size, minimum_percentage, n_cpus)
-    logger.debug(f"Data before calculating window average VL-scores: {data.head()}")
-    data = check_window_avg_lscore(data, min_window_avg_lscores)
     data = data.unique()
 
     # Parallel verification of flanking regions by partitioning by contig.
@@ -412,6 +477,17 @@ def process_genomes(data, circular_contigs, minimum_percentage, min_window_avg_l
         ]
         results = [f.result() for f in tqdm(as_completed(futures), total=len(futures), desc="Checking flanks for mobile genes", unit="contig")]
     data = pl.concat(results, how="vertical")
+    
+    logger.info("Assigning viral origin confidence based on window statistics and flanking genes.")
+    logger.debug(f"Data before assigning viral origin confidence: {data.head()}")
+    contig_dfs = data.partition_by("contig")
+    with ThreadPoolExecutor(max_workers=n_cpus) as executor:
+        futures = [
+            executor.submit(viral_origin_confidence, df)
+            for df in contig_dfs
+        ]
+        results = [f.result() for f in tqdm(as_completed(futures), total=len(futures), desc="Assigning viral origin confidence", unit="contig")]
+    data = pl.concat(results, how="vertical")
 
     data = data.unique().sort(["genome", "contig", "gene_number"])
     return data
@@ -421,7 +497,6 @@ def main():
     output_file = snakemake.params.context_table
     circular_contigs_file = snakemake.params.circular_contigs
     minimum_percentage = snakemake.params.annotation_percent_threshold
-    min_window_avg_lscores = snakemake.params.min_window_avg_lscores
     window_size = snakemake.params.window_size
     minimum_vscore = snakemake.params.minimum_flank_vscore
     max_flank_length = snakemake.params.max_flank_length
@@ -463,7 +538,7 @@ def main():
         mobile_ids = set(mobile_genes_data['id'])
 
     processed_data = process_genomes(
-        data, circular_contigs, minimum_percentage, min_window_avg_lscores,
+        data, circular_contigs, minimum_percentage,
         window_size, max_flank_length, minimum_vscore,
         use_hallmark, hallmark_ids, mobile_ids, n_cpus
     )

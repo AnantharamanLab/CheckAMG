@@ -67,11 +67,9 @@ def main():
                                    "(default: %(default)s).")
      annotate_parser.add_argument("-c", "--cov_fraction", type=float, required=False, default=0.5,
                               help="Minimum covered fraction for HMM alignments (default: %(default)s).")
-     annotate_parser.add_argument("-L", "--min_window_avg_Lscores", type=str, required=False, default="3.25,3.0,2.5",
-                              help="Minimum average VL-scores (in order: KEGG,Pfam,PHROG) of all genes required for a window to be considered potentially viral (default: %(default)s).")
-     annotate_parser.add_argument("-Z", "--window_size", type=int, required=False, default=10000,
+     annotate_parser.add_argument("-Z", "--window_size", type=int, required=False, default=25000,
                               help="Size in base pairs of the window used to calculate the average VL-score of genes on a contig (default: %(default)s).")
-     annotate_parser.add_argument("-F", "--max_flank", type=int, required=False, default=10000,
+     annotate_parser.add_argument("-F", "--max_flank", type=int, required=False, default=5000,
                               help="Maximum length in base pairs to check on the left/right flanks of potentially auxiliary genes when checking for virus-like genes and non-virus-like genes (default: %(default)s).")
      annotate_parser.add_argument("-V", "--min_flank_Vscore", type=float, required=False, default=10.0,
                               help="Minimum V-score of genes in flanking regions required to verify a potential auxiliary gene as viral and not host sequence contamination (0.0-10.0) (default: %(default)s).")

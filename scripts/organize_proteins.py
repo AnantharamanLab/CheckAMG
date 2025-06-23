@@ -67,40 +67,6 @@ def determine_phrog_description(protein):
             return f'"{protein[hmm_id]} {protein[desc]}"'
     return ''
 
-# Function to determine Viral Origin Confidence based on decision tree
-def viral_origin_confidence(circular, viral_window, viral_flank_up, viral_flank_down, mge_flank):
-    # This can certainly be simplified and compacted, but for clarity, I like it as is
-    confidence_score = 0
-    
-    # 1) Being flanked by viral genes raises confidence
-    # 1a) If both viral flanks are present, confidence is raised
-    # 1b) If only one viral flank is present but the contig is circular, confidence is still raised
-    # 1c) If neither viral flank is present, confidence is lowered
-    if viral_flank_up:
-        confidence_score += 1
-    if viral_flank_down:
-        confidence_score += 1
-    if circular:
-        confidence_score += 1
-    # 2) Being in a viral window raises confidence,
-    #    Not being in a viral window lowers confidence
-    if viral_window:
-        confidence_score += 1
-    # 3) Being flanked by MGE genes lowers confidence,
-    #    not being flanked by MGE genes raises confidence
-    if not mge_flank:
-        confidence_score += 1
-    
-    if confidence_score >= 4:
-        return "high"
-    elif confidence_score < 4 and confidence_score > 1:
-        return "medium"
-    elif confidence_score <= 1:
-        return "low"
-    else:
-        logger.error(f"Unexpected confidence score: {confidence_score}. This should not happen.")
-        raise ValueError(f"Unexpected confidence score: {confidence_score}. This should not happen.")
-
 def write_fasta_str(record):
     return f">{record.header.name} {record.header.desc}\n{str(record.seq)}\n"
 
@@ -129,7 +95,7 @@ def organize_proteins(category_table_path, category, all_genes_df):
     # Extract relevant gene context information
     all_genes_info = (
         all_genes_df
-        .select(["Protein", "Circular_Contig", "Virus_Like_Window", "Viral_Flanking_Genes_Upstream", "Viral_Flanking_Genes_Downstream", "MGE_Flanking_Genes"])
+        .select(["Protein", "Circular_Contig", "Viral_Origin_Confidence", "Viral_Flanking_Genes_Upstream", "Viral_Flanking_Genes_Downstream", "MGE_Flanking_Genes"])
         .to_dicts()
     )
     
@@ -140,13 +106,7 @@ def organize_proteins(category_table_path, category, all_genes_df):
 
     for gene in all_genes_info:
         protein = gene["Protein"]
-        circular = gene["Circular_Contig"]
-        viral_window = gene["Virus_Like_Window"]
-        viral_flank_up = gene["Viral_Flanking_Genes_Upstream"]
-        viral_flank_down = gene["Viral_Flanking_Genes_Downstream"]
-        mge_flank = gene["MGE_Flanking_Genes"]
-
-        confidence = viral_origin_confidence(circular, viral_window, viral_flank_up, viral_flank_down, mge_flank)
+        confidence = gene["Viral_Origin_Confidence"]
 
         if protein in all_category_genes:
             if confidence == "high":

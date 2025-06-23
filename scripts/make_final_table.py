@@ -31,40 +31,6 @@ logger = logging.getLogger()
 print("========================================================================\n      Step 11/11: Write the final summarized auxiliary gene table       \n========================================================================")
 with open(log_file, "a") as log:
     log.write("========================================================================\n      Step 11/11: Writing the final summarized auxiliary gene table       \n========================================================================\n")
-
-# Function to determine Viral Origin Confidence
-def viral_origin_confidence(circular, viral_window, viral_flank_up, viral_flank_down, mge_flank):
-    # This can certainly be simplified and c4ompacted, but for clarity, I like it as is
-    confidence_score = 0
-    
-    # 1) Being flanked by viral genes raises confidence
-    # 1a) If both viral flanks are present, confidence is raised
-    # 1b) If only one viral flank is present but the contig is circular, confidence is still raised
-    # 1c) If neither viral flank is present, confidence is lowered
-    if viral_flank_up:
-        confidence_score += 1
-    if viral_flank_down:
-        confidence_score += 1
-    if circular:
-        confidence_score += 1
-    # 2) Being in a viral window raises confidence,
-    #    Not being in a viral window lowers confidence
-    if viral_window:
-        confidence_score += 1
-    # 3) Being flanked by MGE genes lowers confidence,
-    #    not being flanked by MGE genes raises confidence
-    if not mge_flank:
-        confidence_score += 1
-    
-    if confidence_score >= 4:
-        return "high"
-    elif confidence_score < 4 and confidence_score > 1:
-        return "medium"
-    elif confidence_score <= 1:
-        return "low"
-    else:
-        logger.error(f"Unexpected confidence score: {confidence_score}. This should not happen.")
-        raise ValueError(f"Unexpected confidence score: {confidence_score}. This should not happen.")
     
 # Function to classify proteins based on their presence in metabolic, physiology, and regulatory tables
 def classify_proteins(final_df, metabolism_df, physiology_df, regulatory_df):
@@ -97,18 +63,14 @@ def classify_proteins(final_df, metabolism_df, physiology_df, regulatory_df):
             return "unclassified"
 
     final_df = final_df.with_columns(
-        pl.col("Protein").map_elements(classify, return_dtype=pl.Utf8).alias("classification"),
-        pl.struct(["Circular_Contig", "Virus_Like_Window", "Viral_Flanking_Genes_Upstream", "Viral_Flanking_Genes_Downstream", "MGE_Flanking_Genes"])
-        .map_elements(lambda x: viral_origin_confidence(x["Circular_Contig"], x["Virus_Like_Window"], x["Viral_Flanking_Genes_Upstream"], x["Viral_Flanking_Genes_Downstream"], x["MGE_Flanking_Genes"]),
-                    return_dtype=pl.Utf8)
-        .alias("Confidence")
+        pl.col("Protein").map_elements(classify, return_dtype=pl.Utf8).alias("classification")
     ).select(
         [
             "Protein",
             "Contig",
             "Genome",
             "classification",
-            "Confidence",
+            "Viral_Origin_Confidence",
             # "Circular_Contig", "Viral_Flanking_Genes_Upstream", "Viral_Flanking_Genes_Downstream", "MGE_Flanking_Genes", ## Debugging
             "KEGG_hmm_id",
             "KEGG_Description",
@@ -129,7 +91,7 @@ def classify_proteins(final_df, metabolism_df, physiology_df, regulatory_df):
     ).rename(
         {
             "classification": "Protein Classification",
-            "Confidence": "Protein Viral Origin Confidence",
+            "Viral_Origin_Confidence": "Protein Viral Origin Confidence",
             "KEGG_hmm_id": "KEGG KO",
             "KEGG_Description": "KEGG KO Name",
             "FOAM_hmm_id": "FOAM ID",
