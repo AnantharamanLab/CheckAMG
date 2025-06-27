@@ -224,6 +224,9 @@ rule genome_context:
         hallmark_path = os.path.join(config["paths"]["files_dir"], "viral_hallmark_genes.csv"),
         mobile_genes_path = os.path.join(config["paths"]["files_dir"], "mobile_genes.csv"),
         vscore_ref = os.path.join(config["paths"]["files_dir"], "vscores.csv"),
+        rf_model = os.path.join(config["paths"]["files_dir"], "rf_model.joblib"),
+        feature_names = os.path.join(config["paths"]["files_dir"], "rf_feature_names.joblib"),
+        thresholds = os.path.join(config["paths"]["files_dir"], "rf_thresholds.joblib"),
         tmp_dir = os.path.join(config["paths"]["output_dir"], "wdir"),
         debug = bool(config["debug"]),
         log = config["log"]
