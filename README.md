@@ -331,7 +331,7 @@ Below are preliminary results for benchmarking our viral origin confidence predi
 
 ### 5. Snakemake
 
-CheckAMG modules are executes as [Snakemake](https://snakemake.readthedocs.io/en/stable/) pipelines. If a run is interrupted, it can resume from the last complete step as long as intermediate files exist.
+CheckAMG modules are executed as [Snakemake](https://snakemake.readthedocs.io/en/stable/) pipelines. If a run is interrupted, it can resume from the last complete step as long as intermediate files exist.
 
 ## Error reporting
 
