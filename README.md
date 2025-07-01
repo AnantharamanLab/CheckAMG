@@ -146,7 +146,7 @@ options:
                         been assigned a functional annotation using the CheckAMG database to be
                         considered for contextual analysis. (default: 0.2).
   -c COV_FRACTION, --cov_fraction COV_FRACTION
-                        Minimum covered fraction for HMM alignments (default: 0.5).
+                        Minimum fallback covered fraction (of the user viral protein) for HMM alignments when database-provided cutoffs are not available (default: 0.5).
   -b BIT_SCORE, --bit_score BIT_SCORE
                         Minimum fallback bit score for HMM alignments when database-provided cutoffs are not available (default: 50).
   -bh BITSCORE_FRACTION_HEURISTIC, --bitscore_fraction_heuristic BITSCORE_FRACTION_HEURISTIC
