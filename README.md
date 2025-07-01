@@ -49,7 +49,7 @@ pip install checkamg
 
 Example data to test your installation of CheckAMG are provided in the `example_data` folder of this repository.
 
-```bash
+```
 checkamg download -d /path/to/db_dir
 
 checkamg annotate \
@@ -96,7 +96,7 @@ The `annotate` module is for the automated prediction and curation of auxiliary 
 
 **Basic usage:**
 
-```bash
+```
 checkamg annotate -g <genomes.fna> -d <db_dir> -o <output_dir>
 ```
 
