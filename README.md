@@ -47,8 +47,10 @@ pip install checkamg
 
 ### Step 3: Download the databases required by CheckAMG
 
+About 40 GB of free disk space will be required to download the databases. This can be reduced to about ~21 GB after downloading finishes if the human-readable HMM files are removed by providing the `--rm_hmm` argument.
+
 ```
-checkamg download -d /path/to/db/destination
+checkamg download -d /path/to/db/destination --rm_hmm
 ```
 
 ## Quick start

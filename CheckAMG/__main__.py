@@ -27,7 +27,7 @@ def main():
      download_parser = subparsers.add_parser(
           "download",
           help="Download the databases required by CheckAMG.",
-          description="Download the databases required by CheckAMG.",
+          description="Download the databases required by CheckAMG. This requires ~40 GB of disk space (or ~21 GB finally, if the '--remove' argument is provided).",
           formatter_class=CustomHelpFormatter)
      download_parser.add_argument(
           "-d", "--db_dir", type=str, required=True,
@@ -35,6 +35,9 @@ def main():
      download_parser.add_argument(
           "-f", "--force", action="store_true", default=False,
           help="Force re-download of databases even if they already exist (default: %(default)s).")
+     download_parser.add_argument(
+          "-r", "--rm_hmm", action="store_true", default=False,
+          help="Remove human-readable HMM files from the database directory after downloading, to save space. CheckAMG only needs the binary files (default: %(default)s).")
      download_parser.add_argument(
           "-t", "--threads", type=int, default=10,
           help="Number of threads to use for downloading and compiling databases (default: %(default)s).")
@@ -126,6 +129,8 @@ def main():
      
      if args.command == "download":
           download_dbs.download_all(dest=args.db_dir, force=args.force, threads=args.threads)
+          if args.rm_hmm:
+               download_dbs.remove_human_readable_files(dest=args.db_dir)
      elif args.command == "annotate":
           if args.input_type == "nucl" and not args.genomes and not args.vmags:
                parser.error("At least one of --genomes or --vmags is required when --input_type is 'nucl'.")
