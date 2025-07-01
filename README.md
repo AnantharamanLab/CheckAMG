@@ -243,10 +243,10 @@ CheckAMG_annotate_output
 Examples of these output files are provided in the [`examples/example_outputs`](https://github.com/AnantharamanLab/CheckAMG/tree/main/examples/example_outputs) folder of this repository.
 
 ### CheckAMG de-novo
-Coming soon.
+*Coming soon.*
 
 ### CheckAMG end-to-end
-Coming soon.
+*Coming soon.*
 
 ## Important Notes / FAQs
 ### 1. What is an *AVG*?
@@ -335,7 +335,8 @@ CheckAMG modules are executed as [Snakemake](https://snakemake.readthedocs.io/en
 
 ## Error reporting
 
-To report bugs or request features, please use the [GitHub Issues](https://github.com/AnantharamanLab/CheckAMG/issues).
+To report bugs or request features, please use the [GitHub Issues page](https://github.com/AnantharamanLab/CheckAMG/issues).
+
 ## Citation
 
 *Coming soon.*
@@ -344,6 +345,4 @@ Authors:
 
 * James C. Kosmopoulos (**kosmopoulos [at] wisc [dot] edu**)
 * Cody Martin
-* Karthik Anantharaman (**karthik [at] bact [dot] wisc [dot] edu**)<sup>*</sup>
-
-<sup>*</sup>To whom correspondence should be addressed.
+* Karthik Anantharaman (**karthik [at] bact [dot] wisc [dot] edu**)
