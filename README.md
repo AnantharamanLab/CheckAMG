@@ -47,7 +47,7 @@ pip install checkamg
 
 ## Quick start
 
-Example data to test your installation of CheckAMG are provided in the [`CheckAMG/examples/example_data`](https://github.com/AnantharamanLab/CheckAMG/tree/main/CheckAMG/examples/example_data) folder of this repository.
+Example data to test your installation of CheckAMG are provided in the [`examples/example_data`](https://github.com/AnantharamanLab/CheckAMG/tree/main/examples/example_data) folder of this repository.
 
 ```
 checkamg download -d /path/to/db_dir
@@ -240,7 +240,7 @@ CheckAMG_annotate_output
     * `*_genes_curated.tsv`: Curated lists of metabolic, physiological, and regulatory genes after filtering false positives
 * `wdir/`: Intermediate files
 
-Examples of these output files are provided in the [`CheckAMG/examples/example_outputs`](https://github.com/AnantharamanLab/CheckAMG/tree/main/CheckAMG/examples/example_outputs) folder of this repository.
+Examples of these output files are provided in the [`examples/example_outputs`](https://github.com/AnantharamanLab/CheckAMG/tree/main/examples/example_outputs) folder of this repository.
 
 ### CheckAMG de-novo
 Coming soon.
