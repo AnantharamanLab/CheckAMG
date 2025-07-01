@@ -278,7 +278,7 @@ AVGs often resemble host genes and can result from contamination. CheckAMG uses 
 
 1. Proximity to virus-like or viral hallmark genes
 2. Proximity to transposases or other non-viral mobilization genes
-3. Local viral gene content (determined using [V- and VL-scores](https://github.com/AnantharamanLab/V-Score-Search) [Zhou et al., 2025](https://www.biorxiv.org/content/10.1101/2024.10.24.619987v1))
+3. Local viral gene content, determined using [V- and VL-scores](https://github.com/AnantharamanLab/V-Score-Search) ([Zhou et al., 2025](https://www.biorxiv.org/content/10.1101/2024.10.24.619987v1))
 4. Contig circularity
 
 A Random Forest model, trained on real and simulated viral/non-viral data, makes these assignments. Confidence levels refer to the viral origin, not the functional annotation.
@@ -302,34 +302,107 @@ The precision and recall of each confidence level for predicting true viral prot
 
 Below are preliminary results for benchmarking our viral origin confidence predictions against test datasets with varying sequence composition (% of proteins):
 
-| Dataset              | % Viral Proteins | % MGE Proteins | % Host Proteins | Confidence Level  | Precision | Recall | F1 Score | FDR   | MCC   |
-| -------------------- | ---------------- | -------------- | --------------- | ----------------- | --------- | ------ | -------- | ----- | ----- |
-| near all MGE         | 5.00%            | 90.00%         | 5.00%           | High Confidence   | 0.94      | 0.2    | 0.329    | 0.06  | 0.423 |
-| near all MGE         | 5.00%            | 90.00%         | 5.00%           | Medium Confidence | 0.57      | 0.848  | 0.682    | 0.43  | 0.676 |
-| near all MGE         | 5.00%            | 90.00%         | 5.00%           | Low Confidence    | 0.05      | 1      | 0.095    | 0.95  | 0     |
-| near all host        | 5.00%            | 5.00%          | 90.00%          | High Confidence   | 0.904     | 0.221  | 0.355    | 0.096 | 0.436 |
-| near all host        | 5.00%            | 5.00%          | 90.00%          | Medium Confidence | 0.269     | 0.86   | 0.41     | 0.731 | 0.438 |
-| near all host        | 5.00%            | 5.00%          | 90.00%          | Low Confidence    | 0.05      | 1      | 0.095    | 0.95  | 0     |
-| MGE enriched         | 12.50%           | 75.00%         | 12.50%          | High Confidence   | 0.98      | 0.209  | 0.345    | 0.02  | 0.428 |
-| MGE enriched         | 12.50%           | 75.00%         | 12.50%          | Medium Confidence | 0.736     | 0.857  | 0.792    | 0.264 | 0.762 |
-| MGE enriched         | 12.50%           | 75.00%         | 12.50%          | Low Confidence    | 0.125     | 1      | 0.222    | 0.875 | 0     |
-| host enriched        | 12.50%           | 12.50%         | 75.00%          | High Confidence   | 0.963     | 0.215  | 0.351    | 0.037 | 0.429 |
-| host enriched        | 12.50%           | 12.50%         | 75.00%          | Medium Confidence | 0.518     | 0.863  | 0.648    | 0.482 | 0.61  |
-| host enriched        | 12.50%           | 12.50%         | 75.00%          | Low Confidence    | 0.125     | 1      | 0.222    | 0.875 | 0     |
-| equal source         | 33.30%           | 33.30%         | 33.30%          | High Confidence   | 0.991     | 0.204  | 0.338    | 0.009 | 0.378 |
-| equal source         | 33.30%           | 33.30%         | 33.30%          | Medium Confidence | 0.845     | 0.863  | 0.854    | 0.155 | 0.78  |
-| equal source         | 33.30%           | 33.30%         | 33.30%          | Low Confidence    | 0.333     | 1      | 0.5      | 0.667 | 0     |
-| equal viral/nonviral | 50.00%           | 25.00%         | 25.00%          | High Confidence   | 0.996     | 0.21   | 0.347    | 0.004 | 0.341 |
-| equal viral/nonviral | 50.00%           | 25.00%         | 25.00%          | Medium Confidence | 0.916     | 0.864  | 0.889    | 0.084 | 0.786 |
-| equal viral/nonviral | 50.00%           | 25.00%         | 25.00%          | Low Confidence    | 0.5       | 1      | 0.667    | 0.5   | 0     |
-| virus enriched       | 75.00%           | 12.50%         | 12.50%          | High Confidence   | 0.998     | 0.209  | 0.346    | 0.002 | 0.248 |
-| virus enriched       | 75.00%           | 12.50%         | 12.50%          | Medium Confidence | 0.971     | 0.861  | 0.913    | 0.029 | 0.72  |
-| virus enriched       | 75.00%           | 12.50%         | 12.50%          | Low Confidence    | 0.75      | 1      | 0.857    | 0.25  | 0     |
-| near all virus       | 90.00%           | 5.00%          | 5.00%           | High Confidence   | 1         | 0.209  | 0.346    | 0     | 0.16  |
-| near all virus       | 90.00%           | 5.00%          | 5.00%           | Medium Confidence | 0.989     | 0.861  | 0.921    | 0.011 | 0.567 |
-| near all virus       | 90.00%           | 5.00%          | 5.00%           | Low Confidence    | 0.9       | 1      | 0.947    | 0.1   | 0     |
+| Dataset              | % Viral Proteins | % MGE Proteins | % Host Proteins | Confidence Level | Threshold | Precision | Recall | F1 Score | FDR   | MCC   |
+| -------------------- | ---------------- | -------------- | --------------- | ---------------- | --------- | --------- | ------ | -------- | ----- | ----- |
+| Near all MGE         | 5                | 90             | 5               | High             | 0.99      | 0.94      | 0.2    | 0.329    | 0.06  | 0.423 |
+| Near all MGE         | 5                | 90             | 5               | Medium           | 0.59      | 0.57      | 0.848  | 0.682    | 0.43  | 0.676 |
+| Near all MGE         | 5                | 90             | 5               | Low              | 0         | 0.05      | 1      | 0.095    | 0.95  | 0     |
+| Near all host        | 5                | 5              | 90              | High             | 0.99      | 0.904     | 0.221  | 0.355    | 0.096 | 0.436 |
+| Near all host        | 5                | 5              | 90              | Medium           | 0.59      | 0.269     | 0.86   | 0.41     | 0.731 | 0.438 |
+| Near all host        | 5                | 5              | 90              | Low              | 0         | 0.05      | 1      | 0.095    | 0.95  | 0     |
+| MGE enriched         | 12.5             | 75             | 12.5            | High             | 0.99      | 0.98      | 0.209  | 0.345    | 0.02  | 0.428 |
+| MGE enriched         | 12.5             | 75             | 12.5            | Medium           | 0.59      | 0.736     | 0.857  | 0.792    | 0.264 | 0.762 |
+| MGE enriched         | 12.5             | 75             | 12.5            | Low              | 0         | 0.125     | 1      | 0.222    | 0.875 | 0     |
+| Host enriched        | 12.5             | 12.5           | 75              | High             | 0.99      | 0.963     | 0.215  | 0.351    | 0.037 | 0.429 |
+| Host enriched        | 12.5             | 12.5           | 75              | Medium           | 0.59      | 0.518     | 0.863  | 0.648    | 0.482 | 0.61  |
+| Host enriched        | 12.5             | 12.5           | 75              | Low              | 0         | 0.125     | 1      | 0.222    | 0.875 | 0     |
+| Equal source         | 33.3             | 33.3           | 33.3            | High             | 0.99      | 0.991     | 0.204  | 0.338    | 0.009 | 0.378 |
+| Equal source         | 33.3             | 33.3           | 33.3            | Medium           | 0.59      | 0.845     | 0.863  | 0.854    | 0.155 | 0.78  |
+| Equal source         | 33.3             | 33.3           | 33.3            | Low              | 0         | 0.333     | 1      | 0.5      | 0.667 | 0     |
+| Equal viral/nonviral | 50               | 25             | 25              | High             | 0.99      | 0.996     | 0.21   | 0.347    | 0.004 | 0.341 |
+| Equal viral/nonviral | 50               | 25             | 25              | Medium           | 0.59      | 0.916     | 0.864  | 0.889    | 0.084 | 0.786 |
+| Equal viral/nonviral | 50               | 25             | 25              | Low              | 0         | 0.5       | 1      | 0.667    | 0.5   | 0     |
+| Virus enriched       | 75               | 12.5           | 12.5            | High             | 0.99      | 0.998     | 0.209  | 0.346    | 0.002 | 0.248 |
+| Virus enriched       | 75               | 12.5           | 12.5            | Medium           | 0.59      | 0.971     | 0.861  | 0.913    | 0.029 | 0.72  |
+| Virus enriched       | 75               | 12.5           | 12.5            | Low              | 0         | 0.75      | 1      | 0.857    | 0.25  | 0     |
+| Near all virus       | 90               | 5              | 5               | High             | 0.99      | 1         | 0.209  | 0.346    | 0     | 0.16  |
+| Near all virus       | 90               | 5              | 5               | Medium           | 0.59      | 0.989     | 0.861  | 0.921    | 0.011 | 0.567 |
+| Near all virus       | 90               | 5              | 5               | Low              | 0         | 0.9       | 1      | 0.947    | 0.1   | 0     |
 
-### 5. Snakemake
+### 5. How does CheckAMG performs its HMM alignments?
+
+If you're curious about the internal mechanics of how CheckAMG performs HMM alignments for functional annotation, here's a simplified breakdown of the default behavior. These settings are designed to balance sensitivity (not missing true hits) and specificity (excluding weak/ambiguous matches), with additional database-specific optimizations for functional reliability.
+
+1. **HMM Alignment Tool:**
+
+   * Uses `pyhmmer` for fast and reproducible HMM searches
+
+2. **E-value Threshold:**
+
+   * An initial, very permissive `E-value` of `0.1` is used to avoid false negatives in HMMsearches due to chunking/memory effects on database size
+
+3. **Domain-Level Filtering:**
+
+   * For each domain hit, alignment coverage and bit scores are computed
+   * Minimum thresholds are applied to ensure quality:
+
+     * **Coverage:** must exceed a minimum fraction of the sequence (default = `0.5`), this is to ensure functional inferences aren't drawn soley from small, individual domains
+     * **Bit Score:** must exceed a minimum absolute value (default = `50`)
+
+### 5. How does CheckAMG perform its HMM alignments?
+
+If you're curious about the internal mechanics of how CheckAMG performs HMM alignments for functional annotation, here's a simplified breakdown of the default behavior. These settings aim to balance sensitivity (not missing true hits) and specificity (excluding weak/ambiguous matches), with additional database-specific strategies for accuracy and reproducibility.
+
+1. **HMM Alignment Tool**
+
+   * CheckAMG uses `pyhmmer` for fast and reproducible HMM searches.
+
+2. **E-value Threshold**
+
+   * A permissive `E-value` cutoff of `0.1` is applied during `hmmsearch` to minimize missed hits due to chunking or memory differences, which can affect search reproducibility.
+
+3. **Domain-Level Filtering**
+
+   * For each domain hit, alignment **coverage** and **bit score** are calculated.
+
+     * **Coverage:** Must be at least 0.5 of the full sequence.
+     * **Bit Score:** Must exceed an absolute threshold (default = 50).
+
+4. **Database-Specific Thresholds**
+
+   * CheckAMG applies specialized rules depending on the HMM source:
+
+     * **Pfam:** Applies sequence-level *gathering threshold (GA)*; hits below GA are excluded.
+     * **FOAM & KEGG:** Use database-defined bit score thresholds, but apply a relaxed fallback heuristic (see below).
+     * **METABOLIC:** Uses GA cutoffs derived from its underlying Pfam/TIGRFAM sources.
+
+5. **Fallback Heuristic (KEGG & FOAM)**
+
+   * KEGG and FOAM thresholds can sometimes be overly strict, especially for environemntal viruses, filtering out hits that are biologically valid.
+   * To recover these valid hits, CheckAMG applies a relaxed fallback heuristic inspired by the [Anvi'o `anvi-run-kegg-kofams` strategy](https://anvio.org/help/7.1/programs/anvi-run-kegg-kofams/#how-does-it-work) (verified and benchmarked by [Kananen et al., 2025](https://doi.org/10.1093/bioadv/vbaf039)):
+
+     * If a hit falls below the database-provided trusted threshold (e.g., KEGG TC), it is still retained **if the bit score is at least 50% of the threshold value**
+   * This heuristic improves annotation recovery without compromising too much on precision ([Kananen et al., 2025](https://doi.org/10.1093/bioadv/vbaf039))).
+
+6. **Fallback Filtering for Other Databases**
+
+   * If the HMM source doesn't have defined cutoffs, such as dbCAN, PHROGs, and some profiles in the METABOLIC database, CheckAMG applies:
+
+     * Minimum coverage of `0.5` (this is to ensure functional inferences aren't drawn soley from small, individual domains)
+     * Minimum bit score of `50`
+     * Both are configurable by the user if desired
+
+7. **Result Consolidation and Best-Hit Filtering**
+
+   * Each input protein is aligned against **each HMM source database** (KEGG, FOAM, Pfam, PHROG, dbCAN, METABOLIC).
+   * All domain hits are first filtered using the criteria above.
+   * Then, for **each database**, only the **single best hit per protein** is retained:
+
+     * Preference is given to the hit with the higher bit score
+
+These defaults provide a balance between accuracy and recall, and are based on benchmarking and community best practices. Advanced users may modify thresholds using the `--bit_score` and `--bitscore_fraction_heuristic` arguments.
+
+### 6. Snakemake
 
 CheckAMG modules are executed as [Snakemake](https://snakemake.readthedocs.io/en/stable/) pipelines. If a run is interrupted, it can resume from the last complete step as long as intermediate files exist.
 
