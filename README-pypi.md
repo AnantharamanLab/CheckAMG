@@ -7,12 +7,12 @@
 ## Quick Usage
 
 ```bash
-checkamg download -d /path/to/db_dir
+checkamg download -d /path/to/db/destination
 
 checkamg annotate \
-  -d /path/to/db_dir \
-  -g example_data/single_contig_viruses.fasta \
-  -vg example_data/multi_contig_vMAGs \
+  -d /path/to/db/destination \
+  -g examples/example_data/single_contig_viruses.fasta \
+  -vg examples/example_data/multi_contig_vMAGs \
   -o CheckAMG_example_out
 ```
 

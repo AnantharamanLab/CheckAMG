@@ -9,9 +9,7 @@ description = "Automated identification and curation of Auxiliary Metabolic Gene
 readme = {file = "README-pypi.md", content-type = "text/markdown"}
 requires-python = ">=3.11, <3.13"
 authors = [
-  {name = "James C. Kosmopoulos", email = "kosmopoulos@wisc.edu"},
-  {name = "Cody Martin"},
-  {name = "Karthik Anantharaman", email = "karthik@bact.wisc.edu"}
+  {name = "James C. Kosmopoulos", email = "kosmopoulos@wisc.edu"}
 ]
 license = {text = "GPL-3.0-or-later"}
 keywords = ["bioinformatics", "metagenomics", "viromics", "genomics", "AMG", "phage"]
