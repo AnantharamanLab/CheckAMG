@@ -4,7 +4,11 @@ import argparse
 import textwrap
 import sys
 import psutil
-from scripts import checkAMG_ASCII, CheckAMG_annotate
+from CheckAMG.scripts import CheckAMG_annotate
+from CheckAMG.scripts.checkAMG_ASCII import ASCII
+from importlib.metadata import version
+
+__version__ = version("checkamg")
 
 available_memory_gb = psutil.virtual_memory().available / (1024 ** 3) # Get available memory in GB
 
@@ -17,8 +21,9 @@ def main():
      parser = argparse.ArgumentParser(description="CheckAMG: automated identification and curation of Auxiliary Metabolic Genes (AMGs),"
                                                   " Auxiliary Regulatory Genes (AReGs), and Auxiliary Physiology Genes (APGs)"
                                                   " in viral genomes.", formatter_class=CustomHelpFormatter)
+     parser.add_argument("-v", "--version", action="version", version=f"CheckAMG {__version__}")
      subparsers = parser.add_subparsers(help="CheckAMG modules", dest="command")
-
+          
      download_parser = subparsers.add_parser(
           "download",
           help="Download the databases required by CheckAMG.",
@@ -84,23 +89,28 @@ def main():
 
      de_novo_parser = subparsers.add_parser(
           "de-novo",
-          help="Predict auxiliary genes with an annotation-independent method using a protein-based genome language model (Protein Set Transformer).",
-          description="Predict auxiliary genes with an annotation-independent method using a protein-based genome language model (Protein Set Transformer).",
+          help="(Not yet implemented) Predict auxiliary genes with an annotation-independent method using a protein-based genome language model (Protein Set Transformer).",
+          description="Not yet implemented.",
           formatter_class=CustomHelpFormatter)
 
      aggregate_parser = subparsers.add_parser(
           "aggregate",
-          help="Aggregate the results of the CheckAMG annotate and de-novo modules to produce a final report of auxiliary gene predictions.",
-          description="Aggregate the results of the CheckAMG annotate and de-novo modules to produce a final report of auxiliary gene predictions.",
+          help="(Not yet implemented) Aggregate the results of the CheckAMG annotate and de-novo modules to produce a final report of auxiliary gene predictions.",
+          description="Not yet implemented.",
           formatter_class=CustomHelpFormatter)
           
      end_to_end_parser = subparsers.add_parser(
           "end-to-end",
-          help="Executes CheckAMG annotate, de-novo, and aggregate in tandem.",
-          description="Executes CheckAMG annotate, de_novo, and aggregate in tandem.",
+          help="(Not yet implemented) Executes CheckAMG annotate, de-novo, and aggregate in tandem.",
+          description="Not yet implemented.",
           formatter_class=CustomHelpFormatter)
      
+     if "--version" not in sys.argv and "-v" not in sys.argv:
+          print(ASCII)
+          sys.stdout.flush()
+          
      args = parser.parse_args()
+     
      if args.command == "download":
           print("Database download functionality will be implemented here.")
      elif args.command == "annotate":
@@ -129,7 +139,5 @@ def main():
           sys.exit(1)
 
 if __name__ == "__main__":
-     print(checkAMG_ASCII.ASCII)
-     sys.stdout.flush()
      main()
 

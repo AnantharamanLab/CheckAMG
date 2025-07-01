@@ -19,6 +19,7 @@ from math import ceil
 from collections import defaultdict
 from tqdm import tqdm
 from functools import partial
+from random import shuffle
 
 # Global cache of pre-loaded HMM models, shared by forked workers via copy-on-write
 HMM_MODELS = {}
@@ -34,10 +35,11 @@ if Path(KEGG_THRESHOLDS_PATH).exists():
 
 
 def set_memory_limit(limit_in_gb):
-    current_os = platform.system()
-    if current_os == "Linux":
-        limit_in_bytes = limit_in_gb * 1024 * 1024 * 1024
+    limit_in_bytes = limit_in_gb * 1024 * 1024 * 1024
+    try:
         resource.setrlimit(resource.RLIMIT_AS, (limit_in_bytes, limit_in_bytes))
+    except (ValueError, OSError, AttributeError) as e:
+        logger.warning(f"Unable to set memory limit. Error: {e}")
 
 log_level = logging.DEBUG if snakemake.params.debug else logging.INFO
 log_file = snakemake.params.log
@@ -261,6 +263,7 @@ def main():
                 f"{db.stem}_{i//cs}", chunk_file, db_str,
                 seq_lengths, tmp_dir, cov_fraction, minscore, min_bitscore_fraction, evalue, 1
             ))
+    shuffle(jobs) # Shuffle jobs so the big databases don't always run all at first
     
     logger.info(f"Running HMMsearch with {num_threads} maximum jobs in parallel...")
     # Run HMMsearch in parallel

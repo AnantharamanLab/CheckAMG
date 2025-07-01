@@ -11,15 +11,12 @@ os.environ["POLARS_MAX_THREADS"] = str(snakemake.threads)
 import polars as pl
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-# Function to set memory limit in GB
 def set_memory_limit(limit_in_gb):
-    # Check the operating system
-    current_os = platform.system()
-    if current_os == "Linux":
-        limit_in_bytes = limit_in_gb * 1024 * 1024 * 1024  # Convert GB to bytes
+    limit_in_bytes = limit_in_gb * 1024 * 1024 * 1024
+    try:
         resource.setrlimit(resource.RLIMIT_AS, (limit_in_bytes, limit_in_bytes))
-    else:
-        None
+    except (ValueError, OSError, AttributeError) as e:
+        logger.warning(f"Unable to set memory limit. Error: {e}")
 
 log_level = logging.DEBUG if snakemake.params.debug else logging.INFO
 log_file = snakemake.params.log

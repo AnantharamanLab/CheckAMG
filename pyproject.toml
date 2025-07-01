@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "checkamg"
+version = "0.1.18"
+description = "Automated identification and curation of Auxiliary Metabolic Genes (AMGs), Auxiliary Regulatory Genes (AReGs), and Auxiliary Physiology Genes (APGs) in viral genomes."
+readme = {file = "README-pypi.md", content-type = "text/markdown"}
+requires-python = ">=3.11, <3.13"
+authors = [
+  {name = "James C. Kosmopoulos", email = "kosmopoulos@wisc.edu"},
+  {name = "Cody Martin"},
+  {name = "Karthik Anantharaman", email = "karthik@bact.wisc.edu"}
+]
+license = {text = "GPL-3.0-or-later"}
+keywords = ["bioinformatics", "metagenomics", "viromics", "genomics", "AMG", "phage"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+  "Operating System :: POSIX :: Linux",
+  "Operating System :: MacOS",
+  "Topic :: Scientific/Engineering :: Bio-Informatics"
+]
+dependencies = [
+  "joblib>=1.5.1",
+  "metapyrodigal>=1.4.1",
+  "numba>=0.61.2",
+  "numpy>=1.24, <2.3",
+  "pandas>=2.3.0",
+  "polars-u64-idx>=1.30.0",
+  "psutil>=7.0.0",
+  "pyarrow>=20.0.0",
+  "pyfastatools==2.5.0",
+  "pyhmmer==0.11.1",
+  "pyrodigal>=3.5.2",
+  "pyrodigal-gv>=0.3.2",
+  "pyyaml>=6.0",
+  "requests>=2.32",
+  "scikit-learn==1.5.0",
+  "snakemake==8.23.2",
+  "tqdm>=4.67.1"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/AnantharamanLab/CheckAMG"
+
+[project.scripts]
+checkamg = "CheckAMG.__main__:main"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["CheckAMG", "CheckAMG.scripts"]
+
+[tool.setuptools.package-data]
+"CheckAMG" = ["files/**/*"]
+"CheckAMG.scripts" = ["*.smk"]

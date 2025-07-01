@@ -4,17 +4,19 @@ import subprocess
 import yaml
 import os
 import platform
-import sys
+from importlib.resources import files as resource_files
 import logging
-from scripts import checkAMG_ASCII
+from CheckAMG.scripts.checkAMG_ASCII import ASCII
 
-# Automatically determine the base directory of the current script
+# Access the packaged files and scripts directories
 scripts_dir = os.path.abspath(os.path.dirname(__file__))
-base_dir = os.path.abspath(os.path.join(scripts_dir, '..'))
-files_dir = os.path.join(base_dir, 'files')
+try:
+    files_dir = str(resource_files("CheckAMG").joinpath("files"))
+except ModuleNotFoundError as e:
+    raise RuntimeError("Package data not found. Is 'CheckAMG/files' included in your package?") from e
 
 def log_command_args(args):
-    params_string = "CheckAMG annotate "
+    params_string = "checkamg annotate "
     for arg, value in vars(args).items():
         if arg == "command":
             continue
@@ -124,7 +126,7 @@ def run_snakemake(config_path, args):
     logger = logging.getLogger()
     for handler in logger.handlers:
         if isinstance(handler, logging.FileHandler):
-            handler.stream.write(f"{checkAMG_ASCII.ASCII}\n") # Write the ASCII art to the log file directly
+            handler.stream.write(f"{ASCII}\n") # Write the ASCII art to the log file directly
             handler.flush() # Ensure the ASCII is written immediately
     logger.info("Starting CheckAMG annotate...")
     
@@ -163,7 +165,7 @@ def run_snakemake(config_path, args):
                 "--ignore-incomplete", # Debugging, for when the order of rules have been modified but old outputs were saved
                 "--quiet", "all"
             ]
-        subprocess.run(snakemake_command)
+        subprocess.run(snakemake_command, check=True)
         log_file_path = os.path.join(os.path.abspath(args.output), 'PhAuxDB_build.log')
         print("========================================================================\n              The CheckAMG annotate pipeline is complete               \n========================================================================")
         with open(log_file_path, "a") as log:

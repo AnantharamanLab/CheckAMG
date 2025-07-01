@@ -11,10 +11,11 @@ import re
 from pathlib import Path
 
 def set_memory_limit(limit_in_gb):
-    current_os = platform.system()
-    if current_os == "Linux":
-        limit_in_bytes = limit_in_gb * 1024 * 1024 * 1024
+    limit_in_bytes = limit_in_gb * 1024 * 1024 * 1024
+    try:
         resource.setrlimit(resource.RLIMIT_AS, (limit_in_bytes, limit_in_bytes))
+    except (ValueError, OSError, AttributeError) as e:
+        logger.warning(f"Unable to set memory limit. Error: {e}")
     
 log_level = logging.DEBUG if snakemake.params.debug else logging.INFO
 log_file = snakemake.params.log
@@ -61,6 +62,22 @@ def summarize_annot_table(table, hmm_descriptions):
     Returns:
         pl.DataFrame: A summarized Polars DataFrame.
     """
+    
+    table = table.with_columns(
+        pl.when(
+            pl.col("KEGG_verified_flank_up") | pl.col("Pfam_verified_flank_up") | pl.col("PHROG_verified_flank_up")
+        ).then(pl.lit(True))
+        .otherwise(pl.lit(False)).alias("Viral_Flanking_Genes_Upstream"),
+        pl.when(
+            pl.col("KEGG_verified_flank_down") | pl.col("Pfam_verified_flank_down") | pl.col("PHROG_verified_flank_down")
+        ).then(pl.lit(True))
+        .otherwise(pl.lit(False)).alias("Viral_Flanking_Genes_Downstream"),
+        pl.when(
+            pl.col("KEGG_MGE_flank") | pl.col("Pfam_MGE_flank") | pl.col("PHROG_MGE_flank")
+        ).then(pl.lit(True))
+        .otherwise(pl.lit(False)).alias("MGE_Flanking_Genes")
+    )
+    
     required_cols = [
         "protein",
         "contig",

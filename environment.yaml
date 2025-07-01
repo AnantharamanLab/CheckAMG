@@ -1,0 +1,24 @@
+name: checkamg
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python>=3.11
+  - joblib>=1.5.1
+  - numba>=0.61.2
+  - numpy>=2.3.1
+  - pandas>=2.3.0
+  - psutil>=7.0.0
+  - pyyaml>=6.0
+  - requests>=2.32
+  - tqdm>=4.67.1
+  - snakemake==8.23.2
+  - pip
+  - pip:
+      - polars-u64-idx>=1.30.0
+      - metapyrodigal>=1.4.1
+      - pyfastatools==2.5.0
+      - pyhmmer==0.11.1
+      - pyrodigal>=3.5.2
+      - pyrodigal-gv>=0.3
