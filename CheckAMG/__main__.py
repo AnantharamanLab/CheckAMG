@@ -75,7 +75,7 @@ def main():
      annotate_parser.add_argument("-b", "--bit_score", type=int, required=False, default=50,
                               help="Minimum fallback bit score for HMM alignments when database-provided cutoffs are not available (default: %(default)s).")
      annotate_parser.add_argument("-bh", "--bitscore_fraction_heuristic", type=float, required=False, default=0.5,
-                              help="Retain HMM hits scoring at least this fraction of the database-provided threshold under heuristic filtering. (default: %(default)s).")
+                              help="Retain HMM hits scoring at least this fraction of the database-provided threshold under heuristic filtering (default: %(default)s).")
      annotate_parser.add_argument("-Z", "--window_size", type=int, required=False, default=25000,
                               help="Size in base pairs of the window used to calculate the average VL-score of genes on a contig (default: %(default)s).")
      annotate_parser.add_argument("-F", "--max_flank", type=int, required=False, default=5000,
