@@ -141,8 +141,8 @@ rule assign_annots:
         wdir = os.path.join(config["paths"]["output_dir"], "wdir"),
         db_dir = config["paths"]["db_dir"],
         cov_fraction = config["cov_fraction"],
-        min_bitscore = 50,
-        min_bitscore_fraction_heuristic = 0.5,
+        min_bitscore = config["min_bitscore"],
+        min_bitscore_fraction_heuristic = config["min_bitscore_fraction_heuristic"],
         kegg_cutoff_file = os.path.join(config["paths"]["files_dir"], "KEGG_cutoffs.csv"),
         debug = bool(config["debug"]),
         log = config["log"]

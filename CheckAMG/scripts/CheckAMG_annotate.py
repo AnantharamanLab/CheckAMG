@@ -112,7 +112,9 @@ def generate_config(args):
         "minimum_flank_vscore" : args.min_flank_Vscore,
         "max_flank_length" : args.max_flank,
         "use_hallmark" : args.use_hallmark,
-        "cov_fraction" : args.cov_fraction
+        "cov_fraction" : args.cov_fraction,
+        "min_bitscore" : args.bit_score,
+        "min_bitscore_fraction_heuristic" : args.bitscore_fraction_heuristic
     }
     
     config_path = os.path.join(args.output, 'config_annotate.yaml')
