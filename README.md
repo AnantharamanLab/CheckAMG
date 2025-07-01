@@ -113,7 +113,7 @@ Notes:
 
 * At least one of `--genomes` or `--vmags`, or one of `--proteins` or `--vmag_proteins`, must be provided
 * Both nucleotide and protein input types cannot be mixed
-* Providing single-contig genomes or vMAGs only affects the labeling and organization of results, and does not affect AVG predictions
+* Providing single-contig genomes or vMAGs only affects the labelling and organization of results, and does not affect AVG predictions
 * Protein headers must be in [prodigal format](https://github.com/hyattpd/prodigal/wiki/understanding-the-prodigal-output#protein-translations) (e.g. `>Contig1_1 # 144 # 635 # 1` or `>Contig1_2 # 1535 # 635 # -1`)
 
 **Full usage:**
