@@ -254,8 +254,8 @@ An AVG is an **A**uxiliary **V**iral **G**ene, a virus-encoded gene that is non-
 
 Examples:
 * A virus-encoded *psbA* or *soxY* would be an AMG because they encode proteins with functions in host photosynthesis and sulfide oxidation
-* A virus-encoded *VasG* type VI secretion system protein or *HicA* toxin would be an APG because they are involved in host physiology
-* A *LuxR* transcriptional regulator or an `AsiA` anti-sigma factor protein would be an AReG because they are likely involved in the regulation of host gene expression
+* A virus-encoded VasG type VI secretion system protein or HicA toxin would be an APG because they are involved in host physiology
+* A LuxR transcriptional regulator or an AsiA anti-sigma factor protein would be an AReG because they are likely involved in the regulation of host gene expression
 
 Despite the name "CheckAMG", this tool also predicts APGs and AReGs using the same pipeline, differing only by functional annotation criteria.
 
