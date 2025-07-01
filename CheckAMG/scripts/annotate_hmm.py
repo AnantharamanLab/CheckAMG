@@ -134,8 +134,8 @@ def filter_hmm_results(tsv_path, hmm_path, out_path):
             if current_best is None:
                 results[key] = new_hit
             else:
-                # Keep hit with better (lower) evalue, or higher score if evalue is the same
-                if new_hit[5] < current_best[5] or (new_hit[5] == current_best[5] and new_hit[1] > current_best[1]):
+                # Keep hit with higher score
+                if new_hit[1] > current_best[1]:
                     results[key] = new_hit
 
     # Write best hit per sequence
