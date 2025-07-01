@@ -265,6 +265,8 @@ def main():
     shuffle(jobs) # Shuffle jobs so the big databases don't always run all at first
     
     logger.info(f"Running HMMsearch with {num_threads} maximum jobs in parallel...")
+    logger.debug(f"Using a minimum bit score of {minscore} and a minimum coverage fraction of {cov_fraction} for fallback filtering when database-provided cutoffs are not available.")
+    logger.debug(f"Using a minimum bitscore fraction of {min_bitscore_fraction} for heuristic filtering of HMM hits for KEGG and FOAM HMMs.")
     # Run HMMsearch in parallel
     result_paths = []
     with Pool(processes=num_threads) as pool:
