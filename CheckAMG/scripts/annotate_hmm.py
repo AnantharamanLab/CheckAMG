@@ -152,7 +152,7 @@ def _hmm_worker(args):
 def get_kegg_threshold(hmm_id):
     return KEGG_THRESHOLDS.get(hmm_id, None)
 
-def hmmsearch_worker(key, seq_path, db_str, seq_lengths, out_dir, min_coverage, min_score, min_bitscore_fraction, evalue, cpus):
+def hmmsearch_worker(key, seq_path, db_str, seq_lengths, out_dir, min_coverage, min_score, min_bitscore_fraction, cpus):
     outfile = Path(out_dir) / f"{key}_search.tsv"
     errfile = Path(out_dir) / f"{key}_search.err"
     alphabet = easel.Alphabet.amino()
@@ -180,7 +180,7 @@ def hmmsearch_worker(key, seq_path, db_str, seq_lengths, out_dir, min_coverage, 
                         kegg_thresh = get_kegg_threshold(hmm_id)
                         if kegg_thresh is not None and dom.score < kegg_thresh:
                             # Apply a heuristic like `anvi-run-kegg-kofams` from Anvi'o does, since KEGG thresholds are sometimes too strict
-                            if hit.evalue > evalue or dom.score < min_bitscore_fraction * kegg_thresh:
+                            if dom.score < min_bitscore_fraction * kegg_thresh:
                                 continue
                         elif kegg_thresh is None and (dom.score < min_score or coverage < min_coverage):
                             continue
@@ -188,7 +188,7 @@ def hmmsearch_worker(key, seq_path, db_str, seq_lengths, out_dir, min_coverage, 
                     elif db == "FOAM" and hmm.cutoffs.trusted is not None:
                         if dom.score < hmm.cutoffs.trusted1: # use sequence-level TC, not domain TC
                             # Apply the same heuristic as KEGG, since FOAM comes from KEGG
-                            if hit.evalue > evalue or dom.score < min_bitscore_fraction * hmm.cutoffs.trusted1:
+                            if dom.score < min_bitscore_fraction * hmm.cutoffs.trusted1:
                                 continue
                             
                     elif db == "METABOLIC" and hmm.cutoffs.gathering is not None:
@@ -216,7 +216,6 @@ def main():
     mem_limit = snakemake.resources.mem
     minscore = snakemake.params.min_bitscore
     min_bitscore_fraction = snakemake.params.min_bitscore_fraction_heuristic
-    evalue = snakemake.params.max_evalue
 
     logger.info("Protein HMM alignments starting...")
 
@@ -261,7 +260,7 @@ def main():
                     write_fasta(rec, f)
             jobs.append((
                 f"{db.stem}_{i//cs}", chunk_file, db_str,
-                seq_lengths, tmp_dir, cov_fraction, minscore, min_bitscore_fraction, evalue, 1
+                seq_lengths, tmp_dir, cov_fraction, minscore, min_bitscore_fraction, 1
             ))
     shuffle(jobs) # Shuffle jobs so the big databases don't always run all at first
     
