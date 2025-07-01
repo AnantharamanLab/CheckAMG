@@ -65,7 +65,7 @@ CheckAMG has multiple modules. The main modules that will be used for AVG predic
 
 Run `checkamg -h` for full options and module descriptions:
 
-```bash
+```
 usage: checkamg [-h] [-v] {download,annotate,de-novo,aggregate,end-to-end} ...
 
 CheckAMG: automated identification and curation of Auxiliary Metabolic Genes (AMGs), Auxiliary
@@ -118,7 +118,7 @@ Notes:
 
 **Full usage:**
 
-```bash
+```
 usage: checkamg annotate [-h] -d DB_DIR -o OUTPUT [-g GENOMES] [-vg VMAGS] [-p PROTEINS]
                          [-vp VMAG_PROTEINS] [--input_type INPUT_TYPE] [-l MIN_LEN] [-f MIN_ORF]
                          [-n MIN_ANNOT] [-c COV_FRACTION] [-Z WINDOW_SIZE] [-F MAX_FLANK]
