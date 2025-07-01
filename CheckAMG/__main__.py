@@ -4,7 +4,7 @@ import argparse
 import textwrap
 import sys
 import psutil
-from CheckAMG.scripts import CheckAMG_annotate
+from CheckAMG.scripts import CheckAMG_annotate, download_dbs
 from CheckAMG.scripts.checkAMG_ASCII import ASCII
 from importlib.metadata import version
 
@@ -29,7 +29,16 @@ def main():
           help="Download the databases required by CheckAMG.",
           description="Download the databases required by CheckAMG.",
           formatter_class=CustomHelpFormatter)
-
+     download_parser.add_argument(
+          "-d", "--db_dir", type=str, required=True,
+          help="Path to the directory where CheckAMG databases will be downloaded (Required).")
+     download_parser.add_argument(
+          "-f", "--force", action="store_true", default=False,
+          help="Force re-download of databases even if they already exist (default: %(default)s).")
+     download_parser.add_argument(
+          "-t", "--threads", type=int, default=10,
+          help="Number of threads to use for downloading and compiling databases (default: %(default)s).")
+     
      annotate_parser = subparsers.add_parser("annotate",
                                         help="Predict and curate auxiliary genes in viral genomes based on functional annotations and genomic context.",
                                         description="Predict and curate auxiliary genes in viral genomes based on functional annotations and genomic context.",
@@ -116,7 +125,7 @@ def main():
      args = parser.parse_args()
      
      if args.command == "download":
-          print("Database download functionality will be implemented here.")
+          download_dbs.download_all(dest=args.db_dir, force=args.force, threads=args.threads)
      elif args.command == "annotate":
           if args.input_type == "nucl" and not args.genomes and not args.vmags:
                parser.error("At least one of --genomes or --vmags is required when --input_type is 'nucl'.")
