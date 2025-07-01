@@ -41,21 +41,27 @@ conda activate CheckAMG
 pip install checkamg
 ```
 
-### From bioconda
+### Or from bioconda
 
 *Coming soon.*
+
+### Step 3: Download the databases required by CheckAMG
+
+```
+checkamg download -d /path/to/db/destination
+```
 
 ## Quick start
 
 Example data to test your installation of CheckAMG are provided in the [`examples/example_data`](https://github.com/AnantharamanLab/CheckAMG/tree/main/examples/example_data) folder of this repository.
 
 ```
-checkamg download -d /path/to/db_dir
+checkamg download -d /path/to/db/destination
 
 checkamg annotate \
-  -d /path/to/db_dir \
-  -g example_data/single_contig_viruses.fasta \
-  -vg example_data/multi_contig_vMAGs \
+  -d /path/to/db/destination \
+  -g examples/example_data/single_contig_viruses.fasta \
+  -vg examples/example_data/multi_contig_vMAGs \
   -o CheckAMG_example_out
 ```
 
@@ -310,67 +316,78 @@ The precision and recall of each confidence level for predicting true viral prot
 
 Below are preliminary results for benchmarking our viral origin confidence predictions against test datasets with varying sequence composition (% of proteins):
 
-| Dataset              | % Viral Proteins | % MGE Proteins | % Host Proteins | Confidence Level | Precision | Recall | F1 Score | FDR   | MCC   |
-| -------------------- | ---------------- | -------------- | --------------- | ---------------- | --------- | ------ | -------- | ----- | ----- |
-| Near all MGE         | 5                | 90             | 5               | High             | 0.94      | 0.2    | 0.329    | 0.06  | 0.423 |
-| Near all MGE         | 5                | 90             | 5               | Medium           | 0.57      | 0.848  | 0.682    | 0.43  | 0.676 |
-| Near all MGE         | 5                | 90             | 5               | Low              | 0.05      | 1      | 0.095    | 0.95  | 0     |
-| Near all host        | 5                | 5              | 90              | High             | 0.904     | 0.221  | 0.355    | 0.096 | 0.436 |
-| Near all host        | 5                | 5              | 90              | Medium           | 0.269     | 0.86   | 0.41     | 0.731 | 0.438 |
-| Near all host        | 5                | 5              | 90              | Low              | 0.05      | 1      | 0.095    | 0.95  | 0     |
-| MGE enriched         | 12.5             | 75             | 12.5            | High             | 0.98      | 0.209  | 0.345    | 0.02  | 0.428 |
-| MGE enriched         | 12.5             | 75             | 12.5            | Medium           | 0.736     | 0.857  | 0.792    | 0.264 | 0.762 |
-| MGE enriched         | 12.5             | 75             | 12.5            | Low              | 0.125     | 1      | 0.222    | 0.875 | 0     |
-| Host enriched        | 12.5             | 12.5           | 75              | High             | 0.963     | 0.215  | 0.351    | 0.037 | 0.429 |
-| Host enriched        | 12.5             | 12.5           | 75              | Medium           | 0.518     | 0.863  | 0.648    | 0.482 | 0.61  |
-| Host enriched        | 12.5             | 12.5           | 75              | Low              | 0.125     | 1      | 0.222    | 0.875 | 0     |
-| Equal source         | 33.3             | 33.3           | 33.3            | High             | 0.991     | 0.204  | 0.338    | 0.009 | 0.378 |
-| Equal source         | 33.3             | 33.3           | 33.3            | Medium           | 0.845     | 0.863  | 0.854    | 0.155 | 0.78  |
-| Equal source         | 33.3             | 33.3           | 33.3            | Low              | 0.333     | 1      | 0.5      | 0.667 | 0     |
-| Equal viral/nonviral | 50               | 25             | 25              | High             | 0.996     | 0.21   | 0.347    | 0.004 | 0.341 |
-| Equal viral/nonviral | 50               | 25             | 25              | Medium           | 0.916     | 0.864  | 0.889    | 0.084 | 0.786 |
-| Equal viral/nonviral | 50               | 25             | 25              | Low              | 0.5       | 1      | 0.667    | 0.5   | 0     |
-| Virus enriched       | 75               | 12.5           | 12.5            | High             | 0.998     | 0.209  | 0.346    | 0.002 | 0.248 |
-| Virus enriched       | 75               | 12.5           | 12.5            | Medium           | 0.971     | 0.861  | 0.913    | 0.029 | 0.72  |
-| Virus enriched       | 75               | 12.5           | 12.5            | Low              | 0.75      | 1      | 0.857    | 0.25  | 0     |
-| Near all virus       | 90               | 5              | 5               | High             | 1         | 0.209  | 0.346    | 0     | 0.16  |
-| Near all virus       | 90               | 5              | 5               | Medium           | 0.989     | 0.861  | 0.921    | 0.011 | 0.567 |
-| Near all virus       | 90               | 5              | 5               | Low              | 0.9       | 1      | 0.947    | 0.1   | 0     |
+| Dataset              | % Viral Proteins | % MGE Proteins | % Host Proteins | Conf. Level | Precision | Recall | F1 Score | FDR   | MCC   |
+| -------------------- | ---------------- | -------------- | --------------- | ----------- | --------- | ------ | -------- | ----- | ----- |
+| Near all MGE         | 5                | 90             | 5               | High        | 0.94      | 0.2    | 0.329    | 0.06  | 0.423 |
+| Near all MGE         | 5                | 90             | 5               | Medium      | 0.57      | 0.848  | 0.682    | 0.43  | 0.676 |
+| Near all MGE         | 5                | 90             | 5               | Low         | 0.05      | 1      | 0.095    | 0.95  | 0     |
+| Near all host        | 5                | 5              | 90              | High        | 0.904     | 0.221  | 0.355    | 0.096 | 0.436 |
+| Near all host        | 5                | 5              | 90              | Medium      | 0.269     | 0.86   | 0.41     | 0.731 | 0.438 |
+| Near all host        | 5                | 5              | 90              | Low         | 0.05      | 1      | 0.095    | 0.95  | 0     |
+| MGE enriched         | 12.5             | 75             | 12.5            | High        | 0.98      | 0.209  | 0.345    | 0.02  | 0.428 |
+| MGE enriched         | 12.5             | 75             | 12.5            | Medium      | 0.736     | 0.857  | 0.792    | 0.264 | 0.762 |
+| MGE enriched         | 12.5             | 75             | 12.5            | Low         | 0.125     | 1      | 0.222    | 0.875 | 0     |
+| Host enriched        | 12.5             | 12.5           | 75              | High        | 0.963     | 0.215  | 0.351    | 0.037 | 0.429 |
+| Host enriched        | 12.5             | 12.5           | 75              | Medium      | 0.518     | 0.863  | 0.648    | 0.482 | 0.61  |
+| Host enriched        | 12.5             | 12.5           | 75              | Low         | 0.125     | 1      | 0.222    | 0.875 | 0     |
+| Equal source         | 33.3             | 33.3           | 33.3            | High        | 0.991     | 0.204  | 0.338    | 0.009 | 0.378 |
+| Equal source         | 33.3             | 33.3           | 33.3            | Medium      | 0.845     | 0.863  | 0.854    | 0.155 | 0.78  |
+| Equal source         | 33.3             | 33.3           | 33.3            | Low         | 0.333     | 1      | 0.5      | 0.667 | 0     |
+| Equal viral/nonviral | 50               | 25             | 25              | High        | 0.996     | 0.21   | 0.347    | 0.004 | 0.341 |
+| Equal viral/nonviral | 50               | 25             | 25              | Medium      | 0.916     | 0.864  | 0.889    | 0.084 | 0.786 |
+| Equal viral/nonviral | 50               | 25             | 25              | Low         | 0.5       | 1      | 0.667    | 0.5   | 0     |
+| Virus enriched       | 75               | 12.5           | 12.5            | High        | 0.998     | 0.209  | 0.346    | 0.002 | 0.248 |
+| Virus enriched       | 75               | 12.5           | 12.5            | Medium      | 0.971     | 0.861  | 0.913    | 0.029 | 0.72  |
+| Virus enriched       | 75               | 12.5           | 12.5            | Low         | 0.75      | 1      | 0.857    | 0.25  | 0     |
+| Near all virus       | 90               | 5              | 5               | High        | 1         | 0.209  | 0.346    | 0     | 0.16  |
+| Near all virus       | 90               | 5              | 5               | Medium      | 0.989     | 0.861  | 0.921    | 0.011 | 0.567 |
+| Near all virus       | 90               | 5              | 5               | Low         | 0.9       | 1      | 0.947    | 0.1   | 0     |
 
 ### 5. How does CheckAMG perform its HMM alignments?
 
 If you're curious about the internal mechanics of how CheckAMG performs HMM alignments for functional annotation, here's a breakdown of the behavior. These settings are designed to balance sensitivity (not missing true hits) and specificity (excluding weak/ambiguous matches), with additional database-specific optimizations for functional reliability.
 
-1. **HMM Alignment Tool**
+1. **Profile HMM databases**
+
+   * CheckAMG relies on the following profile HMMs:
+     * [KEGG Orthology (KO)](https://www.genome.jp/kegg/ko.html) ([Kanehisa et al., 2016](https://doi.org/10.1093/nar/gkv1070))
+     * [Functional Ontology Assignments for Metagenomes (FOAM) database](https://osf.io/5ba2v/?view_only=) ([Prestat et al., 2014](https://doi.org/10.1093/nar/gku702))
+     * [Pfam-A](http://pfam.xfam.org/) ([Mistry et al., 2021](https://doi.org/10.1093/nar/gkaa913))
+     * [Prokaryotic Virus Remote Homologous Groups database (PHROGs)](https://phrogs.lmge.uca.fr/) ([Terzian et al., 2021](https://doi.org/10.1093/nargab/lqab067))
+     * [dbCAN CAZyme domain HMM database](https://bcb.unl.edu/dbCAN2/) ([Zheng et al., 2023](https://doi.org/10.1093/nar/gkad328))
+     * [The METABOLIC HMM database](https://github.com/AnantharamanLab/METABOLIC/tree/master) ([Zhou et al., 2022](https://doi.org/10.1186/s40168-021-01213-8))
+   * These databases can be downloaded and processed using the `checkamg download` module
+
+2. **HMM Alignment Tool**
 
    * CheckAMG uses `pyhmmer` for fast and reproducible HMM searches
 
-2. **E-value Threshold**
+3. **E-value Threshold**
 
    * A permissive `E-value` cutoff of `0.1` is applied during `hmmsearch` to minimize missed hits due to chunking or memory differences when parallelizing, which can affect search reproducibility
 
-3. **Database-Specific Thresholds**
+4. **Database-Specific Thresholds**
 
    * CheckAMG applies specialized rules depending on the HMM source:
      * **Pfam:** Applies sequence-level *gathering threshold (GA)*; hits below GA are excluded
      * **FOAM & KEGG:** Use database-defined bit score thresholds, but apply a relaxed fallback heuristic (see below)
-     * **METABOLIC:** Uses GA cutoffs derived from its underlying Pfam/TIGRFAM sources
+     * **METABOLIC:** Uses GA cutoffs derived from its underlying Pfam/TIGRFAM sources, where available
 
-4. **Fallback Heuristic (KEGG & FOAM)**
+5. **Fallback Heuristic (KEGG & FOAM)**
 
    * KEGG and FOAM thresholds can sometimes be overly strict, especially for environemntal viruses, filtering out hits that are biologically valid
-   * To recover these valid hits, CheckAMG applies a relaxed fallback heuristic inspired by the [Anvi'o `anvi-run-kegg-kofams` strategy](https://anvio.org/help/7.1/programs/anvi-run-kegg-kofams/#how-does-it-work) (verified and benchmarked by [Kananen et al., 2025](https://doi.org/10.1093/bioadv/vbaf039)):
+   * To recover these valid hits, CheckAMG applies a relaxed fallback heuristic inspired by the Anvi'o [`anvi-run-kegg-kofams`](https://anvio.org/help/7.1/programs/anvi-run-kegg-kofams/#how-does-it-work) strategy:
      * If a hit falls below the database-provided trusted threshold (e.g., KEGG TC), it is still retained **if the bit score is at least 50% of the threshold value**
-   * This heuristic improves annotation recovery without compromising too much on precision ([Kananen et al., 2025](https://doi.org/10.1093/bioadv/vbaf039)))
+   * This heuristic improves annotation recovery without compromising too much on precision ([Kananen et al., 2025](https://doi.org/10.1093/bioadv/vbaf039))
 
-5. **Fallback Filtering for Other Databases**
+6. **Fallback Filtering for Other Databases**
 
    * If the HMM source doesn't have defined cutoffs, such as dbCAN, PHROGs, and some profiles in the METABOLIC database, CheckAMG enforces:
      * A minimum sequence coverage of the user's protein of `0.5` (this is to ensure functional inferences aren't drawn soley from small, individual domains)
      * A minimum bit score of `50`
      * Both are configurable by the user if desired
 
-6. **Result Consolidation and Best-Hit Filtering**
+7. **Result Consolidation and Best-Hit Filtering**
 
    * Each input protein is aligned against **each HMM source database** (KEGG, FOAM, Pfam, PHROG, dbCAN, METABOLIC)
    * All domain hits are first filtered using the criteria above
