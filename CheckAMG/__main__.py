@@ -103,7 +103,7 @@ def main():
      annotate_parser.add_argument("-m", "--mem", type=int, required=False, default=round(available_memory_gb*0.80), # 80% of available memory
                               help="Maximum amount of memory allowed to be allocated in GB (default: 80%% of available [%(default)s]).")
      annotate_parser.add_argument("--debug", required=False, default=False, action=argparse.BooleanOptionalAction,
-                              help="Log CheckAMG genome with debug-level detail (default: %(default)s).")
+                              help="Log CheckAMG with debug-level detail (default: %(default)s).")
 
      de_novo_parser = subparsers.add_parser(
           "de-novo",
