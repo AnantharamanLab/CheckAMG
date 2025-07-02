@@ -323,17 +323,17 @@ Below are preliminary results for benchmarking our viral origin confidence predi
 
 <table>
   <thead>
-    <tr style="background-color:#111827;color:#fff;">
-      <th align="center">Dataset</th>
-      <th align="center">% Viral Proteins</th>
-      <th align="center">% MGE Proteins</th>
-      <th align="center">% Host Proteins</th>
-      <th align="center">Conf. Level</th>
-      <th align="center">Precision</th>
-      <th align="center">Recall</th>
-      <th align="center">F1 Score</th>
-      <th align="center">FDR</th>
-      <th align="center">MCC</th>
+    <tr style="background-color:#111827;">
+      <th align="center" style="color:#fff;">Dataset</th>
+      <th align="center" style="color:#fff;">% Viral Proteins</th>
+      <th align="center" style="color:#fff;">% MGE Proteins</th>
+      <th align="center" style="color:#fff;">% Host Proteins</th>
+      <th align="center" style="color:#fff;">Conf. Level</th>
+      <th align="center" style="color:#fff;">Precision</th>
+      <th align="center" style="color:#fff;">Recall</th>
+      <th align="center" style="color:#fff;">F1 Score</th>
+      <th align="center" style="color:#fff;">FDR</th>
+      <th align="center" style="color:#fff;">MCC</th>
     </tr>
   </thead>
   <tbody>
