@@ -2,7 +2,7 @@
 
 **Automated curation of Auxiliary Metabolic Genes (AMGs), Auxiliary Regulatory Genes (AReGs), and Auxiliary Physiology Genes (APGs) in viral genomes.**
 
-> ⚠️ This tool is in active development and is unpublished. Citation coming soon.
+> ⚠️ **This tool is in active development and has not yet been peer-reviewed.**
 
 ## Quick Usage
 
