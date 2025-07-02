@@ -304,11 +304,36 @@ def main():
     combined_df.write_csv(all_hmm_results, separator="\t")
 
     vscores_df = pl.read_csv(hmm_vscores, schema_overrides={"id": pl.Utf8, "V-score": pl.Float64, "VL-score": pl.Float64, "db": pl.Categorical, "name": pl.Utf8})
-    merged_df = combined_df.rename({"hmm_id": "id"}).join(vscores_df, on="id", how="left").filter(pl.col("V-score").is_not_null())
-    merged_df = merged_df.drop("name", "db_right").rename({"id": "hmm_id"})
+    
+    # Normalize Pfam IDs for join (strip version suffix)
+    vscores_df = vscores_df.with_columns([
+        pl.when(pl.col("db") == "Pfam")
+        .then(pl.col("id").str.replace(r"\.\d+$", ""))
+        .otherwise(pl.col("id")).alias("id_norm")
+    ])
+    combined_df = combined_df.with_columns([
+        pl.when(pl.col("db") == "Pfam")
+        .then(pl.col("hmm_id").str.replace(r"\.\d+$", ""))
+        .otherwise(pl.col("hmm_id")).alias("hmm_id_norm")
+    ])
+
+    # Join on normalized id columns
+    merged_df = combined_df.rename({"hmm_id": "id"}).join(
+        vscores_df, left_on="hmm_id_norm", right_on="id_norm", how="left"
+    )
+
+    # Keep original columns for downstream logic
+    merged_df = merged_df.with_columns([
+        pl.col("id").alias("hmm_id")
+    ])
+    merged_df = merged_df.filter(pl.col("V-score").is_not_null())
+    cols_to_drop = ["name", "db_right", "id", "id_norm", "hmm_id_norm"]
+    for col in cols_to_drop:
+        if col in merged_df.columns:
+            merged_df = merged_df.drop(col)
     merged_df = merged_df.sort(["sequence", "score", "V-score", "db"])
     merged_df.write_csv(output, separator="\t")
-
+    
     for f in tmp_dir.iterdir():
         f.unlink()
     tmp_dir.rmdir()
