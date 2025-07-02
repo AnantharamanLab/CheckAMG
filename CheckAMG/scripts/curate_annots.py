@@ -48,7 +48,6 @@ if Path(FOAM_THRESHOLDS_PATH).exists():
     df = pl.read_csv(FOAM_THRESHOLDS_PATH)
     FOAM_THRESHOLDS = dict(zip(df["id"].to_list(), df["cutoff_full"].to_list()))
     
-
 def summarize_annot_table(table, hmm_descriptions):
     """
     Summarizes the table with gene annotations by selecting relevant columns,
@@ -62,7 +61,7 @@ def summarize_annot_table(table, hmm_descriptions):
     Returns:
         pl.DataFrame: A summarized Polars DataFrame.
     """
-    
+    # Add logical columns
     table = table.with_columns(
         pl.when(
             pl.col("KEGG_verified_flank_up") | pl.col("Pfam_verified_flank_up") | pl.col("PHROG_verified_flank_up")
@@ -77,59 +76,17 @@ def summarize_annot_table(table, hmm_descriptions):
         ).then(pl.lit(True))
         .otherwise(pl.lit(False)).alias("MGE_Flanking_Genes")
     )
-    
-    required_cols = [
-        "protein",
-        "contig",
-        "circular_contig",
-        "genome",
-        "gene_number",
-        
-        "KEGG_hmm_id",
-        "FOAM_hmm_id",
-        "Pfam_hmm_id",
-        "dbCAN_hmm_id",
-        "METABOLIC_hmm_id",
-        "PHROG_hmm_id",
-        
-        "KEGG_score",
-        "FOAM_score",
-        "Pfam_score",
-        "dbCAN_score",
-        "METABOLIC_score",
-        "PHROG_score",
-        
-        "KEGG_coverage",
-        "FOAM_coverage",
-        "Pfam_coverage",
-        "dbCAN_coverage",
-        "METABOLIC_coverage",
-        "PHROG_coverage",
 
-        "KEGG_V-score",
-        "Pfam_V-score",
-        "PHROG_V-score",
-        
-        "window_avg_KEGG_VL-score_viral",
-        "window_avg_Pfam_VL-score_viral",
-        "window_avg_PHROG_VL-score_viral",
-        
-        "KEGG_verified_flank_up",
-        "KEGG_verified_flank_down",
-        "Pfam_verified_flank_up",
-        "Pfam_verified_flank_down",
-        "PHROG_verified_flank_up",
-        "PHROG_verified_flank_down",
-        
-        "Viral_Flanking_Genes_Upstream",
-        "Viral_Flanking_Genes_Downstream",
-        
-        "KEGG_MGE_flank",
-        "Pfam_MGE_flank",
-        "PHROG_MGE_flank",
-        
-        "MGE_Flanking_Genes",
-        
+    required_cols = [
+        "protein", "contig", "circular_contig", "genome", "gene_number",
+        "KEGG_hmm_id", "FOAM_hmm_id", "Pfam_hmm_id", "dbCAN_hmm_id", "METABOLIC_hmm_id", "PHROG_hmm_id",
+        "KEGG_score", "FOAM_score", "Pfam_score", "dbCAN_score", "METABOLIC_score", "PHROG_score",
+        "KEGG_coverage", "FOAM_coverage", "Pfam_coverage", "dbCAN_coverage", "METABOLIC_coverage", "PHROG_coverage",
+        "KEGG_V-score", "Pfam_V-score", "PHROG_V-score",
+        "window_avg_KEGG_VL-score_viral", "window_avg_Pfam_VL-score_viral", "window_avg_PHROG_VL-score_viral",
+        "KEGG_verified_flank_up", "KEGG_verified_flank_down", "Pfam_verified_flank_up", "Pfam_verified_flank_down", "PHROG_verified_flank_up", "PHROG_verified_flank_down",
+        "Viral_Flanking_Genes_Upstream", "Viral_Flanking_Genes_Downstream",
+        "KEGG_MGE_flank", "Pfam_MGE_flank", "PHROG_MGE_flank", "MGE_Flanking_Genes",
         "Viral_Origin_Confidence"
     ]
     for col in required_cols:
@@ -145,184 +102,115 @@ def summarize_annot_table(table, hmm_descriptions):
             elif col.endswith("_verified_flank") or col.endswith("_MGE_flank"):
                 dtype = pl.Boolean
             else:
-                dtype = pl.Utf8 # default to string type
+                dtype = pl.Utf8
             table = table.with_columns(pl.lit(None, dtype=dtype).alias(col))
-        
     table = table.select(required_cols)
     table = table.rename({"protein": "Protein"})
-    
-    # Join with KEGG descriptions
+
+    # KEGG and FOAM joins (exact ID, all rows)
     table = table.join(hmm_descriptions, left_on="KEGG_hmm_id", right_on="id", how="left").rename({"name": "KEGG_Description"})
     if "db_right" in table.columns:
         table = table.drop("db_right")
-    
-    # Join with FOAM descriptions
     table = table.join(hmm_descriptions, left_on="FOAM_hmm_id", right_on="id", how="left").rename({"name": "FOAM_Description"})
     if "db_right" in table.columns:
         table = table.drop("db_right")
-    
-    # Join with Pfam descriptions
-    table = table.join(hmm_descriptions, left_on="Pfam_hmm_id", right_on="id", how="left").rename({"name": "Pfam_Description"})
+
+    # Pfam: join to normalized IDs
+    table = table.with_columns([
+        pl.col("Pfam_hmm_id").str.replace(r"\.\d+$", "", literal=False).alias("Pfam_hmm_id_norm")
+    ])
+    hmm_pfam = hmm_descriptions.filter(pl.col("db") == "Pfam").with_columns([
+        pl.col("id").str.replace(r"\.\d+$", "", literal=False).alias("id_norm")
+    ])
+    table = table.join(hmm_pfam, left_on="Pfam_hmm_id_norm", right_on="id_norm", how="left").rename({"name": "Pfam_Description"})
     if "db_right" in table.columns:
         table = table.drop("db_right")
-    
-    # Custom join with dbCAN descriptions to handle IDs with underscores
+    table = table.drop(["Pfam_hmm_id_norm", "id_norm"])
+
+    # dbCAN: handle underscore normalization
     table = table.with_columns(pl.col("dbCAN_hmm_id").str.replace(r'_(.*)', '', literal=False).alias("dbCAN_hmm_id_no_underscore"))
     table = table.join(hmm_descriptions, left_on="dbCAN_hmm_id_no_underscore", right_on="id", how="left").rename({"name": "dbCAN_Description"})
     table = table.drop("dbCAN_hmm_id_no_underscore")
     if "db_right" in table.columns:
         table = table.drop("db_right")
-    
-    # Join with METABOLIC descriptions
+
+    # METABOLIC join
+    table = table.drop(col for col in table.columns if col.endswith("_right"))
     table = table.join(hmm_descriptions, left_on="METABOLIC_hmm_id", right_on="id", how="left").rename({"name": "METABOLIC_Description"})
     if "db_right" in table.columns:
         table = table.drop("db_right")
-        
-    # Join with PHROG descriptions
+    # PHROG join
+    table = table.drop(col for col in table.columns if col.endswith("_right"))
     table = table.join(hmm_descriptions, left_on="PHROG_hmm_id", right_on="id", how="left").rename({"name": "PHROG_Description"})
     if "db_right" in table.columns:
         table = table.drop("db_right")
-    
-    # Infer best HMM hits based on bit scores
-    ## 1. Cast all relevant scores to Float64, replacing null with -inf
-    table = (
-        table
-        .with_columns([
-            pl.col("KEGG_score").cast(pl.Float64).fill_null(float('-inf')),
-            pl.col("FOAM_score").cast(pl.Float64).fill_null(float('-inf')),
-            pl.col("Pfam_score").cast(pl.Float64).fill_null(float('-inf')),
-            pl.col("dbCAN_score").cast(pl.Float64).fill_null(float('-inf')),
-            pl.col("METABOLIC_score").cast(pl.Float64).fill_null(float('-inf')),
-            pl.col("PHROG_score").cast(pl.Float64).fill_null(float('-inf')),
-        ])
-    )
 
-    # 3. Cast scores to Float64, but *also* compute the real max before filling nulls
-    score_cols = [
-        "KEGG_score", "FOAM_score", "Pfam_score",
-        "dbCAN_score", "METABOLIC_score", "PHROG_score",
-    ]
-    table = (
-        table
-        .with_columns([
-            # the real max, ignoring nulls entirely
-            pl.max_horizontal(score_cols).alias("max_score"),
-            # now fill nulls to index into them safely
-            *(pl.col(c).cast(pl.Float64).fill_null(float("-inf")).alias(c) for c in score_cols)
-        ])
-    )
-
-    # 4. Build best_idx but leave it null if no real scores existed
+    # Processing scores and coverage
+    score_cols = ["KEGG_score", "FOAM_score", "Pfam_score", "dbCAN_score", "METABOLIC_score", "PHROG_score"]
+    table = table.with_columns([
+        pl.col(c).cast(pl.Float64).fill_null(float('-inf')).alias(c) for c in score_cols
+    ])
+    table = table.with_columns([
+        pl.max_horizontal(score_cols).alias("max_score")
+    ])
     table = table.with_columns(
         pl.when(pl.col("max_score").is_null())
-        .then(None) # if all scores were null
+        .then(None)
         .otherwise(
             pl.struct(score_cols).map_elements(
                 lambda row: list(row.values()).index(max(row.values())),
                 return_dtype=pl.Int64
             )
-        )
-        .alias("best_idx")
+        ).alias("best_idx")
     )
-
     table = table.drop("max_score")
-
-    ## 4. Use `best_idx` to fill in the top_hit_* columns
     table = table.with_columns([
-        # top_hit_hmm_id
         pl.when(pl.col("best_idx") == 0).then(pl.col("KEGG_hmm_id"))
         .when(pl.col("best_idx") == 1).then(pl.col("FOAM_hmm_id"))
         .when(pl.col("best_idx") == 2).then(pl.col("Pfam_hmm_id"))
         .when(pl.col("best_idx") == 3).then(pl.col("dbCAN_hmm_id"))
         .when(pl.col("best_idx") == 4).then(pl.col("METABOLIC_hmm_id"))
         .when(pl.col("best_idx") == 5).then(pl.col("PHROG_hmm_id"))
-        .otherwise(pl.lit(None))
-        .alias("top_hit_hmm_id"),
+        .otherwise(pl.lit(None)).alias("top_hit_hmm_id"),
 
-        # top_hit_description
         pl.when(pl.col("best_idx") == 0).then(pl.col("KEGG_Description"))
         .when(pl.col("best_idx") == 1).then(pl.col("FOAM_Description"))
         .when(pl.col("best_idx") == 2).then(pl.col("Pfam_Description"))
         .when(pl.col("best_idx") == 3).then(pl.col("dbCAN_Description"))
         .when(pl.col("best_idx") == 4).then(pl.col("METABOLIC_Description"))
         .when(pl.col("best_idx") == 5).then(pl.col("PHROG_Description"))
-        .otherwise(pl.lit(None))
-        .alias("top_hit_description"),
+        .otherwise(pl.lit(None)).alias("top_hit_description"),
 
-        # top_hit_db
         pl.when(pl.col("best_idx") == 0).then(pl.lit("KEGG"))
         .when(pl.col("best_idx") == 1).then(pl.lit("FOAM"))
         .when(pl.col("best_idx") == 2).then(pl.lit("Pfam"))
         .when(pl.col("best_idx") == 3).then(pl.lit("dbCAN"))
         .when(pl.col("best_idx") == 4).then(pl.lit("METABOLIC"))
         .when(pl.col("best_idx") == 5).then(pl.lit("PHROG"))
-        .otherwise(pl.lit(None))
-        .alias("top_hit_db"),
+        .otherwise(pl.lit(None)).alias("top_hit_db"),
     ])
-
-    ## 5. Finally, remove the helper columns
     table = table.drop(["best_idx"])
-    
-    # Select only relevant columns for output
+
+    # Final select/rename/output
     table = table.select([
-        "Protein",
-        "contig",
-        "genome",
-        "gene_number",
-        
-        "KEGG_V-score",
-        "Pfam_V-score",
-        "PHROG_V-score",
-        
-        "KEGG_hmm_id",
-        "KEGG_Description",
-        "KEGG_score",
-        "KEGG_coverage",
-        
-        "FOAM_hmm_id",
-        "FOAM_Description",
-        "FOAM_score",
-        "FOAM_coverage",
-        
-        "Pfam_hmm_id",
-        "Pfam_Description",
-        "Pfam_score",
-        "Pfam_coverage",
-        
-        "dbCAN_hmm_id",
-        "dbCAN_Description",
-        "dbCAN_score",
-        "dbCAN_coverage",
-        
-        "METABOLIC_hmm_id",
-        "METABOLIC_Description",
-        "METABOLIC_score",
-        "METABOLIC_coverage",
-        
-        "PHROG_hmm_id",
-        "PHROG_Description",
-        "PHROG_score",
-        "PHROG_coverage",
-        
-        "top_hit_hmm_id",
-        "top_hit_description",
-        "top_hit_db",
-        
-        "circular_contig",
-        "Viral_Origin_Confidence",
-        "Viral_Flanking_Genes_Upstream",
-        "Viral_Flanking_Genes_Downstream",
-        "MGE_Flanking_Genes"
+        "Protein", "contig", "genome", "gene_number",
+        "KEGG_V-score", "Pfam_V-score", "PHROG_V-score",
+        "KEGG_hmm_id", "KEGG_Description", "KEGG_score", "KEGG_coverage",
+        "FOAM_hmm_id", "FOAM_Description", "FOAM_score", "FOAM_coverage",
+        "Pfam_hmm_id", "Pfam_Description", "Pfam_score", "Pfam_coverage",
+        "dbCAN_hmm_id", "dbCAN_Description", "dbCAN_score", "dbCAN_coverage",
+        "METABOLIC_hmm_id", "METABOLIC_Description", "METABOLIC_score", "METABOLIC_coverage",
+        "PHROG_hmm_id", "PHROG_Description", "PHROG_score", "PHROG_coverage",
+        "top_hit_hmm_id", "top_hit_description", "top_hit_db",
+        "circular_contig", "Viral_Origin_Confidence",
+        "Viral_Flanking_Genes_Upstream", "Viral_Flanking_Genes_Downstream", "MGE_Flanking_Genes"
     ])
     table = table.rename({
         "contig": "Contig",
         "genome": "Genome",
         "circular_contig": "Circular_Contig"
     })
-    
-    # Remove duplicates, if any (this happens sometimes if the input table also had duplciates)
     table = table.unique()
-    
     return table.sort(["Genome", "Contig", "gene_number"])
 
 def filter_false_substrings(table, false_substring_table, bypass_min_bitscore, bypass_min_cov, valid_hmm_ids):
@@ -527,6 +415,13 @@ def main():
 
     hmm_descriptions = pl.read_csv(hmm_ref, schema={"id": pl.Utf8, "db": pl.Utf8, "name": pl.Utf8})
     hmm_descriptions = hmm_descriptions.select(["id", "db", "name"])
+
+    # Add a normalized ID column for all Pfam entries in hmm_descriptions (strip .number suffix)
+    hmm_descriptions = hmm_descriptions.with_columns([
+        pl.when(pl.col("db") == "Pfam")
+        .then(pl.col("id").str.replace(r"\.\d+$", "", literal=False))
+        .otherwise(pl.col("id")).alias("id_norm")
+    ])
     
     metabolism_table = pl.read_csv(metabolism_ref, separator="\t", schema={"id": pl.Utf8, "V-score": pl.Float32, "VL-score": pl.Float32, "db": pl.Utf8, "name": pl.Utf8})
     physiology_table = pl.read_csv(physiology_ref, separator="\t", schema={"id": pl.Utf8, "V-score": pl.Float32, "VL-score": pl.Float32, "db": pl.Utf8, "name": pl.Utf8})
