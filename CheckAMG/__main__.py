@@ -101,7 +101,7 @@ def main():
      annotate_parser.add_argument("-t", "--threads", type=int, required=False, default=10,
                               help="Number of threads to use for pyrodigal-gv and pyhmmer (default: %(default)s).")
      annotate_parser.add_argument("-m", "--mem", type=int, required=False, default=round(available_memory_gb*0.80), # 80% of available memory
-                              help="Maximum amount of memory allowed to be allocated in GB (default: 80%% of available [%(default)s]).")
+                              help="Maximum amount of memory allowed to be allocated in GB (default: 80%% of available).")
      annotate_parser.add_argument("--debug", required=False, default=False, action=argparse.BooleanOptionalAction,
                               help="Log CheckAMG with debug-level detail (default: %(default)s).")
 
