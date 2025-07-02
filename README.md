@@ -28,7 +28,7 @@ See `pyproject.toml` for all dependencies. Major packages:
 * `snakemake==8.23.2`
 
 ## Installation
-### Step 1 (reccomended): create a conda environment
+### Step 1 (recommended): create a conda environment
 
 ```bash
 conda create -n CheckAMG python=3.11
