@@ -445,9 +445,9 @@ If you're curious about the internal mechanics of how CheckAMG annotates protein
 
    * CheckAMG uses `pyhmmer` for fast and reproducible HMM searches of user proteins against profile HMMs
 
-2. **Profile HMM databases**
+2. **Profile HMM Databases**
 
-   * CheckAMG relies on the following profile HMMs:
+   * CheckAMG relies on the following databases:
      * [KEGG Orthology (KO)](https://www.genome.jp/kegg/ko.html) ([Kanehisa et al., 2016](https://doi.org/10.1093/nar/gkv1070))
      * [Functional Ontology Assignments for Metagenomes (FOAM) database](https://osf.io/5ba2v/?view_only=) ([Prestat et al., 2014](https://doi.org/10.1093/nar/gku702))
      * [Pfam-A](http://pfam.xfam.org/) ([Mistry et al., 2021](https://doi.org/10.1093/nar/gkaa913))
