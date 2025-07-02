@@ -76,21 +76,22 @@ Run `checkamg -h` for full options and module descriptions:
 ```
 usage: checkamg [-h] [-v] {download,annotate,de-novo,aggregate,end-to-end} ...
 
-CheckAMG: automated identification and curation of Auxiliary Metabolic Genes (AMGs), Auxiliary
-Regulatory Genes (AReGs), and Auxiliary Physiology Genes (APGs) in viral genomes.
+CheckAMG: automated identification and curation of Auxiliary Metabolic Genes (AMGs),
+Auxiliary Regulatory Genes (AReGs), and Auxiliary Physiology Genes (APGs) in viral genomes.
 
 positional arguments:
   {download,annotate,de-novo,aggregate,end-to-end}
                         CheckAMG modules
     download            Download the databases required by CheckAMG.
-    annotate            Predict and curate auxiliary genes in viral genomes based on functional
-                        annotations and genomic context.
+    annotate            Predict and curate auxiliary genes in viral genomes based on
+                        functional annotations and genomic context.
     de-novo             (Not yet implemented) Predict auxiliary genes with an annotation-
                         independent method using Protein Set Transformer.
-    aggregate           (Not yet implemented) Aggregate the results of the CheckAMG annotate and
-                        de-novo modules to produce a final report of auxiliary gene predictions.
-    end-to-end          (Not yet implemented) Executes CheckAMG annotate, de-novo, and aggregate
-                        in tandem.
+    aggregate           (Not yet implemented) Aggregate the results of the CheckAMG annotate
+                        and de-novo modules to produce a final report of auxiliary gene
+                        predictions.
+    end-to-end          (Not yet implemented) Executes CheckAMG annotate, de-novo, and
+                        aggregate in tandem.
 
 options:
   -h, --help            show this help message and exit
@@ -127,51 +128,53 @@ Notes:
 
 ```
 usage: checkamg annotate [-h] -d DB_DIR -o OUTPUT [-g GENOMES] [-vg VMAGS] [-p PROTEINS]
-                         [-vp VMAG_PROTEINS] [--input_type INPUT_TYPE] [-l MIN_LEN] [-f MIN_ORF]
-                         [-n MIN_ANNOT] [-c COV_FRACTION] [-e EVALUE] [-b BIT_SCORE]
-                         [-bh BITSCORE_FRACTION_HEURISTIC] [-Z WINDOW_SIZE] [-F MAX_FLANK]
-                         [-V MIN_FLANK_VSCORE] [-H | --use_hallmark | --no-use_hallmark]
-                         [-t THREADS] [-m MEM] [--debug | --no-debug]
+                         [-vp VMAG_PROTEINS] [--input_type INPUT_TYPE] [-l MIN_LEN]
+                         [-f MIN_ORF] [-n MIN_ANNOT] [-c COV_FRACTION] [-e EVALUE]
+                         [-b BIT_SCORE] [-bh BITSCORE_FRACTION_HEURISTIC] [-Z WINDOW_SIZE]
+                         [-F MAX_FLANK] [-V MIN_FLANK_VSCORE]
+                         [-H | --use_hallmark | --no-use_hallmark] [-t THREADS] [-m MEM]
+                         [--debug | --no-debug]
 
-Predict and curate auxiliary genes in viral genomes based on functional annotations and genomic
-context.
+Predict and curate auxiliary genes in viral genomes based on functional annotations and
+genomic context.
 
 options:
   -h, --help            show this help message and exit
   --input_type INPUT_TYPE
                         Specifies whether the input files are nucleotide genomes (nucl) or
-                        translated amino-acid genomes (prot). Providing proteins as input will
-                        skip the pyrodigal-gv step, but it will be unable to tell whether viral
-                        genomes are circular, potentially losing additional evidence for verifying
-                        the viral origin of putative auxiliary genes. (default: nucl).
+                        translated amino-acid genomes (prot). Providing proteins as input
+                        will skip the pyrodigal-gv step, but it will be unable to tell
+                        whether viral genomes are circular, potentially losing additional
+                        evidence for verifying the viral origin of putative auxiliary genes.
+                        (default: nucl).
   -l MIN_LEN, --min_len MIN_LEN
                         Minimum length in base pairs for input sequences (default: 5000).
   -f MIN_ORF, --min_orf MIN_ORF
-                        Minimum number of open reading frames (proteins) inferred by pyrodigal-gv
-                        for input sequences (default: 4).
+                        Minimum number of open reading frames (proteins) inferred by
+                        pyrodigal-gv for input sequences (default: 4).
   -n MIN_ANNOT, --min_annot MIN_ANNOT
-                        Minimum percentage (0.0-1.0) of genes in a genome/contig required to have
-                        been assigned a functional annotation using the CheckAMG database to be
-                        considered for contextual analysis. (default: 0.2).
+                        Minimum percentage (0.0-1.0) of genes in a genome/contig required to
+                        have been assigned a functional annotation using the CheckAMG
+                        database to be considered for contextual analysis. (default: 0.2).
   -c COV_FRACTION, --cov_fraction COV_FRACTION
-                        Minimum covered fraction (of the user viral protein) for HMM alignments
-                        (default: 0.5).
+                        Minimum covered fraction (of the user viral protein) for HMM
+                        alignments (default: 0.5).
   -e EVALUE, --evalue EVALUE
-                        Maximum fallback E-value for HMM alignments when database-provided cutoffs
-                        are not available (default: 1e-05).
+                        Maximum fallback E-value for HMM alignments when database-provided
+                        cutoffs are not available (default: 1e-05).
   -b BIT_SCORE, --bit_score BIT_SCORE
                         Minimum fallback bit score for HMM alignments when database-provided
                         cutoffs are not available (default: 50).
   -bh BITSCORE_FRACTION_HEURISTIC, --bitscore_fraction_heuristic BITSCORE_FRACTION_HEURISTIC
-                        Retain HMM hits scoring at least this fraction of the database-provided
-                        threshold under heuristic filtering (default: 0.5).
+                        Retain HMM hits scoring at least this fraction of the database-
+                        provided threshold under heuristic filtering (default: 0.5).
   -Z WINDOW_SIZE, --window_size WINDOW_SIZE
-                        Size in base pairs of the window used to calculate the average VL-score of
-                        genes on a contig (default: 25000).
+                        Size in base pairs of the window used to calculate the average VL-
+                        score of genes on a contig (default: 25000).
   -F MAX_FLANK, --max_flank MAX_FLANK
                         Maximum length in base pairs to check on the left/right flanks of
-                        potentially auxiliary genes when checking for virus-like genes and non-
-                        virus-like genes (default: 5000).
+                        potentially auxiliary genes when checking for virus-like genes and
+                        non-virus-like genes (default: 5000).
   -V MIN_FLANK_VSCORE, --min_flank_Vscore MIN_FLANK_VSCORE
                         Minimum V-score of genes in flanking regions required to verify a
                         potential auxiliary gene as viral and not host sequence contamination
@@ -182,37 +185,38 @@ options:
                         (default: False).
   -t THREADS, --threads THREADS
                         Number of threads to use for pyrodigal-gv and pyhmmer (default: 10).
-  -m MEM, --mem MEM     Maximum amount of memory allowed to be allocated in GB (default: 80% of
-                        available [1554]).
+  -m MEM, --mem MEM     Maximum amount of memory allowed to be allocated in GB (default: 80%
+                        of available [1586]).
   --debug, --no-debug   Log CheckAMG genome with debug-level detail (default: False).
 
 required arguments:
   -d DB_DIR, --db_dir DB_DIR
                         Path to CheckAMG database files (Required). (default: None)
   -o OUTPUT, --output OUTPUT
-                        Output directory for all generated files and folders (Required). (default:
-                        None)
+                        Output directory for all generated files and folders (Required).
+                        (default: None)
   -g GENOMES, --genomes GENOMES
                         Input viral genome(s) in nucleotide fasta format (.fna or .fasta).
-                        Expectation is that individual virus genomes are single contigs. (default:
-                        None)
+                        Expectation is that individual virus genomes are single contigs.
+                        (default: None)
   -vg VMAGS, --vmags VMAGS
-                        Path to folder containing vMAGs (multiple contigs) rather than single-
-                        contig viral genomes. Expectation is that the folder contains one .fna or
-                        .fasta file per virus genome and that each genome contains multiple
-                        contigs. (default: None)
+                        Path to folder containing vMAGs (multiple contigs) rather than
+                        single-contig viral genomes. Expectation is that the folder contains
+                        one .fna or .fasta file per virus genome and that each genome
+                        contains multiple contigs. (default: None)
   -p PROTEINS, --proteins PROTEINS
                         Input viral genome(s) in amino-acid fasta format (.faa or .fasta).
-                        Required if --input_type is prot. Expectations are that the amino-acid
-                        sequence headers are in Prodigal format (>[CONTIG NAME]_[CDS NUMBER] #
-                        START # END # FRAME # ...) and that each contig encoding proteins
-                        represents a single virus genome. (default: None)
+                        Required if --input_type is prot. Expectations are that the amino-
+                        acid sequence headers are in Prodigal format (>[CONTIG NAME]_[CDS
+                        NUMBER] # START # END # FRAME # ...) and that each contig encoding
+                        proteins represents a single virus genome. (default: None)
   -vp VMAG_PROTEINS, --vmag_proteins VMAG_PROTEINS
-                        Path to folder containing vMAGs (multiple contigs) in amino-acid fasta
-                        format (.faa or .fasta) rather than single-contig viral genomes.
-                        Expectation is that the folder contains one .faa or .fasta file per virus
-                        genome and that each genome file contains amino-acid sequences encoded on
-                        multiple contigs. Required if --input_type is 'prot'. (default: None)
+                        Path to folder containing vMAGs (multiple contigs) in amino-acid
+                        fasta format (.faa or .fasta) rather than single-contig viral
+                        genomes. Expectation is that the folder contains one .faa or .fasta
+                        file per virus genome and that each genome file contains amino-acid
+                        sequences encoded on multiple contigs. Required if --input_type is
+                        'prot'. (default: None)
 ```
 
 #### Outputs
