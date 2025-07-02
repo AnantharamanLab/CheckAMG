@@ -97,7 +97,7 @@ def main():
      annotate_parser.add_argument("-V", "--min_flank_Vscore", type=float, required=False, default=10.0,
                               help="Minimum V-score of genes in flanking regions required to verify a potential auxiliary gene as viral and not host sequence contamination (0.0-10.0) (default: %(default)s).")
      annotate_parser.add_argument("-H", "--use_hallmark", required=False, default=False, action=argparse.BooleanOptionalAction,
-                              help="Use viral hallmark gene annotations instead of V-scores when chekcing flanking regions of potential auxiliary genes for viral verification (default: %(default)s).")
+                              help="Use viral hallmark gene annotations instead of V-scores when checking flanking regions of potential auxiliary genes for viral verification (default: %(default)s).")
      annotate_parser.add_argument("-t", "--threads", type=int, required=False, default=10,
                               help="Number of threads to use for pyrodigal-gv and pyhmmer (default: %(default)s).")
      annotate_parser.add_argument("-m", "--mem", type=int, required=False, default=round(available_memory_gb*0.80), # 80% of available memory
@@ -107,7 +107,7 @@ def main():
 
      de_novo_parser = subparsers.add_parser(
           "de-novo",
-          help="(Not yet implemented) Predict auxiliary genes with an annotation-independent method using a protein-based genome language model (Protein Set Transformer).",
+          help="(Not yet implemented) Predict auxiliary genes with an annotation-independent method using Protein Set Transformer.",
           description="Not yet implemented.",
           formatter_class=CustomHelpFormatter)
 
