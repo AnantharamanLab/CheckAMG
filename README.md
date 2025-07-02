@@ -321,32 +321,62 @@ The precision and recall of each confidence level for predicting true viral prot
 
 Below are preliminary results for benchmarking our viral origin confidence predictions against test datasets with varying sequence composition (% of proteins):
 
-| Dataset              | % Viral Proteins | % MGE Proteins | % Host Proteins | Conf. Level | Precision | Recall | F1 Score | FDR   | MCC   |
-| -------------------- | ---------------- | -------------- | --------------- | ----------- | --------- | ------ | -------- | ----- | ----- |
-| Near all MGE         | 5                | 90             | 5               | High        | 0.94      | 0.2    | 0.329    | 0.06  | 0.423 |
-| Near all MGE         | 5                | 90             | 5               | Medium      | 0.57      | 0.848  | 0.682    | 0.43  | 0.676 |
-| Near all MGE         | 5                | 90             | 5               | Low         | 0.05      | 1      | 0.095    | 0.95  | 0     |
-| Near all host        | 5                | 5              | 90              | High        | 0.904     | 0.221  | 0.355    | 0.096 | 0.436 |
-| Near all host        | 5                | 5              | 90              | Medium      | 0.269     | 0.86   | 0.41     | 0.731 | 0.438 |
-| Near all host        | 5                | 5              | 90              | Low         | 0.05      | 1      | 0.095    | 0.95  | 0     |
-| MGE enriched         | 12.5             | 75             | 12.5            | High        | 0.98      | 0.209  | 0.345    | 0.02  | 0.428 |
-| MGE enriched         | 12.5             | 75             | 12.5            | Medium      | 0.736     | 0.857  | 0.792    | 0.264 | 0.762 |
-| MGE enriched         | 12.5             | 75             | 12.5            | Low         | 0.125     | 1      | 0.222    | 0.875 | 0     |
-| Host enriched        | 12.5             | 12.5           | 75              | High        | 0.963     | 0.215  | 0.351    | 0.037 | 0.429 |
-| Host enriched        | 12.5             | 12.5           | 75              | Medium      | 0.518     | 0.863  | 0.648    | 0.482 | 0.61  |
-| Host enriched        | 12.5             | 12.5           | 75              | Low         | 0.125     | 1      | 0.222    | 0.875 | 0     |
-| Equal source         | 33.3             | 33.3           | 33.3            | High        | 0.991     | 0.204  | 0.338    | 0.009 | 0.378 |
-| Equal source         | 33.3             | 33.3           | 33.3            | Medium      | 0.845     | 0.863  | 0.854    | 0.155 | 0.78  |
-| Equal source         | 33.3             | 33.3           | 33.3            | Low         | 0.333     | 1      | 0.5      | 0.667 | 0     |
-| Equal viral/nonviral | 50               | 25             | 25              | High        | 0.996     | 0.21   | 0.347    | 0.004 | 0.341 |
-| Equal viral/nonviral | 50               | 25             | 25              | Medium      | 0.916     | 0.864  | 0.889    | 0.084 | 0.786 |
-| Equal viral/nonviral | 50               | 25             | 25              | Low         | 0.5       | 1      | 0.667    | 0.5   | 0     |
-| Virus enriched       | 75               | 12.5           | 12.5            | High        | 0.998     | 0.209  | 0.346    | 0.002 | 0.248 |
-| Virus enriched       | 75               | 12.5           | 12.5            | Medium      | 0.971     | 0.861  | 0.913    | 0.029 | 0.72  |
-| Virus enriched       | 75               | 12.5           | 12.5            | Low         | 0.75      | 1      | 0.857    | 0.25  | 0     |
-| Near all virus       | 90               | 5              | 5               | High        | 1         | 0.209  | 0.346    | 0     | 0.16  |
-| Near all virus       | 90               | 5              | 5               | Medium      | 0.989     | 0.861  | 0.921    | 0.011 | 0.567 |
-| Near all virus       | 90               | 5              | 5               | Low         | 0.9       | 1      | 0.947    | 0.1   | 0     |
+<table>
+  <thead>
+    <tr>
+      <th>Dataset</th>
+      <th>% Viral Proteins</th>
+      <th>% MGE Proteins</th>
+      <th>% Host Proteins</th>
+      <th>Conf. Level</th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1 Score</th>
+      <th>FDR</th>
+      <th>MCC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Near all MGE -->
+    <tr style="background-color:#212C40;color:#fff;">
+      <td rowspan="3">Near all MGE</td>
+      <td>5.0</td><td>90.0</td><td>5.0</td><td>High</td><td>0.940</td><td>0.200</td><td>0.329</td><td>0.060</td><td>0.423</td>
+    </tr>
+    <tr style="background-color:#212C40;color:#fff;">
+      <td>5.0</td><td>90.0</td><td>5.0</td><td>Medium</td><td>0.570</td><td>0.848</td><td>0.682</td><td>0.430</td><td>0.676</td>
+    </tr>
+    <tr style="background-color:#212C40;color:#fff;">
+      <td>5.0</td><td>90.0</td><td>5.0</td><td>Low</td><td>0.050</td><td>1.000</td><td>0.095</td><td>0.950</td><td>0.000</td>
+    </tr>
+    <!-- Near all host -->
+    <tr style="background-color:#f3f4f6;color:#222;">
+      <td rowspan="3">Near all host</td>
+      <td>5.0</td><td>5.0</td><td>90.0</td><td>High</td><td>0.904</td><td>0.221</td><td>0.355</td><td>0.096</td><td>0.436</td>
+    </tr>
+    <tr style="background-color:#f3f4f6;color:#222;">
+      <td>5.0</td><td>5.0</td><td>90.0</td><td>Medium</td><td>0.269</td><td>0.860</td><td>0.410</td><td>0.731</td><td>0.438</td>
+    </tr>
+    <tr style="background-color:#f3f4f6;color:#222;">
+      <td>5.0</td><td>5.0</td><td>90.0</td><td>Low</td><td>0.050</td><td>1.000</td><td>0.095</td><td>0.950</td><td>0.000</td>
+    </tr>
+    <!-- MGE enriched -->
+    <tr style="background-color:#273b23;color:#fff;">
+      <td rowspan="3">MGE enriched</td>
+      <td>12.5</td><td>75.0</td><td>12.5</td><td>High</td><td>0.980</td><td>0.209</td><td>0.345</td><td>0.020</td><td>0.428</td>
+    </tr>
+    <tr style="background-color:#273b23;color:#fff;">
+      <td>12.5</td><td>75.0</td><td>12.5</td><td>Medium</td><td>0.736</td><td>0.857</td><td>0.792</td><td>0.264</td><td>0.762</td>
+    </tr>
+    <tr style="background-color:#273b23;color:#fff;">
+      <td>12.5</td><td>75.0</td><td>12.5</td><td>Low</td><td>0.125</td><td>1.000</td><td>0.222</td><td>0.875</td><td>0.000</td>
+    </tr>
+    <!-- Host enriched -->
+    <tr style="background-color:#ece9f8;color:#222;">
+      <td>Host enriched</td>
+      <td>12.5</td><td>12.5</td><td>75.0</td><td>High</td><td>0.963</td><td>0.215</td><td>0.351</td><td>0.037</td><td>0.429</td>
+    </tr>
+  </tbody>
+</table>
 
 ### 5. How does CheckAMG perform its HMM alignments?
 
