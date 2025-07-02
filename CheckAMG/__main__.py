@@ -83,7 +83,9 @@ def main():
                                    "functional annotation using the CheckAMG database to be considered for contextual analysis. "
                                    "(default: %(default)s).")
      annotate_parser.add_argument("-c", "--cov_fraction", type=float, required=False, default=0.5,
-                              help="Minimum fallback covered fraction (of the user viral protein) for HMM alignments when database-provided cutoffs are not available (default: %(default)s).")
+                              help="Minimum covered fraction (of the user viral protein) for HMM alignments (default: %(default)s).")
+     annotate_parser.add_argument("-e", "--evalue", type=float, required=False, default=1e-5,
+                              help="Maximum fallback E-value for HMM alignments when database-provided cutoffs are not available (default: %(default)s).")
      annotate_parser.add_argument("-b", "--bit_score", type=int, required=False, default=50,
                               help="Minimum fallback bit score for HMM alignments when database-provided cutoffs are not available (default: %(default)s).")
      annotate_parser.add_argument("-bh", "--bitscore_fraction_heuristic", type=float, required=False, default=0.5,

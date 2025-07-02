@@ -143,6 +143,7 @@ rule assign_annots:
         cov_fraction = config["cov_fraction"],
         min_bitscore = config["min_bitscore"],
         min_bitscore_fraction_heuristic = config["min_bitscore_fraction_heuristic"],
+        max_evalue = config["max_evalue"],
         kegg_cutoff_file = os.path.join(config["paths"]["files_dir"], "KEGG_cutoffs.csv"),
         debug = bool(config["debug"]),
         log = config["log"]

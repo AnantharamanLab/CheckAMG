@@ -366,7 +366,7 @@ If you're curious about the internal mechanics of how CheckAMG performs HMM alig
 
 3. **E-value Threshold**
 
-   * A permissive `E-value` cutoff of `0.1` is applied during `hmmsearch` to minimize missed hits due to chunking or memory differences when parallelizing, which can affect search reproducibility
+   * An *initial*, permissive E-value cutoff of `0.1` is applied during `hmmsearch` to minimize missed hits due to chunking or memory differences when parallelizing, which can affect search reproducibility
 
 4. **Database-Specific Thresholds**
 
@@ -377,26 +377,27 @@ If you're curious about the internal mechanics of how CheckAMG performs HMM alig
 
 5. **Fallback Heuristic (KEGG & FOAM)**
 
-   * KEGG and FOAM thresholds can sometimes be overly strict, especially for environemntal viruses, filtering out hits that are biologically valid
+   * KEGG and FOAM thresholds can sometimes be overly strict, especially for environmental viruses, filtering out hits that are biologically valid
    * To recover these valid hits, CheckAMG applies a relaxed fallback heuristic inspired by the Anvi'o [`anvi-run-kegg-kofams`](https://anvio.org/help/7.1/programs/anvi-run-kegg-kofams/#how-does-it-work) strategy:
-     * If a hit falls below the database-provided trusted threshold (e.g., KEGG TC), it is still retained **if the bit score is at least 50% of the threshold value**
+     * If a hit falls below the database-provided trusted threshold (e.g., KEGG TC), it is still retained **if the bit score is at least 50% of the threshold value** *and* **E-value is below 1e-5**
    * This heuristic improves annotation recovery without compromising too much on precision ([Kananen et al., 2025](https://doi.org/10.1093/bioadv/vbaf039))
 
 6. **Fallback Filtering for Other Databases**
 
    * If the HMM source doesn't have defined cutoffs, such as dbCAN, PHROGs, and some profiles in the METABOLIC database, CheckAMG enforces:
-     * A minimum sequence coverage of the user's protein of `0.5` (this is to ensure functional inferences aren't drawn soley from small, individual domains)
+     * A minimum sequence coverage of the user's protein of `0.5` (this is to ensure functional inferences aren't drawn solely from small, individual domains)
      * A minimum bit score of `50`
      * Both are configurable by the user if desired
 
 7. **Result Consolidation and Best-Hit Filtering**
 
-   * Each input protein is aligned against **each HMM source database** (KEGG, FOAM, Pfam, PHROG, dbCAN, METABOLIC)
+   * Each input protein is aligned against **each HMM source database** (KEGG, FOAM, Pfam, PHROG, dbCAN, and METABOLIC)
    * All domain hits are first filtered using the criteria above
    * Then, for **each database**, only the **single best hit per protein** is retained:
-     * Preference is given to the hit with the higher bit score
+     * Preference is given to the hit with the **lowest E-value**
+     * If E-values are equal, the hit with the **higher bit score** is selected
 
-These defaults provide a balance between accuracy and recall, and are based on benchmarking and community best practices. Advanced users may modify thresholds using the `--bit_score` and `--bitscore_fraction_heuristic` arguments.
+These defaults provide a balance between accuracy and recall, and are based on benchmarking and community best practices. Advanced users may modify thresholds using the `--bit_score`, `--bitscore_fraction_heuristic`, and `--evalue` arguments.
 
 ### 6. Snakemake
 

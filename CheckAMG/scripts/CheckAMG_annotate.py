@@ -114,7 +114,8 @@ def generate_config(args):
         "use_hallmark" : args.use_hallmark,
         "cov_fraction" : args.cov_fraction,
         "min_bitscore" : args.bit_score,
-        "min_bitscore_fraction_heuristic" : args.bitscore_fraction_heuristic
+        "min_bitscore_fraction_heuristic" : args.bitscore_fraction_heuristic,
+        "max_evalue" : args.evalue,
     }
     
     config_path = os.path.join(args.output, 'config_annotate.yaml')
