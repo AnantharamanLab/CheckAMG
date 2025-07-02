@@ -161,12 +161,12 @@ options:
                         analysis. (default: 0.2).
   -c COV_FRACTION, --cov_fraction COV_FRACTION
                         Minimum covered fraction (of the user viral protein) for HMM
-                        alignments (default: 0.5).
+                        searches (default: 0.5).
   -e EVALUE, --evalue EVALUE
-                        Maximum fallback E-value for HMM alignments when database-
+                        Maximum fallback E-value for HMM searches when database-
                         provided cutoffs are not available (default: 1e-05).
   -b BIT_SCORE, --bit_score BIT_SCORE
-                        Minimum fallback bit score for HMM alignments when database-
+                        Minimum fallback bit score for HMM searches when database-
                         provided cutoffs are not available (default: 50).
   -bh BITSCORE_FRACTION_HEURISTIC, --bitscore_fraction_heuristic BITSCORE_FRACTION_HEURISTIC
                         Retain HMM hits scoring at least this fraction of the
@@ -437,11 +437,15 @@ Below are preliminary results for benchmarking our viral origin confidence predi
   </tbody>
 </table>
 
-### 5. How does CheckAMG perform its HMM alignments?
+### 5. How does CheckAMG assign functions to proteins?
 
-If you're curious about the internal mechanics of how CheckAMG performs HMM alignments for functional annotation, here's a breakdown of the behavior. These settings are designed to balance sensitivity (not missing true hits) and specificity (excluding weak/ambiguous matches), with additional database-specific optimizations for functional reliability.
+If you're curious about the internal mechanics of how CheckAMG annotates proteins for their function, here's a breakdown of the behavior. These settings are designed to balance sensitivity (not missing true hits) and specificity (excluding weak/ambiguous matches), with additional database-specific optimizations for functional reliability.
 
-1. **Profile HMM databases**
+1. **Homology Searching Method**
+
+   * CheckAMG uses `pyhmmer` for fast and reproducible HMM searches of user proteins against profile HMMs
+
+2. **Profile HMM databases**
 
    * CheckAMG relies on the following profile HMMs:
      * [KEGG Orthology (KO)](https://www.genome.jp/kegg/ko.html) ([Kanehisa et al., 2016](https://doi.org/10.1093/nar/gkv1070))
@@ -451,10 +455,6 @@ If you're curious about the internal mechanics of how CheckAMG performs HMM alig
      * [dbCAN CAZyme domain HMM database](https://bcb.unl.edu/dbCAN2/) ([Zheng et al., 2023](https://doi.org/10.1093/nar/gkad328))
      * [The METABOLIC HMM database](https://github.com/AnantharamanLab/METABOLIC/tree/master) ([Zhou et al., 2022](https://doi.org/10.1186/s40168-021-01213-8))
    * These databases can be downloaded and processed using the `checkamg download` module
-
-2. **HMM Alignment Tool**
-
-   * CheckAMG uses `pyhmmer` for fast and reproducible HMM searches
 
 3. **E-value Threshold**
 
@@ -483,7 +483,7 @@ If you're curious about the internal mechanics of how CheckAMG performs HMM alig
 
 7. **Result Consolidation and Best-Hit Filtering**
 
-   * Each input protein is aligned against **each HMM source database** (KEGG, FOAM, Pfam, PHROG, dbCAN, and METABOLIC)
+   * Each input protein is searched against **each HMM source database** (KEGG, FOAM, Pfam, PHROG, dbCAN, and METABOLIC)
    * All domain hits are first filtered using the criteria above
    * Then, for **each database**, only the **single best hit per protein** is retained:
      * Preference is given to the hit with the **lowest E-value**
