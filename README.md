@@ -323,7 +323,7 @@ Below are preliminary results for benchmarking our viral origin confidence predi
 
 <table>
   <thead>
-    <tr>
+    <tr style="background-color:#111827;color:#fff;">
       <th align="center">Dataset</th>
       <th align="center">% Viral Proteins</th>
       <th align="center">% MGE Proteins</th>
