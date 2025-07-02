@@ -340,40 +340,97 @@ Below are preliminary results for benchmarking our viral origin confidence predi
     <!-- Near all MGE -->
     <tr style="background-color:#212C40;color:#fff;">
       <td rowspan="3">Near all MGE</td>
-      <td>5.0</td><td>90.0</td><td>5.0</td><td>High</td><td>0.940</td><td>0.200</td><td>0.329</td><td>0.060</td><td>0.423</td>
+      <td>5</td><td>90</td><td>5</td><td>High</td><td>0.94</td><td>0.2</td><td>0.329</td><td>0.06</td><td>0.423</td>
     </tr>
     <tr style="background-color:#212C40;color:#fff;">
-      <td>5.0</td><td>90.0</td><td>5.0</td><td>Medium</td><td>0.570</td><td>0.848</td><td>0.682</td><td>0.430</td><td>0.676</td>
+      <td>5</td><td>90</td><td>5</td><td>Medium</td><td>0.57</td><td>0.848</td><td>0.682</td><td>0.43</td><td>0.676</td>
     </tr>
     <tr style="background-color:#212C40;color:#fff;">
-      <td>5.0</td><td>90.0</td><td>5.0</td><td>Low</td><td>0.050</td><td>1.000</td><td>0.095</td><td>0.950</td><td>0.000</td>
+      <td>5</td><td>90</td><td>5</td><td>Low</td><td>0.05</td><td>1</td><td>0.095</td><td>0.95</td><td>0</td>
     </tr>
+
     <!-- Near all host -->
     <tr style="background-color:#f3f4f6;color:#222;">
       <td rowspan="3">Near all host</td>
-      <td>5.0</td><td>5.0</td><td>90.0</td><td>High</td><td>0.904</td><td>0.221</td><td>0.355</td><td>0.096</td><td>0.436</td>
+      <td>5</td><td>5</td><td>90</td><td>High</td><td>0.904</td><td>0.221</td><td>0.355</td><td>0.096</td><td>0.436</td>
     </tr>
     <tr style="background-color:#f3f4f6;color:#222;">
-      <td>5.0</td><td>5.0</td><td>90.0</td><td>Medium</td><td>0.269</td><td>0.860</td><td>0.410</td><td>0.731</td><td>0.438</td>
+      <td>5</td><td>5</td><td>90</td><td>Medium</td><td>0.269</td><td>0.86</td><td>0.41</td><td>0.731</td><td>0.438</td>
     </tr>
     <tr style="background-color:#f3f4f6;color:#222;">
-      <td>5.0</td><td>5.0</td><td>90.0</td><td>Low</td><td>0.050</td><td>1.000</td><td>0.095</td><td>0.950</td><td>0.000</td>
+      <td>5</td><td>5</td><td>90</td><td>Low</td><td>0.05</td><td>1</td><td>0.095</td><td>0.95</td><td>0</td>
     </tr>
+
     <!-- MGE enriched -->
     <tr style="background-color:#273b23;color:#fff;">
       <td rowspan="3">MGE enriched</td>
-      <td>12.5</td><td>75.0</td><td>12.5</td><td>High</td><td>0.980</td><td>0.209</td><td>0.345</td><td>0.020</td><td>0.428</td>
+      <td>12.5</td><td>75</td><td>12.5</td><td>High</td><td>0.98</td><td>0.209</td><td>0.345</td><td>0.02</td><td>0.428</td>
     </tr>
     <tr style="background-color:#273b23;color:#fff;">
-      <td>12.5</td><td>75.0</td><td>12.5</td><td>Medium</td><td>0.736</td><td>0.857</td><td>0.792</td><td>0.264</td><td>0.762</td>
+      <td>12.5</td><td>75</td><td>12.5</td><td>Medium</td><td>0.736</td><td>0.857</td><td>0.792</td><td>0.264</td><td>0.762</td>
     </tr>
     <tr style="background-color:#273b23;color:#fff;">
-      <td>12.5</td><td>75.0</td><td>12.5</td><td>Low</td><td>0.125</td><td>1.000</td><td>0.222</td><td>0.875</td><td>0.000</td>
+      <td>12.5</td><td>75</td><td>12.5</td><td>Low</td><td>0.125</td><td>1</td><td>0.222</td><td>0.875</td><td>0</td>
     </tr>
+
     <!-- Host enriched -->
     <tr style="background-color:#ece9f8;color:#222;">
-      <td>Host enriched</td>
-      <td>12.5</td><td>12.5</td><td>75.0</td><td>High</td><td>0.963</td><td>0.215</td><td>0.351</td><td>0.037</td><td>0.429</td>
+      <td rowspan="3">Host enriched</td>
+      <td>12.5</td><td>12.5</td><td>75</td><td>High</td><td>0.963</td><td>0.215</td><td>0.351</td><td>0.037</td><td>0.429</td>
+    </tr>
+    <tr style="background-color:#ece9f8;color:#222;">
+      <td>12.5</td><td>12.5</td><td>75</td><td>Medium</td><td>0.518</td><td>0.863</td><td>0.648</td><td>0.482</td><td>0.61</td>
+    </tr>
+    <tr style="background-color:#ece9f8;color:#222;">
+      <td>12.5</td><td>12.5</td><td>75</td><td>Low</td><td>0.125</td><td>1</td><td>0.222</td><td>0.875</td><td>0</td>
+    </tr>
+
+    <!-- Equal source -->
+    <tr style="background-color:#1d2634;color:#fff;">
+      <td rowspan="3">Equal source</td>
+      <td>33.3</td><td>33.3</td><td>33.3</td><td>High</td><td>0.991</td><td>0.204</td><td>0.338</td><td>0.009</td><td>0.378</td>
+    </tr>
+    <tr style="background-color:#1d2634;color:#fff;">
+      <td>33.3</td><td>33.3</td><td>33.3</td><td>Medium</td><td>0.845</td><td>0.863</td><td>0.854</td><td>0.155</td><td>0.78</td>
+    </tr>
+    <tr style="background-color:#1d2634;color:#fff;">
+      <td>33.3</td><td>33.3</td><td>33.3</td><td>Low</td><td>0.333</td><td>1</td><td>0.5</td><td>0.667</td><td>0</td>
+    </tr>
+
+    <!-- Equal viral/nonviral -->
+    <tr style="background-color:#dbeafe;color:#222;">
+      <td rowspan="3">Equal viral/nonviral</td>
+      <td>50</td><td>25</td><td>25</td><td>High</td><td>0.996</td><td>0.21</td><td>0.347</td><td>0.004</td><td>0.341</td>
+    </tr>
+    <tr style="background-color:#dbeafe;color:#222;">
+      <td>50</td><td>25</td><td>25</td><td>Medium</td><td>0.916</td><td>0.864</td><td>0.889</td><td>0.084</td><td>0.786</td>
+    </tr>
+    <tr style="background-color:#dbeafe;color:#222;">
+      <td>50</td><td>25</td><td>25</td><td>Low</td><td>0.5</td><td>1</td><td>0.667</td><td>0.5</td><td>0</td>
+    </tr>
+
+    <!-- Virus enriched -->
+    <tr style="background-color:#15513a;color:#fff;">
+      <td rowspan="3">Virus enriched</td>
+      <td>75</td><td>12.5</td><td>12.5</td><td>High</td><td>0.998</td><td>0.209</td><td>0.346</td><td>0.002</td><td>0.248</td>
+    </tr>
+    <tr style="background-color:#15513a;color:#fff;">
+      <td>75</td><td>12.5</td><td>12.5</td><td>Medium</td><td>0.971</td><td>0.861</td><td>0.913</td><td>0.029</td><td>0.72</td>
+    </tr>
+    <tr style="background-color:#15513a;color:#fff;">
+      <td>75</td><td>12.5</td><td>12.5</td><td>Low</td><td>0.75</td><td>1</td><td>0.857</td><td>0.25</td><td>0</td>
+    </tr>
+
+    <!-- Near all virus -->
+    <tr style="background-color:#fcd34d;color:#222;">
+      <td rowspan="3">Near all virus</td>
+      <td>90</td><td>5</td><td>5</td><td>High</td><td>1</td><td>0.209</td><td>0.346</td><td>0</td><td>0.16</td>
+    </tr>
+    <tr style="background-color:#fcd34d;color:#222;">
+      <td>90</td><td>5</td><td>5</td><td>Medium</td><td>0.989</td><td>0.861</td><td>0.921</td><td>0.011</td><td>0.567</td>
+    </tr>
+    <tr style="background-color:#fcd34d;color:#222;">
+      <td>90</td><td>5</td><td>5</td><td>Low</td><td>0.9</td><td>1</td><td>0.947</td><td>0.1</td><td>0</td>
     </tr>
   </tbody>
 </table>
