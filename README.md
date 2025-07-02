@@ -348,7 +348,6 @@ Below are preliminary results for benchmarking our viral origin confidence predi
     <tr style="background-color:#212C40;color:#fff;">
       <td>5</td><td>90</td><td>5</td><td>Low</td><td>0.05</td><td>1</td><td>0.095</td><td>0.95</td><td>0</td>
     </tr>
-
     <!-- Near all host -->
     <tr style="background-color:#f3f4f6;color:#222;">
       <td rowspan="3">Near all host</td>
@@ -360,7 +359,6 @@ Below are preliminary results for benchmarking our viral origin confidence predi
     <tr style="background-color:#f3f4f6;color:#222;">
       <td>5</td><td>5</td><td>90</td><td>Low</td><td>0.05</td><td>1</td><td>0.095</td><td>0.95</td><td>0</td>
     </tr>
-
     <!-- MGE enriched -->
     <tr style="background-color:#273b23;color:#fff;">
       <td rowspan="3">MGE enriched</td>
@@ -372,7 +370,6 @@ Below are preliminary results for benchmarking our viral origin confidence predi
     <tr style="background-color:#273b23;color:#fff;">
       <td>12.5</td><td>75</td><td>12.5</td><td>Low</td><td>0.125</td><td>1</td><td>0.222</td><td>0.875</td><td>0</td>
     </tr>
-
     <!-- Host enriched -->
     <tr style="background-color:#ece9f8;color:#222;">
       <td rowspan="3">Host enriched</td>
@@ -384,7 +381,6 @@ Below are preliminary results for benchmarking our viral origin confidence predi
     <tr style="background-color:#ece9f8;color:#222;">
       <td>12.5</td><td>12.5</td><td>75</td><td>Low</td><td>0.125</td><td>1</td><td>0.222</td><td>0.875</td><td>0</td>
     </tr>
-
     <!-- Equal source -->
     <tr style="background-color:#1d2634;color:#fff;">
       <td rowspan="3">Equal source</td>
@@ -396,7 +392,6 @@ Below are preliminary results for benchmarking our viral origin confidence predi
     <tr style="background-color:#1d2634;color:#fff;">
       <td>33.3</td><td>33.3</td><td>33.3</td><td>Low</td><td>0.333</td><td>1</td><td>0.5</td><td>0.667</td><td>0</td>
     </tr>
-
     <!-- Equal viral/nonviral -->
     <tr style="background-color:#dbeafe;color:#222;">
       <td rowspan="3">Equal viral/nonviral</td>
@@ -408,7 +403,6 @@ Below are preliminary results for benchmarking our viral origin confidence predi
     <tr style="background-color:#dbeafe;color:#222;">
       <td>50</td><td>25</td><td>25</td><td>Low</td><td>0.5</td><td>1</td><td>0.667</td><td>0.5</td><td>0</td>
     </tr>
-
     <!-- Virus enriched -->
     <tr style="background-color:#15513a;color:#fff;">
       <td rowspan="3">Virus enriched</td>
@@ -420,7 +414,6 @@ Below are preliminary results for benchmarking our viral origin confidence predi
     <tr style="background-color:#15513a;color:#fff;">
       <td>75</td><td>12.5</td><td>12.5</td><td>Low</td><td>0.75</td><td>1</td><td>0.857</td><td>0.25</td><td>0</td>
     </tr>
-
     <!-- Near all virus -->
     <tr style="background-color:#fcd34d;color:#222;">
       <td rowspan="3">Near all virus</td>
