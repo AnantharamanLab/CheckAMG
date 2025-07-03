@@ -168,7 +168,7 @@ def calculate_window_statistics(data, window_size, minimum_percentage, n_cpus):
         results = [f.result() for f in tqdm(concurrent.futures.as_completed(futures), total=len(futures), desc="Calculating sliding-window averages", unit="contig")]
     return pl.concat(results, how="vertical")
 
-def prepare_rf_features(df, feature_names):
+def prepare_lgbm_features(df, feature_names):
     # Ensure required features are present, fill missing
     features = {}
     for col in feature_names:
@@ -196,10 +196,10 @@ def prepare_rf_features(df, feature_names):
     X = X[feature_names]
     return X
 
-def viral_origin_confidence_rf(df, rf_model, thresholds, feature_names):
+def viral_origin_confidence_lgbm(df, lgbm_model, thresholds, feature_names):
     """
     df: pl.DataFrame (must have columns matching those used in model training)
-    rf_model: fitted sklearn RF or CalibratedClassifierCV
+    lgbm_model: fitted sklearn Light GM or CalibratedClassifierCV
     thresholds: dict, { 'high': {'threshold': float, ...}, 'medium': {'threshold': float, ...}, 'low': {'threshold': float, ...} }
     feature_names: list of feature columns (ordered)
     imputer_num: fitted SimpleImputer for numeric cols
@@ -210,17 +210,17 @@ def viral_origin_confidence_rf(df, rf_model, thresholds, feature_names):
     df_pd = df.to_pandas()
 
     # Prepare features
-    X = prepare_rf_features(df_pd, feature_names)
+    X = prepare_lgbm_features(df_pd, feature_names)
 
     # Predict proba
-    y_proba = rf_model.predict_proba(X)[:, 1]
+    y_proba = lgbm_model.predict_proba(X)[:, 1]
     # Assign confidence
     conf = np.full(y_proba.shape, 'low', dtype=object)
     conf[y_proba >= thresholds['medium']['threshold']] = 'medium'
     conf[y_proba >= thresholds['high']['threshold']] = 'high'
     # Add to polars DataFrame
     df = df.with_columns([
-        pl.Series('RF_viral_prob', y_proba),
+        pl.Series('LGBM_viral_prob', y_proba),
         pl.Series('Viral_Origin_Confidence', conf)
     ])
     return df
@@ -400,7 +400,7 @@ def check_flanking_insertions(contig_data, mobile_accessions, max_flank_length):
 
 def process_genomes(data, circular_contigs, minimum_percentage,
                     window_size, max_flank_length, minimum_vscore,
-                    rf_model, thresholds, feature_names,
+                    lgbm_model, thresholds, feature_names,
                     use_hallmark=False,
                     hallmark_accessions=None, mobile_accessions=None,
                     n_cpus=1):
@@ -464,12 +464,12 @@ def process_genomes(data, circular_contigs, minimum_percentage,
         results = [f.result() for f in tqdm(as_completed(futures), total=len(futures), desc="Checking flanks for mobile genes", unit="contig")]
     data = pl.concat(results, how="vertical")
     
-    logger.info("Assigning viral origin confidence using random forest with genome context features.")
+    logger.info("Assigning viral origin confidence using LightGBM with genome context features.")
     logger.debug(f"Data before assigning viral origin confidence: {data.head()}")
     contig_dfs = data.partition_by("contig")
     with ThreadPoolExecutor(max_workers=n_cpus) as executor:
         futures = [
-            executor.submit(viral_origin_confidence_rf, df, rf_model, thresholds, feature_names)
+            executor.submit(viral_origin_confidence_lgbm, df, lgbm_model, thresholds, feature_names)
             for df in contig_dfs
         ]
         results = [f.result() for f in tqdm(as_completed(futures), total=len(futures), desc="Fitting models", unit="contig")]
@@ -486,7 +486,7 @@ def main():
     window_size = snakemake.params.window_size
     minimum_vscore = snakemake.params.minimum_flank_vscore
     max_flank_length = snakemake.params.max_flank_length
-    rf_model = load(snakemake.params.rf_model)
+    lgbm_model = load(snakemake.params.lgbm_model)
     feature_names = list(load(snakemake.params.feature_names))
     thresholds = load(snakemake.params.thresholds)
     outparent = snakemake.params.outparent
@@ -529,7 +529,7 @@ def main():
     processed_data = process_genomes(
         data, circular_contigs, minimum_percentage,
         window_size, max_flank_length, minimum_vscore,
-        rf_model, thresholds, feature_names,
+        lgbm_model, thresholds, feature_names,
         use_hallmark, hallmark_ids, mobile_ids, n_cpus
     )
 

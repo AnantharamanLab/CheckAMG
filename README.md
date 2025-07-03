@@ -309,7 +309,7 @@ AVGs often resemble host genes and can result from contamination. CheckAMG uses 
 3. Local viral gene content, determined using [V- and VL-scores](https://github.com/AnantharamanLab/V-Score-Search) ([Zhou et al., 2025](https://www.biorxiv.org/content/10.1101/2024.10.24.619987v1))
 4. Contig circularity
 
-A Random Forest model, trained on real and simulated viral/non-viral data, makes these assignments. Confidence levels refer to the viral origin, not the functional annotation.
+A LightGBM model, trained on real and simulated viral/non-viral data, makes these assignments. Confidence levels refer to the viral origin, not the functional annotation.
 
 ### 4. Which confidence levels should I use?
 
@@ -319,7 +319,7 @@ The precision and recall of each confidence level for predicting true viral prot
 
 * **High-confidence**
     * CheckAMG assigns confidence levels such that high-confidence predictions can be almost always trusted (false-discovery rate < 0.1 in all tested cases)
-    * To maintain the integrity of high-confidence predictions even in cases where viral proteins are relatively rare in the input, high-confidence predictions are very conservative
+    * To maintain the integrity of high-confidence predictions even in cases where viral proteins are relatively rare in the input, high-confidence predictions are conservative
     * **We recommend using just high-confidence viral proteins when viral proteins are relatively rare in the input data (such as mixed-community metagenomes) or when the composition of the input data is unknown**
 * **Medium-confidence**
     * Using medium-confidence predictions can dramatically increase the recovery of truly viral proteins, but they may not always be best to use
@@ -337,7 +337,7 @@ Below are preliminary results for benchmarking our viral origin confidence predi
       <th align="center">% Viral Proteins</th>
       <th align="center">% MGE Proteins</th>
       <th align="center">% Host Proteins</th>
-      <th align="center">Conf. Level</th>
+      <th align="center">Confidence Level</th>
       <th align="center">Precision</th>
       <th align="center">Recall</th>
       <th align="center">F1 Score</th>
@@ -349,10 +349,10 @@ Below are preliminary results for benchmarking our viral origin confidence predi
     <!-- Near all virus -->
     <tr style="background-color:#212C40;color:#fff;">
       <td align="center" rowspan="3">Near all virus</td>
-      <td align="center">90</td><td align="center">5</td><td align="center">5</td><td align="center">High</td><td align="center">1</td><td align="center">0.209</td><td align="center">0.346</td><td align="center">0</td><td align="center">0.16</td>
+      <td align="center">90</td><td align="center">5</td><td align="center">5</td><td align="center">High</td><td align="center">0.999</td><td align="center">0.645</td><td align="center">0.784</td><td align="center">0.001</td><td align="center">0.388</td>
     </tr>
     <tr style="background-color:#212C40;color:#fff;">
-      <td align="center">90</td><td align="center">5</td><td align="center">5</td><td align="center">Medium</td><td align="center">0.989</td><td align="center">0.861</td><td align="center">0.921</td><td align="center">0.011</td><td align="center">0.567</td>
+      <td align="center">90</td><td align="center">5</td><td align="center">5</td><td align="center">Medium</td><td align="center">0.994</td><td align="center">0.822</td><td align="center">0.9</td><td align="center">0.006</td><td align="center">0.533</td>
     </tr>
     <tr style="background-color:#212C40;color:#fff;">
       <td align="center">90</td><td align="center">5</td><td align="center">5</td><td align="center">Low</td><td align="center">0.9</td><td align="center">1</td><td align="center">0.947</td><td align="center">0.1</td><td align="center">0</td>
@@ -360,32 +360,43 @@ Below are preliminary results for benchmarking our viral origin confidence predi
     <!-- Virus enriched -->
     <tr style="background-color:#3c643c;color:#fff;">
       <td align="center" rowspan="3">Virus enriched</td>
-      <td align="center">75</td><td align="center">12.5</td><td align="center">12.5</td><td align="center">High</td><td align="center">0.998</td><td align="center">0.209</td><td align="center">0.346</td><td align="center">0.002</td><td align="center">0.248</td>
+      <td align="center">75</td><td align="center">12.5</td><td align="center">12.5</td><td align="center">High</td><td align="center">0.995</td><td align="center">0.645</td><td align="center">0.783</td><td align="center">0.005</td><td align="center">0.551</td>
     </tr>
     <tr style="background-color:#3c643c;color:#fff;">
-      <td align="center">75</td><td align="center">12.5</td><td align="center">12.5</td><td align="center">Medium</td><td align="center">0.971</td><td align="center">0.861</td><td align="center">0.913</td><td align="center">0.029</td><td align="center">0.72</td>
+      <td align="center">75</td><td align="center">12.5</td><td align="center">12.5</td><td align="center">Medium</td><td align="center">0.98</td><td align="center">0.822</td><td align="center">0.894</td><td align="center">0.02</td><td align="center">0.691</td>
     </tr>
     <tr style="background-color:#3c643c;color:#fff;">
       <td align="center">75</td><td align="center">12.5</td><td align="center">12.5</td><td align="center">Low</td><td align="center">0.75</td><td align="center">1</td><td align="center">0.857</td><td align="center">0.25</td><td align="center">0</td>
     </tr>
     <!-- Equal viral/nonviral -->
-    <tr style="background-color:#f9fafb;color:#222;">
+    <tr style="background-color:#f3f4f6;color:#222;">
       <td align="center" rowspan="3">Equal viral/nonviral</td>
-      <td align="center">50</td><td align="center">25</td><td align="center">25</td><td align="center">High</td><td align="center">0.996</td><td align="center">0.21</td><td align="center">0.347</td><td align="center">0.004</td><td align="center">0.341</td>
+      <td align="center">50</td><td align="center">25</td><td align="center">25</td><td align="center">High</td><td align="center">0.986</td><td align="center">0.644</td><td align="center">0.779</td><td align="center">0.014</td><td align="center">0.677</td>
     </tr>
-    <tr style="background-color:#f9fafb;color:#222;">
-      <td align="center">50</td><td align="center">25</td><td align="center">25</td><td align="center">Medium</td><td align="center">0.916</td><td align="center">0.864</td><td align="center">0.889</td><td align="center">0.084</td><td align="center">0.786</td>
+    <tr style="background-color:#f3f4f6;color:#222;">
+      <td align="center">50</td><td align="center">25</td><td align="center">25</td><td align="center">Medium</td><td align="center">0.943</td><td align="center">0.821</td><td align="center">0.878</td><td align="center">0.057</td><td align="center">0.778</td>
     </tr>
-    <tr style="background-color:#f9fafb;color:#222;">
+    <tr style="background-color:#f3f4f6;color:#222;">
       <td align="center">50</td><td align="center">25</td><td align="center">25</td><td align="center">Low</td><td align="center">0.5</td><td align="center">1</td><td align="center">0.667</td><td align="center">0.5</td><td align="center">0</td>
     </tr>
-    <!-- Equal source -->
+    <!-- Half viral/host -->
+    <tr style="background-color:#ffe4b5;color:#222;">
+      <td align="center" rowspan="3">Half viral/host</td>
+      <td align="center">50</td><td align="center">0</td><td align="center">50</td><td align="center">High</td><td align="center">0.996</td><td align="center">0.645</td><td align="center">0.783</td><td align="center">0.004</td><td align="center">0.687</td>
+    </tr>
+    <tr style="background-color:#ffe4b5;color:#222;">
+      <td align="center">50</td><td align="center">0</td><td align="center">50</td><td align="center">Medium</td><td align="center">0.969</td><td align="center">0.822</td><td align="center">0.889</td><td align="center">0.031</td><td align="center">0.805</td>
+    </tr>
+    <tr style="background-color:#ffe4b5;color:#222;">
+      <td align="center">50</td><td align="center">0</td><td align="center">50</td><td align="center">Low</td><td align="center">0.5</td><td align="center">1</td><td align="center">0.667</td><td align="center">0.5</td><td align="center">0</td>
+    </tr>
+    <!-- Equal viral/MGE/host -->
     <tr style="background-color:#e3e1f7;color:#222;">
-      <td align="center" rowspan="3">Equal source</td>
-      <td align="center">33.3</td><td align="center">33.3</td><td align="center">33.3</td><td align="center">High</td><td align="center">0.991</td><td align="center">0.204</td><td align="center">0.338</td><td align="center">0.009</td><td align="center">0.378</td>
+      <td align="center" rowspan="3">Equal viral/MGE/host</td>
+      <td align="center">33.3</td><td align="center">33.3</td><td align="center">33.3</td><td align="center">High</td><td align="center">0.973</td><td align="center">0.643</td><td align="center">0.774</td><td align="center">0.027</td><td align="center">0.721</td>
     </tr>
     <tr style="background-color:#e3e1f7;color:#222;">
-      <td align="center">33.3</td><td align="center">33.3</td><td align="center">33.3</td><td align="center">Medium</td><td align="center">0.845</td><td align="center">0.863</td><td align="center">0.854</td><td align="center">0.155</td><td align="center">0.78</td>
+      <td align="center">33.3</td><td align="center">33.3</td><td align="center">33.3</td><td align="center">Medium</td><td align="center">0.892</td><td align="center">0.817</td><td align="center">0.853</td><td align="center">0.108</td><td align="center">0.785</td>
     </tr>
     <tr style="background-color:#e3e1f7;color:#222;">
       <td align="center">33.3</td><td align="center">33.3</td><td align="center">33.3</td><td align="center">Low</td><td align="center">0.333</td><td align="center">1</td><td align="center">0.5</td><td align="center">0.667</td><td align="center">0</td>
@@ -393,10 +404,10 @@ Below are preliminary results for benchmarking our viral origin confidence predi
     <!-- MGE enriched -->
     <tr style="background-color:#15513a;color:#fff;">
       <td align="center" rowspan="3">MGE enriched</td>
-      <td align="center">12.5</td><td align="center">75</td><td align="center">12.5</td><td align="center">High</td><td align="center">0.98</td><td align="center">0.209</td><td align="center">0.345</td><td align="center">0.02</td><td align="center">0.428</td>
+      <td align="center">12.5</td><td align="center">75</td><td align="center">12.5</td><td align="center">High</td><td align="center">0.871</td><td align="center">0.632</td><td align="center">0.732</td><td align="center">0.129</td><td align="center">0.712</td>
     </tr>
     <tr style="background-color:#15513a;color:#fff;">
-      <td align="center">12.5</td><td align="center">75</td><td align="center">12.5</td><td align="center">Medium</td><td align="center">0.736</td><td align="center">0.857</td><td align="center">0.792</td><td align="center">0.264</td><td align="center">0.762</td>
+      <td align="center">12.5</td><td align="center">75</td><td align="center">12.5</td><td align="center">Medium</td><td align="center">0.635</td><td align="center">0.81</td><td align="center">0.712</td><td align="center">0.365</td><td align="center">0.672</td>
     </tr>
     <tr style="background-color:#15513a;color:#fff;">
       <td align="center">12.5</td><td align="center">75</td><td align="center">12.5</td><td align="center">Low</td><td align="center">0.125</td><td align="center">1</td><td align="center">0.222</td><td align="center">0.875</td><td align="center">0</td>
@@ -404,10 +415,10 @@ Below are preliminary results for benchmarking our viral origin confidence predi
     <!-- Host enriched -->
     <tr style="background-color:#fcd34d;color:#222;">
       <td align="center" rowspan="3">Host enriched</td>
-      <td align="center">12.5</td><td align="center">12.5</td><td align="center">75</td><td align="center">High</td><td align="center">0.963</td><td align="center">0.215</td><td align="center">0.351</td><td align="center">0.037</td><td align="center">0.429</td>
+      <td align="center">12.5</td><td align="center">12.5</td><td align="center">75</td><td align="center">High</td><td align="center">0.955</td><td align="center">0.645</td><td align="center">0.77</td><td align="center">0.045</td><td align="center">0.762</td>
     </tr>
     <tr style="background-color:#fcd34d;color:#222;">
-      <td align="center">12.5</td><td align="center">12.5</td><td align="center">75</td><td align="center">Medium</td><td align="center">0.518</td><td align="center">0.863</td><td align="center">0.648</td><td align="center">0.482</td><td align="center">0.61</td>
+      <td align="center">12.5</td><td align="center">12.5</td><td align="center">75</td><td align="center">Medium</td><td align="center">0.781</td><td align="center">0.816</td><td align="center">0.798</td><td align="center">0.219</td><td align="center">0.769</td>
     </tr>
     <tr style="background-color:#fcd34d;color:#222;">
       <td align="center">12.5</td><td align="center">12.5</td><td align="center">75</td><td align="center">Low</td><td align="center">0.125</td><td align="center">1</td><td align="center">0.222</td><td align="center">0.875</td><td align="center">0</td>
@@ -415,10 +426,10 @@ Below are preliminary results for benchmarking our viral origin confidence predi
     <!-- Near all MGE -->
     <tr style="background-color:#212C40;color:#fff;">
       <td align="center" rowspan="3">Near all MGE</td>
-      <td align="center">5</td><td align="center">90</td><td align="center">5</td><td align="center">High</td><td align="center">0.94</td><td align="center">0.2</td><td align="center">0.329</td><td align="center">0.06</td><td align="center">0.423</td>
+      <td align="center">5</td><td align="center">90</td><td align="center">5</td><td align="center">High</td><td align="center">0.686</td><td align="center">0.61</td><td align="center">0.646</td><td align="center">0.314</td><td align="center">0.63</td>
     </tr>
     <tr style="background-color:#212C40;color:#fff;">
-      <td align="center">5</td><td align="center">90</td><td align="center">5</td><td align="center">Medium</td><td align="center">0.57</td><td align="center">0.848</td><td align="center">0.682</td><td align="center">0.43</td><td align="center">0.676</td>
+      <td align="center">5</td><td align="center">90</td><td align="center">5</td><td align="center">Medium</td><td align="center">0.38</td><td align="center">0.828</td><td align="center">0.521</td><td align="center">0.62</td><td align="center">0.529</td>
     </tr>
     <tr style="background-color:#212C40;color:#fff;">
       <td align="center">5</td><td align="center">90</td><td align="center">5</td><td align="center">Low</td><td align="center">0.05</td><td align="center">1</td><td align="center">0.095</td><td align="center">0.95</td><td align="center">0</td>
@@ -426,10 +437,10 @@ Below are preliminary results for benchmarking our viral origin confidence predi
     <!-- Near all host -->
     <tr style="background-color:#f3f4f6;color:#222;">
       <td align="center" rowspan="3">Near all host</td>
-      <td align="center">5</td><td align="center">5</td><td align="center">90</td><td align="center">High</td><td align="center">0.904</td><td align="center">0.221</td><td align="center">0.355</td><td align="center">0.096</td><td align="center">0.436</td>
+      <td align="center">5</td><td align="center">5</td><td align="center">90</td><td align="center">High</td><td align="center">0.915</td><td align="center">0.649</td><td align="center">0.759</td><td align="center">0.085</td><td align="center">0.761</td>
     </tr>
     <tr style="background-color:#f3f4f6;color:#222;">
-      <td align="center">5</td><td align="center">5</td><td align="center">90</td><td align="center">Medium</td><td align="center">0.269</td><td align="center">0.86</td><td align="center">0.41</td><td align="center">0.731</td><td align="center">0.438</td>
+      <td align="center">5</td><td align="center">5</td><td align="center">90</td><td align="center">Medium</td><td align="center">0.608</td><td align="center">0.829</td><td align="center">0.702</td><td align="center">0.392</td><td align="center">0.693</td>
     </tr>
     <tr style="background-color:#f3f4f6;color:#222;">
       <td align="center">5</td><td align="center">5</td><td align="center">90</td><td align="center">Low</td><td align="center">0.05</td><td align="center">1</td><td align="center">0.095</td><td align="center">0.95</td><td align="center">0</td>

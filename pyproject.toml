@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "checkamg"
-version = "0.2.1"
+version = "0.3.0"
 description = "Automated identification and curation of Auxiliary Metabolic Genes (AMGs), Auxiliary Regulatory Genes (AReGs), and Auxiliary Physiology Genes (APGs) in viral genomes."
 readme = {file = "README-pypi.md", content-type = "text/markdown"}
 requires-python = ">=3.11, <3.13"
@@ -22,6 +22,7 @@ classifiers = [
 ]
 dependencies = [
   "joblib>=1.5.1",
+  "lightgbm>=4.5.0",
   "metapyrodigal>=1.4.1",
   "numba>=0.61.2",
   "numpy>=1.24, <2.3",

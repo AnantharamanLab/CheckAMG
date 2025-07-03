@@ -83,11 +83,11 @@ def main():
                                    "functional annotation using the CheckAMG database to be considered for contextual analysis. "
                                    "(default: %(default)s).")
      annotate_parser.add_argument("-c", "--cov_fraction", type=float, required=False, default=0.5,
-                              help="Minimum covered fraction (of the user viral protein) for HMM alignments (default: %(default)s).")
+                              help="Minimum covered fraction (of the user viral protein) for HMM searches (default: %(default)s).")
      annotate_parser.add_argument("-e", "--evalue", type=float, required=False, default=1e-5,
-                              help="Maximum fallback E-value for HMM alignments when database-provided cutoffs are not available (default: %(default)s).")
+                              help="Maximum fallback E-value for HMM searches when database-provided cutoffs are not available (default: %(default)s).")
      annotate_parser.add_argument("-b", "--bit_score", type=int, required=False, default=50,
-                              help="Minimum fallback bit score for HMM alignments when database-provided cutoffs are not available (default: %(default)s).")
+                              help="Minimum fallback bit score for HMM searches when database-provided cutoffs are not available (default: %(default)s).")
      annotate_parser.add_argument("-bh", "--bitscore_fraction_heuristic", type=float, required=False, default=0.5,
                               help="Retain HMM hits scoring at least this fraction of the database-provided threshold under heuristic filtering (default: %(default)s).")
      annotate_parser.add_argument("-Z", "--window_size", type=int, required=False, default=25000,
@@ -127,8 +127,14 @@ def main():
           print(ASCII)
           sys.stdout.flush()
           
+     # Validate that only one subcommand is given
+     subcommands = {"download", "annotate", "de-novo", "aggregate", "end-to-end"}
+     used_subcommands = [arg for arg in sys.argv[1:] if arg in subcommands]
+     if len(used_subcommands) > 1:
+          parser.error(f"Too many arguments provided ({', '.join(used_subcommands)}). Please specify only one CheckAMG module to run.")
+          
      args = parser.parse_args()
-     
+               
      if args.command == "download":
           download_dbs.download_all(dest=args.db_dir, force=args.force, threads=args.threads)
           if args.rm_hmm:
