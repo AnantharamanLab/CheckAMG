@@ -278,7 +278,7 @@ Examples of these output files are provided in the [`examples/example_outputs`](
 
 ## Important Notes / FAQs
 ### 1. What is an *AVG*?
-An AVG is an **A**uxiliary **V**iral **G**ene, a virus-encoded gene that is non-essential for viral replication but augments host metabolism (AMGs), physiology(APGs), or regulation (AReGs). In the past, all AVGs have been referred to as AMGs, but recently the term AVG has been adopted to include broader host-modulating functions, not just metabolism.
+An AVG is an **A**uxiliary **V**iral **G**ene, a virus-encoded gene that is non-essential for viral replication but augments host metabolism (AMGs), physiology (APGs), or regulation (AReGs). In the past, all AVGs have been referred to as AMGs, but recently the term AVG has been adopted to include broader host-modulating functions, not just metabolism.
 
 Examples:
 * A virus-encoded *psbA* or *soxY* would be an AMG because they encode proteins with functions in host photosynthesis and sulfide oxidation
@@ -305,7 +305,7 @@ CheckAMG applies a two-stage filtering process:
 AVGs often resemble host genes and can result from contamination. CheckAMG uses local genome context to assign **high**, **medium**, or **low** viral origin confidence based on:
 
 1. Proximity to virus-like or viral hallmark genes
-2. Proximity to transposases or other non-viral mobilization genes
+2. Proximity to transposases or other [non-viral mobilization genes](https://github.com/AnantharamanLab/CheckAMG/blob/main/CheckAMG/files/mobile_genes.csv)
 3. Local viral gene content, determined using [V- and VL-scores](https://github.com/AnantharamanLab/V-Score-Search) ([Zhou et al., 2025](https://www.biorxiv.org/content/10.1101/2024.10.24.619987v1))
 4. Contig circularity
 
@@ -313,18 +313,18 @@ A LightGBM model, trained on real and simulated viral/non-viral data, makes thes
 
 ### 4. Which confidence levels should I use?
 
-> **TL;DR** When in doubt, use high, but medium can be included if your input is virus enriched.
+> **TL;DR** When in doubt, use high, but medium should be included if your input is virus enriched.
 
 The precision and recall of each confidence level for predicting true viral proteins depends on the input dataset. Whether you should use high, medium, and/or low-confidence AVGs will depend on your knowledge of your input data.
 
 * **High-confidence**
     * CheckAMG assigns confidence levels such that high-confidence predictions can be almost always trusted (false-discovery rate < 0.1 in all tested cases)
     * To maintain the integrity of high-confidence predictions even in cases where viral proteins are relatively rare in the input, high-confidence predictions are conservative
-    * **We recommend using just high-confidence viral proteins when viral proteins are relatively rare in the input data (such as mixed-community metagenomes) or when the composition of the input data is unknown**
+    * **We recommend using just high-confidence AVGs when viral proteins are relatively rare in the input data (such as mixed-community metagenomes) or when the composition of the input data is unknown**
 * **Medium-confidence**
-    * Using medium-confidence predictions can dramatically increase the recovery of truly viral proteins, but they may not always be best to use
+    * Using medium-confidence predictions can significantly increase the recovery of truly viral proteins, but they may not always be best to use
     * Medium-confidence predictions maintain false-discovery rates < 0.1 in datasets with at least 50% viral proteins, but as input sequences become increasingly non-viral in their protein composition, FDRs begin to surpass 0.1 (see the table, below)
-    * **We recommend using both high- and medium-confidence viral proteins when you know that roughly half of your input sequences are viral, such as outputs from most virus prediction tools or viromes**
+    * **We recommend using both high- and medium-confidence AVGs when you know that roughly half of your input sequences are viral, such as outputs from most virus prediction tools or viromes**
 * **Low-confidence**
     * Low-confidence predictions are not filtered at all, so we only recommend using them when you are certain that all of your input sequences are free of non-viral sequence contamination, or for testing
 
@@ -334,9 +334,9 @@ Below are preliminary results for benchmarking our viral origin confidence predi
   <thead>
     <tr style="background-color:#111827;">
       <th align="center">Dataset</th>
-      <th align="center">% Viral Proteins</th>
-      <th align="center">% MGE Proteins</th>
-      <th align="center">% Host Proteins</th>
+      <th align="center">% Viral</th>
+      <th align="center">% MGE</th>
+      <th align="center">% Host</th>
       <th align="center">Confidence Level</th>
       <th align="center">Precision</th>
       <th align="center">Recall</th>
@@ -474,13 +474,13 @@ If you're curious about the internal mechanics of how CheckAMG annotates protein
 4. **Database-Specific Thresholds**
 
    * CheckAMG applies specialized rules depending on the HMM source:
-     * **Pfam:** Applies sequence-level *gathering threshold (GA)*; hits below GA are excluded
+     * **Pfam:** Applies sequence-level *gathering threshold* (GA); hits below GA are excluded
      * **FOAM & KEGG:** Use database-defined bit score thresholds, but apply a relaxed fallback heuristic (see below)
      * **METABOLIC:** Uses GA cutoffs derived from its underlying Pfam/TIGRFAM sources, where available
 
 5. **Fallback Heuristic (KEGG & FOAM)**
 
-   * KEGG and FOAM thresholds can sometimes be overly strict, especially for environmental viruses, filtering out hits that are biologically valid
+   * KEGG (and consequently, FOAM) thresholds can sometimes be overly strict, especially for environmental viruses, filtering out hits that are biologically valid
    * To recover these valid hits, CheckAMG applies a relaxed fallback heuristic inspired by the Anvi'o [`anvi-run-kegg-kofams`](https://anvio.org/help/7.1/programs/anvi-run-kegg-kofams/#how-does-it-work) strategy:
      * If a hit falls below the database-provided trusted threshold (e.g., KEGG TC), it is still retained **if the bit score is at least 50% of the threshold value** *and* **E-value is below 1e-5**
    * This heuristic improves annotation recovery without compromising too much on precision ([Kananen et al., 2025](https://doi.org/10.1093/bioadv/vbaf039))
@@ -500,7 +500,7 @@ If you're curious about the internal mechanics of how CheckAMG annotates protein
      * Preference is given to the hit with the **lowest E-value**
      * If E-values are equal, the hit with the **higher bit score** is selected
 
-These defaults provide a balance between accuracy and recall, and are based on benchmarking and community best practices. Advanced users may modify thresholds using the `--bit_score`, `--bitscore_fraction_heuristic`, and `--evalue` arguments.
+These defaults provide a balance between accuracy and recall, and are based on benchmarking and community best practices. Users may modify thresholds using the `--bit_score`, `--bitscore_fraction_heuristic`, and `--evalue` arguments.
 
 ### 6. Snakemake
 
