@@ -331,9 +331,9 @@ The precision and recall of each confidence level for predicting true viral prot
 Below are preliminary results for benchmarking our viral origin confidence predictions against test datasets with varying sequence composition (% of proteins, see the table below for composition):
 
 <img src="precision_recall_plot.png" alt="Precision-Recall Plot" style="max-width: 100%; height: auto;">
-<br>
 
-<table>
+<div style="overflow-x:auto;">
+<table style="width:100%; max-width:100%; table-layout:auto;">
   <thead>
     <tr style="background-color:#111827; color:#fff;">
       <th align="center">Dataset</th>
@@ -399,6 +399,7 @@ Below are preliminary results for benchmarking our viral origin confidence predi
     </tr>
   </tbody>
 </table>
+</div>
 
 ### 5. How does CheckAMG assign functions to proteins?
 
