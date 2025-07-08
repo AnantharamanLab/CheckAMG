@@ -323,127 +323,79 @@ The precision and recall of each confidence level for predicting true viral prot
     * **We recommend using just high-confidence AVGs when viral proteins are relatively rare in the input data (such as mixed-community metagenomes) or when the composition of the input data is unknown**
 * **Medium-confidence**
     * Using medium-confidence predictions can significantly increase the recovery of truly viral proteins, but they may not always be best to use
-    * Medium-confidence predictions maintain false-discovery rates < 0.1 in datasets with at least 50% viral proteins, but as input sequences become increasingly non-viral in their protein composition, FDRs begin to surpass 0.1 (see the table, below)
+    * Medium-confidence predictions maintain false-discovery rates < 0.1 in datasets with at least 50% viral proteins, but as input sequences become increasingly non-viral in their protein composition, FDRs begin to surpass 0.1 (see the figure and table, below)
     * **We recommend using both high- and medium-confidence AVGs when you know that roughly half of your input sequences are viral, such as outputs from most virus prediction tools or viromes**
 * **Low-confidence**
     * Low-confidence predictions are not filtered at all, so we only recommend using them when you are certain that all of your input sequences are free of non-viral sequence contamination, or for testing
 
-Below are preliminary results for benchmarking our viral origin confidence predictions against test datasets with varying sequence composition (% of proteins):
+Below are preliminary results for benchmarking our viral origin confidence predictions against test datasets with varying sequence composition (% of proteins, see the table below for composition):
+
+<img src="precision_recall_plot.png" alt="Precision-Recall Plot" style="max-width: 100%; height: auto;">
+<br>
 
 <table>
   <thead>
-    <tr style="background-color:#111827;">
+    <tr style="background-color:#111827; color:#fff;">
       <th align="center">Dataset</th>
-      <th align="center">% Viral</th>
-      <th align="center">% MGE</th>
-      <th align="center">% Host</th>
-      <th align="center">Confidence Level</th>
-      <th align="center">Precision</th>
-      <th align="center">Recall</th>
-      <th align="center">F1 Score</th>
-      <th align="center">FDR</th>
-      <th align="center">MCC</th>
+      <th align="center">% Viral Proteins</th>
+      <th align="center">% MGE Proteins</th>
+      <th align="center">% Host Proteins</th>
     </tr>
   </thead>
   <tbody>
-    <!-- Near all virus -->
-    <tr style="background-color:#212C40;color:#fff;">
-      <td align="center" rowspan="3">Near all virus</td>
-      <td align="center">90</td><td align="center">5</td><td align="center">5</td><td align="center">High</td><td align="center">0.999</td><td align="center">0.645</td><td align="center">0.784</td><td align="center">0.001</td><td align="center">0.388</td>
+    <tr style="background-color:#212C40; color:#fff;">
+      <td align="center">Near all virus</td>
+      <td align="center">90</td>
+      <td align="center">5</td>
+      <td align="center">5</td>
     </tr>
-    <tr style="background-color:#212C40;color:#fff;">
-      <td align="center">90</td><td align="center">5</td><td align="center">5</td><td align="center">Medium</td><td align="center">0.994</td><td align="center">0.822</td><td align="center">0.9</td><td align="center">0.006</td><td align="center">0.533</td>
+    <tr style="background-color:#3c643c; color:#fff;">
+      <td align="center">Virus enriched</td>
+      <td align="center">75</td>
+      <td align="center">12.5</td>
+      <td align="center">12.5</td>
     </tr>
-    <tr style="background-color:#212C40;color:#fff;">
-      <td align="center">90</td><td align="center">5</td><td align="center">5</td><td align="center">Low</td><td align="center">0.9</td><td align="center">1</td><td align="center">0.947</td><td align="center">0.1</td><td align="center">0</td>
+    <tr style="background-color:#f3f4f6; color:#222;">
+      <td align="center">Equal viral/nonviral</td>
+      <td align="center">50</td>
+      <td align="center">25</td>
+      <td align="center">25</td>
     </tr>
-    <!-- Virus enriched -->
-    <tr style="background-color:#3c643c;color:#fff;">
-      <td align="center" rowspan="3">Virus enriched</td>
-      <td align="center">75</td><td align="center">12.5</td><td align="center">12.5</td><td align="center">High</td><td align="center">0.995</td><td align="center">0.645</td><td align="center">0.783</td><td align="center">0.005</td><td align="center">0.551</td>
+    <tr style="background-color:#ffe4b5; color:#222;">
+      <td align="center">Half viral/host</td>
+      <td align="center">50</td>
+      <td align="center">0</td>
+      <td align="center">50</td>
     </tr>
-    <tr style="background-color:#3c643c;color:#fff;">
-      <td align="center">75</td><td align="center">12.5</td><td align="center">12.5</td><td align="center">Medium</td><td align="center">0.98</td><td align="center">0.822</td><td align="center">0.894</td><td align="center">0.02</td><td align="center">0.691</td>
+    <tr style="background-color:#e3e1f7; color:#222;">
+      <td align="center">Equal viral/MGE/host</td>
+      <td align="center">33.3</td>
+      <td align="center">33.3</td>
+      <td align="center">33.3</td>
     </tr>
-    <tr style="background-color:#3c643c;color:#fff;">
-      <td align="center">75</td><td align="center">12.5</td><td align="center">12.5</td><td align="center">Low</td><td align="center">0.75</td><td align="center">1</td><td align="center">0.857</td><td align="center">0.25</td><td align="center">0</td>
+    <tr style="background-color:#15513a; color:#fff;">
+      <td align="center">MGE enriched</td>
+      <td align="center">12.5</td>
+      <td align="center">75</td>
+      <td align="center">12.5</td>
     </tr>
-    <!-- Equal viral/nonviral -->
-    <tr style="background-color:#f3f4f6;color:#222;">
-      <td align="center" rowspan="3">Equal viral/nonviral</td>
-      <td align="center">50</td><td align="center">25</td><td align="center">25</td><td align="center">High</td><td align="center">0.986</td><td align="center">0.644</td><td align="center">0.779</td><td align="center">0.014</td><td align="center">0.677</td>
+    <tr style="background-color:#fcd34d; color:#222;">
+      <td align="center">Host enriched</td>
+      <td align="center">12.5</td>
+      <td align="center">12.5</td>
+      <td align="center">75</td>
     </tr>
-    <tr style="background-color:#f3f4f6;color:#222;">
-      <td align="center">50</td><td align="center">25</td><td align="center">25</td><td align="center">Medium</td><td align="center">0.943</td><td align="center">0.821</td><td align="center">0.878</td><td align="center">0.057</td><td align="center">0.778</td>
+    <tr style="background-color:#212C40; color:#fff;">
+      <td align="center">Near all MGE</td>
+      <td align="center">5</td>
+      <td align="center">90</td>
+      <td align="center">5</td>
     </tr>
-    <tr style="background-color:#f3f4f6;color:#222;">
-      <td align="center">50</td><td align="center">25</td><td align="center">25</td><td align="center">Low</td><td align="center">0.5</td><td align="center">1</td><td align="center">0.667</td><td align="center">0.5</td><td align="center">0</td>
-    </tr>
-    <!-- Half viral/host -->
-    <tr style="background-color:#ffe4b5;color:#222;">
-      <td align="center" rowspan="3">Half viral/host</td>
-      <td align="center">50</td><td align="center">0</td><td align="center">50</td><td align="center">High</td><td align="center">0.996</td><td align="center">0.645</td><td align="center">0.783</td><td align="center">0.004</td><td align="center">0.687</td>
-    </tr>
-    <tr style="background-color:#ffe4b5;color:#222;">
-      <td align="center">50</td><td align="center">0</td><td align="center">50</td><td align="center">Medium</td><td align="center">0.969</td><td align="center">0.822</td><td align="center">0.889</td><td align="center">0.031</td><td align="center">0.805</td>
-    </tr>
-    <tr style="background-color:#ffe4b5;color:#222;">
-      <td align="center">50</td><td align="center">0</td><td align="center">50</td><td align="center">Low</td><td align="center">0.5</td><td align="center">1</td><td align="center">0.667</td><td align="center">0.5</td><td align="center">0</td>
-    </tr>
-    <!-- Equal viral/MGE/host -->
-    <tr style="background-color:#e3e1f7;color:#222;">
-      <td align="center" rowspan="3">Equal viral/MGE/host</td>
-      <td align="center">33.3</td><td align="center">33.3</td><td align="center">33.3</td><td align="center">High</td><td align="center">0.973</td><td align="center">0.643</td><td align="center">0.774</td><td align="center">0.027</td><td align="center">0.721</td>
-    </tr>
-    <tr style="background-color:#e3e1f7;color:#222;">
-      <td align="center">33.3</td><td align="center">33.3</td><td align="center">33.3</td><td align="center">Medium</td><td align="center">0.892</td><td align="center">0.817</td><td align="center">0.853</td><td align="center">0.108</td><td align="center">0.785</td>
-    </tr>
-    <tr style="background-color:#e3e1f7;color:#222;">
-      <td align="center">33.3</td><td align="center">33.3</td><td align="center">33.3</td><td align="center">Low</td><td align="center">0.333</td><td align="center">1</td><td align="center">0.5</td><td align="center">0.667</td><td align="center">0</td>
-    </tr>
-    <!-- MGE enriched -->
-    <tr style="background-color:#15513a;color:#fff;">
-      <td align="center" rowspan="3">MGE enriched</td>
-      <td align="center">12.5</td><td align="center">75</td><td align="center">12.5</td><td align="center">High</td><td align="center">0.871</td><td align="center">0.632</td><td align="center">0.732</td><td align="center">0.129</td><td align="center">0.712</td>
-    </tr>
-    <tr style="background-color:#15513a;color:#fff;">
-      <td align="center">12.5</td><td align="center">75</td><td align="center">12.5</td><td align="center">Medium</td><td align="center">0.635</td><td align="center">0.81</td><td align="center">0.712</td><td align="center">0.365</td><td align="center">0.672</td>
-    </tr>
-    <tr style="background-color:#15513a;color:#fff;">
-      <td align="center">12.5</td><td align="center">75</td><td align="center">12.5</td><td align="center">Low</td><td align="center">0.125</td><td align="center">1</td><td align="center">0.222</td><td align="center">0.875</td><td align="center">0</td>
-    </tr>
-    <!-- Host enriched -->
-    <tr style="background-color:#fcd34d;color:#222;">
-      <td align="center" rowspan="3">Host enriched</td>
-      <td align="center">12.5</td><td align="center">12.5</td><td align="center">75</td><td align="center">High</td><td align="center">0.955</td><td align="center">0.645</td><td align="center">0.77</td><td align="center">0.045</td><td align="center">0.762</td>
-    </tr>
-    <tr style="background-color:#fcd34d;color:#222;">
-      <td align="center">12.5</td><td align="center">12.5</td><td align="center">75</td><td align="center">Medium</td><td align="center">0.781</td><td align="center">0.816</td><td align="center">0.798</td><td align="center">0.219</td><td align="center">0.769</td>
-    </tr>
-    <tr style="background-color:#fcd34d;color:#222;">
-      <td align="center">12.5</td><td align="center">12.5</td><td align="center">75</td><td align="center">Low</td><td align="center">0.125</td><td align="center">1</td><td align="center">0.222</td><td align="center">0.875</td><td align="center">0</td>
-    </tr>
-    <!-- Near all MGE -->
-    <tr style="background-color:#212C40;color:#fff;">
-      <td align="center" rowspan="3">Near all MGE</td>
-      <td align="center">5</td><td align="center">90</td><td align="center">5</td><td align="center">High</td><td align="center">0.686</td><td align="center">0.61</td><td align="center">0.646</td><td align="center">0.314</td><td align="center">0.63</td>
-    </tr>
-    <tr style="background-color:#212C40;color:#fff;">
-      <td align="center">5</td><td align="center">90</td><td align="center">5</td><td align="center">Medium</td><td align="center">0.38</td><td align="center">0.828</td><td align="center">0.521</td><td align="center">0.62</td><td align="center">0.529</td>
-    </tr>
-    <tr style="background-color:#212C40;color:#fff;">
-      <td align="center">5</td><td align="center">90</td><td align="center">5</td><td align="center">Low</td><td align="center">0.05</td><td align="center">1</td><td align="center">0.095</td><td align="center">0.95</td><td align="center">0</td>
-    </tr>
-    <!-- Near all host -->
-    <tr style="background-color:#f3f4f6;color:#222;">
-      <td align="center" rowspan="3">Near all host</td>
-      <td align="center">5</td><td align="center">5</td><td align="center">90</td><td align="center">High</td><td align="center">0.915</td><td align="center">0.649</td><td align="center">0.759</td><td align="center">0.085</td><td align="center">0.761</td>
-    </tr>
-    <tr style="background-color:#f3f4f6;color:#222;">
-      <td align="center">5</td><td align="center">5</td><td align="center">90</td><td align="center">Medium</td><td align="center">0.608</td><td align="center">0.829</td><td align="center">0.702</td><td align="center">0.392</td><td align="center">0.693</td>
-    </tr>
-    <tr style="background-color:#f3f4f6;color:#222;">
-      <td align="center">5</td><td align="center">5</td><td align="center">90</td><td align="center">Low</td><td align="center">0.05</td><td align="center">1</td><td align="center">0.095</td><td align="center">0.95</td><td align="center">0</td>
+    <tr style="background-color:#f3f4f6; color:#222;">
+      <td align="center">Near all host</td>
+      <td align="center">5</td>
+      <td align="center">5</td>
+      <td align="center">90</td>
     </tr>
   </tbody>
 </table>
