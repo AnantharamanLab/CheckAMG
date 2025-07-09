@@ -132,7 +132,8 @@ usage: checkamg annotate [-h] -d DB_DIR -o OUTPUT [-g GENOMES] [-vg VMAGS]
                          [-p PROTEINS] [-vp VMAG_PROTEINS] [--input_type INPUT_TYPE]
                          [-l MIN_LEN] [-f MIN_ORF] [-n MIN_ANNOT] [-c COV_FRACTION]
                          [-e EVALUE] [-b BIT_SCORE] [-bh BITSCORE_FRACTION_HEURISTIC]
-                         [-Z WINDOW_SIZE] [-F MAX_FLANK] [-V MIN_FLANK_VSCORE]
+                         [-s SCALING_FACTOR] [-Z WINDOW_SIZE] [-F MAX_FLANK]
+                         [-V MIN_FLANK_VSCORE]
                          [-H | --use_hallmark | --no-use_hallmark] [-t THREADS]
                          [-m MEM] [--debug | --no-debug]
 
@@ -144,10 +145,10 @@ options:
   --input_type INPUT_TYPE
                         Specifies whether the input files are nucleotide genomes
                         (nucl) or translated amino-acid genomes (prot). Providing
-                        proteins as input will skip the pyrodigal-gv step, but it will
-                        be unable to tell whether viral genomes are circular,
-                        potentially losing additional evidence for verifying the viral
-                        origin of putative auxiliary genes. (default: nucl).
+                        proteins as input will skip the pyrodigal-gv step, but it
+                        will be unable to tell whether viral genomes are circular,
+                        potentially losing additional evidence for verifying the
+                        viral origin of putative auxiliary genes. (default: nucl).
   -l MIN_LEN, --min_len MIN_LEN
                         Minimum length in base pairs for input sequences (default:
                         5000).
@@ -172,13 +173,30 @@ options:
                         Retain HMM hits scoring at least this fraction of the
                         database-provided threshold under heuristic filtering
                         (default: 0.5).
+  -s SCALING_FACTOR, --scaling_factor SCALING_FACTOR
+                        Scaling factor used to multiply the minimum bit score and
+                        minimum covered fraction provided by the '-b' and '-c'
+                        arguments to come up with a heuristic, stricter threshold for
+                        HMM hits (this is ONLY used when curating gene annotations
+                        that match to 'soft' filter keywords; default: 1.5). This is
+                        to avoid making functional predictions to viral genes that
+                        are often misannotated with auxiliary functions, requiring
+                        stronger HMM search results to be assigned a function that is
+                        often incorrect if less-strict thresholds were used. If
+                        database-provided, trusted bit score cutoffs are available
+                        for the matching HMMs, those are used instead of the
+                        heuristic threshold for minimum bit score, but the scaling
+                        factor is still applied to the minimum covered fraction. This
+                        is not used for gene annotations that match to 'hard' filter
+                        keywords, which are always excluded from the final auxiliary
+                        gene predictions.
   -Z WINDOW_SIZE, --window_size WINDOW_SIZE
-                        Size in base pairs of the window used to calculate the average
-                        VL-score of genes on a contig (default: 25000).
+                        Size in base pairs of the window used to calculate the
+                        average VL-score of genes on a contig (default: 25000).
   -F MAX_FLANK, --max_flank MAX_FLANK
-                        Maximum length in base pairs to check on the left/right flanks
-                        of potentially auxiliary genes when checking for virus-like
-                        genes and non-virus-like genes (default: 5000).
+                        Maximum length in base pairs to check on the left/right
+                        flanks of potentially auxiliary genes when checking for
+                        virus-like genes and non-virus-like genes (default: 5000).
   -V MIN_FLANK_VSCORE, --min_flank_Vscore MIN_FLANK_VSCORE
                         Minimum V-score of genes in flanking regions required to
                         verify a potential auxiliary gene as viral and not host
@@ -191,7 +209,7 @@ options:
                         Number of threads to use for pyrodigal-gv and pyhmmer
                         (default: 10).
   -m MEM, --mem MEM     Maximum amount of memory allowed to be allocated in GB
-                        (default: 80% of available).
+                        (default: 80% of available). (default: 1181)
   --debug, --no-debug   Log CheckAMG with debug-level detail (default: False).
 
 required arguments:
@@ -205,10 +223,10 @@ required arguments:
                         .fasta). Expectation is that individual virus genomes are
                         single contigs. (default: None)
   -vg VMAGS, --vmags VMAGS
-                        Path to folder containing vMAGs (multiple contigs) rather than
-                        single-contig viral genomes. Expectation is that the folder
-                        contains one .fna or .fasta file per virus genome and that
-                        each genome contains multiple contigs. (default: None)
+                        Path to folder containing vMAGs (multiple contigs) rather
+                        than single-contig viral genomes. Expectation is that the
+                        folder contains one .fna or .fasta file per virus genome and
+                        that each genome contains multiple contigs. (default: None)
   -p PROTEINS, --proteins PROTEINS
                         Input viral genome(s) in amino-acid fasta format (.faa or
                         .fasta). Required if --input_type is prot. Expectations are
@@ -220,9 +238,9 @@ required arguments:
                         Path to folder containing vMAGs (multiple contigs) in amino-
                         acid fasta format (.faa or .fasta) rather than single-contig
                         viral genomes. Expectation is that the folder contains one
-                        .faa or .fasta file per virus genome and that each genome file
-                        contains amino-acid sequences encoded on multiple contigs.
-                        Required if --input_type is 'prot'. (default: None)
+                        .faa or .fasta file per virus genome and that each genome
+                        file contains amino-acid sequences encoded on multiple
+                        contigs. Required if --input_type is 'prot'. (default: None)
 ```
 
 #### Outputs
@@ -456,7 +474,7 @@ If you're curious about the internal mechanics of how CheckAMG annotates protein
 These defaults provide a balance between accuracy and recall, and are based on benchmarking and community best practices. Users may modify thresholds using the `--bit_score`, `--bitscore_fraction_heuristic`, and `--evalue` arguments.
 
 #### Additional HMMsearch filtering for curating auxiliary gene functions
-As mentioned in the section [*How does CheckAMG classify and curate its predictions?*](#2-how-does-checkamg-classify-and-curate-its-predictions), CheckAMG applies *hard* and *soft* filters to functional annotations to reduce the chances of incorrectly assigning a metabolic/physiological/regulatory function to often mis-annotated viral genes. Annotations with hard filter keywords are excluded entirely from auxiliary gene predictions, but those containing soft filter keywords are retained if they meet stricter HMMsearch thresholds. Instead of hard-coding these thresholds, CheckAMG has the `--scaling_factor` argument:
+As mentioned in the section [*How does CheckAMG classify and curate its predictions?*](#2-how-does-checkamg-classify-and-curate-its-predictions), CheckAMG applies *hard* and *soft* filters to functional annotations to reduce the chances of incorrectly assigning a metabolic/physiological/regulatory function to often mis-annotated viral genes. Annotations with hard filter keywords are excluded entirely from auxiliary gene predictions, but those containing soft filter keywords are retained if they meet stricter HMMsearch thresholds. These thresholds are applied using the `--scaling_factor` argument:
 
 * The value provided by `--scaling_factor` will be used to multiply the minimum bit score and minimum covered fraction provided by the `--bit_score` and `--cov_fraction` arguments to come up with the heuristic, stricter thresholds
 * The default `--scaling_factor` is `1.5`, users can increase this value but we do not recommend decreasing it
