@@ -178,18 +178,7 @@ options:
                         minimum covered fraction provided by the '-b' and '-c'
                         arguments to come up with a heuristic, stricter threshold for
                         HMM hits (this is ONLY used when curating gene annotations
-                        that match to 'soft' filter keywords; default: 1.5). This is
-                        to avoid making functional predictions to viral genes that
-                        are often misannotated with auxiliary functions, requiring
-                        stronger HMM search results to be assigned a function that is
-                        often incorrect if less-strict thresholds were used. If
-                        database-provided, trusted bit score cutoffs are available
-                        for the matching HMMs, those are used instead of the
-                        heuristic threshold for minimum bit score, but the scaling
-                        factor is still applied to the minimum covered fraction. This
-                        is not used for gene annotations that match to 'hard' filter
-                        keywords, which are always excluded from the final auxiliary
-                        gene predictions.
+                        that match to 'soft' filter keywords; default: 1.5).
   -Z WINDOW_SIZE, --window_size WINDOW_SIZE
                         Size in base pairs of the window used to calculate the
                         average VL-score of genes on a contig (default: 25000).
