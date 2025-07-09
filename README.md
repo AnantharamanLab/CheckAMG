@@ -294,7 +294,7 @@ CheckAMG applies a two-stage filtering process:
 1. Use a list of curated profile HMMs that represent [metabolic](https://github.com/AnantharamanLab/CheckAMG/blob/main/CheckAMG/files/AMGs.tsv), [physiological](https://github.com/AnantharamanLab/CheckAMG/blob/main/CheckAMG/files/APGs.tsv), and [regulatory](https://github.com/AnantharamanLab/CheckAMG/blob/main/CheckAMG/files/AReGs.tsv) genes to come up with initial AVG candidates
 2. Use a second list of curated keywords/substrings that will be used to filter 'false' [AMGs](https://github.com/AnantharamanLab/CheckAMG/blob/main/CheckAMG/files/false_amgs.csv), [APGs](https://github.com/AnantharamanLab/CheckAMG/blob/main/CheckAMG/files/false_apgs.csv), and [AReGs](https://github.com/AnantharamanLab/CheckAMG/blob/main/CheckAMG/files/false_aregs.csv)
     * **Hard filters** exclude genes with highly suspicious functional annotations
-    * **Soft filters** apply much stricter bitscore cutoffs to avoid ambiguous cases
+    * **Soft filters** apply much stricter bitscore and coverage cutoffs to avoid ambiguous cases (see [*additional HMMsearch filtering for curating auxiliary gene functions*](#additional-hmmsearch-filtering-for-curating-auxiliary-gene-functions))
 
 *Unclassified* genes are those with annotations that don't meet thresholds for confident AVG classification, not necessarily unannotated.
 
@@ -454,6 +454,22 @@ If you're curious about the internal mechanics of how CheckAMG annotates protein
      * If E-values are equal, the hit with the **higher bit score** is selected
 
 These defaults provide a balance between accuracy and recall, and are based on benchmarking and community best practices. Users may modify thresholds using the `--bit_score`, `--bitscore_fraction_heuristic`, and `--evalue` arguments.
+
+#### Additional HMMsearch filtering for curating auxiliary gene functions
+As mentioned in the section [*How does CheckAMG classify and curate its predictions?*](#how-does-checkamg-classify-and-curate-its-predictions), CheckAMG applies *hard* and *soft* filters to functional annotations to reduce the chances of incorrectly assigning a metabolic/physiological/regulatory function to often mis-annotated viral genes. Annotations with hard filter keywords are excluded entirely from auxiliary gene predictions, but those containing soft filter keywords are retained if they meet stricter HMMsearch thresholds. Instead of hard-coding these thresholds, CheckAMG has the `--scaling_factor` argument:
+
+* The value provided by `--scaling_factor` will be used to multiply the minimum bit score and minimum covered fraction provided by the `--bit_score` and `--cov_fraction` arguments to come up with the heuristic, stricter thresholds
+
+* The default `--scaling_factor` is `1.5`, users can increase this value but we do not recommend decreasing it
+  * If the default `--bit_score` and `--cov_fraction` values are also used (`50` and `0.5`), this means that a suspicious annotation containing a soft filter keyword must have had a bit score of at least `75` *and* and a sequence coverage of at least `0.75` from the HMMsearch to make it into the final auxiliary gene predictions
+  * If non-default `--bit_score` and `--cov_fraction` values are used, `--scaling_factor` will apply to the user-provided values
+
+* If database-provided, trusted bit score cutoffs are available for the matching HMMs (KEGG and FOAM only), those are used instead of the calculated heuristic threshold for minimum bit score, but the scaling factor is still applied to the minimum coverage
+
+* This heuristic is NOT used for assigning overall gene functions as detailed above, only during the annotation curation step of CheckAMG
+  * This means that you may end up with, for example, many *glycoside hydrolase* functional annotations in the `gene_annotations.tsv` output, but much fewer glycoside hydrolases classified as "metabolic" in the `final_results.tsv`, with the rest being marked as "unclassified"
+  * This is because the genes with glycoside hydrolase annotations that were classified as AMGs met the heuristic thresholds defiend by `--scaling_factor`, `--bit_score`, and `--cov_fraction`, and can be considered as functioning in host carbohydrate metabolism
+  * On the other hand, genes with glycoside hydrolase annotations that were NOT classified as AMGs and ended up as "unclassified" did not met the stricter thresholds, and they are more likely to be involved in functions other than host carbohydrate metabolism (like breaking down the surface of the host's cell wall, for example)
 
 ### 6. Snakemake
 

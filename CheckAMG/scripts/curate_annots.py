@@ -396,8 +396,11 @@ def main():
     false_metab_substrings = snakemake.params.false_amgs
     false_phys_substrings = snakemake.params.false_apgs
     false_reg_substrings = snakemake.params.false_aregs
-    bypass_min_bitscore = snakemake.params.bypass_min_bitscore
-    bypass_min_cov = snakemake.params.bypass_min_cov
+    
+    scaling_factor = snakemake.params.soft_keyword_bypass_scaling_factor
+    bypass_min_bitscore = float(scaling_factor * snakemake.params.min_bitscore)
+    bypass_min_cov = min(float(scaling_factor * snakemake.params.cov_fraction), 1.0)
+    
     out_metabolism_table = snakemake.params.metabolism_table_out
     out_physiology_table = snakemake.params.physiology_table_out
     out_regulation_table = snakemake.params.regulation_table_out
