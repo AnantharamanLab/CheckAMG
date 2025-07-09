@@ -397,7 +397,7 @@ def main():
     false_phys_substrings = snakemake.params.false_apgs
     false_reg_substrings = snakemake.params.false_aregs
     
-    scaling_factor = snakemake.params.soft_keyword_bypass_scaling_factor
+    scaling_factor = max(snakemake.params.soft_keyword_bypass_scaling_factor, 1.0)
     bypass_min_bitscore = float(scaling_factor * snakemake.params.min_bitscore)
     bypass_min_cov = min(float(scaling_factor * snakemake.params.cov_fraction), 1.0)
     

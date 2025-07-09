@@ -90,7 +90,7 @@ def main():
                               help="Minimum fallback bit score for HMM searches when database-provided cutoffs are not available (default: %(default)s).")
      annotate_parser.add_argument("-bh", "--bitscore_fraction_heuristic", type=float, required=False, default=0.5,
                               help="Retain HMM hits scoring at least this fraction of the database-provided threshold under heuristic filtering (default: %(default)s).")
-     annotate_parser.add_argument("-s", "--scaling_factor", type=float, required=False, default=1.5, min=1.0,
+     annotate_parser.add_argument("-s", "--scaling_factor", type=float, required=False, default=1.5,
                               help="Scaling factor used to multiply the minimum bit score and minimum covered fraction provided by the '-b' and '-c' arguments to come up with"
                                    " a heuristic, stricter threshold for HMM hits (this is ONLY used when curating gene annotations that match to 'soft' filter keywords; default: %(default)s)."
                                    " This is to avoid making functional predictions to viral genes that are often misannotated with auxiliary functions, requiring stronger "
