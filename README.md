@@ -223,7 +223,7 @@ required arguments:
                         contigs. Required if --input_type is 'prot'. (default: None)
 ```
 
-#### Outputs
+**Outputs**
 
 The CheckAMG annotate output folder will have the following structure:
 
