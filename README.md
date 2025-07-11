@@ -28,24 +28,15 @@ See `pyproject.toml` for all dependencies. Major packages:
 * `snakemake==8.23.2`
 
 ## Installation
-### Step 1 (recommended): create a conda environment
+**Step 1: Create a conda environment and install CheckAMG using `pip`**
 
 ```bash
-conda create -n CheckAMG python=3.11
+conda create -n CheckAMG python=3.11 pip
 conda activate CheckAMG
-```
-
-### Step 2: Install from PyPI
-
-```bash
 pip install checkamg
 ```
 
-### Or from bioconda
-
-*Coming soon.*
-
-### Step 3: Download the databases required by CheckAMG
+**Step 2: Download the databases required by CheckAMG**
 
 About 40 GB of free disk space will be required to download the databases. This can be reduced to about ~21 GB after downloading finishes if the human-readable HMM files are removed by providing the `--rm_hmm` argument.
 
@@ -178,7 +169,7 @@ options:
                         minimum covered fraction provided by the '-b' and '-c'
                         arguments to come up with a heuristic, stricter threshold for
                         HMM hits (this is ONLY used when curating gene annotations
-                        that match to 'soft' filter keywords; default: 1.5).
+                        that match to 'soft' filter keywords; default: 1.6).
   -Z WINDOW_SIZE, --window_size WINDOW_SIZE
                         Size in base pairs of the window used to calculate the
                         average VL-score of genes on a contig (default: 25000).
@@ -466,13 +457,13 @@ These defaults provide a balance between accuracy and recall, and are based on b
 As mentioned in the section [*How does CheckAMG classify and curate its predictions?*](#2-how-does-checkamg-classify-and-curate-its-predictions), CheckAMG applies *hard* and *soft* filters to functional annotations to reduce the chances of incorrectly assigning a metabolic/physiological/regulatory function to often mis-annotated viral genes. Annotations with hard filter keywords are excluded entirely from auxiliary gene predictions, but those containing soft filter keywords are retained if they meet stricter HMMsearch thresholds. These thresholds are applied using the `--scaling_factor` argument:
 
 * The value provided by `--scaling_factor` will be used to multiply the minimum bit score and minimum covered fraction provided by the `--bit_score` and `--cov_fraction` arguments to come up with the heuristic, stricter thresholds
-* The default `--scaling_factor` is `1.5`, users can increase this value but we do not recommend decreasing it
-  * If the default `--bit_score` and `--cov_fraction` values are also used (`50` and `0.5`), this means that a suspicious annotation containing a soft filter keyword must have had a bit score of at least `75` *and* and a sequence coverage of at least `0.75` from the HMMsearch to make it into the final auxiliary gene predictions
+* The default `--scaling_factor` is `1.6`, users can increase this value but we do not recommend decreasing it
+  * If the default `--bit_score` and `--cov_fraction` values are also used (`50` and `0.5`), this means that a suspicious annotation containing a soft filter keyword must have had a bit score of at least `80` *and* and a sequence coverage of at least `0.80` from the HMMsearch to make it into the final auxiliary gene predictions
 * If database-provided, trusted bit score cutoffs are available for the matching HMMs (KEGG and FOAM only), those are used instead of the calculated heuristic threshold for minimum bit score, but the scaling factor is still applied to the minimum coverage
 * This heuristic is NOT used for assigning overall gene functions as detailed above, only during the annotation curation step of CheckAMG
   * This means that you may end up with, for example, many *glycoside hydrolase* functional annotations in the `gene_annotations.tsv` output, but much fewer glycoside hydrolases classified as "metabolic" in the `final_results.tsv`, with the rest being marked as "unclassified"
   * This is because the genes with glycoside hydrolase annotations that were classified as AMGs met the heuristic thresholds defiend by `--scaling_factor`, `--bit_score`, and `--cov_fraction`, and can be considered as functioning in host carbohydrate metabolism
-  * On the other hand, genes with glycoside hydrolase annotations that were NOT classified as AMGs and ended up as "unclassified" did not met the stricter thresholds, and they are more likely to be involved in functions other than host carbohydrate metabolism (like breaking down the surface of the host's cell wall, for example)
+  * On the other hand, genes with glycoside hydrolase annotations that were NOT classified as AMGs and ended up as "unclassified" did not meet the stricter thresholds, and they are more likely to be involved in functions other than host carbohydrate metabolism (like host cell wall degradation, for example)
 
 ### 6. Snakemake
 
