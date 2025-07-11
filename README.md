@@ -20,12 +20,12 @@ CheckAMG supports:
 See `pyproject.toml` for all dependencies. Major packages:
 
 * `python >=3.11, <3.13`
+* [`lightgbm>=4.5.0`](https://lightgbm.readthedocs.io/en/stable/Installation-Guide.html)
 * [`metapyrodigal>=1.4.1`](https://github.com/cody-mar10/metapyrodigal)
-* `polars-u64-idx>=1.30.0`
+* [`polars-u64-idx>=1.30.0`](https://lightgbm.readthedocs.io/en/stable/Installation-Guide.html)
 * [`pyfastatools==2.5.0`](https://github.com/cody-mar10/pyfastatools)
 * [`pyhmmer==0.11.1`](https://github.com/lukas-schillinger/pyhmer)
-* `sklearn==1.5.0`
-* `snakemake==8.23.2`
+* [`snakemake==8.23.2`](https://pypi.org/project/snakemake/8.23.2/)
 
 ## Installation
 **Step 1: Create a conda environment and install CheckAMG using `pip`**
