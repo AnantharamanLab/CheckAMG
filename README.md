@@ -22,7 +22,7 @@ See `pyproject.toml` for all dependencies. Major packages:
 * `python >=3.11, <3.13`
 * [`lightgbm>=4.5.0`](https://lightgbm.readthedocs.io/en/stable/Installation-Guide.html)
 * [`metapyrodigal>=1.4.1`](https://github.com/cody-mar10/metapyrodigal)
-* [`polars-u64-idx>=1.30.0`](https://lightgbm.readthedocs.io/en/stable/Installation-Guide.html)
+* [`polars-u64-idx>=1.30.0`](https://pypi.org/project/polars-u64-idx/)
 * [`pyfastatools==2.5.0`](https://github.com/cody-mar10/pyfastatools)
 * [`pyhmmer==0.11.1`](https://github.com/lukas-schillinger/pyhmer)
 * [`snakemake==8.23.2`](https://pypi.org/project/snakemake/8.23.2/)
