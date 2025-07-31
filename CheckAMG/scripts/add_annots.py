@@ -133,7 +133,15 @@ def main():
     
     # Ensure all DBs are represented in columns, even if there were no hits
     for db_path in os.listdir(db_dir):
+        if not db_path.endswith(".hmm") and not any(db_path.endswith(ext) for ext in [".h3f", ".h3i", ".h3m", ".h3p"]):
+            logger.debug(f"Skipping non-HMM file: {db_path}")
+            continue
+
         db_name = assign_db(db_path)
+        if db_name is None:
+            logger.warning(f"Skipping unrecognized DB path: {db_path}")
+            continue
+        
         col_found = any(db_name in col for col in merged_df.columns)
         if not col_found:
             logger.debug(f"No {db_name} found in the merged DataFrame; adding columns")
