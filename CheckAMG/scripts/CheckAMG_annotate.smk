@@ -219,7 +219,6 @@ rule genome_context:
         annotation_percent_threshold = config["annotation_percent_threshold"],
         window_size = config["window_size"],
         minimum_flank_vscore = config["minimum_flank_vscore"],
-        max_flank_length = config["max_flank_length"],
         use_hallmark = config["use_hallmark"],
         hallmark_path = os.path.join(config["paths"]["files_dir"], "viral_hallmark_genes.csv"),
         mobile_genes_path = os.path.join(config["paths"]["files_dir"], "mobile_genes.csv"),

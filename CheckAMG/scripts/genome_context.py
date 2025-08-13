@@ -1,7 +1,8 @@
+#!/usr/bin/env python3
+
 import os
 import sys
 import resource
-import platform
 os.environ["POLARS_MAX_THREADS"] = str(snakemake.threads)
 os.environ["NUMEXPR_MAX_THREADS"] = str(snakemake.threads)
 import polars as pl
@@ -11,6 +12,7 @@ from joblib import load
 from numba import njit
 import concurrent.futures
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from itertools import islice
 from tqdm import tqdm
 import logging
 
@@ -41,6 +43,8 @@ warnings.filterwarnings("ignore", category=RuntimeWarning, message="Mean of empt
 print("========================================================================\n         Step 8/11: Analyze the genomic context of annotations          \n========================================================================")
 with open(log_file, "a") as log:
     log.write("========================================================================\n         Step 8/11: Analyze the genomic context of annotations          \n========================================================================\n")
+
+INT_PLACEHOLDER = np.iinfo(np.int32).min
 
 def calculate_gene_lengths(data):
     """
@@ -169,29 +173,16 @@ def calculate_window_statistics(data, window_size, minimum_percentage, n_cpus):
     return pl.concat(results, how="vertical")
 
 def prepare_lgbm_features(df, feature_names):
-    # Ensure required features are present, fill missing
+    # Ensure required features are present, fill missing with NaN
     features = {}
     for col in feature_names:
         if col in df.columns:
             features[col] = df[col].to_numpy()
         else:
-            # fill missing with 0.0 for floats, 0 for ints/bools
-            features[col] = np.zeros(len(df), dtype=float)
+            features[col] = np.full(len(df), np.nan, dtype=float)
+            
     X = pd.DataFrame({c: features[c] for c in feature_names})
-
-    # Identify columns
-    numeric_cols = [c for c in X.columns if X[c].dtype != bool and not ('flank' in c.lower() or 'circular' in c)]
-    boolean_cols = [c for c in X.columns if X[c].dtype == bool or ('flank' in c.lower() or 'circular' in c)]
-
-    # Group by contig and impute per group
-    for col in numeric_cols:
-        X[col] = X.groupby(df['contig'])[col].transform(lambda x: x.fillna(x.median()))
-    for col in boolean_cols:
-        # Convert to int first if necessary
-        if X[col].dtype != int:
-            X[col] = X[col].astype(float)
-        X[col] = X.groupby(df['contig'])[col].transform(lambda x: x.fillna(x.mode().iloc[0] if not x.mode().empty else 0))
-
+    
     # Ensure order of columns
     X = X[feature_names]
     return X
@@ -202,8 +193,6 @@ def viral_origin_confidence_lgbm(df, lgbm_model, thresholds, feature_names):
     lgbm_model: fitted sklearn Light GM or CalibratedClassifierCV
     thresholds: dict, { 'high': {'threshold': float, ...}, 'medium': {'threshold': float, ...}, 'low': {'threshold': float, ...} }
     feature_names: list of feature columns (ordered)
-    imputer_num: fitted SimpleImputer for numeric cols
-    imputer_bool: fitted SimpleImputer for bool cols
     Returns  polars DataFrame with added column 'Viral_Origin_Confidence' (high/medium/low)
     """
     # Convert polars to pandas for sklearn
@@ -223,47 +212,48 @@ def viral_origin_confidence_lgbm(df, lgbm_model, thresholds, feature_names):
         pl.Series('LGBM_viral_prob', y_proba),
         pl.Series('Viral_Origin_Confidence', conf)
     ])
+    
+    # df = df.with_columns([ # debugging
+    #     pl.Series('LGBM_viral_prob', [1.0] * df.height), # debugging
+    #     pl.Series('Viral_Origin_Confidence', ['high'] * df.height) # debugging
+    # ]) # debugging
+    
     return df
 
 @njit
-def flank_two_pointer_vscores(lengths, scores, max_flank_length, min_vscore):
+def flank_distance_vscores(lengths, scores, min_vscore):
     """
-    Two-pointer approach to compute separate upstream and downstream flags for v-scores.
-    Returns two boolean arrays (left/out/up and right/down) for each gene.
+    For each gene, compute distance in bases to nearest gene (on left or right)
+    with V-score >= min_vscore. If none found, INT_PLACEHOLDER.
+    Returns two float arrays (left, right) in nucleotide distance.
     """
     n = len(lengths)
-    left_out = np.zeros(n, dtype=np.bool_)
-    right_out = np.zeros(n, dtype=np.bool_)
-    prefix_len = np.zeros(n+1, dtype=np.float64)
-    prefix_meet = np.zeros(n+1, dtype=np.int64)
-    for i in range(n):
-        prefix_len[i+1] = prefix_len[i] + lengths[i]
-        if not np.isnan(scores[i]) and scores[i] >= min_vscore:
-            prefix_meet[i+1] = prefix_meet[i] + 1
-        else:
-            prefix_meet[i+1] = prefix_meet[i]
-    left_ptr = 0
-    right_ptr = 0
-    for i in range(n):
-        # Check upstream flank (genes before i)
-        while prefix_len[i] - prefix_len[left_ptr] > max_flank_length:
-            left_ptr += 1
-        left_has = (prefix_meet[i] - prefix_meet[left_ptr]) > 0
-        left_out[i] = left_has
-        # Check downstream flank (genes after i)
-        while right_ptr + 1 < n and prefix_len[right_ptr+1] - prefix_len[i+1] <= max_flank_length:
-            right_ptr += 1
-        right_has = (prefix_meet[right_ptr+1] - prefix_meet[i+1]) > 0
-        right_out[i] = right_has
-    return left_out, right_out
+    # Calculate the start positions of each gene along the contig
+    positions = np.zeros(n, dtype=np.float64)
+    positions[0] = 0
+    for i in range(1, n):
+        positions[i] = positions[i-1] + lengths[i-1]
+    left_dist = np.full(n, INT_PLACEHOLDER, dtype=np.float64)
+    right_dist = np.full(n, INT_PLACEHOLDER, dtype=np.float64)
 
-def verify_flanking_vscores(contig_data, minimum_vscore, max_flank_length):
+    # Left: walk left from each gene
+    for i in range(n):
+        for j in range(i-1, -1, -1):
+            if not np.isnan(scores[j]) and scores[j] >= min_vscore:
+                left_dist[i] = positions[i] - positions[j]
+                break
+    # Right: walk right from each gene
+    for i in range(n):
+        for j in range(i+1, n):
+            if not np.isnan(scores[j]) and scores[j] >= min_vscore:
+                right_dist[i] = positions[j] - positions[i]
+                break
+    return left_dist, right_dist
+
+def verify_flanking_vscores(contig_data, minimum_vscore):
     """
-    Verify flanking v-score values by checking upstream and downstream separately.
-    Returns the contig_data joined with new columns:
-      KEGG_verified_flank_up, KEGG_verified_flank_down,
-      Pfam_verified_flank_up, Pfam_verified_flank_down,
-      PHROG_verified_flank_up, PHROG_verified_flank_down.
+    For each gene, calculate nucleotide distance to nearest left and right gene meeting V-score threshold.
+    Adds columns: KEGG_viral_left_dist, KEGG_viral_right_dist, etc.
     """
     contig_data = contig_data.sort(["contig", "gene_number"])
     lengths = contig_data['gene_length_bases'].to_numpy()
@@ -271,22 +261,49 @@ def verify_flanking_vscores(contig_data, minimum_vscore, max_flank_length):
     pfam_scores = contig_data['Pfam_V-score'].to_numpy()
     phrog_scores = contig_data['PHROG_V-score'].to_numpy()
 
-    kegg_left, kegg_right = flank_two_pointer_vscores(lengths, kegg_scores, max_flank_length, minimum_vscore)
-    pfam_left, pfam_right = flank_two_pointer_vscores(lengths, pfam_scores, max_flank_length, minimum_vscore)
-    phrog_left, phrog_right = flank_two_pointer_vscores(lengths, phrog_scores, max_flank_length, minimum_vscore)
+    kegg_left, kegg_right = flank_distance_vscores(lengths, kegg_scores, minimum_vscore)
+    pfam_left, pfam_right = flank_distance_vscores(lengths, pfam_scores, minimum_vscore)
+    phrog_left, phrog_right = flank_distance_vscores(lengths, phrog_scores, minimum_vscore)
 
     contig_str = contig_data["contig"].to_list()[0]
     flanks_df = pl.DataFrame({
         "contig": [contig_str]*len(lengths),
         "gene_number": contig_data["gene_number"].to_list(),
-        "KEGG_verified_flank_up": kegg_left,
-        "KEGG_verified_flank_down": kegg_right,
-        "Pfam_verified_flank_up": pfam_left,
-        "Pfam_verified_flank_down": pfam_right,
-        "PHROG_verified_flank_up": phrog_left,
-        "PHROG_verified_flank_down": phrog_right
+        "KEGG_viral_left_dist": kegg_left.astype(np.int32),
+        "KEGG_viral_right_dist": kegg_right.astype(np.int32),
+        "Pfam_viral_left_dist": pfam_left.astype(np.int32),
+        "Pfam_viral_right_dist": pfam_right.astype(np.int32),
+        "PHROG_viral_left_dist": phrog_left.astype(np.int32),
+        "PHROG_viral_right_dist": phrog_right.astype(np.int32)
     })
     return contig_data.join(flanks_df, on=["contig", "gene_number"])
+
+@njit
+def flank_distance_in_set(lengths, in_set):
+    """
+    For each gene, compute nucleotide distance to nearest in-set gene (left and right).
+    If none found, INT_PLACEHOLDER.
+    """
+    n = len(lengths)
+    positions = np.zeros(n, dtype=np.float64)
+    positions[0] = 0
+    for i in range(1, n):
+        positions[i] = positions[i-1] + lengths[i-1]
+    left_dist = np.full(n, INT_PLACEHOLDER, dtype=np.float64)
+    right_dist = np.full(n, INT_PLACEHOLDER, dtype=np.float64)
+    # Left
+    for i in range(n):
+        for j in range(i-1, -1, -1):
+            if in_set[j]:
+                left_dist[i] = positions[i] - positions[j]
+                break
+    # Right
+    for i in range(n):
+        for j in range(i+1, n):
+            if in_set[j]:
+                right_dist[i] = positions[j] - positions[i]
+                break
+    return left_dist, right_dist
 
 def create_in_set_array(hmm_ids, valid_set):
     """
@@ -300,40 +317,10 @@ def create_in_set_array(hmm_ids, valid_set):
             arr[i] = 1
     return arr
 
-@njit
-def flank_two_pointer_integers(lengths, in_set, max_flank_length):
+def verify_flanking_hallmark(contig_data, hallmark_accessions):
     """
-    Two-pointer approach over an integer array in_set (0 or 1) to compute separate upstream and downstream flags.
-    Returns two boolean arrays for the left and right flanks.
-    """
-    n = len(lengths)
-    left_out = np.zeros(n, dtype=np.bool_)
-    right_out = np.zeros(n, dtype=np.bool_)
-    prefix_len = np.zeros(n+1, dtype=np.float64)
-    prefix_inset = np.zeros(n+1, dtype=np.int64)
-    for i in range(n):
-        prefix_len[i+1] = prefix_len[i] + lengths[i]
-        prefix_inset[i+1] = prefix_inset[i] + in_set[i]
-    left_ptr = 0
-    right_ptr = 0
-    for i in range(n):
-        while prefix_len[i] - prefix_len[left_ptr] > max_flank_length:
-            left_ptr += 1
-        left_has = (prefix_inset[i] - prefix_inset[left_ptr]) > 0
-        left_out[i] = left_has
-        while right_ptr + 1 < n and prefix_len[right_ptr+1] - prefix_len[i+1] <= max_flank_length:
-            right_ptr += 1
-        right_has = (prefix_inset[right_ptr+1] - prefix_inset[i+1]) > 0
-        right_out[i] = right_has
-    return left_out, right_out
-
-def verify_flanking_hallmark(contig_data, hallmark_accessions, max_flank_length):
-    """
-    Verify flanking hallmark genes by checking both upstream and downstream separately.
-    Returns the contig_data joined with new columns:
-      KEGG_verified_flank_up, KEGG_verified_flank_down,
-      Pfam_verified_flank_up, Pfam_verified_flank_down,
-      PHROG_verified_flank_up, PHROG_verified_flank_down.
+    For each gene, calculate nucleotide distance to nearest left/right hallmark gene.
+    Adds columns: KEGG_hallmark_left_dist, KEGG_hallmark_right_dist, etc.
     """
     contig_data = contig_data.sort(["contig", "gene_number"])
     lengths = contig_data['gene_length_bases'].to_numpy()
@@ -345,27 +332,27 @@ def verify_flanking_hallmark(contig_data, hallmark_accessions, max_flank_length)
     pfam_arr = create_in_set_array(pfam_hmm, hallmark_accessions)
     phrog_arr = create_in_set_array(phrog_hmm, hallmark_accessions)
 
-    kegg_left, kegg_right = flank_two_pointer_integers(lengths, kegg_arr, max_flank_length)
-    pfam_left, pfam_right = flank_two_pointer_integers(lengths, pfam_arr, max_flank_length)
-    phrog_left, phrog_right = flank_two_pointer_integers(lengths, phrog_arr, max_flank_length)
+    kegg_left, kegg_right = flank_distance_in_set(lengths, kegg_arr)
+    pfam_left, pfam_right = flank_distance_in_set(lengths, pfam_arr)
+    phrog_left, phrog_right = flank_distance_in_set(lengths, phrog_arr)
 
     contig_str = contig_data["contig"].to_list()[0]
     flanks_df = pl.DataFrame({
         "contig": [contig_str]*len(lengths),
         "gene_number": contig_data["gene_number"].to_list(),
-        "KEGG_verified_flank_up": kegg_left,
-        "KEGG_verified_flank_down": kegg_right,
-        "Pfam_verified_flank_up": pfam_left,
-        "Pfam_verified_flank_down": pfam_right,
-        "PHROG_verified_flank_up": phrog_left,
-        "PHROG_verified_flank_down": phrog_right
+        "KEGG_viral_left_dist": kegg_left.astype(np.int32),
+        "KEGG_viral_right_dist": kegg_right.astype(np.int32),
+        "Pfam_viral_left_dist": pfam_left.astype(np.int32),
+        "Pfam_viral_right_dist": pfam_right.astype(np.int32),
+        "PHROG_viral_left_dist": phrog_left.astype(np.int32),
+        "PHROG_viral_right_dist": phrog_right.astype(np.int32)
     })
     return contig_data.join(flanks_df, on=["contig", "gene_number"])
 
-def check_flanking_insertions(contig_data, mobile_accessions, max_flank_length):
+def check_flanking_insertions(contig_data, mobile_accessions):
     """
-    Check for genes that have known mobile-element proteins in their left or right flank.
-    Only one flank is needed to be positive (require_both_flanks=False).
+    For each gene, calculate nucleotide distance to nearest left/right MGE gene.
+    Adds columns: KEGG_MGE_left_dist, KEGG_MGE_right_dist, etc.
     """
     contig_data = contig_data.sort(["contig", "gene_number"])
     lengths = contig_data['gene_length_bases'].to_numpy()
@@ -373,37 +360,34 @@ def check_flanking_insertions(contig_data, mobile_accessions, max_flank_length):
     pfam_hmm = contig_data['Pfam_hmm_id'].to_list()
     phrog_hmm = contig_data['PHROG_hmm_id'].to_list()
 
-    # Create integer indicator arrays for mobile gene membership.
     kegg_arr = create_in_set_array(kegg_hmm, mobile_accessions)
     pfam_arr = create_in_set_array(pfam_hmm, mobile_accessions)
     phrog_arr = create_in_set_array(phrog_hmm, mobile_accessions)
 
-    # Get left and right flank indicators (each is an array of booleans)
-    kegg_left, kegg_right = flank_two_pointer_integers(lengths, kegg_arr, max_flank_length)
-    pfam_left, pfam_right = flank_two_pointer_integers(lengths, pfam_arr, max_flank_length)
-    phrog_left, phrog_right = flank_two_pointer_integers(lengths, phrog_arr, max_flank_length)
-
-    # Combine left and right flags with a logical OR for each gene.
-    kegg_combined = np.logical_or(kegg_left, kegg_right)
-    pfam_combined = np.logical_or(pfam_left, pfam_right)
-    phrog_combined = np.logical_or(phrog_left, phrog_right)
+    kegg_left, kegg_right = flank_distance_in_set(lengths, kegg_arr)
+    pfam_left, pfam_right = flank_distance_in_set(lengths, pfam_arr)
+    phrog_left, phrog_right = flank_distance_in_set(lengths, phrog_arr)
 
     contig_str = contig_data["contig"].to_list()[0]
     flanks_df = pl.DataFrame({
         "contig": [contig_str] * len(lengths),
         "gene_number": contig_data["gene_number"].to_list(),
-        "KEGG_MGE_flank": kegg_combined,
-        "Pfam_MGE_flank": pfam_combined,
-        "PHROG_MGE_flank": phrog_combined
+        "KEGG_MGE_left_dist": kegg_left.astype(np.int32),
+        "KEGG_MGE_right_dist": kegg_right.astype(np.int32),
+        "Pfam_MGE_left_dist": pfam_left.astype(np.int32),
+        "Pfam_MGE_right_dist": pfam_right.astype(np.int32),
+        "PHROG_MGE_left_dist": phrog_left.astype(np.int32),
+        "PHROG_MGE_right_dist": phrog_right.astype(np.int32)
     })
     return contig_data.join(flanks_df, on=["contig", "gene_number"])
 
-def process_genomes(data, circular_contigs, minimum_percentage,
-                    window_size, max_flank_length, minimum_vscore,
+def process_genomes(data,
+                    circular_contigs, minimum_percentage,
+                    window_size, minimum_vscore,
                     lgbm_model, thresholds, feature_names,
                     use_hallmark=False,
                     hallmark_accessions=None, mobile_accessions=None,
-                    n_cpus=1):
+                    n_cpus=1, mem_limit=10):
     logger.debug(f"Calculating lengths for {data.shape[0]:,} genes.")
     logger.debug(f"Data before calculating gene lengths: {data.head()}")
     data = calculate_gene_lengths(data)
@@ -411,6 +395,7 @@ def process_genomes(data, circular_contigs, minimum_percentage,
     logger.info("Calculating contig statistics.")
     logger.debug(f"Data before calculating contig statistics: {data.head()}")
     data = calculate_contig_statistics(data, circular_contigs)
+    data_orig = data
 
     logger.info("Calculating window statistics.")
     logger.debug(f"Data before calculating window statistics: {data.head()}")
@@ -431,39 +416,78 @@ def process_genomes(data, circular_contigs, minimum_percentage,
 
     # Parallel verification of flanking regions by partitioning by contig.
     if use_hallmark and hallmark_accessions is not None:
-        logger.info("Verifying flanking hallmark genes.")
+        logger.info("Calculating distance of nearest flanking hallmark genes.")
         logger.debug(f"Data before verifying flanking hallmark genes: {data.head()}")
         contig_dfs = data.partition_by("contig")
         with ThreadPoolExecutor(max_workers=n_cpus) as executor:
             futures = [
-                executor.submit(verify_flanking_hallmark, df, hallmark_accessions, max_flank_length)
+                executor.submit(verify_flanking_hallmark, df, hallmark_accessions)
                 for df in contig_dfs
             ]
             results = [f.result() for f in tqdm(as_completed(futures), total=len(futures), desc="Checking flanks for viral hallmarks", unit="contig")]
         data = pl.concat(results, how="vertical")
     else:
-        logger.info("Verifying flanking V-scores.")
+        logger.info(f"Calculating distance of nearest flanking V-score={minimum_vscore} genes.")
         logger.debug(f"Data before verifying flanking V-scores: {data.head()}")
         contig_dfs = data.partition_by("contig")
         with ThreadPoolExecutor(max_workers=n_cpus) as executor:
             futures = [
-                executor.submit(verify_flanking_vscores, df, minimum_vscore, max_flank_length)
+                executor.submit(verify_flanking_vscores, df, minimum_vscore)
                 for df in contig_dfs
             ]
             results = [f.result() for f in tqdm(as_completed(futures), total=len(futures), desc=f"Checking flanks for V-score={minimum_vscore}", unit="contig")]
         data = pl.concat(results, how="vertical")
 
-    logger.info("Checking for genes in potential mobile genetic element regions.")
-    logger.debug(f"Data before checking for flanking insertions: {data.head()}")
-    contig_dfs = data.partition_by("contig")
+    logger.info("Calculating distance of nearest mobile genetic element genes.")
+    logger.debug(f"Data before checking for mobile genetic element genes: {data.head()}")
+
+    contig_dfs = data_orig.partition_by("contig")
     with ThreadPoolExecutor(max_workers=n_cpus) as executor:
         futures = [
-            executor.submit(check_flanking_insertions, df, mobile_accessions, max_flank_length)
+            executor.submit(check_flanking_insertions, df, mobile_accessions)
             for df in contig_dfs
         ]
-        results = [f.result() for f in tqdm(as_completed(futures), total=len(futures), desc="Checking flanks for mobile genes", unit="contig")]
-    data = pl.concat(results, how="vertical")
+        results = [f.result() for f in tqdm(as_completed(futures), total=len(futures), desc=f"Checking flanks for mobile genes", unit="contig")]
     
+    # Identify distance columns in the concatenated results
+    dist_df = pl.concat(results, how="vertical")
+    dist_cols = [c for c in dist_df.columns if c.endswith("_dist")]
+
+    if not dist_cols:
+        raise ValueError("No flanking MGE distance columns found, cannot merge.")
+
+    # Sub‐frame with only the protein identifier and distance columns
+    dist_df = dist_df.select(["protein", *dist_cols])
+
+    # Verify all distance columns have the same length
+    heights = {dist_df[c].len() for c in dist_cols}
+    if len(heights) > 1:
+        raise ValueError(
+            f"Flanking MGE distance columns have different heights: {sorted(heights)}, cannot merge."
+        )
+
+    dist_height = heights.pop()
+    if dist_height != data.height:
+        raise ValueError(
+            f"Flanking MGE distance columns have height {dist_height}, "
+            f"but original data has {data.height}, cannot merge."
+        )
+
+    # Append distance columns to the original DataFrame
+    data = data.hstack([dist_df[c] for c in dist_cols])
+    
+    dist_cols = [col for col in data.columns if col.endswith('_dist')]
+    logger.debug(f"Columns that will be recast to float32: {dist_cols}")
+    logger.debug(f"Data before recasting distance columns: {data.head()}")
+    for col in dist_cols:
+        data = data.with_columns(
+            pl.when(pl.col(col) == INT_PLACEHOLDER)
+            .then(np.nan)
+            .otherwise(pl.col(col))
+            .alias(col).cast(pl.Float32)
+        )
+    logger.debug(f"Data after recasting distance columns: {data.head()}")
+        
     logger.info("Assigning viral origin confidence using LightGBM with genome context features.")
     logger.debug(f"Data before assigning viral origin confidence: {data.head()}")
     contig_dfs = data.partition_by("contig")
@@ -485,7 +509,6 @@ def main():
     minimum_percentage = snakemake.params.annotation_percent_threshold
     window_size = snakemake.params.window_size
     minimum_vscore = snakemake.params.minimum_flank_vscore
-    max_flank_length = snakemake.params.max_flank_length
     lgbm_model = load(snakemake.params.lgbm_model)
     feature_names = list(load(snakemake.params.feature_names))
     thresholds = load(snakemake.params.thresholds)
@@ -527,10 +550,12 @@ def main():
         mobile_ids = set(mobile_genes_data['id'])
 
     processed_data = process_genomes(
-        data, circular_contigs, minimum_percentage,
-        window_size, max_flank_length, minimum_vscore,
+        data,
+        circular_contigs, minimum_percentage,
+        window_size, minimum_vscore,
         lgbm_model, thresholds, feature_names,
-        use_hallmark, hallmark_ids, mobile_ids, n_cpus
+        use_hallmark, hallmark_ids, mobile_ids,
+        n_cpus, mem_limit
     )
 
     logger.debug(f"Writing output file: {output_file}")

@@ -72,7 +72,7 @@ def classify_proteins(final_df, metabolism_df, physiology_df, regulatory_df):
             "Genome",
             "classification",
             "Viral_Origin_Confidence",
-            # "Circular_Contig", "Viral_Flanking_Genes_Upstream", "Viral_Flanking_Genes_Downstream", "MGE_Flanking_Genes", ## Debugging
+            # "Circular_Contig", "Viral_Flanking_Genes_Left_Dist", "Viral_Flanking_Genes_Right_Dist", "MGE_Flanking_Genes_Left_Dist", "MGE_Flanking_Genes_Right_Dist" ## Debugging
             "KEGG_hmm_id",
             "KEGG_Description",
             "FOAM_hmm_id",

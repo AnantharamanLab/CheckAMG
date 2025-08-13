@@ -1,4 +1,24 @@
-# v0.3.3
+# v0.4.0
 
-* **add\_annots.py**:
-  * Fixed a bug where non-HMM files are inferred as databases in the CheckAMG DB folder
+* **annotate\_hmm.py**:
+  * Changed parallelization from multiple concurrent processes (1 CPU each) to a single process using all available CPUs via pyhmmer's native threading.
+  * Now splits input sequences into chunks only for very large inputs.
+  * Reduces memory usage and improves speed for large datasets; similar runtime for smaller datasets.
+
+* **filter\_by\_length.py**, **filter\_by\_cds.py**:
+  * Revised parallelization to prevent bottlenecks from a few large sequences slowing all jobs.
+
+* **check\_circular.py**:
+  * Improved batching and parallelization, drastically reducing runtime when there are some very long sequences.
+
+* **genome\_context.py**, **curate\_annots.py**:
+  * Removed `max_flank_length` enforcement; no longer report binary flanking gene flags.
+  * Instead, now report exact distances to the nearest V-score=10, viral hallmark, or MGE gene as features.
+  * Stopped imputing missing features since LGBM  can handle `np.nan` directly.
+
+* **__main__.py**, **CheckAMG\_annotate.py**, **CheckAMG\_annotate.smk**, **organize\_proteins.py**, **make\_final\_table.py**:
+  * Minor compatibility updates for the above changes.
+
+* Re-trained the viral origin confidence LGBM on a more robust dataset
+  * Updated the model `.joblib` files for the new model
+  * Updated the precision-recall curve plot and table

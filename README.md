@@ -38,7 +38,7 @@ pip install checkamg
 
 **Step 2: Download the databases required by CheckAMG**
 
-About 40 GB of free disk space will be required to download the databases. This can be reduced to about ~21 GB after downloading finishes if the human-readable HMM files are removed by providing the `--rm_hmm` argument.
+About 40 GB of free disk space will be required to download the databases. This can be reduced to about 21 GB after downloading finishes if the human-readable HMM files are removed by providing the `--rm_hmm` argument.
 
 ```
 checkamg download -d /path/to/db/destination --rm_hmm
@@ -261,6 +261,7 @@ CheckAMG_annotate_output
 * `results/`: Main results directory
     * `faa_metabolic/`, `faa_physiology/`, `faa_regulatory/`: Predicted AVGs by type and confidence
     * `final_results.tsv`: Summary table of AVG predictions
+      * Note that this table contains information on all genes that made it past the length/CDS filtering steps, including metabolic, physiological, regulatory, and unclassified (not AVG) genes. The "Protein Classification" column can be used to filter by classification.
     * `gene_annotations.tsv`: All gene annotations
     * `genes_genomic_context.tsv`: Gene-level genomic context for confidence assignment
     * `*_genes_curated.tsv`: Curated lists of metabolic, physiological, and regulatory genes after filtering false positives
@@ -321,8 +322,8 @@ The precision and recall of each confidence level for predicting true viral prot
     * **We recommend using just high-confidence AVGs when viral proteins are relatively rare in the input data (such as mixed-community metagenomes) or when the composition of the input data is unknown**
 * **Medium-confidence**
     * Using medium-confidence predictions can significantly increase the recovery of truly viral proteins, but they may not always be best to use
-    * Medium-confidence predictions maintain false-discovery rates < 0.1 in datasets with at least 50% viral proteins, but as input sequences become increasingly non-viral in their protein composition, FDRs begin to surpass 0.1 (see the figure and table, below)
-    * **We recommend using both high- and medium-confidence AVGs when you know that roughly half of your input sequences are viral, such as outputs from most virus prediction tools or viromes**
+    * Medium-confidence predictions maintain false-discovery rates < 0.1 in datasets with at least 12.5% viral proteins, but as input sequences become increasingly non-viral in their protein composition, FDRs begin to surpass 0.1 (see the figure and table, below)
+    * **We recommend using both high- and medium-confidence AVGs when you know that at least 12.5% of your input sequences are viral, such as outputs from most virus prediction tools or viromes**
 * **Low-confidence**
     * Low-confidence predictions are not filtered at all, so we only recommend using them when you are certain that all of your input sequences are free of non-viral sequence contamination, or for testing
 
@@ -358,6 +359,12 @@ Below are preliminary results for benchmarking our viral origin confidence predi
       <td align="center">50</td>
       <td align="center">25</td>
       <td align="center">25</td>
+    </tr>
+    <tr style="background-color:#d1fae5; color:#222;">
+      <td align="center">Training dist.</td>
+      <td align="center">51</td>
+      <td align="center">7.7</td>
+      <td align="center">41.3</td>
     </tr>
     <tr style="background-color:#ffe4b5; color:#222;">
       <td align="center">Half viral/host</td>

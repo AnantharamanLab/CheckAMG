@@ -110,7 +110,6 @@ def generate_config(args):
         "annotation_percent_threshold" : args.min_annot,
         "window_size" : args.window_size,
         "minimum_flank_vscore" : args.min_flank_Vscore,
-        "max_flank_length" : args.max_flank,
         "use_hallmark" : args.use_hallmark,
         "cov_fraction" : args.cov_fraction,
         "min_bitscore" : args.bit_score,
@@ -170,7 +169,7 @@ def run_snakemake(config_path, args):
                 "--quiet", "all"
             ]
         subprocess.run(snakemake_command, check=True)
-        log_file_path = os.path.join(os.path.abspath(args.output), 'PhAuxDB_build.log')
+        log_file_path = os.path.join(os.path.abspath(args.output), 'CheckAMG_annotate.log')
         print("========================================================================\n              The CheckAMG annotate pipeline is complete               \n========================================================================")
         with open(log_file_path, "a") as log:
             log.write("========================================================================\n              The CheckAMG annotate pipeline is complete               \n========================================================================\n")

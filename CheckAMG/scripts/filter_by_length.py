@@ -7,7 +7,7 @@ import resource
 import platform
 import multiprocessing as mp
 from tqdm import tqdm
-from pyfastatools import Parser, Record, Header, write_fasta
+from pyfastatools import Parser, Record, Header
 
 def set_memory_limit(limit_in_gb):
     limit_in_bytes = limit_in_gb * 1024 * 1024 * 1024
@@ -32,6 +32,19 @@ logger = logging.getLogger()
 print("========================================================================\n            Step 1/11: Filter the input sequences by length             \n========================================================================")
 with open(log_file, "a") as log:
     log.write("========================================================================\n            Step 1/11: Filter the input sequences by length             \n========================================================================\n")
+
+# Custom fasta writing function that handles very large individual sequences well
+def write_fasta_custom(record, handle, small_line=75, big_chunk=100000):
+    seq = record.seq
+    length = len(seq)
+    header = str(record.header.name) 
+    handle.write(f">{header}\n")
+    if length <= 1000000: # 1 Mbp or less: write like normal
+        for i in range(0, length, small_line):
+            handle.write(seq[i:i+small_line] + '\n')
+    else:
+        for i in range(0, length, big_chunk):
+            handle.write(seq[i:i+big_chunk] + '\n')
 
 # Function to filter genomes by length
 def filter_single_record_by_length(args):
@@ -113,10 +126,10 @@ def main():
     genome_names_filtered = set()
     for input_file, records in filtered_genomes:
         if input_file == input_fasta:
-            with open(single_contig_output_file, "w") as output_handle:
+            with open(single_contig_output_file, "w", buffering=1024*1024) as output_handle:
                 for record in records:
                     genome_names_filtered.add(record.header.name)
-                    write_fasta(record, output_handle)
+                    write_fasta_custom(record, output_handle)
         else:
             genome_names_filtered.add(input_file)
             output_file = os.path.join(vmag_output_folder, os.path.basename(input_file))
@@ -124,9 +137,9 @@ def main():
                 output_file = output_file.replace(".fasta", ".fna")
             elif output_file.endswith(".fa"):
                 output_file = output_file.replace(".fa", ".fna")                    
-            with open(output_file, "w") as output_handle:
+            with open(output_file, "w", buffering=1024*1024) as output_handle:
                 for record in records:
-                    write_fasta(record, output_handle)
+                    write_fasta_custom(record, output_handle)
 
     logger.info(f"Number of sequences filtered by length: {sum(len(records) for _, records in filtered_genomes):,} ({len(genome_names_filtered):,} genomes)")
     logger.info("Genome length filtering completed.")

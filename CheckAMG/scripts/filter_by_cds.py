@@ -7,7 +7,7 @@ import resource
 import platform
 import shutil
 import multiprocessing as mp
-from pyfastatools import Parser, write_fasta, Record, Header
+from pyfastatools import Parser, Record, Header
 from collections import defaultdict
 from functools import partial
 from tqdm import tqdm
@@ -32,9 +32,9 @@ logging.basicConfig(
 )
 logger = logging.getLogger()
 
-print("========================================================================\n        Step 4/11: Filter the input sequences by number of CDSs         \n========================================================================")
+print("========================================================================\n        Step 4/11: Filter the input sequences by number of ORFs         \n========================================================================")
 with open(log_file, "a") as log:
-    log.write("========================================================================\n        Step 4/11: Filter the input sequences by number of CDSs         \n========================================================================\n")
+    log.write("========================================================================\n        Step 4/11: Filter the input sequences by number of ORFs         \n========================================================================\n")
 
 def count_cds_and_filter_by_contig(file_path, min_cds):
     """
@@ -140,10 +140,17 @@ def get_totals_before_filtering(input_files, single_contig_file):
 def process_vmag_file(vmag_file, output_folder, min_num_sequences):
     filtered_contigs = count_cds_and_filter_by_contig(vmag_file, min_num_sequences)
     output_file = os.path.join(output_folder, os.path.basename(vmag_file))
-    with open(output_file, "w") as output_handle:
+    buffer = []
+    chunk_size = 10000
+    with open(output_file, "w", buffering=1024*1024) as output_handle:
         for records in filtered_contigs.values():
             for record in records:
-                write_fasta(record, output_handle)
+                buffer.append(f">{record.header.name} {record.header.desc}\n{record.seq}\n")
+                if len(buffer) >= chunk_size:
+                    output_handle.write(''.join(buffer))
+                    buffer = []
+        if buffer:
+            output_handle.write(''.join(buffer))
     return len(filtered_contigs), sum(len(v) for v in filtered_contigs.values())
 
 def filter_and_save_vmag_proteins(input_files, output_folder, min_num_sequences):
@@ -187,14 +194,21 @@ def filter_and_save_single_contig_proteins(input_file, output_folder, min_num_se
 
     total_orfs = 0
     single_contig_output_file = os.path.join(output_folder, "single_contig_proteins.faa")
-    with open(single_contig_output_file, "w") as output_handle:
+    buffer = []
+    chunk_size = 10000
+    with open(single_contig_output_file, "w", buffering=1024*1024) as output_handle:
         for result in filtered_results:
             if result is None:
                 continue
             _, records_data = result
             for name, desc, seq in records_data:
                 total_orfs += 1
-                write_fasta(Record(Header(name, desc), seq), output_handle)
+                buffer.append(f">{name} {desc}\n{seq}\n")
+                if len(buffer) >= chunk_size:
+                    output_handle.write(''.join(buffer))
+                    buffer = []
+        if buffer:
+            output_handle.write(''.join(buffer))
     logger.info(f"Filtered single-contig genomes: {len(contig_cds):,} contigs and {total_orfs:,} ORFs retained")
 
 def get_totals_after_filtering(input_files, min_num_sequences, single_contig_file):

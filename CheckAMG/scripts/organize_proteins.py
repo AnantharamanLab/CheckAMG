@@ -92,7 +92,7 @@ def organize_proteins(category_table_path, category, all_genes_df):
     # Extract relevant gene context information
     all_genes_info = (
         all_genes_df
-        .select(["Protein", "Circular_Contig", "Viral_Origin_Confidence", "Viral_Flanking_Genes_Upstream", "Viral_Flanking_Genes_Downstream", "MGE_Flanking_Genes"])
+        .select(["Protein", "Circular_Contig", "Viral_Origin_Confidence", "Viral_Flanking_Genes_Left_Dist", "Viral_Flanking_Genes_Right_Dist", "MGE_Flanking_Genes_Left_Dist", "MGE_Flanking_Genes_Right_Dist"])
         .to_dicts()
     )
     

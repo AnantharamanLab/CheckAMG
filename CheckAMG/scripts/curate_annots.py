@@ -52,31 +52,31 @@ def summarize_annot_table(table, hmm_descriptions):
     """
     Summarizes the table with gene annotations by selecting relevant columns,
     and merging with HMM descriptions.
-    
-    Args:
-        input_table (pl.DataFrame): Polars DataFrame of genome context.
-        hmm_descriptions (pl.DataFrame): Polars DataFrame containing a mapping of
-        HMM names to their descriptions.
-    
-    Returns:
-        pl.DataFrame: A summarized Polars DataFrame.
+    Returns: pl.DataFrame
     """
-    # Add logical columns
-    table = table.with_columns(
-        pl.when(
-            pl.col("KEGG_verified_flank_up") | pl.col("Pfam_verified_flank_up") | pl.col("PHROG_verified_flank_up")
-        ).then(pl.lit(True))
-        .otherwise(pl.lit(False)).alias("Viral_Flanking_Genes_Upstream"),
-        pl.when(
-            pl.col("KEGG_verified_flank_down") | pl.col("Pfam_verified_flank_down") | pl.col("PHROG_verified_flank_down")
-        ).then(pl.lit(True))
-        .otherwise(pl.lit(False)).alias("Viral_Flanking_Genes_Downstream"),
-        pl.when(
-            pl.col("KEGG_MGE_flank") | pl.col("Pfam_MGE_flank") | pl.col("PHROG_MGE_flank")
-        ).then(pl.lit(True))
-        .otherwise(pl.lit(False)).alias("MGE_Flanking_Genes")
-    )
-
+    table = table.with_columns([
+        pl.min_horizontal([
+            pl.col("KEGG_viral_left_dist"),
+            pl.col("Pfam_viral_left_dist"),
+            pl.col("PHROG_viral_left_dist")
+        ]).alias("Viral_Flanking_Genes_Left_Dist"),
+        pl.min_horizontal([
+            pl.col("KEGG_viral_right_dist"),
+            pl.col("Pfam_viral_right_dist"),
+            pl.col("PHROG_viral_right_dist")
+        ]).alias("Viral_Flanking_Genes_Right_Dist"),
+        pl.min_horizontal([
+            pl.col("KEGG_MGE_left_dist"),
+            pl.col("Pfam_MGE_left_dist"),
+            pl.col("PHROG_MGE_left_dist")
+        ]).alias("MGE_Flanking_Genes_Left_Dist"),
+        pl.min_horizontal([
+            pl.col("KEGG_MGE_right_dist"),
+            pl.col("Pfam_MGE_right_dist"),
+            pl.col("PHROG_MGE_right_dist")
+        ]).alias("MGE_Flanking_Genes_Right_Dist")
+    ])
+    # rest of your required_cols etc unchanged, except for new names
     required_cols = [
         "protein", "contig", "circular_contig", "genome", "gene_number",
         "KEGG_hmm_id", "FOAM_hmm_id", "Pfam_hmm_id", "dbCAN_hmm_id", "METABOLIC_hmm_id", "PHROG_hmm_id",
@@ -84,11 +84,11 @@ def summarize_annot_table(table, hmm_descriptions):
         "KEGG_coverage", "FOAM_coverage", "Pfam_coverage", "dbCAN_coverage", "METABOLIC_coverage", "PHROG_coverage",
         "KEGG_V-score", "Pfam_V-score", "PHROG_V-score",
         "window_avg_KEGG_VL-score_viral", "window_avg_Pfam_VL-score_viral", "window_avg_PHROG_VL-score_viral",
-        "KEGG_verified_flank_up", "KEGG_verified_flank_down", "Pfam_verified_flank_up", "Pfam_verified_flank_down", "PHROG_verified_flank_up", "PHROG_verified_flank_down",
-        "Viral_Flanking_Genes_Upstream", "Viral_Flanking_Genes_Downstream",
-        "KEGG_MGE_flank", "Pfam_MGE_flank", "PHROG_MGE_flank", "MGE_Flanking_Genes",
+        "Viral_Flanking_Genes_Left_Dist", "Viral_Flanking_Genes_Right_Dist",
+        "MGE_Flanking_Genes_Left_Dist", "MGE_Flanking_Genes_Right_Dist",
         "Viral_Origin_Confidence"
     ]
+    # fill missing
     for col in required_cols:
         if col not in table.columns:
             if col.endswith("_id"):
@@ -97,10 +97,6 @@ def summarize_annot_table(table, hmm_descriptions):
                 dtype = pl.Float64
             elif col.endswith("_coverage"):
                 dtype = pl.Float64
-            elif "_VL-score_viral" in col:
-                dtype = pl.Boolean
-            elif col.endswith("_verified_flank") or col.endswith("_MGE_flank"):
-                dtype = pl.Boolean
             else:
                 dtype = pl.Utf8
             table = table.with_columns(pl.lit(None, dtype=dtype).alias(col))
@@ -203,7 +199,8 @@ def summarize_annot_table(table, hmm_descriptions):
         "PHROG_hmm_id", "PHROG_Description", "PHROG_score", "PHROG_coverage",
         "top_hit_hmm_id", "top_hit_description", "top_hit_db",
         "circular_contig", "Viral_Origin_Confidence",
-        "Viral_Flanking_Genes_Upstream", "Viral_Flanking_Genes_Downstream", "MGE_Flanking_Genes"
+        "Viral_Flanking_Genes_Left_Dist", "Viral_Flanking_Genes_Right_Dist",
+        "MGE_Flanking_Genes_Left_Dist", "MGE_Flanking_Genes_Right_Dist"
     ])
     table = table.rename({
         "contig": "Contig",
