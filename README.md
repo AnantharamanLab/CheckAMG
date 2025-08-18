@@ -323,8 +323,8 @@ The precision and recall of each confidence level for predicting true viral prot
     * **We recommend using just high-confidence AVGs when viral proteins are relatively rare in the input data (such as mixed-community metagenomes) or when the composition of the input data is unknown**
 * **Medium-confidence**
     * Using medium-confidence predictions can significantly increase the recovery of truly viral proteins, but they may not always be best to use
-    * Medium-confidence predictions maintain false-discovery rates < 0.1 in datasets with at least 12.5% viral proteins, but as input sequences become increasingly non-viral in their protein composition, FDRs begin to surpass 0.1 (see the figure and table, below)
-    * **We recommend using both high- and medium-confidence AVGs when you know that at least 12.5% of your input sequences are viral, such as outputs from most virus prediction tools or viromes**
+    * Medium-confidence predictions maintain false-discovery rates < 0.1 in datasets with at least 50% viral proteins, but as input sequences become increasingly non-viral in their protein composition, FDRs begin to surpass 0.1 (see the figure and table, below)
+    * **We recommend using both high- and medium-confidence AVGs when you know that at least half of your input sequences are viral, such as outputs from most virus prediction tools or viromes**
 * **Low-confidence**
     * Low-confidence predictions are not filtered at all, so we only recommend using them when you are certain that all of your input sequences are free of non-viral sequence contamination, or for testing
 
