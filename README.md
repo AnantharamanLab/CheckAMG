@@ -318,7 +318,7 @@ A LightGBM model, trained on real and simulated viral/non-viral data, makes thes
 The precision and recall of each confidence level for predicting true viral proteins depends on the input dataset. Whether you should use high, medium, and/or low-confidence AVGs will depend on your knowledge of your input data.
 
 * **High-confidence**
-    * CheckAMG assigns confidence levels such that high-confidence predictions can be almost always trusted (false-discovery rate < 0.1 in all tested cases)
+    * CheckAMG assigns confidence levels such that high-confidence predictions can be almost always trusted (false-discovery rate < 0.1 in most cases)
     * To maintain the integrity of high-confidence predictions even in cases where viral proteins are relatively rare in the input, high-confidence predictions are conservative
     * **We recommend using just high-confidence AVGs when viral proteins are relatively rare in the input data (such as mixed-community metagenomes) or when the composition of the input data is unknown**
 * **Medium-confidence**
