@@ -93,8 +93,8 @@ def main():
      annotate_parser.add_argument("-s", "--scaling_factor", type=float, required=False, default=1.6,
                               help="Scaling factor used to multiply the minimum bit score and minimum covered fraction provided by the '-b' and '-c' arguments to come up with"
                                    " a heuristic, stricter threshold for HMM hits (this is ONLY used when curating gene annotations that match to 'soft' filter keywords; default: %(default)s).")
-     annotate_parser.add_argument("-w", "--window_size", type=int, required=False, default=25000,
-                              help="Size in base pairs of the window used to calculate the average VL-score of genes on a contig (default: %(default)s).")
+     annotate_parser.add_argument("-w", "--window_size", type=int, required=False, default=5000,
+                              help="Size in base pairs of the window used to calculate the average VL-score of genes in a local region on a contig (default: %(default)s).")
      annotate_parser.add_argument("-V", "--min_flank_Vscore", type=float, required=False, default=10.0,
                               help="Minimum V-score of genes in flanking regions required to verify a potential auxiliary gene as viral and not host sequence contamination (0.0-10.0) (default: %(default)s).")
      annotate_parser.add_argument("-H", "--use_hallmark", required=False, default=False, action=argparse.BooleanOptionalAction,

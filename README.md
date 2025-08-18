@@ -172,7 +172,8 @@ options:
                         that match to 'soft' filter keywords; default: 1.6).
   -Z WINDOW_SIZE, --window_size WINDOW_SIZE
                         Size in base pairs of the window used to calculate the
-                        average VL-score of genes on a contig (default: 25000).
+                        average VL-score of genes on a contig in a local region
+                        (default: 5000).
   -F MAX_FLANK, --max_flank MAX_FLANK
                         Maximum length in base pairs to check on the left/right
                         flanks of potentially auxiliary genes when checking for
