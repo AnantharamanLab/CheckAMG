@@ -1,3 +1,6 @@
+# v0.4.2
+* Improvements to the viral origin confidence LGBM
+
 # v0.4.1
 * **__main__.py**
   * Changed the default `--window_size` from `25000` to `5000`
