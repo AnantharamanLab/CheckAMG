@@ -162,7 +162,6 @@ K11443	10.0	3.343408594	KEGG	two-component system, cell cycle response regulator
 K07670	10.0	3.336859821	KEGG	two-component system, OmpR family, response regulator MtrA
 K22010	10.0	3.336659823	KEGG	two-component system, response regulator PdtaR
 K13589	10.0	3.333245699	KEGG	two-component system, cell cycle response regulator CpdR
-K11420	10.0	3.33264041	KEGG	[histone H3]-lysine9 N-trimethyltransferase EHMT [EC:2.1.1.355]
 K07714	10.0	3.328379603	KEGG	two-component system, NtrC family, response regulator AtoC
 K20388	10.0	3.327358934	KEGG	HTH-type transcriptional regulator, cytolysin regulator
 K15850	10.0	3.326540669	KEGG	two-component system, autoinducer 1 sensor kinase/phosphatase LuxN [EC:2.7.13.3 3.1.3.-]
@@ -419,7 +418,6 @@ K23775	5.69	2.755112266	KEGG	MarR family transcriptional regulator, organic hydr
 K18991	5.66	2.752816431	KEGG	AraC family transcriptional regulator, activator of mtrCDE
 K03746	5.66	2.752816431	KEGG	DNA-binding protein H-NS
 K13631	5.66	2.752816431	KEGG	AraC family transcriptional regulator, mar-sox-rob regulon activator
-K13530	5.66	2.752816431	KEGG	AraC family transcriptional regulator, regulatory protein of adaptative response / methylphosphotriester-DNA alkyltransferase methyltransferase [EC:2.1.1.-]
 K19623	5.64	2.751279104	KEGG	two-component system, probable response regulator PhcQ
 K14326	5.58	2.746634199	KEGG	regulator of nonsense transcripts 1 [EC:3.6.4.13 5.6.2.3]
 K18954	5.48	2.738780558	KEGG	AraC family transcriptional regulator, transcriptional activator of pobA
@@ -478,7 +476,6 @@ K06899	4.36	2.639486489	KEGG	nucleoid-associated protein
 K02623	4.36	2.639486489	KEGG	LysR family transcriptional regulator, pca operon transcriptional activator
 K21959	4.35	2.638489257	KEGG	LysR family transcriptional regulator, cell division regulator
 K13529	4.34	2.63748973	KEGG	AraC family transcriptional regulator, regulatory protein of adaptative response / DNA-3-methyladenine glycosylase II [EC:3.2.2.21]
-K10778	4.31	2.63447727	KEGG	AraC family transcriptional regulator, regulatory protein of adaptative response / methylated-DNA-[protein]-cysteine methyltransferase [EC:2.1.1.63]
 K22491	4.3	2.633468456	KEGG	MerR family transcriptional regulator, light-induced transcriptional regulator
 K17850	4.28	2.631443769	KEGG	LysR family transcriptional regulator, regulator of gene expression of beta-lactamase
 K03576	4.27	2.630427875	KEGG	LysR family transcriptional regulator, regulator for metE and metH
@@ -522,7 +519,6 @@ K21699	3.79	2.57863921	KEGG	LysR family transcriptional regulator, transcription
 K27042	3.79	2.57863921	KEGG	LysR family transcriptional regulator, trpBA operon transcriptional activator
 K05372	3.78	2.5774918	KEGG	AraC family transcriptional regulator
 K13794	3.76	2.575187845	KEGG	LysR family transcriptional regulator, regulatory protein for tcuABC
-K11431	3.76	2.575187845	KEGG	[histone H3]-lysine4 N-methyltransferase [EC:2.1.1.364]
 K00936	3.74	2.572871602	KEGG	two-component system, sensor histidine kinase PdtaS [EC:2.7.13.3]
 K22486	3.74	2.572871602	KEGG	transcriptional regulator HilA, main transcriptional regulator of SPI1
 K10918	3.73	2.571708832	KEGG	LysR family transcriptional regulator, transcriptional activator AphB
@@ -551,7 +547,6 @@ K03557	3.35	2.525044807	KEGG	Fis family transcriptional regulator, factor for in
 K03721	3.31	2.519827994	KEGG	transcriptional regulator of aroF, aroG, tyrA and aromatic amino acid transport
 K02688	3.31	2.519827994	KEGG	transcriptional regulator, propionate catabolism operon regulatory protein
 K05874	3.3	2.51851394	KEGG	methyl-accepting chemotaxis protein I, serine sensor receptor
-K14964	3.24	2.51054501	KEGG	Set1/Ash2 histone methyltransferase complex subunit ASH2
 K06930	3.24	2.51054501	KEGG	HTH-type transcriptional regulator, bacterioopsin transcriptional activator and related proteins
 K21903	3.23	2.509202522	KEGG	ArsR family transcriptional regulator, lead/cadmium/zinc/bismuth-responsive transcriptional repressor
 K05030	3.22	2.507855872	KEGG	calcium-activated chloride channel regulator 3/4
@@ -731,7 +726,6 @@ K11483	1.3	2.113943352	KEGG	histone deacetylase HOS2 [EC:3.5.1.98]
 K15197	1.28	2.10720997	KEGG	transcription factor IIIB 50 kDa subunit
 K16136	1.28	2.10720997	KEGG	LacI family transcriptional regulator, maltose regulon regulatory protein
 K18130	1.27	2.103803721	KEGG	TetR/AcrR family transcriptional regulator, transcriptional repressor NalC
-K20796	1.27	2.103803721	KEGG	[histone H3]-lysine4 N-trimethyltransferase PRDM7/9 [EC:2.1.1.354]
 K24699	1.27	2.103803721	KEGG	TetR/AcrR family transcriptional regulator, regulator of mycofactocin system
 K07683	1.26	2.100370545	KEGG	two-component system, NarL family, sensor histidine kinase NreB [EC:2.7.13.3]
 K07704	1.26	2.100370545	KEGG	two-component system, LytTR family, sensor histidine kinase LytS [EC:2.7.13.3]
@@ -745,10 +739,10 @@ K18671	1.23	2.089905111	KEGG	histone deacetylase 10 [EC:3.5.1.98]
 K02525	1.23	2.089905111	KEGG	LacI family transcriptional regulator, kdg operon repressor
 K11406	1.23	2.089905111	KEGG	histone deacetylase 4/5 [EC:3.5.1.98]
 K19618	1.22	2.086359831	KEGG	LysR family transcriptional regulator, activator of insecticidal toxin
-K11426	1.22	2.086359831	KEGG	[histone H3]-lysine4/36 N-trimethyltransferase SMYD [EC:2.1.1.354 2.1.1.357]
 K14517	1.22	2.086359831	KEGG	ethylene-responsive transcription factor 2
 K25006	1.22	2.086359831	KEGG	RNA-binding protein 24/38
 K25090	1.2	2.079181246	KEGG	RNA-binding motif protein, Y chromosome, family 1
+K10915	1.2	2.079181246	KEGG	CAI-1 autoinducer synthase [EC:2.3.-.-]
 K12127	1.19	2.075546961	KEGG	pseudo-response regulator 1
 K26609	1.19	2.075546961	KEGG	LacI family transcriptional regulator, galacturonate utilization repressor
 K13189	1.18	2.071882007	KEGG	RNA-binding protein 14
@@ -764,7 +758,6 @@ K15684	1.11	2.045322979	KEGG	bifunctional apoptosis regulator
 K14325	1.1	2.041392685	KEGG	RNA-binding protein with serine-rich domain 1
 K07204	1.09	2.037426498	KEGG	regulatory associated protein of mTOR
 K22293	1.09	2.037426498	KEGG	GntR family transcriptional regulator, rspAB operon transcriptional repressor
-K16914	1.08	2.033423755	KEGG	protein-L-histidine (3S)-3-hydroxylase / [histone H3]-trimethyl-L-lysine4/36 demethylase [EC:1.14.11.79 1.14.11.67 1.14.11.69]
 K20339	1.07	2.029383778	KEGG	two-component system, LytTR family, sensor histidine kinase AgrC2 [EC:2.7.13.3]
 K02171	1.07	2.029383778	KEGG	BlaI family transcriptional regulator, penicillinase repressor
 K21905	1.07	2.029383778	KEGG	AraC family transcriptional regulator, glutamate-dependent acid resistance regulator
@@ -793,7 +786,6 @@ K25256	1.0	2.0	KEGG	Mastadenovirus DNA-binding protein
 K26009	1.0	2.0	KEGG	Mastadenovirus pre-histone-like nucleoprotein
 K19445	1.0	2.0	KEGG	Simplexvirus major viral transcription factor ICP4
 K25270	1.0	2.0	KEGG	Poxviridae late transcription elongation factor H5
-K04462	1.0	2.0	KEGG	[histone H3]-lysine9 N-methyltransferase (ecotropic virus integration site 1 protein) [EC:2.1.1.367]
 K19441	1.0	2.0	KEGG	Simplexvirus transcriptional regulator ICP22
 K21080	1.0	2.0	KEGG	Poxviridae RNA polymerase-associated transcription-specificity factor
 K25269	1.0	2.0	KEGG	Poxviridae ssDNA-binding phosphoprotein
@@ -827,7 +819,6 @@ K23253	0.95	1.977723605	KEGG	PucR family transcriptional regulator, proline-resp
 K25095	0.94	1.973127854	KEGG	SRA stem-loop-interacting RNA-binding protein, mitochondrial
 K07213	0.94	1.973127854	KEGG	copper chaperone
 K15861	0.93	1.968482949	KEGG	CRP/FNR family transcriptional regulator, nitrogen fixation regulation protein
-K24444	0.92	1.963787827	KEGG	[histone H3]-dimethyl/trimethyl-L-lysine36 demethylase [EC:1.14.11.27 1.14.11.-]
 K07723	0.92	1.963787827	KEGG	CopG family transcriptional regulator / antitoxin EndoAI
 K05818	0.92	1.963787827	KEGG	IclR family transcriptional regulator, mhp operon transcriptional activator
 K11253	0.9	1.954242509	KEGG	histone H3
@@ -842,7 +833,6 @@ K20552	0.87	1.939519253	KEGG	transcriptional regulator of LEE operons
 K22894	0.87	1.939519253	KEGG	SARP family transcriptional regulator, regulator of embCAB operon
 K02825	0.87	1.939519253	KEGG	pyrimidine operon attenuation protein / uracil phosphoribosyltransferase [EC:2.4.2.9]
 K24650	0.87	1.939519253	KEGG	SWI/SNF-related matrix-associated actin-dependent regulator of chromatin subfamily E member 1-related
-K21760	0.87	1.939519253	KEGG	protein-L-histidine (3S)-3-hydroxylase / [histone H3]-trimethyl-L-lysine9 demethylase [EC:1.14.11.79 1.14.11.66]
 K03407	0.86	1.934498451	KEGG	two-component system, chemotaxis family, sensor kinase CheA [EC:2.7.13.3]
 K02562	0.86	1.934498451	KEGG	mannitol operon repressor
 K11495	0.86	1.934498451	KEGG	histone H3-like centromeric protein A
@@ -858,7 +848,6 @@ K22206	0.82	1.913813852	KEGG	XRE family transcriptional regulator, thiamine bios
 K22401	0.82	1.913813852	KEGG	transcription factor E4F1 / E3 ubiquitin-protein ligase [EC:2.3.2.27]
 K19640	0.8	1.903089987	KEGG	putative two-component system protein, hydrogenase maturation factor HypX/HoxX
 K25495	0.8	1.903089987	KEGG	AraC family transcriptional regulator, regulator of nimT
-K11419	0.8	1.903089987	KEGG	[histone H3]-lysine9 N-trimethyltransferase SUV39H [EC:2.1.1.355]
 K06378	0.79	1.897627091	KEGG	stage II sporulation protein AA (anti-sigma F factor antagonist)
 K25079	0.78	1.892094603	KEGG	RNA-binding protein 42
 K07682	0.78	1.892094603	KEGG	two-component system, NarL family, sensor histidine kinase DevS [EC:2.7.13.3]
@@ -880,8 +869,8 @@ K18939	0.72	1.857332496	KEGG	TetR/AcrR family transcriptional regulator, lmrAB a
 K24527	0.71	1.851258349	KEGG	RNA-binding protein 18
 K04532	0.71	1.851258349	KEGG	NEDD8-activating enzyme E1 regulatory subunit
 K20539	0.7	1.84509804	KEGG	IclR family transcriptional regulator, blcABC operon repressor
-K11450	0.7	1.84509804	KEGG	[histone H3]-N6,N6-dimethyl-L-lysine4 FAD-dependent demethylase [EC:1.14.99.66]
 K12782	0.7	1.84509804	KEGG	meiosis-specific APC/C activator protein AMA1
+K24084	0.7	1.84509804	KEGG	quorum-quenching protein AidA
 K22937	0.7	1.84509804	KEGG	lysosomal-trafficking regulator
 K17509	0.69	1.838849091	KEGG	pyruvate dehydrogenase phosphatase regulatory subunit
 K17567	0.69	1.838849091	KEGG	protein phosphatase 1 regulatory subunit 28
@@ -903,7 +892,6 @@ K25083	0.64	1.806179974	KEGG	RNA-binding protein 47
 K06314	0.64	1.806179974	KEGG	prespore-specific regulator
 K11623	0.64	1.806179974	KEGG	two-component system, NarL family, sensor histidine kinase YdfH [EC:2.7.13.3]
 K13107	0.64	1.806179974	KEGG	RNA-binding motif protein, X-linked 2
-K20795	0.64	1.806179974	KEGG	[histone H4]-lysine20 N-methyltransferase PRDM6 [EC:2.1.1.361]
 K02546	0.64	1.806179974	KEGG	BlaI family transcriptional regulator, methicillin resistance regulatory protein
 K20330	0.63	1.799340549	KEGG	LuxR family transcriptional regulator, activator of tox operons
 K03436	0.63	1.799340549	KEGG	DeoR family transcriptional regulator, fructose operon transcriptional repressor
@@ -925,7 +913,6 @@ K03687	0.57	1.755874856	KEGG	molecular chaperone GrpE
 K13209	0.57	1.755874856	KEGG	RNA-binding protein EWS
 K07780	0.56	1.748188027	KEGG	AraC family transcriptional regulator, transcriptional regulator required for anaerobic and stationary phase induction of genes
 K14946	0.55	1.740362689	KEGG	RNA binding protein fox-1
-K09188	0.55	1.740362689	KEGG	[histone H3]-lysine4 N-trimethyltransferase MLL3 [EC:2.1.1.354]
 K19587	0.55	1.740362689	KEGG	Rrf2 family transcriptional regulator, repressor of oqxAB
 K21828	0.54	1.73239376	KEGG	CRP/FNR family transcriptional regulator, arginine deiminase pathway regulator
 K15540	0.52	1.716003344	KEGG	chaperone protein EcpD
@@ -944,18 +931,17 @@ K02624	0.49	1.69019608	KEGG	IclR family transcriptional regulator, pca regulon r
 K04739	0.48	1.681241237	KEGG	cAMP-dependent protein kinase regulator
 K11252	0.48	1.681241237	KEGG	histone H2B
 K03711	0.47	1.672097858	KEGG	Fur family transcriptional regulator, ferric uptake regulator
-K15588	0.47	1.672097858	KEGG	[histone H3]-lysine36 N-dimethyltransferase NSD1 [EC:2.1.1.357]
 K13651	0.47	1.672097858	KEGG	motility quorum-sensing regulator / GCU-specific mRNA interferase toxin
 K05373	0.47	1.672097858	KEGG	MFS transporter, putative signal transducer
 K03719	0.46	1.662757832	KEGG	Lrp/AsnC family transcriptional regulator, leucine-responsive regulatory protein
 K07722	0.46	1.662757832	KEGG	CopG family transcriptional regulator, nickel-responsive regulator
 K22767	0.46	1.662757832	KEGG	histone acetyltransferase MCC1 [EC:2.3.1.48]
-K19413	0.45	1.653212514	KEGG	lysine-specific histone demethylase 1B [EC:1.-.-.-]
 K06140	0.45	1.653212514	KEGG	regulator of nucleoside diphosphate kinase
 K02172	0.44	1.643452676	KEGG	bla regulator protein blaR1
 K19335	0.44	1.643452676	KEGG	TetR/AcrR family transcriptional regulator, repressor for divergent bdcA
 K26741	0.43	1.633468456	KEGG	PadR family transcriptional regulator, multidrug transcriptional repressor LadR
 K14650	0.43	1.633468456	KEGG	transcription initiation factor TFIID subunit 3
+K11216	0.43	1.633468456	KEGG	autoinducer-2 kinase [EC:2.7.1.189]
 K05800	0.43	1.633468456	KEGG	Lrp/AsnC family transcriptional regulator, cysteine-sensing transcriptional activator
 K25212	0.42	1.62324929	KEGG	two-component system, sensor histidine kinase HptS [EC:2.7.13.3]
 K11254	0.42	1.62324929	KEGG	histone H4
@@ -970,14 +956,11 @@ K26561	0.4	1.602059991	KEGG	single-stranded DNA-binding protein WHY2
 K09825	0.4	1.602059991	KEGG	Fur family transcriptional regulator, peroxide stress response regulator
 K26601	0.4	1.602059991	KEGG	Lrp/AsnC family transcriptional regulator, repressor for azl operon
 K13094	0.4	1.602059991	KEGG	RNA-binding protein 5/10
-K06101	0.4	1.602059991	KEGG	[histone H3]-lysine4 N-trimethyltransferase ASH1L [EC:2.1.1.354]
 K11925	0.4	1.602059991	KEGG	SgrR family transcriptional regulator
 K03491	0.39	1.591064607	KEGG	probable licABCH operon transcriptional regulator
-K11422	0.39	1.591064607	KEGG	[histone H3]-lysine4 N-trimethyltransferase SETD1 [EC:2.1.1.354]
 K15782	0.38	1.579783597	KEGG	Lrp/AsnC family transcriptional regulator, regulator of ectoine-degradation genes
 K13188	0.38	1.579783597	KEGG	RNA-binding protein 7
 K25815	0.38	1.579783597	KEGG	activated RNA polymerase II transcriptional coactivator p15
-K11424	0.38	1.579783597	KEGG	[histone H3]-lysine36 N-dimethyltransferase NSD2 [EC:2.1.1.357]
 K21631	0.37	1.568201724	KEGG	Gti1/Pac2 family transcription factor
 K24780	0.37	1.568201724	KEGG	lateral signaling target protein 2
 K27107	0.37	1.568201724	KEGG	TetR/AcrR family transcriptional regulator, mce3 operon repressor
@@ -994,8 +977,6 @@ K19780	0.35	1.544068044	KEGG	antisense regulator of RalR protein
 K03706	0.34	1.531478917	KEGG	transcriptional pleiotropic repressor
 K20329	0.34	1.531478917	KEGG	IclR family transcriptional regulator, positive regulator for flagellar biogenesis
 K13165	0.34	1.531478917	KEGG	splicing regulatory glutamine/lysine-rich protein 1
-K11428	0.34	1.531478917	KEGG	[histone H4]-lysine20 N-methyltransferase SETD8 [EC:2.1.1.361]
-K11430	0.34	1.531478917	KEGG	[histone H3]-lysine27 N-trimethyltransferase EZH2 [EC:2.1.1.356]
 K07165	0.33	1.51851394	KEGG	transmembrane sensor
 K03622	0.33	1.51851394	KEGG	archaea-specific DNA-binding protein
 K15172	0.33	1.51851394	KEGG	transcription elongation factor SPT5
@@ -1008,15 +989,12 @@ K05346	0.32	1.505149978	KEGG	deoxyribonucleoside regulator
 K26559	0.31	1.491361694	KEGG	single-stranded DNA-binding protein WHY1
 K06286	0.31	1.491361694	KEGG	septation ring formation regulator
 K11205	0.31	1.491361694	KEGG	glutamate--cysteine ligase regulatory subunit
-K17451	0.31	1.491361694	KEGG	[histone H3]-lysine27 N-trimethyltransferase EZH1 [EC:2.1.1.356]
 K07200	0.3	1.477121255	KEGG	5'-AMP-activated protein kinase, regulatory gamma subunit
 K02530	0.3	1.477121255	KEGG	DeoR family transcriptional regulator, lactose phosphotransferase system repressor
-K03507	0.3	1.477121255	KEGG	DNA replication regulator DPB11
 K21963	0.3	1.477121255	KEGG	LuxR family transcriptional regulator, Mat/Ecp fimbriae transcriptional regulator
 K17658	0.29	1.462397998	KEGG	transcription elongation factor, mitochondrial
 K02436	0.29	1.462397998	KEGG	DeoR family transcriptional regulator, galactitol utilization operon repressor
 K02600	0.29	1.462397998	KEGG	transcription termination/antitermination protein NusA
-K14959	0.29	1.462397998	KEGG	[histone H3]-lysine4 N-trimethyltransferase MLL4 [EC:2.1.1.354]
 K09684	0.29	1.462397998	KEGG	PucR family transcriptional regulator, purine catabolism regulatory protein
 K12822	0.29	1.462397998	KEGG	RNA-binding protein 25
 K11244	0.29	1.462397998	KEGG	cell wall integrity and stress response component
@@ -1042,9 +1020,7 @@ K04751	0.26	1.414973348	KEGG	nitrogen regulatory protein P-II 1
 K04752	0.26	1.414973348	KEGG	nitrogen regulatory protein P-II 2
 K11534	0.26	1.414973348	KEGG	DeoR family transcriptional regulator, deoxyribose operon repressor
 K18753	0.26	1.414973348	KEGG	butyrate response factor
-K11432	0.26	1.414973348	KEGG	[histone H3]-lysine9 N-trimethyltransferase PRDM2 [EC:2.1.1.355]
 K10155	0.26	1.414973348	KEGG	interferon regulatory factor 8
-K22410	0.26	1.414973348	KEGG	[histone H3]-lysine9 N-methyltransferase [EC:2.1.1.367]
 K09445	0.25	1.397940009	KEGG	interferon regulatory factor 4
 K13654	0.25	1.397940009	KEGG	GntR family transcriptional regulator, colanic acid and biofilm gene transcriptional regulator
 K21543	0.25	1.397940009	KEGG	transcription factor CRZ1
@@ -1065,8 +1041,6 @@ K23039	0.23	1.361727836	KEGG	nuclear polyadenylated RNA-binding protein NAB2
 K23581	0.23	1.361727836	KEGG	transcription factor SOX4 (SOX group C)
 K24706	0.22	1.342422681	KEGG	signal peptide, CUB and EGF-like domain-containing protein 2
 K15545	0.22	1.342422681	KEGG	transcriptional regulator of PTS gene
-K11323	0.22	1.342422681	KEGG	histone arginine demethylase JMJD6 [EC:1.14.11.-]
-K09187	0.22	1.342422681	KEGG	[histone H3]-lysine4 N-trimethyltransferase MLL2 [EC:2.1.1.354]
 K21558	0.22	1.342422681	KEGG	CRP/FNR family transcriptional regulator, reductive dehalogenation system regulator
 K07736	0.22	1.342422681	KEGG	CarD family transcriptional regulator, regulator of rRNA transcription
 K06154	0.22	1.342422681	KEGG	Lrp/AsnC family transcriptional regulator, involved in the regulation of lysine biosynthesis
@@ -1088,20 +1062,16 @@ K21392	0.2	1.301029996	KEGG	adipocyte enhancer-binding protein 1
 K22067	0.2	1.301029996	KEGG	two-component system, oxyanion-binding sensor
 K09826	0.2	1.301029996	KEGG	Fur family transcriptional regulator, iron response regulator
 K04684	0.2	1.301029996	KEGG	transcription factor Sp1
-K11423	0.2	1.301029996	KEGG	[histone H3]-lysine36 N-trimethyltransferase [EC:2.1.1.359]
 K12294	0.2	1.301029996	KEGG	two-component system, LytTR family, sensor histidine kinase ComD [EC:2.7.13.3]
 K06600	0.2	1.301029996	KEGG	chemosensory pili system protein ChpE
 K11924	0.2	1.301029996	KEGG	DtxR family transcriptional regulator, manganese transport regulator
 K09200	0.2	1.301029996	KEGG	transcription factor Sp, invertebrate
 K03101	0.19	1.278753601	KEGG	signal peptidase II [EC:3.4.23.36]
-K09186	0.19	1.278753601	KEGG	[histone H3]-lysine4 N-trimethyltransferase MLL1 [EC:2.1.1.354]
 K16225	0.19	1.278753601	KEGG	probable WRKY transcription factor 52
 K23041	0.19	1.278753601	KEGG	deformed epidermal autoregulatory factor 1
 K19555	0.19	1.278753601	KEGG	LysR family transcriptional regulator, spv operon transcriptional activator
-K23700	0.19	1.278753601	KEGG	[histone H3]-lysine36 N-trimethyltransferase [EC:2.1.1.359]
 K19778	0.19	1.278753601	KEGG	acid stress chaperone HdeB
 K09270	0.19	1.278753601	KEGG	transcription factor SOX7/8/10/18 (SOX group E/F)
-K24405	0.18	1.255272505	KEGG	[histone H3]-lysine9 N-dimethyltransferase [EC:2.1.1.368]
 K06268	0.18	1.255272505	KEGG	serine/threonine-protein phosphatase 2B regulatory subunit
 K02553	0.18	1.255272505	KEGG	regulator of ribonuclease activity A
 K21643	0.17	1.230448921	KEGG	HMG box transcription factor BBX
@@ -1114,7 +1084,6 @@ K03480	0.17	1.230448921	KEGG	transcriptional antiterminator
 K26246	0.17	1.230448921	KEGG	transcriptional regulatory protein UME1
 K03628	0.17	1.230448921	KEGG	transcription termination factor Rho
 K03524	0.17	1.230448921	KEGG	BirA family transcriptional regulator, biotin operon repressor / biotin---[acetyl-CoA-carboxylase] ligase [EC:6.3.4.15]
-K11425	0.17	1.230448921	KEGG	[histone H3]-lysine4 N-dimethyltransferase / [histone H3]-lysine27 N-dimethyltransferase [EC:2.1.1.370 2.1.1.371]
 K09203	0.17	1.230448921	KEGG	early growth response protein 1
 K12497	0.16	1.204119983	KEGG	early growth response protein 3
 K24778	0.16	1.204119983	KEGG	abscission/NoCut checkpoint regulator
@@ -1171,7 +1140,6 @@ K09682	0.12	1.079181246	KEGG	MarR family transcriptional regulator, protease pro
 K26743	0.12	1.079181246	KEGG	PadR family transcriptional regulator, circadian period extender
 K21545	0.12	1.079181246	KEGG	C2H2 transcription facotor
 K24648	0.12	1.079181246	KEGG	extracellular matrix regulatory protein B
-K14630	0.12	1.079181246	KEGG	two-component flavin-dependent monooxygenase [EC:1.14.14.-]
 K08566	0.12	1.079181246	KEGG	plasminogen activator [EC:3.4.23.48]
 K21974	0.12	1.079181246	KEGG	probable RcsB/C two-component-system connector
 K15839	0.12	1.079181246	KEGG	G-protein signaling modulator 1
@@ -1187,7 +1155,6 @@ K23315	0.11	1.041392685	KEGG	chemotactic signal transduction system substrate-bi
 K23015	0.11	1.041392685	KEGG	GntR family transcriptional regulator, transcriptional activator for L-galactonate catabolism
 K15157	0.11	1.041392685	KEGG	mediator of RNA polymerase II transcription subunit 15
 K11275	0.11	1.041392685	KEGG	histone H1/5
-K11421	0.11	1.041392685	KEGG	[histone H3]-N6,N6-dimethyl-lysine9 N-methyltransferase [EC:2.1.1.366]
 K09747	0.11	1.041392685	KEGG	nucleoid-associated protein EbfC
 K09422	0.1	1.0	KEGG	transcription factor MYB, plant
 K13431	0.1	1.0	KEGG	signal recognition particle receptor subunit alpha
@@ -1214,7 +1181,6 @@ K05411	0.09	0.954242509	KEGG	interferon regulatory factor 3
 K07745	0.09	0.954242509	KEGG	transcriptional regulator
 K24361	0.09	0.954242509	KEGG	procollagen C-endopeptidase enhancer
 K15198	0.09	0.954242509	KEGG	transcription factor TFIIIB component B''
-K11427	0.09	0.954242509	KEGG	[histone H3]-lysine79 N-trimethyltransferase [EC:2.1.1.360]
 K27105	0.09	0.954242509	KEGG	two-component system, NarL family, sensor histidine kinase DosT [EC:2.7.13.3]
 K09238	0.09	0.954242509	KEGG	metallothionein expression activator
 K18435	0.09	0.954242509	KEGG	transcription factor SOX9 (SOX group E)
@@ -1226,7 +1192,6 @@ K19816	0.08	0.903089987	KEGG	transcription activator MSS11
 K03567	0.08	0.903089987	KEGG	glycine cleavage system transcriptional repressor
 K21968	0.08	0.903089987	KEGG	Mat/Ecp fimbriae periplasmic chaperone
 K09202	0.08	0.903089987	KEGG	regulatory protein SWI5
-K18494	0.08	0.903089987	KEGG	[histone H3]-lysine9 N-trimethyltransferase SETDB2 [EC:2.1.1.355]
 K18956	0.08	0.903089987	KEGG	WhiB family transcriptional regulator, redox-sensing transcriptional regulator
 K08478	0.07	0.84509804	KEGG	phosphoglycerate transport regulatory protein PgtC
 K02402	0.07	0.84509804	KEGG	flagellar transcriptional activator FlhC
@@ -1236,7 +1201,6 @@ K10810	0.07	0.84509804	KEGG	thiazole tautomerase (transcriptional regulator TenI
 K09423	0.07	0.84509804	KEGG	Myb-like DNA-binding protein BAS1
 K04705	0.07	0.84509804	KEGG	signal transducing adaptor molecule
 K14947	0.07	0.84509804	KEGG	epithelial splicing regulatory protein 1/2
-K09189	0.07	0.84509804	KEGG	[histone H3]-lysine4 N-trimethyltransferase MLL5 [EC:2.1.1.354]
 K04450	0.07	0.84509804	KEGG	cyclic AMP-dependent transcription factor ATF-2
 K17552	0.07	0.84509804	KEGG	protein phosphatase 1 regulatory subunit 10
 K21597	0.07	0.84509804	KEGG	cell wall integrity transcriptional regulator CAS5
@@ -1246,7 +1210,6 @@ K07730	0.07	0.84509804	KEGG	putative transcriptional regulator
 K09042	0.07	0.84509804	KEGG	transcription regulator BACH
 K10973	0.07	0.84509804	KEGG	IclR family transcriptional regulator, negative regulator of allantoin and glyoxylate utilization operons
 K19238	0.07	0.84509804	KEGG	signal transduction protein PmrD
-K19799	0.07	0.84509804	KEGG	DNA damage-responsive transcriptional repressor / [histone H3]-trimethyl-L-lysine36 demethylase [EC:1.14.11.69]
 K12607	0.06	0.77815125	KEGG	CCR4-NOT transcription complex subunit 10
 K07337	0.06	0.77815125	KEGG	penicillin-binding protein activator
 K17391	0.06	0.77815125	KEGG	insulin-like growth factor 2 mRNA-binding protein 1
@@ -1273,7 +1236,6 @@ K09174	0.05	0.698970004	KEGG	regulatory factor X 4
 K21557	0.05	0.698970004	KEGG	HTH-type transcriptional regulator, polysaccharide utilization system transcription regulator
 K17292	0.05	0.698970004	KEGG	tubulin-specific chaperone A
 K09012	0.05	0.698970004	KEGG	DeoR family transcriptional regulator, suf operon transcriptional repressor
-K22748	0.05	0.698970004	KEGG	[histone H3]-lysine4 N-trimethyltransferase ATXR3 [EC:2.1.1.354]
 K11409	0.05	0.698970004	KEGG	histone deacetylase 9 [EC:3.5.1.98]
 K16166	0.05	0.698970004	KEGG	transcription factor MYB75
 K16687	0.05	0.698970004	KEGG	transcriptional coactivator YAP1
@@ -1300,10 +1262,10 @@ K11246	0.04	0.602059991	KEGG	SHO1 osmosensor
 K07734	0.04	0.602059991	KEGG	transcriptional regulator
 K21772	0.04	0.602059991	KEGG	transcriptional activator protein Pur-alpha
 K15158	0.04	0.602059991	KEGG	mediator of RNA polymerase II transcription subunit 15, fungi type
+K10910	0.04	0.602059991	KEGG	autoinducer 2-binding periplasmic protein LuxP
 K13090	0.04	0.602059991	KEGG	interleukin enhancer-binding factor 3
 K03533	0.04	0.602059991	KEGG	TorA specific chaperone
 K12757	0.04	0.602059991	KEGG	myosin regulatory light chain 12
-K11446	0.04	0.602059991	KEGG	[histone H3]-trimethyl-L-lysine4 demethylase [EC:1.14.11.67]
 K13200	0.04	0.602059991	KEGG	spermatid perinuclear RNA-binding protein
 K04083	0.04	0.602059991	KEGG	molecular chaperone Hsp33
 K22496	0.03	0.477121255	KEGG	repressor RFG1/ROX1
@@ -1316,7 +1278,6 @@ K22109	0.03	0.477121255	KEGG	HTH-type transcriptional regulator, glycine betaine
 K25211	0.03	0.477121255	KEGG	hexose phosphate transport regulatory protein HptA
 K12615	0.03	0.477121255	KEGG	enhancer of mRNA-decapping protein 3
 K07322	0.03	0.477121255	KEGG	regulator of cell morphogenesis and NO signaling
-K24406	0.03	0.477121255	KEGG	[histone H3]-lysine27 N-methyltransferase [EC:2.1.1.369]
 K15719	0.03	0.477121255	KEGG	protein O-GlcNAcase / histone acetyltransferase [EC:3.2.1.169 2.3.1.48]
 K04448	0.03	0.477121255	KEGG	transcription factor AP-1
 K03125	0.03	0.477121255	KEGG	transcription initiation factor TFIID subunit 1 [EC:2.3.1.48 2.7.11.1]
@@ -1347,7 +1308,6 @@ K00610	0.03	0.477121255	KEGG	aspartate carbamoyltransferase regulatory subunit
 K06693	0.03	0.477121255	KEGG	26S proteasome regulatory subunit N4
 K19798	0.03	0.477121255	KEGG	transcriptional activator/repressor GIS1
 K21601	0.03	0.477121255	KEGG	DeoR family transcriptional regulator, copper-sensing transcriptional repressor
-K25059	0.02	0.301029996	KEGG	replication stress response regulator SDE2
 K21184	0.02	0.301029996	KEGG	two-component FAD-dependent monooxygenase [EC:1.14.14.15 1.14.14.-]
 K03720	0.02	0.301029996	KEGG	TrpR family transcriptional regulator, trp operon repressor
 K21646	0.02	0.301029996	KEGG	glycolytic genes transcriptional activator GCR1
@@ -1409,7 +1369,6 @@ K09419	0.01	0.0	KEGG	heat shock transcription factor, other eukaryote
 K19491	0.01	0.0	KEGG	doublesex- and mab-3-related transcription factor 4/5
 K11314	0.01	0.0	KEGG	transcriptional adapter 2-alpha
 K15202	0.01	0.0	KEGG	general transcription factor 3C polypeptide 5 (transcription factor C subunit 1)
-K24407	0.01	0.0	KEGG	[histone H4]-lysine20 N-trimethyltransferase [EC:2.1.1.372]
 K16565	0.01	0.0	KEGG	exopolysaccharide production regulatory protein
 K06062	0.01	0.0	KEGG	histone acetyltransferase [EC:2.3.1.48]
 K10049	0.01	0.0	KEGG	CCAAT/enhancer binding protein (C/EBP), gamma
@@ -1429,7 +1388,6 @@ K03142	0.01	0.0	KEGG	transcription initiation factor TFIIH subunit 2
 K17553	0.01	0.0	KEGG	protein phosphatase 1 regulatory subunit 11
 K21560	0.01	0.0	KEGG	CRP/FNR family transcriptional regulator, listeriolysin regulatory protein
 K25914	0.01	0.0	KEGG	cell death activator CIDE-B
-K06709	0.01	0.0	KEGG	[histone H3]-trimethyl-L-lysine9/36 demethylase [EC:1.14.11.66 1.14.11.69]
 K02398	0.01	0.0	KEGG	negative regulator of flagellin synthesis FlgM
 K09356	0.01	0.0	KEGG	paired-like homeodomain transcription factor 1
 K09364	0.01	0.0	KEGG	POU domain transcription factor, class 2
@@ -1459,7 +1417,6 @@ K13592	0.01	0.0	KEGG	regulator of CtrA degradation
 K25802	0.01	0.0	KEGG	activating transcription factor 7-interacting protein
 K17944	0.01	0.0	KEGG	mRNA-binding protein PUF3
 K24045	0.01	0.0	KEGG	junction-mediating and -regulatory protein
-K11429	0.01	0.0	KEGG	[histone H4]-N-methyl-L-lysine20 N-methyltransferase [EC:2.1.1.362]
 K12753	0.01	0.0	KEGG	myosin regulatory light chain 5
 K12756	0.01	0.0	KEGG	myosin regulatory light chain 10
 K10603	0.01	0.0	KEGG	autoimmune regulator
@@ -1486,7 +1443,6 @@ PF00166.25	10.0	3.890644536	Pfam	Chaperonin 10 Kd subunit
 PF08299.15	10.0	3.890029586	Pfam	Bacterial dnaA protein helix-turn-helix
 PF02467.20	10.0	3.820857989	Pfam	Transcription factor WhiB
 PF10991.12	10.0	3.820135752	Pfam	Enterobacter phage Enc34, ssDNA-binding protein
-PF07282.15	10.0	3.810568529	Pfam	Putative transposase DNA-binding domain
 PF04545.20	10.0	3.735997884	Pfam	Sigma-70, region 4
 PF04542.18	10.0	3.730055152	Pfam	Sigma-70 region 2
 PF13356.10	10.0	3.724767246	Pfam	Arm DNA-binding domain
@@ -1550,18 +1506,15 @@ PF00376.27	8.75	2.942008053	Pfam	MerR family regulatory protein
 PF12363.12	8.2	2.913813852	Pfam	Phage tail assembly chaperone protein, TAC
 PF04539.20	7.69	2.88592634	Pfam	Sigma-70 region 3
 PF06323.15	7.64	2.883093359	Pfam	Phage antitermination protein Q
-PF09003.14	7.59	2.880241776	Pfam	Bacteriophage lambda integrase, Arm DNA-binding domain
 PF04245.17	7.18	2.856124444	Pfam	37-kD nucleoid-associated bacterial protein
 PF00382.23	7.17	2.855519156	Pfam	Transcription factor TFIIB repeat
 PF17427.6	6.98	2.843855423	Pfam	Phage Single-stranded DNA-binding protein
 PF10963.12	6.81	2.833147112	Pfam	Phage tail assembly chaperone
-PF13022.10	6.35	2.802773725	Pfam	Helix-turn-helix of insertion element transposase
 PF16459.9	6.2	2.792391689	Pfam	Phage tail assembly chaperone, TAC
 PF12833.11	6.12	2.786751422	Pfam	Helix-turn-helix domain
 PF02954.23	5.4	2.73239376	Pfam	Bacterial regulatory protein, Fis family
 PF00816.25	5.25	2.720159303	Pfam	H-NS histone family
 PF00140.24	5.21	2.716837723	Pfam	Sigma-70 factor, region 1.2
-PF01396.23	4.99	2.698100546	Pfam	Topoisomerase DNA binding C4 zinc finger
 PF00352.25	4.82	2.683047038	Pfam	Transcription factor TFIID (or TATA-binding protein, TBP)
 PF10412.13	4.8	2.681241237	Pfam	Type IV secretion-system coupling protein DNA-binding domain
 PF05443.15	4.64	2.666517981	Pfam	ROS/MUCR transcriptional regulator protein
@@ -1578,7 +1531,6 @@ PF20038.3	3.28	2.515873844	Pfam	Helix-turn-helix domain
 PF00575.27	3.2	2.505149978	Pfam	S1 RNA binding domain
 PF03551.18	3.09	2.489958479	Pfam	Transcriptional regulator PadR-like family
 PF06894.15	3.07	2.487138375	Pfam	Bacteriophage lambda tail assembly chaperone, TAC, protein G
-PF02920.19	3.03	2.481442629	Pfam	DNA binding domain of tn916 integrase
 PF06222.15	2.97	2.472756449	Pfam	Phage tail assembly chaperone
 PF20450.2	2.96	2.471291711	Pfam	Papillomavirus E1, DNA-binding domain
 PF00015.25	2.81	2.44870632	Pfam	Methyl-accepting chemotaxis protein (MCP) signalling domain
@@ -1593,11 +1545,9 @@ PF09339.14	2.22	2.346352974	Pfam	IclR helix-turn-helix domain
 PF14532.10	2.16	2.334453751	Pfam	Sigma-54 interaction domain
 PF00850.23	2.16	2.334453751	Pfam	Histone deacetylase domain
 PF05670.17	2.16	2.334453751	Pfam	NFACT protein RNA binding domain
-PF13542.10	2.15	2.33243846	Pfam	Helix-turn-helix domain of transposase family ISL3
 PF12840.11	2.15	2.33243846	Pfam	Helix-turn-helix domain
 PF09388.14	2.08	2.318063335	Pfam	Spo0E like sporulation regulatory protein
 PF13545.10	2.04	2.309630167	Pfam	Crp-like helix-turn-helix domain
-PF20987.1	1.91	2.281033367	Pfam	Intron-encoded endonuclease 1, DNA-binding domain
 PF07500.18	1.84	2.264817823	Pfam	Transcription factor S-II (TFIIS), central domain
 PF02082.24	1.84	2.264817823	Pfam	Iron-dependent Transcriptional regulator
 PF05464.15	1.68	2.225309282	Pfam	Phi-29-like late genes activator (early protein GP4)
@@ -1614,10 +1564,10 @@ PF01358.22	1.17	2.068185862	Pfam	Poly A polymerase regulatory subunit
 PF01638.21	1.12	2.049218023	Pfam	HxlR-like helix-turn-helix
 PF01588.24	1.11	2.045322979	Pfam	Putative tRNA binding domain
 PF16462.9	1.1	2.041392685	Pfam	Phage tail assembly chaperone protein, TAC
-PF11740.12	1.09	2.037426498	Pfam	Plasmid replication region DNA-binding N-term
 PF06069.15	1.09	2.037426498	Pfam	PerC transcriptional activator
 PF04786.16	1.08	2.033423755	Pfam	ssDNA binding protein
 PF13921.10	1.08	2.033423755	Pfam	Myb-like DNA-binding domain
+PF03472.19	1.06	2.025305865	Pfam	Autoinducer binding domain
 PF05459.16	1.02	2.008600172	Pfam	Herpesvirus transcriptional regulator family
 PF13018.10	1.02	2.008600172	Pfam	Extended Signal Peptide of Type V secretion system
 PF12645.11	1.01	2.004321374	Pfam	Helix-turn-helix domain
@@ -1648,12 +1598,12 @@ PF13338.10	0.97	1.986771734	Pfam	Transcriptional regulator, AbiEi antitoxin
 PF00747.21	0.97	1.986771734	Pfam	ssDNA binding protein
 PF03965.20	0.96	1.982271233	Pfam	Penicillinase repressor
 PF12729.11	0.95	1.977723605	Pfam	Four helix bundle sensory module for signal transduction
-PF02919.19	0.93	1.968482949	Pfam	Eukaryotic DNA topoisomerase I, DNA binding fragment
 PF17878.5	0.92	1.963787827	Pfam	Single-stranded DNA-binding protein
 PF04940.16	0.92	1.963787827	Pfam	Sensors of blue-light using FAD
 PF07879.15	0.86	1.934498451	Pfam	PHB/PHA accumulation regulator DNA-binding domain
 PF16518.9	0.84	1.924279286	Pfam	T3SS negative regulator,GrlR
 PF00963.22	0.83	1.919078092	Pfam	Cohesin domain
+PF12843.11	0.81	1.908485019	Pfam	Putative quorum-sensing-regulated virulence factor
 PF04297.18	0.79	1.897627091	Pfam	Putative helix-turn-helix protein, YlxM / p13 like
 PF17426.6	0.78	1.892094603	Pfam	Putative Gamma DNA binding protein G5P
 PF18801.5	0.78	1.892094603	Pfam	response regulator aspartate phosphatase H, N terminal
@@ -1673,7 +1623,6 @@ PF09278.15	0.63	1.799340549	Pfam	MerR, DNA binding
 PF04218.17	0.61	1.785329835	Pfam	CENP-B N-terminal DNA-binding domain
 PF17613.6	0.61	1.785329835	Pfam	Modifier of transcription
 PF03979.18	0.58	1.763427994	Pfam	Sigma-70 factor, region 1.1
-PF01035.24	0.58	1.763427994	Pfam	6-O-methylguanine DNA methyltransferase, DNA binding domain
 PF17765.5	0.58	1.763427994	Pfam	MmyB-like transcription regulator ligand binding domain
 PF14493.10	0.57	1.755874856	Pfam	Helix-turn-helix domain
 PF13413.10	0.57	1.755874856	Pfam	Helix-turn-helix domain
@@ -1683,6 +1632,7 @@ PF00345.24	0.54	1.73239376	Pfam	Pili and flagellar-assembly chaperone, PapD N-te
 PF09010.14	0.52	1.716003344	Pfam	Anti-Sigma Factor A
 PF14947.10	0.5	1.698970004	Pfam	Winged helix-turn-helix
 PF03449.19	0.5	1.698970004	Pfam	Transcription elongation factor, N-terminal
+PF00765.21	0.5	1.698970004	Pfam	Autoinducer synthase
 PF20432.2	0.49	1.69019608	Pfam	Antitoxin Xre-like helix-turn-helix domain
 PF15777.9	0.49	1.69019608	Pfam	Tryptophan RNA-binding attenuator protein inhibitory protein
 PF08536.15	0.48	1.681241237	Pfam	Whirly transcription factor
@@ -1695,7 +1645,6 @@ PF03614.17	0.43	1.633468456	Pfam	Repressor of phase-1 flagellin
 PF04546.17	0.42	1.62324929	Pfam	Sigma-70, non-essential region
 PF02753.21	0.4	1.602059991	Pfam	Pili assembly chaperone PapD, C-terminal domain
 PF08123.17	0.4	1.602059991	Pfam	Histone methylation protein DOT1
-PF13613.10	0.39	1.591064607	Pfam	Helix-turn-helix of DDE superfamily endonuclease
 PF03294.18	0.39	1.591064607	Pfam	RNA polymerase-associated transcription specificity factor, Rap94
 PF17755.5	0.39	1.591064607	Pfam	UvrA DNA-binding domain
 PF02482.23	0.38	1.579783597	Pfam	Sigma 54 modulation protein / S30EA ribosomal protein
@@ -1722,7 +1671,6 @@ PF00455.26	0.26	1.414973348	Pfam	DeoR C terminal sensor domain
 PF01325.23	0.25	1.397940009	Pfam	Iron dependent repressor, N-terminal DNA binding domain
 PF09114.14	0.24	1.380211242	Pfam	Transcription factor MotA, activation domain
 PF19258.3	0.23	1.361727836	Pfam	KxYKxGKxW signal peptide
-PF00552.25	0.23	1.361727836	Pfam	Integrase DNA binding domain
 PF04967.16	0.23	1.361727836	Pfam	HTH DNA binding domain
 PF01418.21	0.22	1.342422681	Pfam	Helix-turn-helix domain, rpiR family
 PF19192.4	0.22	1.342422681	Pfam	Response receiver domain
@@ -1777,7 +1725,6 @@ PF09952.13	0.1	1.0	Pfam	Transcriptional regulator, AbiEi antitoxin, Type IV TA s
 PF09439.14	0.1	1.0	Pfam	Signal recognition particle receptor beta subunit
 PF14246.10	0.09	0.954242509	Pfam	AefR-like transcriptional repressor, C-terminal domain
 PF08900.15	0.09	0.954242509	Pfam	Transcriptional regulator AcaB
-PF02334.20	0.09	0.954242509	Pfam	Replication terminator protein
 PF06719.17	0.09	0.954242509	Pfam	AraC-type transcriptional regulator N-terminus
 PF08350.14	0.09	0.954242509	Pfam	Methanogenesis regulatory protein FilR1, middle domain
 PF09607.14	0.09	0.954242509	Pfam	Brinker DNA-binding domain
@@ -1792,8 +1739,6 @@ PF07497.16	0.08	0.903089987	Pfam	Rho termination factor, RNA-binding domain
 PF17152.8	0.08	0.903089987	Pfam	Periplasmic sensor domain
 PF06971.17	0.08	0.903089987	Pfam	Putative DNA-binding protein N-terminus
 PF08221.15	0.07	0.84509804	Pfam	RNA polymerase III subunit RPC82 helix-turn-helix domain
-PF10119.13	0.07	0.84509804	Pfam	Predicted methyltransferase regulatory domain
-PF14706.10	0.07	0.84509804	Pfam	Transposase DNA-binding
 PF16751.9	0.07	0.84509804	Pfam	Anti-sigma-D factor RsdA to sigma factor binding region
 PF10722.13	0.07	0.84509804	Pfam	Putative bacterial sensory transduction regulator
 PF18607.5	0.07	0.84509804	Pfam	ParA helix turn helix domain
@@ -1817,7 +1762,6 @@ PF16859.9	0.05	0.698970004	Pfam	Tetracyclin repressor-like, C-terminal domain
 PF04366.16	0.05	0.698970004	Pfam	Las17-binding protein actin regulator
 PF10258.13	0.05	0.698970004	Pfam	Phosphorylated adapter RNA export protein, RNA-binding domain
 PF10707.13	0.05	0.698970004	Pfam	PhoP regulatory network protein YrbL
-PF13636.10	0.05	0.698970004	Pfam	RNA-binding PUA-like domain of methyltransferase RsmF
 PF01316.25	0.05	0.698970004	Pfam	Arginine repressor, DNA binding domain
 PF08327.15	0.05	0.698970004	Pfam	Activator of Hsp90 ATPase homolog 1-like protein
 PF02863.22	0.05	0.698970004	Pfam	Arginine repressor, C-terminal domain
@@ -1864,7 +1808,6 @@ PF00010.30	0.03	0.477121255	Pfam	Helix-loop-helix DNA-binding domain
 PF17178.8	0.03	0.477121255	Pfam	Membrane-associated sensor
 PF21689.1	0.03	0.477121255	Pfam	Sensor protein TorS, sensor domain
 PF15286.10	0.03	0.477121255	Pfam	Apoptosis regulator M11, B cell 2 leukaemia/lymphoma like
-PF18243.5	0.03	0.477121255	Pfam	Metal-independent restriction enzyme BfiI DNA binding domain
 PF00538.23	0.03	0.477121255	Pfam	linker histone H1 and H5 family
 PF05247.17	0.03	0.477121255	Pfam	Flagellar transcriptional activator (FlhD)
 PF17764.5	0.03	0.477121255	Pfam	3'DNA-binding domain (3'BD)
@@ -1903,10 +1846,8 @@ PF01111.23	0.02	0.301029996	Pfam	Cyclin-dependent kinase regulatory subunit
 PF14901.10	0.02	0.301029996	Pfam	Cleavage inducing molecular chaperone
 PF09413.14	0.02	0.301029996	Pfam	Putative prokaryotic signal transducing protein
 PF14850.10	0.02	0.301029996	Pfam	DNA-binding domain of Proline dehydrogenase
-PF20552.2	0.02	0.301029996	Pfam	Recombinase-like helix-turn-helix domain
 PF02362.25	0.02	0.301029996	Pfam	B3 DNA binding domain
 PF03873.17	0.02	0.301029996	Pfam	Anti sigma-E protein RseA, C-terminal domain
-PF10723.13	0.02	0.301029996	Pfam	Replication regulatory protein RepB
 PF10545.13	0.02	0.301029996	Pfam	Alcohol dehydrogenase transcription factor Myb/SANT-like
 PF00424.22	0.02	0.301029996	Pfam	REV protein (anti-repression trans-activator protein)
 PF04246.16	0.02	0.301029996	Pfam	Positive regulator of sigma(E), RseC/MucC
@@ -1925,7 +1866,6 @@ PF16211.9	0.01	0.0	Pfam	C-terminus of histone H2A
 PF02200.20	0.01	0.0	Pfam	STE like transcription factor
 PF06135.16	0.01	0.0	Pfam	IreB regulatory phosphoprotein
 PF10373.13	0.01	0.0	Pfam	Est1 DNA/RNA binding domain
-PF03221.20	0.01	0.0	Pfam	Tc5 transposase DNA-binding domain
 PF02252.22	0.01	0.0	Pfam	Proteasome activator pa28 beta subunit
 PF00447.21	0.01	0.0	Pfam	HSF-type DNA-binding
 PF17154.8	0.01	0.0	Pfam	Gammaproteobacterial periplasmic sensor domain
@@ -1967,6 +1907,7 @@ PF21220.1	0.01	0.0	Pfam	RecQ-1-like, helix-turn-helix domain
 PF10428.13	0.01	0.0	Pfam	RAM signalling pathway protein
 PF10151.13	0.01	0.0	Pfam	TMEM214, C-terminal, caspase 4 activator
 PF17723.5	0.01	0.0	Pfam	Ribbon-Helix-Helix transcriptional regulator family
+PF13652.10	0.01	0.0	Pfam	Putative quorum-sensing-regulated virulence factor
 PF05609.16	0.01	0.0	Pfam	Lamina-associated polypeptide 1, AAA+ activator domain
 PF07037.15	0.01	0.0	Pfam	Transcription regulator YfeC-like
 PF18535.5	0.01	0.0	Pfam	Gal11 activator-binding domain (ABD1)
@@ -1975,9 +1916,7 @@ PF17920.5	0.01	0.0	Pfam	Tetracyclin repressor-like, C-terminal domain
 PF02895.18	0.01	0.0	Pfam	Signal transducing histidine kinase, homodimeric domain
 PF17925.5	0.01	0.0	Pfam	Tetracyclin repressor-like, C-terminal domain
 PF16524.9	0.01	0.0	Pfam	Periplasmic domain of Sensor histidine kinase RisS
-PF08573.14	0.01	0.0	Pfam	DNA endonuclease activator SAE2/CtIP C-terminus
 PF18553.5	0.01	0.0	Pfam	PheRS DNA binding domain 3
-PF01905.20	0.01	0.0	Pfam	CRISPR-associated negative auto-regulator DevR/Csa2
 PF21227.1	0.01	0.0	Pfam	Myb-like DNA-binding domain
 PF15695.9	0.01	0.0	Pfam	Rec (regulator of expression encoded by corf) of HERV-K-113
 PF20302.2	0.01	0.0	Pfam	HisK-N-like globin domain of the ASK signalosome
@@ -2064,7 +2003,6 @@ phrog_242	10.0	3.11991541	PHROG	translation repressor
 phrog_3636	10.0	3.119255889	PHROG	DNA binding protein
 phrog_2328	10.0	3.117602692	PHROG	transcriptional repressor
 phrog_9500	10.0	3.111934276	PHROG	CsrA-like regulator
-phrog_997	10.0	3.104487111	PHROG	replication terminator
 phrog_2030	10.0	3.096214585	PHROG	transcriptional regulator
 phrog_2379	10.0	3.084933575	PHROG	anti-repressor
 phrog_7755	10.0	3.082066934	PHROG	anti-repressor
@@ -2503,7 +2441,6 @@ phrog_11046	0.1	1.0	PHROG	transcriptional regulator
 phrog_13814	0.09	0.954242509	PHROG	transcriptional regulator
 phrog_13841	0.09	0.954242509	PHROG	transcriptional regulator
 phrog_11513	0.09	0.954242509	PHROG	DNA binding protein
-phrog_38489	0.09	0.954242509	PHROG	replication terminator
 phrog_19644	0.09	0.954242509	PHROG	DNA binding protein
 phrog_16351	0.09	0.954242509	PHROG	DNA binding protein
 phrog_16084	0.09	0.954242509	PHROG	transcriptional regulator
@@ -2526,7 +2463,6 @@ phrog_20602	0.08	0.903089987	PHROG	DNA binding protein
 phrog_11411	0.08	0.903089987	PHROG	Arc-like repressor
 phrog_34632	0.08	0.903089987	PHROG	transcriptional regulator
 phrog_25401	0.08	0.903089987	PHROG	DNA binding protein
-phrog_6763	0.07	0.84509804	PHROG	activator of host PrrC lysyl-tRNA endonuclease
 phrog_12501	0.07	0.84509804	PHROG	HTH DNA binding protein
 phrog_1763	0.07	0.84509804	PHROG	HTH DNA binding protein
 phrog_22267	0.07	0.84509804	PHROG	transcriptional regulator WhiB-like

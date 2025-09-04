@@ -151,7 +151,6 @@ K21344	9.36	2.971275849	KEGG	D-glycero-beta-D-manno-heptose-7-phosphate kinase [
 K11996	9.31	2.968949681	KEGG	adenylyltransferase and sulfurtransferase [EC:2.7.7.80 2.8.1.11]
 K00852	9.26	2.966610987	KEGG	ribokinase [EC:2.7.1.15]
 K08281	9.26	2.966610987	KEGG	nicotinamidase/pyrazinamidase [EC:3.5.1.19 3.5.1.-]
-K06211	9.21	2.96425963	KEGG	HTH-type transcriptional regulator, transcriptional repressor of NAD biosynthesis genes [EC:2.7.7.1 2.7.1.22]
 K05928	9.13	2.960470778	KEGG	tocopherol O-methyltransferase [EC:2.1.1.95]
 K15634	9.12	2.959994838	KEGG	2,3-bisphosphoglycerate-dependent phosphoglycerate mutase [EC:5.4.2.11]
 K00979	9.03	2.95568775	KEGG	3-deoxy-manno-octulosonate cytidylyltransferase (CMP-KDO synthetase) [EC:2.7.7.38]
@@ -493,7 +492,6 @@ K03077	2.22	2.346352974	KEGG	L-ribulose-5-phosphate 4-epimerase [EC:5.1.3.4]
 K20458	2.2	2.342422681	KEGG	3-hydroxybenzoate/4-hydroxybenzoate---CoA ligase [EC:6.2.1.37 6.2.1.27]
 K03275	2.19	2.340444115	KEGG	UDP-glucose:(glucosyl)LPS alpha-1,3-glucosyltransferase [EC:2.4.1.-]
 K00750	2.19	2.340444115	KEGG	glycogenin [EC:2.4.1.186]
-K13821	2.17	2.336459734	KEGG	RHH-type transcriptional regulator, proline utilization regulon repressor / proline dehydrogenase / delta 1-pyrroline-5-carboxylate dehydrogenase [EC:1.5.5.2 1.2.1.88]
 K00094	2.16	2.334453751	KEGG	galactitol-1-phosphate 5-dehydrogenase [EC:1.1.1.251]
 K22223	2.16	2.334453751	KEGG	phosphoglycolate phosphatase [EC:3.1.3.18]
 K19200	2.16	2.334453751	KEGG	isopenicillin-N N-acyltransferase like protein
@@ -744,7 +742,6 @@ K01190	1.2	2.079181246	KEGG	beta-galactosidase [EC:3.2.1.23]
 K01079	1.19	2.075546961	KEGG	phosphoserine phosphatase [EC:3.1.3.3]
 K22994	1.18	2.071882007	KEGG	pectate disaccharide-lyase [EC:4.2.2.9]
 K01819	1.18	2.071882007	KEGG	galactose-6-phosphate isomerase [EC:5.3.1.26]
-K02502	1.18	2.071882007	KEGG	ATP phosphoribosyltransferase regulatory subunit
 K01200	1.18	2.071882007	KEGG	pullulanase [EC:3.2.1.41]
 K14374	1.18	2.071882007	KEGG	avermectin B 5-O-methyltransferase [EC:2.1.1.-]
 K03693	1.17	2.068185862	KEGG	penicillin-binding protein 1B
@@ -1559,7 +1556,6 @@ K02549	0.17	1.230448921	KEGG	o-succinylbenzoate synthase [EC:4.2.1.113]
 K01730	0.17	1.230448921	KEGG	oligogalacturonide lyase [EC:4.2.2.6]
 K00410	0.17	1.230448921	KEGG	ubiquinol-cytochrome c reductase cytochrome b/c1 subunit
 K00446	0.17	1.230448921	KEGG	catechol 2,3-dioxygenase [EC:1.13.11.2]
-K03524	0.17	1.230448921	KEGG	BirA family transcriptional regulator, biotin operon repressor / biotin---[acetyl-CoA-carboxylase] ligase [EC:6.3.4.15]
 K16164	0.17	1.230448921	KEGG	acylpyruvate hydrolase [EC:3.7.1.5]
 K16179	0.17	1.230448921	KEGG	dimethylamine corrinoid protein
 K02289	0.17	1.230448921	KEGG	phycocyanobilin lyase subunit beta [EC:4.4.1.32]
@@ -1767,7 +1763,6 @@ K00392	0.1	1	KEGG	sulfite reductase (ferredoxin) [EC:1.8.7.1]
 K15226	0.1	1	KEGG	arogenate dehydrogenase (NADP+) [EC:1.3.1.78]
 K15231	0.1	1	KEGG	ATP-citrate lyase beta-subunit [EC:2.3.3.8]
 K15232	0.1	1	KEGG	citryl-CoA synthetase large subunit [EC:6.2.1.18]
-K01846	0.1	1	KEGG	methylaspartate mutase sigma subunit [EC:5.4.99.1]
 K00577	0.1	1	KEGG	tetrahydromethanopterin S-methyltransferase subunit A [EC:2.1.1.86]
 K03151	0.1	1	KEGG	tRNA uracil 4-sulfurtransferase [EC:2.8.1.4]
 K03154	0.1	1	KEGG	sulfur carrier protein
@@ -1797,7 +1792,6 @@ K15886	0.1	1	KEGG	multifunctional cyclase / dehydratase / O-methyltransferase [E
 K01966	0.1	1	KEGG	propionyl-CoA carboxylase beta chain [EC:6.4.1.3 2.1.3.15]
 K13746	0.1	1	KEGG	carboxynorspermidine synthase [EC:1.5.1.43]
 K07130	0.09	0.954242509	KEGG	arylformamidase [EC:3.5.1.9]
-K03707	0.09	0.954242509	KEGG	thiaminase (transcriptional activator TenA) [EC:3.5.99.2]
 K21181	0.09	0.954242509	KEGG	MIO-dependent L-tyrosine 2,3-aminomutase [EC:5.4.3.6]
 K15036	0.09	0.954242509	KEGG	acetyl-CoA/propionyl-CoA carboxylase [EC:6.4.1.2 6.4.1.3 2.1.3.15]
 K11181	0.09	0.954242509	KEGG	dissimilatory sulfite reductase beta subunit [EC:1.8.99.5]
@@ -1881,7 +1875,6 @@ K05385	0.08	0.903089987	KEGG	bilin biosynthesis protein
 K18472	0.08	0.903089987	KEGG	acetyl-CoA/propionyl-CoA carboxylase carboxyl transferase subunit [EC:6.4.1.2 6.4.1.3 2.1.3.15]
 K03750	0.07	0.84509804	KEGG	molybdopterin molybdotransferase [EC:2.10.1.1]
 K03786	0.07	0.84509804	KEGG	3-dehydroquinate dehydratase II [EC:4.2.1.10]
-K10810	0.07	0.84509804	KEGG	thiazole tautomerase (transcriptional regulator TenI) [EC:5.3.99.10]
 K02496	0.07	0.84509804	KEGG	uroporphyrin-III C-methyltransferase [EC:2.1.1.107]
 K22100	0.07	0.84509804	KEGG	2,5-diamino-6-(5-phospho-D-ribosylamino)pyrimidin-4(3H)-one isomerase/dehydratase [EC:4.2.1.160]
 K11694	0.07	0.84509804	KEGG	peptidoglycan pentaglycine glycine transferase (the second and third glycine) [EC:2.3.2.17]
@@ -1902,7 +1895,6 @@ K15970	0.07	0.84509804	KEGG	8-O-methyltransferase
 K17225	0.07	0.84509804	KEGG	sulfane dehydrogenase subunit SoxC
 K15997	0.07	0.84509804	KEGG	3-alpha-mycarosylerythronolide B desosaminyl transferase auxiliary protein
 K00767	0.07	0.84509804	KEGG	nicotinate-nucleotide pyrophosphorylase (carboxylating) [EC:2.4.2.19]
-K08088	0.07	0.84509804	KEGG	fimbrial regulator
 K17285	0.07	0.84509804	KEGG	methanethiol oxidase [EC:1.8.3.4]
 K03399	0.07	0.84509804	KEGG	cobalt-precorrin-7 (C5)-methyltransferase [EC:2.1.1.289]
 K01232	0.07	0.84509804	KEGG	maltose-6'-phosphate glucosidase [EC:3.2.1.122]
@@ -2070,7 +2062,6 @@ K18290	0.04	0.602059991	KEGG	itaconyl-CoA hydratase [EC:4.2.1.56]
 K10986	0.04	0.602059991	KEGG	galactosamine PTS system EIID component
 K00491	0.04	0.602059991	KEGG	nitric-oxide synthase, bacterial [EC:1.14.14.47]
 K03526	0.04	0.602059991	KEGG	(E)-4-hydroxy-3-methylbut-2-enyl-diphosphate synthase [EC:1.17.7.1 1.17.7.3]
-K03533	0.04	0.602059991	KEGG	TorA specific chaperone
 K16619	0.04	0.602059991	KEGG	phospholipase C / alpha-toxin [EC:3.1.4.3]
 K02224	0.04	0.602059991	KEGG	cobyrinic acid a,c-diamide synthase [EC:6.3.5.9 6.3.5.11]
 K21479	0.04	0.602059991	KEGG	cobalt-factor III methyltransferase [EC:2.1.1.272]
@@ -2171,7 +2162,6 @@ K16305	0.03	0.477121255	KEGG	fructose-bisphosphate aldolase / 6-deoxy-5-ketofruc
 K00673	0.03	0.477121255	KEGG	arginine N-succinyltransferase [EC:2.3.1.109]
 K21163	0.02	0.301029996	KEGG	enediyne biosynthesis protein E5
 K18982	0.02	0.301029996	KEGG	D-galactarolactone isomerase [EC:5.4.1.4]
-K21184	0.02	0.301029996	KEGG	two-component FAD-dependent monooxygenase [EC:1.14.14.15 1.14.14.-]
 K16342	0.02	0.301029996	KEGG	cytosolic phospholipase A2 [EC:3.1.1.4]
 K16849	0.02	0.301029996	KEGG	altronate dehydratase small subunit [EC:4.2.1.7]
 K00300	0.02	0.301029996	KEGG	methylenetetrahydrofolate/methylenetetrahydromethanopterin dehydrogenase (NADP+) [EC:1.5.1.5 1.5.1.-]

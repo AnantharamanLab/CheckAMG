@@ -1,446 +1,671 @@
-id,V-score,VL-score,db,name
-K07491,8.51,2.92992956,KEGG,REP-associated tyrosine transposase
-K07449,8.07,2.906873535,KEGG,similar to archaeal holliday junction resolvase and Mrr protein
-K07492,6.81,2.833147112,KEGG,putative transposase
-K07481,6.48,2.811575006,KEGG,"transposase, IS5 family"
-K07485,5.8,2.763427994,KEGG,transposase
-K07499,5.56,2.745074792,KEGG,putative transposase
-K07487,5.48,2.738780558,KEGG,transposase
-K07493,5.48,2.738780558,KEGG,putative transposase
-K12071,4.98,2.697229343,KEGG,conjugal transfer pilus assembly protein TraD
-K15338,4.71,2.673020907,KEGG,holliday junction resolvase GEN1/YEN1 [EC:3.1.-.-]
-K03552,4.69,2.671172843,KEGG,holliday junction resolvase [EC:3.1.21.10]
-K07484,4.09,2.611723308,KEGG,transposase
-K07494,3.88,2.588831726,KEGG,putative transposase
-K26534,3.7,2.568201724,KEGG,Poxviridae DNA holliday junction resolvase [EC:3.1.-.-]
-K01664,2.47,2.392696953,KEGG,para-aminobenzoate synthetase component II [EC:2.6.1.85]
-K07495,2.45,2.389166084,KEGG,putative transposase
-K13791,2.44,2.387389826,KEGG,invasion plasmid antigen
-K13950,2.16,2.334453751,KEGG,para-aminobenzoate synthetase [EC:2.6.1.85]
-K07725,1.94,2.28780173,KEGG,CRISPR-associated protein Csa3
-K03929,1.07,2.029383778,KEGG,para-nitrobenzyl esterase [EC:3.1.1.-]
-K25056,1.0,2.0,KEGG,HTLV-1 integrase
-K26527,1.0,2.0,KEGG,Rudiviridae holliday junction resolvase [EC:3.1.21.10]
-K24803,1.0,2.0,KEGG,HIV-1 integrase
-K19117,0.96,1.982271233,KEGG,CRISPR-associated protein Csd1
-K03342,0.9,1.954242509,KEGG,para-aminobenzoate synthetase / 4-amino-4-deoxychorismate lyase [EC:2.6.1.85 4.1.3.38]
-K01152,0.87,1.939519253,KEGG,isftu1 transposase
-K03632,0.87,1.939519253,KEGG,chromosome partition protein MukB
-K09951,0.8,1.903089987,KEGG,CRISPR-associated protein Cas2
-K19126,0.77,1.886490725,KEGG,CRISPR system Cascade subunit CasE
-K07475,0.72,1.857332496,KEGG,CRISPR-associated endonuclease Cas3-HD [EC:3.1.-.-]
-K07498,0.71,1.851258349,KEGG,putative transposase
-K18320,0.69,1.838849091,KEGG,"transposase, IS6 family"
-K19090,0.68,1.832508913,KEGG,CRISPR-associated protein Cas5t
-K19118,0.62,1.792391689,KEGG,CRISPR-associated protein Csd2
-K07489,0.61,1.785329835,KEGG,transposase
-K19115,0.6,1.77815125,KEGG,CRISPR-associated protein Csh2
-K19091,0.59,1.770852012,KEGG,CRISPR-associated endoribonuclease Cas6 [EC:3.1.-.-]
-K23371,0.58,1.763427994,KEGG,"L-serine kinase (ATP) / ParB family transcriptional regulator, heme-responsive regulator [EC:2.7.1.225]"
-K19116,0.48,1.681241237,KEGG,CRISPR-associated protein Cas5h
-K19119,0.48,1.681241237,KEGG,CRISPR-associated protein Cas5d
-K19123,0.44,1.643452676,KEGG,CRISPR system Cascade subunit CasA
-K09002,0.41,1.612783857,KEGG,CRISPR-associated protein Csm3
-K19144,0.39,1.591064607,KEGG,CRISPR-associated protein Csx3
-K12065,0.31,1.491361694,KEGG,conjugal transfer pilus assembly protein TraB
-K19128,0.28,1.447158031,KEGG,CRISPR-associated protein Csy2
-K19124,0.25,1.397940009,KEGG,CRISPR system Cascade subunit CasC
-K12070,0.25,1.397940009,KEGG,conjugal transfer pilus assembly protein TraI
-K01665,0.24,1.380211242,KEGG,para-aminobenzoate synthetase component I [EC:2.6.1.85]
-K19125,0.22,1.342422681,KEGG,CRISPR system Cascade subunit CasD
-K19145,0.22,1.342422681,KEGG,CRISPR-associated protein Csx16
-K19129,0.19,1.278753601,KEGG,CRISPR-associated protein Csy3
-K19130,0.19,1.278753601,KEGG,CRISPR-associated endonuclease Csy4 [EC:3.1.-.-]
-K19127,0.17,1.230448921,KEGG,CRISPR-associated protein Csy1
-K12056,0.16,1.204119983,KEGG,conjugal transfer mating pair stabilization protein TraG
-K12057,0.14,1.146128036,KEGG,conjugal transfer pilus assembly protein TraF
-K19046,0.12,1.079181246,KEGG,CRISPR system Cascade subunit CasB
-K19075,0.11,1.041392685,KEGG,CRISPR-associated protein Cst2
-K07016,0.08,0.903089987,KEGG,CRISPR-associated protein Csm1
-K12060,0.08,0.903089987,KEGG,conjugal transfer pilus assembly protein TraU
-K12058,0.07,0.84509804,KEGG,conjugal transfer mating pair stabilization protein TraN
-K12072,0.07,0.84509804,KEGG,conjugative transfer pilus assembly protein TraH
-K19122,0.06,0.77815125,KEGG,CRISPR-associated protein Csc3
-K19131,0.06,0.77815125,KEGG,CRISPR-associated protein Csb1
-K19132,0.06,0.77815125,KEGG,CRISPR-associated protein Csb2
-K12067,0.06,0.77815125,KEGG,conjugal transfer pilus assembly protein TraE
-K15366,0.06,0.77815125,KEGG,salmonella plasmid virulence protein B
-K19137,0.05,0.698970004,KEGG,CRISPR-associated protein Csn2
-K12066,0.05,0.698970004,KEGG,conjugal transfer pilus assembly protein TraK
-K12068,0.05,0.698970004,KEGG,conjugal transfer pilus assembly protein TraL
-K19136,0.04,0.602059991,KEGG,CRISPR-associated protein Csx17
-K12064,0.04,0.602059991,KEGG,conjugal transfer pilus assembly protein TraV
-K12069,0.04,0.602059991,KEGG,conjugal transfer pilus assembly protein TraA
-K19085,0.04,0.602059991,KEGG,CRISPR-associated protein Csa1
-K19088,0.04,0.602059991,KEGG,CRISPR-associated protein Cst1
-K12061,0.03,0.477121255,KEGG,conjugal transfer pilus assembly protein TraW
-K09000,0.03,0.477121255,KEGG,CRISPR-associated protein Cmr4
-K19076,0.03,0.477121255,KEGG,CRISPR-associated protein Cmr2
-K19121,0.02,0.301029996,KEGG,CRISPR-associated protein Csc2
-K19120,0.01,0.0,KEGG,CRISPR-associated protein Csc1
-K19133,0.01,0.0,KEGG,CRISPR-associated protein Csb3
-K19134,0.01,0.0,KEGG,CRISPR-associated protein Csx10
-K09127,0.01,0.0,KEGG,CRISPR-associated protein Cmr3
-K07061,0.01,0.0,KEGG,CRISPR-associated protein Cmr1
-K03633,0.01,0.0,KEGG,chromosome partition protein MukF
-K19089,0.01,0.0,KEGG,CRISPR-associated protein Cas5a/b/c
-PF01797.20,9.33,2.969881644,Pfam,Transposase IS200 like
-PF02371.20,8.58,2.933487288,Pfam,Transposase IS116/IS110/IS902 family
-PF01548.21,8.47,2.92788341,Pfam,Transposase
-PF12760.11,8.34,2.921166051,Pfam,Transposase zinc-ribbon domain
-PF09003.14,7.59,2.880241776,Pfam,"Bacteriophage lambda integrase, Arm DNA-binding domain"
-PF13333.10,6.46,2.810232518,Pfam,Integrase core domain
-PF13022.10,6.35,2.802773725,Pfam,Helix-turn-helix of insertion element transposase
-PF01610.21,5.03,2.701567985,Pfam,Transposase
-PF12696.11,5.02,2.700703717,Pfam,TraM recognition site of TraD and TraG
-PF00872.22,5.01,2.699837726,Pfam,"Transposase, Mutator family"
-PF13391.10,4.87,2.687528961,Pfam,HNH endonuclease
-PF03050.18,4.67,2.669316881,Pfam,Transposase IS66 family
-PF05204.18,4.67,2.669316881,Pfam,Homing endonuclease
-PF05598.15,4.44,2.64738297,Pfam,Transposase domain (DUF772)
-PF13395.10,4.03,2.605305046,Pfam,HNH endonuclease
-PF03432.18,4.01,2.603144373,Pfam,Relaxase/Mobilisation nuclease domain
-PF18780.5,3.84,2.584331224,Pfam,Homing endonuclease associated repeat
-PF01076.23,3.53,2.547774705,Pfam,Plasmid recombination enzyme
-PF02920.19,3.03,2.481442629,Pfam,DNA binding domain of tn916 integrase
-PF13340.10,3.01,2.478566496,Pfam,Putative transposase of IS4/5 family (DUF4096)
-PF13817.10,2.95,2.469822016,Pfam,IS66 C-terminal element
-PF05717.17,2.91,2.463892989,Pfam,IS66 Orf2 like protein
-PF09159.14,2.75,2.439332694,Pfam,Mitochondrial resolvase Ydc2 / RNA splicing MRS1
-PF13007.11,2.65,2.423245874,Pfam,Transposase C of IS166 homeodomain
-PF13005.11,2.61,2.416640507,Pfam,zinc-finger binding domain of transposase IS66
-PF05857.15,2.6,2.414973348,Pfam,TraX protein
-PF19044.4,2.33,2.367355921,Pfam,TraG P-loop domain
-PF14198.10,2.24,2.350248018,Pfam,Transposon-encoded protein TnpV
-PF13542.10,2.15,2.33243846,Pfam,Helix-turn-helix domain of transposase family ISL3
-PF13751.10,2.12,2.326335861,Pfam,Transposase DDE domain
-PF14690.10,1.84,2.264817823,Pfam,zinc-finger of transposase IS204/IS1001/IS1096/IS1165
-PF10107.13,1.82,2.260071388,Pfam,Endonuclease related to archaeal Holliday junction resolvase
-PF13586.10,1.73,2.238046103,Pfam,Transposase DDE domain
-PF16684.9,1.71,2.23299611,Pfam,Telomere resolvase
-PF06250.15,1.57,2.195899652,Pfam,YhcG PDDEXK nuclease domain
-PF12784.11,1.54,2.187520721,Pfam,PD-(D/E)XK nuclease family transposase
-PF01870.22,1.48,2.170261715,Pfam,Archaeal holliday junction resolvase (hjc)
-PF13612.10,1.44,2.158362492,Pfam,Transposase DDE domain
-PF09652.14,1.41,2.149219113,Pfam,Putative CRISPR-associated protein (Cas_VVA1548)
-PF07506.15,1.33,2.123851641,Pfam,RepB plasmid partitioning protein
-PF11740.12,1.09,2.037426498,Pfam,Plasmid replication region DNA-binding N-term
-PF13701.10,1.08,2.033423755,Pfam,Transposase DDE domain group 1
-PF18103.5,1.0,2.0,Pfam,Retroviral integrase C-terminal SH3 domain
-PF18697.5,1.0,2.0,Pfam,Murine leukemia virus (MLV) integrase (IN) C-terminal domain
-PF03400.17,0.95,1.977723605,Pfam,IS1 transposase
-PF09709.14,0.94,1.973127854,Pfam,CRISPR-associated protein (Cas_Csd1)
-PF01867.20,0.94,1.973127854,Pfam,CRISPR associated protein Cas1
-PF04754.16,0.92,1.963787827,Pfam,"Putative transposase, YhgA-like"
-PF05732.15,0.9,1.954242509,Pfam,Firmicute plasmid replication protein (RepL)
-PF17921.5,0.84,1.924279286,Pfam,Integrase zinc binding domain
-PF14412.10,0.83,1.919078092,Pfam,A nuclease family of the HNH/ENDO VII superfamily with conserved AHH
-PF04796.16,0.82,1.913813852,Pfam,Plasmid encoded RepA protein
-PF08751.15,0.81,1.908485019,Pfam,TrwC relaxase
-PF19478.3,0.75,1.875061263,Pfam,TrbL/VirB6 plasmid conjugal transfer like protein
-PF08798.15,0.74,1.86923172,Pfam,CRISPR associated protein
-PF01526.21,0.73,1.86332286,Pfam,Tn3 transposase DDE domain
-PF13737.10,0.71,1.851258349,Pfam,Transposase DDE domain
-PF21368.1,0.69,1.838849091,Pfam,"AI2M/AI1M-like, HNH endonuclease"
-PF14202.10,0.67,1.826074803,Pfam,Transposon-encoded protein TnpW
-PF04986.17,0.65,1.812913357,Pfam,Putative transposase
-PF07929.15,0.64,1.806179974,Pfam,Plasmid pRiA4b ORF-3-like protein
-PF12508.12,0.61,1.785329835,Pfam,"Conjugative transposon, TraM"
-PF05107.16,0.61,1.785329835,Pfam,CRISPR-associated protein Cas7
-PF06406.15,0.6,1.77815125,Pfam,"Plasmid segregation protein ParM, N-terminal"
-PF13011.10,0.6,1.77815125,Pfam,leucine-zipper of insertion element IS481
-PF14319.10,0.59,1.770852012,Pfam,Transposase zinc-binding domain
-PF10784.13,0.56,1.748188027,Pfam,Plasmid stability protein
-PF09704.14,0.56,1.748188027,Pfam,CRISPR-associated protein (Cas_Cas5)
-PF09827.13,0.52,1.716003344,Pfam,CRISPR associated protein Cas2
-PF18182.5,0.52,1.716003344,Pfam,minimal CRISPR polymerase domain
-PF05551.15,0.5,1.698970004,Pfam,Zinc-binding loop region of homing endonuclease
-PF01719.21,0.48,1.681241237,Pfam,Plasmid replication protein
-PF09481.14,0.43,1.633468456,Pfam,CRISPR-associated protein Cse1 (CRISPR_cse1)
-PF14414.10,0.41,1.612783857,Pfam,A nuclease of the HNH/ENDO VII superfamily with conserved WHH
-PF01881.20,0.39,1.591064607,Pfam,"CRISPR associated protein Cas6, C-terminal"
-PF21523.1,0.38,1.579783597,Pfam,"Plasmid segregation protein ParM, C-terminal"
-PF17762.5,0.37,1.568201724,Pfam,HTH domain found in ParB protein
-PF04610.18,0.35,1.544068044,Pfam,TrbL/VirB6 plasmid conjugal transfer protein
-PF01710.20,0.34,1.531478917,Pfam,Transposase
-PF12988.11,0.32,1.505149978,Pfam,TraQ conjugal transfer protein
-PF10551.13,0.32,1.505149978,Pfam,MULE transposase domain
-PF03534.17,0.3,1.477121255,Pfam,Salmonella virulence plasmid 65kDa B protein
-PF02022.23,0.29,1.462397998,Pfam,Integrase Zinc binding domain
-PF16592.9,0.28,1.447158031,Pfam,REC lobe of CRISPR-associated endonuclease Cas9
-PF09620.14,0.27,1.431363764,Pfam,CRISPR-associated protein (Cas_csx3)
-PF16593.9,0.27,1.431363764,Pfam,Bridge helix of CRISPR-associated endonuclease Cas9
-PF14410.10,0.27,1.431363764,Pfam,HNH/ENDO VII superfamily nuclease with conserved GHE residues
-PF00552.25,0.23,1.361727836,Pfam,Integrase DNA binding domain
-PF13006.11,0.22,1.342422681,Pfam,Insertion element 4 transposase N-terminal
-PF12835.11,0.21,1.322219295,Pfam,Integrase
-PF09614.14,0.21,1.322219295,Pfam,CRISPR-associated protein (Cas_Csy2)
-PF06412.15,0.2,1.301029996,Pfam,Conjugal transfer protein TraD
-PF10626.13,0.2,1.301029996,Pfam,Conjugative transposon protein TraO
-PF14411.10,0.2,1.301029996,Pfam,A nuclease of the HNH/ENDO VII superfamily with conserved LHH
-PF09615.14,0.19,1.278753601,Pfam,CRISPR-associated protein (Cas_Csy3)
-PF13728.10,0.19,1.278753601,Pfam,F plasmid transfer operon protein
-PF07515.15,0.19,1.278753601,Pfam,Putative conjugal transfer nickase/helicase TraI C-term
-PF09618.14,0.19,1.278753601,Pfam,CRISPR-associated protein (Cas_Csy4)
-PF16595.9,0.18,1.255272505,Pfam,PAM-interacting domain of CRISPR-associated endonuclease Cas9
-PF09559.14,0.18,1.255272505,Pfam,Cas6 Crispr
-PF08775.14,0.17,1.230448921,Pfam,ParB family
-PF20815.1,0.17,1.230448921,Pfam,GIY-YIG catalytic domain
-PF09611.14,0.16,1.204119983,Pfam,CRISPR-associated protein (Cas_Csy1)
-PF09707.14,0.16,1.204119983,Pfam,CRISPR-associated protein (Cas_Cas2CT1978)
-PF01963.21,0.14,1.146128036,Pfam,TraB/PrgY/gumN family
-PF06834.15,0.14,1.146128036,Pfam,TraU protein
-PF10040.13,0.14,1.146128036,Pfam,CRISPR-associated endoribonuclease Cas6
-PF15636.10,0.13,1.113943352,Pfam,GHH signature containing HNH/Endo VII superfamily nuclease toxin
-PF21384.1,0.13,1.113943352,Pfam,"CRISPR-associated nuclease/helicase Cas3, I-F/YPEST, Cas2 domain"
-PF07863.15,0.12,1.079181246,Pfam,Homologues of TraJ from Bacteroides conjugative transposon
-PF14882.10,0.12,1.079181246,Pfam,Integrase repeat unit
-PF07916.15,0.12,1.079181246,Pfam,"TraG-like protein, N-terminal region"
-PF15657.10,0.11,1.041392685,Pfam,HNH/Endo VII superfamily nuclease toxins
-PF09485.14,0.11,1.041392685,Pfam,CRISPR-associated protein Cse2 (CRISPR_cse2)
-PF16509.9,0.11,1.041392685,Pfam,TrfB plasmid transcriptional repressor
-PF17894.5,0.1,1.0,Pfam,Topo homolgy domain in CRISPR-associated endonuclease Cas9
-PF13150.10,0.1,1.0,Pfam,Conjugative transposon protein TraL
-PF07592.15,0.1,1.0,Pfam,Rhodopirellula transposase DDE domain
-PF17893.5,0.1,1.0,Pfam,CRISPR-associated endonuclease Cas9 beta-hairpin domain
-PF08857.15,0.09,0.954242509,Pfam,Putative ParB-like nuclease
-PF11130.12,0.09,0.954242509,Pfam,TraC protein
-PF14706.10,0.07,0.84509804,Pfam,Transposase DNA-binding
-PF18607.5,0.07,0.84509804,Pfam,ParA helix turn helix domain
-PF11083.12,0.06,0.77815125,Pfam,C-terminal helical hairpin domain from relaxase
-PF09617.14,0.06,0.77815125,Pfam,CRISPR-associated protein GSU0053 (Cas_GSU0053)
-PF05309.15,0.06,0.77815125,Pfam,TraE protein
-PF21350.1,0.05,0.698970004,Pfam,"CRISPR-associated protein Cas6, N-terminal"
-PF06586.15,0.05,0.698970004,Pfam,TraK protein
-PF07178.15,0.05,0.698970004,Pfam,TraL protein
-PF03652.19,0.05,0.698970004,Pfam,Holliday junction resolvase
-PF06986.15,0.05,0.698970004,Pfam,"F-type Type IV secretion system, TraN"
-PF20874.1,0.05,0.698970004,Pfam,Relaxase central domain
-PF09711.14,0.05,0.698970004,Pfam,CRISPR-associated protein (Cas_Csn2)
-PF15652.10,0.04,0.602059991,Pfam,HNH/Endo VII superfamily toxin with a SHH signature
-PF09686.14,0.04,0.602059991,Pfam,Plasmid protein of unknown function (Plasmid_RAQPRD)
-PF09676.14,0.04,0.602059991,Pfam,Type IV conjugative transfer system lipoprotein (TraV)
-PF05509.15,0.03,0.477121255,Pfam,TraY domain
-PF20829.1,0.03,0.477121255,Pfam,Anti-CRISPR protein Acr30-35/AcrF1
-PF09659.14,0.03,0.477121255,Pfam,CRISPR-associated protein (Cas_Csm6)
-PF06290.15,0.03,0.477121255,Pfam,Plasmid SOS inhibition protein (PsiB)
-PF07057.15,0.03,0.477121255,Pfam,"DNA helicase TraI, C-terminal"
-PF05818.16,0.03,0.477121255,Pfam,Enterobacterial TraT complement resistance protein
-PF09609.14,0.03,0.477121255,Pfam,"CRISPR-associated protein, GSU0054 family (Cas_GSU0054)"
-PF18272.5,0.03,0.477121255,Pfam,single-stranded DNA binding TraI N-terminal subdomain
-PF02281.20,0.03,0.477121255,Pfam,Transposase Tn5 dimerisation domain
-PF21069.1,0.03,0.477121255,Pfam,CRISPR-associated endonuclease Cas9 alpha-helical lobe
-PF01498.22,0.03,0.477121255,Pfam,Transposase
-PF18340.5,0.03,0.477121255,Pfam,DNA relaxase TraI 2B/2B-like domain
-PF13843.10,0.02,0.301029996,Pfam,Transposase IS4
-PF09657.14,0.02,0.301029996,Pfam,CRISPR-associated protein Csx8 (Cas_Csx8)
-PF06023.16,0.02,0.301029996,Pfam,CRISPR-associated exonuclease Csa1
-PF20552.2,0.02,0.301029996,Pfam,Recombinase-like helix-turn-helix domain
-PF18320.5,0.02,0.301029996,Pfam,Csc2 Crispr
-PF04720.16,0.02,0.301029996,Pfam,PDDEXK-like family of unknown function
-PF05261.15,0.02,0.301029996,Pfam,"TraM protein, DNA-binding"
-PF14639.10,0.02,0.301029996,Pfam,Holliday-junction resolvase-like of SPT6
-PF09670.14,0.02,0.301029996,Pfam,CRISPR-associated protein (Cas_Cas02710)
-PF03221.20,0.01,0.0,Pfam,Tc5 transposase DNA-binding domain
-PF05513.15,0.01,0.0,Pfam,TraA
-PF12477.12,0.01,0.0,Pfam,Sex factor F TraW protein N terminal
-PF21802.1,0.01,0.0,Pfam,"CRISPR-associated Cas3 subtype I-F/YPEST-like, C-terminal domain"
-PF09679.14,0.01,0.0,Pfam,Type-F conjugative transfer system pilin chaperone (TraQ)
-PF21804.1,0.01,0.0,Pfam,Transposase protein
-PF07296.15,0.01,0.0,Pfam,TraP protein
-PF20700.1,0.01,0.0,Pfam,Mutator-like transposase
-PF13729.10,0.01,0.0,Pfam,"F plasmid transfer operon, TraF, protein"
-PF10136.13,0.01,0.0,Pfam,Site-specific recombinase
-PF13009.10,0.01,0.0,Pfam,Putative integrase
-PF15637.10,0.01,0.0,Pfam,HNH/Endo VII superfamily nuclease toxin with a HHH motif
-PF09455.14,0.01,0.0,Pfam,CRISPR-associated (Cas) DxTHG family
-PF21574.1,0.01,0.0,Pfam,"CRISPR-associated endonuclease Cas9, C-terminal domain"
-PF20898.1,0.01,0.0,Pfam,"P-type Type IV secretion system, TraN"
-PF03538.18,0.01,0.0,Pfam,Salmonella virulence plasmid 28.1kDa A protein
-PF18064.5,0.01,0.0,Pfam,Centromere-binding protein ParB C-terminal
-PF01905.20,0.01,0.0,Pfam,CRISPR-associated negative auto-regulator DevR/Csa2
-PF09700.14,0.01,0.0,Pfam,CRISPR-associated protein (Cas_Cmr3)
-PF16813.9,0.01,0.0,Pfam,CRISPR-associated protein Csn2 subfamily St
-phrog_12305,9.75,2.989004616,PHROG,ParB-like partition protein
-phrog_12047,9.71,2.98721923,PHROG,ParB-like partition nuclease
-phrog_6392,9.32,2.969415912,PHROG,ParB-like partition protein
-phrog_956,9.21,2.96425963,PHROG,transposase
-phrog_8446,9.21,2.96425963,PHROG,HNH endonuclease
-phrog_2577,9.08,2.958085849,PHROG,transposase
-phrog_1381,9.03,2.95568775,PHROG,plasmid antitoxin with HTH domain
-phrog_2199,8.87,2.94792362,PHROG,transposase
-phrog_14161,8.37,2.922725458,PHROG,recombinase
-phrog_18112,7.99,2.902546779,PHROG,recombinase
-phrog_1271,7.88,2.896526217,PHROG,HNH endonuclease
-phrog_4646,7.62,2.881954971,PHROG,transposase
-phrog_25190,7.55,2.877946952,PHROG,integrase
-phrog_7370,7.51,2.875639937,PHROG,HNH endonuclease
-phrog_1985,7.39,2.868644438,PHROG,HNH endonuclease
-phrog_8660,7.34,2.86569606,PHROG,HNH endonuclease
-phrog_14913,6.62,2.820857989,PHROG,HNH endonuclease
-phrog_14515,6.59,2.818885415,PHROG,HNH endonuclease
-phrog_17283,6.47,2.810904281,PHROG,HNH endonuclease
-phrog_23783,6.21,2.7930916,PHROG,integrase
-phrog_6620,6.2,2.792391689,PHROG,transposase
-phrog_691,6.02,2.779596491,PHROG,partition protein
-phrog_10426,6.02,2.779596491,PHROG,integrase
-phrog_4285,5.99,2.777426822,PHROG,transposase
-phrog_15463,5.78,2.761927838,PHROG,HNH endonuclease
-phrog_19446,5.34,2.727541257,PHROG,homing endonuclease
-phrog_2331,5.01,2.699837726,PHROG,transposase
-phrog_12131,5.0,2.698970004,PHROG,homing endonuclease
-phrog_568,4.53,2.656098202,PHROG,plasmid stability
-phrog_30377,4.51,2.654176542,PHROG,HNH endonuclease
-phrog_9545,4.47,2.650307523,PHROG,HNH endonuclease
-phrog_1157,4.43,2.646403726,PHROG,transposase
-phrog_10088,4.2,2.62324929,PHROG,homing endonuclease
-phrog_9645,4.13,2.615950052,PHROG,HNH endonuclease
-phrog_4234,4.1,2.612783857,PHROG,HNH endonuclease
-phrog_5749,4.07,2.609594409,PHROG,transposase
-phrog_1808,4.05,2.607455023,PHROG,HNH endonuclease
-phrog_12400,3.82,2.582063363,PHROG,HNH endonuclease
-phrog_10495,3.81,2.580924976,PHROG,HNH endonuclease
-phrog_9508,3.77,2.57634135,PHROG,HNH endonuclease
-phrog_21721,3.76,2.575187845,PHROG,RusA-like Holliday junction resolvase
-phrog_8463,3.67,2.564666064,PHROG,transposase
-phrog_688,3.63,2.559906625,PHROG,transposase
-phrog_6050,3.51,2.545307116,PHROG,HNH endonuclease
-phrog_11688,3.41,2.532754379,PHROG,transposase
-phrog_9019,3.37,2.527629901,PHROG,Holliday junction resolvase
-phrog_3356,3.24,2.51054501,PHROG,transposase
-phrog_3118,3.06,2.485721426,PHROG,HNH endonuclease
-phrog_151,2.93,2.46686762,PHROG,transposase
-phrog_5200,2.93,2.46686762,PHROG,HNH endonuclease
-phrog_623,2.74,2.437750563,PHROG,transposase
-phrog_2579,2.64,2.421603927,PHROG,ParB C-terminal domain
-phrog_37089,2.57,2.409933123,PHROG,recombinase
-phrog_14238,2.49,2.396199347,PHROG,RusA-like Holliday junction resolvase
-phrog_960,2.42,2.383815366,PHROG,HNH endonuclease
-phrog_5830,2.41,2.382017043,PHROG,integrase
-phrog_3035,2.25,2.352182518,PHROG,transposase
-phrog_21421,2.14,2.330413773,PHROG,integrase
-phrog_865,2.09,2.320146286,PHROG,HNH endonuclease
-phrog_10081,2.06,2.31386722,PHROG,transposase
-phrog_7363,2.03,2.307496038,PHROG,homing endonuclease
-phrog_2393,1.98,2.29666519,PHROG,transposase
-phrog_23251,1.93,2.285557309,PHROG,HNH endonuclease
-phrog_827,1.91,2.281033367,PHROG,Holliday junction resolvase
-phrog_4632,1.87,2.271841607,PHROG,RusA-like Holliday junction resolvase
-phrog_9203,1.85,2.267171728,PHROG,RusA-like Holliday junction resolvase
-phrog_3598,1.82,2.260071388,PHROG,transposase
-phrog_26387,1.82,2.260071388,PHROG,ParB-like partition nuclease
-phrog_11023,1.75,2.243038049,PHROG,homing endonuclease with LAGLIDADG motif
-phrog_10696,1.75,2.243038049,PHROG,HNH endonuclease
-phrog_4716,1.71,2.23299611,PHROG,transposase
-phrog_8048,1.66,2.220108088,PHROG,HNH endonuclease
-phrog_25184,1.63,2.212187604,PHROG,HNH endonuclease
-phrog_12598,1.62,2.209515015,PHROG,RusA-like Holliday junction resolvase
-phrog_5389,1.57,2.195899652,PHROG,transposase
-phrog_25061,1.52,2.181843588,PHROG,HNH endonuclease
-phrog_13470,1.5,2.176091259,PHROG,HNH endonuclease
-phrog_930,1.49,2.173186268,PHROG,ParB-like partition protein
-phrog_3300,1.34,2.127104798,PHROG,transposase
-phrog_33747,1.3,2.113943352,PHROG,transposase
-phrog_15522,1.23,2.089905111,PHROG,HNH endonuclease
-phrog_8828,1.23,2.089905111,PHROG,HNH endonuclease
-phrog_11604,1.23,2.089905111,PHROG,HNH endonuclease
-phrog_1013,1.13,2.053078443,PHROG,transposase
-phrog_20162,1.12,2.049218023,PHROG,HNH endonuclease
-phrog_19902,1.12,2.049218023,PHROG,HNH endonuclease
-phrog_5411,1.06,2.025305865,PHROG,HNH endonuclease
-phrog_9443,1.04,2.017033339,PHROG,HNH endonuclease
-phrog_1631,1.01,2.004321374,PHROG,transposase
-phrog_23285,0.97,1.986771734,PHROG,HNH endonuclease
-phrog_18317,0.93,1.968482949,PHROG,Holliday junction resolvase
-phrog_24751,0.93,1.968482949,PHROG,HNH endonuclease
-phrog_12434,0.91,1.959041392,PHROG,HNH endonuclease
-phrog_2262,0.84,1.924279286,PHROG,transposase
-phrog_28142,0.84,1.924279286,PHROG,HNH endonuclease
-phrog_22048,0.82,1.913813852,PHROG,HNH endonuclease
-phrog_7951,0.79,1.897627091,PHROG,transposase
-phrog_1146,0.78,1.892094603,PHROG,ParB-like partition protein
-phrog_10378,0.78,1.892094603,PHROG,HNH endonuclease
-phrog_16016,0.77,1.886490725,PHROG,HNH endonuclease
-phrog_36860,0.74,1.86923172,PHROG,HNH endonuclease
-phrog_720,0.73,1.86332286,PHROG,transposase
-phrog_25862,0.73,1.86332286,PHROG,HNH endonuclease
-phrog_33760,0.71,1.851258349,PHROG,HNH endonuclease
-phrog_10820,0.7,1.84509804,PHROG,HNH endonuclease
-phrog_17698,0.69,1.838849091,PHROG,transposase
-phrog_11704,0.67,1.826074803,PHROG,transposase
-phrog_1723,0.58,1.763427994,PHROG,recombinase
-phrog_22514,0.57,1.755874856,PHROG,HNH endonuclease
-phrog_2422,0.52,1.716003344,PHROG,transposase
-phrog_34723,0.52,1.716003344,PHROG,integrase
-phrog_6591,0.52,1.716003344,PHROG,Holliday junction resolvase
-phrog_3875,0.49,1.69019608,PHROG,RuvC-like Holliday junction resolvase
-phrog_34557,0.47,1.672097858,PHROG,integrase
-phrog_24148,0.47,1.672097858,PHROG,HNH endonuclease
-phrog_1191,0.42,1.62324929,PHROG,transposase
-phrog_2515,0.42,1.62324929,PHROG,partition protein
-phrog_6537,0.41,1.612783857,PHROG,RusA-like Holliday junction resolvase
-phrog_20919,0.39,1.591064607,PHROG,recombinase
-phrog_5351,0.36,1.556302501,PHROG,HNH endonuclease
-phrog_9208,0.35,1.544068044,PHROG,integrase
-phrog_23036,0.3,1.477121255,PHROG,Holliday junction resolvase
-phrog_2123,0.29,1.462397998,PHROG,recombinase
-phrog_17657,0.29,1.462397998,PHROG,HNH endonuclease
-phrog_21964,0.27,1.431363764,PHROG,HNH endonuclease
-phrog_5127,0.27,1.431363764,PHROG,integrase
-phrog_15265,0.25,1.397940009,PHROG,recombinase
-phrog_6086,0.25,1.397940009,PHROG,HNH endonuclease
-phrog_37986,0.25,1.397940009,PHROG,Holliday junction resolvase
-phrog_32069,0.22,1.342422681,PHROG,ParB-like partition protein
-phrog_25983,0.21,1.322219295,PHROG,HNH endonuclease
-phrog_20467,0.19,1.278753601,PHROG,HNH endonuclease
-phrog_25551,0.19,1.278753601,PHROG,homing endonuclease
-phrog_7504,0.19,1.278753601,PHROG,homing endonuclease
-phrog_12980,0.19,1.278753601,PHROG,HNH endonuclease
-phrog_10357,0.19,1.278753601,PHROG,recombinase
-phrog_25420,0.19,1.278753601,PHROG,HNH endonuclease
-phrog_26588,0.17,1.230448921,PHROG,ParB-like partition nuclease
-phrog_30443,0.15,1.176091259,PHROG,HNH endonuclease
-phrog_26754,0.14,1.146128036,PHROG,ParB-like partition nuclease
-phrog_33554,0.13,1.113943352,PHROG,HNH endonuclease
-phrog_9366,0.12,1.079181246,PHROG,transposase
-phrog_8671,0.12,1.079181246,PHROG,partition protein
-phrog_24671,0.12,1.079181246,PHROG,integrase
-phrog_33290,0.11,1.041392685,PHROG,ParB-like partition nuclease
-phrog_18411,0.11,1.041392685,PHROG,homing endonuclease
-phrog_7426,0.11,1.041392685,PHROG,HNH endonuclease
-phrog_35175,0.1,1.0,PHROG,HNH endonuclease
-phrog_36562,0.1,1.0,PHROG,transposase
-phrog_32871,0.1,1.0,PHROG,integrase
-phrog_26377,0.1,1.0,PHROG,ParB-like partition protein
-phrog_20724,0.09,0.954242509,PHROG,HNH endonuclease
-phrog_12576,0.09,0.954242509,PHROG,HNH endonuclease
-phrog_24545,0.09,0.954242509,PHROG,HNH endonuclease
-phrog_19978,0.09,0.954242509,PHROG,HNH endonuclease
-phrog_18250,0.08,0.903089987,PHROG,integrase
-phrog_10553,0.08,0.903089987,PHROG,HNH endonuclease
-phrog_11894,0.08,0.903089987,PHROG,RusA-like Holliday junction resolvase
-phrog_32453,0.08,0.903089987,PHROG,HNH endonuclease
-phrog_14097,0.08,0.903089987,PHROG,HNH endonuclease
-phrog_7030,0.08,0.903089987,PHROG,HNH endonuclease
-phrog_7091,0.08,0.903089987,PHROG,HNH endonuclease
-phrog_29143,0.08,0.903089987,PHROG,HNH endonuclease
-phrog_8786,0.08,0.903089987,PHROG,type I-E anti-CRISPR protein
-phrog_21054,0.07,0.84509804,PHROG,HNH endonuclease
-phrog_34902,0.06,0.77815125,PHROG,Holliday junction resolvase
-phrog_26163,0.06,0.77815125,PHROG,homing endonuclease
-phrog_11336,0.05,0.698970004,PHROG,HNH endonuclease
-phrog_10486,0.05,0.698970004,PHROG,transposase
-phrog_23136,0.05,0.698970004,PHROG,integrase
-phrog_4208,0.04,0.602059991,PHROG,HNH endonuclease
-phrog_27175,0.04,0.602059991,PHROG,transposase
-phrog_3404,0.03,0.477121255,PHROG,HNH endonuclease
-phrog_16545,0.03,0.477121255,PHROG,ParB-like partition protein
-phrog_24252,0.03,0.477121255,PHROG,HNH endonuclease
-phrog_33277,0.03,0.477121255,PHROG,ParB-like partition protein
-phrog_24477,0.03,0.477121255,PHROG,HNH endonuclease
-phrog_33155,0.02,0.301029996,PHROG,HNH endonuclease
-phrog_16133,0.02,0.301029996,PHROG,HNH endonuclease
-phrog_14449,0.02,0.301029996,PHROG,transposase
-phrog_27407,0.02,0.301029996,PHROG,Holliday junction resolvase
-phrog_9769,0.02,0.301029996,PHROG,type I-F anti-CRISPR protein
-phrog_33459,0.01,0.0,PHROG,HNH endonuclease
+id,V-score,VL-score,db,name,genomad_plasmid_marker
+K04763,10.0,4.890951685,KEGG,integrase/recombinase XerD,False
+K14059,10.0,4.882296801,KEGG,integrase,False
+K03733,10.0,4.875391202,KEGG,integrase/recombinase XerC,False
+K03497,10.0,4.484769478,KEGG,"ParB family transcriptional regulator, chromosome partitioning protein",True
+K06400,10.0,4.37329828,KEGG,site-specific DNA recombinase,False
+K07450,10.0,4.204933522,KEGG,putative resolvase,False
+K07012,10.0,4.036069701,KEGG,CRISPR-associated endonuclease/helicase Cas3 [EC:3.1.-.- 5.6.2.4],False
+K07496,10.0,3.890700398,KEGG,putative transposase,False
+K07497,10.0,3.754730469,KEGG,putative transposase,False
+K03496,10.0,3.661244609,KEGG,chromosome partitioning protein,True
+K12055,10.0,3.562768543,KEGG,chromosome partitioning related protein ParA,False
+K02621,10.0,3.400537989,KEGG,topoisomerase IV subunit A [EC:5.6.2.2],True
+K07464,10.0,3.333245699,KEGG,CRISPR-associated exonuclease Cas4 [EC:3.1.12.1],False
+K19732,10.0,3.211921084,KEGG,"LuxR family transcriptional regulator, activator of conjugal transfer of Ti plasmids",True
+K07482,10.0,3.186391216,KEGG,"transposase, IS30 family",False
+K07483,10.0,3.182699903,KEGG,transposase,False
+K12212,10.0,3.164352856,KEGG,intracellular multiplication protein IcmJ,True
+K09952,10.0,3.1430148,KEGG,CRISPR-associated endonuclease Csn1 [EC:3.1.-.-],False
+K07486,10.0,3.118925753,KEGG,transposase,False
+K07467,10.0,3.10720997,KEGG,putative DNA relaxase,True
+K18640,10.0,3.102433706,KEGG,plasmid segregation protein ParM,True
+K07488,10.0,3.08170727,KEGG,transposase,False
+K12063,10.0,3.022840611,KEGG,conjugal transfer ATP-binding protein TraC,True
+K07491,8.51,2.92992956,KEGG,REP-associated tyrosine transposase,False
+K07449,8.07,2.906873535,KEGG,similar to archaeal holliday junction resolvase and Mrr protein,False
+K03205,8.05,2.90579588,KEGG,type IV secretion system protein VirD4 [EC:7.4.2.8],True
+K07492,6.81,2.833147112,KEGG,putative transposase,False
+K07481,6.48,2.811575006,KEGG,"transposase, IS5 family",False
+K07485,5.8,2.763427994,KEGG,transposase,False
+K07499,5.56,2.745074792,KEGG,putative transposase,False
+K07487,5.48,2.738780558,KEGG,transposase,False
+K07493,5.48,2.738780558,KEGG,putative transposase,False
+K12071,4.98,2.697229343,KEGG,conjugal transfer pilus assembly protein TraD,True
+K03199,4.79,2.680335513,KEGG,type IV secretion system protein VirB4 [EC:7.4.2.8],True
+K15338,4.71,2.673020907,KEGG,holliday junction resolvase GEN1/YEN1 [EC:3.1.-.-],False
+K03552,4.69,2.671172843,KEGG,holliday junction resolvase [EC:3.1.21.10],False
+K07484,4.09,2.611723308,KEGG,transposase,False
+K07494,3.88,2.588831726,KEGG,putative transposase,False
+K26534,3.7,2.568201724,KEGG,Poxviridae DNA holliday junction resolvase [EC:3.1.-.-],False
+K01664,2.47,2.392696953,KEGG,para-aminobenzoate synthetase component II [EC:2.6.1.85],False
+K07495,2.45,2.389166084,KEGG,putative transposase,False
+K13791,2.44,2.387389826,KEGG,invasion plasmid antigen,False
+K13950,2.16,2.334453751,KEGG,para-aminobenzoate synthetase [EC:2.6.1.85],False
+K07332,1.94,2.28780173,KEGG,archaeal flagellar protein FlaI,True
+K07725,1.94,2.28780173,KEGG,CRISPR-associated protein Csa3,False
+K12062,1.84,2.264817823,KEGG,conjugal transfer pilin signal peptidase TrbI,True
+K03194,1.47,2.167317335,KEGG,type IV secretion system protein VirB1,True
+K03929,1.07,2.029383778,KEGG,para-nitrobenzyl esterase [EC:3.1.1.-],False
+K07344,1.01,2.004321374,KEGG,type IV secretion system protein TrbL,True
+K25056,1.0,2.0,KEGG,HTLV-1 integrase,False
+K26527,1.0,2.0,KEGG,Rudiviridae holliday junction resolvase [EC:3.1.21.10],False
+K24803,1.0,2.0,KEGG,HIV-1 integrase,False
+K19117,0.96,1.982271233,KEGG,CRISPR-associated protein Csd1,False
+K03342,0.9,1.954242509,KEGG,para-aminobenzoate synthetase / 4-amino-4-deoxychorismate lyase [EC:2.6.1.85 4.1.3.38],False
+K01152,0.87,1.939519253,KEGG,isftu1 transposase,False
+K03632,0.87,1.939519253,KEGG,chromosome partition protein MukB,False
+K09951,0.8,1.903089987,KEGG,CRISPR-associated protein Cas2,False
+K19126,0.77,1.886490725,KEGG,CRISPR system Cascade subunit CasE,False
+K07475,0.72,1.857332496,KEGG,CRISPR-associated endonuclease Cas3-HD [EC:3.1.-.-],False
+K07498,0.71,1.851258349,KEGG,putative transposase,False
+K18320,0.69,1.838849091,KEGG,"transposase, IS6 family",False
+K19090,0.68,1.832508913,KEGG,CRISPR-associated protein Cas5t,False
+K19118,0.62,1.792391689,KEGG,CRISPR-associated protein Csd2,False
+K07489,0.61,1.785329835,KEGG,transposase,False
+K19115,0.6,1.77815125,KEGG,CRISPR-associated protein Csh2,False
+K19091,0.59,1.770852012,KEGG,CRISPR-associated endoribonuclease Cas6 [EC:3.1.-.-],False
+K23371,0.58,1.763427994,KEGG,"L-serine kinase (ATP) / ParB family transcriptional regulator, heme-responsive regulator [EC:2.7.1.225]",False
+K03201,0.49,1.69019608,KEGG,type IV secretion system protein VirB6,True
+K19116,0.48,1.681241237,KEGG,CRISPR-associated protein Cas5h,False
+K19119,0.48,1.681241237,KEGG,CRISPR-associated protein Cas5d,False
+K19123,0.44,1.643452676,KEGG,CRISPR system Cascade subunit CasA,False
+K09002,0.41,1.612783857,KEGG,CRISPR-associated protein Csm3,False
+K19144,0.39,1.591064607,KEGG,CRISPR-associated protein Csx3,False
+K18434,0.39,1.591064607,KEGG,type IV secretion system T-DNA border endonuclease VirD2,True
+K12065,0.31,1.491361694,KEGG,conjugal transfer pilus assembly protein TraB,True
+K19128,0.28,1.447158031,KEGG,CRISPR-associated protein Csy2,False
+K03204,0.26,1.414973348,KEGG,type IV secretion system protein VirB9,True
+K20532,0.25,1.397940009,KEGG,type IV secretion system protein TrbG,True
+K19124,0.25,1.397940009,KEGG,CRISPR system Cascade subunit CasC,False
+K12070,0.25,1.397940009,KEGG,conjugal transfer pilus assembly protein TraI,True
+K01665,0.24,1.380211242,KEGG,para-aminobenzoate synthetase component I [EC:2.6.1.85],False
+K12206,0.23,1.361727836,KEGG,intracellular multiplication protein IcmB [EC:7.2.4.8],True
+K20531,0.22,1.342422681,KEGG,type IV secretion system protein TrbF,True
+K19125,0.22,1.342422681,KEGG,CRISPR system Cascade subunit CasD,False
+K19145,0.22,1.342422681,KEGG,CRISPR-associated protein Csx16,False
+K19129,0.19,1.278753601,KEGG,CRISPR-associated protein Csy3,False
+K19130,0.19,1.278753601,KEGG,CRISPR-associated endonuclease Csy4 [EC:3.1.-.-],False
+K19127,0.17,1.230448921,KEGG,CRISPR-associated protein Csy1,False
+K20266,0.17,1.230448921,KEGG,type IV secretion system protein TrbJ,True
+K12056,0.16,1.204119983,KEGG,conjugal transfer mating pair stabilization protein TraG,True
+K03200,0.15,1.176091259,KEGG,type IV secretion system protein VirB5,True
+K12057,0.14,1.146128036,KEGG,conjugal transfer pilus assembly protein TraF,True
+K19046,0.12,1.079181246,KEGG,CRISPR system Cascade subunit CasB,False
+K19075,0.11,1.041392685,KEGG,CRISPR-associated protein Cst2,False
+K12209,0.1,1.0,KEGG,intracellular multiplication protein IcmE,True
+K03198,0.09,0.954242509,KEGG,type IV secretion system protein VirB3,True
+K07016,0.08,0.903089987,KEGG,CRISPR-associated protein Csm1,False
+K12060,0.08,0.903089987,KEGG,conjugal transfer pilus assembly protein TraU,True
+K12058,0.07,0.84509804,KEGG,conjugal transfer mating pair stabilization protein TraN,True
+K12072,0.07,0.84509804,KEGG,conjugative transfer pilus assembly protein TraH,True
+K19122,0.06,0.77815125,KEGG,CRISPR-associated protein Csc3,False
+K19131,0.06,0.77815125,KEGG,CRISPR-associated protein Csb1,False
+K19132,0.06,0.77815125,KEGG,CRISPR-associated protein Csb2,False
+K12067,0.06,0.77815125,KEGG,conjugal transfer pilus assembly protein TraE,True
+K15366,0.06,0.77815125,KEGG,salmonella plasmid virulence protein B,False
+K19137,0.05,0.698970004,KEGG,CRISPR-associated protein Csn2,False
+K03197,0.05,0.698970004,KEGG,type IV secretion system protein VirB2,True
+K12066,0.05,0.698970004,KEGG,conjugal transfer pilus assembly protein TraK,True
+K12068,0.05,0.698970004,KEGG,conjugal transfer pilus assembly protein TraL,True
+K12211,0.05,0.698970004,KEGG,intracellular multiplication protein IcmG,True
+K12218,0.05,0.698970004,KEGG,intracellular multiplication protein IcmP,True
+K20528,0.04,0.602059991,KEGG,type IV secretion system protein TrbC,True
+K19136,0.04,0.602059991,KEGG,CRISPR-associated protein Csx17,False
+K12049,0.04,0.602059991,KEGG,ComB9 competence protein,True
+K12064,0.04,0.602059991,KEGG,conjugal transfer pilus assembly protein TraV,True
+K12069,0.04,0.602059991,KEGG,conjugal transfer pilus assembly protein TraA,True
+K19085,0.04,0.602059991,KEGG,CRISPR-associated protein Csa1,False
+K19088,0.04,0.602059991,KEGG,CRISPR-associated protein Cst1,False
+K12228,0.04,0.602059991,KEGG,TrbB protein,True
+K12061,0.03,0.477121255,KEGG,conjugal transfer pilus assembly protein TraW,True
+K09000,0.03,0.477121255,KEGG,CRISPR-associated protein Cmr4,False
+K19076,0.03,0.477121255,KEGG,CRISPR-associated protein Cmr2,False
+K12214,0.03,0.477121255,KEGG,intracellular multiplication protein IcmL,True
+K19121,0.02,0.301029996,KEGG,CRISPR-associated protein Csc2,False
+K12059,0.02,0.301029996,KEGG,conjugal transfer pilus assembly protein TrbC,True
+K12078,0.02,0.301029996,KEGG,type IV secretion system protein PtlA,True
+K12081,0.02,0.301029996,KEGG,type IV secretion system protein PtlE,True
+K12213,0.02,0.301029996,KEGG,intracellular multiplication protein IcmK,True
+K19120,0.01,0.0,KEGG,CRISPR-associated protein Csc1,False
+K19133,0.01,0.0,KEGG,CRISPR-associated protein Csb3,False
+K19134,0.01,0.0,KEGG,CRISPR-associated protein Csx10,False
+K09127,0.01,0.0,KEGG,CRISPR-associated protein Cmr3,False
+K07061,0.01,0.0,KEGG,CRISPR-associated protein Cmr1,False
+K03633,0.01,0.0,KEGG,chromosome partition protein MukF,False
+K19089,0.01,0.0,KEGG,CRISPR-associated protein Cas5a/b/c,False
+K12207,0.01,0.0,KEGG,intracellular multiplication protein IcmC,True
+PF13392.10,10.0,4.533263517,Pfam,HNH endonuclease,False
+PF02195.22,10.0,4.473399372,Pfam,ParB/Sulfiredoxin domain,True
+PF01844.27,10.0,4.353646996,Pfam,HNH endonuclease,False
+PF00239.25,10.0,4.342935635,Pfam,"Resolvase, N terminal domain",False
+PF09588.14,10.0,4.283798573,Pfam,YqaJ-like viral recombinase domain,False
+PF07508.17,10.0,4.123524981,Pfam,Recombinase,False
+PF12684.11,10.0,4.108328194,Pfam,PDDEXK-like domain of unknown function (DUF3799),False
+PF14279.10,10.0,4.018450832,Pfam,HNH endonuclease,False
+PF02739.20,10.0,3.956552592,Pfam,"5'-3' exonuclease, N-terminal resolvase-like domain",False
+PF13408.10,10.0,3.917820482,Pfam,Recombinase zinc beta ribbon domain,False
+PF07282.15,10.0,3.810568529,Pfam,Putative transposase DNA-binding domain,False
+PF01385.23,10.0,3.749195042,Pfam,Probable transposase,False
+PF01541.28,10.0,3.731266349,Pfam,GIY-YIG catalytic domain,False
+PF01656.27,10.0,3.601734148,Pfam,CobQ/CobB/MinD/ParA nucleotide binding domain,False
+PF07261.15,10.0,3.539703239,Pfam,Replication initiation and membrane attachment,True
+PF09299.15,10.0,3.532627001,Pfam,"Mu transposase, C-terminal",False
+PF00665.30,10.0,3.50758604,Pfam,Integrase core domain,False
+PF00521.24,10.0,3.409764104,Pfam,"DNA gyrase/topoisomerase IV, subunit A",True
+PF18763.5,10.0,3.39707055,Pfam,ddrB-like ParB superfamily domain,False
+PF19835.3,10.0,3.348110068,Pfam,"Putative endonuclease segE, GIY-YIG domain",False
+PF13683.10,10.0,3.162564407,Pfam,Integrase core domain,False
+PF02796.19,10.0,3.151063253,Pfam,Helix-turn-helix domain of resolvase,False
+PF01527.24,10.0,3.118595365,Pfam,Transposase,False
+PF02914.19,10.0,3.107888025,Pfam,Bacteriophage Mu transposase,False
+PF01609.25,10.0,3.077004327,Pfam,Transposase DDE domain,False
+PF12762.11,10.0,3.067814511,Pfam,ISXO2-like transposase domain,False
+PF02486.23,10.0,3.0523091,Pfam,Replication initiation factor,True
+PF01797.20,9.33,2.969881644,Pfam,Transposase IS200 like,False
+PF02371.20,8.58,2.933487288,Pfam,Transposase IS116/IS110/IS902 family,False
+PF01548.21,8.47,2.92788341,Pfam,Transposase,False
+PF12760.11,8.34,2.921166051,Pfam,Transposase zinc-ribbon domain,False
+PF09003.14,7.59,2.880241776,Pfam,"Bacteriophage lambda integrase, Arm DNA-binding domain",False
+PF03989.17,6.9,2.838849091,Pfam,"DNA gyrase C-terminal domain, beta-propeller",True
+PF13333.10,6.46,2.810232518,Pfam,Integrase core domain,False
+PF13022.10,6.35,2.802773725,Pfam,Helix-turn-helix of insertion element transposase,False
+PF06970.15,5.68,2.754348336,Pfam,Replication initiator protein A (RepA) N-terminus,True
+PF02534.18,5.21,2.716837723,Pfam,Type IV secretory system Conjugative DNA transfer,True
+PF01051.25,5.1,2.707570176,Pfam,"Initiator Replication protein, WH1",True
+PF01610.21,5.03,2.701567985,Pfam,Transposase,False
+PF12696.11,5.02,2.700703717,Pfam,TraM recognition site of TraD and TraG,True
+PF00872.22,5.01,2.699837726,Pfam,"Transposase, Mutator family",False
+PF13391.10,4.87,2.687528961,Pfam,HNH endonuclease,False
+PF10412.13,4.8,2.681241237,Pfam,Type IV secretion-system coupling protein DNA-binding domain,True
+PF03050.18,4.67,2.669316881,Pfam,Transposase IS66 family,False
+PF05204.18,4.67,2.669316881,Pfam,Homing endonuclease,False
+PF00091.29,4.59,2.661812686,Pfam,"Tubulin/FtsZ family, GTPase domain",True
+PF13814.10,4.44,2.64738297,Pfam,Replication-relaxation,True
+PF05598.15,4.44,2.64738297,Pfam,Transposase domain (DUF772),False
+PF13395.10,4.03,2.605305046,Pfam,HNH endonuclease,False
+PF03432.18,4.01,2.603144373,Pfam,Relaxase/Mobilisation nuclease domain,True
+PF18780.5,3.84,2.584331224,Pfam,Homing endonuclease associated repeat,False
+PF14072.10,3.65,2.562292864,Pfam,DNA-sulfur modification-associated,True
+PF01076.23,3.53,2.547774705,Pfam,Plasmid recombination enzyme,True
+PF02920.19,3.03,2.481442629,Pfam,DNA binding domain of tn916 integrase,False
+PF13340.10,3.01,2.478566496,Pfam,Putative transposase of IS4/5 family (DUF4096),False
+PF13817.10,2.95,2.469822016,Pfam,IS66 C-terminal element,False
+PF05717.17,2.91,2.463892989,Pfam,IS66 Orf2 like protein,False
+PF09159.14,2.75,2.439332694,Pfam,Mitochondrial resolvase Ydc2 / RNA splicing MRS1,False
+PF13007.11,2.65,2.423245874,Pfam,Transposase C of IS166 homeodomain,False
+PF13005.11,2.61,2.416640507,Pfam,zinc-finger binding domain of transposase IS66,False
+PF05857.15,2.6,2.414973348,Pfam,TraX protein,False
+PF19044.4,2.33,2.367355921,Pfam,TraG P-loop domain,True
+PF14198.10,2.24,2.350248018,Pfam,Transposon-encoded protein TnpV,False
+PF00437.24,2.22,2.346352974,Pfam,Type II/IV secretion system protein,True
+PF13542.10,2.15,2.33243846,Pfam,Helix-turn-helix domain of transposase family ISL3,False
+PF13751.10,2.12,2.326335861,Pfam,Transposase DDE domain,False
+PF14690.10,1.84,2.264817823,Pfam,zinc-finger of transposase IS204/IS1001/IS1096/IS1165,False
+PF10107.13,1.82,2.260071388,Pfam,Endonuclease related to archaeal Holliday junction resolvase,False
+PF01446.21,1.75,2.243038049,Pfam,Replication protein,True
+PF13586.10,1.73,2.238046103,Pfam,Transposase DDE domain,False
+PF16684.9,1.71,2.23299611,Pfam,Telomere resolvase,False
+PF06250.15,1.57,2.195899652,Pfam,YhcG PDDEXK nuclease domain,False
+PF12784.11,1.54,2.187520721,Pfam,PD-(D/E)XK nuclease family transposase,False
+PF01870.22,1.48,2.170261715,Pfam,Archaeal holliday junction resolvase (hjc),False
+PF13612.10,1.44,2.158362492,Pfam,Transposase DDE domain,False
+PF09652.14,1.41,2.149219113,Pfam,Putative CRISPR-associated protein (Cas_VVA1548),False
+PF07506.15,1.33,2.123851641,Pfam,RepB plasmid partitioning protein,True
+PF03389.19,1.28,2.10720997,Pfam,MobA/MobL family,True
+PF18555.5,1.11,2.045322979,Pfam,MobL relaxases,True
+PF11740.12,1.09,2.037426498,Pfam,Plasmid replication region DNA-binding N-term,True
+PF13701.10,1.08,2.033423755,Pfam,Transposase DDE domain group 1,False
+PF18103.5,1.0,2.0,Pfam,Retroviral integrase C-terminal SH3 domain,False
+PF18697.5,1.0,2.0,Pfam,Murine leukemia virus (MLV) integrase (IN) C-terminal domain,False
+PF03400.17,0.95,1.977723605,Pfam,IS1 transposase,False
+PF09709.14,0.94,1.973127854,Pfam,CRISPR-associated protein (Cas_Csd1),False
+PF01867.20,0.94,1.973127854,Pfam,CRISPR associated protein Cas1,False
+PF04754.16,0.92,1.963787827,Pfam,"Putative transposase, YhgA-like",False
+PF05732.15,0.9,1.954242509,Pfam,Firmicute plasmid replication protein (RepL),True
+PF18106.5,0.9,1.954242509,Pfam,Rolling Circle replication initiation protein N-terminal domain,True
+PF17921.5,0.84,1.924279286,Pfam,Integrase zinc binding domain,False
+PF14412.10,0.83,1.919078092,Pfam,A nuclease family of the HNH/ENDO VII superfamily with conserved AHH,False
+PF04796.16,0.82,1.913813852,Pfam,Plasmid encoded RepA protein,True
+PF08751.15,0.81,1.908485019,Pfam,TrwC relaxase,True
+PF19478.3,0.75,1.875061263,Pfam,TrbL/VirB6 plasmid conjugal transfer like protein,True
+PF08798.15,0.74,1.86923172,Pfam,CRISPR associated protein,False
+PF01526.21,0.73,1.86332286,Pfam,Tn3 transposase DDE domain,False
+PF13737.10,0.71,1.851258349,Pfam,Transposase DDE domain,False
+PF21368.1,0.69,1.838849091,Pfam,"AI2M/AI1M-like, HNH endonuclease",False
+PF14202.10,0.67,1.826074803,Pfam,Transposon-encoded protein TnpW,False
+PF04986.17,0.65,1.812913357,Pfam,Putative transposase,False
+PF20199.2,0.65,1.812913357,Pfam,"Replication initiator protein, pSAM2",True
+PF05713.15,0.64,1.806179974,Pfam,Bacterial mobilisation protein (MobC),True
+PF07929.15,0.64,1.806179974,Pfam,Plasmid pRiA4b ORF-3-like protein,False
+PF12508.12,0.61,1.785329835,Pfam,"Conjugative transposon, TraM",False
+PF05107.16,0.61,1.785329835,Pfam,CRISPR-associated protein Cas7,False
+PF06406.15,0.6,1.77815125,Pfam,"Plasmid segregation protein ParM, N-terminal",True
+PF13011.10,0.6,1.77815125,Pfam,leucine-zipper of insertion element IS481,False
+PF14319.10,0.59,1.770852012,Pfam,Transposase zinc-binding domain,False
+PF10784.13,0.56,1.748188027,Pfam,Plasmid stability protein,True
+PF09704.14,0.56,1.748188027,Pfam,CRISPR-associated protein (Cas_Cas5),False
+PF07042.15,0.55,1.740362689,Pfam,TrfA protein,True
+PF10134.13,0.54,1.73239376,Pfam,Replication initiator protein A,True
+PF12642.11,0.53,1.72427587,Pfam,Conjugative transposon protein TcpC,True
+PF09827.13,0.52,1.716003344,Pfam,CRISPR associated protein Cas2,False
+PF18182.5,0.52,1.716003344,Pfam,minimal CRISPR polymerase domain,False
+PF05551.15,0.5,1.698970004,Pfam,Zinc-binding loop region of homing endonuclease,False
+PF19514.3,0.49,1.69019608,Pfam,MobC-like protein,True
+PF01719.21,0.48,1.681241237,Pfam,Plasmid replication protein,True
+PF12958.11,0.48,1.681241237,Pfam,Protein of unknown function (DUF3847),True
+PF12648.11,0.48,1.681241237,Pfam,TcpE family,True
+PF03743.18,0.47,1.672097858,Pfam,Bacterial conjugation TrbI-like protein,True
+PF02387.19,0.46,1.662757832,Pfam,IncFII RepA protein family,True
+PF03428.17,0.44,1.643452676,Pfam,Replication protein C N-terminal domain,True
+PF11800.12,0.43,1.633468456,Pfam,Replication protein C C-terminal region,True
+PF09481.14,0.43,1.633468456,Pfam,CRISPR-associated protein Cse1 (CRISPR_cse1),False
+PF14414.10,0.41,1.612783857,Pfam,A nuclease of the HNH/ENDO VII superfamily with conserved WHH,False
+PF01881.20,0.39,1.591064607,Pfam,"CRISPR associated protein Cas6, C-terminal",False
+PF21523.1,0.38,1.579783597,Pfam,"Plasmid segregation protein ParM, C-terminal",True
+PF14595.10,0.37,1.568201724,Pfam,Thioredoxin,True
+PF03090.21,0.37,1.568201724,Pfam,Replicase family,True
+PF17762.5,0.37,1.568201724,Pfam,HTH domain found in ParB protein,False
+PF04610.18,0.35,1.544068044,Pfam,TrbL/VirB6 plasmid conjugal transfer protein,True
+PF01710.20,0.34,1.531478917,Pfam,Transposase,False
+PF12988.11,0.32,1.505149978,Pfam,TraQ conjugal transfer protein,True
+PF10551.13,0.32,1.505149978,Pfam,MULE transposase domain,False
+PF03534.17,0.3,1.477121255,Pfam,Salmonella virulence plasmid 65kDa B protein,False
+PF02022.23,0.29,1.462397998,Pfam,Integrase Zinc binding domain,False
+PF16592.9,0.28,1.447158031,Pfam,REC lobe of CRISPR-associated endonuclease Cas9,False
+PF09620.14,0.27,1.431363764,Pfam,CRISPR-associated protein (Cas_csx3),False
+PF16593.9,0.27,1.431363764,Pfam,Bridge helix of CRISPR-associated endonuclease Cas9,False
+PF14410.10,0.27,1.431363764,Pfam,HNH/ENDO VII superfamily nuclease with conserved GHE residues,False
+PF04335.17,0.26,1.414973348,Pfam,VirB8 protein,True
+PF03524.19,0.25,1.397940009,Pfam,Conjugal transfer protein,True
+PF19597.3,0.24,1.380211242,Pfam,Conjugal transfer protein TrbL,True
+PF00552.25,0.23,1.361727836,Pfam,Integrase DNA binding domain,False
+PF13006.11,0.22,1.342422681,Pfam,Insertion element 4 transposase N-terminal,False
+PF12835.11,0.21,1.322219295,Pfam,Integrase,False
+PF09614.14,0.21,1.322219295,Pfam,CRISPR-associated protein (Cas_Csy2),False
+PF03135.18,0.2,1.301029996,Pfam,"CagE, TrbE, VirB family, component of type IV transporter system",True
+PF06412.15,0.2,1.301029996,Pfam,Conjugal transfer protein TraD,True
+PF10626.13,0.2,1.301029996,Pfam,Conjugative transposon protein TraO,True
+PF14411.10,0.2,1.301029996,Pfam,A nuclease of the HNH/ENDO VII superfamily with conserved LHH,False
+PF09615.14,0.19,1.278753601,Pfam,CRISPR-associated protein (Cas_Csy3),False
+PF13728.10,0.19,1.278753601,Pfam,F plasmid transfer operon protein,True
+PF07515.15,0.19,1.278753601,Pfam,Putative conjugal transfer nickase/helicase TraI C-term,True
+PF09618.14,0.19,1.278753601,Pfam,CRISPR-associated protein (Cas_Csy4),False
+PF16595.9,0.18,1.255272505,Pfam,PAM-interacting domain of CRISPR-associated endonuclease Cas9,False
+PF09559.14,0.18,1.255272505,Pfam,Cas6 Crispr,False
+PF08775.14,0.17,1.230448921,Pfam,ParB family,True
+PF20815.1,0.17,1.230448921,Pfam,GIY-YIG catalytic domain,False
+PF09611.14,0.16,1.204119983,Pfam,CRISPR-associated protein (Cas_Csy1),False
+PF18976.4,0.16,1.204119983,Pfam,Family of unknown function (DUF5712),True
+PF09707.14,0.16,1.204119983,Pfam,CRISPR-associated protein (Cas_Cas2CT1978),False
+PF09274.14,0.14,1.146128036,Pfam,ParG,True
+PF01963.21,0.14,1.146128036,Pfam,TraB/PrgY/gumN family,False
+PF06834.15,0.14,1.146128036,Pfam,TraU protein,True
+PF10040.13,0.14,1.146128036,Pfam,CRISPR-associated endoribonuclease Cas6,False
+PF15636.10,0.13,1.113943352,Pfam,GHH signature containing HNH/Endo VII superfamily nuclease toxin,False
+PF04956.17,0.13,1.113943352,Pfam,TrbC/VIRB2 pilin,True
+PF21384.1,0.13,1.113943352,Pfam,"CRISPR-associated nuclease/helicase Cas3, I-F/YPEST, Cas2 domain",False
+PF07863.15,0.12,1.079181246,Pfam,Homologues of TraJ from Bacteroides conjugative transposon,False
+PF14882.10,0.12,1.079181246,Pfam,Integrase repeat unit,False
+PF07916.15,0.12,1.079181246,Pfam,"TraG-like protein, N-terminal region",True
+PF15657.10,0.11,1.041392685,Pfam,HNH/Endo VII superfamily nuclease toxins,False
+PF09485.14,0.11,1.041392685,Pfam,CRISPR-associated protein Cse2 (CRISPR_cse2),False
+PF16509.9,0.11,1.041392685,Pfam,TrfB plasmid transcriptional repressor,False
+PF09079.15,0.11,1.041392685,Pfam,"CDC6, C terminal winged helix domain",True
+PF07232.15,0.1,1.0,Pfam,Putative rep protein (DUF1424),True
+PF17894.5,0.1,1.0,Pfam,Topo homolgy domain in CRISPR-associated endonuclease Cas9,False
+PF13150.10,0.1,1.0,Pfam,Conjugative transposon protein TraL,True
+PF07592.15,0.1,1.0,Pfam,Rhodopirellula transposase DDE domain,False
+PF17893.5,0.1,1.0,Pfam,CRISPR-associated endonuclease Cas9 beta-hairpin domain,False
+PF08857.15,0.09,0.954242509,Pfam,Putative ParB-like nuclease,False
+PF05101.17,0.09,0.954242509,Pfam,"Type IV secretory pathway, VirB3-like protein",True
+PF11130.12,0.09,0.954242509,Pfam,TraC protein,True
+PF14706.10,0.07,0.84509804,Pfam,Transposase DNA-binding,False
+PF18607.5,0.07,0.84509804,Pfam,ParA helix turn helix domain,False
+PF07996.15,0.07,0.84509804,Pfam,Type IV secretion system proteins,True
+PF06122.15,0.07,0.84509804,Pfam,Conjugative relaxosome accessory transposon protein,True
+PF11083.12,0.06,0.77815125,Pfam,C-terminal helical hairpin domain from relaxase,False
+PF19456.3,0.06,0.77815125,Pfam,MobI protein,True
+PF09617.14,0.06,0.77815125,Pfam,CRISPR-associated protein GSU0053 (Cas_GSU0053),False
+PF05309.15,0.06,0.77815125,Pfam,TraE protein,True
+PF06430.16,0.05,0.698970004,Pfam,Lactococcus lactis RepB C-terminus,True
+PF21350.1,0.05,0.698970004,Pfam,"CRISPR-associated protein Cas6, N-terminal",False
+PF06952.15,0.05,0.698970004,Pfam,PsiA protein,True
+PF06586.15,0.05,0.698970004,Pfam,TraK protein,True
+PF07178.15,0.05,0.698970004,Pfam,TraL protein,True
+PF18008.5,0.05,0.698970004,Pfam,Replication initiator protein A C-terminal domain,True
+PF03652.19,0.05,0.698970004,Pfam,Holliday junction resolvase,False
+PF06986.15,0.05,0.698970004,Pfam,"F-type Type IV secretion system, TraN",True
+PF20874.1,0.05,0.698970004,Pfam,Relaxase central domain,False
+PF09711.14,0.05,0.698970004,Pfam,CRISPR-associated protein (Cas_Csn2),False
+PF01815.20,0.04,0.602059991,Pfam,Rop protein,True
+PF15652.10,0.04,0.602059991,Pfam,HNH/Endo VII superfamily toxin with a SHH signature,False
+PF09686.14,0.04,0.602059991,Pfam,Plasmid protein of unknown function (Plasmid_RAQPRD),False
+PF09676.14,0.04,0.602059991,Pfam,Type IV conjugative transfer system lipoprotein (TraV),True
+PF05509.15,0.03,0.477121255,Pfam,TraY domain,True
+PF20829.1,0.03,0.477121255,Pfam,Anti-CRISPR protein Acr30-35/AcrF1,False
+PF04899.16,0.03,0.477121255,Pfam,MbeD/MobD like,True
+PF09659.14,0.03,0.477121255,Pfam,CRISPR-associated protein (Cas_Csm6),False
+PF06290.15,0.03,0.477121255,Pfam,Plasmid SOS inhibition protein (PsiB),True
+PF07057.15,0.03,0.477121255,Pfam,"DNA helicase TraI, C-terminal",True
+PF05818.16,0.03,0.477121255,Pfam,Enterobacterial TraT complement resistance protein,False
+PF09609.14,0.03,0.477121255,Pfam,"CRISPR-associated protein, GSU0054 family (Cas_GSU0054)",False
+PF18272.5,0.03,0.477121255,Pfam,single-stranded DNA binding TraI N-terminal subdomain,True
+PF02281.20,0.03,0.477121255,Pfam,Transposase Tn5 dimerisation domain,False
+PF21069.1,0.03,0.477121255,Pfam,CRISPR-associated endonuclease Cas9 alpha-helical lobe,False
+PF11393.12,0.03,0.477121255,Pfam,"Type-IV b secretion system, inner-membrane complex component",True
+PF12602.12,0.03,0.477121255,Pfam,Fertility inhibition protein N terminal,True
+PF01498.22,0.03,0.477121255,Pfam,Transposase,False
+PF18340.5,0.03,0.477121255,Pfam,DNA relaxase TraI 2B/2B-like domain,True
+PF13843.10,0.02,0.301029996,Pfam,Transposase IS4,False
+PF09657.14,0.02,0.301029996,Pfam,CRISPR-associated protein Csx8 (Cas_Csx8),False
+PF06023.16,0.02,0.301029996,Pfam,CRISPR-associated exonuclease Csa1,False
+PF12293.12,0.02,0.301029996,Pfam,Putative outer membrane core complex of type IVb secretion,True
+PF09673.14,0.02,0.301029996,Pfam,Type-F conjugative transfer system pilin assembly protein,True
+PF20552.2,0.02,0.301029996,Pfam,Recombinase-like helix-turn-helix domain,False
+PF10723.13,0.02,0.301029996,Pfam,Replication regulatory protein RepB,True
+PF18320.5,0.02,0.301029996,Pfam,Csc2 Crispr,False
+PF04720.16,0.02,0.301029996,Pfam,PDDEXK-like family of unknown function,False
+PF05261.15,0.02,0.301029996,Pfam,"TraM protein, DNA-binding",True
+PF14639.10,0.02,0.301029996,Pfam,Holliday-junction resolvase-like of SPT6,False
+PF09670.14,0.02,0.301029996,Pfam,CRISPR-associated protein (Cas_Cas02710),False
+PF09677.14,0.01,0.0,Pfam,Type-F conjugative transfer system protein (TrbI_Ftype),True
+PF03221.20,0.01,0.0,Pfam,Tc5 transposase DNA-binding domain,False
+PF05472.15,0.01,0.0,Pfam,DNA replication terminus site-binding protein (Ter protein),True
+PF05513.15,0.01,0.0,Pfam,TraA,True
+PF12477.12,0.01,0.0,Pfam,Sex factor F TraW protein N terminal,True
+PF21802.1,0.01,0.0,Pfam,"CRISPR-associated Cas3 subtype I-F/YPEST-like, C-terminal domain",False
+PF09679.14,0.01,0.0,Pfam,Type-F conjugative transfer system pilin chaperone (TraQ),True
+PF04837.16,0.01,0.0,Pfam,"MbeB-like, N-term conserved region",True
+PF21804.1,0.01,0.0,Pfam,Transposase protein,False
+PF07296.15,0.01,0.0,Pfam,TraP protein,True
+PF02402.20,0.01,0.0,Pfam,Lysis protein,True
+PF20700.1,0.01,0.0,Pfam,Mutator-like transposase,False
+PF13729.10,0.01,0.0,Pfam,"F plasmid transfer operon, TraF, protein",True
+PF10136.13,0.01,0.0,Pfam,Site-specific recombinase,False
+PF13009.10,0.01,0.0,Pfam,Putative integrase,False
+PF15637.10,0.01,0.0,Pfam,HNH/Endo VII superfamily nuclease toxin with a HHH motif,False
+PF09455.14,0.01,0.0,Pfam,CRISPR-associated (Cas) DxTHG family,False
+PF21574.1,0.01,0.0,Pfam,"CRISPR-associated endonuclease Cas9, C-terminal domain",False
+PF20898.1,0.01,0.0,Pfam,"P-type Type IV secretion system, TraN",False
+PF03538.18,0.01,0.0,Pfam,Salmonella virulence plasmid 28.1kDa A protein,False
+PF18064.5,0.01,0.0,Pfam,Centromere-binding protein ParB C-terminal,False
+PF01905.20,0.01,0.0,Pfam,CRISPR-associated negative auto-regulator DevR/Csa2,False
+PF21497.1,0.01,0.0,Pfam,"Conjugal transfer protein-like, C-terminal domain",True
+PF09700.14,0.01,0.0,Pfam,CRISPR-associated protein (Cas_Cmr3),False
+PF16813.9,0.01,0.0,Pfam,CRISPR-associated protein Csn2 subfamily St,False
+phrog_216,10.0,4.618738233,PHROG,integrase,False
+phrog_1,10.0,4.578306773,PHROG,integrase,False
+phrog_59,10.0,4.349995899,PHROG,HNH endonuclease,False
+phrog_620,10.0,4.316431669,PHROG,ParB-like partition protein,False
+phrog_95,10.0,4.311986835,PHROG,integrase,False
+phrog_99,10.0,4.287980784,PHROG,HNH endonuclease,False
+phrog_144,10.0,4.254040258,PHROG,HNH endonuclease,False
+phrog_959,10.0,4.224222186,PHROG,HNH endonuclease,False
+phrog_8071,10.0,4.212374071,PHROG,ParB-like partition protein,False
+phrog_1492,10.0,4.190387733,PHROG,HNH endonuclease,False
+phrog_119,10.0,4.183952786,PHROG,HNH endonuclease,False
+phrog_4578,10.0,4.166311681,PHROG,HNH endonuclease,False
+phrog_140,10.0,4.108091236,PHROG,RusA-like Holliday junction resolvase,False
+phrog_15396,10.0,4.106632789,PHROG,ParB-like partition nuclease,False
+phrog_18056,10.0,4.047313816,PHROG,ParB-like partition nuclease,False
+phrog_3377,10.0,4.042417988,PHROG,HNH endonuclease,False
+phrog_2081,10.0,4.042299807,PHROG,HNH endonuclease,False
+phrog_826,10.0,4.007150105,PHROG,HNH endonuclease,False
+phrog_3593,10.0,3.95679252,PHROG,HNH endonuclease,False
+phrog_314,10.0,3.945222317,PHROG,homing endonuclease,False
+phrog_6254,10.0,3.91603261,PHROG,HNH endonuclease,False
+phrog_97,10.0,3.909235003,PHROG,UvsX-like recombinase,False
+phrog_374,10.0,3.884398826,PHROG,HNH endonuclease,False
+phrog_953,10.0,3.875466416,PHROG,HNH endonuclease,False
+phrog_723,10.0,3.834992604,PHROG,ParB-like partition protein,False
+phrog_2323,10.0,3.792951708,PHROG,HNH endonuclease,False
+phrog_506,10.0,3.792461731,PHROG,transposase,False
+phrog_4715,10.0,3.778802204,PHROG,ParB-like partition protein,False
+phrog_589,10.0,3.767749367,PHROG,HNH endonuclease,False
+phrog_3264,10.0,3.74694541,PHROG,ParB-like partition protein,False
+phrog_34,10.0,3.740046724,PHROG,RusA-like Holliday junction resolvase,False
+phrog_310,10.0,3.738384124,PHROG,transposase,False
+phrog_190,10.0,3.737431201,PHROG,Holliday junction resolvase,False
+phrog_333,10.0,3.736316808,PHROG,HNH endonuclease,False
+phrog_1314,10.0,3.71432976,PHROG,HNH endonuclease,False
+phrog_2214,10.0,3.703119346,PHROG,HNH endonuclease,False
+phrog_7168,10.0,3.688953463,PHROG,homing endonuclease,False
+phrog_12300,10.0,3.685831275,PHROG,transposase,False
+phrog_244,10.0,3.656673046,PHROG,RusA-like Holliday junction resolvase,False
+phrog_338,10.0,3.636688448,PHROG,HNH endonuclease,False
+phrog_16726,10.0,3.633266411,PHROG,HNH endonuclease,False
+phrog_164,10.0,3.619406411,PHROG,ParA-like partition protein,False
+phrog_159,10.0,3.616895426,PHROG,RuvC-like Holliday junction resolvase,False
+phrog_1770,10.0,3.609807769,PHROG,Holliday junction resolvase,False
+phrog_6218,10.0,3.59117595,PHROG,ParB-like partition protein,False
+phrog_2255,10.0,3.583085366,PHROG,HNH endonuclease,False
+phrog_7269,10.0,3.582517884,PHROG,integrase,False
+phrog_13964,10.0,3.576801896,PHROG,transposase,False
+phrog_4842,10.0,3.564192461,PHROG,HNH endonuclease,False
+phrog_131,10.0,3.564073979,PHROG,HNH endonuclease,False
+phrog_1891,10.0,3.529045171,PHROG,HNH endonuclease,False
+phrog_5956,10.0,3.527114112,PHROG,HNH endonuclease,False
+phrog_2118,10.0,3.518250651,PHROG,HNH endonuclease,False
+phrog_5702,10.0,3.442479769,PHROG,Holliday junction resolvase,False
+phrog_5718,10.0,3.436957331,PHROG,HNH endonuclease,False
+phrog_9084,10.0,3.412628521,PHROG,homing endonuclease,False
+phrog_1033,10.0,3.401745082,PHROG,ParB-like partition protein,False
+phrog_20891,10.0,3.387923467,PHROG,HNH endonuclease,False
+phrog_21084,10.0,3.38039216,PHROG,recombinase,False
+phrog_559,10.0,3.357363031,PHROG,HNH endonuclease,False
+phrog_7785,10.0,3.357363031,PHROG,HNH endonuclease,False
+phrog_2159,10.0,3.348110068,PHROG,ParB-like partition protein,False
+phrog_14314,10.0,3.347915187,PHROG,HNH endonuclease,False
+phrog_3106,10.0,3.344588743,PHROG,HNH endonuclease,False
+phrog_7685,10.0,3.342817315,PHROG,integrase,False
+phrog_1682,10.0,3.32674538,PHROG,RusA-like Holliday junction resolvase,False
+phrog_7244,10.0,3.302114377,PHROG,integrase,False
+phrog_3339,10.0,3.29907126,PHROG,homing endonuclease,False
+phrog_11531,10.0,3.259832699,PHROG,integrase,False
+phrog_740,10.0,3.227886705,PHROG,HNH endonuclease,False
+phrog_14736,10.0,3.223495941,PHROG,HNH endonuclease,False
+phrog_843,10.0,3.20709554,PHROG,Holliday junction resolvase,False
+phrog_513,10.0,3.198657087,PHROG,transposase,False
+phrog_655,10.0,3.183554534,PHROG,homing endonuclease,False
+phrog_10822,10.0,3.170261715,PHROG,HNH endonuclease,False
+phrog_1706,10.0,3.16879202,PHROG,CRISPR/Cas system associated,False
+phrog_15471,10.0,3.16879202,PHROG,HNH endonuclease,False
+phrog_795,10.0,3.162265614,PHROG,partition protein ATPase,False
+phrog_4321,10.0,3.127428778,PHROG,HNH endonuclease,False
+phrog_96,10.0,3.120573931,PHROG,HNH endonuclease,False
+phrog_5123,10.0,3.114610984,PHROG,homing endonuclease with GIY-YIG motif,False
+phrog_1571,10.0,3.096562438,PHROG,HNH endonuclease,False
+phrog_3055,10.0,3.092720645,PHROG,RusA-like Holliday junction resolvase,False
+phrog_157,10.0,3.078456818,PHROG,transposase,False
+phrog_7545,10.0,3.074084689,PHROG,HNH endonuclease,False
+phrog_3007,10.0,3.072617477,PHROG,RusA-like Holliday junction resolvase,False
+phrog_2685,10.0,3.068185862,PHROG,partition protein ATPase,False
+phrog_35854,10.0,3.043755127,PHROG,HNH endonuclease,False
+phrog_2002,10.0,3.037824751,PHROG,Holliday junction resolvase,False
+phrog_10003,10.0,3.012837225,PHROG,recombinase,False
+phrog_5046,10.0,3.007747778,PHROG,HNH endonuclease,False
+phrog_10730,10.0,3.000867722,PHROG,HNH endonuclease,False
+phrog_12305,9.75,2.989004616,PHROG,ParB-like partition protein,False
+phrog_12047,9.71,2.98721923,PHROG,ParB-like partition nuclease,False
+phrog_6392,9.32,2.969415912,PHROG,ParB-like partition protein,False
+phrog_956,9.21,2.96425963,PHROG,transposase,False
+phrog_8446,9.21,2.96425963,PHROG,HNH endonuclease,False
+phrog_2577,9.08,2.958085849,PHROG,transposase,False
+phrog_1381,9.03,2.95568775,PHROG,plasmid antitoxin with HTH domain,False
+phrog_2199,8.87,2.94792362,PHROG,transposase,False
+phrog_14161,8.37,2.922725458,PHROG,recombinase,False
+phrog_18112,7.99,2.902546779,PHROG,recombinase,False
+phrog_1271,7.88,2.896526217,PHROG,HNH endonuclease,False
+phrog_4646,7.62,2.881954971,PHROG,transposase,False
+phrog_25190,7.55,2.877946952,PHROG,integrase,False
+phrog_7370,7.51,2.875639937,PHROG,HNH endonuclease,False
+phrog_1985,7.39,2.868644438,PHROG,HNH endonuclease,False
+phrog_8660,7.34,2.86569606,PHROG,HNH endonuclease,False
+phrog_14913,6.62,2.820857989,PHROG,HNH endonuclease,False
+phrog_14515,6.59,2.818885415,PHROG,HNH endonuclease,False
+phrog_17283,6.47,2.810904281,PHROG,HNH endonuclease,False
+phrog_23783,6.21,2.7930916,PHROG,integrase,False
+phrog_6620,6.2,2.792391689,PHROG,transposase,False
+phrog_691,6.02,2.779596491,PHROG,partition protein,False
+phrog_10426,6.02,2.779596491,PHROG,integrase,False
+phrog_4285,5.99,2.777426822,PHROG,transposase,False
+phrog_15463,5.78,2.761927838,PHROG,HNH endonuclease,False
+phrog_19446,5.34,2.727541257,PHROG,homing endonuclease,False
+phrog_2331,5.01,2.699837726,PHROG,transposase,False
+phrog_12131,5.0,2.698970004,PHROG,homing endonuclease,False
+phrog_568,4.53,2.656098202,PHROG,plasmid stability,False
+phrog_30377,4.51,2.654176542,PHROG,HNH endonuclease,False
+phrog_9545,4.47,2.650307523,PHROG,HNH endonuclease,False
+phrog_1157,4.43,2.646403726,PHROG,transposase,False
+phrog_10088,4.2,2.62324929,PHROG,homing endonuclease,False
+phrog_9645,4.13,2.615950052,PHROG,HNH endonuclease,False
+phrog_4234,4.1,2.612783857,PHROG,HNH endonuclease,False
+phrog_5749,4.07,2.609594409,PHROG,transposase,False
+phrog_1808,4.05,2.607455023,PHROG,HNH endonuclease,False
+phrog_12400,3.82,2.582063363,PHROG,HNH endonuclease,False
+phrog_10495,3.81,2.580924976,PHROG,HNH endonuclease,False
+phrog_9508,3.77,2.57634135,PHROG,HNH endonuclease,False
+phrog_21721,3.76,2.575187845,PHROG,RusA-like Holliday junction resolvase,False
+phrog_8463,3.67,2.564666064,PHROG,transposase,False
+phrog_688,3.63,2.559906625,PHROG,transposase,False
+phrog_6050,3.51,2.545307116,PHROG,HNH endonuclease,False
+phrog_11688,3.41,2.532754379,PHROG,transposase,False
+phrog_9019,3.37,2.527629901,PHROG,Holliday junction resolvase,False
+phrog_3356,3.24,2.51054501,PHROG,transposase,False
+phrog_3118,3.06,2.485721426,PHROG,HNH endonuclease,False
+phrog_151,2.93,2.46686762,PHROG,transposase,False
+phrog_5200,2.93,2.46686762,PHROG,HNH endonuclease,False
+phrog_623,2.74,2.437750563,PHROG,transposase,False
+phrog_2579,2.64,2.421603927,PHROG,ParB C-terminal domain,False
+phrog_37089,2.57,2.409933123,PHROG,recombinase,False
+phrog_14238,2.49,2.396199347,PHROG,RusA-like Holliday junction resolvase,False
+phrog_960,2.42,2.383815366,PHROG,HNH endonuclease,False
+phrog_5830,2.41,2.382017043,PHROG,integrase,False
+phrog_3035,2.25,2.352182518,PHROG,transposase,False
+phrog_21421,2.14,2.330413773,PHROG,integrase,False
+phrog_865,2.09,2.320146286,PHROG,HNH endonuclease,False
+phrog_10081,2.06,2.31386722,PHROG,transposase,False
+phrog_7363,2.03,2.307496038,PHROG,homing endonuclease,False
+phrog_2393,1.98,2.29666519,PHROG,transposase,False
+phrog_23251,1.93,2.285557309,PHROG,HNH endonuclease,False
+phrog_827,1.91,2.281033367,PHROG,Holliday junction resolvase,False
+phrog_4632,1.87,2.271841607,PHROG,RusA-like Holliday junction resolvase,False
+phrog_9203,1.85,2.267171728,PHROG,RusA-like Holliday junction resolvase,False
+phrog_3598,1.82,2.260071388,PHROG,transposase,False
+phrog_26387,1.82,2.260071388,PHROG,ParB-like partition nuclease,False
+phrog_11023,1.75,2.243038049,PHROG,homing endonuclease with LAGLIDADG motif,False
+phrog_10696,1.75,2.243038049,PHROG,HNH endonuclease,False
+phrog_4716,1.71,2.23299611,PHROG,transposase,False
+phrog_8048,1.66,2.220108088,PHROG,HNH endonuclease,False
+phrog_25184,1.63,2.212187604,PHROG,HNH endonuclease,False
+phrog_12598,1.62,2.209515015,PHROG,RusA-like Holliday junction resolvase,False
+phrog_5389,1.57,2.195899652,PHROG,transposase,False
+phrog_25061,1.52,2.181843588,PHROG,HNH endonuclease,False
+phrog_13470,1.5,2.176091259,PHROG,HNH endonuclease,False
+phrog_930,1.49,2.173186268,PHROG,ParB-like partition protein,False
+phrog_3300,1.34,2.127104798,PHROG,transposase,False
+phrog_33747,1.3,2.113943352,PHROG,transposase,False
+phrog_15522,1.23,2.089905111,PHROG,HNH endonuclease,False
+phrog_8828,1.23,2.089905111,PHROG,HNH endonuclease,False
+phrog_11604,1.23,2.089905111,PHROG,HNH endonuclease,False
+phrog_1013,1.13,2.053078443,PHROG,transposase,False
+phrog_20162,1.12,2.049218023,PHROG,HNH endonuclease,False
+phrog_19902,1.12,2.049218023,PHROG,HNH endonuclease,False
+phrog_5411,1.06,2.025305865,PHROG,HNH endonuclease,False
+phrog_9443,1.04,2.017033339,PHROG,HNH endonuclease,False
+phrog_1631,1.01,2.004321374,PHROG,transposase,False
+phrog_23285,0.97,1.986771734,PHROG,HNH endonuclease,False
+phrog_18317,0.93,1.968482949,PHROG,Holliday junction resolvase,False
+phrog_24751,0.93,1.968482949,PHROG,HNH endonuclease,False
+phrog_12434,0.91,1.959041392,PHROG,HNH endonuclease,False
+phrog_2262,0.84,1.924279286,PHROG,transposase,False
+phrog_28142,0.84,1.924279286,PHROG,HNH endonuclease,False
+phrog_22048,0.82,1.913813852,PHROG,HNH endonuclease,False
+phrog_7951,0.79,1.897627091,PHROG,transposase,False
+phrog_1146,0.78,1.892094603,PHROG,ParB-like partition protein,False
+phrog_10378,0.78,1.892094603,PHROG,HNH endonuclease,False
+phrog_16016,0.77,1.886490725,PHROG,HNH endonuclease,False
+phrog_36860,0.74,1.86923172,PHROG,HNH endonuclease,False
+phrog_720,0.73,1.86332286,PHROG,transposase,False
+phrog_25862,0.73,1.86332286,PHROG,HNH endonuclease,False
+phrog_33760,0.71,1.851258349,PHROG,HNH endonuclease,False
+phrog_10820,0.7,1.84509804,PHROG,HNH endonuclease,False
+phrog_17698,0.69,1.838849091,PHROG,transposase,False
+phrog_11704,0.67,1.826074803,PHROG,transposase,False
+phrog_1723,0.58,1.763427994,PHROG,recombinase,False
+phrog_22514,0.57,1.755874856,PHROG,HNH endonuclease,False
+phrog_2422,0.52,1.716003344,PHROG,transposase,False
+phrog_34723,0.52,1.716003344,PHROG,integrase,False
+phrog_6591,0.52,1.716003344,PHROG,Holliday junction resolvase,False
+phrog_3875,0.49,1.69019608,PHROG,RuvC-like Holliday junction resolvase,False
+phrog_34557,0.47,1.672097858,PHROG,integrase,False
+phrog_24148,0.47,1.672097858,PHROG,HNH endonuclease,False
+phrog_1191,0.42,1.62324929,PHROG,transposase,False
+phrog_2515,0.42,1.62324929,PHROG,partition protein,False
+phrog_6537,0.41,1.612783857,PHROG,RusA-like Holliday junction resolvase,False
+phrog_20919,0.39,1.591064607,PHROG,recombinase,False
+phrog_5351,0.36,1.556302501,PHROG,HNH endonuclease,False
+phrog_9208,0.35,1.544068044,PHROG,integrase,False
+phrog_23036,0.3,1.477121255,PHROG,Holliday junction resolvase,False
+phrog_2123,0.29,1.462397998,PHROG,recombinase,False
+phrog_17657,0.29,1.462397998,PHROG,HNH endonuclease,False
+phrog_21964,0.27,1.431363764,PHROG,HNH endonuclease,False
+phrog_5127,0.27,1.431363764,PHROG,integrase,False
+phrog_15265,0.25,1.397940009,PHROG,recombinase,False
+phrog_6086,0.25,1.397940009,PHROG,HNH endonuclease,False
+phrog_37986,0.25,1.397940009,PHROG,Holliday junction resolvase,False
+phrog_32069,0.22,1.342422681,PHROG,ParB-like partition protein,False
+phrog_25983,0.21,1.322219295,PHROG,HNH endonuclease,False
+phrog_20467,0.19,1.278753601,PHROG,HNH endonuclease,False
+phrog_25551,0.19,1.278753601,PHROG,homing endonuclease,False
+phrog_7504,0.19,1.278753601,PHROG,homing endonuclease,False
+phrog_12980,0.19,1.278753601,PHROG,HNH endonuclease,False
+phrog_10357,0.19,1.278753601,PHROG,recombinase,False
+phrog_25420,0.19,1.278753601,PHROG,HNH endonuclease,False
+phrog_26588,0.17,1.230448921,PHROG,ParB-like partition nuclease,False
+phrog_30443,0.15,1.176091259,PHROG,HNH endonuclease,False
+phrog_26754,0.14,1.146128036,PHROG,ParB-like partition nuclease,False
+phrog_33554,0.13,1.113943352,PHROG,HNH endonuclease,False
+phrog_9366,0.12,1.079181246,PHROG,transposase,False
+phrog_8671,0.12,1.079181246,PHROG,partition protein,False
+phrog_24671,0.12,1.079181246,PHROG,integrase,False
+phrog_33290,0.11,1.041392685,PHROG,ParB-like partition nuclease,False
+phrog_18411,0.11,1.041392685,PHROG,homing endonuclease,False
+phrog_7426,0.11,1.041392685,PHROG,HNH endonuclease,False
+phrog_35175,0.1,1.0,PHROG,HNH endonuclease,False
+phrog_36562,0.1,1.0,PHROG,transposase,False
+phrog_32871,0.1,1.0,PHROG,integrase,False
+phrog_26377,0.1,1.0,PHROG,ParB-like partition protein,False
+phrog_20724,0.09,0.954242509,PHROG,HNH endonuclease,False
+phrog_12576,0.09,0.954242509,PHROG,HNH endonuclease,False
+phrog_24545,0.09,0.954242509,PHROG,HNH endonuclease,False
+phrog_19978,0.09,0.954242509,PHROG,HNH endonuclease,False
+phrog_18250,0.08,0.903089987,PHROG,integrase,False
+phrog_10553,0.08,0.903089987,PHROG,HNH endonuclease,False
+phrog_11894,0.08,0.903089987,PHROG,RusA-like Holliday junction resolvase,False
+phrog_32453,0.08,0.903089987,PHROG,HNH endonuclease,False
+phrog_14097,0.08,0.903089987,PHROG,HNH endonuclease,False
+phrog_7030,0.08,0.903089987,PHROG,HNH endonuclease,False
+phrog_7091,0.08,0.903089987,PHROG,HNH endonuclease,False
+phrog_29143,0.08,0.903089987,PHROG,HNH endonuclease,False
+phrog_8786,0.08,0.903089987,PHROG,type I-E anti-CRISPR protein,False
+phrog_21054,0.07,0.84509804,PHROG,HNH endonuclease,False
+phrog_34902,0.06,0.77815125,PHROG,Holliday junction resolvase,False
+phrog_26163,0.06,0.77815125,PHROG,homing endonuclease,False
+phrog_11336,0.05,0.698970004,PHROG,HNH endonuclease,False
+phrog_10486,0.05,0.698970004,PHROG,transposase,False
+phrog_23136,0.05,0.698970004,PHROG,integrase,False
+phrog_4208,0.04,0.602059991,PHROG,HNH endonuclease,False
+phrog_27175,0.04,0.602059991,PHROG,transposase,False
+phrog_3404,0.03,0.477121255,PHROG,HNH endonuclease,False
+phrog_16545,0.03,0.477121255,PHROG,ParB-like partition protein,False
+phrog_24252,0.03,0.477121255,PHROG,HNH endonuclease,False
+phrog_33277,0.03,0.477121255,PHROG,ParB-like partition protein,False
+phrog_24477,0.03,0.477121255,PHROG,HNH endonuclease,False
+phrog_33155,0.02,0.301029996,PHROG,HNH endonuclease,False
+phrog_16133,0.02,0.301029996,PHROG,HNH endonuclease,False
+phrog_14449,0.02,0.301029996,PHROG,transposase,False
+phrog_27407,0.02,0.301029996,PHROG,Holliday junction resolvase,False
+phrog_9769,0.02,0.301029996,PHROG,type I-F anti-CRISPR protein,False
+phrog_33459,0.01,0.0,PHROG,HNH endonuclease,False

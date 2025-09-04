@@ -363,9 +363,9 @@ Below are preliminary results for benchmarking our viral origin confidence predi
     </tr>
     <tr style="background-color:#d1fae5; color:#222;">
       <td align="center">Training dist.</td>
-      <td align="center">50</td>
-      <td align="center">18</td>
-      <td align="center">32</td>
+      <td align="center">46.6</td>
+      <td align="center">12.3</td>
+      <td align="center">41.1</td>
     </tr>
     <tr style="background-color:#ffe4b5; color:#222;">
       <td align="center">Half viral/host</td>

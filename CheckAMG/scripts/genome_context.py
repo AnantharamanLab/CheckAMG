@@ -381,6 +381,100 @@ def check_flanking_insertions(contig_data, mobile_accessions):
     })
     return contig_data.join(flanks_df, on=["contig", "gene_number"])
 
+def add_engineered_features(data: pl.DataFrame, mobile_accessions=None) -> pl.DataFrame:
+    """
+    Add extra features to help separate Virus from MGE:
+      - deltas: local score - contig average (for V and VL)
+      - min_dist_MGE and log1p_min_dist_MGE across all *_MGE_* left/right distances
+      - log1p_ versions for all *_dist columns (viral + MGE)
+      - inv_ versions for *_MGE_* distances (so 'closer' becomes 'larger')
+      - per-contig n_MGE_in_contig, n_proteins_in_contig, frac_MGE_in_contig
+        computed from *_hmm_id ∈ mobile_accessions (if provided)
+    """
+    out = data
+
+    # (A) deltas: local score - contig average
+    delta_pairs = [
+        ("Pfam_V-score",  "contig_avg_Pfam_V-score"),
+        ("Pfam_VL-score", "contig_avg_Pfam_VL-score"),
+        ("KEGG_V-score",  "contig_avg_KEGG_V-score"),
+        ("KEGG_VL-score", "contig_avg_KEGG_VL-score"),
+        ("PHROG_V-score", "contig_avg_PHROG_V-score"),
+        ("PHROG_VL-score","contig_avg_PHROG_VL-score"),
+    ]
+    delta_exprs = []
+    for local, avgc in delta_pairs:
+        if local in out.columns and avgc in out.columns:
+            delta_exprs.append(
+                (pl.col(local) - pl.col(avgc)).cast(pl.Float32).alias(f"delta_{local.replace(' ', '_')}")
+            )
+    if delta_exprs:
+        out = out.with_columns(delta_exprs)
+
+    # (B) distances: identify columns
+    dist_cols = [c for c in out.columns if c.endswith("_dist")]
+    mge_dist_cols = [c for c in dist_cols if "_MGE_" in c]
+
+    # Helper for robust log1p on Expr
+    def _log1p_nonneg(expr: pl.Expr) -> pl.Expr:
+        # clip to [0, Inf) if negative slips through, then log(1+x); preserve nulls
+        return (
+            pl.when(expr.is_not_null())
+              .then((expr.clip(0.0, None) + 1.0).log())
+              .otherwise(None)
+              .cast(pl.Float32)
+        )
+
+    # min distance across all MGE distances (left/right, KEGG/Pfam/PHROG)
+    if mge_dist_cols:
+        out = out.with_columns([
+            pl.min_horizontal([pl.col(c) for c in mge_dist_cols]).alias("min_dist_MGE")
+        ])
+        out = out.with_columns([
+            _log1p_nonneg(pl.col("min_dist_MGE")).alias("log1p_min_dist_MGE")
+        ])
+        # also add inverted forms (so "closer" -> larger)
+        inv_exprs = [(pl.col(c) * (-1)).cast(pl.Float32).alias(f"inv_{c}") for c in mge_dist_cols]
+        out = out.with_columns(inv_exprs)
+
+    # log1p for all distance columns (viral + MGE)
+    if dist_cols:
+        out = out.with_columns([
+            _log1p_nonneg(pl.col(c)).alias(f"log1p_{c}") for c in dist_cols
+        ])
+
+    # (C) per-contig MGE counts/fraction (if there are mobile_accessions)
+    if mobile_accessions is not None and len(mobile_accessions) > 0:
+        has_kegg = "KEGG_hmm_id" in out.columns
+        has_pfam = "Pfam_hmm_id" in out.columns
+        has_phrog = "PHROG_hmm_id" in out.columns
+        if has_kegg or has_pfam or has_phrog:
+            parts = []
+            if has_kegg:
+                parts.append(pl.col("KEGG_hmm_id").is_in(mobile_accessions))
+            if has_pfam:
+                parts.append(pl.col("Pfam_hmm_id").is_in(mobile_accessions))
+            if has_phrog:
+                parts.append(pl.col("PHROG_hmm_id").is_in(mobile_accessions))
+            any_mge = parts[0]
+            for p in parts[1:]:
+                any_mge = any_mge | p
+            out = out.with_columns(any_mge.alias("_is_MGE_hit"))
+
+            agg = (
+                out.group_by("contig")
+                   .agg([
+                        pl.col("_is_MGE_hit").sum().alias("n_MGE_in_contig"),
+                        pl.len().alias("n_proteins_in_contig")
+                   ])
+            )
+            out = out.join(agg, on="contig", how="left").with_columns([
+                (pl.col("n_MGE_in_contig") / pl.col("n_proteins_in_contig").cast(pl.Float32))
+                  .cast(pl.Float32).alias("frac_MGE_in_contig")
+            ]).drop(["_is_MGE_hit"])
+
+    return out
+
 def process_genomes(data,
                     circular_contigs, minimum_percentage,
                     window_size, minimum_vscore,
@@ -487,6 +581,11 @@ def process_genomes(data,
             .alias(col).cast(pl.Float32)
         )
     logger.debug(f"Data after recasting distance columns: {data.head()}")
+    
+    # Add engineered features (deltas, min/log distances, MGE counts/fraction)
+    logger.debug("Adding engineered features (deltas, min/log distances, MGE counts/fraction).")
+    logger.debug(f"Data before adding engineered features: {data.head()}")
+    data = add_engineered_features(data, mobile_accessions)
         
     logger.info("Assigning viral origin confidence using LightGBM with genome context features.")
     logger.debug(f"Data before assigning viral origin confidence: {data.head()}")

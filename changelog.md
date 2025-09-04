@@ -1,3 +1,9 @@
+# v0.5.0
+* Improvements to the viral origin confidence LGBM
+  * Added additional engineered features (min, max, n, log1p, and delta for V/VL-score and distance features)
+* Updated the list of [MGE-like genes](https://github.com/AnantharamanLab/CheckAMG/blob/main/CheckAMG/files/mobile_genes.tsv)
+* Removed overlapping HMMs across possible [AMGs](https://github.com/AnantharamanLab/CheckAMG/blob/main/CheckAMG/files/AMGs.tsv), [APGs](https://github.com/AnantharamanLab/CheckAMG/blob/main/CheckAMG/files/APGs.tsv), and [AReGs](https://github.com/AnantharamanLab/CheckAMG/blob/main/CheckAMG/files/AReGs.tsv) and moved HMMs related to quorum sensing from APGs to AReGs
+
 # v0.4.2
 * Improvements to the viral origin confidence LGBM
 
