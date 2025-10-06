@@ -250,8 +250,11 @@ rule curate_annots:
         physiology_table = os.path.join(config["paths"]["files_dir"], "APGs.tsv"),
         regulation_table = os.path.join(config["paths"]["files_dir"], "AReGs.tsv"),
         metabolism_table_out = os.path.join(config["paths"]["output_dir"], "results", "metabolic_genes_curated.tsv"),
+        metabolism_table_audit = os.path.join(config["paths"]["output_dir"], "wdir", "metabolic_genes_filter_reasons.tsv"),
         physiology_table_out = os.path.join(config["paths"]["output_dir"], "results", "physiology_genes_curated.tsv"),
+        physiology_table_audit = os.path.join(config["paths"]["output_dir"], "wdir", "physiology_genes_filter_reasons.tsv"),
         regulation_table_out = os.path.join(config["paths"]["output_dir"], "results", "regulation_genes_curated.tsv"),
+        regulation_table_audit = os.path.join(config["paths"]["output_dir"], "wdir", "regulation_genes_filter_reasons.tsv"),
         soft_keyword_bypass_scaling_factor = config["soft_keyword_bypass_scaling_factor"],
         cov_fraction = config["cov_fraction"],
         min_bitscore = config["min_bitscore"],
@@ -262,6 +265,7 @@ rule curate_annots:
         false_amgs = os.path.join(config["paths"]["files_dir"], "false_amgs.csv"),
         false_apgs = os.path.join(config["paths"]["files_dir"], "false_apgs.csv"),
         false_aregs = os.path.join(config["paths"]["files_dir"], "false_aregs.csv"),
+        filter_presets = config["filter_presets"],
         debug = bool(config["debug"]),
         log = config["log"]
     threads:

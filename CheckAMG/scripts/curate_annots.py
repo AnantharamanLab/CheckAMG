@@ -210,48 +210,91 @@ def summarize_annot_table(table, hmm_descriptions):
     table = table.unique()
     return table.sort(["Genome", "Contig", "gene_number"])
 
-def filter_false_substrings(table, false_substring_table, bypass_min_bitscore, bypass_min_cov, valid_hmm_ids):
+def filter_false_substrings(table, false_substring_table, bypass_min_bitscore, bypass_min_cov, valid_hmm_ids, filter_presets):
     """
     Filter results to exclude false positives based on descriptions.
     - Special EC filters: distinguish between exact EC matches vs. class/subclass matches.
     - Special word-boundary filters for 'lysin' and 'ADP'
+    Also returns an audit table with columns: removed, kept, remove_reason, keep_reason
     """
+
+    # normalize presets
+    if isinstance(filter_presets, str):
+        presets = {p.strip().lower() for p in filter_presets.split(",") if p.strip()}
+    else:
+        presets = {str(p).strip().lower() for p in (filter_presets or [])}
+
     sources = ["KEGG", "FOAM", "Pfam", "dbCAN", "METABOLIC", "PHROG"]
     desc_cols = [f"{src}_Description" for src in sources]
-
     specials = {"lysin", "adp"}
 
     def is_exact_ec(keyword):
         return bool(re.fullmatch(r"EC[:\s]\d+\.\d+\.\d+\.\d+", keyword))
 
-    hard_patterns = []
-    soft_patterns = []
-    for kw, kw_type in zip(false_substring_table["substring"], false_substring_table["type"]):
-        kw_lc = kw.lower()
+    hard_meta_all = []
+    soft_meta_all = []
+    for kw, kw_type, kw_exc in zip(
+        false_substring_table["substring"],
+        false_substring_table["type"],
+        false_substring_table["exception"],
+    ):
+        kw_s = str(kw)
+        kw_lc = kw_s.strip().lower()
+        exc = (kw_exc or "").strip().lower()
         if kw_lc in specials:
-            pattern = rf"(?i)\b{re.escape(kw_lc)}\b"
-        elif is_exact_ec(kw):
-            ec_number = kw.split()[-1] if " " in kw else kw.split(":")[-1]
-            pattern = rf"(?i)\bEC[:\s]{re.escape(ec_number)}\b"
+            pat = rf"(?i)\b{re.escape(kw_lc)}\b"
+        elif is_exact_ec(kw_s):
+            ec_number = kw_s.split()[-1] if " " in kw_s else kw_s.split(":")[-1]
+            pat = rf"(?i)\bEC[:\s]{re.escape(ec_number)}\b"
         else:
-            pattern = rf"(?i){re.escape(kw)}"
+            pat = rf"(?i){re.escape(kw_s)}"
+        t = str(kw_type).strip().lower()
+        if t == "hard":
+            hard_meta_all.append((pat, kw_s, exc))
+        elif t == "soft":
+            soft_meta_all.append((pat, kw_s, exc))
 
-        if kw_type.lower() == "hard":
-            hard_patterns.append(pattern)
-        elif kw_type.lower() == "soft":
-            soft_patterns.append(pattern)
+    hard_meta_active = [(p, k, e) for (p, k, e) in hard_meta_all if not (e and e in presets)]
+    if "no_soft_filter" in presets:
+        soft_meta_active = []
+    else:
+        soft_meta_active = [(p, k, e) for (p, k, e) in soft_meta_all if not (e and e in presets)]
 
-    def build_pattern_flags(patterns, desc_cols):
-        exprs = [
-            pl.col(col).str.contains(pat, literal=False).fill_null(False)
-            for pat in patterns for col in desc_cols
-        ]
+    def any_match_flag(meta_list):
+        exprs = [pl.col(col).str.contains(pat, literal=False).fill_null(False)
+                 for (pat, _, _) in meta_list for col in desc_cols]
         return pl.any_horizontal(exprs) if exprs else pl.lit(False)
 
-    def build_soft_valid_flags(patterns, table, hmm_ids_in_group):
+    def first_matching_keyword(meta_list):
         exprs = []
-        for pat in patterns:
-            for src in ["KEGG", "FOAM", "Pfam", "dbCAN", "METABOLIC", "PHROG"]:
+        for (pat, kw, _) in meta_list:
+            for col in desc_cols:
+                exprs.append(
+                    pl.when(pl.col(col).str.contains(pat, literal=False))
+                    .then(pl.lit(kw))
+                    .otherwise(pl.lit(None))
+                )
+        return pl.coalesce(exprs) if exprs else pl.lit(None, dtype=pl.Utf8)
+
+    def exception_match_flag_and_token(meta_list):
+        allowed = [(pat, kw, exc) for (pat, kw, exc) in meta_list if exc and exc in presets]
+        if not allowed:
+            return pl.lit(False), pl.lit(None, dtype=pl.Utf8), pl.lit(None, dtype=pl.Utf8)
+        flag_exprs, kw_exprs, tok_exprs = [], [], []
+        for (pat, kw, exc) in allowed:
+            for col in desc_cols:
+                m = pl.col(col).str.contains(pat, literal=False).fill_null(False)
+                flag_exprs.append(m)
+                kw_exprs.append(pl.when(m).then(pl.lit(kw)).otherwise(pl.lit(None)))
+                tok_exprs.append(pl.when(m).then(pl.lit(exc)).otherwise(pl.lit(None)))
+        return (pl.any_horizontal(flag_exprs) if flag_exprs else pl.lit(False),
+                pl.coalesce(kw_exprs) if kw_exprs else pl.lit(None, dtype=pl.Utf8),
+                pl.coalesce(tok_exprs) if tok_exprs else pl.lit(None, dtype=pl.Utf8))
+
+    def build_soft_valid(meta_list, hmm_ids_in_group):
+        exprs = []
+        for (pat, _, _) in meta_list:
+            for src in sources:
                 desc_col = f"{src}_Description"
                 score_col = f"{src}_score"
                 cov_col = f"{src}_coverage"
@@ -260,7 +303,6 @@ def filter_false_substrings(table, false_substring_table, bypass_min_bitscore, b
                 score_col_casted = pl.col(score_col).cast(pl.Float64).fill_null(float("-inf"))
                 cov_col_casted = pl.col(cov_col).cast(pl.Float64).fill_null(float("-inf"))
 
-                # Source-specific threshold expression
                 if src == "KEGG":
                     score_thresh_expr = (
                         pl.when(pl.col(id_col).is_in(list(KEGG_THRESHOLDS.keys())))
@@ -279,28 +321,119 @@ def filter_false_substrings(table, false_substring_table, bypass_min_bitscore, b
                 exprs.append(
                     pl.col(desc_col).str.contains(pat, literal=False).fill_null(False) &
                     pl.col(id_col).is_in(hmm_ids_in_group) &
-                    score_col_casted.is_finite() &
-                    (score_col_casted >= score_thresh_expr) &
-                    cov_col_casted.is_finite() &
-                    (cov_col_casted >= bypass_min_cov)
+                    score_col_casted.is_finite() & (score_col_casted >= score_thresh_expr) &
+                    cov_col_casted.is_finite() & (cov_col_casted >= bypass_min_cov)
                 )
-
         return pl.any_horizontal(exprs) if exprs else pl.lit(False)
 
-    # Build flags
-    table = table.with_columns([
-        build_pattern_flags(hard_patterns, desc_cols).alias("HARD_MATCH"),
-        build_pattern_flags(soft_patterns, desc_cols).alias("SOFT_MATCH"),
-        build_soft_valid_flags(soft_patterns, table, valid_hmm_ids).alias("SOFT_VALID"),
+    # active flags for actual filtering
+    hard_match_active = any_match_flag(hard_meta_active).alias("HARD_MATCH")
+    soft_match_active = any_match_flag(soft_meta_active).alias("SOFT_MATCH")
+    soft_valid_active = build_soft_valid(soft_meta_active, valid_hmm_ids).alias("SOFT_VALID")
+
+    # all-patterns audit helpers
+    hard_match_all = any_match_flag(hard_meta_all).alias("HARD_MATCH_ALL")
+    soft_match_all = any_match_flag(soft_meta_all).alias("SOFT_MATCH_ALL")
+    soft_valid_all = build_soft_valid(soft_meta_all, valid_hmm_ids).alias("SOFT_VALID_ALL")
+    hard_first_kw_all = first_matching_keyword(hard_meta_all).alias("HARD_REMOVE_KEYWORD_ALL")
+    soft_first_kw_all = first_matching_keyword(soft_meta_all).alias("SOFT_REMOVE_KEYWORD_ALL")
+    hard_exc_flag_all, _, hard_exc_tok_all = exception_match_flag_and_token(hard_meta_all)
+    soft_exc_flag_all, _, soft_exc_tok_all = exception_match_flag_and_token(soft_meta_all)
+    hard_exc_flag_all = hard_exc_flag_all.alias("HARD_EXCEPTION_ALL")
+    soft_exc_flag_all = soft_exc_flag_all.alias("SOFT_EXCEPTION_ALL")
+    hard_exc_tok_all = hard_exc_tok_all.alias("HARD_EXCEPTION_TOKEN_ALL")
+    soft_exc_tok_all = soft_exc_tok_all.alias("SOFT_EXCEPTION_TOKEN_ALL")
+
+    table_with_flags = table.with_columns([
+        hard_match_active, soft_match_active, soft_valid_active,
+        hard_match_all, soft_match_all, soft_valid_all,
+        hard_first_kw_all, soft_first_kw_all,
+        hard_exc_flag_all, soft_exc_flag_all,
+        hard_exc_tok_all, soft_exc_tok_all,
     ])
 
-    table_filtered = table.filter(
-        (~pl.col("HARD_MATCH")) & ((~pl.col("SOFT_MATCH")) | pl.col("SOFT_VALID"))
+    # actual filter unchanged
+    if "no_filter" in presets:
+        table_filtered = table
+    else:
+        table_filtered = table_with_flags.filter(
+            (~pl.col("HARD_MATCH")) & ((~pl.col("SOFT_MATCH")) | pl.col("SOFT_VALID"))
+        ).drop(["HARD_MATCH", "SOFT_MATCH", "SOFT_VALID"])
+
+    # removal decision from active flags only
+    if "no_filter" in presets:
+        removed_expr = pl.lit(False)
+    else:
+        hard_remove_expr = pl.col("HARD_MATCH")
+        soft_remove_expr = pl.col("SOFT_MATCH") & (~pl.col("SOFT_VALID"))
+        removed_expr = hard_remove_expr | soft_remove_expr
+
+    kept_expr = ~removed_expr
+
+    # remove_reason tied to actual cause only (no mixing)
+    remove_reason_expr = (
+        pl.when(removed_expr & pl.col("HARD_MATCH"))
+        .then(pl.col("HARD_REMOVE_KEYWORD_ALL"))
+        .when(removed_expr & (pl.col("SOFT_MATCH") & (~pl.col("SOFT_VALID"))))
+        .then(pl.col("SOFT_REMOVE_KEYWORD_ALL"))
+        .otherwise(pl.lit(None))
     )
 
-    return table_filtered.drop(["HARD_MATCH", "SOFT_MATCH", "SOFT_VALID"])
+    # hypothetical remove_reason for kept rows (first real would-be cause)
+    kept_side_remove_reason = (
+        pl.when(pl.col("HARD_MATCH_ALL"))
+        .then(pl.col("HARD_REMOVE_KEYWORD_ALL"))
+        .when(pl.col("SOFT_MATCH_ALL") & (~pl.col("SOFT_VALID_ALL")))
+        .then(pl.col("SOFT_REMOVE_KEYWORD_ALL"))
+        .otherwise(pl.lit(None))
+    )
+    remove_reason = pl.when(kept_expr).then(kept_side_remove_reason).otherwise(remove_reason_expr)
 
-def filter_metabolism_annots(table, metabolism_table, false_substring_table, bypass_min_bitscore, bypass_min_cov):
+    # keep_reason with strict precedence, applied only when kept
+    # 1) no_filter
+    # 2) no_soft_filter, but only if a soft removal would have happened
+    # 3) exception:<token> for hard (must have hard match)
+    # 4) exception:<token> for soft (must have soft match that would remove)
+    # 5) soft filter minimum HMM bitscore and coverage met (soft match and thresholds met)
+    keep_no_filter = pl.when(kept_expr & pl.lit("no_filter" in presets)).then(pl.lit("no_filter")).otherwise(pl.lit(None))
+    keep_no_soft = pl.when(kept_expr & pl.lit("no_soft_filter" in presets) & (pl.col("SOFT_MATCH_ALL") & (~pl.col("SOFT_VALID_ALL")))).then(pl.lit("no_soft_filter")).otherwise(pl.lit(None))
+    keep_exc_hard = pl.when(kept_expr & pl.col("HARD_EXCEPTION_ALL") & pl.col("HARD_MATCH_ALL")).then(pl.concat_str([pl.lit("exception:"), pl.col("HARD_EXCEPTION_TOKEN_ALL")])).otherwise(pl.lit(None))
+    keep_exc_soft = pl.when(kept_expr & pl.col("SOFT_EXCEPTION_ALL") & (pl.col("SOFT_MATCH_ALL") & (~pl.col("SOFT_VALID_ALL")))).then(pl.concat_str([pl.lit("exception:"), pl.col("SOFT_EXCEPTION_TOKEN_ALL")])).otherwise(pl.lit(None))
+    keep_soft_valid = pl.when(kept_expr & (pl.col("SOFT_MATCH_ALL") & pl.col("SOFT_VALID_ALL"))).then(pl.lit("soft filter minimum HMM bitscore and coverage met")).otherwise(pl.lit(None))
+
+    # precedence: build a single reason string without mixing unrelated reasons
+    keep_reason_expr = (
+        pl.when(keep_no_filter.is_not_null()).then(keep_no_filter)
+        .when(keep_no_soft.is_not_null()).then(keep_no_soft)
+        .when(keep_exc_hard.is_not_null()).then(keep_exc_hard)
+        .when(keep_exc_soft.is_not_null()).then(keep_exc_soft)
+        .when(keep_soft_valid.is_not_null()).then(keep_soft_valid)
+        .otherwise(pl.lit(None))
+    )
+
+    # if removed, keep_reason must be None (prevents mixing)
+    keep_reason_expr = pl.when(removed_expr).then(pl.lit(None)).otherwise(keep_reason_expr)
+
+    audit = (
+        table_with_flags
+        .with_columns([
+            removed_expr.alias("removed"),
+            kept_expr.alias("kept"),
+            remove_reason.alias("remove_reason"),
+            keep_reason_expr.alias("keep_reason"),
+        ])
+        .drop([
+            "HARD_MATCH", "SOFT_MATCH", "SOFT_VALID",
+            "HARD_MATCH_ALL", "SOFT_MATCH_ALL", "SOFT_VALID_ALL",
+            "HARD_REMOVE_KEYWORD_ALL", "SOFT_REMOVE_KEYWORD_ALL",
+            "HARD_EXCEPTION_ALL", "SOFT_EXCEPTION_ALL",
+            "HARD_EXCEPTION_TOKEN_ALL", "SOFT_EXCEPTION_TOKEN_ALL",
+        ])
+    )
+
+    return table_filtered, audit
+
+def filter_metabolism_annots(table, metabolism_table, false_substring_table, bypass_min_bitscore, bypass_min_cov, filter_presets):
     """
     Identify metabolism-related genes based on input metabolism table.
     by checking any of the five HMM ID columns for membership in metabolism_table["id"].
@@ -318,7 +451,7 @@ def filter_metabolism_annots(table, metabolism_table, false_substring_table, byp
     table = table.filter(condition)
     
     # Apply false-substring filtering
-    table = filter_false_substrings(table, false_substring_table, bypass_min_bitscore, bypass_min_cov, metab_ids)
+    table, audit = filter_false_substrings(table, false_substring_table, bypass_min_bitscore, bypass_min_cov, metab_ids, filter_presets)
     
     # Drop the temporary 'top_hit_hmm_id_clean' column
     table = table.drop("top_hit_hmm_id_clean")
@@ -326,9 +459,9 @@ def filter_metabolism_annots(table, metabolism_table, false_substring_table, byp
     # Remove duplicates, if any (this happens sometimes if the input table also had duplciates)
     table = table.unique()
     
-    return table.sort(["Genome", "Contig", "gene_number"])
+    return table.sort(["Genome", "Contig", "gene_number"]), audit.sort(["Genome", "Contig", "gene_number"])
 
-def filter_physiology_annots(table, physiology_table, false_phys_substrings, bypass_min_bitscore, bypass_min_cov):
+def filter_physiology_annots(table, physiology_table, false_phys_substrings, bypass_min_bitscore, bypass_min_cov, filter_presets):
     """
     Identify physiology-related genes based on input physiology table.
     by checking any of the five HMM ID columns for membership in physiology_table["id"].
@@ -346,7 +479,7 @@ def filter_physiology_annots(table, physiology_table, false_phys_substrings, byp
     table = table.filter(condition)
     
     # Apply false-substring filtering
-    table = filter_false_substrings(table, false_phys_substrings, bypass_min_bitscore, bypass_min_cov, phys_ids)
+    table, audit = filter_false_substrings(table, false_phys_substrings, bypass_min_bitscore, bypass_min_cov, phys_ids, filter_presets)
     
     # Drop the temporary 'top_hit_hmm_id_clean' column
     table = table.drop("top_hit_hmm_id_clean")
@@ -354,9 +487,9 @@ def filter_physiology_annots(table, physiology_table, false_phys_substrings, byp
     # Remove duplicates, if any (this happens sometimes if the input table also had duplciates)
     table = table.unique()
     
-    return table.sort(["Genome", "Contig", "gene_number"])
+    return table.sort(["Genome", "Contig", "gene_number"]), audit.sort(["Genome", "Contig", "gene_number"])
 
-def filter_regulation_annots(table, regulation_table, false_reg_substrings, bypass_min_bitscore, bypass_min_cov):
+def filter_regulation_annots(table, regulation_table, false_reg_substrings, bypass_min_bitscore, bypass_min_cov, filter_presets):
     """
     Identify regulation-related genes based on input regulation table.
     by checking any of the five HMM ID columns for membership in regulation_table["id"].
@@ -374,7 +507,7 @@ def filter_regulation_annots(table, regulation_table, false_reg_substrings, bypa
     table = table.filter(condition)
     
     # Apply false-substring filtering
-    table = filter_false_substrings(table, false_reg_substrings, bypass_min_bitscore, bypass_min_cov, reg_ids)
+    table, audit = filter_false_substrings(table, false_reg_substrings, bypass_min_bitscore, bypass_min_cov, reg_ids, filter_presets)
     
     # Drop the temporary 'top_hit_hmm_id_clean' column
     table = table.drop("top_hit_hmm_id_clean")
@@ -382,7 +515,7 @@ def filter_regulation_annots(table, regulation_table, false_reg_substrings, bypa
     # Remove duplicates, if any (this happens sometimes if the input table also had duplciates)
     table = table.unique()
     
-    return table.sort(["Genome", "Contig", "gene_number"])
+    return table.sort(["Genome", "Contig", "gene_number"]), audit.sort(["Genome", "Contig", "gene_number"])
 
 def main():
     input_table  = snakemake.params.context_table
@@ -393,14 +526,18 @@ def main():
     false_metab_substrings = snakemake.params.false_amgs
     false_phys_substrings = snakemake.params.false_apgs
     false_reg_substrings = snakemake.params.false_aregs
+    filter_presets = list(snakemake.params.filter_presets.split(","))
     
     scaling_factor = max(snakemake.params.soft_keyword_bypass_scaling_factor, 1.0)
     bypass_min_bitscore = float(scaling_factor * snakemake.params.min_bitscore)
     bypass_min_cov = min(float(scaling_factor * snakemake.params.cov_fraction), 1.0)
     
     out_metabolism_table = snakemake.params.metabolism_table_out
+    out_metabolism_audit = snakemake.params.metabolism_table_audit
     out_physiology_table = snakemake.params.physiology_table_out
+    out_physiology_audit = snakemake.params.physiology_table_audit
     out_regulation_table = snakemake.params.regulation_table_out
+    out_regulation_audit = snakemake.params.regulation_table_audit
     all_annot_out_table = snakemake.params.all_annot_out_table
     mem_limit = snakemake.resources.mem
     set_memory_limit(mem_limit)
@@ -440,17 +577,27 @@ def main():
     )
     
     drop_cols = ["gene_number", "window_avg_KEGG_VL-score_viral", "window_avg_Pfam_VL-score_viral", "window_avg_PHROG_VL-score_viral", "top_hit_hmm_id_clean", "Pfam_hmm_id_clean"]
+    metabolism_table_out, metabolism_filter_audit = filter_metabolism_annots(annot_table, metabolism_table, false_metab_substring_table, bypass_min_bitscore, bypass_min_cov, filter_presets)
+    physiology_table_out, physiology_filter_audit = filter_physiology_annots(annot_table, physiology_table, false_phys_substring_table, bypass_min_bitscore, bypass_min_cov, filter_presets)
+    regulation_table_out, regulation_filter_audit = filter_regulation_annots(annot_table, regulation_table, false_reg_substring_table, bypass_min_bitscore, bypass_min_cov, filter_presets)
     out_dfs = {
         "annot_table": annot_table,
-        "metabolism_table_out": filter_metabolism_annots(annot_table, metabolism_table, false_metab_substring_table, bypass_min_bitscore, bypass_min_cov),
-        "physiology_table_out": filter_physiology_annots(annot_table, physiology_table, false_phys_substring_table, bypass_min_bitscore, bypass_min_cov),
-        "regulation_table_out": filter_regulation_annots(annot_table, regulation_table, false_reg_substring_table, bypass_min_bitscore, bypass_min_cov)
+        "metabolism_table_out": metabolism_table_out,
+        "metabolism_filter_audit": metabolism_filter_audit,
+        "physiology_table_out": physiology_table_out,
+        "physiology_filter_audit": physiology_filter_audit,
+        "regulation_table_out": regulation_table_out,
+        "regulation_filter_audit": regulation_filter_audit,
     }
     for table in out_dfs.keys():
         df = out_dfs[table]
         df = df.drop([col for col in df.columns if col in drop_cols])
         replacements = []
+        extra_drop_cols = []
         for col in df.columns:
+            if "audit" in table:
+                if not col.endswith("_Description") and not col.endswith("_hmm_id") and not col.endswith("_coverage") and not col.endswith("_score") and not col in ["Protein", "Contig", "Genome", "removed", "kept", "remove_reason", "keep_reason"]:
+                    extra_drop_cols.append(col)
             if col.endswith("_score"):
                 replacements.append(
                     pl.when(pl.col(col) == -float("inf"))
@@ -460,14 +607,26 @@ def main():
                 )
         if replacements:
             df = df.with_columns(replacements)
+        if extra_drop_cols:
+            df = df.drop(extra_drop_cols)
         out_dfs[table] = df
         
-    annot_table, metabolism_table_out, physiology_table_out, regulation_table_out = out_dfs["annot_table"], out_dfs["metabolism_table_out"], out_dfs["physiology_table_out"], out_dfs["regulation_table_out"]
+    annot_table, \
+        metabolism_table_out, metabolism_filter_audit, \
+            physiology_table_out, physiology_filter_audit, \
+                regulation_table_out, regulation_filter_audit \
+                    = out_dfs["annot_table"], \
+                        out_dfs["metabolism_table_out"], out_dfs["metabolism_filter_audit"], \
+                            out_dfs["physiology_table_out"], out_dfs["physiology_filter_audit"], \
+                                out_dfs["regulation_table_out"], out_dfs["regulation_filter_audit"]
 
     annot_table.write_csv(all_annot_out_table, separator="\t")
     metabolism_table_out.write_csv(out_metabolism_table, separator="\t")
+    metabolism_filter_audit.write_csv(out_metabolism_audit, separator="\t")
     physiology_table_out.write_csv(out_physiology_table, separator="\t")
+    physiology_filter_audit.write_csv(out_physiology_audit, separator="\t")
     regulation_table_out.write_csv(out_regulation_table, separator="\t")
+    regulation_filter_audit.write_csv(out_regulation_audit, separator="\t")
     
     logger.info("Curation of annotations completed.")
     logger.info(f"Total number of genes analyzed: {annot_table.shape[0]:,}")

@@ -1,3 +1,6 @@
+# v0.5.1
+* Added annotation keyword filtering presets to allow certain functions to be retained when curating AVG predictions, if desired
+
 # v0.5.0
 * Improvements to the viral origin confidence LGBM
   * Added additional engineered features (min, max, n, log1p, and delta for V/VL-score and distance features)

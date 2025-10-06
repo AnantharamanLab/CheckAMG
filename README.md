@@ -123,10 +123,10 @@ usage: checkamg annotate [-h] -d DB_DIR -o OUTPUT [-g GENOMES] [-vg VMAGS]
                          [-p PROTEINS] [-vp VMAG_PROTEINS] [--input_type INPUT_TYPE]
                          [-l MIN_LEN] [-f MIN_ORF] [-n MIN_ANNOT] [-c COV_FRACTION]
                          [-e EVALUE] [-b BIT_SCORE] [-bh BITSCORE_FRACTION_HEURISTIC]
-                         [-s SCALING_FACTOR] [-Z WINDOW_SIZE] [-F MAX_FLANK]
-                         [-V MIN_FLANK_VSCORE]
-                         [-H | --use_hallmark | --no-use_hallmark] [-t THREADS]
-                         [-m MEM] [--debug | --no-debug]
+                         [-s SCALING_FACTOR] [-w WINDOW_SIZE] [-V MIN_FLANK_VSCORE]
+                         [-H | --use_hallmark | --no-use_hallmark]
+                         [--filter_presets FILTER_PRESETS] [-t THREADS] [-m MEM]
+                         [--debug | --no-debug]
 
 Predict and curate auxiliary genes in viral genomes based on functional annotations
 and genomic context.
@@ -170,14 +170,10 @@ options:
                         arguments to come up with a heuristic, stricter threshold for
                         HMM hits (this is ONLY used when curating gene annotations
                         that match to 'soft' filter keywords; default: 1.6).
-  -Z WINDOW_SIZE, --window_size WINDOW_SIZE
+  -w WINDOW_SIZE, --window_size WINDOW_SIZE
                         Size in base pairs of the window used to calculate the
-                        average VL-score of genes on a contig in a local region
+                        average VL-score of genes in a local region on a contig
                         (default: 5000).
-  -F MAX_FLANK, --max_flank MAX_FLANK
-                        Maximum length in base pairs to check on the left/right
-                        flanks of potentially auxiliary genes when checking for
-                        virus-like genes and non-virus-like genes (default: 5000).
   -V MIN_FLANK_VSCORE, --min_flank_Vscore MIN_FLANK_VSCORE
                         Minimum V-score of genes in flanking regions required to
                         verify a potential auxiliary gene as viral and not host
@@ -186,11 +182,24 @@ options:
                         Use viral hallmark gene annotations instead of V-scores when
                         checking flanking regions of potential auxiliary genes for
                         viral verification (default: False).
+  --filter_presets FILTER_PRESETS
+                        Preset(s) for filtering auxiliary gene annotations based on
+                        keywords (see documentation for details). Valid choices:
+                        'default' (recommended), 'allow_glycosyl' (keep
+                        glycosyltransferase, glycoside-hydrolase, and related
+                        annotations), 'allow_nucleotide' (keep nucleotide metabolism
+                        annotations), 'allow_methyl' (keep methyltransferase and
+                        related annotations), 'allow_lipid' (keep lipopolysaccharide
+                        and phospholipid-related annotations), 'no_soft_filter'
+                        (disable all 'soft' filter keywords), 'no_filter' (disable
+                        all annotation filtering, not recommended). Multiple presets
+                        can be provided, separated by commas (e.g.,
+                        allow_glycosyl,allow_nucleotide). (default: default)
   -t THREADS, --threads THREADS
                         Number of threads to use for pyrodigal-gv and pyhmmer
                         (default: 10).
   -m MEM, --mem MEM     Maximum amount of memory allowed to be allocated in GB
-                        (default: 80% of available). (default: 1181)
+                        (default: 80% of available). (default: 1212)
   --debug, --no-debug   Log CheckAMG with debug-level detail (default: False).
 
 required arguments:
@@ -297,6 +306,27 @@ CheckAMG applies a two-stage filtering process:
     * **Soft filters** apply much stricter bitscore and coverage cutoffs to avoid ambiguous cases (see [*additional HMMsearch filtering for curating auxiliary gene functions*](#additional-hmmsearch-filtering-for-curating-auxiliary-gene-functions))
 
 *Unclassified* genes are those with annotations that don't meet thresholds for confident AVG classification, not necessarily unannotated.
+
+#### Curated keyword presets
+
+Users can control how CheckAMG applies keyword-based filters using the `--filter_preset` argument. The currently available options are:
+
+* `default`: Standard annotation filtering behavior (**recommended**)
+* `allow_glycosyl`: Disables filtering for glycosyltransferase, glycoside-hydrolase, and related annotations
+* `allow_nucleotide`: Disables filtering for nucleotide metabolism annotations
+* `allow_methyl`: Disables filtering for methyltransferase and related annotations
+* `allow_lipid`: Disables filtering for lipopolysaccharide and phospholipid-related annotations
+* `no_soft_filter`: Disables all filtering of *soft* keywords from annotations, but still filters out *hard* keywords (e.g., phage structure, lysis & cell entry, nucleotide metabolism and modification)
+* `no_filter`: Disables all keyword-based filtering (**not recommended**)
+
+We generally do **not** recommend changing `--filter_preset` from `default` for most use cases. However, there are scenarios where it may be appropriate to add exceptions to CheckAMG's filtering logic. For example:
+
+* If virus-encoded glycosyltransferases/glycoside-hydrolases, methyltransferases, nucleotide metabolism genes, or lipopolysaccharide/phospholipid metabolism genes are specifically of interest, consider applying the relevant filter presets to include those exceptions
+* If the viral genomes analyzed by CheckAMG were sequenced from environments enriched in organic matter, such as peat soils or compost, setting `--filter_preset allow_glycosyl` may include additional potential AMGs involved in carbohydrate degradation in the results
+  * Ideally, genes truly involved in carbohydrate degradation will meet the stricter HMMsearch bitscore and coverage cutoffs, and would not be filtered out regardless (see [*Additional HMMsearch Filtering for Curating Auxiliary Gene Functions*](#additional-hmmsearch-filtering-for-curating-auxiliary-gene-functions))
+* If there's other evidence suggesting that annotations flagged by certain keywords are more likely involved in auxiliary metabolic, physiological, or regulatory pathways in the host, rather than essential/core viral functions like genome replication, capsid assembly, cell entry, or lysis
+
+**Note:** If any non-default values for `--filter_preset` are used, additional manual curation of functional annotations is still necessary to avoid misclassification of a gene as an AMG, APG, or AReG.
 
 ### 3. What do the *viral origin confidence* assignments to predicted AVGs mean?
 
@@ -472,6 +502,7 @@ As mentioned in the section [*How does CheckAMG classify and curate its predicti
   * This means that you may end up with, for example, many *glycoside hydrolase* functional annotations in the `gene_annotations.tsv` output, but much fewer glycoside hydrolases classified as "metabolic" in the `final_results.tsv`, with the rest being marked as "unclassified"
   * This is because the genes with glycoside hydrolase annotations that were classified as AMGs met the heuristic thresholds defiend by `--scaling_factor`, `--bit_score`, and `--cov_fraction`, and can be considered as functioning in host carbohydrate metabolism
   * On the other hand, genes with glycoside hydrolase annotations that were NOT classified as AMGs and ended up as "unclassified" did not meet the stricter thresholds, and they are more likely to be involved in functions other than host carbohydrate metabolism (like host cell wall degradation, for example)
+* If you want to disable this bypass to filter annotations with matching soft filter keywords regardless of their HMMsearch results, set `--scaling_factor 100`
 
 ### 6. Snakemake
 

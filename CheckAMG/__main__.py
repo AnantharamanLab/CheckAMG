@@ -12,10 +12,46 @@ __version__ = version("checkamg")
 
 available_memory_gb = psutil.virtual_memory().available / (1024 ** 3) # Get available memory in GB
 
-class CustomHelpFormatter(argparse.ArgumentDefaultsHelpFormatter):
+class CustomHelpFormatter(argparse.ArgumentDefaultsHelpFormatter, argparse.RawDescriptionHelpFormatter):
      def _fill_text(self, text, width, indent):
           text = textwrap.dedent(text).strip()
-          return textwrap.fill(text, width, initial_indent=indent, subsequent_indent=indent)
+          return ''.join([
+               textwrap.fill(line, width, initial_indent=indent, subsequent_indent=indent) if not line.strip().startswith('* ') else
+               f"{indent}{line.strip()}\n"
+               for line in text.splitlines()
+          ])
+
+VALID_FILTER_PRESETS = {
+     "default",
+     "allow_glycosyl",
+     "allow_nucleotide",
+     "allow_methyl",
+     "allow_lipid",
+     "no_soft_filter",
+     "no_filter",
+}
+
+def _parse_filter_presets(preset_str):
+     if preset_str is None:
+          return []
+     parts = [p.strip() for p in preset_str.split(",") if p.strip()]
+     return parts
+
+def _validate_and_resolve_filter_presets(presets, parser):
+     unknown = [p for p in presets if p not in VALID_FILTER_PRESETS]
+     if unknown:
+          parser.error(f"Unknown --filter_presets value(s): {', '.join(unknown)}. Valid options are: {', '.join(sorted(VALID_FILTER_PRESETS))}.")
+
+     if len(presets) > 1 and "default" in presets:
+          parser.error("Cannot combine 'default' with other filter presets. Use only 'default' or specify non-default combinations.")
+
+     if len(presets) > 1 and "no_filter" in presets:
+          parser.error("Cannot combine 'no_filter' with other filter presets. Use only 'no_filter'.")
+
+     # no_soft_filter overrides any allow_* entries
+     effective = list(presets)
+
+     return effective
 
 def main():
      parser = argparse.ArgumentParser(description="CheckAMG: automated identification and curation of Auxiliary Metabolic Genes (AMGs),"
@@ -74,6 +110,7 @@ def main():
                                    "Providing proteins as input will skip the pyrodigal-gv step, "
                                    "but it will be unable to tell whether viral genomes are circular, potentially losing additional evidence "
                                    "for verifying the viral origin of putative auxiliary genes. (default: %(default)s).")
+     
      annotate_parser.add_argument("-l", "--min_len", type=int, required=False, default = 5000,
                               help="Minimum length in base pairs for input sequences (default: %(default)s).")
      annotate_parser.add_argument("-f", "--min_orf", type=int, required=False, default = 4,
@@ -82,6 +119,7 @@ def main():
                               help="Minimum percentage (0.0-1.0) of genes in a genome/contig required to have been assigned a "
                                    "functional annotation using the CheckAMG database to be considered for contextual analysis. "
                                    "(default: %(default)s).")
+     
      annotate_parser.add_argument("-c", "--cov_fraction", type=float, required=False, default=0.5,
                               help="Minimum covered fraction (of the user viral protein) for HMM searches (default: %(default)s).")
      annotate_parser.add_argument("-e", "--evalue", type=float, required=False, default=1e-5,
@@ -93,16 +131,31 @@ def main():
      annotate_parser.add_argument("-s", "--scaling_factor", type=float, required=False, default=1.6,
                               help="Scaling factor used to multiply the minimum bit score and minimum covered fraction provided by the '-b' and '-c' arguments to come up with"
                                    " a heuristic, stricter threshold for HMM hits (this is ONLY used when curating gene annotations that match to 'soft' filter keywords; default: %(default)s).")
+     
      annotate_parser.add_argument("-w", "--window_size", type=int, required=False, default=5000,
                               help="Size in base pairs of the window used to calculate the average VL-score of genes in a local region on a contig (default: %(default)s).")
      annotate_parser.add_argument("-V", "--min_flank_Vscore", type=float, required=False, default=10.0,
                               help="Minimum V-score of genes in flanking regions required to verify a potential auxiliary gene as viral and not host sequence contamination (0.0-10.0) (default: %(default)s).")
      annotate_parser.add_argument("-H", "--use_hallmark", required=False, default=False, action=argparse.BooleanOptionalAction,
                               help="Use viral hallmark gene annotations instead of V-scores when checking flanking regions of potential auxiliary genes for viral verification (default: %(default)s).")
+     
+     annotate_parser.add_argument("--filter_presets", type=str, required=False, default="default",
+                              help="Preset(s) for filtering auxiliary gene annotations based on keywords (see documentation for details). "
+                                   "Valid choices: "
+                                   "'default' (recommended), "
+                                   "'allow_glycosyl' (keep glycosyltransferase, glycoside-hydrolase, and related annotations), "
+                                   "'allow_nucleotide' (keep nucleotide metabolism annotations), "
+                                   "'allow_methyl' (keep methyltransferase and related annotations), "
+                                   "'allow_lipid' (keep lipopolysaccharide and phospholipid-related annotations), "
+                                   "'no_soft_filter' (disable all 'soft' filter keywords), "
+                                   "'no_filter' (disable all annotation filtering, not recommended). "
+                                   "Multiple presets can be provided, separated by commas (e.g., allow_glycosyl,allow_nucleotide).")
+     
      annotate_parser.add_argument("-t", "--threads", type=int, required=False, default=10,
                               help="Number of threads to use for pyrodigal-gv and pyhmmer (default: %(default)s).")
      annotate_parser.add_argument("-m", "--mem", type=int, required=False, default=round(available_memory_gb*0.80), # 80% of available memory
                               help="Maximum amount of memory allowed to be allocated in GB (default: 80%% of available).")
+     
      annotate_parser.add_argument("--debug", required=False, default=False, action=argparse.BooleanOptionalAction,
                               help="Log CheckAMG with debug-level detail (default: %(default)s).")
 
@@ -151,9 +204,17 @@ def main():
                parser.error("Cannot provide --genomes or --vmags when --input_type is 'prot'.")
           if (args.genomes and args.proteins) or (args.vmags and args.vmag_proteins):
                parser.error("Cannot provide both --genomes/--vmags and --proteins/--vmag_proteins.")
+               
+          raw_list = _parse_filter_presets(args.filter_presets)
+          if not raw_list:
+               raw_list = ["default"]
+          effective = _validate_and_resolve_filter_presets(raw_list, parser)
+          args.filter_presets = ",".join(effective)
+          
           CheckAMG_annotate.create_output_dir(args.output)
           config_path = CheckAMG_annotate.generate_config(args)
           CheckAMG_annotate.run_snakemake(config_path, args)
+          
      elif args.command == "de-novo":
           print("CheckAMG de novo functionality will be implemented here.")
      elif args.command == "aggregate":

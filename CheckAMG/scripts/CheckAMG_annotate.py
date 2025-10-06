@@ -116,6 +116,7 @@ def generate_config(args):
         "min_bitscore_fraction_heuristic" : args.bitscore_fraction_heuristic,
         "max_evalue" : args.evalue,
         "soft_keyword_bypass_scaling_factor" : args.scaling_factor,
+        "filter_presets" : args.filter_presets,
     }
     
     config_path = os.path.join(args.output, 'config_annotate.yaml')
