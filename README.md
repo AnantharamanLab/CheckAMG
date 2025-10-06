@@ -307,7 +307,7 @@ CheckAMG applies a two-stage filtering process:
 
 *Unclassified* genes are those with annotations that don't meet thresholds for confident AVG classification, not necessarily unannotated.
 
-#### Curated keyword presets
+#### Curated Keyword Presets
 
 Users can control how CheckAMG applies keyword-based filters using the `--filter_preset` argument. The currently available options are:
 
@@ -504,6 +504,7 @@ As mentioned in the section [*How does CheckAMG classify and curate its predicti
   * This is because the genes with glycoside hydrolase annotations that were classified as AMGs met the heuristic thresholds defiend by `--scaling_factor`, `--bit_score`, and `--cov_fraction`, and can be considered as functioning in host carbohydrate metabolism
   * On the other hand, genes with glycoside hydrolase annotations that were NOT classified as AMGs and ended up as "unclassified" did not meet the stricter thresholds, and they are more likely to be involved in functions other than host carbohydrate metabolism (like host cell wall degradation, for example)
 * If you want to disable this bypass to filter annotations with matching soft filter keywords regardless of their HMMsearch results, set `--scaling_factor 100`
+* See also [*Curated Keyword Presets*](#Curated-Keyword-Presets)
 
 ### 6. Snakemake
 
