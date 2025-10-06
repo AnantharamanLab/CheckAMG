@@ -36,8 +36,8 @@ peptidase,soft,
 Cell Wall,hard,
 cell wall,hard,
 Cell wall,hard,
-Concanavalin A-like lectin/glucanases superfamily,soft
-Concanavalin A-like lectin,soft
+Concanavalin A-like lectin/glucanases superfamily,soft,allow_glycosyl
+Concanavalin A-like lectin,soft,allow_glycosyl
 Lipopolysaccharide,soft,allow_lipid
 lipopolysaccharide,soft,allow_lipid
 acyl carrier,soft,allow_lipid
