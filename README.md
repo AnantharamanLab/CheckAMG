@@ -319,12 +319,13 @@ Users can control how CheckAMG applies keyword-based filters using the `--filter
 * `no_soft_filter`: Disables all filtering of *soft* keywords from annotations, but still filters out *hard* keywords (e.g., phage structure, lysis & cell entry, nucleotide metabolism and modification)
 * `no_filter`: Disables all keyword-based filtering (**not recommended**)
 
-We generally do **not** recommend changing `--filter_preset` from `default` for most use cases. However, there are scenarios where it may be appropriate to add exceptions to CheckAMG's filtering logic. For example:
+We generally do not recommend changing `--filter_preset` from `default` for most use cases. However, there are scenarios where it may be appropriate to add exceptions to CheckAMG's filtering logic. For example:
 
 * If virus-encoded glycosyltransferases/glycoside-hydrolases, methyltransferases, nucleotide metabolism genes, or lipopolysaccharide/phospholipid metabolism genes are specifically of interest, consider applying the relevant filter presets to include those exceptions
-* If the viral genomes analyzed by CheckAMG were sequenced from environments enriched in organic matter, such as peat soils or compost, setting `--filter_preset allow_glycosyl` may include additional potential AMGs involved in carbohydrate degradation in the results
-  * Ideally, genes truly involved in carbohydrate degradation will meet the stricter HMMsearch bitscore and coverage cutoffs, and would not be filtered out regardless (see [*Additional HMMsearch Filtering for Curating Auxiliary Gene Functions*](#additional-hmmsearch-filtering-for-curating-auxiliary-gene-functions))
-* If there's other evidence suggesting that annotations flagged by certain keywords are more likely involved in auxiliary metabolic, physiological, or regulatory pathways in the host, rather than essential/core viral functions like genome replication, capsid assembly, cell entry, or lysis
+* If you have environment-specific knowledge that makes certain gene functions highly relevant to your study system, you can use the appropriate `--filter_preset` to retain those annotations if they were originally included among the CheckAMG filters
+  * For example, setting `--filter_preset allow_glycosyl` may include additional potential AMGs involved in carbohydrate degradation when these functions are likely to be enriched in the environmental context of your viral genomes
+  * Ideally, genes truly involved in these functions will meet the stricter HMMsearch bitscore and coverage cutoffs and will not be filtered out regardless (see [*Additional HMMsearch Filtering for Curating Auxiliary Gene Functions*](#additional-hmmsearch-filtering-for-curating-auxiliary-gene-functions))
+* If you have other evidence to suggest that annotations flagged by certain keywords are more likely involved in auxiliary metabolic, physiological, or regulatory pathways in the host, rather than essential/core viral functions like genome replication, capsid assembly, cell entry, or lysis
 
 **Note:** If any non-default values for `--filter_preset` are used, additional manual curation of functional annotations is still necessary to avoid misclassification of a gene as an AMG, APG, or AReG.
 
