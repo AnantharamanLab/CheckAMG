@@ -286,7 +286,7 @@ Examples of these output files are provided in the [`examples/example_outputs`](
 *Coming soon.*
 
 ## Important Notes / FAQs
-### 1. What is an AV*?
+### 1. What is an AVG?
 An AVG is an **A**uxiliary **V**iral **G**ene, a virus-encoded gene that is non-essential for viral replication but augments host metabolism (AMGs), physiology (APGs), or regulation (AReGs). In the past, all AVGs have been referred to as AMGs, but recently the term AVG has been adopted to include broader host-modulating functions, not just metabolism (see [Martin et al. (2025) *Nat Microbiol*](https://doi.org/10.1038/s41564-025-02095-4)).
 
 Examples:
