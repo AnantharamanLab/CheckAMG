@@ -1,3 +1,7 @@
+# 0.5.3
+* **download\_db.py**:
+  * Updated URLs to download dbCAN v14
+
 # 0.5.2
 * Minor fix to the formatting in the ['false' AMG keywords](https://github.com/AnantharamanLab/CheckAMG/blob/main/CheckAMG/files/false_amgs.csv)
 

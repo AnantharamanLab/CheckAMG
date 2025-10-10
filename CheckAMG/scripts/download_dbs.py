@@ -181,7 +181,7 @@ def download_all(dest=None, force=False, threads=10):
         ("Pfam", 'Pfam-A.hmm', 'ftp://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz', 'https://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz', True, False, False),
         ("FOAM", 'FOAM.hmm', None, 'https://osf.io/download/bdpv5', True, False, False),
         ("PHROGs", 'PHROGs.hmm', None, 'https://phrogs.lmge.uca.fr/downloads_from_website/MSA_phrogs.tar.gz', False, True, True),
-        ("dbCAN", 'dbCAN_HMMdb_v13.hmm', None, 'https://bcb.unl.edu/dbCAN2/download/Databases/dbCAN-old@UGA/dbCAN-HMMdb-V13.txt', False, False, False),
+        ("dbCAN", 'dbCAN_HMMdb_v13.hmm', None, 'https://bcb.unl.edu/dbCAN2/download/Databases/V14/dbCAN-HMMdb-V14.txt', False, False, False),
         ("METABOLIC", 'METABOLIC_custom.hmm', None, 'https://github.com/AnantharamanLab/CheckAMG/raw/refs/heads/main/custom_dbs/METABOLIC_custom.hmm.gz', True, False, False)
     ]
     exceptions = []
