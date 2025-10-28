@@ -18,6 +18,19 @@ logging.basicConfig(
 )
 logger = logging.getLogger()
 
+KEGG_FTP = 'ftp://ftp.genome.jp/pub/db/kofam/profiles.tar.gz'
+KEGG_HTTPS = 'https://www.genome.jp/ftp/db/kofam/profiles.tar.gz'
+PFAM_FTP = 'ftp://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz'
+PFAM_HTTPS = 'https://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz'
+FOAM_FTP = None
+FOAM_HTTPS = 'https://osf.io/download/bdpv5'
+PHROGS_FTP = None
+PHROGS_HTTPS = 'https://phrogs.lmge.uca.fr/downloads_from_website/MSA_phrogs.tar.gz'
+DBCAN_FTP = None
+DBCAN_HTTPS = 'https://bcb.unl.edu/dbCAN2/download/Databases/V14/dbCAN-HMMdb-V14.txt'
+METABOLIC_FTP = None
+METABOLIC_HTTPS = 'https://github.com/AnantharamanLab/CheckAMG/raw/refs/heads/main/custom_dbs/METABOLIC_custom.hmm.gz'
+
 def try_download(label, dest, ftp_url, https_url):
     if ftp_url:
         try:
@@ -173,16 +186,77 @@ def remove_human_readable_files(dest):
         os.remove(file)
     logger.info("Human-readable HMM files removed.")
 
+def open_text_auto_gz(path):
+    with open(path, 'rb') as probe:
+        head = probe.read(2)
+    if head == b'\x1f\x8b':
+        return gzip.open(path, 'rt')
+    return open(path, 'r')
+
+def get_thresholds_from_foam(foam_hmm_path, dest_path):
+    logger.info(f"Extracting FOAM thresholds from {foam_hmm_path}")
+    acc = None
+    cutoff_map = {}
+    with open(foam_hmm_path, 'r') as f:
+        for raw in f:
+            line = raw.strip()
+            if not line:
+                continue
+            if line.startswith('ACC'):
+                parts = line.split()
+                if len(parts) >= 2:
+                    acc = parts[1].strip(';')
+            elif line.startswith('TC') and acc:
+                parts = line.replace(';', '').split()
+                full = float(parts[1]) if len(parts) > 1 else None
+                dom = float(parts[2]) if len(parts) > 2 else None
+                cutoff_map[acc] = (full, dom)
+                acc = None
+    with open(dest_path, 'w') as out:
+        out.write('id\tcutoff_full\tcutoff_domain\n')
+        for acc, tup in cutoff_map.items():
+            full = '' if tup[0] is None else f"{tup[0]}"
+            dom = '' if tup[1] is None else f"{tup[1]}"
+            out.write(f"{acc}\t{full}\t{dom}\n")
+    logger.info(f"FOAM thresholds written to {dest_path}")
+
+def get_thresholds_from_kegg(ftp_url, https_url, dest_path):
+    tmp_path = Path(dest_path).with_suffix('.tmp')
+    try_download("KEGG thresholds", tmp_path, ftp_url, https_url)
+    with open_text_auto_gz(tmp_path) as f_in, open(dest_path, 'w') as f_out:
+        f_out.write('id\tthreshold\n')
+        for idx, raw in enumerate(f_in):
+            line = raw.rstrip('\n')
+            if idx == 0:
+                cols = [c.strip() for c in line.split('\t')]
+                assert len(cols) >= 2, "ko_list header must have at least two columns"
+                assert cols[0].lower() == 'knum', f"Expected first column 'knum', got '{cols[0]}'"
+                assert cols[1].lower() == 'threshold', f"Expected second column 'threshold', got '{cols[1]}'"
+                continue
+            if not line or line.startswith('#'):
+                continue
+            parts = line.split('\t')
+            if parts and parts[0].startswith('K'):
+                knum = parts[0].strip()
+                thr = parts[1].strip() if len(parts) > 1 else ''
+                f_out.write(f"{knum}\t{thr}\n")
+    try:
+        tmp_path.unlink()
+    except Exception:
+        pass
+    logger.info(f"KEGG thresholds written to {dest_path}")
+        
 def download_all(dest=None, force=False, threads=10):
     os.makedirs(dest, exist_ok=True)
+    
     logger.info("Starting download of all databases.")
     dbs = [
-        ("KEGG", 'KEGG.hmm', 'ftp://ftp.genome.jp/pub/db/kofam/profiles.tar.gz', 'https://www.genome.jp/ftp/db/kofam/profiles.tar.gz', True, True, True),
-        ("Pfam", 'Pfam-A.hmm', 'ftp://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz', 'https://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz', True, False, False),
-        ("FOAM", 'FOAM.hmm', None, 'https://osf.io/download/bdpv5', True, False, False),
-        ("PHROGs", 'PHROGs.hmm', None, 'https://phrogs.lmge.uca.fr/downloads_from_website/MSA_phrogs.tar.gz', False, True, True),
-        ("dbCAN", 'dbCAN_HMMdb_v13.hmm', None, 'https://bcb.unl.edu/dbCAN2/download/Databases/V14/dbCAN-HMMdb-V14.txt', False, False, False),
-        ("METABOLIC", 'METABOLIC_custom.hmm', None, 'https://github.com/AnantharamanLab/CheckAMG/raw/refs/heads/main/custom_dbs/METABOLIC_custom.hmm.gz', True, False, False)
+        ("KEGG", 'KEGG.hmm', KEGG_FTP, KEGG_HTTPS, True, True, True),
+        ("Pfam", 'Pfam-A.hmm', PFAM_FTP, PFAM_HTTPS, True, False, False),
+        ("FOAM", 'FOAM.hmm', FOAM_FTP, FOAM_HTTPS, True, False, False),
+        ("PHROGs", 'PHROGs.hmm', PHROGS_FTP, PHROGS_HTTPS, False, True, True),
+        ("dbCAN", 'dbCAN_HMMdb_v14.hmm', DBCAN_FTP, DBCAN_HTTPS, False, False, False),
+        ("METABOLIC", 'METABOLIC_custom.hmm', METABOLIC_FTP, METABOLIC_HTTPS, True, False, False)
     ]
     exceptions = []
     with ThreadPoolExecutor(max_workers=threads) as executor:
@@ -201,3 +275,29 @@ def download_all(dest=None, force=False, threads=10):
         raise Exception(f"Download failed for: {', '.join(exceptions)}")
     else:
         logger.info("All databases downloaded successfully.")
+
+    # Build thresholds for FOAM and KEGG
+    try:
+        foam_hmm = Path(dest) / 'FOAM.hmm'
+        foam_thr = Path(dest) / 'FOAM_cutoffs.tsv'
+        if foam_hmm.exists():
+            get_thresholds_from_foam(foam_hmm, foam_thr)
+        else:
+            logger.warning("FOAM.hmm not found; skipping FOAM thresholds.")
+    except Exception as e:
+        logger.error(f"FOAM thresholds failed: {e}")
+        exceptions.append("FOAM_thresholds")
+
+    try:
+        KO_LIST_FTP = KEGG_FTP.replace('profiles.tar.gz', 'ko_list.gz')
+        KO_LIST_HTTPS = KEGG_HTTPS.replace('profiles.tar.gz', 'ko_list.gz')
+        kegg_thr = Path(dest) / 'KEGG_cutoffs.tsv'
+        get_thresholds_from_kegg(KO_LIST_FTP, KO_LIST_HTTPS, kegg_thr)
+    except Exception as e:
+        logger.error(f"KEGG thresholds failed: {e}")
+        exceptions.append("KEGG_thresholds")
+
+    if exceptions:
+        raise Exception(f"Completed with errors in: {', '.join(exceptions)}")
+    else:
+        logger.info("All database thresholds prepared successfully.")

@@ -77,8 +77,10 @@ def generate_config(args):
         "output_dir" : os.path.abspath(args.output)
     }
     
-    # Create the output directory
+    # Create the output directory and snakemake subdirectory
     os.makedirs(os.path.abspath(args.output), exist_ok=True)
+    os.makedirs(os.path.join(args.output, "snakemake"), exist_ok=True)
+    
     # Update with full paths
     for key, path in paths.items():
         paths[key] = os.path.join(args.output, path)

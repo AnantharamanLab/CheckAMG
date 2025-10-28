@@ -183,8 +183,21 @@ def prepare_lgbm_features(df, feature_names):
             
     X = pd.DataFrame({c: features[c] for c in feature_names})
     
-    # Ensure order of columns
-    X = X[feature_names]
+    # Ensure column order matches training
+    X = X.reindex(columns=feature_names)
+
+    # Check for missing columns (should not happen, but this will catch upstream issues)
+    missing = [col for col in feature_names if col not in X.columns]
+    if missing:
+        raise ValueError(f"Missing columns for model prediction: {missing}")
+
+    # Coerce all features to numeric (avoids object dtype problems)
+    for col in X.columns:
+        X[col] = pd.to_numeric(X[col], errors="coerce")
+
+    # Final assertion 
+    assert list(X.columns) == list(feature_names), "Feature order mismatch!"
+    
     return X
 
 def viral_origin_confidence_lgbm(df, lgbm_model, thresholds, feature_names):
@@ -200,7 +213,7 @@ def viral_origin_confidence_lgbm(df, lgbm_model, thresholds, feature_names):
 
     # Prepare features
     X = prepare_lgbm_features(df_pd, feature_names)
-
+    
     # Predict proba
     y_proba = lgbm_model.predict_proba(X)[:, 1]
     # Assign confidence
@@ -349,7 +362,51 @@ def verify_flanking_hallmark(contig_data, hallmark_accessions):
     })
     return contig_data.join(flanks_df, on=["contig", "gene_number"])
 
-def check_flanking_insertions(contig_data, mobile_accessions):
+@njit
+def flank_nearest_mge_scores(scores, mge_mask):
+    """
+    For each gene, get the V/VL-score of the nearest left/right MGE gene.
+    Returns: (left, right) arrays, np.nan if none.
+    """
+    n = len(scores)
+    left = np.full(n, np.nan, dtype=np.float32)
+    right = np.full(n, np.nan, dtype=np.float32)
+    for i in range(n):
+        # Left
+        for j in range(i-1, -1, -1):
+            if mge_mask[j] and not np.isnan(scores[j]):
+                left[i] = scores[j]
+                break
+        # Right
+        for j in range(i+1, n):
+            if mge_mask[j] and not np.isnan(scores[j]):
+                right[i] = scores[j]
+                break
+    return left, right
+
+def report_flanking_mge_vscores(contig_data, mobile_accessions):
+    """
+    For each gene, report the KEGG/Pfam/PHROG V/VL-score of the nearest left/right MGE gene.
+    Adds columns: <DB>_V-score_left_MGE, <DB>_V-score_right_MGE, <DB>_VL-score_left_MGE, etc.
+    """
+    contig_data = contig_data.sort(["contig", "gene_number"])
+    add_cols = {}
+    for db in ["KEGG", "Pfam", "PHROG"]:
+        hmm_col = f"{db}_hmm_id"
+        mge_mask = np.array([x in mobile_accessions if x is not None else False for x in contig_data[hmm_col].to_list()], dtype=np.bool_)
+        for sfx in ["V-score", "VL-score"]:
+            scores = contig_data[f"{db}_{sfx}"].to_numpy()
+            left, right = flank_nearest_mge_scores(scores, mge_mask)
+            add_cols[f"{db}_{sfx}_left_MGE"] = left
+            add_cols[f"{db}_{sfx}_right_MGE"] = right
+    add_df = pl.DataFrame({
+        "contig": contig_data["contig"],
+        "gene_number": contig_data["gene_number"],
+        **add_cols
+    })
+    return contig_data.join(add_df, on=["contig", "gene_number"])
+
+def check_flanking_mge(contig_data, mobile_accessions):
     """
     For each gene, calculate nucleotide distance to nearest left/right MGE gene.
     Adds columns: KEGG_MGE_left_dist, KEGG_MGE_right_dist, etc.
@@ -388,8 +445,6 @@ def add_engineered_features(data: pl.DataFrame, mobile_accessions=None) -> pl.Da
       - min_dist_MGE and log1p_min_dist_MGE across all *_MGE_* left/right distances
       - log1p_ versions for all *_dist columns (viral + MGE)
       - inv_ versions for *_MGE_* distances (so 'closer' becomes 'larger')
-      - per-contig n_MGE_in_contig, n_proteins_in_contig, frac_MGE_in_contig
-        computed from *_hmm_id ∈ mobile_accessions (if provided)
     """
     out = data
 
@@ -443,35 +498,6 @@ def add_engineered_features(data: pl.DataFrame, mobile_accessions=None) -> pl.Da
             _log1p_nonneg(pl.col(c)).alias(f"log1p_{c}") for c in dist_cols
         ])
 
-    # (C) per-contig MGE counts/fraction (if there are mobile_accessions)
-    if mobile_accessions is not None and len(mobile_accessions) > 0:
-        has_kegg = "KEGG_hmm_id" in out.columns
-        has_pfam = "Pfam_hmm_id" in out.columns
-        has_phrog = "PHROG_hmm_id" in out.columns
-        if has_kegg or has_pfam or has_phrog:
-            parts = []
-            if has_kegg:
-                parts.append(pl.col("KEGG_hmm_id").is_in(mobile_accessions))
-            if has_pfam:
-                parts.append(pl.col("Pfam_hmm_id").is_in(mobile_accessions))
-            if has_phrog:
-                parts.append(pl.col("PHROG_hmm_id").is_in(mobile_accessions))
-            any_mge = parts[0]
-            for p in parts[1:]:
-                any_mge = any_mge | p
-            out = out.with_columns(any_mge.alias("_is_MGE_hit"))
-
-            agg = (
-                out.group_by("contig")
-                   .agg([
-                        pl.col("_is_MGE_hit").sum().alias("n_MGE_in_contig"),
-                        pl.len().alias("n_proteins_in_contig")
-                   ])
-            )
-            out = out.join(agg, on="contig", how="left").with_columns([
-                (pl.col("n_MGE_in_contig") / pl.col("n_proteins_in_contig").cast(pl.Float32))
-                  .cast(pl.Float32).alias("frac_MGE_in_contig")
-            ]).drop(["_is_MGE_hit"])
 
     return out
 
@@ -538,7 +564,7 @@ def process_genomes(data,
     contig_dfs = data_orig.partition_by("contig")
     with ThreadPoolExecutor(max_workers=n_cpus) as executor:
         futures = [
-            executor.submit(check_flanking_insertions, df, mobile_accessions)
+            executor.submit(check_flanking_mge, df, mobile_accessions)
             for df in contig_dfs
         ]
         results = [f.result() for f in tqdm(as_completed(futures), total=len(futures), desc=f"Checking flanks for mobile genes", unit="contig")]
@@ -582,6 +608,18 @@ def process_genomes(data,
         )
     logger.debug(f"Data after recasting distance columns: {data.head()}")
     
+    logger.info("Calculating flanking MGE V/VL-scores.")
+    logger.debug(f"Data before reporting flanking scores: {data.head()}")
+    
+    with ThreadPoolExecutor(max_workers=n_cpus) as executor:
+        futures = [executor.submit(report_flanking_mge_vscores, df, mobile_accessions) for df in contig_dfs]
+        mge_score_results = [f.result() for f in tqdm(as_completed(futures), total=len(futures), desc="Checking flanking MGE V/VL-scores", unit="contig")]
+
+    mge_score_df = pl.concat(mge_score_results, how="vertical")
+
+    # Now join these to the `data` frame:
+    data = data.join(mge_score_df.select([c for c in mge_score_df.columns if c not in data.columns or c in ["contig", "gene_number"]]), on=["contig", "gene_number"], how="left")
+
     # Add engineered features (deltas, min/log distances, MGE counts/fraction)
     logger.debug("Adding engineered features (deltas, min/log distances, MGE counts/fraction).")
     logger.debug(f"Data before adding engineered features: {data.head()}")

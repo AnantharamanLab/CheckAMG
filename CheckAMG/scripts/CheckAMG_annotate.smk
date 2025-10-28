@@ -4,13 +4,13 @@ input_type = config["input_type"]
 
 rule all:
     input:
-        os.path.join(config["paths"]["output_dir"], "wdir", "make_final_table.done")
+        os.path.join(config["paths"]["output_dir"], "snakemake", "make_final_table.done")
 
 if input_type == "nucl":
     # Filter input sequences by length
     rule filter_by_length:
         output:
-            touch(os.path.join(config["paths"]["output_dir"], "wdir", "filter_by_length.done"))
+            touch(os.path.join(config["paths"]["output_dir"], "snakemake", "filter_by_length.done"))
         params:
             input_single_contig_genomes = config["input_single_contig_genomes"],
             input_vmag_fastas = config["input_vmag_fastas"],
@@ -30,9 +30,9 @@ if input_type == "nucl":
     # Check circulatiry of user genomes
     rule check_circular:
         input:
-            os.path.join(config["paths"]["output_dir"], "wdir", "filter_by_length.done")
+            os.path.join(config["paths"]["output_dir"], "snakemake", "filter_by_length.done")
         output:
-            touch(os.path.join(config["paths"]["output_dir"], "wdir", "check_circular.done"))
+            touch(os.path.join(config["paths"]["output_dir"], "snakemake", "check_circular.done"))
         params:
             input_single_contig_genomes = os.path.join(config["paths"]["output_dir"], "wdir", "filtered_input", "filtered_fna_by_length", "single_contig_genomes.fna"),
             input_vmag_fastas = os.path.join(config["paths"]["output_dir"], "wdir", "filtered_input", "filtered_fna_by_length", "vMAG_fna"),
@@ -58,9 +58,9 @@ if input_type == "nucl":
     # Annotate user genomes
     rule run_pyrodigal_gv:
         input:
-            os.path.join(config["paths"]["output_dir"], "wdir", "check_circular.done")
+            os.path.join(config["paths"]["output_dir"], "snakemake", "check_circular.done")
         output:
-            touch(os.path.join(config["paths"]["output_dir"], "wdir", "run_pyrodigal_gv.done"))
+            touch(os.path.join(config["paths"]["output_dir"], "snakemake", "run_pyrodigal_gv.done"))
         params:
             input_single_contig_genomes = os.path.join(config["paths"]["output_dir"], "wdir", "filtered_input", "filtered_fna_by_length", "single_contig_genomes.fna"),
             input_vmag_fastas = os.path.join(config["paths"]["output_dir"], "wdir", "filtered_input", "filtered_fna_by_length", "vMAG_fna"),
@@ -83,9 +83,9 @@ if input_type == "nucl":
     # Filter translated pyrodigal-gv sequences by minimum number of CDS
     rule filter_by_cds:
         input:
-            os.path.join(config["paths"]["output_dir"], "wdir", "run_pyrodigal_gv.done")
+            os.path.join(config["paths"]["output_dir"], "snakemake", "run_pyrodigal_gv.done")
         output:
-            touch(os.path.join(config["paths"]["output_dir"], "wdir", "filter_by_cds.done"))
+            touch(os.path.join(config["paths"]["output_dir"], "snakemake", "filter_by_cds.done"))
         params:
             input_type = config["input_type"],
             input_prot_subdir = os.path.join(config["paths"]["output_dir"], "wdir", "pyrodigal-gv"),
@@ -106,7 +106,7 @@ elif input_type == "prot":
     # Filter input amino-acid sequences by minimum number of CDS
     rule filter_by_cds:
         output:
-            touch(os.path.join(config["paths"]["output_dir"], "wdir", "filter_by_cds.done"))
+            touch(os.path.join(config["paths"]["output_dir"], "snakemake", "filter_by_cds.done"))
         params:
             input_type = config["input_type"],
             input_single_contig_prots = config["input_single_contig_prots"],
@@ -130,9 +130,9 @@ else:
 # Assign functional annotations to the proteins in the database
 rule assign_annots:
     input:
-        os.path.join(config["paths"]["output_dir"], "wdir", "filter_by_cds.done")
+        os.path.join(config["paths"]["output_dir"], "snakemake", "filter_by_cds.done")
     output:
-        touch(os.path.join(config["paths"]["output_dir"], "wdir", "annotate_hmm.done"))
+        touch(os.path.join(config["paths"]["output_dir"], "snakemake", "annotate_hmm.done"))
     params:
         protein_dir = os.path.join(config["paths"]["output_dir"], "wdir", "filtered_input", "filtered_faa_by_cds"),
         hmm_vscores = os.path.join(config["paths"]["files_dir"], "vscores.csv"),
@@ -144,7 +144,7 @@ rule assign_annots:
         min_bitscore = config["min_bitscore"],
         min_bitscore_fraction_heuristic = config["min_bitscore_fraction_heuristic"],
         max_evalue = config["max_evalue"],
-        kegg_cutoff_file = os.path.join(config["paths"]["files_dir"], "KEGG_cutoffs.csv"),
+        kegg_cutoff_file = os.path.join(config["paths"]["db_dir"], "KEGG_cutoffs.csv"),
         debug = bool(config["debug"]),
         log = config["log"]
     threads:
@@ -160,9 +160,9 @@ rule assign_annots:
 # Obtain gene information from input (prodigal-formatted) .faa and genome information from...
 rule index_genes:
     input:
-        os.path.join(config["paths"]["output_dir"], "wdir", "annotate_hmm.done")
+        os.path.join(config["paths"]["output_dir"], "snakemake", "annotate_hmm.done")
     output:
-        touch(os.path.join(config["paths"]["output_dir"], "wdir", "index_genes.done"))
+        touch(os.path.join(config["paths"]["output_dir"], "snakemake", "index_genes.done"))
     params:
         cluster_taxa_levels = None,
         gene_index = os.path.join(config["paths"]["output_dir"], "wdir", "gene_index.tsv"),
@@ -185,9 +185,9 @@ rule index_genes:
 # Merge the annotations with the protein database
 rule add_annots:
     input:
-        os.path.join(config["paths"]["output_dir"], "wdir", "index_genes.done")
+        os.path.join(config["paths"]["output_dir"], "snakemake", "index_genes.done")
     output:
-        touch(os.path.join(config["paths"]["output_dir"], "wdir", "add_annots.done"))
+        touch(os.path.join(config["paths"]["output_dir"], "snakemake", "add_annots.done"))
     params:
         gene_index = os.path.join(config["paths"]["output_dir"], "wdir", "gene_index.tsv"),
         gene_index_annotated = os.path.join(config["paths"]["output_dir"], "wdir", "gene_index_annotated.tsv"),
@@ -208,9 +208,9 @@ rule add_annots:
 # Analyze the genomic context of annotations
 rule genome_context:
     input:
-        os.path.join(config["paths"]["output_dir"], "wdir", "add_annots.done")
+        os.path.join(config["paths"]["output_dir"], "snakemake", "add_annots.done")
     output:
-        touch(os.path.join(config["paths"]["output_dir"], "wdir", "genome_context.done"))
+        touch(os.path.join(config["paths"]["output_dir"], "snakemake", "genome_context.done"))
     params:
         outparent = os.path.join(config["paths"]["output_dir"], "results"),
         context_table = os.path.join(config["paths"]["output_dir"], "results", "genes_genomic_context.tsv"),
@@ -241,9 +241,9 @@ rule genome_context:
 # Curate the predicted functions based on their genomic context
 rule curate_annots:
     input:
-        os.path.join(config["paths"]["output_dir"], "wdir", "genome_context.done")
+        os.path.join(config["paths"]["output_dir"], "snakemake", "genome_context.done")
     output:
-        touch(os.path.join(config["paths"]["output_dir"], "wdir", "curate_results.done"))
+        touch(os.path.join(config["paths"]["output_dir"], "snakemake", "curate_results.done"))
     params:
         context_table = os.path.join(config["paths"]["output_dir"], "results", "genes_genomic_context.tsv"),
         metabolism_table = os.path.join(config["paths"]["files_dir"], "AMGs.tsv"),
@@ -258,8 +258,8 @@ rule curate_annots:
         soft_keyword_bypass_scaling_factor = config["soft_keyword_bypass_scaling_factor"],
         cov_fraction = config["cov_fraction"],
         min_bitscore = config["min_bitscore"],
-        kegg_cutoff_file = os.path.join(config["paths"]["files_dir"], "KEGG_cutoffs.csv"),
-        foam_cutoff_file = os.path.join(config["paths"]["files_dir"], "FOAM_cutoffs.csv"),
+        kegg_cutoff_file = os.path.join(config["paths"]["db_dir"], "KEGG_cutoffs.csv"),
+        foam_cutoff_file = os.path.join(config["paths"]["db_dir"], "FOAM_cutoffs.csv"),
         all_annot_out_table = os.path.join(config["paths"]["output_dir"], "results", "gene_annotations.tsv"),
         hmm_ref = os.path.join(config["paths"]["files_dir"], "hmm_id_to_name.csv"),
         false_amgs = os.path.join(config["paths"]["files_dir"], "false_amgs.csv"),
@@ -280,9 +280,9 @@ rule curate_annots:
 # Organize proteins into auxiliary & metabolic, auxiliary not metabolic, and metabolic not auxiliary categories
 rule organize_proteins:
     input:
-        os.path.join(config["paths"]["output_dir"], "wdir", "curate_results.done")
+        os.path.join(config["paths"]["output_dir"], "snakemake", "curate_results.done")
     output:
-        touch(os.path.join(config["paths"]["output_dir"], "wdir", "organize_proteins.done"))
+        touch(os.path.join(config["paths"]["output_dir"], "snakemake", "organize_proteins.done"))
     params:
         metabolism_table = os.path.join(config["paths"]["output_dir"], "results", "metabolic_genes_curated.tsv"),
         physiology_table = os.path.join(config["paths"]["output_dir"], "results", "physiology_genes_curated.tsv"),
@@ -304,9 +304,9 @@ rule organize_proteins:
 # Make the final summarized table with annotations, genomic context, and classifications
 rule make_final_table:
     input:
-        os.path.join(config["paths"]["output_dir"], "wdir", "organize_proteins.done")
+        os.path.join(config["paths"]["output_dir"], "snakemake", "organize_proteins.done")
     output:
-        touch(os.path.join(config["paths"]["output_dir"], "wdir", "make_final_table.done"))
+        touch(os.path.join(config["paths"]["output_dir"], "snakemake", "make_final_table.done"))
     params:
         all_genes_annotated = os.path.join(config["paths"]["output_dir"], "results", "gene_annotations.tsv"),
         gene_index = os.path.join(config["paths"]["output_dir"], "wdir", "gene_index.tsv"),

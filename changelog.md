@@ -1,23 +1,58 @@
+# 0.6.0
+
+* **lgbm_model.joblib**, **lgbm_feature_names.joblib**, **lgbm_thresholds.joblib**:
+  * Improvements to the viral origin confidence LGBM
+  * Added additional features that consider the V/VL-scores of the 3 nearest genes on the left and right flanks of each gene, and the V/VL-scores of the nearest mobile genes
+
+* **AMGs.tsv**, **APGs.tsv**, **AReGs.tsv**, **FOAM.tsv**, **hmm_id_to_name.csv**, **mobile_genes.csv**, **viral_hallmark_genes.csv**:
+  * Slight modifications to the AMG, APG, AReG, viral hallmark, and mobile genes lists
+  * Updated the all-HMM list with updated dbCAN and missing FOAM annotations
+
+* **download\_db.py**:
+  * Added functionality to download and prepare the database-provided bitscore thresholds for KEGG and FOAM using the same versions as the downloaded HMMs
+  * Fixed incorrect version label for the dbCAN HMM files
+
+* **CheckAMG_annotate.smk**:
+  * Updated the KEGG and FOAM threshold file locations from the 'files' directory (with the AMG, APG, AReG, etc. tables) to the 'db' directory (with the HMM profiles)
+  * Now puts the snakemake `*.done` files in their own folder
+
+* **CheckAMG_annotate.py**:
+  * Set up a subfolder for snakemake files
+
+* **__main__.py**:
+  * Changed the default `--scaling_factor` from `1.6` to `1.8` due to KEGG threshold updates
+
+* **pyproject.toml**:
+  * Added a missing `scikit-learn` dependency
+
 # 0.5.3
+
 * **download\_db.py**:
   * Updated URLs to download dbCAN v14
 
 # 0.5.2
+
 * Minor fix to the formatting in the ['false' AMG keywords](https://github.com/AnantharamanLab/CheckAMG/blob/main/CheckAMG/files/false_amgs.csv)
 
 # v0.5.1
+
 * Added annotation keyword filtering presets to allow certain functions to be retained when curating AVG predictions, if desired
 
 # v0.5.0
+
 * Improvements to the viral origin confidence LGBM
   * Added additional engineered features (min, max, n, log1p, and delta for V/VL-score and distance features)
+
 * Updated the list of [MGE-like genes](https://github.com/AnantharamanLab/CheckAMG/blob/main/CheckAMG/files/mobile_genes.tsv)
+
 * Removed overlapping HMMs across possible [AMGs](https://github.com/AnantharamanLab/CheckAMG/blob/main/CheckAMG/files/AMGs.tsv), [APGs](https://github.com/AnantharamanLab/CheckAMG/blob/main/CheckAMG/files/APGs.tsv), and [AReGs](https://github.com/AnantharamanLab/CheckAMG/blob/main/CheckAMG/files/AReGs.tsv) and moved HMMs related to quorum sensing from APGs to AReGs
 
 # v0.4.2
+
 * Improvements to the viral origin confidence LGBM
 
 # v0.4.1
+
 * **__main__.py**
   * Changed the default `--window_size` from `25000` to `5000`
   
