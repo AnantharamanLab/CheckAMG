@@ -497,7 +497,7 @@ As mentioned in the section [*How does CheckAMG classify and curate its predicti
 
 * The value provided by `--scaling_factor` will be used to multiply the minimum bit score and minimum covered fraction provided by the `--bit_score` and `--cov_fraction` arguments to come up with the heuristic, stricter thresholds
 * The default `--scaling_factor` is `1.8`, users can increase this value but we do not recommend decreasing it
-  * If the default `--bit_score` and `--cov_fraction` values are also used (`50` and `0.5`), this means that a suspicious annotation containing a soft filter keyword must have had a bit score of at least `80` *and* and a sequence coverage of at least `0.80` from the HMMsearch to make it into the final auxiliary gene predictions
+  * If the default `--bit_score` and `--cov_fraction` values are also used (`50` and `0.5`), this means that a suspicious annotation containing a soft filter keyword must have had a bit score of at least `90` *and* and a sequence coverage of at least `0.90` from the HMMsearch to make it into the final auxiliary gene predictions
 * If database-provided, trusted bit score cutoffs are available for the matching HMMs (KEGG and FOAM only), those are used instead of the calculated heuristic threshold for minimum bit score, but the scaling factor is still applied to the minimum coverage
 * This heuristic is NOT used for assigning overall gene functions as detailed above, only during the annotation curation step of CheckAMG
   * This means that you may end up with, for example, many *glycoside hydrolase* functional annotations in the `gene_annotations.tsv` output, but much fewer glycoside hydrolases classified as "metabolic" in the `final_results.tsv`, with the rest being marked as "unclassified"
