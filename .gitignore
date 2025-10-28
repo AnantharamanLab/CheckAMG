@@ -15,6 +15,7 @@ dist/
 *.userosscache
 *.sln.docstates
 .DS_Store
+.conda
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
