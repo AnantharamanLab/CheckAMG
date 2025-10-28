@@ -169,7 +169,7 @@ options:
                         minimum covered fraction provided by the '-b' and '-c'
                         arguments to come up with a heuristic, stricter threshold for
                         HMM hits (this is ONLY used when curating gene annotations
-                        that match to 'soft' filter keywords; default: 1.6).
+                        that match to 'soft' filter keywords; default: 1.8).
   -w WINDOW_SIZE, --window_size WINDOW_SIZE
                         Size in base pairs of the window used to calculate the
                         average VL-score of genes in a local region on a contig
