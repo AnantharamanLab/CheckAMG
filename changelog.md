@@ -1,3 +1,8 @@
+# 0.6.1
+
+* **filter_by_cds.py**:
+  * Fixed a bug where vMAGs containing too few ORFs to pass the filter set by `--min_orf` were still written, but as empty files under `filtered_faa_by_cds`, causing the annotation step to crash
+
 # 0.6.0
 
 * **lgbm_model.joblib**, **lgbm_feature_names.joblib**, **lgbm_thresholds.joblib**:

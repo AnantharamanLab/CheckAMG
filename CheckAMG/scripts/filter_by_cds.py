@@ -140,18 +140,30 @@ def get_totals_before_filtering(input_files, single_contig_file):
 def process_vmag_file(vmag_file, output_folder, min_num_sequences):
     filtered_contigs = count_cds_and_filter_by_contig(vmag_file, min_num_sequences)
     output_file = os.path.join(output_folder, os.path.basename(vmag_file))
+
+    # If nothing passed the threshold, do not write an output file
+    if not filtered_contigs:
+        # If re-running, make sure an old file is not left behind
+        if os.path.exists(output_file):
+            os.remove(output_file)
+        return 0, 0
+
     buffer = []
     chunk_size = 10000
-    with open(output_file, "w", buffering=1024*1024) as output_handle:
+    total_orfs = 0
+
+    with open(output_file, "w", buffering=1024 * 1024) as output_handle:
         for records in filtered_contigs.values():
             for record in records:
+                total_orfs += 1
                 buffer.append(f">{record.header.name} {record.header.desc}\n{record.seq}\n")
                 if len(buffer) >= chunk_size:
-                    output_handle.write(''.join(buffer))
+                    output_handle.write("".join(buffer))
                     buffer = []
         if buffer:
-            output_handle.write(''.join(buffer))
-    return len(filtered_contigs), sum(len(v) for v in filtered_contigs.values())
+            output_handle.write("".join(buffer))
+
+    return len(filtered_contigs), total_orfs
 
 def filter_and_save_vmag_proteins(input_files, output_folder, min_num_sequences):
     vmag_files = [f for f in input_files if "vMAG_proteins" in f]
@@ -189,27 +201,43 @@ def filter_and_save_single_contig_proteins(input_file, output_folder, min_num_se
     ]
 
     with mp.Pool(processes=mp.cpu_count()) as pool:
-        filtered_results = list(tqdm(pool.imap_unordered(extract_and_filter_contig_group, args),
-                                     total=len(args), desc="Filtering contigs", unit="contig"))
+        filtered_results = list(
+            tqdm(
+                pool.imap_unordered(extract_and_filter_contig_group, args),
+                total=len(args),
+                desc="Filtering contigs",
+                unit="contig",
+            )
+        )
+
+    # Keep only contigs that passed the filter
+    kept = [res for res in filtered_results if res is not None]
+
+    if not kept:
+        # Nothing passed; do not write an output file
+        single_contig_output_file = os.path.join(output_folder, "single_contig_proteins.faa")
+        if os.path.exists(single_contig_output_file):
+            os.remove(single_contig_output_file)
+        logger.info("No single-contig genomes met the CDS threshold; no output FASTA written.")
+        return
 
     total_orfs = 0
     single_contig_output_file = os.path.join(output_folder, "single_contig_proteins.faa")
     buffer = []
     chunk_size = 10000
-    with open(single_contig_output_file, "w", buffering=1024*1024) as output_handle:
-        for result in filtered_results:
-            if result is None:
-                continue
-            _, records_data = result
+
+    with open(single_contig_output_file, "w", buffering=1024 * 1024) as output_handle:
+        for _, records_data in kept:
             for name, desc, seq in records_data:
                 total_orfs += 1
                 buffer.append(f">{name} {desc}\n{seq}\n")
                 if len(buffer) >= chunk_size:
-                    output_handle.write(''.join(buffer))
+                    output_handle.write("".join(buffer))
                     buffer = []
         if buffer:
-            output_handle.write(''.join(buffer))
-    logger.info(f"Filtered single-contig genomes: {len(contig_cds):,} contigs and {total_orfs:,} ORFs retained")
+            output_handle.write("".join(buffer))
+
+    logger.info(f"Filtered single-contig genomes: {len(kept):,} contigs and {total_orfs:,} ORFs retained")
 
 def get_totals_after_filtering(input_files, min_num_sequences, single_contig_file):
     """
@@ -229,12 +257,21 @@ def get_totals_after_filtering(input_files, min_num_sequences, single_contig_fil
 
     for file_path in input_files:
         filtered_contigs = count_cds_and_filter_by_contig(file_path, min_num_sequences)
-        total_filtered_contigs += len(filtered_contigs)
+
+        # contigs and ORFs retained
+        n_contigs = len(filtered_contigs)
+        n_orfs = sum(len(cds) for cds in filtered_contigs.values())
+
+        total_filtered_contigs += n_contigs
+        total_filtered_amino_acid_sequences += n_orfs
+
         if file_path == single_contig_file:
-            total_filtered_genomes += len(filtered_contigs)
+            # each contig in single_contig_file is effectively one genome
+            total_filtered_genomes += n_contigs
         else:
-            total_filtered_genomes += 1
-        total_filtered_amino_acid_sequences += sum(len(cds) for cds in filtered_contigs.values())
+            # vMAG file represents a single genome; only count it if anything passed
+            if n_contigs > 0:
+                total_filtered_genomes += 1
 
     return total_filtered_genomes, total_filtered_contigs, total_filtered_amino_acid_sequences
 
