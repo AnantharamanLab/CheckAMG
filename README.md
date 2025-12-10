@@ -17,7 +17,7 @@ CheckAMG supports:
 
 ## Dependencies
 
-See `pyproject.toml` for all dependencies. Major packages:
+See [`pyproject.toml`](https://github.com/AnantharamanLab/CheckAMG/blob/main/pyproject.toml) for all dependencies. Major packages:
 
 * `python >=3.11, <3.13`
 * [`lightgbm>=4.5.0`](https://lightgbm.readthedocs.io/en/stable/Installation-Guide.html)
