@@ -1,3 +1,8 @@
+# 0.6.2
+
+* **AMGs.tsv**, **AReGs.tsv**, **hmm_id_to_name.csv**.csv**:
+  * Fixed FOAM profile HMM annotations that had valid KO labels but did not get their names/descriptions properly mapped
+
 # 0.6.1
 
 * **filter_by_cds.py**:
