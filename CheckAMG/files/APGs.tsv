@@ -1,514 +1,757 @@
 id	V-score	VL-score	db	name
-K22918	10.0	3.715418323	KEGG	typhoid toxin secretion A
-K04562	10.0	3.54863506	KEGG	flagellar biosynthesis protein FlhG
-K06386	10.0	3.531478917	KEGG	stage II sporulation protein Q
-K02450	10.0	3.505828034	KEGG	general secretion pathway protein A
-K06401	10.0	3.380934463	KEGG	stage IV sporulation protein FA
-K06267	10.0	3.32776749	KEGG	hyaluronan-mediated motility receptor
-K12536	10.0	3.314077992	KEGG	ATP-binding cassette, subfamily C, type I secretion system permease/ATPase
-K25152	10.0	3.268577972	KEGG	gliding motility-associated transport system ATP-binding protein
-K27086	10.0	3.25358029	KEGG	ESX secretion system protein EccC
-K15421	10.0	3.252610341	KEGG	secretion-regulating guanine nucleotide exchange factor
-K03704	10.0	3.225825991	KEGG	cold shock protein
-K07331	10.0	3.219060332	KEGG	archaeal flagellar protein FlaH
-K12771	10.0	3.211921084	KEGG	sporulation-specific protein 1 [EC:2.7.11.1]
-K11904	10.0	3.18610838	KEGG	type VI secretion system secreted protein VgrG
-K11907	10.0	3.18582536	KEGG	type VI secretion system protein VasG
-K12537	10.0	3.154423973	KEGG	membrane fusion protein, type I secretion system
-K11889	10.0	3.14332713	KEGG	type VI secretion system protein ImpN [EC:2.7.11.1]
-K19336	10.0	3.100370545	KEGG	cyclic-di-GMP-binding biofilm dispersal mediator protein
-K08293	10.0	3.043362278	KEGG	sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]
-K06099	9.35	2.970811611	KEGG	cold shock domain protein A
-K27084	9.21	2.96425963	KEGG	ESX secretion system protein EccA
-K06348	8.82	2.945468585	KEGG	sporulation inhibitor KapD
-K03283	8.79	2.943988875	KEGG	heat shock 70kDa protein 1/6/8
-K26598	8.63	2.936010796	KEGG	heat shock 70kDa protein 2
-K09489	8.58	2.933487288	KEGG	heat shock 70kDa protein 4
-K09485	8.4	2.924279286	KEGG	heat shock protein 110kDa
-K03205	8.05	2.90579588	KEGG	type IV secretion system protein VirD4 [EC:7.4.2.8]
-K06413	7.02	2.846337112	KEGG	stage V sporulation protein K
-K06417	7.01	2.845718018	KEGG	stage VI sporulation protein D
-K02456	6.13	2.787460475	KEGG	general secretion pathway protein G
-K06412	5.75	2.759667845	KEGG	stage V sporulation protein G
-K06416	5.4	2.73239376	KEGG	stage V sporulation protein S
-K02453	5.07	2.705007959	KEGG	general secretion pathway protein D
-K21218	5.01	2.699837726	KEGG	sodium-type flagellar protein MotY
-K03219	4.83	2.683947131	KEGG	type III secretion protein C
-K03199	4.79	2.680335513	KEGG	type IV secretion system protein VirB4 [EC:7.4.2.8]
-K03810	4.26	2.629409599	KEGG	virulence factor
-K20530	4.18	2.621176282	KEGG	type IV secretion system protein TrbE [EC:7.4.2.8]
-K10859	4.12	2.614897216	KEGG	DNA oxidative demethylase [EC:1.14.11.33]
-K07804	3.4	2.531478917	KEGG	putatice virulence related protein PagC
-K21217	3.32	2.521138084	KEGG	sodium-type polar flagellar protein MotX
-K02457	3.19	2.503790683	KEGG	general secretion pathway protein H
-K02660	3.18	2.50242712	KEGG	twitching motility protein PilJ
-K03919	3.0	2.477121255	KEGG	DNA oxidative demethylase [EC:1.14.11.33]
-K11905	2.86	2.456366033	KEGG	type VI secretion system protein
-K04455	2.49	2.396199347	KEGG	heat shock protein beta-1
-K13593	2.42	2.383815366	KEGG	cyclic-di-GMP phosphodiesterase, flagellum assembly factor TipF
-K09553	2.38	2.376576957	KEGG	stress-induced-phosphoprotein 1
-K11909	2.34	2.369215857	KEGG	type VI secretion system protein VasI
-K07570	2.27	2.356025857	KEGG	general stress protein 13
-K19766	2.24	2.350248018	KEGG	heat shock protein Hsp-16.1/Hsp-16.11
-K16474	2.19	2.340444115	KEGG	intraflagellar transport protein 88
-K03196	2.09	2.320146286	KEGG	type IV secretion system protein VirB11 [EC:7.4.2.8]
-K20527	2.0	2.301029996	KEGG	type IV secretion system protein TrbB [EC:7.4.2.8]
-K07934	1.98	2.29666519	KEGG	intraflagellar transport protein 27
-K22504	1.96	2.292256071	KEGG	type III secretion system outer membrane ring protein
-K06415	1.95	2.290034611	KEGG	stage V sporulation protein R
-K07332	1.94	2.28780173	KEGG	archaeal flagellar protein FlaI
-K02454	1.74	2.240549248	KEGG	general secretion pathway protein E [EC:7.4.2.8]
-K19767	1.63	2.212187604	KEGG	heat shock protein Hsp-16.48/Hsp-16.49
-K06380	1.62	2.209515015	KEGG	stage II sporulation protein B
-K25615	1.51	2.178976947	KEGG	sperm flagellar protein 2
-K02005	1.49	2.173186268	KEGG	HlyD family secretion protein
-K03194	1.47	2.167317335	KEGG	type IV secretion system protein VirB1
-K06409	1.47	2.167317335	KEGG	stage V sporulation protein B
-K25519	1.44	2.158362492	KEGG	putative sporulation hydrolase
-K02669	1.4	2.146128036	KEGG	twitching motility protein PilT
-K09487	1.34	2.127104798	KEGG	heat shock protein 90kDa beta
-K06402	1.34	2.127104798	KEGG	stage IV sporulation protein FB [EC:3.4.24.-]
-K06381	1.33	2.123851641	KEGG	stage II sporulation protein D
-K01993	1.33	2.123851641	KEGG	HlyD family secretion protein
-K03799	1.29	2.11058971	KEGG	heat shock protein HtpX [EC:3.4.24.-]
-K19656	1.17	2.068185862	KEGG	intraflagellar transport protein 122
-K02670	1.16	2.064457989	KEGG	twitching motility protein PilU
-K02022	1.15	2.06069784	KEGG	HlyD family secretion protein
-K02397	1.13	2.053078443	KEGG	flagellar hook-associated protein 3 FlgL
-K11935	1.13	2.053078443	KEGG	biofilm PGA synthesis protein PgaA
-K19672	1.09	2.037426498	KEGG	intraflagellar transport protein 140
-K12083	1.09	2.037426498	KEGG	type IV secretion system protein PtlH [EC:7.4.2.8]
-K08384	1.07	2.029383778	KEGG	stage V sporulation protein D (sporulation-specific penicillin-binding protein)
-K07344	1.01	2.004321374	KEGG	type IV secretion system protein TrbL
-K19678	1.0	2.0	KEGG	intraflagellar transport protein 80
-K19437	1.0	2.0	KEGG	Simplexvirus neurovirulence factor ICP34.5
-K11919	1.0	2.0	KEGG	type VI secretion system lysozyme-related protein
-K11903	0.96	1.982271233	KEGG	type VI secretion system secreted protein Hcp
-K19679	0.87	1.939519253	KEGG	intraflagellar transport protein 74
-K03600	0.87	1.939519253	KEGG	stringent starvation protein B
-K04060	0.84	1.924279286	KEGG	type III secretion protein Y
-K03599	0.75	1.875061263	KEGG	stringent starvation protein A
-K06149	0.72	1.857332496	KEGG	universal stress protein A
-K14055	0.7	1.84509804	KEGG	universal stress protein E
-K14061	0.64	1.806179974	KEGG	universal stress protein F
-K11892	0.63	1.799340549	KEGG	type VI secretion system protein ImpK
-K09545	0.63	1.799340549	KEGG	heat shock protein beta-6
-K11932	0.61	1.785329835	KEGG	universal stress protein G
-K19769	0.61	1.785329835	KEGG	stress-induced protein 1
-K02459	0.55	1.740362689	KEGG	general secretion pathway protein J
-K12538	0.51	1.707570176	KEGG	outer membrane protein, type I secretion system
-K03201	0.49	1.69019608	KEGG	type IV secretion system protein VirB6
-K02464	0.47	1.672097858	KEGG	general secretion pathway protein O [EC:3.4.23.43 2.1.1.-]
-K07333	0.46	1.662757832	KEGG	archaeal flagellar protein FlaJ
-K20533	0.43	1.633468456	KEGG	type IV secretion system protein TrbI
-K11894	0.41	1.612783857	KEGG	type VI secretion system protein ImpI
-K19676	0.41	1.612783857	KEGG	intraflagellar transport protein 172
-K07935	0.4	1.602059991	KEGG	intraflagellar transport protein 22
-K11913	0.4	1.602059991	KEGG	type VI secretion system protein
-K07326	0.39	1.591064607	KEGG	hemolysin activation/secretion protein
-K18434	0.39	1.591064607	KEGG	type IV secretion system T-DNA border endonuclease VirD2
-K27092	0.36	1.556302501	KEGG	ESX secretion-associated protein EspI
-K03195	0.35	1.544068044	KEGG	type IV secretion system protein VirB10
-K11017	0.34	1.531478917	KEGG	hemolysin activation/secretion protein
-K12080	0.3	1.477121255	KEGG	type IV secretion system protein PtlC [EC:7.4.2.8]
-K02455	0.28	1.447158031	KEGG	general secretion pathway protein F
-K03204	0.26	1.414973348	KEGG	type IV secretion system protein VirB9
-K12151	0.25	1.397940009	KEGG	multiple stress resistance protein BhsA
-K20532	0.25	1.397940009	KEGG	type IV secretion system protein TrbG
-K13650	0.24	1.380211242	KEGG	MqsR-controlled colanic acid and biofilm protein A
-K06390	0.23	1.361727836	KEGG	stage III sporulation protein AA
-K12082	0.23	1.361727836	KEGG	type IV secretion system protein PtlG
-K06399	0.22	1.342422681	KEGG	stage IV sporulation protein B [EC:3.4.21.116]
-K20531	0.22	1.342422681	KEGG	type IV secretion system protein TrbF
-K02452	0.19	1.278753601	KEGG	general secretion pathway protein C
-K02416	0.18	1.255272505	KEGG	flagellar motor switch protein FliM
-K02458	0.17	1.230448921	KEGG	general secretion pathway protein I
-K03668	0.17	1.230448921	KEGG	heat shock protein HslJ
-K20266	0.17	1.230448921	KEGG	type IV secretion system protein TrbJ
-K02404	0.15	1.176091259	KEGG	flagellar biosynthesis protein FlhF
-K03200	0.15	1.176091259	KEGG	type IV secretion system protein VirB5
-K12516	0.14	1.146128036	KEGG	putative surface-exposed virulence protein
-K03224	0.14	1.146128036	KEGG	ATP synthase in type III secretion protein N [EC:7.4.2.8]
-K14064	0.13	1.113943352	KEGG	universal stress protein C
-K02417	0.12	1.079181246	KEGG	flagellar motor switch protein FliN
-K11891	0.12	1.079181246	KEGG	type VI secretion system protein ImpL
-K11896	0.12	1.079181246	KEGG	type VI secretion system protein ImpG
-K02385	0.12	1.079181246	KEGG	flagellar protein FlbD
-K03203	0.12	1.079181246	KEGG	type IV secretion system protein VirB8
-K02412	0.11	1.041392685	KEGG	flagellum-specific ATP synthase [EC:7.4.2.8]
-K07327	0.11	1.041392685	KEGG	archaeal flagellar protein FlaD
-K22506	0.11	1.041392685	KEGG	type III secretion system ATPase [EC:7.4.2.8]
-K06408	0.11	1.041392685	KEGG	stage V sporulation protein AF
-K03225	0.11	1.041392685	KEGG	type III secretion protein Q
-K25153	0.1	1.0	KEGG	gliding motility-associatede transport system auxiliary component
-K11910	0.1	1.0	KEGG	type VI secretion system protein VasJ
-K02407	0.09	0.954242509	KEGG	flagellar hook-associated protein 2
-K24105	0.09	0.954242509	KEGG	mutual gliding-motility protein MglA
-K03198	0.09	0.954242509	KEGG	type IV secretion system protein VirB3
-K25151	0.09	0.954242509	KEGG	gliding motility-associated transport system permease protein
-K06406	0.09	0.954242509	KEGG	stage V sporulation protein AD
-K11900	0.09	0.954242509	KEGG	type VI secretion system protein ImpC
-K02410	0.08	0.903089987	KEGG	flagellar motor switch protein FliG
-K06384	0.08	0.903089987	KEGG	stage II sporulation protein M
-K11893	0.08	0.903089987	KEGG	type VI secretion system protein ImpJ
-K11895	0.08	0.903089987	KEGG	type VI secretion system protein ImpH
-K11899	0.08	0.903089987	KEGG	type VI secretion system protein ImpD
-K26995	0.08	0.903089987	KEGG	sporulation delaying protein B
-K11902	0.08	0.903089987	KEGG	type VI secretion system protein ImpA
-K02408	0.07	0.84509804	KEGG	flagellar hook-basal body complex protein FliE
-K23943	0.07	0.84509804	KEGG	type III secretion system effector arginine glycosyltransferase
-K23944	0.07	0.84509804	KEGG	type III secretion system effector arginine glycosyltransferase
-K23945	0.07	0.84509804	KEGG	type III secretion system effector
-K20529	0.07	0.84509804	KEGG	type IV secretion system protein TrbD
-K12085	0.07	0.84509804	KEGG	type IV secretion system protein PtlF
-K11901	0.07	0.84509804	KEGG	type VI secretion system protein ImpB
-K11911	0.07	0.84509804	KEGG	type VI secretion system protein VasL
-K02460	0.06	0.77815125	KEGG	general secretion pathway protein K
-K06377	0.06	0.77815125	KEGG	sporulation-control protein
-K06385	0.06	0.77815125	KEGG	stage II sporulation protein P
-K06389	0.06	0.77815125	KEGG	stage II sporulation protein SB
-K06398	0.06	0.77815125	KEGG	stage IV sporulation protein A
-K13439	0.06	0.77815125	KEGG	cysteine protease avirulence protein AvrRpt2 [EC:3.4.22.-]
-K02659	0.06	0.77815125	KEGG	twitching motility protein PilI
-K27091	0.06	0.77815125	KEGG	ESX secretion-associated protein EspG
-K19334	0.06	0.77815125	KEGG	biofilm protein TabA
-K02391	0.06	0.77815125	KEGG	flagellar basal-body rod protein FlgF
-K02392	0.06	0.77815125	KEGG	flagellar basal-body rod protein FlgG
-K02396	0.06	0.77815125	KEGG	flagellar hook-associated protein 1
-K11906	0.06	0.77815125	KEGG	type VI secretion system protein VasD
-K15366	0.06	0.77815125	KEGG	salmonella plasmid virulence protein B
-K06371	0.05	0.698970004	KEGG	developmental checkpoint coupling sporulation initiation to replication initiation
-K07822	0.05	0.698970004	KEGG	archaeal flagellar protein FlaC
-K13626	0.05	0.698970004	KEGG	flagellar assembly factor FliW
-K03197	0.05	0.698970004	KEGG	type IV secretion system protein VirB2
-K02388	0.05	0.698970004	KEGG	flagellar basal-body rod protein FlgC
-K02390	0.05	0.698970004	KEGG	flagellar hook protein FlgE
-K06382	0.04	0.602059991	KEGG	stage II sporulation protein E [EC:3.1.3.16]
-K06392	0.04	0.602059991	KEGG	stage III sporulation protein AC
-K06396	0.04	0.602059991	KEGG	stage III sporulation protein AG
-K13440	0.04	0.602059991	KEGG	cysteine protease avirulence protein AvrPphB [EC:3.4.22.-]
-K04762	0.04	0.602059991	KEGG	ribosome-associated heat shock protein Hsp15
-K20528	0.04	0.602059991	KEGG	type IV secretion system protein TrbC
-K27099	0.04	0.602059991	KEGG	ESX secretion-associated protein EspB
-K02387	0.04	0.602059991	KEGG	flagellar basal-body rod protein FlgB
-K06603	0.04	0.602059991	KEGG	flagellar protein FlaG
-K11940	0.04	0.602059991	KEGG	heat shock protein HspQ
-K02400	0.03	0.477121255	KEGG	flagellar biosynthesis protein FlhA
-K06387	0.03	0.477121255	KEGG	stage II sporulation protein R
-K11897	0.03	0.477121255	KEGG	type VI secretion system protein ImpF
-K27085	0.03	0.477121255	KEGG	ESX secretion system ATPase EccB
-K06405	0.03	0.477121255	KEGG	stage V sporulation protein AC
-K06407	0.03	0.477121255	KEGG	stage V sporulation protein AE
-K03220	0.03	0.477121255	KEGG	type III secretion protein D
-K03230	0.03	0.477121255	KEGG	type III secretion protein V
-K02401	0.02	0.301029996	KEGG	flagellar biosynthesis protein FlhB
-K02409	0.02	0.301029996	KEGG	flagellar M-ring protein FliF
-K02419	0.02	0.301029996	KEGG	flagellar biosynthesis protein FliP
-K06394	0.02	0.301029996	KEGG	stage III sporulation protein AE
-K06397	0.02	0.301029996	KEGG	stage III sporulation protein AH
-K11898	0.02	0.301029996	KEGG	type VI secretion system protein ImpE
-K02383	0.02	0.301029996	KEGG	flagellar protein FlbB
-K22510	0.02	0.301029996	KEGG	type III secretion system export apparatus switch protein
-K13820	0.02	0.301029996	KEGG	flagellar biosynthesis protein FliR/FlhB
-K12078	0.02	0.301029996	KEGG	type IV secretion system protein PtlA
-K12079	0.02	0.301029996	KEGG	type IV secretion system protein PtlB
-K12081	0.02	0.301029996	KEGG	type IV secretion system protein PtlE
-K06403	0.02	0.301029996	KEGG	stage V sporulation protein AA
-K16473	0.02	0.301029996	KEGG	intraflagellar transport protein 20
-K24344	0.02	0.301029996	KEGG	flagellar H-ring protein FlgO
-K09543	0.02	0.301029996	KEGG	heat shock protein beta-2
-K21989	0.02	0.301029996	KEGG	calcium permeable stress-gated cation channel
-K11937	0.02	0.301029996	KEGG	biofilm PGA synthesis protein PgaD
-K14065	0.02	0.301029996	KEGG	universal stress protein D
-K03222	0.02	0.301029996	KEGG	type III secretion protein J
-K03229	0.02	0.301029996	KEGG	type III secretion protein U
-K02413	0.01	0.0	KEGG	flagellar protein FliJ
-K02415	0.01	0.0	KEGG	flagellar protein FliL
-K02451	0.01	0.0	KEGG	general secretion pathway protein B
-K02461	0.01	0.0	KEGG	general secretion pathway protein L
-K06375	0.01	0.0	KEGG	stage 0 sporulation protein B (sporulation initiation phosphotransferase) [EC:2.7.-.-]
-K06391	0.01	0.0	KEGG	stage III sporulation protein AB
-K06395	0.01	0.0	KEGG	stage III sporulation protein AF
-K13455	0.01	0.0	KEGG	avirulence protein
-K11890	0.01	0.0	KEGG	type VI secretion system protein ImpM
-K27087	0.01	0.0	KEGG	ESX secretion system protein EccD
-K27088	0.01	0.0	KEGG	ESX secretion system protein EccE
-K19685	0.01	0.0	KEGG	intraflagellar transport protein 56
-K18373	0.01	0.0	KEGG	type III secretion protein HrpB1
-K18380	0.01	0.0	KEGG	type III secretion control protein HpaB
-K21087	0.01	0.0	KEGG	flagellar brake protein
-K20267	0.01	0.0	KEGG	type IV secretion system protein TrbH
-K02389	0.01	0.0	KEGG	flagellar basal-body rod modification protein FlgD
-K22505	0.01	0.0	KEGG	type III secretion system inner membrane ring protein
-K22507	0.01	0.0	KEGG	type III secretion system export apparatus protein
-K22513	0.01	0.0	KEGG	type III secretion system protein
-K04638	0.01	0.0	KEGG	intraflagellar transport protein 57
-K15126	0.01	0.0	KEGG	type III secretion system cytotoxic effector protein
-K06404	0.01	0.0	KEGG	stage V sporulation protein AB
-K24343	0.01	0.0	KEGG	flagellar H-ring protein FlgT
-K20952	0.01	0.0	KEGG	rugosity and biofilm structure modulator C
-K20953	0.01	0.0	KEGG	rugosity and biofilm structure modulator A
-K09547	0.01	0.0	KEGG	heat shock protein beta-9
-K12773	0.01	0.0	KEGG	sporulation-regulated protein 3
-K27101	0.01	0.0	KEGG	ESX secretion-associated protein EspK
-K04061	0.01	0.0	KEGG	flagellar biosynthesis protein
-K03221	0.01	0.0	KEGG	type III secretion protein F
-K03223	0.01	0.0	KEGG	type III secretion protein L
-K03226	0.01	0.0	KEGG	type III secretion protein R
-PF05272.15	10.0	3.886716274	Pfam	Virulence-associated protein E-like domain
-PF04717.16	10.0	3.729893404	Pfam	Type VI secretion system/phage-baseplate injector OB domain
-PF07927.16	10.0	3.386855529	Pfam	HicA toxin of bacterial toxin-antitoxin,
-PF02452.21	10.0	3.376576957	Pfam	PemK-like, MazF-like toxin of type II toxin-antitoxin system
-PF15919.9	10.0	3.260548373	Pfam	HicB_like antitoxin of bacterial toxin-antitoxin system
-PF05016.19	8.81	2.944975908	Pfam	ParE toxin of type II toxin-antitoxin system, parDE
-PF10614.13	7.82	2.893206753	Pfam	Type VIII secretion system (T8SS), CsgF protein
-PF02604.23	5.82	2.764922985	Pfam	Antitoxin Phd_YefM, type II toxin-antitoxin system
-PF04232.16	5.37	2.729974286	Pfam	Stage V sporulation protein S (SpoVS)
-PF04365.17	5.34	2.727541257	Pfam	Ribonuclease toxin, BrnT, of type II toxin-antitoxin system
-PF14384.10	5.25	2.720159303	Pfam	BrnA antitoxin of type II toxin-antitoxin system
-PF00263.25	4.87	2.687528961	Pfam	Bacterial type II and III secretion system protein
-PF05015.17	4.7	2.672097858	Pfam	RelE-like toxin of type II toxin-antitoxin system HigB
-PF08769.15	4.59	2.661812686	Pfam	Sporulation initiation factor Spo0A C terminal
-PF18962.4	4.34	2.63748973	Pfam	Secretion system C-terminal sorting domain
-PF13310.10	4.31	2.63447727	Pfam	Virulence protein RhuM family
-PF21277.1	4.12	2.614897216	Pfam	Type VI secretion system spike protein VgrG3-like, C-terminal
-PF15738.9	3.01	2.478566496	Pfam	Bacterial toxin of type II toxin-antitoxin system, YafQ
-PF10685.13	2.31	2.36361198	Pfam	Stress-induced bacterial acidophilic repeat motif
-PF08845.14	2.26	2.354108439	Pfam	Toxin SymE, type I toxin-antitoxin system
-PF09907.13	2.23	2.348304863	Pfam	HigB_toxin, RelE-like toxic component of a toxin-antitoxin system
-PF00437.24	2.22	2.346352974	Pfam	Type II/IV secretion system protein
-PF06769.18	2.17	2.336459734	Pfam	YoeB-like toxin of bacterial type II toxin-antitoxin system
-PF15731.9	1.95	2.290034611	Pfam	Antitoxin component of bacterial toxin-antitoxin system, MqsA
-PF11160.12	1.93	2.285557309	Pfam	Hypervirulence associated proteins TUDOR domain
-PF13957.10	1.62	2.209515015	Pfam	Toxin YafO, type II toxin-antitoxin system
-PF12116.12	1.59	2.201397124	Pfam	Stage III sporulation protein D
-PF11319.12	1.54	2.187520721	Pfam	Type VI secretion system VasI, EvfG, VC_A0118
-PF06296.16	1.2	2.079181246	Pfam	RelE toxin of RelE / RelB toxin-antitoxin system
-PF13958.10	1.14	2.056904851	Pfam	Toxin ToxN, type III toxin-antitoxin system
-PF04686.16	1.01	2.004321374	Pfam	Streptomyces sporulation and cell division protein, SsgA
-PF13437.10	1.0	2.0	Pfam	HlyD family secretion protein
-PF03225.18	1.0	2.0	Pfam	Viral heat shock protein Hsp90 homologue
-PF15284.10	1.0	2.0	Pfam	Phage-encoded virulence factor
-PF08486.14	0.98	1.991226076	Pfam	Stage II sporulation protein
-PF05638.16	0.95	1.977723605	Pfam	Type VI secretion system effector, Hcp
-PF03693.18	0.88	1.944482672	Pfam	Bacterial antitoxin of ParD toxin-antitoxin type II system and RHH
-PF03958.21	0.83	1.919078092	Pfam	Bacterial type II/III secretion system short domain
-PF15781.9	0.77	1.886490725	Pfam	ParE-like toxin of type II bacterial toxin-antitoxin system
-PF05860.17	0.75	1.875061263	Pfam	TPS secretion domain
-PF17876.5	0.73	1.86332286	Pfam	Cold shock domain
-PF00582.30	0.73	1.86332286	Pfam	Universal stress protein family
-PF13753.10	0.68	1.832508913	Pfam	Putative flagellar system-associated repeat
-PF06755.16	0.59	1.770852012	Pfam	CbtA_toxin of type IV toxin-antitoxin system
-PF14113.10	0.57	1.755874856	Pfam	Type VI secretion system (T6SS), amidase effector protein 4
-PF11903.12	0.57	1.755874856	Pfam	ParD-like antitoxin of type II bacterial toxin-antitoxin system
-PF00482.27	0.53	1.72427587	Pfam	Type II secretion system (T2SS), protein F
-PF13296.10	0.53	1.72427587	Pfam	Putative type VI secretion system Rhs element Vgr
-PF04386.17	0.5	1.698970004	Pfam	Stringent starvation protein B
-PF05977.17	0.5	1.698970004	Pfam	Transmembrane secretion effector
-PF17849.5	0.44	1.643452676	Pfam	Dis3-like cold-shock domain 2 (CSD2)
-PF11663.12	0.44	1.643452676	Pfam	Toxin with endonuclease activity, of toxin-antitoxin system
-PF08178.15	0.4	1.602059991	Pfam	GnsA/GnsB toxin of bacterial toxin-antitoxin system
-PF15970.9	0.38	1.579783597	Pfam	HicB_like antitoxin of bacterial toxin-antitoxin system
-PF11927.12	0.35	1.544068044	Pfam	Haem-dependent oxidative N-demethylase, alpha subunit-like
-PF03865.17	0.33	1.51851394	Pfam	Haemolysin secretion/activation protein ShlB/FhaC/HecB
-PF03534.17	0.3	1.477121255	Pfam	Salmonella virulence plasmid 65kDa B protein
-PF10957.12	0.29	1.462397998	Pfam	Sporulation protein Cse60
-PF03883.18	0.23	1.361727836	Pfam	Peroxide stress protein YaaA
-PF07228.16	0.18	1.255272505	Pfam	Stage II sporulation protein E (SpoIIE)
-PF12441.12	0.18	1.255272505	Pfam	CopG antitoxin of type II toxin-antitoxin system
-PF03961.17	0.18	1.255272505	Pfam	Flagellar Assembly Protein A beta solenoid domain
-PF19568.3	0.15	1.176091259	Pfam	Sporulation stage III, protein AA
-PF10798.12	0.12	1.079181246	Pfam	Biofilm development protein YmgB/AriR
-PF07876.16	0.12	1.079181246	Pfam	Stress responsive A/B Barrel Domain
-PF12910.11	0.12	1.079181246	Pfam	Antitoxin of toxin-antitoxin, RelE / RelB, TA system
-PF05364.18	0.12	1.079181246	Pfam	Salmonella type III secretion SopE effector N-terminus
-PF06289.15	0.11	1.041392685	Pfam	Flagellar and Swarming motility proteins
-PF09857.13	0.1	1.0	Pfam	Putative toxin of bacterial toxin-antitoxin pair
-PF02154.19	0.1	1.0	Pfam	Flagellar motor switch protein FliM
-PF07451.15	0.09	0.954242509	Pfam	Stage V sporulation protein AD (SpoVAD)
-PF06744.16	0.09	0.954242509	Pfam	Type VI secretion protein IcmF C2-like domain
-PF03631.19	0.09	0.954242509	Pfam	Virulence factor BrkB
-PF12468.12	0.09	0.954242509	Pfam	Type III secretion system leucine rich repeat protein
-PF02561.18	0.09	0.954242509	Pfam	Flagellar protein FliS
-PF03543.18	0.08	0.903089987	Pfam	Yersinia/Haemophilus virulence surface antigen
-PF10498.13	0.08	0.903089987	Pfam	Intra-flagellar transport protein 57
-PF21070.1	0.08	0.903089987	Pfam	Type VI secretion protein IcmF helical domain
-PF06996.15	0.08	0.903089987	Pfam	Type VI secretion, TssG
-PF09486.14	0.08	0.903089987	Pfam	Bacterial type III secretion protein (HrpB7)
-PF06812.16	0.08	0.903089987	Pfam	ImpA, N-terminal, type VI secretion system
-PF11203.12	0.08	0.903089987	Pfam	Putative type VII ESX secretion system translocon, EccE
-PF13955.10	0.08	0.903089987	Pfam	Toxin Fst, type I toxin-antitoxin system
-PF02049.22	0.07	0.84509804	Pfam	Flagellar hook-basal body complex protein FliE
-PF11751.12	0.07	0.84509804	Pfam	Type IX secretion system membrane protein PorP/SprF
-PF05591.16	0.07	0.84509804	Pfam	Type VI secretion system, VipA, VC_A0107 or Hcp2
-PF01944.21	0.07	0.84509804	Pfam	Stage II sporulation protein M
-PF07996.15	0.07	0.84509804	Pfam	Type IV secretion system proteins
-PF05947.16	0.07	0.84509804	Pfam	Type VI secretion system, TssF
-PF08334.15	0.06	0.77815125	Pfam	Type II secretion system (T2SS), protein G
-PF14185.10	0.06	0.77815125	Pfam	Antitoxin SpoIISB, type II toxin-antitoxin system
-PF15905.9	0.06	0.77815125	Pfam	Hyaluronan mediated motility receptor N-terminal
-PF06429.17	0.06	0.77815125	Pfam	Flagellar basal body rod FlgEFG protein C-terminal
-PF07454.15	0.06	0.77815125	Pfam	Stage II sporulation protein P (SpoIIP)
-PF18895.4	0.06	0.77815125	Pfam	Type IV secretion system pilin
-PF05526.15	0.06	0.77815125	Pfam	Rhodococcus equi virulence-associated protein
-PF11202.12	0.06	0.77815125	Pfam	Tellurite-like stress resistance cysteine protease StiP
-PF08970.14	0.06	0.77815125	Pfam	Sporulation inhibitor A
-PF12790.11	0.06	0.77815125	Pfam	Type VI secretion lipoprotein, VasD, EvfM, TssJ, VC_A0113
-PF05936.16	0.06	0.77815125	Pfam	Bacterial Type VI secretion, VC_A0110, EvfL, ImpJ, VasE
-PF06825.16	0.05	0.698970004	Pfam	Heat shock factor binding protein 1
-PF17561.6	0.05	0.698970004	Pfam	Type VI secretion system, TssO
-PF03934.17	0.05	0.698970004	Pfam	Type II secretion system (T2SS), protein K
-PF20439.2	0.05	0.698970004	Pfam	Sporulation stage IV protein A, C-terminal
-PF06986.15	0.05	0.698970004	Pfam	F-type Type IV secretion system, TraN
-PF07195.16	0.05	0.698970004	Pfam	Flagellar hook-associated protein 2 C-terminus
-PF06257.15	0.05	0.698970004	Pfam	Biofilm formation stimulator VEG
-PF06686.15	0.05	0.698970004	Pfam	Stage III sporulation protein AC/AD protein family
-PF12486.12	0.04	0.602059991	Pfam	Type VI secretion system, EvfB, or VasL
-PF09850.13	0.04	0.602059991	Pfam	Type VI secretion system protein DotU
-PF08183.15	0.04	0.602059991	Pfam	Stage V sporulation protein family
-PF11181.12	0.04	0.602059991	Pfam	Heat induced stress protein YflT domain
-PF16989.9	0.04	0.602059991	Pfam	Type VI secretion, EvfE, EvfF, ImpA, BimE, VC_A0119, VasJ
-PF02465.22	0.04	0.602059991	Pfam	Flagellar hook-associated protein 2 N-terminus
-PF04119.16	0.04	0.602059991	Pfam	Heat shock protein 9/12
-PF07559.18	0.04	0.602059991	Pfam	Flagellar basal body protein FlaE
-PF12164.12	0.03	0.477121255	Pfam	Stage V sporulation protein AA
-PF04620.16	0.03	0.477121255	Pfam	Flagellar filament outer layer protein Flaa
-PF10646.13	0.03	0.477121255	Pfam	Sporulation and spore germination
-PF16538.9	0.03	0.477121255	Pfam	Flagellar assembly protein T, C-terminal domain
-PF17555.6	0.03	0.477121255	Pfam	Type VI secretion system, TssN
-PF08817.14	0.03	0.477121255	Pfam	WXG100 protein secretion system (Wss), protein YukD
-PF03862.17	0.03	0.477121255	Pfam	SpoVAC/SpoVAEB sporulation membrane protein
-PF03419.17	0.03	0.477121255	Pfam	Sporulation factor SpoIIGA
-PF09551.14	0.03	0.477121255	Pfam	Stage II sporulation protein R (spore_II_R)
-PF05108.17	0.03	0.477121255	Pfam	Type VII secretion system ESX-1, transport TM domain B
-PF09579.14	0.03	0.477121255	Pfam	Sporulation protein YtfJ (Spore_YtfJ)
-PF17541.6	0.03	0.477121255	Pfam	Type VI secretion system, TssC, VipB
-PF11393.12	0.03	0.477121255	Pfam	Type-IV b secretion system, inner-membrane complex component
-PF10139.13	0.02	0.301029996	Pfam	Putative bacterial virulence factor
-PF02512.18	0.02	0.301029996	Pfam	Virulence determinant
-PF13940.10	0.02	0.301029996	Pfam	Toxin Ldr, type I toxin-antitoxin system
-PF12293.12	0.02	0.301029996	Pfam	Putative outer membrane core complex of type IVb secretion
-PF19732.3	0.02	0.301029996	Pfam	Stage II sporulation protein E N-terminal
-PF09546.14	0.02	0.301029996	Pfam	Stage III sporulation protein AE (spore_III_AE)
-PF16695.9	0.02	0.301029996	Pfam	Type VI secretion system (T6SS), amidase immunity protein
-PF18270.5	0.02	0.301029996	Pfam	Virulence factor Evf
-PF20560.2	0.02	0.301029996	Pfam	Motility protein A N-terminal
-PF14620.10	0.02	0.301029996	Pfam	YpeB sporulation, PepSY1 and PepSY2 domains
-PF10140.13	0.02	0.301029996	Pfam	WXG100 protein secretion system (Wss), protein YukC
-PF11846.12	0.02	0.301029996	Pfam	Virulence factor membrane-bound polymerase, C-terminal
-PF02050.20	0.02	0.301029996	Pfam	Flagellar FliJ protein
-PF09547.14	0.02	0.301029996	Pfam	Stage IV sporulation protein A, ATPase domain
-PF06057.15	0.02	0.301029996	Pfam	Bacterial virulence protein (VirJ)
-PF21545.1	0.02	0.301029996	Pfam	T7SS, ESX-1 secretion system protein EccA1, N-terminal domain
-PF21611.1	0.02	0.301029996	Pfam	Avirulence protein, C-terminal domain
-PF07309.15	0.02	0.301029996	Pfam	Flagellar protein FlaF
-PF20438.2	0.02	0.301029996	Pfam	Stage IV sporulation protein A, middle domain
-PF12945.11	0.02	0.301029996	Pfam	Flagellar protein YcgR
-PF16539.9	0.01	0.0	Pfam	Flagellar assembly protein T, middle domain
-PF17735.5	0.01	0.0	Pfam	Biofilm surface layer A
-PF08345.15	0.01	0.0	Pfam	Flagellar M-ring protein C-terminal
-PF13782.10	0.01	0.0	Pfam	Stage V sporulation protein AB
-PF10799.12	0.01	0.0	Pfam	Biofilm formation protein (YliH/bssR)
-PF03963.18	0.01	0.0	Pfam	Flagellar hook capping protein - N-terminal region
-PF09867.13	0.01	0.0	Pfam	TagF N-terminal domain, Type VI secretion system-associated
-PF04888.16	0.01	0.0	Pfam	Secretion system effector C (SseC) like family
-PF07254.16	0.01	0.0	Pfam	Membrane-bound toxin component of toxin-antitoxin system
-PF14931.10	0.01	0.0	Pfam	Intraflagellar transport complex B, subunit 20
-PF09560.14	0.01	0.0	Pfam	Sporulation protein YunB (Spo_YunB)
-PF20232.2	0.01	0.0	Pfam	C-terminal domain of Type VI secretion system FHA protein
-PF07378.15	0.01	0.0	Pfam	Flagellar protein FlbT
-PF09581.14	0.01	0.0	Pfam	Stage III sporulation protein AF (Spore_III_AF)
-PF20250.2	0.01	0.0	Pfam	Flagellar Assembly Protein A N-terminal region
-PF03536.19	0.01	0.0	Pfam	Salmonella virulence-associated 28kDa protein
-PF17001.9	0.01	0.0	Pfam	Type III secretion basal body protein I, YscI, HrpB, PscI
-PF16548.9	0.01	0.0	Pfam	Flagellar assembly protein T, N-terminal domain
-PF07520.15	0.01	0.0	Pfam	Virulence factor SrfB
-PF20898.1	0.01	0.0	Pfam	P-type Type IV secretion system, TraN
-PF09613.14	0.01	0.0	Pfam	Bacterial type III secretion protein (HrpB1_HrpK)
-PF05394.15	0.01	0.0	Pfam	Avirulence protein
-PF09548.14	0.01	0.0	Pfam	Stage III sporulation protein AB (spore_III_AB)
-PF14070.10	0.01	0.0	Pfam	Putative motility protein
-PF03538.18	0.01	0.0	Pfam	Salmonella virulence plasmid 28.1kDa A protein
-PF08988.14	0.01	0.0	Pfam	Type III secretion system, cytoplasmic E component of needle
-PF04518.16	0.01	0.0	Pfam	Effector from type III secretion system
-PF03748.18	0.01	0.0	Pfam	Flagellar basal body-associated protein FliL
-phrog_432	10.0	3.388101202	PHROG	Hsp20 heat shock protein
-phrog_497	10.0	3.363799945	PHROG	toxin-antitoxin system HicB-like
-phrog_729	10.0	3.129689892	PHROG	cold shock protein
-phrog_4681	10.0	3.006037955	PHROG	antitoxin from a toxin-antitoxin system
-phrog_35646	4.54	2.657055853	PHROG	sporulation protein
-phrog_36746	2.92	2.465382851	PHROG	antitoxin from a toxin-antitoxin system
-phrog_4692	2.72	2.434568904	PHROG	antitoxin from a toxin-antitoxin system
-phrog_16914	2.29	2.359835482	PHROG	sporulation protein
+K01993	1.33	2.123851641	KEGG	ABC-2.TX; HlyD family secretion protein
+K02005	1.49	2.173186268	KEGG	ABC.CD.TX; HlyD family secretion protein
+K02022	1.15	2.06069784	KEGG	ABC.MR.TX; HlyD family secretion protein
+K02382			KEGG	flbA; flagellar protein FlbA
+K02383	0.02	0.301029996	KEGG	flbB; flagellar protein FlbB
+K02384			KEGG	flbC; flagellar protein FlbC
+K02385	0.12	1.079181246	KEGG	flbD; flagellar protein FlbD
+K02386			KEGG	flgA; flagellar basal body P-ring formation protein FlgA
+K02387	0.04	0.602059991	KEGG	flgB; flagellar basal-body rod protein FlgB
+K02388	0.05	0.698970004	KEGG	flgC; flagellar basal-body rod protein FlgC
+K02389	0.01	0.0	KEGG	flgD; flagellar basal-body rod modification protein FlgD
+K02390	0.05	0.698970004	KEGG	flgE; flagellar hook protein FlgE
+K02391	0.06	0.77815125	KEGG	flgF; flagellar basal-body rod protein FlgF
+K02392	0.06	0.77815125	KEGG	flgG; flagellar basal-body rod protein FlgG
+K02393			KEGG	flgH; flagellar L-ring protein FlgH
+K02394			KEGG	flgI; flagellar P-ring protein FlgI
+K02396	0.06	0.77815125	KEGG	flgK; flagellar hook-associated protein 1
+K02397	1.13	2.053078443	KEGG	flgL; flagellar hook-associated protein 3 FlgL
+K02399			KEGG	flgN; flagellar biosynthesis protein FlgN
+K02400	0.03	0.477121255	KEGG	flhA; flagellar biosynthesis protein FlhA
+K02401	0.02	0.301029996	KEGG	flhB; flagellar biosynthesis protein FlhB
+K02404	0.15	1.176091259	KEGG	flhF; flagellar biosynthesis protein FlhF
+K02407	0.09	0.954242509	KEGG	fliD; flagellar hook-associated protein 2
+K02408	0.07	0.84509804	KEGG	fliE; flagellar hook-basal body complex protein FliE
+K02409	0.02	0.301029996	KEGG	fliF; flagellar M-ring protein FliF
+K02410	0.08	0.903089987	KEGG	fliG; flagellar motor switch protein FliG
+K02411			KEGG	fliH; flagellar assembly protein FliH
+K02412	0.11	1.041392685	KEGG	fliI; flagellum-specific ATP synthase [EC:7.4.2.8]
+K02413	0.01	0.0	KEGG	fliJ; flagellar protein FliJ
+K02414			KEGG	fliK; flagellar hook-length control protein FliK
+K02415	0.01	0.0	KEGG	fliL; flagellar protein FliL
+K02416	0.18	1.255272505	KEGG	fliM; flagellar motor switch protein FliM
+K02417	0.12	1.079181246	KEGG	fliN; flagellar motor switch protein FliN
+K02418			KEGG	fliO, fliZ; flagellar protein FliO/FliZ
+K02419	0.02	0.301029996	KEGG	fliP; flagellar biosynthesis protein FliP
+K02420			KEGG	fliQ; flagellar biosynthesis protein FliQ
+K02421			KEGG	fliR; flagellar biosynthesis protein FliR
+K02423			KEGG	fliT; flagellar protein FliT
+K02450	10.0	3.505828034	KEGG	gspA; general secretion pathway protein A
+K02451	0.01	0.0	KEGG	gspB; general secretion pathway protein B
+K02452	0.19	1.278753601	KEGG	gspC; general secretion pathway protein C
+K02453	5.07	2.705007959	KEGG	gspD; general secretion pathway protein D
+K02454	1.74	2.240549248	KEGG	gspE; general secretion pathway protein E [EC:7.4.2.8]
+K02455	0.28	1.447158031	KEGG	gspF; general secretion pathway protein F
+K02456	6.13	2.787460475	KEGG	gspG; general secretion pathway protein G
+K02457	3.19	2.503790683	KEGG	gspH; general secretion pathway protein H
+K02458	0.17	1.230448921	KEGG	gspI; general secretion pathway protein I
+K02459	0.55	1.740362689	KEGG	gspJ; general secretion pathway protein J
+K02460	0.06	0.77815125	KEGG	gspK; general secretion pathway protein K
+K02461	0.01	0.0	KEGG	gspL; general secretion pathway protein L
+K02462			KEGG	gspM; general secretion pathway protein M
+K02463			KEGG	gspN; general secretion pathway protein N
+K02464	0.47	1.672097858	KEGG	gspO; general secretion pathway protein O [EC:3.4.23.43 2.1.1.-]
+K02465			KEGG	gspS; general secretion pathway protein S
+K02659	0.06	0.77815125	KEGG	pilI; twitching motility protein PilI
+K02660	3.18	2.50242712	KEGG	pilJ; twitching motility protein PilJ
+K02669	1.4	2.146128036	KEGG	pilT; twitching motility protein PilT
+K02670	1.16	2.064457989	KEGG	pilU; twitching motility protein PilU
+K03194	1.47	2.167317335	KEGG	virB1; type IV secretion system protein VirB1
+K03195	0.35	1.544068044	KEGG	virB10, lvhB10; type IV secretion system protein VirB10
+K03196	2.09	2.320146286	KEGG	virB11, lvhB11; type IV secretion system protein VirB11 [EC:7.4.2.8]
+K03197	0.05	0.698970004	KEGG	virB2, lvhB2; type IV secretion system protein VirB2
+K03198	0.09	0.954242509	KEGG	virB3, lvhB3; type IV secretion system protein VirB3
+K03199	4.79	2.680335513	KEGG	virB4, lvhB4; type IV secretion system protein VirB4 [EC:7.4.2.8]
+K03200	0.15	1.176091259	KEGG	virB5, lvhB5; type IV secretion system protein VirB5
+K03201	0.49	1.69019608	KEGG	virB6, lvhB6; type IV secretion system protein VirB6
+K03202			KEGG	virB7, lvhB7; type IV secretion system protein VirB7
+K03203	0.12	1.079181246	KEGG	virB8, lvhB8; type IV secretion system protein VirB8
+K03204	0.26	1.414973348	KEGG	virB9, lvhB9; type IV secretion system protein VirB9
+K03205	8.05	2.90579588	KEGG	virD4, lvhD4; type IV secretion system protein VirD4 [EC:7.4.2.8]
+K03219	4.83	2.683947131	KEGG	yscC, sctC, ssaC; type III secretion protein C
+K03220	0.03	0.477121255	KEGG	yscD, sctD, ssaD; type III secretion protein D
+K03221	0.01	0.0	KEGG	yscF, sctF, ssaG, prgI; type III secretion protein F
+K03222	0.02	0.301029996	KEGG	yscJ, sctJ, hrcJ, ssaJ; type III secretion protein J
+K03223	0.01	0.0	KEGG	yscL, sctL; type III secretion protein L
+K03224	0.14	1.146128036	KEGG	yscN, sctN, hrcN, ssaN; ATP synthase in type III secretion protein N [EC:7.4.2.8]
+K03225	0.11	1.041392685	KEGG	yscQ, sctQ, hrcQ, ssaQ, spaO; type III secretion protein Q
+K03226	0.01	0.0	KEGG	yscR, sctR, hrcR, ssaR; type III secretion protein R
+K03227			KEGG	yscS, sctS, hrcS, ssaS; type III secretion protein S
+K03228			KEGG	yscT, sctT, hrcT, ssaT; type III secretion protein T
+K03229	0.02	0.301029996	KEGG	yscU, sctU, hrcU, ssaU; type III secretion protein U
+K03230	0.03	0.477121255	KEGG	yscV, sctV, hrcV, ssaV, invA; type III secretion protein V
+K03283	8.79	2.943988875	KEGG	HSPA1_6_8; heat shock 70kDa protein 1/6/8
+K03516			KEGG	flhE; flagellar protein FlhE
+K03599	0.75	1.875061263	KEGG	sspA, mglA; stringent starvation protein A
+K03600	0.87	1.939519253	KEGG	sspB; stringent starvation protein B
+K03668	0.17	1.230448921	KEGG	hslJ; heat shock protein HslJ
+K03704	10.0	3.225825991	KEGG	cspA; cold shock protein
+K03799	1.29	2.11058971	KEGG	htpX; heat shock protein HtpX [EC:3.4.24.-]
+K03810	4.26	2.629409599	KEGG	mviM; virulence factor
+K03919	3.0	2.477121255	KEGG	alkB; DNA oxidative demethylase [EC:1.14.11.33]
+K04048			KEGG	yscA, sctA; type III secretion protein A
+K04049			KEGG	yscB, sctB; type III secretion protein B
+K04050			KEGG	yscE, sctE; type III secretion protein E
+K04051			KEGG	yscG, sctG; type III secretion protein G
+K04052			KEGG	yscH, sctH; type III secretion protein H
+K04053			KEGG	yscI, sctI; type III secretion protein I
+K04054			KEGG	yscK, sctK; type III secretion protein K
+K04055			KEGG	yscM, sctM; type III secretion protein M
+K04056			KEGG	yscO, sctO; type III secretion protein O
+K04057			KEGG	yscP, sctP; type III secretion protein P
+K04058			KEGG	yscW, sctW; type III secretion protein W
+K04059			KEGG	yscX, sctX; type III secretion protein X
+K04060	0.84	1.924279286	KEGG	yscY, sctY; type III secretion protein Y
+K04061	0.01	0.0	KEGG	flhB2; flagellar biosynthesis protein
+K04455	2.49	2.396199347	KEGG	HSPB1; heat shock protein beta-1
+K04562	10.0	3.54863506	KEGG	flhG, fleN; flagellar biosynthesis protein FlhG
+K04638	0.01	0.0	KEGG	IFT57, HIPPI, ESRRBL1; intraflagellar transport protein 57
+K04762	0.04	0.602059991	KEGG	hslR; ribosome-associated heat shock protein Hsp15
+K06099	9.35	2.970811611	KEGG	CSDA, ZONAB; cold shock domain protein A
+K06144			KEGG	uspB; universal stress protein B
+K06149	0.72	1.857332496	KEGG	uspA; universal stress protein A
+K06267	10.0	3.32776749	KEGG	HMMR, RHAMM, CD168; hyaluronan-mediated motility receptor
+K06348	8.82	2.945468585	KEGG	kapD; sporulation inhibitor KapD
+K06371	0.05	0.698970004	KEGG	sda; developmental checkpoint coupling sporulation initiation to replication initiation
+K06375	0.01	0.0	KEGG	spo0B; stage 0 sporulation protein B (sporulation initiation phosphotransferase) [EC:2.7.-.-]
+K06377	0.06	0.77815125	KEGG	spo0M; sporulation-control protein
+K06380	1.62	2.209515015	KEGG	spoIIB; stage II sporulation protein B
+K06381	1.33	2.123851641	KEGG	spoIID; stage II sporulation protein D (peptidoglycan lytic transglycosylase) [EC:4.2.2.29]
+K06382	0.04	0.602059991	KEGG	spoIIE; stage II sporulation protein E [EC:3.1.3.16]
+K06384	0.08	0.903089987	KEGG	spoIIM; stage II sporulation protein M
+K06385	0.06	0.77815125	KEGG	spoIIP; stage II sporulation protein P
+K06386	10.0	3.531478917	KEGG	spoIIQ; stage II sporulation protein Q
+K06387	0.03	0.477121255	KEGG	spoIIR; stage II sporulation protein R
+K06388			KEGG	spoIISA; stage II sporulation protein SA
+K06389	0.06	0.77815125	KEGG	spoIISB; stage II sporulation protein SB
+K06390	0.23	1.361727836	KEGG	spoIIIAA; stage III sporulation protein AA
+K06391	0.01	0.0	KEGG	spoIIIAB; stage III sporulation protein AB
+K06392	0.04	0.602059991	KEGG	spoIIIAC; stage III sporulation protein AC
+K06393			KEGG	spoIIIAD; stage III sporulation protein AD
+K06394	0.02	0.301029996	KEGG	spoIIIAE; stage III sporulation protein AE
+K06395	0.01	0.0	KEGG	spoIIIAF; stage III sporulation protein AF
+K06396	0.04	0.602059991	KEGG	spoIIIAG; stage III sporulation protein AG
+K06397	0.02	0.301029996	KEGG	spoIIIAH; stage III sporulation protein AH
+K06398	0.06	0.77815125	KEGG	spoIVA; stage IV sporulation protein A
+K06399	0.22	1.342422681	KEGG	spoIVB; stage IV sporulation protein B [EC:3.4.21.116]
+K06401	10.0	3.380934463	KEGG	spoIVFA; stage IV sporulation protein FA
+K06402	1.34	2.127104798	KEGG	spoIVFB; stage IV sporulation protein FB [EC:3.4.24.-]
+K06403	0.02	0.301029996	KEGG	spoVAA; stage V sporulation protein AA
+K06404	0.01	0.0	KEGG	spoVAB; stage V sporulation protein AB
+K06405	0.03	0.477121255	KEGG	spoVAC; stage V sporulation protein AC
+K06406	0.09	0.954242509	KEGG	spoVAD; stage V sporulation protein AD
+K06407	0.03	0.477121255	KEGG	spoVAE; stage V sporulation protein AE
+K06408	0.11	1.041392685	KEGG	spoVAF; stage V sporulation protein AF
+K06409	1.47	2.167317335	KEGG	spoVB; stage V sporulation protein B
+K06412	5.75	2.759667845	KEGG	spoVG; stage V sporulation protein G
+K06413	7.02	2.846337112	KEGG	spoVK; stage V sporulation protein K
+K06414			KEGG	spoVM; stage V sporulation protein M
+K06415	1.95	2.290034611	KEGG	spoVR; stage V sporulation protein R
+K06416	5.4	2.73239376	KEGG	spoVS; stage V sporulation protein S
+K06417	7.01	2.845718018	KEGG	spoVID; stage VI sporulation protein D
+K06438			KEGG	yqfD; similar to stage IV sporulation protein
+K06603	0.04	0.602059991	KEGG	flaG; flagellar protein FlaG
+K06604			KEGG	flaI; flagellar protein FlaI
+K07326	0.39	1.591064607	KEGG	fhaC; hemolysin activation/secretion protein
+K07327	0.11	1.041392685	KEGG	flaD; archaeal flagellar protein FlaD
+K07328			KEGG	flaE; archaeal flagellar protein FlaE
+K07329			KEGG	flaF; archaeal flagellar protein FlaF
+K07330			KEGG	flaG; archaeal flagellar protein FlaG
+K07331	10.0	3.219060332	KEGG	flaH; archaeal flagellar protein FlaH
+K07332	1.94	2.28780173	KEGG	flaI; archaeal flagellar protein FlaI
+K07333	0.46	1.662757832	KEGG	flaJ; archaeal flagellar protein FlaJ
+K07344	1.01	2.004321374	KEGG	trbL; type IV secretion system protein TrbL
+K07570	2.27	2.356025857	KEGG	GSP13; general stress protein 13
+K07804	3.4	2.531478917	KEGG	pagC; putatice virulence related protein PagC
+K07822	0.05	0.698970004	KEGG	flaC; archaeal flagellar protein FlaC
+K07934	1.98	2.29666519	KEGG	IFT27, RAYL, RABL4; intraflagellar transport protein 27
+K07935	0.4	1.602059991	KEGG	IFT22, RABL5; intraflagellar transport protein 22
+K08293	10.0	3.043362278	KEGG	SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]
+K08384	1.07	2.029383778	KEGG	spoVD; stage V sporulation protein D (sporulation-specific penicillin-binding protein)
+K08879			KEGG	HSPB8; heat shock protein beta-8
+K09485	8.4	2.924279286	KEGG	HSP110; heat shock protein 110kDa
+K09487	1.34	2.127104798	KEGG	HSP90B, TRA1; heat shock protein 90kDa beta
+K09489	8.58	2.933487288	KEGG	HSPA4; heat shock 70kDa protein 4
+K09491	8.58	2.933487288	KEGG	HSPA13, STCH; heat shock 70kDa protein 13
+K09543	0.02	0.301029996	KEGG	HSPB2; heat shock protein beta-2
+K09544			KEGG	HSPB3; heat shock protein beta-3
+K09545	0.63	1.799340549	KEGG	HSPB6; heat shock protein beta-6
+K09546			KEGG	HSPB7; heat shock protein beta-7
+K09547	0.01	0.0	KEGG	HSPB9; heat shock protein beta-9
+K09553	2.38	2.376576957	KEGG	STIP1; stress-induced-phosphoprotein 1
+K10859	4.12	2.614897216	KEGG	ALKBH2; DNA oxidative demethylase [EC:1.14.11.33]
+K11017	0.34	1.531478917	KEGG	shlB, hhdB, hpmB; hemolysin activation/secretion protein
+K11889	10.0	3.14332713	KEGG	impN; type VI secretion system protein ImpN [EC:2.7.11.1]
+K11890	0.01	0.0	KEGG	impM; type VI secretion system protein ImpM
+K11891	0.12	1.079181246	KEGG	impL, vasK, icmF; type VI secretion system protein ImpL
+K11892	0.63	1.799340549	KEGG	impK, ompA, vasF, dotU; type VI secretion system protein ImpK
+K11893	0.08	0.903089987	KEGG	impJ, vasE; type VI secretion system protein ImpJ
+K11894	0.41	1.612783857	KEGG	impI, vasC; type VI secretion system protein ImpI
+K11895	0.08	0.903089987	KEGG	impH, vasB; type VI secretion system protein ImpH
+K11896	0.12	1.079181246	KEGG	impG, vasA; type VI secretion system protein ImpG
+K11897	0.03	0.477121255	KEGG	impF; type VI secretion system protein ImpF
+K11898	0.02	0.301029996	KEGG	impE; type VI secretion system protein ImpE
+K11899	0.08	0.903089987	KEGG	impD; type VI secretion system protein ImpD
+K11900	0.09	0.954242509	KEGG	impC; type VI secretion system protein ImpC
+K11901	0.07	0.84509804	KEGG	impB; type VI secretion system protein ImpB
+K11902	0.08	0.903089987	KEGG	impA; type VI secretion system protein ImpA
+K11903	0.96	1.982271233	KEGG	hcp; type VI secretion system secreted protein Hcp
+K11904	10.0	3.18610838	KEGG	vgrG; type VI secretion system secreted protein VgrG
+K11905	2.86	2.456366033	KEGG	K11905; type VI secretion system protein
+K11906	0.06	0.77815125	KEGG	vasD, lip; type VI secretion system protein VasD
+K11907	10.0	3.18582536	KEGG	vasG, clpV; type VI secretion system protein VasG
+K11909	2.34	2.369215857	KEGG	vasI; type VI secretion system protein VasI
+K11910	0.1	1.0	KEGG	vasJ; type VI secretion system protein VasJ
+K11911	0.07	0.84509804	KEGG	vasL; type VI secretion system protein VasL
+K11913	0.4	1.602059991	KEGG	fha1; type VI secretion system protein
+K11918			KEGG	lip3; type VI secretion system protein
+K11919	1.0	2.0	KEGG	hsiF3; type VI secretion system lysozyme-related protein
+K11932	0.61	1.785329835	KEGG	uspG; universal stress protein G
+K11935	1.13	2.053078443	KEGG	pgaA; biofilm PGA synthesis protein PgaA
+K11937	0.02	0.301029996	KEGG	pgaD; biofilm PGA synthesis protein PgaD
+K11940	0.04	0.602059991	KEGG	hspQ; heat shock protein HspQ
+K12078	0.02	0.301029996	KEGG	ptlA; type IV secretion system protein PtlA
+K12079	0.02	0.301029996	KEGG	ptlB; type IV secretion system protein PtlB
+K12080	0.3	1.477121255	KEGG	ptlC; type IV secretion system protein PtlC [EC:7.4.2.8]
+K12081	0.02	0.301029996	KEGG	ptlE; type IV secretion system protein PtlE
+K12082	0.23	1.361727836	KEGG	ptlG; type IV secretion system protein PtlG
+K12083	1.09	2.037426498	KEGG	ptlH; type IV secretion system protein PtlH [EC:7.4.2.8]
+K12084			KEGG	ptlD; type IV secretion system protein PtlD
+K12085	0.07	0.84509804	KEGG	ptlF; type IV secretion system protein PtlF
+K12151	0.25	1.397940009	KEGG	bhsA; multiple stress resistance protein BhsA
+K12366			KEGG	ELMO1, CED12; engulfment and cell motility protein 1
+K12516	0.14	1.146128036	KEGG	bigA; putative surface-exposed virulence protein
+K12536	10.0	3.314077992	KEGG	hasD, prtD, aprD, rsaD, prsD, eexD; ATP-binding cassette, subfamily C, type I secretion system permease/ATPase
+K12537	10.0	3.154423973	KEGG	hasE, prtE, rsaE, prsE, eexE; membrane fusion protein, type I secretion system
+K12538	0.51	1.707570176	KEGG	hasF, prtF; outer membrane protein, type I secretion system
+K12576			KEGG	SPO12; sporulation-specific protein 12
+K12771	10.0	3.211921084	KEGG	SPS1; sporulation-specific protein 1 [EC:2.7.11.1]
+K12772			KEGG	SPS4; sporulation-specific protein 4
+K12773	0.01	0.0	KEGG	SPR3; sporulation-regulated protein 3
+K12783			KEGG	SSP1; sporulation-specific protein 1
+K13301			KEGG	secM; secretion monitor
+K13439	0.06	0.77815125	KEGG	avrRpt2; cysteine protease avirulence protein AvrRpt2 [EC:3.4.22.-]
+K13440	0.04	0.602059991	KEGG	avrPphB; cysteine protease avirulence protein AvrPphB [EC:3.4.22.-]
+K13455	0.01	0.0	KEGG	avrXccC, avrB; avirulence protein
+K13593	2.42	2.383815366	KEGG	tipF; cyclic-di-GMP phosphodiesterase, flagellum assembly factor TipF
+K13626	0.05	0.698970004	KEGG	fliW; flagellar assembly factor FliW
+K13650	0.24	1.380211242	KEGG	mcbA; MqsR-controlled colanic acid and biofilm protein A
+K13790			KEGG	icsB, bopA; virulence protein IcsB
+K13820	0.02	0.301029996	KEGG	fliR-flhB; flagellar biosynthesis protein FliR/FlhB
+K14055	0.7	1.84509804	KEGG	uspE; universal stress protein E
+K14061	0.64	1.806179974	KEGG	uspF; universal stress protein F
+K14064	0.13	1.113943352	KEGG	uspC; universal stress protein C
+K14065	0.02	0.301029996	KEGG	uspD; universal stress protein D
+K15126	0.01	0.0	KEGG	bteA; type III secretion system cytotoxic effector protein
+K15366	0.06	0.77815125	KEGG	spvB; salmonella plasmid virulence protein B
+K15421	10.0	3.252610341	KEGG	SERGEF; secretion-regulating guanine nucleotide exchange factor
+K16473	0.02	0.301029996	KEGG	IFT20; intraflagellar transport protein 20
+K16474	2.19	2.340444115	KEGG	IFT88; intraflagellar transport protein 88
+K16947			KEGG	SPR28; sporulation-regulated protein 28
+K18373	0.01	0.0	KEGG	hrpB1; type III secretion protein HrpB1
+K18374			KEGG	hrpB2; type III secretion inner rod protein HrpB2
+K18375			KEGG	hrpE; type III secretion hrp pilus HrpE
+K18376			KEGG	hrpF; type III secretion translocon protein HrpF
+K18378			KEGG	hpa1; type III secretion harpin protein Hpa1
+K18380	0.01	0.0	KEGG	hpaB; type III secretion control protein HpaB
+K18381			KEGG	hpaC; type III secretion control protein HpaP
+K18433			KEGG	virD1; type IV secretion system T-DNA border endonuclease VirD1
+K18434	0.39	1.591064607	KEGG	virD2; type IV secretion system T-DNA border endonuclease VirD2
+K18985			KEGG	ELMO2, CED12A; engulfment and cell motility protein 2
+K19241			KEGG	ELMO3; engulfment and cell motility protein 3
+K19334	0.06	0.77815125	KEGG	tabA; biofilm protein TabA
+K19336	10.0	3.100370545	KEGG	bdcA; cyclic-di-GMP-binding biofilm dispersal mediator protein
+K19369			KEGG	HSPB11; heat shock protein beta-11
+K19437	1.0	2.0	KEGG	RL1; Simplexvirus neurovirulence factor ICP34.5
+K19556			KEGG	spvA; salmonella plasmid virulence protein A
+K19557			KEGG	spvD; salmonella plasmid virulence protein D
+K19656	1.17	2.068185862	KEGG	IFT122; intraflagellar transport protein 122
+K19672	1.09	2.037426498	KEGG	IFT140; intraflagellar transport protein 140
+K19675			KEGG	IFT43; intraflagellar transport protein 43
+K19676	0.41	1.612783857	KEGG	IFT172; intraflagellar transport protein 172
+K19677			KEGG	IFT81; intraflagellar transport protein 81
+K19678	1.0	2.0	KEGG	IFT80; intraflagellar transport protein 80
+K19679	0.87	1.939519253	KEGG	IFT74; intraflagellar transport protein 74
+K19681			KEGG	IFT52; intraflagellar transport protein 52
+K19682			KEGG	IFT46; intraflagellar transport protein 46
+K19685	0.01	0.0	KEGG	TTC26, IFT56, DYF13; intraflagellar transport protein 56
+K19765			KEGG	HSBP1; heat shock factor-binding protein 1
+K19766	2.24	2.350248018	KEGG	HSP16.1; heat shock protein Hsp-16.1/Hsp-16.11
+K19767	1.63	2.212187604	KEGG	HSP16.49; heat shock protein Hsp-16.48/Hsp-16.49
+K19768			KEGG	HSP12.6; heat shock protein 12.6
+K19769	0.61	1.785329835	KEGG	SIP1; stress-induced protein 1
+K20266	0.17	1.230448921	KEGG	trbJ; type IV secretion system protein TrbJ
+K20267	0.01	0.0	KEGG	trbH; type IV secretion system protein TrbH
+K20527	2.0	2.301029996	KEGG	trbB; type IV secretion system protein TrbB [EC:7.4.2.8]
+K20528	0.04	0.602059991	KEGG	trbC; type IV secretion system protein TrbC
+K20529	0.07	0.84509804	KEGG	trbD; type IV secretion system protein TrbD
+K20530	4.18	2.621176282	KEGG	trbE; type IV secretion system protein TrbE [EC:7.4.2.8]
+K20531	0.22	1.342422681	KEGG	trbF; type IV secretion system protein TrbF
+K20532	0.25	1.397940009	KEGG	trbG; type IV secretion system protein TrbG
+K20533	0.43	1.633468456	KEGG	trbI; type IV secretion system protein TrbI
+K20555			KEGG	trbK; type IV secretion system protein TrbK
+K20952	0.01	0.0	KEGG	rbmC; rugosity and biofilm structure modulator C
+K20953	0.01	0.0	KEGG	rbmA; rugosity and biofilm structure modulator A
+K21087	0.01	0.0	KEGG	ycgR; flagellar brake protein
+K21217	3.32	2.521138084	KEGG	motX; sodium-type polar flagellar protein MotX
+K21218	5.01	2.699837726	KEGG	motY; sodium-type flagellar protein MotY
+K21989	0.02	0.301029996	KEGG	TMEM63, CSC1; calcium permeable stress-gated cation channel
+K22487			KEGG	prgJ; type III secretion system protein
+K22488			KEGG	prgH; type III secretion system protein
+K22504	1.96	2.292256071	KEGG	invG; type III secretion system outer membrane ring protein
+K22505	0.01	0.0	KEGG	prgK; type III secretion system inner membrane ring protein
+K22506	0.11	1.041392685	KEGG	spaL; type III secretion system ATPase [EC:7.4.2.8]
+K22507	0.01	0.0	KEGG	spaP; type III secretion system export apparatus protein
+K22508			KEGG	spaQ; type III secretion system export apparatus protein
+K22509			KEGG	spaR; type III secretion system export apparatus protein
+K22510	0.02	0.301029996	KEGG	spaS; type III secretion system export apparatus switch protein
+K22511			KEGG	invE; type III secretion system protein
+K22513	0.01	0.0	KEGG	spaM, invI; type III secretion system protein
+K22514			KEGG	spaN, invJ; type III secretion system protein
+K22918	10.0	3.715418323	KEGG	ttsA; typhoid toxin secretion A
+K23473			KEGG	yopE; outer membrane virulence protein YopE
+K23661			KEGG	escI; type III secretion system protein
+K23943	0.07	0.84509804	KEGG	sseK3; type III secretion system effector arginine glycosyltransferase
+K23944	0.07	0.84509804	KEGG	sseK1; type III secretion system effector arginine glycosyltransferase
+K23945	0.07	0.84509804	KEGG	sseK2; type III secretion system effector
+K23986			KEGG	flaCE; archaeal flagellar protein FlaCE
+K24105	0.09	0.954242509	KEGG	mglA; mutual gliding-motility protein MglA
+K24343	0.01	0.0	KEGG	flgT; flagellar H-ring protein FlgT
+K24344	0.02	0.301029996	KEGG	flgO; flagellar H-ring protein FlgO
+K24346			KEGG	flgQ; flagellar motility protein FlgQ
+K25151	0.09	0.954242509	KEGG	gldF; gliding motility-associated transport system permease protein
+K25152	10.0	3.268577972	KEGG	gldA; gliding motility-associated transport system ATP-binding protein
+K25153	0.1	1.0	KEGG	gldG; gliding motility-associatede transport system auxiliary component
+K25519	1.44	2.158362492	KEGG	cotR; putative sporulation hydrolase
+K25614			KEGG	SPEF1; sperm flagellar protein 1
+K25615	1.51	2.178976947	KEGG	SPEF2; sperm flagellar protein 2
+K25631			KEGG	FLACC1, ALS2CR12; flagellum-associated coiled-coil domain-containing protein 1
+K25791			KEGG	HSF2BP; heat shock factor 2-binding protein
+K26598	8.63	2.936010796	KEGG	HSPA2; heat shock 70kDa protein 2
+K26994			KEGG	sdpA; sporulation delaying protein A
+K26995	0.08	0.903089987	KEGG	sdpB; sporulation delaying protein B
+K27084	9.21	2.96425963	KEGG	eccA; ESX secretion system protein EccA
+K27085	0.03	0.477121255	KEGG	eccB; ESX secretion system ATPase EccB
+K27086	10.0	3.25358029	KEGG	eccC; ESX secretion system protein EccC
+K27087	0.01	0.0	KEGG	eccD; ESX secretion system protein EccD
+K27088	0.01	0.0	KEGG	eccE; ESX secretion system protein EccE
+K27089			KEGG	espC_F; ESX secretion-associated protein EspC/F
+K27090			KEGG	espD_H; ESX secretion-associated protein EspD/H
+K27091	0.06	0.77815125	KEGG	espG; ESX secretion-associated protein EspG
+K27092	0.36	1.556302501	KEGG	espI; ESX secretion-associated protein EspI
+K27098			KEGG	espA_E; ESX secretion-associated protein EspA/E
+K27099	0.04	0.602059991	KEGG	espB; ESX secretion-associated protein EspB
+K27100			KEGG	espJ; ESX secretion-associated protein EspJ
+K27101	0.01	0.0	KEGG	espK; ESX secretion-associated protein EspK
+K27102			KEGG	espL; ESX secretion-associated protein EspL
+K28183			KEGG	HSPA14; heat shock 70 kDa protein 14
+PF00263.27			Pfam	Bacterial type II and III secretion system protein
+PF00437.27			Pfam	Type II/IV secretion system protein
+PF00482.29			Pfam	Type II secretion system (T2SS), protein F
+PF00582.33			Pfam	Universal stress protein family
+PF01203.26			Pfam	Type II secretion system (T2SS), protein N
+PF01944.23			Pfam	Stage II sporulation protein M
+PF02049.24			Pfam	Flagellar hook-basal body complex protein FliE
+PF02050.22			Pfam	Flagellar FliJ protein
+PF02107.22			Pfam	Flagellar L-ring protein
+PF02108.22			Pfam	Flagellar assembly protein FliH
+PF02119.22			Pfam	Flagellar P-ring protein
+PF02120.22			Pfam	Flagellar hook-length control protein FliK
+PF02154.21			Pfam	Flagellar motor switch protein FliM
+PF02452.24			Pfam	PemK-like, MazF-like toxin of type II toxin-antitoxin system
+PF02465.24			Pfam	Flagellar hook-associated protein 2 N-terminus
+PF02501.23			Pfam	Type II secretion system (T2SS), protein I
+PF02512.20			Pfam	Virulence determinant
+PF02561.20			Pfam	Flagellar protein FliS
+PF02604.27			Pfam	Antitoxin Phd_YefM, type II toxin-antitoxin system
+PF03225.20			Pfam	Viral heat shock protein Hsp90 homologue
+PF03419.19			Pfam	Sporulation factor SpoIIGA
+PF03534.19			Pfam	Salmonella virulence plasmid 65kDa B protein
+PF03536.21			Pfam	Salmonella virulence-associated 28kDa protein
+PF03538.19			Pfam	Salmonella virulence plasmid 28.1kDa A protein
+PF03543.21			Pfam	Yersinia/Haemophilus virulence surface antigen
+PF03545.19			Pfam	Yersinia virulence determinant (YopE)
+PF03631.21			Pfam	Virulence factor BrkB
+PF03693.21			Pfam	Bacterial antitoxin of ParD toxin-antitoxin type II system and RHH
+PF03748.20			Pfam	Flagellar basal body-associated protein FliL
+PF03862.19			Pfam	SpoVAC/SpoVAEB sporulation membrane protein
+PF03865.20			Pfam	Haemolysin secretion/activation protein ShlB/FhaC/HecB
+PF03883.21			Pfam	Peroxide stress protein YaaA
+PF03934.20			Pfam	Type II secretion system (T2SS), protein K
+PF03958.23			Pfam	Bacterial type II/III secretion system short domain
+PF03961.20			Pfam	Flagellar Assembly Protein A beta solenoid domain
+PF03963.20			Pfam	Flagellar hook capping protein - N-terminal region
+PF04119.18			Pfam	Heat shock protein 9/12
+PF04232.18			Pfam	Stage V sporulation protein S (SpoVS)
+PF04347.19			Pfam	Flagellar biosynthesis protein, FliO
+PF04365.20			Pfam	Ribonuclease toxin, BrnT, of type II toxin-antitoxin system
+PF04386.19			Pfam	Stringent starvation protein B
+PF04518.18			Pfam	Effector from type III secretion system
+PF04612.18			Pfam	Type II secretion system (T2SS), protein M
+PF04620.19			Pfam	Flagellar filament outer layer protein Flaa
+PF04686.19			Pfam	Streptomyces sporulation and cell division protein, SsgA
+PF04717.19			Pfam	Type VI secretion system/phage-baseplate injector OB domain
+PF04888.18			Pfam	Secretion system effector C (SseC) like family
+PF05015.19			Pfam	RelE-like toxin of type II toxin-antitoxin system HigB
+PF05016.22			Pfam	ParE toxin of type II toxin-antitoxin system, parDE
+PF05108.19			Pfam	Type VII secretion system ESX-1, transport TM domain B
+PF05134.20			Pfam	Type II secretion system (T2SS), protein L
+PF05149.18			Pfam	Paraflagellar rod protein
+PF05272.18			Pfam	Virulence-associated protein E-like domain
+PF05364.20			Pfam	Salmonella type III secretion SopE effector N-terminus
+PF05394.17			Pfam	Avirulence protein
+PF05400.19			Pfam	Flagellar protein FliT
+PF05422.18			Pfam	Stress-activated map kinase interacting protein 1 (SIN1)
+PF05526.17			Pfam	Rhodococcus equi virulence-associated protein
+PF05563.19			Pfam	Salmonella plasmid virulence protein SpvD
+PF05591.18			Pfam	Type VI secretion system, VipA, VC_A0107 or Hcp2
+PF05627.17			Pfam	Cleavage site for pathogenic type III effector avirulence factor Avr
+PF05638.19			Pfam	Type VI secretion system effector, Hcp
+PF05655.17			Pfam	Pseudomonas avirulence D protein (AvrD)
+PF05802.16			Pfam	SPI-2 type 3 secretion system translocon protein SctB
+PF05860.20			Pfam	TPS secretion domain
+PF05925.18			Pfam	Enterobacterial virulence protein IpgD
+PF05936.18			Pfam	Bacterial Type VI secretion, VC_A0110, EvfL, ImpJ, VasE
+PF05947.18			Pfam	Type VI secretion system, TssF
+PF05977.20			Pfam	Transmembrane secretion effector
+PF06057.18			Pfam	Bacterial virulence protein (VirJ)
+PF06257.18			Pfam	Biofilm formation stimulator VEG
+PF06289.17			Pfam	Flagellar and Swarming motility proteins
+PF06296.19			Pfam	RelE toxin of RelE / RelB toxin-antitoxin system
+PF06366.20			Pfam	Flagellar protein FlhE
+PF06429.19			Pfam	Flagellar basal body rod FlgEFG protein C-terminal
+PF06511.17			Pfam	Type III secretion systems tip complex components
+PF06558.18			Pfam	Secretion monitor precursor protein (SecM)
+PF06635.17			Pfam	Type 3 secretion system stator protein
+PF06686.17			Pfam	Stage III sporulation protein AC/AD protein family
+PF06744.19			Pfam	Type VI secretion protein IcmF C2-like domain
+PF06755.18			Pfam	CbtA_toxin of type IV toxin-antitoxin system
+PF06769.21			Pfam	YoeB-like toxin of bacterial type II toxin-antitoxin system
+PF06812.18			Pfam	ImpA, N-terminal, type VI secretion system
+PF06825.18			Pfam	Heat shock factor binding protein 1
+PF06898.17			Pfam	Putative stage IV sporulation protein YqfD
+PF06986.17			Pfam	F-type Type IV secretion system, TraN
+PF06996.17			Pfam	Type VI secretion, TssG
+PF07195.18			Pfam	Flagellar hook-associated protein 2 C-terminus
+PF07228.18			Pfam	Stage II sporulation protein E (SpoIIE)
+PF07240.17			Pfam	Stress-inducible humoral factor Turandot
+PF07254.18			Pfam	Membrane-bound toxin component of toxin-antitoxin system
+PF07309.17			Pfam	Flagellar protein FlaF
+PF07321.18			Pfam	Type III secretion protein YscO
+PF07378.17			Pfam	Flagellar protein FlbT
+PF07451.18			Pfam	Stage V sporulation protein AD (SpoVAD)
+PF07454.19			Pfam	Stage II sporulation protein P (SpoIIP)
+PF07520.17			Pfam	Virulence factor SrfB
+PF07559.20			Pfam	Flagellar basal body protein FlaE D2 domain
+PF07712.19			Pfam	Stress up-regulated Nod 19
+PF07876.19			Pfam	Stress responsive A/B Barrel Domain
+PF07927.18			Pfam	HicA toxin of bacterial toxin-antitoxin,
+PF07996.17			Pfam	Type IV secretion system proteins
+PF08178.17			Pfam	GnsA/GnsB toxin of bacterial toxin-antitoxin system
+PF08183.17			Pfam	Stage V sporulation protein family
+PF08334.17			Pfam	Type II secretion system (T2SS), protein G
+PF08345.18			Pfam	Flagellar M-ring protein C-terminal
+PF08486.16			Pfam	Stage II sporulation protein
+PF08769.18			Pfam	Sporulation initiation factor Spo0A C terminal
+PF08817.17			Pfam	WXG100 protein secretion system (Wss), protein YukD
+PF08845.16			Pfam	Toxin SymE, type I toxin-antitoxin system
+PF08970.16			Pfam	Sporulation inhibitor A
+PF08988.16			Pfam	Type III secretion system, cytoplasmic E component of needle
+PF09392.16			Pfam	Type III secretion needle MxiH, YscF, SsaG, EprI, PscF, EscF
+PF09474.16			Pfam	Type III secretion system YscX (type_III_YscX)
+PF09475.17			Pfam	Dot/Icm secretion system protein (dot_icm_IcmQ)
+PF09480.16			Pfam	Type III secretion system protein PrgH-EprH (PrgH)
+PF09482.16			Pfam	Bacterial type III secretion apparatus protein (OrgA_MxiK)
+PF09483.16			Pfam	Type III secretion protein (HpaP)
+PF09486.16			Pfam	Bacterial type III secretion protein (HrpB7)
+PF09487.16			Pfam	Bacterial type III secretion protein (HrpB2)
+PF09501.16			Pfam	Probable sporulation protein (Bac_small_yrzI)
+PF09502.16			Pfam	Bacterial type III secretion protein (HrpB4)
+PF09546.16			Pfam	Stage III sporulation protein AE (spore_III_AE)
+PF09547.17			Pfam	Stage IV sporulation protein A, ATPase domain
+PF09548.16			Pfam	Stage III sporulation protein AB (spore_III_AB)
+PF09551.16			Pfam	Stage II sporulation protein R (spore_II_R)
+PF09560.16			Pfam	Sporulation protein YunB (Spo_YunB)
+PF09577.16			Pfam	Sporulation protein YpjB (SpoYpjB)
+PF09579.16			Pfam	Sporulation protein YtfJ (Spore_YtfJ)
+PF09580.16			Pfam	Sporulation lipoprotein YhcN/YlaJ (Spore_YhcN_YlaJ)
+PF09581.17			Pfam	Stage III sporulation protein AF (Spore_III_AF)
+PF09613.17			Pfam	Bacterial type III secretion protein (HrpB1_HrpK)
+PF09691.16			Pfam	Type II secretion system pilotin lipoprotein (PulS_OutS)
+PF09850.15			Pfam	Type VI secretion system protein DotU
+PF09857.15			Pfam	Putative toxin of bacterial toxin-antitoxin pair
+PF09859.16			Pfam	Oxygenase, catalysing oxidative methylation of damaged DNA
+PF09867.15			Pfam	TagF N-terminal domain, Type VI secretion system-associated
+PF09907.16			Pfam	HigB_toxin, RelE-like toxic component of a toxin-antitoxin system
+PF10139.15			Pfam	Putative bacterial virulence factor
+PF10140.16			Pfam	WXG100 protein secretion system (Wss), protein YukC
+PF10144.16			Pfam	Bacterial virulence factor haemolysin
+PF10379.15			Pfam	Virulence protein nec1
+PF10498.15			Pfam	Intra-flagellar transport protein 57
+PF10614.15			Pfam	Type VIII secretion system (T8SS), CsgF protein
+PF10625.15			Pfam	Universal stress protein B (UspB)
+PF10646.15			Pfam	Sporulation and spore germination
+PF10661.15			Pfam	WXG100 protein secretion system (Wss), protein EssA
+PF10684.15			Pfam	Putative biofilm-dependent modulation protein
+PF10685.15			Pfam	Stress-induced bacterial acidophilic repeat motif
+PF10741.15			Pfam	Type II secretion system (T2SS), protein M subtype b
+PF10747.15			Pfam	Sporulation inhibitor of replication protein SirA
+PF10798.14			Pfam	Biofilm development protein YmgB/AriR
+PF10799.13			Pfam	Biofilm formation protein (YliH/bssR)
+PF10824.15			Pfam	Excreted virulence factor EspC, type VII ESX diderm
+PF10957.14			Pfam	Sporulation protein Cse60
+PF11036.13			Pfam	Virulence promoting factor
+PF11160.14			Pfam	Hypervirulence associated proteins TUDOR domain
+PF11181.14			Pfam	Heat induced stress protein YflT domain
+PF11202.15			Pfam	Tellurite-like stress resistance cysteine protease StiP
+PF11203.14			Pfam	Putative type VII ESX secretion system translocon, EccE
+PF11319.14			Pfam	Type VI secretion system VasI, EvfG, VC_A0118
+PF11327.14			Pfam	Egh16-like virulence factor
+PF11356.15			Pfam	Type II secretion system protein C
+PF11393.15			Pfam	Type-IV b secretion system, inner-membrane complex component
+PF11529.15			Pfam	Melampsora lini avirulence protein AvrL567-A
+PF11612.14			Pfam	Type II secretion system (T2SS), protein J
+PF11663.15			Pfam	Toxin with endonuclease activity, of toxin-antitoxin system
+PF11751.15			Pfam	Type IX secretion system membrane protein PorP/SprF
+PF11846.15			Pfam	Virulence factor membrane-bound polymerase, C-terminal
+PF11903.15			Pfam	ParD-like antitoxin of type II bacterial toxin-antitoxin system
+PF11927.15			Pfam	Haem-dependent oxidative N-demethylase, alpha subunit-like
+PF12116.15			Pfam	Stage III sporulation protein D
+PF12150.15			Pfam	Cytosolic motility protein
+PF12164.14			Pfam	Stage V sporulation protein AA
+PF12202.15			Pfam	Oxidative-stress-responsive kinase 1 C-terminal domain
+PF12262.15			Pfam	Bacterial virulence factor lipase N-terminal
+PF12293.14			Pfam	Putative outer membrane core complex of type IVb secretion
+PF12317.14			Pfam	Intraflagellar transport complex B protein 46 C terminal
+PF12441.15			Pfam	CopG antitoxin of type II toxin-antitoxin system
+PF12468.15			Pfam	Type III secretion system leucine rich repeat protein
+PF12486.14			Pfam	Type VI secretion system, EvfB, or VasL
+PF12528.14			Pfam	Type II secretion prepilin peptidase dependent protein C
+PF12608.14			Pfam	Type IVb secretion, IcmS, effector-recruitment
+PF12611.14			Pfam	Putative flagellar
+PF12703.12			Pfam	Toxin of toxin-antitoxin type 1 system
+PF12734.13			Pfam	Cysteine-rich TM module stress tolerance
+PF12790.14			Pfam	Type VI secretion lipoprotein, VasD, EvfM, TssJ, VC_A0113
+PF12910.14			Pfam	Antitoxin of toxin-antitoxin, RelE / RelB, TA system
+PF12945.13			Pfam	Flagellar protein YcgR
+PF13296.12			Pfam	Putative type VI secretion system Rhs element Vgr
+PF13310.12			Pfam	Virulence protein RhuM family
+PF13327.12			Pfam	Type III secretion system subunit
+PF13753.13			Pfam	Putative flagellar system-associated repeat
+PF13769.12			Pfam	Virulence factor
+PF13782.12			Pfam	Stage V sporulation protein AB
+PF13939.12			Pfam	Toxin TisB, type I toxin-antitoxin system
+PF13940.12			Pfam	Toxin Ldr, type I toxin-antitoxin system
+PF13955.12			Pfam	Toxin Fst, type I toxin-antitoxin system
+PF13956.12			Pfam	Toxin Ibs, type I toxin-antitoxin system
+PF13957.12			Pfam	Toxin YafO, type II toxin-antitoxin system
+PF13958.13			Pfam	Toxin ToxN, type III toxin-antitoxin system
+PF14034.12			Pfam	Sporulation protein YtrH
+PF14069.12			Pfam	Stage VI sporulation protein F
+PF14070.12			Pfam	Putative motility protein
+PF14097.12			Pfam	Stage V sporulation protein AE1
+PF14113.13			Pfam	Type VI secretion system (T6SS), amidase effector protein 4
+PF14147.12			Pfam	Sporulation protein YhaL
+PF14171.12			Pfam	Toxin SpoIISA, type II toxin-antitoxin system
+PF14185.12			Pfam	Antitoxin SpoIISB, type II toxin-antitoxin system
+PF14349.12			Pfam	Motility related/secretion protein
+PF14384.13			Pfam	BrnA antitoxin of type II toxin-antitoxin system
+PF14571.12			Pfam	Stress-induced protein Di19, C-terminal
+PF14620.13			Pfam	YpeB sporulation, PepSY1 and PepSY2 domains
+PF14682.12			Pfam	Sporulation initiation phospho-transferase B, C-terminal
+PF14769.12			Pfam	Flagellar C1a complex subunit C1a-32
+PF14874.13			Pfam	Flagellar-associated PapD-like
+PF14931.12			Pfam	Intraflagellar transport complex B, subunit 20
+PF15284.12			Pfam	Phage-encoded virulence factor
+PF15305.12			Pfam	Intraflagellar transport protein 43
+PF15407.13			Pfam	Sporulation protein family 7
+PF15731.12			Pfam	Antitoxin component of bacterial toxin-antitoxin system, MqsA
+PF15738.12			Pfam	Bacterial toxin of type II toxin-antitoxin system, YafQ
+PF15781.13			Pfam	ParE-like toxin of type II bacterial toxin-antitoxin system
+PF15905.11			Pfam	Hyaluronan mediated motility receptor N-terminal
+PF15908.11			Pfam	Hyaluronan mediated motility receptor C-terminal
+PF15919.12			Pfam	HicB_like antitoxin of bacterial toxin-antitoxin system
+PF15939.11			Pfam	Putative antitoxin of bacterial toxin-antitoxin system
+PF15950.11			Pfam	Putative sperm flagellar membrane protein
+PF15970.11			Pfam	HicB_like antitoxin of bacterial toxin-antitoxin system
+PF16537.12			Pfam	Type II secretion system protein B
+PF16538.12			Pfam	Flagellar assembly protein T, C-terminal domain
+PF16539.11			Pfam	Flagellar assembly protein T, middle domain
+PF16548.11			Pfam	Flagellar assembly protein T, N-terminal domain
+PF16549.11			Pfam	Type II secretion system (T2SS) pilotin, S protein
+PF16583.12			Pfam	Zinc-regulated secreted antivirulence protein C-terminal domain
+PF16695.11			Pfam	Type VI secretion system (T6SS), amidase immunity protein
+PF16810.11			Pfam	RXLR phytopathogen effector protein, Avirulence activity
+PF16829.11			Pfam	Avirulence protein ATR13, RxLR effector
+PF16847.11			Pfam	Avirulence AvrPtoB, BAK1-binding domain
+PF16848.11			Pfam	Substrate of the Dot/Icm secretion system, putative
+PF16937.11			Pfam	Type III secretion system translocator protein, HrpF
+PF16973.11			Pfam	Flagellar motor switch protein FliN N-terminal
+PF16989.11			Pfam	Type VI secretion, EvfE, EvfF, ImpA, BimE, VC_A0119, VasJ
+PF17001.11			Pfam	Type III secretion basal body protein I, YscI, HrpB, PscI
+PF17116.12			Pfam	Type 9 secretion system plug protein 1st domain
+PF17216.10			Pfam	Rrp44-like cold shock domain
+PF17418.8			Pfam	Sporulation delaying protein SdpA
+PF17423.7			Pfam	Swarming motility protein
+PF17525.9			Pfam	Lysogeny maintenance protein PflM
+PF17541.8			Pfam	Type VI secretion system, TssC, VipB
+PF17555.8			Pfam	Type VI secretion system, TssN
+PF17561.8			Pfam	Type VI secretion system, TssO
+PF17722.7			Pfam	Intraflagellar transport-associated protein
+PF17735.8			Pfam	Biofilm surface layer A
+PF17849.8			Pfam	Dis3-like cold-shock domain 2 (CSD2)
+PF17876.8			Pfam	Cold shock domain
+PF18270.6			Pfam	Virulence factor Evf
+PF18286.7			Pfam	Type III secretion system ExsE
+PF18383.7			Pfam	Intraflagellar transport 81 calponin homology domain
+PF18661.7			Pfam	Avirulence Effector AvrLm4-7
+PF18895.6			Pfam	Type IV secretion system pilin
+PF18962.7			Pfam	Secretion system C-terminal sorting domain
+PF19568.6			Pfam	Sporulation stage III, protein AA
+PF19572.6			Pfam	Type IX secretion system protein PorV
+PF19732.5			Pfam	Stage II sporulation protein E N-terminal
+PF19841.5			Pfam	Gliding motility associated protein GldN
+PF19937.5			Pfam	Gliding motility-associated protein GldC-like
+PF20232.4			Pfam	C-terminal domain of Type VI secretion system FHA protein
+PF20250.4			Pfam	Flagellar Assembly Protein A N-terminal region
+PF20438.4			Pfam	Stage IV sporulation protein A, middle domain
+PF20439.4			Pfam	Sporulation stage IV protein A, C-terminal
+PF20560.4			Pfam	Motility protein A N-terminal
+PF20894.3			Pfam	Small heat shock protein Tsp36, N-terminal domain
+PF20898.2			Pfam	P-type Type IV secretion system, TraN
+PF21070.3			Pfam	Type VI secretion protein IcmF helical domain
+PF21158.4			Pfam	Flagellar hook-associated protein 1, D2-like domain
+PF21159.4			Pfam	Flagellar hook-associated protein 1, D3 domain
+PF21178.3			Pfam	Intraflagellar transport protein 52, C-terminal domain
+PF21277.3			Pfam	Type VI secretion system spike protein VgrG3-like, C-terminal
+PF21304.3			Pfam	SPI-1 type 3 secretion system secretin, N0 domain
+PF21421.3			Pfam	Avirulence protein ATR1, WY-domain
+PF21464.3			Pfam	Flagellar hook protein FlgE, D3 domain
+PF21535.3			Pfam	Uncharacterized motility-related protein HVO_2248
+PF21545.4			Pfam	T7SS, ESX-1 secretion system protein EccA1, N-terminal domain
+PF21610.3			Pfam	Flagellar protein FlgA, N-terminal domain-like
+PF21687.4			Pfam	Type II secretion system (T2SS), protein K
+PF21856.3			Pfam	ESX-1 secretion-associated protein EspB, PPE domain
+PF22044.2			Pfam	Sporulation protein 24
+PF22201.3			Pfam	Conserved flagellar protein F, immunoglobulin-like domain
+PF22211.3			Pfam	Type six secretion immunity 3 domain
+PF22347.2			Pfam	Avirulence protein AvrPiz-t
+PF22367.2			Pfam	Flagellar hook protein FlgE, third domain
+PF22438.3			Pfam	Flagellar protein FlgA,  HotDog domain-like
+PF22510.2			Pfam	Flagellar biosynthesis protein FlhF, N domain
+PF22638.2			Pfam	Flagellar hook-associated protein FlgK helical domain
+PF22692.2			Pfam	Flagellar hook protein FlgE/F/G D1 domain
+PF23456.2			Pfam	Cold shock domain-containing protein E1 CSD domain
+PF24687.2			Pfam	Type III Secretion system protein OrgC
+PF25218.2			Pfam	Type VI secretion system effector TseH-like
+PF25593.2			Pfam	Gliding motility lipoprotein GldD
+PF25594.2			Pfam	Gliding motility protein GldB
+PF26137.1			Pfam	Sporulation delaying protein family toxin
+PF26323.1			Pfam	Staphylococcus aureus type VII secretion system substrate EsxC
+PF26324.1			Pfam	Type III secretion system effector HopBF1 kinase domain
+PF26347.1			Pfam	Sporulation membrane protein YtrI family
+phrog_10856	0.51	1.707570176	PHROG	sporulation protein
 phrog_11726	1.09	2.037426498	PHROG	sporulation stage III protein D
+phrog_16152	0.13	1.113943352	PHROG	Hsp70 heat shock protein
+phrog_16914	2.29	2.359835482	PHROG	sporulation protein
+phrog_19414	0.01	0.0	PHROG	antitoxin from a toxin-antitoxin system
 phrog_2268	0.99	1.995635195	PHROG	antitoxin from a toxin-antitoxin system
 phrog_258	0.88	1.944482672	PHROG	virulence associated
-phrog_10856	0.51	1.707570176	PHROG	sporulation protein
-phrog_6929	0.44	1.643452676	PHROG	universal stress protein
-phrog_8458	0.43	1.633468456	PHROG	flagellar protein
 phrog_3402	0.32	1.505149978	PHROG	antitoxin from a toxin-antitoxin system
-phrog_8945	0.18	1.255272505	PHROG	stringent starvation protein Sspb-like
-phrog_6494	0.15	1.176091259	PHROG	antitoxin from a toxin-antitoxin system
-phrog_16152	0.13	1.113943352	PHROG	Hsp70 heat shock protein
+phrog_35646	4.54	2.657055853	PHROG	sporulation protein
+phrog_36746	2.92	2.465382851	PHROG	antitoxin from a toxin-antitoxin system
 phrog_4052	0.09	0.954242509	PHROG	PAGK virulence factor
-phrog_19414	0.01	0.0	PHROG	antitoxin from a toxin-antitoxin system
-HMMsoil418			FOAM	SPS1; sporulation-specific protein 1 EC:2.7.11.1
-HMMsoil1788			FOAM	SMK1; sporulation-specific mitogen-activated protein kinase SMK1 EC:2.7.11.24
-HMMsoil4916			FOAM	gspO; general secretion pathway protein O EC:3.4.23.43 2.1.1.-
-HMMsoil5270			FOAM	impN; type VI secretion system protein ImpN EC:2.7.11.1
-HMMsoil8932			FOAM	SMK1; sporulation-specific mitogen-activated protein kinase SMK1 EC:2.7.11.24
-HMMsoil9519			FOAM	SMK1; sporulation-specific mitogen-activated protein kinase SMK1 EC:2.7.11.24
-HMMsoil10942			FOAM	spoIIE; stage II sporulation protein E EC:3.1.3.16
-HMMsoil14102			FOAM	SPS1; sporulation-specific protein 1 EC:2.7.11.1
-HMMsoil14521			FOAM	SMK1; sporulation-specific mitogen-activated protein kinase SMK1 EC:2.7.11.24
-HMMsoil15922			FOAM	impN; type VI secretion system protein ImpN EC:2.7.11.1
-HMMsoil18301			FOAM	SMK1; sporulation-specific mitogen-activated protein kinase SMK1 EC:2.7.11.24
-HMMsoil19182			FOAM	SMK1; sporulation-specific mitogen-activated protein kinase SMK1 EC:2.7.11.24
-HMMsoil21108			FOAM	SPS1; sporulation-specific protein 1 EC:2.7.11.1
-HMMsoil25992			FOAM	SMK1; sporulation-specific mitogen-activated protein kinase SMK1 EC:2.7.11.24
-HMMsoil30196			FOAM	SPS1; sporulation-specific protein 1 EC:2.7.11.1
-HMMsoil30377			FOAM	SMK1; sporulation-specific mitogen-activated protein kinase SMK1 EC:2.7.11.24
-HMMsoil30513			FOAM	impN; type VI secretion system protein ImpN EC:2.7.11.1
-HMMsoil31083			FOAM	SMK1; sporulation-specific mitogen-activated protein kinase SMK1 EC:2.7.11.24
-HMMsoil33788			FOAM	SPS1; sporulation-specific protein 1 EC:2.7.11.1
-HMMsoil36390			FOAM	impN; type VI secretion system protein ImpN EC:2.7.11.1
-HMMsoil36915			FOAM	SMK1; sporulation-specific mitogen-activated protein kinase SMK1 EC:2.7.11.24
-HMMsoil42415			FOAM	SMK1; sporulation-specific mitogen-activated protein kinase SMK1 EC:2.7.11.24
-HMMsoil44856			FOAM	SMK1; sporulation-specific mitogen-activated protein kinase SMK1 EC:2.7.11.24
-HMMsoil45076			FOAM	impN; type VI secretion system protein ImpN EC:2.7.11.1
-HMMsoil46771			FOAM	impN; type VI secretion system protein ImpN EC:2.7.11.1
-HMMsoil48758			FOAM	impN; type VI secretion system protein ImpN EC:2.7.11.1
-HMMsoil52245			FOAM	impN; type VI secretion system protein ImpN EC:2.7.11.1
-HMMsoil53103			FOAM	SPS1; sporulation-specific protein 1 EC:2.7.11.1
-HMMsoil54391			FOAM	SMK1; sporulation-specific mitogen-activated protein kinase SMK1 EC:2.7.11.24
-HMMsoil55161			FOAM	SMK1; sporulation-specific mitogen-activated protein kinase SMK1 EC:2.7.11.24
-HMMsoil58358			FOAM	SMK1; sporulation-specific mitogen-activated protein kinase SMK1 EC:2.7.11.24
-HMMsoil59664			FOAM	SMK1; sporulation-specific mitogen-activated protein kinase SMK1 EC:2.7.11.24
-HMMsoil62030			FOAM	SPS1; sporulation-specific protein 1 EC:2.7.11.1
-HMMsoil62456			FOAM	SMK1; sporulation-specific mitogen-activated protein kinase SMK1 EC:2.7.11.24
-HMMsoil62857			FOAM	SMK1; sporulation-specific mitogen-activated protein kinase SMK1 EC:2.7.11.24
-HMMsoil64022			FOAM	SMK1; sporulation-specific mitogen-activated protein kinase SMK1 EC:2.7.11.24
-HMMsoil64026			FOAM	SMK1; sporulation-specific mitogen-activated protein kinase SMK1 EC:2.7.11.24
-HMMsoil64647			FOAM	SMK1; sporulation-specific mitogen-activated protein kinase SMK1 EC:2.7.11.24
-HMMsoil66999			FOAM	SPS1; sporulation-specific protein 1 EC:2.7.11.1
-HMMsoil67541			FOAM	SPS1; sporulation-specific protein 1 EC:2.7.11.1
-HMMsoil68763			FOAM	impN; type VI secretion system protein ImpN EC:2.7.11.1
-HMMsoil71030			FOAM	SMK1; sporulation-specific mitogen-activated protein kinase SMK1 EC:2.7.11.24
-HMMsoil74717			FOAM	SMK1; sporulation-specific mitogen-activated protein kinase SMK1 EC:2.7.11.24
-HMMsoil80227			FOAM	SPS1; sporulation-specific protein 1 EC:2.7.11.1
-HMMsoil81566			FOAM	SMK1; sporulation-specific mitogen-activated protein kinase SMK1 EC:2.7.11.24
-HMMsoil84767			FOAM	impN; type VI secretion system protein ImpN EC:2.7.11.1
-HMMsoil93491			FOAM	impN; type VI secretion system protein ImpN EC:2.7.11.1
-HMMsoil95682			FOAM	SMK1; sporulation-specific mitogen-activated protein kinase SMK1 EC:2.7.11.24
-HMMsoil96343			FOAM	impN; type VI secretion system protein ImpN EC:2.7.11.1
-HMMsoil103890			FOAM	impN; type VI secretion system protein ImpN EC:2.7.11.1
-HMMsoil108431			FOAM	SPS1; sporulation-specific protein 1 EC:2.7.11.1
-HMMsoil110854			FOAM	impN; type VI secretion system protein ImpN EC:2.7.11.1
-HMMsoil110627			FOAM	SMK1; sporulation-specific mitogen-activated protein kinase SMK1 EC:2.7.11.24
-HMMsoil124510			FOAM	SMK1; sporulation-specific mitogen-activated protein kinase SMK1 EC:2.7.11.24
-HMMsoil125257			FOAM	SPS1; sporulation-specific protein 1 EC:2.7.11.1
-HMMsoil128267			FOAM	SMK1; sporulation-specific mitogen-activated protein kinase SMK1 EC:2.7.11.24
-HMMsoil131864			FOAM	SMK1; sporulation-specific mitogen-activated protein kinase SMK1 EC:2.7.11.24
-HMMsoil134514			FOAM	SMK1; sporulation-specific mitogen-activated protein kinase SMK1 EC:2.7.11.24
-HMMsoil134683			FOAM	impN; type VI secretion system protein ImpN EC:2.7.11.1
-HMMsoil136616			FOAM	SMK1; sporulation-specific mitogen-activated protein kinase SMK1 EC:2.7.11.24
+phrog_432	10.0	3.388101202	PHROG	Hsp20 heat shock protein
+phrog_4681	10.0	3.006037955	PHROG	antitoxin from a toxin-antitoxin system
+phrog_4692	2.72	2.434568904	PHROG	antitoxin from a toxin-antitoxin system
+phrog_497	10.0	3.363799945	PHROG	toxin-antitoxin system HicB-like
+phrog_6494	0.15	1.176091259	PHROG	antitoxin from a toxin-antitoxin system
+phrog_6929	0.44	1.643452676	PHROG	universal stress protein
+phrog_729	10.0	3.129689892	PHROG	cold shock protein
+phrog_8458	0.43	1.633468456	PHROG	flagellar protein
+phrog_8945	0.18	1.255272505	PHROG	stringent starvation protein Sspb-like
+HMMsoil100657			FOAM	ERK, MAPK1_3; mitogen-activated protein kinase 1/3 [EC:2.7.11.24]; MAPK4_6; mitogen-activated protein kinase 4/6 [EC:2.7.11.24]; SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]
+HMMsoil103890			FOAM	K08884; serine/threonine protein kinase, bacterial [EC:2.7.11.1]; impN; type VI secretion system protein ImpN [EC:2.7.11.1]
+HMMsoil108431			FOAM	SPS1; sporulation-specific protein 1 [EC:2.7.11.1]
+HMMsoil10942			FOAM	spoIIE; stage II sporulation protein E [EC:3.1.3.16]
+HMMsoil110627			FOAM	MAPK7; mitogen-activated protein kinase 7 [EC:2.7.11.24]; SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]
+HMMsoil110854			FOAM	K08884; serine/threonine protein kinase, bacterial [EC:2.7.11.1]; impN; type VI secretion system protein ImpN [EC:2.7.11.1]
+HMMsoil111701			FOAM	ERK, MAPK1_3; mitogen-activated protein kinase 1/3 [EC:2.7.11.24]; SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]; MPK6; mitogen-activated protein kinase 6 [EC:2.7.11.24]
+HMMsoil116777			FOAM	ERK, MAPK1_3; mitogen-activated protein kinase 1/3 [EC:2.7.11.24]; MAPK4_6; mitogen-activated protein kinase 4/6 [EC:2.7.11.24]; SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]
+HMMsoil122706			FOAM	gspO; general secretion pathway protein O [EC:3.4.23.43] [EC:2.1.1.-]; pilD, pppA; leader peptidase (prepilin peptidase) / N-methyltransferase [EC:3.4.23.43] [EC:2.1.1.-]
+HMMsoil124510			FOAM	SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]
+HMMsoil125257			FOAM	SPS1; sporulation-specific protein 1 [EC:2.7.11.1]
+HMMsoil128267			FOAM	SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]
+HMMsoil131864			FOAM	JNK; mitogen-activated protein kinase 8/9/10 (c-Jun N-terminal kinase) [EC:2.7.11.24]; P38; p38 MAP kinase [EC:2.7.11.24]; SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]
+HMMsoil134514			FOAM	MAPK7; mitogen-activated protein kinase 7 [EC:2.7.11.24]; SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]
+HMMsoil134683			FOAM	K08884; serine/threonine protein kinase, bacterial [EC:2.7.11.1]; impN; type VI secretion system protein ImpN [EC:2.7.11.1]
+HMMsoil136616			FOAM	MAPK7; mitogen-activated protein kinase 7 [EC:2.7.11.24]; SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]
+HMMsoil14102			FOAM	SPS1; sporulation-specific protein 1 [EC:2.7.11.1]
+HMMsoil14521			FOAM	JNK; mitogen-activated protein kinase 8/9/10 (c-Jun N-terminal kinase) [EC:2.7.11.24]; P38; p38 MAP kinase [EC:2.7.11.24]; SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]
+HMMsoil15922			FOAM	K08884; serine/threonine protein kinase, bacterial [EC:2.7.11.1]; impN; type VI secretion system protein ImpN [EC:2.7.11.1]
+HMMsoil1788			FOAM	SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]
+HMMsoil18301			FOAM	SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]
+HMMsoil19182			FOAM	JNK; mitogen-activated protein kinase 8/9/10 (c-Jun N-terminal kinase) [EC:2.7.11.24]; P38; p38 MAP kinase [EC:2.7.11.24]; SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]
+HMMsoil19435			FOAM	ERK, MAPK1_3; mitogen-activated protein kinase 1/3 [EC:2.7.11.24]; MAPK4_6; mitogen-activated protein kinase 4/6 [EC:2.7.11.24]; SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]
+HMMsoil21108			FOAM	SPS1; sporulation-specific protein 1 [EC:2.7.11.1]
+HMMsoil21202			FOAM	gspO; general secretion pathway protein O [EC:3.4.23.43] [EC:2.1.1.-]; pilD, pppA; leader peptidase (prepilin peptidase) / N-methyltransferase [EC:3.4.23.43] [EC:2.1.1.-]
+HMMsoil25992			FOAM	JNK; mitogen-activated protein kinase 8/9/10 (c-Jun N-terminal kinase) [EC:2.7.11.24]; P38; p38 MAP kinase [EC:2.7.11.24]; SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]
+HMMsoil26463			FOAM	ERK, MAPK1_3; mitogen-activated protein kinase 1/3 [EC:2.7.11.24]; SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]; MPK6; mitogen-activated protein kinase 6 [EC:2.7.11.24]
+HMMsoil29392			FOAM	ERK, MAPK1_3; mitogen-activated protein kinase 1/3 [EC:2.7.11.24]; MAPK7; mitogen-activated protein kinase 7 [EC:2.7.11.24]; SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]
+HMMsoil30196			FOAM	SPS1; sporulation-specific protein 1 [EC:2.7.11.1]
+HMMsoil30377			FOAM	JNK; mitogen-activated protein kinase 8/9/10 (c-Jun N-terminal kinase) [EC:2.7.11.24]; P38; p38 MAP kinase [EC:2.7.11.24]; SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]
+HMMsoil30513			FOAM	impN; type VI secretion system protein ImpN [EC:2.7.11.1]
+HMMsoil31083			FOAM	ERK, MAPK1_3; mitogen-activated protein kinase 1/3 [EC:2.7.11.24]; SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]
+HMMsoil33788			FOAM	SPS1; sporulation-specific protein 1 [EC:2.7.11.1]
+HMMsoil36390			FOAM	K08884; serine/threonine protein kinase, bacterial [EC:2.7.11.1]; impN; type VI secretion system protein ImpN [EC:2.7.11.1]
+HMMsoil36915			FOAM	MAPK4_6; mitogen-activated protein kinase 4/6 [EC:2.7.11.24]; SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]
+HMMsoil418			FOAM	SPS1; sporulation-specific protein 1 [EC:2.7.11.1]
+HMMsoil42415			FOAM	MAPK7; mitogen-activated protein kinase 7 [EC:2.7.11.24]; SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]
+HMMsoil44856			FOAM	SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]
+HMMsoil45076			FOAM	K08884; serine/threonine protein kinase, bacterial [EC:2.7.11.1]; impN; type VI secretion system protein ImpN [EC:2.7.11.1]
+HMMsoil46771			FOAM	impN; type VI secretion system protein ImpN [EC:2.7.11.1]
+HMMsoil48758			FOAM	K08884; serine/threonine protein kinase, bacterial [EC:2.7.11.1]; impN; type VI secretion system protein ImpN [EC:2.7.11.1]
+HMMsoil4916			FOAM	gspO; general secretion pathway protein O [EC:3.4.23.43] [EC:2.1.1.-]
+HMMsoil50107			FOAM	ERK, MAPK1_3; mitogen-activated protein kinase 1/3 [EC:2.7.11.24]; MAPK7; mitogen-activated protein kinase 7 [EC:2.7.11.24]; SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]; MPK6; mitogen-activated protein kinase 6 [EC:2.7.11.24]
+HMMsoil52245			FOAM	K08884; serine/threonine protein kinase, bacterial [EC:2.7.11.1]; impN; type VI secretion system protein ImpN [EC:2.7.11.1]
+HMMsoil5270			FOAM	K08884; serine/threonine protein kinase, bacterial [EC:2.7.11.1]; impN; type VI secretion system protein ImpN [EC:2.7.11.1]
+HMMsoil53103			FOAM	SPS1; sporulation-specific protein 1 [EC:2.7.11.1]
+HMMsoil54391			FOAM	JNK; mitogen-activated protein kinase 8/9/10 (c-Jun N-terminal kinase) [EC:2.7.11.24]; P38; p38 MAP kinase [EC:2.7.11.24]; SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]
+HMMsoil55161			FOAM	JNK; mitogen-activated protein kinase 8/9/10 (c-Jun N-terminal kinase) [EC:2.7.11.24]; P38; p38 MAP kinase [EC:2.7.11.24]; SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]
+HMMsoil5554			FOAM	ERK, MAPK1_3; mitogen-activated protein kinase 1/3 [EC:2.7.11.24]; MAPK7; mitogen-activated protein kinase 7 [EC:2.7.11.24]; SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]; MPK6; mitogen-activated protein kinase 6 [EC:2.7.11.24]
+HMMsoil58358			FOAM	ERK, MAPK1_3; mitogen-activated protein kinase 1/3 [EC:2.7.11.24]; SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]
+HMMsoil59664			FOAM	JNK; mitogen-activated protein kinase 8/9/10 (c-Jun N-terminal kinase) [EC:2.7.11.24]; P38; p38 MAP kinase [EC:2.7.11.24]; SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]
+HMMsoil6054			FOAM	ERK, MAPK1_3; mitogen-activated protein kinase 1/3 [EC:2.7.11.24]; MAPK4_6; mitogen-activated protein kinase 4/6 [EC:2.7.11.24]; SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]
+HMMsoil62024			FOAM	ERK, MAPK1_3; mitogen-activated protein kinase 1/3 [EC:2.7.11.24]; MAPK7; mitogen-activated protein kinase 7 [EC:2.7.11.24]; SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]; MPK6; mitogen-activated protein kinase 6 [EC:2.7.11.24]
+HMMsoil62030			FOAM	SPS1; sporulation-specific protein 1 [EC:2.7.11.1]
+HMMsoil62456			FOAM	MAPK7; mitogen-activated protein kinase 7 [EC:2.7.11.24]; SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]
+HMMsoil62634			FOAM	ERK, MAPK1_3; mitogen-activated protein kinase 1/3 [EC:2.7.11.24]; MAPK7; mitogen-activated protein kinase 7 [EC:2.7.11.24]; SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]; MPK6; mitogen-activated protein kinase 6 [EC:2.7.11.24]
+HMMsoil62857			FOAM	MAPK4_6; mitogen-activated protein kinase 4/6 [EC:2.7.11.24]; SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]
+HMMsoil64022			FOAM	SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]
+HMMsoil64026			FOAM	JNK; mitogen-activated protein kinase 8/9/10 (c-Jun N-terminal kinase) [EC:2.7.11.24]; P38; p38 MAP kinase [EC:2.7.11.24]; SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]
+HMMsoil64647			FOAM	SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]
+HMMsoil65128			FOAM	ERK, MAPK1_3; mitogen-activated protein kinase 1/3 [EC:2.7.11.24]; SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]; MPK6; mitogen-activated protein kinase 6 [EC:2.7.11.24]
+HMMsoil66999			FOAM	SPS1; sporulation-specific protein 1 [EC:2.7.11.1]
+HMMsoil67541			FOAM	SPS1; sporulation-specific protein 1 [EC:2.7.11.1]
+HMMsoil68763			FOAM	K08884; serine/threonine protein kinase, bacterial [EC:2.7.11.1]; impN; type VI secretion system protein ImpN [EC:2.7.11.1]
+HMMsoil71030			FOAM	SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]
+HMMsoil72260			FOAM	gspO; general secretion pathway protein O [EC:3.4.23.43] [EC:2.1.1.-]; pilD, pppA; leader peptidase (prepilin peptidase) / N-methyltransferase [EC:3.4.23.43] [EC:2.1.1.-]
+HMMsoil74717			FOAM	MAPK7; mitogen-activated protein kinase 7 [EC:2.7.11.24]; SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]
+HMMsoil76915			FOAM	ERK, MAPK1_3; mitogen-activated protein kinase 1/3 [EC:2.7.11.24]; MAPK4_6; mitogen-activated protein kinase 4/6 [EC:2.7.11.24]; SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]
+HMMsoil77125			FOAM	ERK, MAPK1_3; mitogen-activated protein kinase 1/3 [EC:2.7.11.24]; MAPK7; mitogen-activated protein kinase 7 [EC:2.7.11.24]; SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]; MPK6; mitogen-activated protein kinase 6 [EC:2.7.11.24]
+HMMsoil79743			FOAM	NLK; nemo like kinase [EC:2.7.11.24]; SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]
+HMMsoil80227			FOAM	SPS1; sporulation-specific protein 1 [EC:2.7.11.1]
+HMMsoil81566			FOAM	JNK; mitogen-activated protein kinase 8/9/10 (c-Jun N-terminal kinase) [EC:2.7.11.24]; P38; p38 MAP kinase [EC:2.7.11.24]; SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]
+HMMsoil84767			FOAM	K08884; serine/threonine protein kinase, bacterial [EC:2.7.11.1]; impN; type VI secretion system protein ImpN [EC:2.7.11.1]
+HMMsoil8932			FOAM	ERK, MAPK1_3; mitogen-activated protein kinase 1/3 [EC:2.7.11.24]; SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]
+HMMsoil90205			FOAM	E2.7.11.1; non-specific serine/threonine protein kinase [EC:2.7.11.1]; K08884; serine/threonine protein kinase, bacterial [EC:2.7.11.1]; impN; type VI secretion system protein ImpN [EC:2.7.11.1]
+HMMsoil91020			FOAM	ERK, MAPK1_3; mitogen-activated protein kinase 1/3 [EC:2.7.11.24]; MAPK4_6; mitogen-activated protein kinase 4/6 [EC:2.7.11.24]; SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]
+HMMsoil91078			FOAM	ERK, MAPK1_3; mitogen-activated protein kinase 1/3 [EC:2.7.11.24]; SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]; MPK6; mitogen-activated protein kinase 6 [EC:2.7.11.24]
+HMMsoil93491			FOAM	K08884; serine/threonine protein kinase, bacterial [EC:2.7.11.1]; impN; type VI secretion system protein ImpN [EC:2.7.11.1]
+HMMsoil951			FOAM	ERK, MAPK1_3; mitogen-activated protein kinase 1/3 [EC:2.7.11.24]; SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]; MPK6; mitogen-activated protein kinase 6 [EC:2.7.11.24]
+HMMsoil9519			FOAM	SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]
+HMMsoil95682			FOAM	MAPK4_6; mitogen-activated protein kinase 4/6 [EC:2.7.11.24]; SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]
+HMMsoil96343			FOAM	K08884; serine/threonine protein kinase, bacterial [EC:2.7.11.1]; impN; type VI secretion system protein ImpN [EC:2.7.11.1]
+HMMsoil97222			FOAM	gspO; general secretion pathway protein O [EC:3.4.23.43] [EC:2.1.1.-]; pilD, pppA; leader peptidase (prepilin peptidase) / N-methyltransferase [EC:3.4.23.43] [EC:2.1.1.-]
+HMMsoil99642			FOAM	ERK, MAPK1_3; mitogen-activated protein kinase 1/3 [EC:2.7.11.24]; MAPK7; mitogen-activated protein kinase 7 [EC:2.7.11.24]; SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]

@@ -676,14 +676,14 @@ def main():
     hallmark_ids = None
     if use_hallmark:
         logger.debug(f"Reading hallmark file: {hallmark_path}")
-        hallmark_data = pl.read_csv(hallmark_path)
+        hallmark_data = pl.read_csv(hallmark_path, separator='\t')
         hallmark_ids = set(hallmark_data['id'])
 
     mobile_genes_path = snakemake.params.mobile_genes_path
     mobile_ids = None
     if mobile_genes_path:
         logger.debug(f"Reading MGE file: {mobile_genes_path}")
-        mobile_genes_data = pl.read_csv(mobile_genes_path)
+        mobile_genes_data = pl.read_csv(mobile_genes_path, separator='\t')
         mobile_ids = set(mobile_genes_data['id'])
 
     processed_data = process_genomes(

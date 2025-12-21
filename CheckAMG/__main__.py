@@ -120,17 +120,17 @@ def main():
                                    "functional annotation using the CheckAMG database to be considered for contextual analysis. "
                                    "(default: %(default)s).")
      
-     annotate_parser.add_argument("-c", "--cov_fraction", type=float, required=False, default=0.5,
-                              help="Minimum covered fraction (of the user viral protein) for HMM searches (default: %(default)s).")
+     annotate_parser.add_argument("-c", "--cov_fraction", type=float, required=False, default=0.30,
+                              help="Minimum covered fraction (of HMM profiles) for reporting HMM searches (default: %(default)s).")
      annotate_parser.add_argument("-e", "--evalue", type=float, required=False, default=1e-5,
                               help="Maximum fallback E-value for HMM searches when database-provided cutoffs are not available (default: %(default)s).")
-     annotate_parser.add_argument("-b", "--bit_score", type=int, required=False, default=50,
+     annotate_parser.add_argument("-b", "--bit_score", type=int, required=False, default=30,
                               help="Minimum fallback bit score for HMM searches when database-provided cutoffs are not available (default: %(default)s).")
      annotate_parser.add_argument("-bh", "--bitscore_fraction_heuristic", type=float, required=False, default=0.5,
                               help="Retain HMM hits scoring at least this fraction of the database-provided threshold under heuristic filtering (default: %(default)s).")
-     annotate_parser.add_argument("-s", "--scaling_factor", type=float, required=False, default=1.8,
+     annotate_parser.add_argument("-s", "--scaling_factor", type=float, required=False, default=3.0,
                               help="Scaling factor used to multiply the minimum bit score and minimum covered fraction provided by the '-b' and '-c' arguments to come up with"
-                                   " a heuristic, stricter threshold for HMM hits (this is ONLY used when curating gene annotations that match to 'soft' filter keywords; default: %(default)s).")
+                                   " a stricter threshold for HMM hits (this is ONLY used when curating gene annotations that match to 'soft' filter keywords; default: %(default)s).")
      
      annotate_parser.add_argument("-w", "--window_size", type=int, required=False, default=5000,
                               help="Size in base pairs of the window used to calculate the average VL-score of genes in a local region on a contig (default: %(default)s).")

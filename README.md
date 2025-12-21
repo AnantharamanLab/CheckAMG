@@ -13,7 +13,7 @@ CheckAMG supports:
 
 * Nucleotide or protein input
 * Single-contig viral genomes or vMAGs (multi-contig)
-* Sequences from viral genomes or metagenomes
+* Running on viral genomes or viromes/metagenomes directly
 
 ## Dependencies
 
@@ -122,8 +122,9 @@ Notes:
 usage: checkamg annotate [-h] -d DB_DIR -o OUTPUT [-g GENOMES] [-vg VMAGS]
                          [-p PROTEINS] [-vp VMAG_PROTEINS] [--input_type INPUT_TYPE]
                          [-l MIN_LEN] [-f MIN_ORF] [-n MIN_ANNOT] [-c COV_FRACTION]
-                         [-e EVALUE] [-b BIT_SCORE] [-bh BITSCORE_FRACTION_HEURISTIC]
-                         [-s SCALING_FACTOR] [-w WINDOW_SIZE] [-V MIN_FLANK_VSCORE]
+                         [-e EVALUE] [-b BIT_SCORE]
+                         [-bh BITSCORE_FRACTION_HEURISTIC] [-s SCALING_FACTOR]
+                         [-w WINDOW_SIZE] [-V MIN_FLANK_VSCORE]
                          [-H | --use_hallmark | --no-use_hallmark]
                          [--filter_presets FILTER_PRESETS] [-t THREADS] [-m MEM]
                          [--debug | --no-debug]
@@ -152,14 +153,14 @@ options:
                         the CheckAMG database to be considered for contextual
                         analysis. (default: 0.2).
   -c COV_FRACTION, --cov_fraction COV_FRACTION
-                        Minimum covered fraction (of the user viral protein) for HMM
-                        searches (default: 0.5).
+                        Minimum covered fraction (of HMM profiles) for reporting HMM
+                        searches (default: 0.3).
   -e EVALUE, --evalue EVALUE
                         Maximum fallback E-value for HMM searches when database-
                         provided cutoffs are not available (default: 1e-05).
   -b BIT_SCORE, --bit_score BIT_SCORE
                         Minimum fallback bit score for HMM searches when database-
-                        provided cutoffs are not available (default: 50).
+                        provided cutoffs are not available (default: 30).
   -bh BITSCORE_FRACTION_HEURISTIC, --bitscore_fraction_heuristic BITSCORE_FRACTION_HEURISTIC
                         Retain HMM hits scoring at least this fraction of the
                         database-provided threshold under heuristic filtering
@@ -167,9 +168,9 @@ options:
   -s SCALING_FACTOR, --scaling_factor SCALING_FACTOR
                         Scaling factor used to multiply the minimum bit score and
                         minimum covered fraction provided by the '-b' and '-c'
-                        arguments to come up with a heuristic, stricter threshold for
-                        HMM hits (this is ONLY used when curating gene annotations
-                        that match to 'soft' filter keywords; default: 1.8).
+                        arguments to come up with a stricter threshold for HMM hits
+                        (this is ONLY used when curating gene annotations that match
+                        to 'soft' filter keywords; default: 3.0).
   -w WINDOW_SIZE, --window_size WINDOW_SIZE
                         Size in base pairs of the window used to calculate the
                         average VL-score of genes in a local region on a contig
@@ -199,7 +200,7 @@ options:
                         Number of threads to use for pyrodigal-gv and pyhmmer
                         (default: 10).
   -m MEM, --mem MEM     Maximum amount of memory allowed to be allocated in GB
-                        (default: 80% of available). (default: 1212)
+                        (default: 80% of available). (default: 1585)
   --debug, --no-debug   Log CheckAMG with debug-level detail (default: False).
 
 required arguments:
@@ -221,9 +222,9 @@ required arguments:
                         Input viral genome(s) in amino-acid fasta format (.faa or
                         .fasta). Required if --input_type is prot. Expectations are
                         that the amino-acid sequence headers are in Prodigal format
-                        (>[CONTIG NAME]_[CDS NUMBER] # START # END # FRAME # ...) and
-                        that each contig encoding proteins represents a single virus
-                        genome. (default: None)
+                        (>[CONTIG NAME]_[CDS NUMBER] # START # END # FRAME # ...)
+                        and that each contig encoding proteins represents a single
+                        virus genome. (default: None)
   -vp VMAG_PROTEINS, --vmag_proteins VMAG_PROTEINS
                         Path to folder containing vMAGs (multiple contigs) in amino-
                         acid fasta format (.faa or .fasta) rather than single-contig
@@ -301,7 +302,7 @@ Despite the name "CheckAMG", this tool also predicts APGs and AReGs using the sa
 CheckAMG applies a two-stage filtering process:
 
 1. Use a list of curated profile HMMs that represent [metabolic](https://github.com/AnantharamanLab/CheckAMG/blob/main/CheckAMG/files/AMGs.tsv), [physiological](https://github.com/AnantharamanLab/CheckAMG/blob/main/CheckAMG/files/APGs.tsv), and [regulatory](https://github.com/AnantharamanLab/CheckAMG/blob/main/CheckAMG/files/AReGs.tsv) genes to come up with initial AVG candidates
-2. Use a second list of curated keywords/substrings that will be used to filter 'false' [AMGs](https://github.com/AnantharamanLab/CheckAMG/blob/main/CheckAMG/files/false_amgs.csv), [APGs](https://github.com/AnantharamanLab/CheckAMG/blob/main/CheckAMG/files/false_apgs.csv), and [AReGs](https://github.com/AnantharamanLab/CheckAMG/blob/main/CheckAMG/files/false_aregs.csv)
+2. Use a second list of curated keywords/substrings that will be used to filter 'false' [AMGs](https://github.com/AnantharamanLab/CheckAMG/blob/main/CheckAMG/files/AMG_filters.tsv), [APGs](https://github.com/AnantharamanLab/CheckAMG/blob/main/CheckAMG/files/APG_filters.tsv), and [AReGs](https://github.com/AnantharamanLab/CheckAMG/blob/main/CheckAMG/files/AReG_filters.tsv)
     * **Hard filters** exclude genes with highly suspicious functional annotations
     * **Soft filters** apply much stricter bitscore and coverage cutoffs to avoid ambiguous cases (see [*additional HMMsearch filtering for curating auxiliary gene functions*](#additional-hmmsearch-filtering-for-curating-auxiliary-gene-functions))
 
@@ -338,7 +339,6 @@ AVGs often resemble host genes and can result from contamination. CheckAMG uses 
 1. Proximity to virus-like or viral hallmark genes
 2. Proximity to transposases or other [non-viral mobilization genes](https://github.com/AnantharamanLab/CheckAMG/blob/main/CheckAMG/files/mobile_genes.csv)
 3. Local viral gene content, determined using [V- and VL-scores](https://github.com/AnantharamanLab/V-Score-Search) ([Zhou et al., 2025](https://www.biorxiv.org/content/10.1101/2024.10.24.619987v1))
-4. Contig circularity
 
 A LightGBM model, trained on real and simulated viral/non-viral data, makes these assignments. Confidence levels refer to the viral origin, not the functional annotation.
 
@@ -440,7 +440,7 @@ Below are preliminary results for benchmarking our viral origin confidence predi
 
 ### 5. How does CheckAMG assign functions to proteins?
 
-If you're curious about the internal mechanics of how CheckAMG annotates proteins for their function, here's a breakdown of the behavior. These settings are designed to balance sensitivity (not missing true hits) and specificity (excluding weak/ambiguous matches), with additional database-specific optimizations for functional reliability.
+If you're curious about the internal mechanics of how CheckAMG annotates proteins for their function, this section explains the behavior. These settings are designed to balance sensitivity (not missing true hits) and specificity (excluding weak/ambiguous matches), with additional database-specific optimizations for functional reliability.
 
 1. **Homology Searching Method**
 
@@ -449,66 +449,99 @@ If you're curious about the internal mechanics of how CheckAMG annotates protein
 2. **Profile HMM Databases**
 
    * CheckAMG relies on the following databases:
+
      * [KEGG Orthology (KO)](https://www.genome.jp/kegg/ko.html) ([Kanehisa et al., 2016](https://doi.org/10.1093/nar/gkv1070))
      * [Functional Ontology Assignments for Metagenomes (FOAM) database](https://osf.io/5ba2v/?view_only=) ([Prestat et al., 2014](https://doi.org/10.1093/nar/gku702))
      * [Pfam-A](http://pfam.xfam.org/) ([Mistry et al., 2021](https://doi.org/10.1093/nar/gkaa913))
      * [Prokaryotic Virus Remote Homologous Groups database (PHROGs)](https://phrogs.lmge.uca.fr/) ([Terzian et al., 2021](https://doi.org/10.1093/nargab/lqab067))
      * [dbCAN CAZyme domain HMM database](https://bcb.unl.edu/dbCAN2/) ([Zheng et al., 2023](https://doi.org/10.1093/nar/gkad328))
      * [The METABOLIC HMM database](https://github.com/AnantharamanLab/METABOLIC/tree/master) ([Zhou et al., 2022](https://doi.org/10.1186/s40168-021-01213-8))
+     * [Curated Annotations for Microbial (Poly)phenol Enzymes and Reactions (CAMPER)](https://github.com/WrightonLabCSU/CAMPER/tree/main) ([McGivern et al., 2024](https://doi.org/10.1101/2023.09.24.559193))
    * These databases can be downloaded and processed using the `checkamg download` module
 
 3. **E-value Threshold**
 
-   * An *initial*, permissive E-value cutoff of `0.1` is applied during `hmmsearch` to minimize missed hits due to chunking or memory differences when parallelizing, which can affect search reproducibility
+   * An *initial*, permissive E-value cutoff of `0.01` is applied during `hmmsearch` to minimize missed hits due to chunking or memory differences when parallelizing, which can affect search reproducibility
 
-4. **Database-Specific Thresholds**
+4. **Coverage Filter**
+
+   * After hits are collected, CheckAMG enforces a minimum HMM alignment coverage filter (default `0.30`, configurable via `--cov_fraction`)
+   * This is applied during downstream hit filtering so that functional inferences are not drawn from tiny partial alignments
+
+5. **Database-Specific Thresholds**
 
    * CheckAMG applies specialized rules depending on the HMM source:
-     * **Pfam:** Applies sequence-level *gathering threshold* (GA); hits below GA are excluded
-     * **FOAM & KEGG:** Use database-defined bit score thresholds, but apply a relaxed fallback heuristic (see below)
+
+     * **Pfam:** Applies sequence-level gathering threshold (GA); hits below GA are excluded
+     * **FOAM, KEGG, & CAMPER:** Use database-defined bit score thresholds, but apply a relaxed fallback heuristic (see below)
      * **METABOLIC:** Uses GA cutoffs derived from its underlying Pfam/TIGRFAM sources, where available
 
-5. **Fallback Heuristic (KEGG & FOAM)**
+6. **Fallback Heuristic (FOAM, KEGG, & CAMPER)**
 
-   * KEGG (and consequently, FOAM) thresholds can sometimes be overly strict, especially for environmental viruses, filtering out hits that are biologically valid
+   * KEGG (and consequently, FOAM and CAMPER, since these databases were largely derived from KEGG KOfams) thresholds can sometimes be overly strict, especially for environmental viruses, filtering out hits that are biologically valid
    * To recover these valid hits, CheckAMG applies a relaxed fallback heuristic inspired by the Anvi'o [`anvi-run-kegg-kofams`](https://anvio.org/help/7.1/programs/anvi-run-kegg-kofams/#how-does-it-work) strategy:
-     * If a hit falls below the database-provided trusted threshold (e.g., KEGG TC), it is still retained **if the bit score is at least 50% of the threshold value** *and* **E-value is below 1e-5**
-   * This heuristic improves annotation recovery without compromising too much on precision ([Kananen et al., 2025](https://doi.org/10.1093/bioadv/vbaf039))
 
-6. **Fallback Filtering for Other Databases**
+     * If a hit falls below the database-provided trusted threshold (e.g., KEGG TC), **it is still retained if all three conditions below are met:**
+
+       1. The bit score is at least 50% of the threshold value
+       2. The E-value is below `1e-5`
+       3. The coverage of the HMM profile aligned to the sequence hit is at least `0.30`
+     * These values are configurable by the user using the `--bitscore_fraction_heuristic`, `--evalue`, and `--cov_fraction` arguments if desired, but we do not recommend changing them
+   * A similar heuristic improves annotation recovery without compromising too much on precision ([Kananen et al., 2025](https://doi.org/10.1093/bioadv/vbaf039))
+
+7. **Fallback Filtering for Other Databases**
 
    * If the HMM source doesn't have defined cutoffs, such as dbCAN, PHROGs, and some profiles in the METABOLIC database, CheckAMG enforces:
-     * A minimum sequence coverage of the user's protein of `0.5` (this is to ensure functional inferences aren't drawn solely from small, individual domains)
-     * A minimum bit score of `50`
+
+     * A minimum coverage of the HMM profile `0.30` to the aligned sequence (via `--cov_fraction`)
+     * A minimum bit score of `30` (via `--bit_score`)
      * Both are configurable by the user if desired
 
-7. **Result Consolidation and Best-Hit Filtering**
+8. **Result Consolidation and Best-Hit Reporting**
 
-   * Each input protein is searched against **each HMM source database** (KEGG, FOAM, Pfam, PHROG, dbCAN, and METABOLIC)
-   * All domain hits are first filtered using the criteria above
-   * Then, for **each database**, only the **single best hit per protein** is retained:
-     * Preference is given to the hit with the **lowest E-value**
-     * If E-values are equal, the hit with the **higher bit score** is selected
+   * Each input protein is searched against **each HMM source database** (KEGG, FOAM, Pfam, PHROG, dbCAN, METABOLIC, and CAMPER)
+   * All hits are filtered using the criteria above (including the minimum coverage filter)
+   * Then, CheckAMG reports (1) per-database best hits and (2) a single cross-database top-hit summary:
 
-These defaults provide a balance between accuracy and recall, and are based on benchmarking and community best practices. Users may modify thresholds using the `--bit_score`, `--bitscore_fraction_heuristic`, and `--evalue` arguments.
+     * **Per database:** only the **single best hit per protein** is retained and reported for that database
+
+       * Preference is given to the hit with the **lowest E-value**
+       * If E-values are equal, the hit with the **higher bit score** is selected
+     * **Across databases:** CheckAMG also reports a single best-supported annotation per protein (`top_hit_hmm_id`, `top_hit_description`, `top_hit_db`) by selecting the database whose retained per-database best hit has the **largest bit score** among databases with a non-null hit
+
+These defaults provide a balance between accuracy and recall, and are based on benchmarking and community best practices. Users may modify thresholds using the `--bit_score`, `--bitscore_fraction_heuristic`, `--evalue`, and `--cov_fraction` arguments.
 
 #### Additional HMMsearch filtering for curating auxiliary gene functions
 As mentioned in the section [*How does CheckAMG classify and curate its predictions?*](#2-how-does-checkamg-classify-and-curate-its-predictions), CheckAMG applies *hard* and *soft* filters to functional annotations to reduce the chances of incorrectly assigning a metabolic/physiological/regulatory function to often mis-annotated viral genes. Annotations with hard filter keywords are excluded entirely from auxiliary gene predictions, but those containing soft filter keywords are retained if they meet stricter HMMsearch thresholds. These thresholds are applied using the `--scaling_factor` argument:
 
 * The value provided by `--scaling_factor` will be used to multiply the minimum bit score and minimum covered fraction provided by the `--bit_score` and `--cov_fraction` arguments to come up with the heuristic, stricter thresholds
-* The default `--scaling_factor` is `1.8`, users can increase this value but we do not recommend decreasing it
-  * If the default `--bit_score` and `--cov_fraction` values are also used (`50` and `0.5`), this means that a suspicious annotation containing a soft filter keyword must have had a bit score of at least `90` *and* and a sequence coverage of at least `0.90` from the HMMsearch to make it into the final auxiliary gene predictions
-* If database-provided, trusted bit score cutoffs are available for the matching HMMs (KEGG and FOAM only), those are used instead of the calculated heuristic threshold for minimum bit score, but the scaling factor is still applied to the minimum coverage
+* The default `--scaling_factor` is `3.0`, users can increase this value but we do not recommend decreasing it
+  * If the default `--bit_score` and `--cov_fraction` values are also used (`30` and `0.30`), this means that a suspicious annotation containing a soft filter keyword must have had a bit score of at least `90` *and* and a sequence coverage of at least `0.90` from the HMMsearch to make it into the final auxiliary gene predictions
+* If database-provided, trusted bit score cutoffs are available for the matching HMMs (KEGG, FOAM, and CAMPER only), those are used instead of the calculated heuristic threshold for minimum bit score, but the scaling factor is still applied to the minimum coverage
 * This heuristic is NOT used for assigning overall gene functions as detailed above, only during the annotation curation step of CheckAMG
   * This means that you may end up with, for example, many *glycoside hydrolase* functional annotations in the `gene_annotations.tsv` output, but much fewer glycoside hydrolases classified as "metabolic" in the `final_results.tsv`, with the rest being marked as "unclassified"
   * This is because the genes with glycoside hydrolase annotations that were classified as AMGs met the heuristic thresholds defiend by `--scaling_factor`, `--bit_score`, and `--cov_fraction`, and can be considered as functioning in host carbohydrate metabolism
   * On the other hand, genes with glycoside hydrolase annotations that were NOT classified as AMGs and ended up as "unclassified" did not meet the stricter thresholds, and they are more likely to be involved in functions other than host carbohydrate metabolism (like host cell wall degradation, for example)
 * If you want to disable this bypass to filter annotations with matching soft filter keywords regardless of their HMMsearch results, set `--scaling_factor 100`
-* See also [*Curated Keyword Presets*](#Curated-Keyword-Presets)
+* See [*Reproducibility and reference database construction*](#reproducibility-and-reference-database-construction) and [`notebooks/make_checkamg_required_tables.ipynb`](https://github.com/AnantharamanLab/CheckAMG/tree/main/notebooks/make_checkamg_required_tables.ipynb) for more detail on how these filters are defined and implemented
 
 ### 6. Snakemake
 
 CheckAMG modules are executed as [Snakemake](https://snakemake.readthedocs.io/en/stable/) pipelines. If a run is interrupted, it can resume from the last complete step as long as intermediate files exist.
+
+## Reproducibility and reference database construction
+
+CheckAMG is packaged with several curated reference tables under [`CheckAMG/files/`](https://github.com/AnantharamanLab/CheckAMG/tree/main/CheckAMG/files) that define (i) the functional label mappings used for reporting, (ii) the curated AMG/APG/AReG HMMs, and (iii) the hard/soft filtering tables (including exception categories). These tables are what the pipeline reads and parses when curating annotations.
+
+To make these resources transparent and reproducible, this repository includes a notebook (see [`make_checkamg_required_tables.ipynb`](https://github.com/AnantharamanLab/CheckAMG/tree/main/notebooks/make_checkamg_required_tables.ipynb)) that was used to build the required tables from upstream sources and writes the standardized outputs used by the pipeline, including:
+
+- `hmm_id_to_name.tsv` (cross-database HMM id to name/description mapping)
+- `FOAM.tsv` and `vscores.tsv`
+- `AMGs.tsv`, `APGs.tsv`, `AReGs.tsv`
+- `AMG_filters.tsv`, `APG_filters.tsv`, `AReG_filters.tsv`
+- `viral_hallmark_genes.tsv` and `mobile_genes.tsv`
+
+This notebook is not required to run CheckAMG, but it is provided so others can inspect, regenerate, and update the curated assets when upstream databases change.
 
 ## Error reporting
 

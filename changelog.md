@@ -1,3 +1,18 @@
+# 0.7.0
+
+This release expands AVGs annotations, standardizes HMM annotation and filtering across databases, improves HMMsearch reporting and filtering, and adds reproducibility assets for rebuilding reference tables used by CheckAMG.
+
+Major changes include:
+
+* Expansion of the curated annotations used by CheckAMG (AMGs, APGs, AReGs), plus a large expansion of FOAM and KEGG reference annotations.   
+* Added CAMPER profile HMMs ([McGivern et al., 2024](https://doi.org/10.1101/2023.09.24.559193)) to the CheckAMG database.
+* Added reproducibility assets for rebuilding the required tables/files used by CheckAMG in the `notebooks` folder.
+* KEGG AMGs were expanded using BRITE KO classifications (beyond the previous KOs sourced from VIBRANT). 
+* False-positive filtering is now driven by explicit, standardized and inspected (see `make_checkamg_required_tables.ipynb`), pre-flagged HMM ID tables (hard/soft and exception categories) instead of only keyword lists. 
+* Refined terms used to filter false-positives that were either too strict or lenient.
+* HMMsearch reporting is more explicit: the pipeline now carries per-hit "kept vs removed" information (and rationale) and writes a best-hit-per-sequence filtered output in addition to the full hit table. 
+* Default annotation thresholds were updated: `--scaling_factor` -> 3.0, `--bit_score` -> 30, `--cov_fraction` -> 0.30 (and `cov_fraction` is now  HMM profile coverage, not sequence coverage).  
+
 # 0.6.2
 
 * **AMGs.tsv**, **AReGs.tsv**, **hmm_id_to_name.csv**:

@@ -30,6 +30,10 @@ DBCAN_FTP = None
 DBCAN_HTTPS = 'https://bcb.unl.edu/dbCAN2/download/Databases/V14/dbCAN-HMMdb-V14.txt'
 METABOLIC_FTP = None
 METABOLIC_HTTPS = 'https://github.com/AnantharamanLab/CheckAMG/raw/refs/heads/main/custom_dbs/METABOLIC_custom.hmm.gz'
+CAMPER_FTP = None
+CAMPER_HTTPS = 'https://raw.githubusercontent.com/WrightonLabCSU/CAMPER/refs/heads/main/CAMPER.hmm'
+CAMPER_SCORES_FTP = None
+CAMPER_SCORES_HTTPS = 'https://raw.githubusercontent.com/WrightonLabCSU/CAMPER/refs/heads/main/CAMPER_hmm_scores.tsv'
 
 def try_download(label, dest, ftp_url, https_url):
     if ftp_url:
@@ -63,7 +67,7 @@ def hmm_db_complete(dest_path):
 def fix_hmm_names(file):
     # Fix HMM names to be unique by appending a count suffix
     # Even if the order of the HMMs changes in the source file,
-    # this shouldn't affect mapping to descritions used by CheckAMG,
+    # this shouldn't affect mapping to descriptions used by CheckAMG,
     # since the 'ACC" field is used for matching, and those are
     # unique in FOAM.
     logger.info(f"Making HMM names unique in {file}")
@@ -239,12 +243,56 @@ def get_thresholds_from_kegg(ftp_url, https_url, dest_path):
             if parts and parts[0].startswith('K'):
                 knum = parts[0].strip()
                 thr = parts[1].strip() if len(parts) > 1 else ''
+                if thr == "-":
+                    thr = ''
                 f_out.write(f"{knum}\t{thr}\n")
     try:
         tmp_path.unlink()
     except Exception:
         pass
     logger.info(f"KEGG thresholds written to {dest_path}")
+
+def get_thresholds_from_camper(ftp_url, https_url, dest_path):
+    tmp_path = Path(dest_path).with_suffix('.tmp')
+    try_download("CAMPER thresholds", tmp_path, ftp_url, https_url)
+    cutoff_map = {}
+    with open(tmp_path) as f_in:
+        for idx, raw in enumerate(f_in):
+            line = raw.rstrip('\n')
+            if idx == 0:
+                cols = [c.strip() for c in line.split('\t')]
+                assert len(cols) >= 4, "CAMPER hmm scores header must have at least four columns"
+                assert cols[0].lower() == 'hmm_name', f"Expected first column 'hmm_name', got '{cols[0]}'"
+                assert cols[1].lower() == 'a_rank', f"Expected second column 'A_rank', got '{cols[1]}'"
+                assert cols[2].lower() == 'b_rank', f"Expected third column 'B_rank', got '{cols[2]}'"
+                assert cols[3].lower() == 'score_type', f"Expected fourth column 'score_type', got '{cols[3]}'"
+                continue
+            if not line or line.startswith('#'):
+                continue
+            parts = line.split('\t')
+            hmm_id = parts[0].strip().replace('.hmm', '') # A few CAMPER HMMs have .hmm suffix in their names
+            if not hmm_id:
+                continue
+            type = parts[3].strip() if len(parts) > 3 else ''
+            full, dom = None, None
+            if type == "full":
+                full = float(parts[1].strip()) if len(parts) > 1 else None
+            elif type == "domain":
+                dom = float(parts[1].strip()) if len(parts) > 1 else None
+            cutoff_map[hmm_id] = (full, dom)
+    try:
+        tmp_path.unlink()
+    except Exception:
+        pass
+    
+    with open(dest_path, 'w') as out:
+        out.write('id\tcutoff_full\tcutoff_domain\n')
+        for acc, tup in cutoff_map.items():
+            full = '' if tup[0] is None else f"{tup[0]}"
+            dom = '' if tup[1] is None else f"{tup[1]}"
+            out.write(f"{acc}\t{full}\t{dom}\n")
+            
+    logger.info(f"CAMPER thresholds written to {dest_path}")
         
 def download_all(dest=None, force=False, threads=10):
     os.makedirs(dest, exist_ok=True)
@@ -256,7 +304,8 @@ def download_all(dest=None, force=False, threads=10):
         ("FOAM", 'FOAM.hmm', FOAM_FTP, FOAM_HTTPS, True, False, False),
         ("PHROGs", 'PHROGs.hmm', PHROGS_FTP, PHROGS_HTTPS, False, True, True),
         ("dbCAN", 'dbCAN_HMMdb_v14.hmm', DBCAN_FTP, DBCAN_HTTPS, False, False, False),
-        ("METABOLIC", 'METABOLIC_custom.hmm', METABOLIC_FTP, METABOLIC_HTTPS, True, False, False)
+        ("METABOLIC", 'METABOLIC_custom.hmm', METABOLIC_FTP, METABOLIC_HTTPS, True, False, False),
+        ("CAMPER", 'CAMPER.hmm', CAMPER_FTP, CAMPER_HTTPS, False, False, False),
     ]
     exceptions = []
     with ThreadPoolExecutor(max_workers=threads) as executor:
@@ -276,7 +325,7 @@ def download_all(dest=None, force=False, threads=10):
     else:
         logger.info("All databases downloaded successfully.")
 
-    # Build thresholds for FOAM and KEGG
+    # Build thresholds for FOAM, KEGG, and CAMPER
     try:
         foam_hmm = Path(dest) / 'FOAM.hmm'
         foam_thr = Path(dest) / 'FOAM_cutoffs.tsv'
@@ -296,6 +345,17 @@ def download_all(dest=None, force=False, threads=10):
     except Exception as e:
         logger.error(f"KEGG thresholds failed: {e}")
         exceptions.append("KEGG_thresholds")
+    
+    try:
+        camper_hmm = Path(dest) / 'CAMPER.hmm'
+        camper_thr = Path(dest) / 'CAMPER_cutoffs.tsv'
+        if camper_hmm.exists():
+            get_thresholds_from_camper(CAMPER_SCORES_FTP, CAMPER_SCORES_HTTPS, camper_thr)
+        else:
+            logger.warning("CAMPER.hmm not found; skipping CAMPER thresholds.")
+    except Exception as e:
+        logger.error(f"CAMPER thresholds failed: {e}")
+        exceptions.append("CAMPER_thresholds")
 
     if exceptions:
         raise Exception(f"Completed with errors in: {', '.join(exceptions)}")

@@ -1,0 +1,671 @@
+id	name	V-score	VL-score	db	genomad_plasmid_marker
+K04763	integrase/recombinase XerD	10.0	4.890951685	KEGG	False
+K14059	integrase	10.0	4.882296801	KEGG	False
+K03733	integrase/recombinase XerC	10.0	4.875391202	KEGG	False
+K03497	ParB family transcriptional regulator, chromosome partitioning protein	10.0	4.484769478	KEGG	True
+K06400	site-specific DNA recombinase	10.0	4.37329828	KEGG	False
+K07450	putative resolvase	10.0	4.204933522	KEGG	False
+K07012	CRISPR-associated endonuclease/helicase Cas3 [EC:3.1.-.- 5.6.2.4]	10.0	4.036069701	KEGG	False
+K07496	putative transposase	10.0	3.890700398	KEGG	False
+K07497	putative transposase	10.0	3.754730469	KEGG	False
+K03496	chromosome partitioning protein	10.0	3.661244609	KEGG	True
+K12055	chromosome partitioning related protein ParA	10.0	3.562768543	KEGG	False
+K02621	topoisomerase IV subunit A [EC:5.6.2.2]	10.0	3.400537989	KEGG	True
+K07464	CRISPR-associated exonuclease Cas4 [EC:3.1.12.1]	10.0	3.333245699	KEGG	False
+K19732	LuxR family transcriptional regulator, activator of conjugal transfer of Ti plasmids	10.0	3.211921084	KEGG	True
+K07482	transposase, IS30 family	10.0	3.186391216	KEGG	False
+K07483	transposase	10.0	3.182699903	KEGG	False
+K12212	intracellular multiplication protein IcmJ	10.0	3.164352856	KEGG	True
+K09952	CRISPR-associated endonuclease Csn1 [EC:3.1.-.-]	10.0	3.1430148	KEGG	False
+K07486	transposase	10.0	3.118925753	KEGG	False
+K07467	putative DNA relaxase	10.0	3.10720997	KEGG	True
+K18640	plasmid segregation protein ParM	10.0	3.102433706	KEGG	True
+K07488	transposase	10.0	3.08170727	KEGG	False
+K12063	conjugal transfer ATP-binding protein TraC	10.0	3.022840611	KEGG	True
+K07491	REP-associated tyrosine transposase	8.51	2.92992956	KEGG	False
+K07449	similar to archaeal holliday junction resolvase and Mrr protein	8.07	2.906873535	KEGG	False
+K03205	type IV secretion system protein VirD4 [EC:7.4.2.8]	8.05	2.90579588	KEGG	True
+K07492	putative transposase	6.81	2.833147112	KEGG	False
+K07481	transposase, IS5 family	6.48	2.811575006	KEGG	False
+K07485	transposase	5.8	2.763427994	KEGG	False
+K07499	putative transposase	5.56	2.745074792	KEGG	False
+K07487	transposase	5.48	2.738780558	KEGG	False
+K07493	putative transposase	5.48	2.738780558	KEGG	False
+K12071	conjugal transfer pilus assembly protein TraD	4.98	2.697229343	KEGG	True
+K03199	type IV secretion system protein VirB4 [EC:7.4.2.8]	4.79	2.680335513	KEGG	True
+K15338	holliday junction resolvase GEN1/YEN1 [EC:3.1.-.-]	4.71	2.673020907	KEGG	False
+K03552	holliday junction resolvase [EC:3.1.21.10]	4.69	2.671172843	KEGG	False
+K07484	transposase	4.09	2.611723308	KEGG	False
+K07494	putative transposase	3.88	2.588831726	KEGG	False
+K26534	Poxviridae DNA holliday junction resolvase [EC:3.1.-.-]	3.7	2.568201724	KEGG	False
+K01664	para-aminobenzoate synthetase component II [EC:2.6.1.85]	2.47	2.392696953	KEGG	False
+K07495	putative transposase	2.45	2.389166084	KEGG	False
+K13791	invasion plasmid antigen	2.44	2.387389826	KEGG	False
+K13950	para-aminobenzoate synthetase [EC:2.6.1.85]	2.16	2.334453751	KEGG	False
+K07332	archaeal flagellar protein FlaI	1.94	2.28780173	KEGG	True
+K07725	CRISPR-associated protein Csa3	1.94	2.28780173	KEGG	False
+K12062	conjugal transfer pilin signal peptidase TrbI	1.84	2.264817823	KEGG	True
+K03194	type IV secretion system protein VirB1	1.47	2.167317335	KEGG	True
+K03929	para-nitrobenzyl esterase [EC:3.1.1.-]	1.07	2.029383778	KEGG	False
+K07344	type IV secretion system protein TrbL	1.01	2.004321374	KEGG	True
+K25056	HTLV-1 integrase	1.0	2.0	KEGG	False
+K26527	Rudiviridae holliday junction resolvase [EC:3.1.21.10]	1.0	2.0	KEGG	False
+K24803	HIV-1 integrase	1.0	2.0	KEGG	False
+K19117	CRISPR-associated protein Csd1	0.96	1.982271233	KEGG	False
+K03342	para-aminobenzoate synthetase / 4-amino-4-deoxychorismate lyase [EC:2.6.1.85 4.1.3.38]	0.9	1.954242509	KEGG	False
+K01152	isftu1 transposase	0.87	1.939519253	KEGG	False
+K03632	chromosome partition protein MukB	0.87	1.939519253	KEGG	False
+K09951	CRISPR-associated protein Cas2	0.8	1.903089987	KEGG	False
+K19126	CRISPR system Cascade subunit CasE	0.77	1.886490725	KEGG	False
+K07475	CRISPR-associated endonuclease Cas3-HD [EC:3.1.-.-]	0.72	1.857332496	KEGG	False
+K07498	putative transposase	0.71	1.851258349	KEGG	False
+K18320	transposase, IS6 family	0.69	1.838849091	KEGG	False
+K19090	CRISPR-associated protein Cas5t	0.68	1.832508913	KEGG	False
+K19118	CRISPR-associated protein Csd2	0.62	1.792391689	KEGG	False
+K07489	transposase	0.61	1.785329835	KEGG	False
+K19115	CRISPR-associated protein Csh2	0.6	1.77815125	KEGG	False
+K19091	CRISPR-associated endoribonuclease Cas6 [EC:3.1.-.-]	0.59	1.770852012	KEGG	False
+K23371	L-serine kinase (ATP) / ParB family transcriptional regulator, heme-responsive regulator [EC:2.7.1.225]	0.58	1.763427994	KEGG	False
+K03201	type IV secretion system protein VirB6	0.49	1.69019608	KEGG	True
+K19116	CRISPR-associated protein Cas5h	0.48	1.681241237	KEGG	False
+K19119	CRISPR-associated protein Cas5d	0.48	1.681241237	KEGG	False
+K19123	CRISPR system Cascade subunit CasA	0.44	1.643452676	KEGG	False
+K09002	CRISPR-associated protein Csm3	0.41	1.612783857	KEGG	False
+K19144	CRISPR-associated protein Csx3	0.39	1.591064607	KEGG	False
+K18434	type IV secretion system T-DNA border endonuclease VirD2	0.39	1.591064607	KEGG	True
+K12065	conjugal transfer pilus assembly protein TraB	0.31	1.491361694	KEGG	True
+K19128	CRISPR-associated protein Csy2	0.28	1.447158031	KEGG	False
+K03204	type IV secretion system protein VirB9	0.26	1.414973348	KEGG	True
+K20532	type IV secretion system protein TrbG	0.25	1.397940009	KEGG	True
+K19124	CRISPR system Cascade subunit CasC	0.25	1.397940009	KEGG	False
+K12070	conjugal transfer pilus assembly protein TraI	0.25	1.397940009	KEGG	True
+K01665	para-aminobenzoate synthetase component I [EC:2.6.1.85]	0.24	1.380211242	KEGG	False
+K12206	intracellular multiplication protein IcmB [EC:7.2.4.8]	0.23	1.361727836	KEGG	True
+K20531	type IV secretion system protein TrbF	0.22	1.342422681	KEGG	True
+K19125	CRISPR system Cascade subunit CasD	0.22	1.342422681	KEGG	False
+K19145	CRISPR-associated protein Csx16	0.22	1.342422681	KEGG	False
+K19129	CRISPR-associated protein Csy3	0.19	1.278753601	KEGG	False
+K19130	CRISPR-associated endonuclease Csy4 [EC:3.1.-.-]	0.19	1.278753601	KEGG	False
+K19127	CRISPR-associated protein Csy1	0.17	1.230448921	KEGG	False
+K20266	type IV secretion system protein TrbJ	0.17	1.230448921	KEGG	True
+K12056	conjugal transfer mating pair stabilization protein TraG	0.16	1.204119983	KEGG	True
+K03200	type IV secretion system protein VirB5	0.15	1.176091259	KEGG	True
+K12057	conjugal transfer pilus assembly protein TraF	0.14	1.146128036	KEGG	True
+K19046	CRISPR system Cascade subunit CasB	0.12	1.079181246	KEGG	False
+K19075	CRISPR-associated protein Cst2	0.11	1.041392685	KEGG	False
+K12209	intracellular multiplication protein IcmE	0.1	1.0	KEGG	True
+K03198	type IV secretion system protein VirB3	0.09	0.954242509	KEGG	True
+K07016	CRISPR-associated protein Csm1	0.08	0.903089987	KEGG	False
+K12060	conjugal transfer pilus assembly protein TraU	0.08	0.903089987	KEGG	True
+K12058	conjugal transfer mating pair stabilization protein TraN	0.07	0.84509804	KEGG	True
+K12072	conjugative transfer pilus assembly protein TraH	0.07	0.84509804	KEGG	True
+K19122	CRISPR-associated protein Csc3	0.06	0.77815125	KEGG	False
+K19131	CRISPR-associated protein Csb1	0.06	0.77815125	KEGG	False
+K19132	CRISPR-associated protein Csb2	0.06	0.77815125	KEGG	False
+K12067	conjugal transfer pilus assembly protein TraE	0.06	0.77815125	KEGG	True
+K15366	salmonella plasmid virulence protein B	0.06	0.77815125	KEGG	False
+K19137	CRISPR-associated protein Csn2	0.05	0.698970004	KEGG	False
+K03197	type IV secretion system protein VirB2	0.05	0.698970004	KEGG	True
+K12066	conjugal transfer pilus assembly protein TraK	0.05	0.698970004	KEGG	True
+K12068	conjugal transfer pilus assembly protein TraL	0.05	0.698970004	KEGG	True
+K12211	intracellular multiplication protein IcmG	0.05	0.698970004	KEGG	True
+K12218	intracellular multiplication protein IcmP	0.05	0.698970004	KEGG	True
+K20528	type IV secretion system protein TrbC	0.04	0.602059991	KEGG	True
+K19136	CRISPR-associated protein Csx17	0.04	0.602059991	KEGG	False
+K12049	ComB9 competence protein	0.04	0.602059991	KEGG	True
+K12064	conjugal transfer pilus assembly protein TraV	0.04	0.602059991	KEGG	True
+K12069	conjugal transfer pilus assembly protein TraA	0.04	0.602059991	KEGG	True
+K19085	CRISPR-associated protein Csa1	0.04	0.602059991	KEGG	False
+K19088	CRISPR-associated protein Cst1	0.04	0.602059991	KEGG	False
+K12228	TrbB protein	0.04	0.602059991	KEGG	True
+K12061	conjugal transfer pilus assembly protein TraW	0.03	0.477121255	KEGG	True
+K09000	CRISPR-associated protein Cmr4	0.03	0.477121255	KEGG	False
+K19076	CRISPR-associated protein Cmr2	0.03	0.477121255	KEGG	False
+K12214	intracellular multiplication protein IcmL	0.03	0.477121255	KEGG	True
+K19121	CRISPR-associated protein Csc2	0.02	0.301029996	KEGG	False
+K12059	conjugal transfer pilus assembly protein TrbC	0.02	0.301029996	KEGG	True
+K12078	type IV secretion system protein PtlA	0.02	0.301029996	KEGG	True
+K12081	type IV secretion system protein PtlE	0.02	0.301029996	KEGG	True
+K12213	intracellular multiplication protein IcmK	0.02	0.301029996	KEGG	True
+K19120	CRISPR-associated protein Csc1	0.01	0.0	KEGG	False
+K19133	CRISPR-associated protein Csb3	0.01	0.0	KEGG	False
+K19134	CRISPR-associated protein Csx10	0.01	0.0	KEGG	False
+K09127	CRISPR-associated protein Cmr3	0.01	0.0	KEGG	False
+K07061	CRISPR-associated protein Cmr1	0.01	0.0	KEGG	False
+K03633	chromosome partition protein MukF	0.01	0.0	KEGG	False
+K19089	CRISPR-associated protein Cas5a/b/c	0.01	0.0	KEGG	False
+K12207	intracellular multiplication protein IcmC	0.01	0.0	KEGG	True
+PF13392.10	HNH endonuclease	10.0	4.533263517	Pfam	False
+PF02195.22	ParB/Sulfiredoxin domain	10.0	4.473399372	Pfam	True
+PF01844.27	HNH endonuclease	10.0	4.353646996	Pfam	False
+PF00239.25	Resolvase, N terminal domain	10.0	4.342935635	Pfam	False
+PF09588.14	YqaJ-like viral recombinase domain	10.0	4.283798573	Pfam	False
+PF07508.17	Recombinase	10.0	4.123524981	Pfam	False
+PF12684.11	PDDEXK-like domain of unknown function (DUF3799)	10.0	4.108328194	Pfam	False
+PF14279.10	HNH endonuclease	10.0	4.018450832	Pfam	False
+PF02739.20	5'-3' exonuclease, N-terminal resolvase-like domain	10.0	3.956552592	Pfam	False
+PF13408.10	Recombinase zinc beta ribbon domain	10.0	3.917820482	Pfam	False
+PF07282.15	Putative transposase DNA-binding domain	10.0	3.810568529	Pfam	False
+PF01385.23	Probable transposase	10.0	3.749195042	Pfam	False
+PF01541.28	GIY-YIG catalytic domain	10.0	3.731266349	Pfam	False
+PF01656.27	CobQ/CobB/MinD/ParA nucleotide binding domain	10.0	3.601734148	Pfam	False
+PF07261.15	Replication initiation and membrane attachment	10.0	3.539703239	Pfam	True
+PF09299.15	Mu transposase, C-terminal	10.0	3.532627001	Pfam	False
+PF00665.30	Integrase core domain	10.0	3.50758604	Pfam	False
+PF00521.24	DNA gyrase/topoisomerase IV, subunit A	10.0	3.409764104	Pfam	True
+PF18763.5	ddrB-like ParB superfamily domain	10.0	3.39707055	Pfam	False
+PF19835.3	Putative endonuclease segE, GIY-YIG domain	10.0	3.348110068	Pfam	False
+PF13683.10	Integrase core domain	10.0	3.162564407	Pfam	False
+PF02796.19	Helix-turn-helix domain of resolvase	10.0	3.151063253	Pfam	False
+PF01527.24	Transposase	10.0	3.118595365	Pfam	False
+PF02914.19	Bacteriophage Mu transposase	10.0	3.107888025	Pfam	False
+PF01609.25	Transposase DDE domain	10.0	3.077004327	Pfam	False
+PF12762.11	ISXO2-like transposase domain	10.0	3.067814511	Pfam	False
+PF02486.23	Replication initiation factor	10.0	3.0523091	Pfam	True
+PF01797.20	Transposase IS200 like	9.33	2.969881644	Pfam	False
+PF02371.20	Transposase IS116/IS110/IS902 family	8.58	2.933487288	Pfam	False
+PF01548.21	Transposase	8.47	2.92788341	Pfam	False
+PF12760.11	Transposase zinc-ribbon domain	8.34	2.921166051	Pfam	False
+PF09003.14	Bacteriophage lambda integrase, Arm DNA-binding domain	7.59	2.880241776	Pfam	False
+PF03989.17	DNA gyrase C-terminal domain, beta-propeller	6.9	2.838849091	Pfam	True
+PF13333.10	Integrase core domain	6.46	2.810232518	Pfam	False
+PF13022.10	Helix-turn-helix of insertion element transposase	6.35	2.802773725	Pfam	False
+PF06970.15	Replication initiator protein A (RepA) N-terminus	5.68	2.754348336	Pfam	True
+PF02534.18	Type IV secretory system Conjugative DNA transfer	5.21	2.716837723	Pfam	True
+PF01051.25	Initiator Replication protein, WH1	5.1	2.707570176	Pfam	True
+PF01610.21	Transposase	5.03	2.701567985	Pfam	False
+PF12696.11	TraM recognition site of TraD and TraG	5.02	2.700703717	Pfam	True
+PF00872.22	Transposase, Mutator family	5.01	2.699837726	Pfam	False
+PF13391.10	HNH endonuclease	4.87	2.687528961	Pfam	False
+PF10412.13	Type IV secretion-system coupling protein DNA-binding domain	4.8	2.681241237	Pfam	True
+PF03050.18	Transposase IS66 family	4.67	2.669316881	Pfam	False
+PF05204.18	Homing endonuclease	4.67	2.669316881	Pfam	False
+PF00091.29	Tubulin/FtsZ family, GTPase domain	4.59	2.661812686	Pfam	True
+PF13814.10	Replication-relaxation	4.44	2.64738297	Pfam	True
+PF05598.15	Transposase domain (DUF772)	4.44	2.64738297	Pfam	False
+PF13395.10	HNH endonuclease	4.03	2.605305046	Pfam	False
+PF03432.18	Relaxase/Mobilisation nuclease domain	4.01	2.603144373	Pfam	True
+PF18780.5	Homing endonuclease associated repeat	3.84	2.584331224	Pfam	False
+PF14072.10	DNA-sulfur modification-associated	3.65	2.562292864	Pfam	True
+PF01076.23	Plasmid recombination enzyme	3.53	2.547774705	Pfam	True
+PF02920.19	DNA binding domain of tn916 integrase	3.03	2.481442629	Pfam	False
+PF13340.10	Putative transposase of IS4/5 family (DUF4096)	3.01	2.478566496	Pfam	False
+PF13817.10	IS66 C-terminal element	2.95	2.469822016	Pfam	False
+PF05717.17	IS66 Orf2 like protein	2.91	2.463892989	Pfam	False
+PF09159.14	Mitochondrial resolvase Ydc2 / RNA splicing MRS1	2.75	2.439332694	Pfam	False
+PF13007.11	Transposase C of IS166 homeodomain	2.65	2.423245874	Pfam	False
+PF13005.11	zinc-finger binding domain of transposase IS66	2.61	2.416640507	Pfam	False
+PF05857.15	TraX protein	2.6	2.414973348	Pfam	False
+PF19044.4	TraG P-loop domain	2.33	2.367355921	Pfam	True
+PF14198.10	Transposon-encoded protein TnpV	2.24	2.350248018	Pfam	False
+PF00437.24	Type II/IV secretion system protein	2.22	2.346352974	Pfam	True
+PF13542.10	Helix-turn-helix domain of transposase family ISL3	2.15	2.33243846	Pfam	False
+PF13751.10	Transposase DDE domain	2.12	2.326335861	Pfam	False
+PF14690.10	zinc-finger of transposase IS204/IS1001/IS1096/IS1165	1.84	2.264817823	Pfam	False
+PF10107.13	Endonuclease related to archaeal Holliday junction resolvase	1.82	2.260071388	Pfam	False
+PF01446.21	Replication protein	1.75	2.243038049	Pfam	True
+PF13586.10	Transposase DDE domain	1.73	2.238046103	Pfam	False
+PF16684.9	Telomere resolvase	1.71	2.23299611	Pfam	False
+PF06250.15	YhcG PDDEXK nuclease domain	1.57	2.195899652	Pfam	False
+PF12784.11	PD-(D/E)XK nuclease family transposase	1.54	2.187520721	Pfam	False
+PF01870.22	Archaeal holliday junction resolvase (hjc)	1.48	2.170261715	Pfam	False
+PF13612.10	Transposase DDE domain	1.44	2.158362492	Pfam	False
+PF09652.14	Putative CRISPR-associated protein (Cas_VVA1548)	1.41	2.149219113	Pfam	False
+PF07506.15	RepB plasmid partitioning protein	1.33	2.123851641	Pfam	True
+PF03389.19	MobA/MobL family	1.28	2.10720997	Pfam	True
+PF18555.5	MobL relaxases	1.11	2.045322979	Pfam	True
+PF11740.12	Plasmid replication region DNA-binding N-term	1.09	2.037426498	Pfam	True
+PF13701.10	Transposase DDE domain group 1	1.08	2.033423755	Pfam	False
+PF18103.5	Retroviral integrase C-terminal SH3 domain	1.0	2.0	Pfam	False
+PF18697.5	Murine leukemia virus (MLV) integrase (IN) C-terminal domain	1.0	2.0	Pfam	False
+PF03400.17	IS1 transposase	0.95	1.977723605	Pfam	False
+PF09709.14	CRISPR-associated protein (Cas_Csd1)	0.94	1.973127854	Pfam	False
+PF01867.20	CRISPR associated protein Cas1	0.94	1.973127854	Pfam	False
+PF04754.16	Putative transposase, YhgA-like	0.92	1.963787827	Pfam	False
+PF05732.15	Firmicute plasmid replication protein (RepL)	0.9	1.954242509	Pfam	True
+PF18106.5	Rolling Circle replication initiation protein N-terminal domain	0.9	1.954242509	Pfam	True
+PF17921.5	Integrase zinc binding domain	0.84	1.924279286	Pfam	False
+PF14412.10	A nuclease family of the HNH/ENDO VII superfamily with conserved AHH	0.83	1.919078092	Pfam	False
+PF04796.16	Plasmid encoded RepA protein	0.82	1.913813852	Pfam	True
+PF08751.15	TrwC relaxase	0.81	1.908485019	Pfam	True
+PF19478.3	TrbL/VirB6 plasmid conjugal transfer like protein	0.75	1.875061263	Pfam	True
+PF08798.15	CRISPR associated protein	0.74	1.86923172	Pfam	False
+PF01526.21	Tn3 transposase DDE domain	0.73	1.86332286	Pfam	False
+PF13737.10	Transposase DDE domain	0.71	1.851258349	Pfam	False
+PF21368.1	AI2M/AI1M-like, HNH endonuclease	0.69	1.838849091	Pfam	False
+PF14202.10	Transposon-encoded protein TnpW	0.67	1.826074803	Pfam	False
+PF04986.17	Putative transposase	0.65	1.812913357	Pfam	False
+PF20199.2	Replication initiator protein, pSAM2	0.65	1.812913357	Pfam	True
+PF05713.15	Bacterial mobilisation protein (MobC)	0.64	1.806179974	Pfam	True
+PF07929.15	Plasmid pRiA4b ORF-3-like protein	0.64	1.806179974	Pfam	False
+PF12508.12	Conjugative transposon, TraM	0.61	1.785329835	Pfam	False
+PF05107.16	CRISPR-associated protein Cas7	0.61	1.785329835	Pfam	False
+PF06406.15	Plasmid segregation protein ParM, N-terminal	0.6	1.77815125	Pfam	True
+PF13011.10	leucine-zipper of insertion element IS481	0.6	1.77815125	Pfam	False
+PF14319.10	Transposase zinc-binding domain	0.59	1.770852012	Pfam	False
+PF10784.13	Plasmid stability protein	0.56	1.748188027	Pfam	True
+PF09704.14	CRISPR-associated protein (Cas_Cas5)	0.56	1.748188027	Pfam	False
+PF07042.15	TrfA protein	0.55	1.740362689	Pfam	True
+PF10134.13	Replication initiator protein A	0.54	1.73239376	Pfam	True
+PF12642.11	Conjugative transposon protein TcpC	0.53	1.72427587	Pfam	True
+PF09827.13	CRISPR associated protein Cas2	0.52	1.716003344	Pfam	False
+PF18182.5	minimal CRISPR polymerase domain	0.52	1.716003344	Pfam	False
+PF05551.15	Zinc-binding loop region of homing endonuclease	0.5	1.698970004	Pfam	False
+PF19514.3	MobC-like protein	0.49	1.69019608	Pfam	True
+PF01719.21	Plasmid replication protein	0.48	1.681241237	Pfam	True
+PF12958.11	Protein of unknown function (DUF3847)	0.48	1.681241237	Pfam	True
+PF12648.11	TcpE family	0.48	1.681241237	Pfam	True
+PF03743.18	Bacterial conjugation TrbI-like protein	0.47	1.672097858	Pfam	True
+PF02387.19	IncFII RepA protein family	0.46	1.662757832	Pfam	True
+PF03428.17	Replication protein C N-terminal domain	0.44	1.643452676	Pfam	True
+PF11800.12	Replication protein C C-terminal region	0.43	1.633468456	Pfam	True
+PF09481.14	CRISPR-associated protein Cse1 (CRISPR_cse1)	0.43	1.633468456	Pfam	False
+PF14414.10	A nuclease of the HNH/ENDO VII superfamily with conserved WHH	0.41	1.612783857	Pfam	False
+PF01881.20	CRISPR associated protein Cas6, C-terminal	0.39	1.591064607	Pfam	False
+PF21523.1	Plasmid segregation protein ParM, C-terminal	0.38	1.579783597	Pfam	True
+PF14595.10	Thioredoxin	0.37	1.568201724	Pfam	True
+PF03090.21	Replicase family	0.37	1.568201724	Pfam	True
+PF17762.5	HTH domain found in ParB protein	0.37	1.568201724	Pfam	False
+PF04610.18	TrbL/VirB6 plasmid conjugal transfer protein	0.35	1.544068044	Pfam	True
+PF01710.20	Transposase	0.34	1.531478917	Pfam	False
+PF12988.11	TraQ conjugal transfer protein	0.32	1.505149978	Pfam	True
+PF10551.13	MULE transposase domain	0.32	1.505149978	Pfam	False
+PF03534.17	Salmonella virulence plasmid 65kDa B protein	0.3	1.477121255	Pfam	False
+PF02022.23	Integrase Zinc binding domain	0.29	1.462397998	Pfam	False
+PF16592.9	REC lobe of CRISPR-associated endonuclease Cas9	0.28	1.447158031	Pfam	False
+PF09620.14	CRISPR-associated protein (Cas_csx3)	0.27	1.431363764	Pfam	False
+PF16593.9	Bridge helix of CRISPR-associated endonuclease Cas9	0.27	1.431363764	Pfam	False
+PF14410.10	HNH/ENDO VII superfamily nuclease with conserved GHE residues	0.27	1.431363764	Pfam	False
+PF04335.17	VirB8 protein	0.26	1.414973348	Pfam	True
+PF03524.19	Conjugal transfer protein	0.25	1.397940009	Pfam	True
+PF19597.3	Conjugal transfer protein TrbL	0.24	1.380211242	Pfam	True
+PF00552.25	Integrase DNA binding domain	0.23	1.361727836	Pfam	False
+PF13006.11	Insertion element 4 transposase N-terminal	0.22	1.342422681	Pfam	False
+PF12835.11	Integrase	0.21	1.322219295	Pfam	False
+PF09614.14	CRISPR-associated protein (Cas_Csy2)	0.21	1.322219295	Pfam	False
+PF03135.18	CagE, TrbE, VirB family, component of type IV transporter system	0.2	1.301029996	Pfam	True
+PF06412.15	Conjugal transfer protein TraD	0.2	1.301029996	Pfam	True
+PF10626.13	Conjugative transposon protein TraO	0.2	1.301029996	Pfam	True
+PF14411.10	A nuclease of the HNH/ENDO VII superfamily with conserved LHH	0.2	1.301029996	Pfam	False
+PF09615.14	CRISPR-associated protein (Cas_Csy3)	0.19	1.278753601	Pfam	False
+PF13728.10	F plasmid transfer operon protein	0.19	1.278753601	Pfam	True
+PF07515.15	Putative conjugal transfer nickase/helicase TraI C-term	0.19	1.278753601	Pfam	True
+PF09618.14	CRISPR-associated protein (Cas_Csy4)	0.19	1.278753601	Pfam	False
+PF16595.9	PAM-interacting domain of CRISPR-associated endonuclease Cas9	0.18	1.255272505	Pfam	False
+PF09559.14	Cas6 Crispr	0.18	1.255272505	Pfam	False
+PF08775.14	ParB family	0.17	1.230448921	Pfam	True
+PF20815.1	GIY-YIG catalytic domain	0.17	1.230448921	Pfam	False
+PF09611.14	CRISPR-associated protein (Cas_Csy1)	0.16	1.204119983	Pfam	False
+PF18976.4	Family of unknown function (DUF5712)	0.16	1.204119983	Pfam	True
+PF09707.14	CRISPR-associated protein (Cas_Cas2CT1978)	0.16	1.204119983	Pfam	False
+PF09274.14	ParG	0.14	1.146128036	Pfam	True
+PF01963.21	TraB/PrgY/gumN family	0.14	1.146128036	Pfam	False
+PF06834.15	TraU protein	0.14	1.146128036	Pfam	True
+PF10040.13	CRISPR-associated endoribonuclease Cas6	0.14	1.146128036	Pfam	False
+PF15636.10	GHH signature containing HNH/Endo VII superfamily nuclease toxin	0.13	1.113943352	Pfam	False
+PF04956.17	TrbC/VIRB2 pilin	0.13	1.113943352	Pfam	True
+PF21384.1	CRISPR-associated nuclease/helicase Cas3, I-F/YPEST, Cas2 domain	0.13	1.113943352	Pfam	False
+PF07863.15	Homologues of TraJ from Bacteroides conjugative transposon	0.12	1.079181246	Pfam	False
+PF14882.10	Integrase repeat unit	0.12	1.079181246	Pfam	False
+PF07916.15	TraG-like protein, N-terminal region	0.12	1.079181246	Pfam	True
+PF15657.10	HNH/Endo VII superfamily nuclease toxins	0.11	1.041392685	Pfam	False
+PF09485.14	CRISPR-associated protein Cse2 (CRISPR_cse2)	0.11	1.041392685	Pfam	False
+PF16509.9	TrfB plasmid transcriptional repressor	0.11	1.041392685	Pfam	False
+PF09079.15	CDC6, C terminal winged helix domain	0.11	1.041392685	Pfam	True
+PF07232.15	Putative rep protein (DUF1424)	0.1	1.0	Pfam	True
+PF17894.5	Topo homolgy domain in CRISPR-associated endonuclease Cas9	0.1	1.0	Pfam	False
+PF13150.10	Conjugative transposon protein TraL	0.1	1.0	Pfam	True
+PF07592.15	Rhodopirellula transposase DDE domain	0.1	1.0	Pfam	False
+PF17893.5	CRISPR-associated endonuclease Cas9 beta-hairpin domain	0.1	1.0	Pfam	False
+PF08857.15	Putative ParB-like nuclease	0.09	0.954242509	Pfam	False
+PF05101.17	Type IV secretory pathway, VirB3-like protein	0.09	0.954242509	Pfam	True
+PF11130.12	TraC protein	0.09	0.954242509	Pfam	True
+PF14706.10	Transposase DNA-binding	0.07	0.84509804	Pfam	False
+PF18607.5	ParA helix turn helix domain	0.07	0.84509804	Pfam	False
+PF07996.15	Type IV secretion system proteins	0.07	0.84509804	Pfam	True
+PF06122.15	Conjugative relaxosome accessory transposon protein	0.07	0.84509804	Pfam	True
+PF11083.12	C-terminal helical hairpin domain from relaxase	0.06	0.77815125	Pfam	False
+PF19456.3	MobI protein	0.06	0.77815125	Pfam	True
+PF09617.14	CRISPR-associated protein GSU0053 (Cas_GSU0053)	0.06	0.77815125	Pfam	False
+PF05309.15	TraE protein	0.06	0.77815125	Pfam	True
+PF06430.16	Lactococcus lactis RepB C-terminus	0.05	0.698970004	Pfam	True
+PF21350.1	CRISPR-associated protein Cas6, N-terminal	0.05	0.698970004	Pfam	False
+PF06952.15	PsiA protein	0.05	0.698970004	Pfam	True
+PF06586.15	TraK protein	0.05	0.698970004	Pfam	True
+PF07178.15	TraL protein	0.05	0.698970004	Pfam	True
+PF18008.5	Replication initiator protein A C-terminal domain	0.05	0.698970004	Pfam	True
+PF03652.19	Holliday junction resolvase	0.05	0.698970004	Pfam	False
+PF06986.15	F-type Type IV secretion system, TraN	0.05	0.698970004	Pfam	True
+PF20874.1	Relaxase central domain	0.05	0.698970004	Pfam	False
+PF09711.14	CRISPR-associated protein (Cas_Csn2)	0.05	0.698970004	Pfam	False
+PF01815.20	Rop protein	0.04	0.602059991	Pfam	True
+PF15652.10	HNH/Endo VII superfamily toxin with a SHH signature	0.04	0.602059991	Pfam	False
+PF09686.14	Plasmid protein of unknown function (Plasmid_RAQPRD)	0.04	0.602059991	Pfam	False
+PF09676.14	Type IV conjugative transfer system lipoprotein (TraV)	0.04	0.602059991	Pfam	True
+PF05509.15	TraY domain	0.03	0.477121255	Pfam	True
+PF20829.1	Anti-CRISPR protein Acr30-35/AcrF1	0.03	0.477121255	Pfam	False
+PF04899.16	MbeD/MobD like	0.03	0.477121255	Pfam	True
+PF09659.14	CRISPR-associated protein (Cas_Csm6)	0.03	0.477121255	Pfam	False
+PF06290.15	Plasmid SOS inhibition protein (PsiB)	0.03	0.477121255	Pfam	True
+PF07057.15	DNA helicase TraI, C-terminal	0.03	0.477121255	Pfam	True
+PF05818.16	Enterobacterial TraT complement resistance protein	0.03	0.477121255	Pfam	False
+PF09609.14	CRISPR-associated protein, GSU0054 family (Cas_GSU0054)	0.03	0.477121255	Pfam	False
+PF18272.5	single-stranded DNA binding TraI N-terminal subdomain	0.03	0.477121255	Pfam	True
+PF02281.20	Transposase Tn5 dimerisation domain	0.03	0.477121255	Pfam	False
+PF21069.1	CRISPR-associated endonuclease Cas9 alpha-helical lobe	0.03	0.477121255	Pfam	False
+PF11393.12	Type-IV b secretion system, inner-membrane complex component	0.03	0.477121255	Pfam	True
+PF12602.12	Fertility inhibition protein N terminal	0.03	0.477121255	Pfam	True
+PF01498.22	Transposase	0.03	0.477121255	Pfam	False
+PF18340.5	DNA relaxase TraI 2B/2B-like domain	0.03	0.477121255	Pfam	True
+PF13843.10	Transposase IS4	0.02	0.301029996	Pfam	False
+PF09657.14	CRISPR-associated protein Csx8 (Cas_Csx8)	0.02	0.301029996	Pfam	False
+PF06023.16	CRISPR-associated exonuclease Csa1	0.02	0.301029996	Pfam	False
+PF12293.12	Putative outer membrane core complex of type IVb secretion	0.02	0.301029996	Pfam	True
+PF09673.14	Type-F conjugative transfer system pilin assembly protein	0.02	0.301029996	Pfam	True
+PF20552.2	Recombinase-like helix-turn-helix domain	0.02	0.301029996	Pfam	False
+PF10723.13	Replication regulatory protein RepB	0.02	0.301029996	Pfam	True
+PF18320.5	Csc2 Crispr	0.02	0.301029996	Pfam	False
+PF04720.16	PDDEXK-like family of unknown function	0.02	0.301029996	Pfam	False
+PF05261.15	TraM protein, DNA-binding	0.02	0.301029996	Pfam	True
+PF14639.10	Holliday-junction resolvase-like of SPT6	0.02	0.301029996	Pfam	False
+PF09670.14	CRISPR-associated protein (Cas_Cas02710)	0.02	0.301029996	Pfam	False
+PF09677.14	Type-F conjugative transfer system protein (TrbI_Ftype)	0.01	0.0	Pfam	True
+PF03221.20	Tc5 transposase DNA-binding domain	0.01	0.0	Pfam	False
+PF05472.15	DNA replication terminus site-binding protein (Ter protein)	0.01	0.0	Pfam	True
+PF05513.15	TraA	0.01	0.0	Pfam	True
+PF12477.12	Sex factor F TraW protein N terminal	0.01	0.0	Pfam	True
+PF21802.1	CRISPR-associated Cas3 subtype I-F/YPEST-like, C-terminal domain	0.01	0.0	Pfam	False
+PF09679.14	Type-F conjugative transfer system pilin chaperone (TraQ)	0.01	0.0	Pfam	True
+PF04837.16	MbeB-like, N-term conserved region	0.01	0.0	Pfam	True
+PF21804.1	Transposase protein	0.01	0.0	Pfam	False
+PF07296.15	TraP protein	0.01	0.0	Pfam	True
+PF02402.20	Lysis protein	0.01	0.0	Pfam	True
+PF20700.1	Mutator-like transposase	0.01	0.0	Pfam	False
+PF13729.10	F plasmid transfer operon, TraF, protein	0.01	0.0	Pfam	True
+PF10136.13	Site-specific recombinase	0.01	0.0	Pfam	False
+PF13009.10	Putative integrase	0.01	0.0	Pfam	False
+PF15637.10	HNH/Endo VII superfamily nuclease toxin with a HHH motif	0.01	0.0	Pfam	False
+PF09455.14	CRISPR-associated (Cas) DxTHG family	0.01	0.0	Pfam	False
+PF21574.1	CRISPR-associated endonuclease Cas9, C-terminal domain	0.01	0.0	Pfam	False
+PF20898.1	P-type Type IV secretion system, TraN	0.01	0.0	Pfam	False
+PF03538.18	Salmonella virulence plasmid 28.1kDa A protein	0.01	0.0	Pfam	False
+PF18064.5	Centromere-binding protein ParB C-terminal	0.01	0.0	Pfam	False
+PF01905.20	CRISPR-associated negative auto-regulator DevR/Csa2	0.01	0.0	Pfam	False
+PF21497.1	Conjugal transfer protein-like, C-terminal domain	0.01	0.0	Pfam	True
+PF09700.14	CRISPR-associated protein (Cas_Cmr3)	0.01	0.0	Pfam	False
+PF16813.9	CRISPR-associated protein Csn2 subfamily St	0.01	0.0	Pfam	False
+phrog_216	integrase	10.0	4.618738233	PHROG	False
+phrog_1	integrase	10.0	4.578306773	PHROG	False
+phrog_59	HNH endonuclease	10.0	4.349995899	PHROG	False
+phrog_620	ParB-like partition protein	10.0	4.316431669	PHROG	False
+phrog_95	integrase	10.0	4.311986835	PHROG	False
+phrog_99	HNH endonuclease	10.0	4.287980784	PHROG	False
+phrog_144	HNH endonuclease	10.0	4.254040258	PHROG	False
+phrog_959	HNH endonuclease	10.0	4.224222186	PHROG	False
+phrog_8071	ParB-like partition protein	10.0	4.212374071	PHROG	False
+phrog_1492	HNH endonuclease	10.0	4.190387733	PHROG	False
+phrog_119	HNH endonuclease	10.0	4.183952786	PHROG	False
+phrog_4578	HNH endonuclease	10.0	4.166311681	PHROG	False
+phrog_140	RusA-like Holliday junction resolvase	10.0	4.108091236	PHROG	False
+phrog_15396	ParB-like partition nuclease	10.0	4.106632789	PHROG	False
+phrog_18056	ParB-like partition nuclease	10.0	4.047313816	PHROG	False
+phrog_3377	HNH endonuclease	10.0	4.042417988	PHROG	False
+phrog_2081	HNH endonuclease	10.0	4.042299807	PHROG	False
+phrog_826	HNH endonuclease	10.0	4.007150105	PHROG	False
+phrog_3593	HNH endonuclease	10.0	3.95679252	PHROG	False
+phrog_314	homing endonuclease	10.0	3.945222317	PHROG	False
+phrog_6254	HNH endonuclease	10.0	3.91603261	PHROG	False
+phrog_97	UvsX-like recombinase	10.0	3.909235003	PHROG	False
+phrog_374	HNH endonuclease	10.0	3.884398826	PHROG	False
+phrog_953	HNH endonuclease	10.0	3.875466416	PHROG	False
+phrog_723	ParB-like partition protein	10.0	3.834992604	PHROG	False
+phrog_2323	HNH endonuclease	10.0	3.792951708	PHROG	False
+phrog_506	transposase	10.0	3.792461731	PHROG	False
+phrog_4715	ParB-like partition protein	10.0	3.778802204	PHROG	False
+phrog_589	HNH endonuclease	10.0	3.767749367	PHROG	False
+phrog_3264	ParB-like partition protein	10.0	3.74694541	PHROG	False
+phrog_34	RusA-like Holliday junction resolvase	10.0	3.740046724	PHROG	False
+phrog_310	transposase	10.0	3.738384124	PHROG	False
+phrog_190	Holliday junction resolvase	10.0	3.737431201	PHROG	False
+phrog_333	HNH endonuclease	10.0	3.736316808	PHROG	False
+phrog_1314	HNH endonuclease	10.0	3.71432976	PHROG	False
+phrog_2214	HNH endonuclease	10.0	3.703119346	PHROG	False
+phrog_7168	homing endonuclease	10.0	3.688953463	PHROG	False
+phrog_12300	transposase	10.0	3.685831275	PHROG	False
+phrog_244	RusA-like Holliday junction resolvase	10.0	3.656673046	PHROG	False
+phrog_338	HNH endonuclease	10.0	3.636688448	PHROG	False
+phrog_16726	HNH endonuclease	10.0	3.633266411	PHROG	False
+phrog_164	ParA-like partition protein	10.0	3.619406411	PHROG	False
+phrog_159	RuvC-like Holliday junction resolvase	10.0	3.616895426	PHROG	False
+phrog_1770	Holliday junction resolvase	10.0	3.609807769	PHROG	False
+phrog_6218	ParB-like partition protein	10.0	3.59117595	PHROG	False
+phrog_2255	HNH endonuclease	10.0	3.583085366	PHROG	False
+phrog_7269	integrase	10.0	3.582517884	PHROG	False
+phrog_13964	transposase	10.0	3.576801896	PHROG	False
+phrog_4842	HNH endonuclease	10.0	3.564192461	PHROG	False
+phrog_131	HNH endonuclease	10.0	3.564073979	PHROG	False
+phrog_1891	HNH endonuclease	10.0	3.529045171	PHROG	False
+phrog_5956	HNH endonuclease	10.0	3.527114112	PHROG	False
+phrog_2118	HNH endonuclease	10.0	3.518250651	PHROG	False
+phrog_5702	Holliday junction resolvase	10.0	3.442479769	PHROG	False
+phrog_5718	HNH endonuclease	10.0	3.436957331	PHROG	False
+phrog_9084	homing endonuclease	10.0	3.412628521	PHROG	False
+phrog_1033	ParB-like partition protein	10.0	3.401745082	PHROG	False
+phrog_20891	HNH endonuclease	10.0	3.387923467	PHROG	False
+phrog_21084	recombinase	10.0	3.38039216	PHROG	False
+phrog_559	HNH endonuclease	10.0	3.357363031	PHROG	False
+phrog_7785	HNH endonuclease	10.0	3.357363031	PHROG	False
+phrog_2159	ParB-like partition protein	10.0	3.348110068	PHROG	False
+phrog_14314	HNH endonuclease	10.0	3.347915187	PHROG	False
+phrog_3106	HNH endonuclease	10.0	3.344588743	PHROG	False
+phrog_7685	integrase	10.0	3.342817315	PHROG	False
+phrog_1682	RusA-like Holliday junction resolvase	10.0	3.32674538	PHROG	False
+phrog_7244	integrase	10.0	3.302114377	PHROG	False
+phrog_3339	homing endonuclease	10.0	3.29907126	PHROG	False
+phrog_11531	integrase	10.0	3.259832699	PHROG	False
+phrog_740	HNH endonuclease	10.0	3.227886705	PHROG	False
+phrog_14736	HNH endonuclease	10.0	3.223495941	PHROG	False
+phrog_843	Holliday junction resolvase	10.0	3.20709554	PHROG	False
+phrog_513	transposase	10.0	3.198657087	PHROG	False
+phrog_655	homing endonuclease	10.0	3.183554534	PHROG	False
+phrog_10822	HNH endonuclease	10.0	3.170261715	PHROG	False
+phrog_1706	CRISPR/Cas system associated	10.0	3.16879202	PHROG	False
+phrog_15471	HNH endonuclease	10.0	3.16879202	PHROG	False
+phrog_795	partition protein ATPase	10.0	3.162265614	PHROG	False
+phrog_4321	HNH endonuclease	10.0	3.127428778	PHROG	False
+phrog_96	HNH endonuclease	10.0	3.120573931	PHROG	False
+phrog_5123	homing endonuclease with GIY-YIG motif	10.0	3.114610984	PHROG	False
+phrog_1571	HNH endonuclease	10.0	3.096562438	PHROG	False
+phrog_3055	RusA-like Holliday junction resolvase	10.0	3.092720645	PHROG	False
+phrog_157	transposase	10.0	3.078456818	PHROG	False
+phrog_7545	HNH endonuclease	10.0	3.074084689	PHROG	False
+phrog_3007	RusA-like Holliday junction resolvase	10.0	3.072617477	PHROG	False
+phrog_2685	partition protein ATPase	10.0	3.068185862	PHROG	False
+phrog_35854	HNH endonuclease	10.0	3.043755127	PHROG	False
+phrog_2002	Holliday junction resolvase	10.0	3.037824751	PHROG	False
+phrog_10003	recombinase	10.0	3.012837225	PHROG	False
+phrog_5046	HNH endonuclease	10.0	3.007747778	PHROG	False
+phrog_10730	HNH endonuclease	10.0	3.000867722	PHROG	False
+phrog_12305	ParB-like partition protein	9.75	2.989004616	PHROG	False
+phrog_12047	ParB-like partition nuclease	9.71	2.98721923	PHROG	False
+phrog_6392	ParB-like partition protein	9.32	2.969415912	PHROG	False
+phrog_956	transposase	9.21	2.96425963	PHROG	False
+phrog_8446	HNH endonuclease	9.21	2.96425963	PHROG	False
+phrog_2577	transposase	9.08	2.958085849	PHROG	False
+phrog_1381	plasmid antitoxin with HTH domain	9.03	2.95568775	PHROG	False
+phrog_2199	transposase	8.87	2.94792362	PHROG	False
+phrog_14161	recombinase	8.37	2.922725458	PHROG	False
+phrog_18112	recombinase	7.99	2.902546779	PHROG	False
+phrog_1271	HNH endonuclease	7.88	2.896526217	PHROG	False
+phrog_4646	transposase	7.62	2.881954971	PHROG	False
+phrog_25190	integrase	7.55	2.877946952	PHROG	False
+phrog_7370	HNH endonuclease	7.51	2.875639937	PHROG	False
+phrog_1985	HNH endonuclease	7.39	2.868644438	PHROG	False
+phrog_8660	HNH endonuclease	7.34	2.86569606	PHROG	False
+phrog_14913	HNH endonuclease	6.62	2.820857989	PHROG	False
+phrog_14515	HNH endonuclease	6.59	2.818885415	PHROG	False
+phrog_17283	HNH endonuclease	6.47	2.810904281	PHROG	False
+phrog_23783	integrase	6.21	2.7930916	PHROG	False
+phrog_6620	transposase	6.2	2.792391689	PHROG	False
+phrog_691	partition protein	6.02	2.779596491	PHROG	False
+phrog_10426	integrase	6.02	2.779596491	PHROG	False
+phrog_4285	transposase	5.99	2.777426822	PHROG	False
+phrog_15463	HNH endonuclease	5.78	2.761927838	PHROG	False
+phrog_19446	homing endonuclease	5.34	2.727541257	PHROG	False
+phrog_2331	transposase	5.01	2.699837726	PHROG	False
+phrog_12131	homing endonuclease	5.0	2.698970004	PHROG	False
+phrog_568	plasmid stability	4.53	2.656098202	PHROG	False
+phrog_30377	HNH endonuclease	4.51	2.654176542	PHROG	False
+phrog_9545	HNH endonuclease	4.47	2.650307523	PHROG	False
+phrog_1157	transposase	4.43	2.646403726	PHROG	False
+phrog_10088	homing endonuclease	4.2	2.62324929	PHROG	False
+phrog_9645	HNH endonuclease	4.13	2.615950052	PHROG	False
+phrog_4234	HNH endonuclease	4.1	2.612783857	PHROG	False
+phrog_5749	transposase	4.07	2.609594409	PHROG	False
+phrog_1808	HNH endonuclease	4.05	2.607455023	PHROG	False
+phrog_12400	HNH endonuclease	3.82	2.582063363	PHROG	False
+phrog_10495	HNH endonuclease	3.81	2.580924976	PHROG	False
+phrog_9508	HNH endonuclease	3.77	2.57634135	PHROG	False
+phrog_21721	RusA-like Holliday junction resolvase	3.76	2.575187845	PHROG	False
+phrog_8463	transposase	3.67	2.564666064	PHROG	False
+phrog_688	transposase	3.63	2.559906625	PHROG	False
+phrog_6050	HNH endonuclease	3.51	2.545307116	PHROG	False
+phrog_11688	transposase	3.41	2.532754379	PHROG	False
+phrog_9019	Holliday junction resolvase	3.37	2.527629901	PHROG	False
+phrog_3356	transposase	3.24	2.51054501	PHROG	False
+phrog_3118	HNH endonuclease	3.06	2.485721426	PHROG	False
+phrog_151	transposase	2.93	2.46686762	PHROG	False
+phrog_5200	HNH endonuclease	2.93	2.46686762	PHROG	False
+phrog_623	transposase	2.74	2.437750563	PHROG	False
+phrog_2579	ParB C-terminal domain	2.64	2.421603927	PHROG	False
+phrog_37089	recombinase	2.57	2.409933123	PHROG	False
+phrog_14238	RusA-like Holliday junction resolvase	2.49	2.396199347	PHROG	False
+phrog_960	HNH endonuclease	2.42	2.383815366	PHROG	False
+phrog_5830	integrase	2.41	2.382017043	PHROG	False
+phrog_3035	transposase	2.25	2.352182518	PHROG	False
+phrog_21421	integrase	2.14	2.330413773	PHROG	False
+phrog_865	HNH endonuclease	2.09	2.320146286	PHROG	False
+phrog_10081	transposase	2.06	2.31386722	PHROG	False
+phrog_7363	homing endonuclease	2.03	2.307496038	PHROG	False
+phrog_2393	transposase	1.98	2.29666519	PHROG	False
+phrog_23251	HNH endonuclease	1.93	2.285557309	PHROG	False
+phrog_827	Holliday junction resolvase	1.91	2.281033367	PHROG	False
+phrog_4632	RusA-like Holliday junction resolvase	1.87	2.271841607	PHROG	False
+phrog_9203	RusA-like Holliday junction resolvase	1.85	2.267171728	PHROG	False
+phrog_3598	transposase	1.82	2.260071388	PHROG	False
+phrog_26387	ParB-like partition nuclease	1.82	2.260071388	PHROG	False
+phrog_11023	homing endonuclease with LAGLIDADG motif	1.75	2.243038049	PHROG	False
+phrog_10696	HNH endonuclease	1.75	2.243038049	PHROG	False
+phrog_4716	transposase	1.71	2.23299611	PHROG	False
+phrog_8048	HNH endonuclease	1.66	2.220108088	PHROG	False
+phrog_25184	HNH endonuclease	1.63	2.212187604	PHROG	False
+phrog_12598	RusA-like Holliday junction resolvase	1.62	2.209515015	PHROG	False
+phrog_5389	transposase	1.57	2.195899652	PHROG	False
+phrog_25061	HNH endonuclease	1.52	2.181843588	PHROG	False
+phrog_13470	HNH endonuclease	1.5	2.176091259	PHROG	False
+phrog_930	ParB-like partition protein	1.49	2.173186268	PHROG	False
+phrog_3300	transposase	1.34	2.127104798	PHROG	False
+phrog_33747	transposase	1.3	2.113943352	PHROG	False
+phrog_15522	HNH endonuclease	1.23	2.089905111	PHROG	False
+phrog_8828	HNH endonuclease	1.23	2.089905111	PHROG	False
+phrog_11604	HNH endonuclease	1.23	2.089905111	PHROG	False
+phrog_1013	transposase	1.13	2.053078443	PHROG	False
+phrog_20162	HNH endonuclease	1.12	2.049218023	PHROG	False
+phrog_19902	HNH endonuclease	1.12	2.049218023	PHROG	False
+phrog_5411	HNH endonuclease	1.06	2.025305865	PHROG	False
+phrog_9443	HNH endonuclease	1.04	2.017033339	PHROG	False
+phrog_1631	transposase	1.01	2.004321374	PHROG	False
+phrog_23285	HNH endonuclease	0.97	1.986771734	PHROG	False
+phrog_18317	Holliday junction resolvase	0.93	1.968482949	PHROG	False
+phrog_24751	HNH endonuclease	0.93	1.968482949	PHROG	False
+phrog_12434	HNH endonuclease	0.91	1.959041392	PHROG	False
+phrog_2262	transposase	0.84	1.924279286	PHROG	False
+phrog_28142	HNH endonuclease	0.84	1.924279286	PHROG	False
+phrog_22048	HNH endonuclease	0.82	1.913813852	PHROG	False
+phrog_7951	transposase	0.79	1.897627091	PHROG	False
+phrog_1146	ParB-like partition protein	0.78	1.892094603	PHROG	False
+phrog_10378	HNH endonuclease	0.78	1.892094603	PHROG	False
+phrog_16016	HNH endonuclease	0.77	1.886490725	PHROG	False
+phrog_36860	HNH endonuclease	0.74	1.86923172	PHROG	False
+phrog_720	transposase	0.73	1.86332286	PHROG	False
+phrog_25862	HNH endonuclease	0.73	1.86332286	PHROG	False
+phrog_33760	HNH endonuclease	0.71	1.851258349	PHROG	False
+phrog_10820	HNH endonuclease	0.7	1.84509804	PHROG	False
+phrog_17698	transposase	0.69	1.838849091	PHROG	False
+phrog_11704	transposase	0.67	1.826074803	PHROG	False
+phrog_1723	recombinase	0.58	1.763427994	PHROG	False
+phrog_22514	HNH endonuclease	0.57	1.755874856	PHROG	False
+phrog_2422	transposase	0.52	1.716003344	PHROG	False
+phrog_34723	integrase	0.52	1.716003344	PHROG	False
+phrog_6591	Holliday junction resolvase	0.52	1.716003344	PHROG	False
+phrog_3875	RuvC-like Holliday junction resolvase	0.49	1.69019608	PHROG	False
+phrog_34557	integrase	0.47	1.672097858	PHROG	False
+phrog_24148	HNH endonuclease	0.47	1.672097858	PHROG	False
+phrog_1191	transposase	0.42	1.62324929	PHROG	False
+phrog_2515	partition protein	0.42	1.62324929	PHROG	False
+phrog_6537	RusA-like Holliday junction resolvase	0.41	1.612783857	PHROG	False
+phrog_20919	recombinase	0.39	1.591064607	PHROG	False
+phrog_5351	HNH endonuclease	0.36	1.556302501	PHROG	False
+phrog_9208	integrase	0.35	1.544068044	PHROG	False
+phrog_23036	Holliday junction resolvase	0.3	1.477121255	PHROG	False
+phrog_2123	recombinase	0.29	1.462397998	PHROG	False
+phrog_17657	HNH endonuclease	0.29	1.462397998	PHROG	False
+phrog_21964	HNH endonuclease	0.27	1.431363764	PHROG	False
+phrog_5127	integrase	0.27	1.431363764	PHROG	False
+phrog_15265	recombinase	0.25	1.397940009	PHROG	False
+phrog_6086	HNH endonuclease	0.25	1.397940009	PHROG	False
+phrog_37986	Holliday junction resolvase	0.25	1.397940009	PHROG	False
+phrog_32069	ParB-like partition protein	0.22	1.342422681	PHROG	False
+phrog_25983	HNH endonuclease	0.21	1.322219295	PHROG	False
+phrog_20467	HNH endonuclease	0.19	1.278753601	PHROG	False
+phrog_25551	homing endonuclease	0.19	1.278753601	PHROG	False
+phrog_7504	homing endonuclease	0.19	1.278753601	PHROG	False
+phrog_12980	HNH endonuclease	0.19	1.278753601	PHROG	False
+phrog_10357	recombinase	0.19	1.278753601	PHROG	False
+phrog_25420	HNH endonuclease	0.19	1.278753601	PHROG	False
+phrog_26588	ParB-like partition nuclease	0.17	1.230448921	PHROG	False
+phrog_30443	HNH endonuclease	0.15	1.176091259	PHROG	False
+phrog_26754	ParB-like partition nuclease	0.14	1.146128036	PHROG	False
+phrog_33554	HNH endonuclease	0.13	1.113943352	PHROG	False
+phrog_9366	transposase	0.12	1.079181246	PHROG	False
+phrog_8671	partition protein	0.12	1.079181246	PHROG	False
+phrog_24671	integrase	0.12	1.079181246	PHROG	False
+phrog_33290	ParB-like partition nuclease	0.11	1.041392685	PHROG	False
+phrog_18411	homing endonuclease	0.11	1.041392685	PHROG	False
+phrog_7426	HNH endonuclease	0.11	1.041392685	PHROG	False
+phrog_35175	HNH endonuclease	0.1	1.0	PHROG	False
+phrog_36562	transposase	0.1	1.0	PHROG	False
+phrog_32871	integrase	0.1	1.0	PHROG	False
+phrog_26377	ParB-like partition protein	0.1	1.0	PHROG	False
+phrog_20724	HNH endonuclease	0.09	0.954242509	PHROG	False
+phrog_12576	HNH endonuclease	0.09	0.954242509	PHROG	False
+phrog_24545	HNH endonuclease	0.09	0.954242509	PHROG	False
+phrog_19978	HNH endonuclease	0.09	0.954242509	PHROG	False
+phrog_18250	integrase	0.08	0.903089987	PHROG	False
+phrog_10553	HNH endonuclease	0.08	0.903089987	PHROG	False
+phrog_11894	RusA-like Holliday junction resolvase	0.08	0.903089987	PHROG	False
+phrog_32453	HNH endonuclease	0.08	0.903089987	PHROG	False
+phrog_14097	HNH endonuclease	0.08	0.903089987	PHROG	False
+phrog_7030	HNH endonuclease	0.08	0.903089987	PHROG	False
+phrog_7091	HNH endonuclease	0.08	0.903089987	PHROG	False
+phrog_29143	HNH endonuclease	0.08	0.903089987	PHROG	False
+phrog_8786	type I-E anti-CRISPR protein	0.08	0.903089987	PHROG	False
+phrog_21054	HNH endonuclease	0.07	0.84509804	PHROG	False
+phrog_34902	Holliday junction resolvase	0.06	0.77815125	PHROG	False
+phrog_26163	homing endonuclease	0.06	0.77815125	PHROG	False
+phrog_11336	HNH endonuclease	0.05	0.698970004	PHROG	False
+phrog_10486	transposase	0.05	0.698970004	PHROG	False
+phrog_23136	integrase	0.05	0.698970004	PHROG	False
+phrog_4208	HNH endonuclease	0.04	0.602059991	PHROG	False
+phrog_27175	transposase	0.04	0.602059991	PHROG	False
+phrog_3404	HNH endonuclease	0.03	0.477121255	PHROG	False
+phrog_16545	ParB-like partition protein	0.03	0.477121255	PHROG	False
+phrog_24252	HNH endonuclease	0.03	0.477121255	PHROG	False
+phrog_33277	ParB-like partition protein	0.03	0.477121255	PHROG	False
+phrog_24477	HNH endonuclease	0.03	0.477121255	PHROG	False
+phrog_33155	HNH endonuclease	0.02	0.301029996	PHROG	False
+phrog_16133	HNH endonuclease	0.02	0.301029996	PHROG	False
+phrog_14449	transposase	0.02	0.301029996	PHROG	False
+phrog_27407	Holliday junction resolvase	0.02	0.301029996	PHROG	False
+phrog_9769	type I-F anti-CRISPR protein	0.02	0.301029996	PHROG	False
+phrog_33459	HNH endonuclease	0.01	0.0	PHROG	False
