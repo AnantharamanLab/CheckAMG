@@ -540,23 +540,19 @@ def add_function_to_annot_table(
 def filter_flagged_annots(
     table: pl.DataFrame,
     flagged_ids: pl.DataFrame,
-    bypass_min_bitscore,
-    bypass_min_cov,
     valid_hmm_ids,
     filter_presets,
 ):
     """
     flagged_ids must have:
     - id (string)
-    - columns named hard_<EXCEPTION> / soft_<EXCEPTION> (bool)
+    - columns named filter_<EXCEPTION>
 
     table is the HMMsearch results table with per-db columns like:
     <SRC>_hmm_id, <SRC>_score, <SRC>_coverage, <SRC>_Description (Descriptions not used here)
 
     - hard matches remove unless exception is enabled in filter_presets
-    - soft matches remove unless rescued by score/cov thresholds AND valid_hmm_ids
     - no_filter disables all filtering
-    - no_soft_filter disables soft removal logic
     - audit provides removed/kept + remove_reason/keep_reason
     """
 
@@ -570,63 +566,37 @@ def filter_flagged_annots(
 
     # discover exceptions from the flagged_ids columns
     cols = flagged_ids.columns
-    hard_cols = sorted([c for c in cols if c.startswith("hard_")])
-    soft_cols = sorted([c for c in cols if c.startswith("soft_")])
+    filter_cols = sorted([c for c in cols if c.startswith("filter_")])
+    exceptions = sorted({c[len("filter_"):] for c in filter_cols})
 
-    exceptions = sorted(
-        {c[len("hard_"):] for c in hard_cols} | {c[len("soft_"):] for c in soft_cols}
-    )
-
-    # ensure all hard_/soft_ exception columns exist (missing -> False)
+    # ensure all filter_ exception columns exist (missing -> False)
     for exc in exceptions:
-        hc = f"hard_{exc}"
-        sc = f"soft_{exc}"
-        if hc not in flagged_ids.columns:
-            flagged_ids = flagged_ids.with_columns(pl.lit(False).alias(hc))
-        if sc not in flagged_ids.columns:
-            flagged_ids = flagged_ids.with_columns(pl.lit(False).alias(sc))
+        fc = f"filter_{exc}"
+        if fc not in flagged_ids.columns:
+            flagged_ids = flagged_ids.with_columns(pl.lit(False).alias(fc))
 
     # build ID sets per exception, split into "active" (not allowed) vs "allowed" (in presets)
     flagged_ids = flagged_ids.with_columns(pl.col("id").cast(pl.Utf8))
-    hard_ids_active_by_exc = {}
-    soft_ids_active_by_exc = {}
-    hard_ids_allowed_by_exc = {}
-    soft_ids_allowed_by_exc = {}
+    filter_ids_active_by_exc = {}
+    filter_ids_allowed_by_exc = {}
 
     for exc in exceptions:
-        hc = f"hard_{exc}"
-        sc = f"soft_{exc}"
+        fc = f"filter_{exc}"
 
-        ids_h = set(
+        ids = set(
             flagged_ids
-            .filter(pl.col(hc).fill_null(False))
-            .select("id")
-            .to_series()
-            .to_list()
-        )
-        ids_s = set(
-            flagged_ids
-            .filter(pl.col(sc).fill_null(False))
+            .filter(pl.col(fc).fill_null(False))
             .select("id")
             .to_series()
             .to_list()
         )
 
         if exc.strip().lower() in presets:
-            hard_ids_allowed_by_exc[exc] = ids_h
-            soft_ids_allowed_by_exc[exc] = ids_s
-            hard_ids_active_by_exc[exc] = set()
-            soft_ids_active_by_exc[exc] = set()
+            filter_ids_allowed_by_exc[exc] = ids
+            filter_ids_active_by_exc[exc] = set()
         else:
-            hard_ids_active_by_exc[exc] = ids_h
-            soft_ids_active_by_exc[exc] = ids_s
-            hard_ids_allowed_by_exc[exc] = set()
-            soft_ids_allowed_by_exc[exc] = set()
-
-    # disable soft filtering entirely if requested
-    if "no_soft_filter" in presets:
-        for exc in exceptions:
-            soft_ids_active_by_exc[exc] = set()
+            filter_ids_active_by_exc[exc] = ids
+            filter_ids_allowed_by_exc[exc] = set()
 
     # helpers: does any <SRC>_hmm_id match any IDs in ids_by_exc?
     def any_flag_match(ids_by_exc):
@@ -663,112 +633,22 @@ def filter_flagged_annots(
                 pieces.append(pl.when(m).then(tok).otherwise(pl.lit(None, dtype=pl.Utf8)))
         return pl.coalesce(pieces) if pieces else pl.lit(None, dtype=pl.Utf8)
 
-    valid_hmm_ids_set = set(map(str, valid_hmm_ids)) if valid_hmm_ids is not None else set()
-
-    # soft rescue (SOFT_VALID): flagged by soft
-    # AND strong hit thresholds met AND id_col in valid_hmm_ids
-    def soft_valid_expr(soft_union_ids: set):
-        if not soft_union_ids:
-            return pl.lit(False)
-        exprs = []
-        for src in sources:
-            id_col = f"{src}_hmm_id"
-            score_col = f"{src}_score"
-            cov_col = f"{src}_coverage"
-            if id_col not in table.columns or score_col not in table.columns or cov_col not in table.columns:
-                continue
-
-            score_col_casted = pl.col(score_col).cast(pl.Float64).fill_null(float("-inf"))
-            cov_col_casted = pl.col(cov_col).cast(pl.Float64).fill_null(float("-inf"))
-
-            if src == "KEGG":
-                def _kegg_thresh(x):
-                    t = KEGG_THRESHOLDS.get(x)
-                    if t is None:
-                        return float(bypass_min_bitscore)
-                    return float(t)
-
-                score_thresh_expr = (
-                    pl.when(pl.col(id_col).is_in(KEGG_THRESHOLDS_IDS))
-                    .then(pl.col(id_col).map_elements(_kegg_thresh, return_dtype=pl.Float64))
-                    .otherwise(pl.lit(float(bypass_min_bitscore)))
-                )
-
-            elif src == "FOAM":
-                def _foam_thresh(x):
-                    full, dom = FOAM_THRESHOLDS.get(x, (None, None))
-                    if full is not None:
-                        return float(full)
-                    if dom is not None:
-                        return float(dom)
-                    return float(bypass_min_bitscore)
-
-                score_thresh_expr = (
-                    pl.when(pl.col(id_col).is_in(FOAM_THRESHOLDS_IDS))
-                    .then(pl.col(id_col).map_elements(_foam_thresh, return_dtype=pl.Float64))
-                    .otherwise(pl.lit(float(bypass_min_bitscore)))
-                )
-
-            elif src == "CAMPER":
-                score_thresh_expr = pl.col(id_col).map_elements(
-                    lambda x: (
-                        float(CAMPER_THRESHOLDS.get(x, (None, None))[0])
-                        if CAMPER_THRESHOLDS.get(x, (None, None))[0] is not None
-                        else (
-                            float(CAMPER_THRESHOLDS.get(x, (None, None))[1])
-                            if CAMPER_THRESHOLDS.get(x, (None, None))[1] is not None
-                            else float(bypass_min_bitscore)
-                        )
-                    ),
-                    return_dtype=pl.Float64,
-                )
-            else:
-                score_thresh_expr = pl.lit(float(bypass_min_bitscore))
-
-            exprs.append(
-                pl.col(id_col).cast(pl.Utf8).is_in(soft_union_ids).fill_null(False)
-                & pl.col(id_col).cast(pl.Utf8).is_in(valid_hmm_ids_set).fill_null(False)
-                & score_col_casted.is_finite()
-                & (score_col_casted >= score_thresh_expr)
-                & cov_col_casted.is_finite()
-                & (cov_col_casted >= float(bypass_min_cov))
-            )
-        return pl.any_horizontal(exprs) if exprs else pl.lit(False)
-
-    # unions for soft-valid checks
-    soft_union_active = set().union(*[s for s in soft_ids_active_by_exc.values() if s])
-    soft_union_all = set().union(*[
-        (soft_ids_active_by_exc.get(exc, set()) | soft_ids_allowed_by_exc.get(exc, set()))
-        for exc in exceptions
-    ])
-
     # active flags for actual removal
-    hard_match_active = any_flag_match(hard_ids_active_by_exc).alias("HARD_MATCH")
-    soft_match_active = any_flag_match(soft_ids_active_by_exc).alias("SOFT_MATCH")
-    soft_valid_active = soft_valid_expr(soft_union_active).alias("SOFT_VALID")
+    filter_match_active = any_flag_match(filter_ids_active_by_exc).alias("FILTER_MATCH")
 
     # all flags for audit (includes allowed exceptions too)
-    hard_all_by_exc = {exc: (hard_ids_active_by_exc.get(exc, set()) | hard_ids_allowed_by_exc.get(exc, set())) for exc in exceptions}
-    soft_all_by_exc = {exc: (soft_ids_active_by_exc.get(exc, set()) | soft_ids_allowed_by_exc.get(exc, set())) for exc in exceptions}
-
-    hard_match_all = any_flag_match(hard_all_by_exc).alias("HARD_MATCH_ALL")
-    soft_match_all = any_flag_match(soft_all_by_exc).alias("SOFT_MATCH_ALL")
-    soft_valid_all = soft_valid_expr(soft_union_all).alias("SOFT_VALID_ALL")
-
-    hard_first_tok_all = first_flag_token("hard", hard_all_by_exc).alias("HARD_REMOVE_TOKEN_ALL")
-    soft_first_tok_all = first_flag_token("soft", soft_all_by_exc).alias("SOFT_REMOVE_TOKEN_ALL")
-
-    hard_exc_match_all = any_flag_match(hard_ids_allowed_by_exc).alias("HARD_EXCEPTION_ALL")
-    soft_exc_match_all = any_flag_match(soft_ids_allowed_by_exc).alias("SOFT_EXCEPTION_ALL")
-    hard_exc_tok_all = first_flag_token("hard", hard_ids_allowed_by_exc).alias("HARD_EXCEPTION_TOKEN_ALL")
-    soft_exc_tok_all = first_flag_token("soft", soft_ids_allowed_by_exc).alias("SOFT_EXCEPTION_TOKEN_ALL")
+    filter_all_by_exc = {exc: (filter_ids_active_by_exc.get(exc, set()) | filter_ids_allowed_by_exc.get(exc, set())) for exc in exceptions}
+    filter_match_all = any_flag_match(filter_all_by_exc).alias("FILTER_MATCH_ALL")
+    filter_first_tok_all = first_flag_token("hard", filter_all_by_exc).alias("FILTER_REMOVE_TOKEN_ALL")
+    filter_exc_match_all = any_flag_match(filter_ids_allowed_by_exc).alias("FILTER_EXCEPTION_ALL")
+    filter_exc_tok_all = first_flag_token("hard", filter_ids_allowed_by_exc).alias("FILTER_EXCEPTION_TOKEN_ALL")
 
     table_with_flags = table.with_columns([
-        hard_match_active, soft_match_active, soft_valid_active,
-        hard_match_all, soft_match_all, soft_valid_all,
-        hard_first_tok_all, soft_first_tok_all,
-        hard_exc_match_all, soft_exc_match_all,
-        hard_exc_tok_all, soft_exc_tok_all,
+        filter_match_active,
+        filter_match_all,
+        filter_first_tok_all,
+        filter_exc_match_all,
+        filter_exc_tok_all,
     ])
 
     # filtering
@@ -778,70 +658,43 @@ def filter_flagged_annots(
     else:
         table_filtered = (
             table_with_flags
-            .filter((~pl.col("HARD_MATCH")) & ((~pl.col("SOFT_MATCH")) | pl.col("SOFT_VALID")))
-            .drop(["HARD_MATCH", "SOFT_MATCH", "SOFT_VALID"])
+            .filter(~pl.col("FILTER_MATCH"))
+            .drop("FILTER_MATCH")
         )
-        removed_expr = pl.col("HARD_MATCH") | (pl.col("SOFT_MATCH") & (~pl.col("SOFT_VALID")))
+        removed_expr = pl.col("FILTER_MATCH")
 
     kept_expr = ~removed_expr
 
     # remove_reason: active cause; if kept, show hypothetical cause
     remove_reason_expr = (
-        pl.when(removed_expr & pl.col("HARD_MATCH"))
-        .then(pl.col("HARD_REMOVE_TOKEN_ALL"))
-        .when(removed_expr & (pl.col("SOFT_MATCH") & (~pl.col("SOFT_VALID"))))
-        .then(pl.col("SOFT_REMOVE_TOKEN_ALL"))
+        pl.when(removed_expr & pl.col("FILTER_MATCH"))
+        .then(pl.col("FILTER_REMOVE_TOKEN_ALL"))
         .otherwise(pl.lit(None, dtype=pl.Utf8))
     )
 
     kept_side_remove_reason = (
-        pl.when(pl.col("HARD_MATCH_ALL"))
-        .then(pl.col("HARD_REMOVE_TOKEN_ALL"))
-        .when(pl.col("SOFT_MATCH_ALL") & (~pl.col("SOFT_VALID_ALL")))
-        .then(pl.col("SOFT_REMOVE_TOKEN_ALL"))
+        pl.when(pl.col("FILTER_MATCH_ALL"))
+        .then(pl.col("FILTER_REMOVE_TOKEN_ALL"))
         .otherwise(pl.lit(None, dtype=pl.Utf8))
     )
     remove_reason = pl.when(kept_expr).then(kept_side_remove_reason).otherwise(remove_reason_expr)
 
     # keep_reason with strict precedence, applied only when kept
     # 1) no_filter
-    # 2) no_soft_filter, but only if a soft removal would have happened
-    # 3) exception:<token> for hard (must have hard match)
-    # 4) exception:<token> for soft (must have soft match that would remove)
-    # 5) soft filter minimum HMM bitscore and coverage met (soft match and thresholds met)
+    # 2) exception:<token> for hard (must have hard match)
     def token_to_exception(expr: pl.Expr) -> pl.Expr:
         # token is "etype|exception|src|id"
         return expr.str.split("|").list.get(1)
 
     keep_no_filter = pl.when(kept_expr & pl.lit("no_filter" in presets)).then(pl.lit("no_filter")).otherwise(pl.lit(None, dtype=pl.Utf8))
-    keep_no_soft = pl.when(
-        kept_expr
-        & pl.lit("no_soft_filter" in presets)
-        & (pl.col("SOFT_MATCH_ALL") & (~pl.col("SOFT_VALID_ALL")))
-    ).then(pl.lit("no_soft_filter")).otherwise(pl.lit(None, dtype=pl.Utf8))
 
-    keep_exc_hard = pl.when(kept_expr & pl.col("HARD_EXCEPTION_ALL") & pl.col("HARD_MATCH_ALL")).then(
-        pl.concat_str([pl.lit("exception:"), token_to_exception(pl.col("HARD_EXCEPTION_TOKEN_ALL"))])
-    ).otherwise(pl.lit(None, dtype=pl.Utf8))
-
-    keep_exc_soft = pl.when(
-        kept_expr
-        & pl.col("SOFT_EXCEPTION_ALL")
-        & (pl.col("SOFT_MATCH_ALL") & (~pl.col("SOFT_VALID_ALL")))
-    ).then(
-        pl.concat_str([pl.lit("exception:"), token_to_exception(pl.col("SOFT_EXCEPTION_TOKEN_ALL"))])
-    ).otherwise(pl.lit(None, dtype=pl.Utf8))
-
-    keep_soft_valid = pl.when(kept_expr & (pl.col("SOFT_MATCH_ALL") & pl.col("SOFT_VALID_ALL"))).then(
-        pl.lit("soft filter minimum HMM bitscore and coverage met")
+    keep_exc_filter = pl.when(kept_expr & pl.col("FILTER_EXCEPTION_ALL") & pl.col("FILTER_MATCH_ALL")).then(
+        pl.concat_str([pl.lit("exception:"), token_to_exception(pl.col("FILTER_EXCEPTION_TOKEN_ALL"))])
     ).otherwise(pl.lit(None, dtype=pl.Utf8))
 
     keep_reason_expr = (
         pl.when(keep_no_filter.is_not_null()).then(keep_no_filter)
-        .when(keep_no_soft.is_not_null()).then(keep_no_soft)
-        .when(keep_exc_hard.is_not_null()).then(keep_exc_hard)
-        .when(keep_exc_soft.is_not_null()).then(keep_exc_soft)
-        .when(keep_soft_valid.is_not_null()).then(keep_soft_valid)
+        .when(keep_exc_filter.is_not_null()).then(keep_exc_filter)
         .otherwise(pl.lit(None, dtype=pl.Utf8))
     )
     keep_reason_expr = pl.when(removed_expr).then(pl.lit(None, dtype=pl.Utf8)).otherwise(keep_reason_expr)
@@ -855,17 +708,17 @@ def filter_flagged_annots(
             keep_reason_expr.alias("keep_reason"),
         ])
         .drop([
-            "HARD_MATCH", "SOFT_MATCH", "SOFT_VALID",
-            "HARD_MATCH_ALL", "SOFT_MATCH_ALL", "SOFT_VALID_ALL",
-            "HARD_REMOVE_TOKEN_ALL", "SOFT_REMOVE_TOKEN_ALL",
-            "HARD_EXCEPTION_ALL", "SOFT_EXCEPTION_ALL",
-            "HARD_EXCEPTION_TOKEN_ALL", "SOFT_EXCEPTION_TOKEN_ALL",
+            "FILTER_MATCH",
+            "FILTER_MATCH_ALL",
+            "FILTER_REMOVE_TOKEN_ALL",
+            "FILTER_EXCEPTION_ALL",
+            "FILTER_EXCEPTION_TOKEN_ALL",
         ])
     )
 
     return table_filtered, audit
 
-def filter_metabolism_annots(table, metabolism_table, flagged_metabolism_table, bypass_min_bitscore, bypass_min_cov, filter_presets):
+def filter_metabolism_annots(table, metabolism_table, flagged_metabolism_table, filter_presets):
     """
     Identify metabolism-related genes based on input metabolism table.
     by checking any of the HMM ID columns for membership in metabolism_table["id"].
@@ -884,7 +737,7 @@ def filter_metabolism_annots(table, metabolism_table, flagged_metabolism_table, 
     table = table.filter(condition)
 
     # Apply idfiltering
-    table, audit = filter_flagged_annots(table, flagged_metabolism_table, bypass_min_bitscore, bypass_min_cov, metab_ids, filter_presets)
+    table, audit = filter_flagged_annots(table, flagged_metabolism_table, metab_ids, filter_presets)
 
     # Drop the temporary 'top_hit_hmm_id_clean' column
     table = table.drop("top_hit_hmm_id_clean")
@@ -894,7 +747,7 @@ def filter_metabolism_annots(table, metabolism_table, flagged_metabolism_table, 
 
     return table.sort(["Genome", "Contig", "gene_number"]), audit.sort(["Genome", "Contig", "gene_number"])
 
-def filter_physiology_annots(table, physiology_table, flagged_phys_table, bypass_min_bitscore, bypass_min_cov, filter_presets):
+def filter_physiology_annots(table, physiology_table, flagged_phys_table, filter_presets):
     """
     Identify physiology-related genes based on input physiology table.
     by checking any of the HMM ID columns for membership in physiology_table["id"].
@@ -913,7 +766,7 @@ def filter_physiology_annots(table, physiology_table, flagged_phys_table, bypass
     table = table.filter(condition)
 
     # Apply id filtering
-    table, audit = filter_flagged_annots(table, flagged_phys_table, bypass_min_bitscore, bypass_min_cov, phys_ids, filter_presets)
+    table, audit = filter_flagged_annots(table, flagged_phys_table, phys_ids, filter_presets)
 
     # Drop the temporary 'top_hit_hmm_id_clean' column
     table = table.drop("top_hit_hmm_id_clean")
@@ -923,7 +776,7 @@ def filter_physiology_annots(table, physiology_table, flagged_phys_table, bypass
 
     return table.sort(["Genome", "Contig", "gene_number"]), audit.sort(["Genome", "Contig", "gene_number"])
 
-def filter_regulation_annots(table, regulation_table, flagged_reg_table, bypass_min_bitscore, bypass_min_cov, filter_presets):
+def filter_regulation_annots(table, regulation_table, flagged_reg_table, filter_presets):
     """
     Identify regulation-related genes based on input regulation table.
     by checking any of the HMM ID columns for membership in regulation_table["id"].
@@ -942,7 +795,7 @@ def filter_regulation_annots(table, regulation_table, flagged_reg_table, bypass_
     table = table.filter(condition)
 
     # Apply id filtering
-    table, audit = filter_flagged_annots(table, flagged_reg_table, bypass_min_bitscore, bypass_min_cov, reg_ids, filter_presets)
+    table, audit = filter_flagged_annots(table, flagged_reg_table, reg_ids, filter_presets)
 
     # Drop the temporary 'top_hit_hmm_id_clean' column
     table = table.drop("top_hit_hmm_id_clean")
@@ -962,10 +815,6 @@ def main():
     flagged_phys_table_path = snakemake.params.flagged_apgs
     flagged_reg_table_path = snakemake.params.flagged_aregs
     filter_presets = list(snakemake.params.filter_presets.split(","))
-
-    scaling_factor = max(snakemake.params.soft_keyword_bypass_scaling_factor, 1.0)
-    bypass_min_bitscore = float(scaling_factor * snakemake.params.min_bitscore)
-    bypass_min_cov = min(float(scaling_factor * snakemake.params.cov_fraction), 1.0)
 
     out_metabolism_table = snakemake.params.metabolism_table_out
     out_metabolism_audit = snakemake.params.metabolism_table_audit
@@ -1013,9 +862,9 @@ def main():
 
     drop_cols = ["gene_number", "window_avg_KEGG_VL-score_viral", "window_avg_Pfam_VL-score_viral", "window_avg_PHROG_VL-score_viral", "top_hit_hmm_id_clean", "Pfam_hmm_id_clean"]
 
-    metabolism_table_out, metabolism_filter_audit = filter_metabolism_annots(annot_table, metabolism_table, flagged_metab_table, bypass_min_bitscore, bypass_min_cov, filter_presets)
-    physiology_table_out, physiology_filter_audit = filter_physiology_annots(annot_table, physiology_table, flagged_phys_table, bypass_min_bitscore, bypass_min_cov, filter_presets)
-    regulation_table_out, regulation_filter_audit = filter_regulation_annots(annot_table, regulation_table, flagged_reg_table, bypass_min_bitscore, bypass_min_cov, filter_presets)
+    metabolism_table_out, metabolism_filter_audit = filter_metabolism_annots(annot_table, metabolism_table, flagged_metab_table, filter_presets)
+    physiology_table_out, physiology_filter_audit = filter_physiology_annots(annot_table, physiology_table, flagged_phys_table, filter_presets)
+    regulation_table_out, regulation_filter_audit = filter_regulation_annots(annot_table, regulation_table, flagged_reg_table, filter_presets)
 
     metab_ids = metabolism_table["id"].unique().to_list()
     phys_ids = physiology_table["id"].unique().to_list()

@@ -117,7 +117,6 @@ def generate_config(args):
         "min_bitscore" : args.bit_score,
         "min_bitscore_fraction_heuristic" : args.bitscore_fraction_heuristic,
         "max_evalue" : args.evalue,
-        "soft_keyword_bypass_scaling_factor" : args.scaling_factor,
         "filter_presets" : args.filter_presets,
     }
     

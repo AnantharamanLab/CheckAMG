@@ -258,7 +258,6 @@ rule curate_annots:
         physiology_table_audit = os.path.join(config["paths"]["output_dir"], "wdir", "physiology_genes_filter_reasons.tsv"),
         regulation_table_out = os.path.join(config["paths"]["output_dir"], "results", "regulation_genes_curated.tsv"),
         regulation_table_audit = os.path.join(config["paths"]["output_dir"], "wdir", "regulation_genes_filter_reasons.tsv"),
-        soft_keyword_bypass_scaling_factor = config["soft_keyword_bypass_scaling_factor"],
         cov_fraction = config["cov_fraction"],
         min_bitscore = config["min_bitscore"],
         kegg_cutoff_file = os.path.join(config["paths"]["db_dir"], "KEGG_cutoffs.tsv"),

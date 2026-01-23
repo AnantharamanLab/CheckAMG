@@ -56,6 +56,51 @@ def calculate_gene_lengths(data):
     ])
     return data
 
+def calculate_contig_end_distances(data: pl.DataFrame) -> pl.DataFrame:
+    """
+    For each gene/protein, compute distance to contig ends:
+      - contig_left_dist_bases / contig_right_dist_bases in nucleotide bases
+      - contig_left_dist_genes / contig_right_dist_genes in genes (0 if first/last gene/protein on contig)
+
+    Notes:
+      - Uses contig_pos_start/contig_pos_end for base distances.
+      - If 'contig_length' exists, right-end distance uses it.
+      - Otherwise, right-end distance uses max(contig_pos_end) per contig (last annotated base)
+      - Detects 0-based vs 1-based coordinates using global min(contig_pos_start).
+    """
+    required = {"contig", "gene_number", "contig_pos_start", "contig_pos_end"}
+    missing = [c for c in required if c not in data.columns]
+    if missing:
+        raise ValueError(f"Missing required columns for contig-end distances: {missing}")
+
+    min_start_global = data.select(pl.min("contig_pos_start")).item()
+    coord_offset = 0 if min_start_global == 0 else 1
+
+    if "contig_length" in data.columns:
+        contig_end_expr = pl.col("contig_length")
+    else:
+        contig_end_expr = pl.max("contig_pos_end").over("contig")
+
+    idx = pl.int_range(0, pl.len()).over("contig").cast(pl.Int32)
+
+    return (
+        data.sort(["contig", "gene_number"])
+        .with_columns([
+            # base distances
+            (pl.col("contig_pos_start") - pl.lit(coord_offset))
+            .cast(pl.Int32)
+            .alias("contig_left_end_dist"),
+
+            (contig_end_expr - pl.col("contig_pos_end"))
+            .cast(pl.Int32)
+            .alias("contig_right_end_dist"),
+
+            # gene/protein distances (0 if first/last protein on contig)
+            idx.alias("contig_left_end_gene_dist"),
+            (pl.len().over("contig").cast(pl.Int32) - 1 - idx).alias("contig_right_end_gene_dist"),
+        ])
+    )
+
 def calculate_contig_statistics(data, circular_contigs):
     """
     Calculate contig average V-scores/VL-scores and assign a circular_contig flag.
@@ -443,7 +488,7 @@ def add_engineered_features(data: pl.DataFrame, mobile_accessions=None) -> pl.Da
     Add extra features to help separate Virus from MGE:
       - deltas: local score - contig average (for V and VL)
       - min_dist_MGE and log1p_min_dist_MGE across all *_MGE_* left/right distances
-      - log1p_ versions for all *_dist columns (viral + MGE)
+      - log1p_ versions for all *_dist columns (viral + MGE) EXCEPT contig end distances
       - inv_ versions for *_MGE_* distances (so 'closer' becomes 'larger')
     """
     out = data
@@ -467,7 +512,7 @@ def add_engineered_features(data: pl.DataFrame, mobile_accessions=None) -> pl.Da
         out = out.with_columns(delta_exprs)
 
     # (B) distances: identify columns
-    dist_cols = [c for c in out.columns if c.endswith("_dist")]
+    dist_cols = [c for c in out.columns if c.endswith("_dist") and not c.startswith("contig_")]
     mge_dist_cols = [c for c in dist_cols if "_MGE_" in c]
 
     # Helper for robust log1p on Expr
@@ -492,7 +537,7 @@ def add_engineered_features(data: pl.DataFrame, mobile_accessions=None) -> pl.Da
         inv_exprs = [(pl.col(c) * (-1)).cast(pl.Float32).alias(f"inv_{c}") for c in mge_dist_cols]
         out = out.with_columns(inv_exprs)
 
-    # log1p for all distance columns (viral + MGE)
+    # log1p for all distance columns (viral + MGE) EXCEPT contig end distances
     if dist_cols:
         out = out.with_columns([
             _log1p_nonneg(pl.col(c)).alias(f"log1p_{c}") for c in dist_cols
@@ -511,11 +556,16 @@ def process_genomes(data,
     logger.debug(f"Calculating lengths for {data.shape[0]:,} genes.")
     logger.debug(f"Data before calculating gene lengths: {data.head()}")
     data = calculate_gene_lengths(data)
+    data_orig = data
+
+    logger.info("Calculating distance to contig ends.")
+    logger.debug(f"Data before calculating contig-end distances: {data.head()}")
+    data = calculate_contig_end_distances(data)
 
     logger.info("Calculating contig statistics.")
     logger.debug(f"Data before calculating contig statistics: {data.head()}")
     data = calculate_contig_statistics(data, circular_contigs)
-    data_orig = data
+    
 
     logger.info("Calculating window statistics.")
     logger.debug(f"Data before calculating window statistics: {data.head()}")

@@ -165,12 +165,6 @@ options:
                         Retain HMM hits scoring at least this fraction of the
                         database-provided threshold under heuristic filtering
                         (default: 0.5).
-  -s SCALING_FACTOR, --scaling_factor SCALING_FACTOR
-                        Scaling factor used to multiply the minimum bit score and
-                        minimum covered fraction provided by the '-b' and '-c'
-                        arguments to come up with a stricter threshold for HMM hits
-                        (this is ONLY used when curating gene annotations that match
-                        to 'soft' filter keywords; default: 3.0).
   -w WINDOW_SIZE, --window_size WINDOW_SIZE
                         Size in base pairs of the window used to calculate the
                         average VL-score of genes in a local region on a contig
@@ -191,8 +185,7 @@ options:
                         annotations), 'allow_nucleotide' (keep nucleotide metabolism
                         annotations), 'allow_methyl' (keep methyltransferase and
                         related annotations), 'allow_lipid' (keep lipopolysaccharide
-                        and phospholipid-related annotations), 'no_soft_filter'
-                        (disable all 'soft' filter keywords), 'no_filter' (disable
+                        and phospholipid-related annotations), 'no_filter' (disable
                         all annotation filtering, not recommended). Multiple presets
                         can be provided, separated by commas (e.g.,
                         allow_glycosyl,allow_nucleotide). (default: default)
@@ -302,9 +295,7 @@ Despite the name "CheckAMG", this tool also predicts APGs and AReGs using the sa
 CheckAMG applies a two-stage filtering process:
 
 1. Use a list of curated profile HMMs that represent [metabolic](https://github.com/AnantharamanLab/CheckAMG/blob/main/CheckAMG/files/AMGs.tsv), [physiological](https://github.com/AnantharamanLab/CheckAMG/blob/main/CheckAMG/files/APGs.tsv), and [regulatory](https://github.com/AnantharamanLab/CheckAMG/blob/main/CheckAMG/files/AReGs.tsv) genes to come up with initial AVG candidates
-2. Use a second list of curated keywords/substrings that will be used to filter 'false' [AMGs](https://github.com/AnantharamanLab/CheckAMG/blob/main/CheckAMG/files/AMG_filters.tsv), [APGs](https://github.com/AnantharamanLab/CheckAMG/blob/main/CheckAMG/files/APG_filters.tsv), and [AReGs](https://github.com/AnantharamanLab/CheckAMG/blob/main/CheckAMG/files/AReG_filters.tsv)
-    * **Hard filters** exclude genes with highly suspicious functional annotations
-    * **Soft filters** apply much stricter bitscore and coverage cutoffs to avoid ambiguous cases (see [*additional HMMsearch filtering for curating auxiliary gene functions*](#additional-hmmsearch-filtering-for-curating-auxiliary-gene-functions))
+2. Use a second list of curated keywords/substrings that will be used to filter unlikely [AMGs](https://github.com/AnantharamanLab/CheckAMG/blob/main/CheckAMG/files/AMG_filters.tsv), [APGs](https://github.com/AnantharamanLab/CheckAMG/blob/main/CheckAMG/files/APG_filters.tsv), and [AReGs](https://github.com/AnantharamanLab/CheckAMG/blob/main/CheckAMG/files/AReG_filters.tsv)
 
 *Unclassified* genes are those with annotations that don't meet thresholds for confident AVG classification, not necessarily unannotated.
 
@@ -317,7 +308,6 @@ Users can control how CheckAMG applies keyword-based filters using the `--filter
 * `allow_nucleotide`: Disables filtering for nucleotide metabolism annotations
 * `allow_methyl`: Disables filtering for methyltransferase and related annotations
 * `allow_lipid`: Disables filtering for lipopolysaccharide and phospholipid-related annotations
-* `no_soft_filter`: Disables all filtering of *soft* keywords from annotations, but still filters out *hard* keywords (e.g., phage structure, lysis & cell entry, nucleotide metabolism and modification)
 * `no_filter`: Disables all keyword-based filtering (**not recommended**)
 
 We generally do not recommend changing `--filter_preset` from `default` for most use cases. However, there are scenarios where it may be appropriate to add exceptions to CheckAMG's filtering logic. For example:
@@ -325,7 +315,6 @@ We generally do not recommend changing `--filter_preset` from `default` for most
 * If virus-encoded glycosyltransferases/glycoside-hydrolases, methyltransferases, nucleotide metabolism genes, or lipopolysaccharide/phospholipid metabolism genes are specifically of interest, consider applying the relevant filter presets to include those exceptions
 * If you have **environment-specific** knowledge that makes certain gene functions highly relevant to your study system, you can use the appropriate `--filter_preset` to retain those annotations if they were originally included among the CheckAMG filters
   * For example, setting `--filter_preset allow_glycosyl` may include additional potential AMGs involved in carbohydrate degradation when these functions are likely to be enriched in the environmental context of your viral genomes
-  * Ideally, genes truly involved in these functions will meet the stricter HMMsearch bitscore and coverage cutoffs and will not be filtered out regardless (see [*Additional HMMsearch Filtering for Curating Auxiliary Gene Functions*](#additional-hmmsearch-filtering-for-curating-auxiliary-gene-functions))
 * If you have other evidence to suggest that annotations flagged by certain keywords are more likely involved in auxiliary metabolic, physiological, or regulatory pathways in the host, rather than essential/core viral functions like genome replication, capsid assembly, cell entry, or lysis
 
 **Note:** If any non-default values for `--filter_preset` are used, additional manual curation of functional annotations is still necessary to avoid misclassification of a gene as an AMG, APG, or AReG.
@@ -511,27 +500,13 @@ If you're curious about the internal mechanics of how CheckAMG annotates protein
 
 These defaults provide a balance between accuracy and recall, and are based on benchmarking and community best practices. Users may modify thresholds using the `--bit_score`, `--bitscore_fraction_heuristic`, `--evalue`, and `--cov_fraction` arguments.
 
-#### Additional HMMsearch filtering for curating auxiliary gene functions
-As mentioned in the section [*How does CheckAMG classify and curate its predictions?*](#2-how-does-checkamg-classify-and-curate-its-predictions), CheckAMG applies *hard* and *soft* filters to functional annotations to reduce the chances of incorrectly assigning a metabolic/physiological/regulatory function to often mis-annotated viral genes. Annotations with hard filter keywords are excluded entirely from auxiliary gene predictions, but those containing soft filter keywords are retained if they meet stricter HMMsearch thresholds. These thresholds are applied using the `--scaling_factor` argument:
-
-* The value provided by `--scaling_factor` will be used to multiply the minimum bit score and minimum covered fraction provided by the `--bit_score` and `--cov_fraction` arguments to come up with the heuristic, stricter thresholds
-* The default `--scaling_factor` is `3.0`, users can increase this value but we do not recommend decreasing it
-  * If the default `--bit_score` and `--cov_fraction` values are also used (`30` and `0.30`), this means that a suspicious annotation containing a soft filter keyword must have had a bit score of at least `90` *and* and a sequence coverage of at least `0.90` from the HMMsearch to make it into the final auxiliary gene predictions
-* If database-provided, trusted bit score cutoffs are available for the matching HMMs (KEGG, FOAM, and CAMPER only), those are used instead of the calculated heuristic threshold for minimum bit score, but the scaling factor is still applied to the minimum coverage
-* This heuristic is NOT used for assigning overall gene functions as detailed above, only during the annotation curation step of CheckAMG
-  * This means that you may end up with, for example, many *glycoside hydrolase* functional annotations in the `gene_annotations.tsv` output, but much fewer glycoside hydrolases classified as "metabolic" in the `final_results.tsv`, with the rest being marked as "unclassified"
-  * This is because the genes with glycoside hydrolase annotations that were classified as AMGs met the heuristic thresholds defiend by `--scaling_factor`, `--bit_score`, and `--cov_fraction`, and can be considered as functioning in host carbohydrate metabolism
-  * On the other hand, genes with glycoside hydrolase annotations that were NOT classified as AMGs and ended up as "unclassified" did not meet the stricter thresholds, and they are more likely to be involved in functions other than host carbohydrate metabolism (like host cell wall degradation, for example)
-* If you want to disable this bypass to filter annotations with matching soft filter keywords regardless of their HMMsearch results, set `--scaling_factor 100`
-* See [*Reproducibility and reference database construction*](#reproducibility-and-reference-database-construction) and [`notebooks/make_checkamg_required_tables.ipynb`](https://github.com/AnantharamanLab/CheckAMG/tree/main/notebooks/make_checkamg_required_tables.ipynb) for more detail on how these filters are defined and implemented
-
 ### 6. Snakemake
 
 CheckAMG modules are executed as [Snakemake](https://snakemake.readthedocs.io/en/stable/) pipelines. If a run is interrupted, it can resume from the last complete step as long as intermediate files exist.
 
 ## Reproducibility and reference database construction
 
-CheckAMG is packaged with several curated reference tables under [`CheckAMG/files/`](https://github.com/AnantharamanLab/CheckAMG/tree/main/CheckAMG/files) that define (i) the functional label mappings used for reporting, (ii) the curated AMG/APG/AReG HMMs, and (iii) the hard/soft filtering tables (including exception categories). These tables are what the pipeline reads and parses when curating annotations.
+CheckAMG is packaged with several curated reference tables under [`CheckAMG/files/`](https://github.com/AnantharamanLab/CheckAMG/tree/main/CheckAMG/files) that define (i) the functional label mappings used for reporting, (ii) the curated AMG/APG/AReG HMMs, and (iii) the AVG filtering tables (including exception categories). These tables are what the pipeline reads and parses when curating annotations.
 
 To make these resources transparent and reproducible, this repository includes a notebook (see [`make_checkamg_required_tables.ipynb`](https://github.com/AnantharamanLab/CheckAMG/tree/main/notebooks/make_checkamg_required_tables.ipynb)) that was used to build the required tables from upstream sources and writes the standardized outputs used by the pipeline, including:
 

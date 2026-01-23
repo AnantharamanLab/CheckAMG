@@ -1,3 +1,12 @@
+# 0.8.0
+
+* Removed the split between "hard" and "soft" keyword filters for AVG annotation filtering.
+  * All keywords are now treated as a single filter set, including those previously classified as "soft".
+  * These filter hits are no longer bypassed based on exceptional profile HMM matches.
+  * As a result, the `--scaling_factor` argument has been removed.
+  
+* Genome context now reports the distance to contig ends for each gene
+
 # 0.7.0
 
 This release expands AVGs annotations, standardizes HMM annotation and filtering across databases, improves HMMsearch reporting and filtering, and adds reproducibility assets for rebuilding reference tables used by CheckAMG.

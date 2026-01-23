@@ -27,7 +27,6 @@ VALID_FILTER_PRESETS = {
      "allow_nucleotide",
      "allow_methyl",
      "allow_lipid",
-     "no_soft_filter",
      "no_filter",
 }
 
@@ -48,7 +47,6 @@ def _validate_and_resolve_filter_presets(presets, parser):
      if len(presets) > 1 and "no_filter" in presets:
           parser.error("Cannot combine 'no_filter' with other filter presets. Use only 'no_filter'.")
 
-     # no_soft_filter overrides any allow_* entries
      effective = list(presets)
 
      return effective
@@ -128,9 +126,6 @@ def main():
                               help="Minimum fallback bit score for HMM searches when database-provided cutoffs are not available (default: %(default)s).")
      annotate_parser.add_argument("-bh", "--bitscore_fraction_heuristic", type=float, required=False, default=0.5,
                               help="Retain HMM hits scoring at least this fraction of the database-provided threshold under heuristic filtering (default: %(default)s).")
-     annotate_parser.add_argument("-s", "--scaling_factor", type=float, required=False, default=3.0,
-                              help="Scaling factor used to multiply the minimum bit score and minimum covered fraction provided by the '-b' and '-c' arguments to come up with"
-                                   " a stricter threshold for HMM hits (this is ONLY used when curating gene annotations that match to 'soft' filter keywords; default: %(default)s).")
      
      annotate_parser.add_argument("-w", "--window_size", type=int, required=False, default=5000,
                               help="Size in base pairs of the window used to calculate the average VL-score of genes in a local region on a contig (default: %(default)s).")
@@ -147,7 +142,6 @@ def main():
                                    "'allow_nucleotide' (keep nucleotide metabolism annotations), "
                                    "'allow_methyl' (keep methyltransferase and related annotations), "
                                    "'allow_lipid' (keep lipopolysaccharide and phospholipid-related annotations), "
-                                   "'no_soft_filter' (disable all 'soft' filter keywords), "
                                    "'no_filter' (disable all annotation filtering, not recommended). "
                                    "Multiple presets can be provided, separated by commas (e.g., allow_glycosyl,allow_nucleotide).")
      
