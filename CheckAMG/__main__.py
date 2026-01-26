@@ -126,6 +126,9 @@ def main():
                               help="Minimum fallback bit score for HMM searches when database-provided cutoffs are not available (default: %(default)s).")
      annotate_parser.add_argument("-bh", "--bitscore_fraction_heuristic", type=float, required=False, default=0.5,
                               help="Retain HMM hits scoring at least this fraction of the database-provided threshold under heuristic filtering (default: %(default)s).")
+     annotate_parser.add_argument("-k", "--keep_full_hmm_results", required=False, action="store_true", default=False,
+                              help="Keep a file with full HMM search results. By default, only the single best HMM hits per protein, per database are written to save space. "
+                                   "Does not affect final annotations. Not recommended for large inputs (>2 GB fasta file or >10,000 sequences) (default: %(default)s).")
      
      annotate_parser.add_argument("-w", "--window_size", type=int, required=False, default=5000,
                               help="Size in base pairs of the window used to calculate the average VL-score of genes in a local region on a contig (default: %(default)s).")

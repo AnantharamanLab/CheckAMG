@@ -123,8 +123,8 @@ usage: checkamg annotate [-h] -d DB_DIR -o OUTPUT [-g GENOMES] [-vg VMAGS]
                          [-p PROTEINS] [-vp VMAG_PROTEINS] [--input_type INPUT_TYPE]
                          [-l MIN_LEN] [-f MIN_ORF] [-n MIN_ANNOT] [-c COV_FRACTION]
                          [-e EVALUE] [-b BIT_SCORE]
-                         [-bh BITSCORE_FRACTION_HEURISTIC] [-s SCALING_FACTOR]
-                         [-w WINDOW_SIZE] [-V MIN_FLANK_VSCORE]
+                         [-bh BITSCORE_FRACTION_HEURISTIC] [-k] [-w WINDOW_SIZE]
+                         [-V MIN_FLANK_VSCORE]
                          [-H | --use_hallmark | --no-use_hallmark]
                          [--filter_presets FILTER_PRESETS] [-t THREADS] [-m MEM]
                          [--debug | --no-debug]
@@ -165,6 +165,12 @@ options:
                         Retain HMM hits scoring at least this fraction of the
                         database-provided threshold under heuristic filtering
                         (default: 0.5).
+  -k, --keep_full_hmm_results
+                        Keep a file with full HMM search results. By default, only
+                        the single best HMM hits per protein, per database are
+                        written to save space. Does not affect final annotations.
+                        Not recommended for large inputs (>2 GB fasta file or
+                        >10,000 sequences) (default: False).
   -w WINDOW_SIZE, --window_size WINDOW_SIZE
                         Size in base pairs of the window used to calculate the
                         average VL-score of genes in a local region on a contig
@@ -193,7 +199,7 @@ options:
                         Number of threads to use for pyrodigal-gv and pyhmmer
                         (default: 10).
   -m MEM, --mem MEM     Maximum amount of memory allowed to be allocated in GB
-                        (default: 80% of available). (default: 1585)
+                        (default: 80% of available). (default: 1395)
   --debug, --no-debug   Log CheckAMG with debug-level detail (default: False).
 
 required arguments:

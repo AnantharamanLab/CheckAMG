@@ -117,6 +117,7 @@ def generate_config(args):
         "min_bitscore" : args.bit_score,
         "min_bitscore_fraction_heuristic" : args.bitscore_fraction_heuristic,
         "max_evalue" : args.evalue,
+        "keep_full_hmm_results" : args.keep_full_hmm_results,
         "filter_presets" : args.filter_presets,
     }
     

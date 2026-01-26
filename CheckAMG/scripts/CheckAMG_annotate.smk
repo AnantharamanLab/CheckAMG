@@ -148,6 +148,7 @@ rule assign_annots:
         kegg_cutoff_file = os.path.join(config["paths"]["db_dir"], "KEGG_cutoffs.tsv"),
         foam_cutoff_file = os.path.join(config["paths"]["db_dir"], "FOAM_cutoffs.tsv"),
         camper_cutoff_file = os.path.join(config["paths"]["db_dir"], "CAMPER_cutoffs.tsv"),
+        keep_full_hmm_results = bool(config["keep_full_hmm_results"]),
         debug = bool(config["debug"]),
         log = config["log"]
     threads:

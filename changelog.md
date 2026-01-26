@@ -1,3 +1,12 @@
+# 0.8.1
+
+* Modified **annotate_hmm.py** so it resumes HMM searches from the last completed database instead of restarting all HMM searches across all databases.
+  * This allows long runs with very large inputs that crash due to memory issues to resume where they left off, saving time when rerunning with more memory.
+  * HMM search parameters, filtering strategy, and other aspects of the annotation pipeline are unchanged.
+
+* Added the `--keep_full_hmm_results` option to CheckAMG annotate to control whether full HMM search results are written.
+  * Previously, full results were always written by default, which can use substantial disk space for large inputs. This option now defaults to `False`.
+
 # 0.8.0
 
 * Removed the split between "hard" and "soft" keyword filters for AVG annotation filtering.

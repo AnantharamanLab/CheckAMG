@@ -8,10 +8,11 @@ os.environ["POLARS_MAX_THREADS"] = str(snakemake.threads)
 import polars as pl
 from pathlib import Path
 from pyhmmer import easel, plan7, hmmer
+import json
+import math
 import uuid
 from datetime import datetime
 from pyfastatools import Parser, write_fasta
-import math
 from tqdm import tqdm
 
 def set_memory_limit(limit_in_gb):
@@ -38,12 +39,168 @@ print("========================================================================\
 with open(log_file, "a") as log:
     log.write("========================================================================\n                Step 5/11: Assign functions to proteins                 \n========================================================================\n")
 
+def atomic_write_text(out_path: Path, write_fn, mode="w", encoding="utf-8"):
+    tmp_path = out_path.with_suffix(out_path.suffix + ".tmp")
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    try:
+        with open(tmp_path, mode, encoding=encoding) as f:
+            write_fn(f)
+            f.flush()
+            os.fsync(f.fileno())
+        os.replace(tmp_path, out_path)
+    finally:
+        if tmp_path.exists():
+            try:
+                tmp_path.unlink()
+            except Exception:
+                pass
+
+def write_done_marker(done_path: Path, meta: dict):
+    def _w(f):
+        f.write(json.dumps(meta, sort_keys=True) + "\n")
+
+    atomic_write_text(done_path, _w)
+
+def done_path_for(path: Path) -> Path:
+    return Path(str(path) + ".done")
+
+def is_complete(path: Path) -> bool:
+    dp = done_path_for(path)
+    if not path.exists():
+        return False
+    if not dp.exists():
+        return False
+    try:
+        if path.stat().st_size == 0:
+            return False
+    except Exception:
+        return False
+    return True
+
+def remove_incomplete_outputs(paths):
+    for p in paths:
+        p = Path(p)
+        dp = done_path_for(p)
+        tp = p.with_suffix(p.suffix + ".tmp")
+        if tp.exists():
+            try:
+                tp.unlink()
+            except Exception:
+                pass
+        if p.exists() and not dp.exists():
+            try:
+                p.unlink()
+            except Exception:
+                pass
+        if dp.exists() and not p.exists():
+            try:
+                dp.unlink()
+            except Exception:
+                pass
+
+def extract_query_info(hits, db_path):
+    s = str(db_path)
+    if "Pfam" in s or "pfam" in s:
+        hmm_id = hits.query.accession.decode()
+    elif "FOAM" in s or "foam" in s:
+        hmm_id = hits.query.accession.decode()
+    elif "eggNOG" in s or "eggnog" in s:
+        hmm_id = hits.query.name.decode().split(".")[0]
+    else:
+        query_name = hits.query.name.decode()
+        if ".wlink.txt.mafft" in query_name:
+            hmm_id = query_name.split(".")[1]
+        else:
+            hmm_id = (
+                query_name.replace("_alignment", "")
+                .replace(".mafft", "")
+                .replace(".txt", "")
+                .replace(".hmm", "")
+                .replace("_protein.alignment", "")
+            )
+    return hmm_id
+
+def aggregate_sequences(protein_dir):
+    all_sequences = []
+    protein_dir = Path(protein_dir)
+    for fasta_file in protein_dir.rglob("*"):
+        if fasta_file.suffix.lower() in (".faa", ".fasta"):
+            all_sequences.extend(Parser(str(fasta_file)).all())
+    return all_sequences
+
+def split_aggregated_sequences(all_sequences, chunk_size):
+    for i in range(0, len(all_sequences), chunk_size):
+        yield all_sequences[i:i + chunk_size]
+
+def determine_chunk_size(n_sequences, mem_limit, est_bytes_per_seq=32768, max_chunk_fraction=0.8):
+    total_bytes = n_sequences * est_bytes_per_seq
+    allowed_bytes = max_chunk_fraction * mem_limit * (1024**3)
+    n_chunks = max(1, math.ceil(total_bytes / allowed_bytes))
+    return math.ceil(n_sequences / n_chunks)
+
+def find_resumable_tmp_dir(wdir: Path) -> Path | None:
+    wdir = Path(wdir)
+    candidates = sorted(
+        [p for p in wdir.glob("hmmsearch_tmp_*") if p.is_dir()],
+        key=lambda p: p.stat().st_mtime,
+        reverse=True,
+    )
+    for d in candidates:
+        if (d / "manifest.json").exists():
+            return d
+        if any(d.glob("seqbatch_*.faa")):
+            return d
+    return None
+
+def load_manifest(tmp_dir: Path) -> dict | None:
+    mpath = tmp_dir / "manifest.json"
+    if not mpath.exists():
+        return None
+    try:
+        return json.loads(mpath.read_text())
+    except Exception:
+        return None
+
+def write_manifest(tmp_dir: Path, manifest: dict):
+    mpath = tmp_dir / "manifest.json"
+
+    def _w(f):
+        f.write(json.dumps(manifest, sort_keys=True, indent=2) + "\n")
+
+    atomic_write_text(mpath, _w)
+
+def assign_db(db_path):
+    s = str(db_path)
+    if "KEGG" in s or "kegg" in s or "kofam" in s:
+        return "KEGG"
+    elif "FOAM" in s or "foam" in s:
+        return "FOAM"
+    elif "Pfam" in s or "pfam" in s:
+        return "Pfam"
+    elif "dbcan" in s or "dbCAN" in s or "dbCan" in s:
+        return "dbCAN"
+    elif "METABOLIC_custom" in s or "metabolic_custom" in s:
+        return "METABOLIC"
+    elif "CAMPER" in s or "camper" in s:
+        return "CAMPER"
+    elif "VOG" in s or "vog" in s:
+        return "VOG"
+    elif "eggNOG" in s or "eggnog" in s:
+        return "eggNOG"
+    elif "PHROG" in s or "phrog" in s:
+        return "PHROG"
+    elif "user_custom" in s:
+        return "user_custom"
+    else:
+        return None
+    
 def _nan_to_none(v):
     if v is None:
         return None
     if isinstance(v, float) and math.isnan(v):
         return None
     return float(v)
+
 
 # Load KEGG thresholds
 KEGG_THRESHOLDS = {}
@@ -90,70 +247,6 @@ if Path(CAMPER_THRESHOLDS_PATH).exists():
 else:
     logger.warning(f"CAMPER thresholds file not found at {CAMPER_THRESHOLDS_PATH}. CAMPER thresholds will not be used to filter HMMsearch results!")
 
-def assign_db(db_path):
-    s = str(db_path)
-    if "KEGG" in s or "kegg" in s or "kofam" in s:
-        return "KEGG"
-    elif "FOAM" in s or "foam" in s:
-        return "FOAM"
-    elif "Pfam" in s or "pfam" in s:
-        return "Pfam"
-    elif "dbcan" in s or "dbCAN" in s or "dbCan" in s:
-        return "dbCAN"
-    elif "METABOLIC_custom" in s or "metabolic_custom" in s:
-        return "METABOLIC"
-    elif "CAMPER" in s or "camper" in s:
-        return "CAMPER"
-    elif "VOG" in s or "vog" in s:
-        return "VOG"
-    elif "eggNOG" in s or "eggnog" in s:
-        return "eggNOG"
-    elif "PHROG" in s or "phrog" in s:
-        return "PHROG"
-    elif "user_custom" in s:
-        return "user_custom"
-    else:
-        return None
-
-def extract_query_info(hits, db_path):
-    s = str(db_path)
-    if "Pfam" in s or "pfam" in s:
-        hmm_id = hits.query.accession.decode()
-    elif "FOAM" in s or "foam" in s:
-        hmm_id = hits.query.accession.decode()
-    elif "eggNOG" in s or "eggnog" in s:
-        hmm_id = hits.query.name.decode().split(".")[0]
-    else:
-        query_name = hits.query.name.decode()
-        if ".wlink.txt.mafft" in query_name:
-            hmm_id = query_name.split(".")[1]
-        else:
-            hmm_id = (
-                query_name.replace("_alignment", "")
-                .replace(".mafft", "")
-                .replace(".txt", "")
-                .replace(".hmm", "")
-                .replace("_protein.alignment", "")
-            )
-    return hmm_id
-
-def aggregate_sequences(protein_dir):
-    all_sequences = []
-    protein_dir = Path(protein_dir)
-    for fasta_file in protein_dir.rglob("*"):
-        if fasta_file.suffix.lower() in (".faa", ".fasta"):
-            all_sequences.extend(Parser(str(fasta_file)).all())
-    return all_sequences
-
-def split_aggregated_sequences(all_sequences, chunk_size):
-    for i in range(0, len(all_sequences), chunk_size):
-        yield all_sequences[i:i + chunk_size]
-
-def determine_chunk_size(n_sequences, mem_limit, est_bytes_per_seq=32768, max_chunk_fraction=0.8):
-    total_bytes = n_sequences * est_bytes_per_seq
-    allowed_bytes = max_chunk_fraction * mem_limit * (1024**3)
-    n_chunks = max(1, math.ceil(total_bytes / allowed_bytes))
-    return math.ceil(n_sequences / n_chunks)
 
 def get_kegg_threshold(hmm_id):
     return KEGG_THRESHOLDS.get(hmm_id, None)
@@ -167,74 +260,89 @@ def get_camper_threshold(hmm_id):
 def standardize_and_filter_hmm_results(tsv_path, hmm_path, out_full_path, out_best_path):
     db = assign_db(hmm_path)
 
-    # Keep everything for the full output, and also pick a single best kept alignment per sequence for best output.
-    all_rows = []
     best_by_seq = {}
 
     def _is_alignment_row(alignment_type):
         return alignment_type in ("full", "domain")
 
     def _better(a, b):
-        # a and b are tuples: (evalue, -score, -cov_hmm, -cov_seq, hmm_id, alignment_type, keep, note)
         return a < b
 
-    with open(tsv_path) as f:
-        for line in f:
-            parts = line.rstrip("\n").split("\t")
-            if len(parts) != 9:
-                continue
+    tsv_path = Path(tsv_path)
+    out_full_path = Path(out_full_path)
+    out_best_path = Path(out_best_path)
 
-            sequence, hmm_id, evalue, score, alignment_type, seq_cov, hmm_cov, keep, note = parts
+    remove_incomplete_outputs([out_full_path, out_best_path])
 
-            try:
-                evalue_f = float(evalue)
-                score_f = float(score)
-                seq_cov_f = float(seq_cov)
-                hmm_cov_f = float(hmm_cov)
-            except ValueError:
-                continue
+    def _write_full(f_out):
+        f_out.write(
+            "hmm_id\tdb\tsequence\tevalue\tscore\talignment_type\tcoverage_sequence\tcoverage_hmm\tkeep\tnote\n"
+        )
+        with open(tsv_path, "r", encoding="utf-8", errors="replace") as f_in:
+            for line in f_in:
+                parts = line.rstrip("\n").split("\t")
+                if len(parts) != 9:
+                    continue
 
-            keep_bool = str(keep).strip().lower() == "true"
+                sequence, hmm_id, evalue, score, alignment_type, seq_cov, hmm_cov, keep, note = parts
 
-            all_rows.append(
-                (hmm_id, db, sequence, evalue_f, score_f, alignment_type, seq_cov_f, hmm_cov_f, keep_bool, note)
-            )
+                try:
+                    evalue_f = float(evalue)
+                    score_f = float(score)
+                    seq_cov_f = float(seq_cov)
+                    hmm_cov_f = float(hmm_cov)
+                except ValueError:
+                    continue
 
-            # Filtered-best output: only keep==True, and choose one best alignment row per sequence.
-            if not keep_bool:
-                continue
+                keep_bool = str(keep).strip().lower() == "true"
+                keep_txt = "true" if keep_bool else "false"
 
-            if not _is_alignment_row(alignment_type):
-                # Don't let summary rows win the "best alignment" slot.
-                continue
+                f_out.write(
+                    f"{hmm_id}\t{db}\t{sequence}\t{evalue_f}\t{score_f:.6f}\t{alignment_type}\t"
+                    f"{seq_cov_f:.3f}\t{hmm_cov_f:.3f}\t{keep_txt}\t{note}\n"
+                )
 
-            cand_key = (evalue_f, -score_f, -hmm_cov_f, -seq_cov_f, hmm_id, alignment_type, keep_bool, note)
-            prev = best_by_seq.get(sequence)
-            if prev is None or _better(cand_key, prev[0]):
-                best_by_seq[sequence] = (cand_key, (hmm_id, db, sequence, evalue_f, score_f, alignment_type, seq_cov_f, hmm_cov_f, keep_bool, note))
+                if not keep_bool:
+                    continue
+                if not _is_alignment_row(alignment_type):
+                    continue
 
-    # Full standardized output (includes keep==false and summary rows)
-    with open(out_full_path, "w") as out:
-        out.write("hmm_id\tdb\tsequence\tevalue\tscore\talignment_type\tcoverage_sequence\tcoverage_hmm\tkeep\tnote\n")
-        for row in all_rows:
-            hmm_id, db, seq, evalue_f, score_f, alignment_type, seq_cov_f, hmm_cov_f, keep_bool, note = row
-            keep_txt = "true" if keep_bool else "false"
-            out.write(
-                f"{hmm_id}\t{db}\t{seq}\t{evalue_f}\t{score_f:.6f}\t{alignment_type}\t"
-                f"{seq_cov_f:.3f}\t{hmm_cov_f:.3f}\t{keep_txt}\t{note}\n"
-            )
+                cand_key = (evalue_f, -score_f, -hmm_cov_f, -seq_cov_f, hmm_id, alignment_type, keep_bool, note)
+                prev = best_by_seq.get(sequence)
+                if prev is None or _better(cand_key, prev[0]):
+                    best_by_seq[sequence] = (
+                        cand_key,
+                        (hmm_id, db, sequence, evalue_f, score_f, alignment_type, seq_cov_f, hmm_cov_f),
+                    )
 
-    # Best standardized output (only keep==true, one row per sequence per db result file)
-    with open(out_best_path, "w") as out:
-        out.write("hmm_id\tdb\tsequence\tevalue\tscore\talignment_type\tcoverage_sequence\tcoverage_hmm\n")
+    atomic_write_text(out_full_path, _write_full)
+    write_done_marker(done_path_for(out_full_path), {"tsv": str(out_full_path), "db": db, "status": "ok"})
+
+    def _write_best(f_out):
+        f_out.write("hmm_id\tdb\tsequence\tevalue\tscore\talignment_type\tcoverage_sequence\tcoverage_hmm\n")
         for _, row in best_by_seq.items():
-            hmm_id, db, seq, evalue_f, score_f, alignment_type, seq_cov_f, hmm_cov_f, keep_bool, note = row[1]
-            out.write(
+            hmm_id, db, seq, evalue_f, score_f, alignment_type, seq_cov_f, hmm_cov_f = row[1]
+            f_out.write(
                 f"{hmm_id}\t{db}\t{seq}\t{evalue_f}\t{score_f:.6f}\t{alignment_type}\t{seq_cov_f:.3f}\t{hmm_cov_f:.3f}\n"
             )
 
-def hmmsearch_serial(batch_key, batch_fasta, db_path, seq_lengths, out_dir, min_coverage, min_score, min_bitscore_fraction, evalue, cpus):
-    outfile = Path(out_dir) / f"{batch_key}_search.tsv"
+    atomic_write_text(out_best_path, _write_best)
+    write_done_marker(done_path_for(out_best_path), {"tsv": str(out_best_path), "db": db, "status": "ok"})
+
+def hmmsearch_serial(
+    outfile: Path,
+    batch_fasta: str,
+    db_path: str,
+    seq_lengths: dict,
+    min_coverage: float,
+    min_score: float,
+    min_bitscore_fraction: float,
+    evalue: float,
+    cpus: int,
+):
+    outfile = Path(outfile)
+    remove_incomplete_outputs([outfile])
+
     alphabet = easel.Alphabet.amino()
     hmm_list = list(plan7.HMMFile(db_path))
     db = assign_db(db_path)
@@ -255,7 +363,12 @@ def hmmsearch_serial(batch_key, batch_fasta, db_path, seq_lengths, out_dir, min_
         total += cur_e - cur_s + 1
         return total
 
-    with open(outfile, "w") as out, easel.SequenceFile(batch_fasta, digital=True, alphabet=alphabet) as seqs:
+    tmp_out = outfile.with_suffix(outfile.suffix + ".tmp")
+
+    n_rows = 0
+    with open(tmp_out, "w", encoding="utf-8") as out, easel.SequenceFile(
+        batch_fasta, digital=True, alphabet=alphabet
+    ) as seqs:
         for hits in hmmer.hmmsearch(queries=hmm_list, sequences=seqs, E=0.01, cpus=cpus):
             hmm = hits.query
             hmm_id = extract_query_info(hits, db_path)
@@ -586,12 +699,18 @@ def hmmsearch_serial(batch_key, batch_fasta, db_path, seq_lengths, out_dir, min_
                     f"{hit_name}\t{hmm_id}\t{reported_evalue:.1E}\t{score:.6f}\t{alignment_type}\t"
                     f"{seq_coverage}\t{profile_coverage}\t{keep}\t{note}\n"
                 )
+                n_rows += 1
 
+        out.flush()
+        os.fsync(out.fileno())
+
+    os.replace(tmp_out, outfile)
+    write_done_marker(done_path_for(outfile), {"tsv": str(outfile), "db": db, "rows": n_rows, "status": "ok"})
     return str(outfile)
 
 def main():
     protein_dir = snakemake.params.protein_dir
-    wdir = snakemake.params.wdir
+    wdir = Path(snakemake.params.wdir)
     hmm_vscores = snakemake.params.hmm_vscores
     cov_fraction = snakemake.params.cov_fraction
     db_dir = snakemake.params.db_dir
@@ -603,14 +722,9 @@ def main():
     minscore = snakemake.params.min_bitscore
     min_bitscore_fraction = snakemake.params.min_bitscore_fraction_heuristic
     evalue = snakemake.params.max_evalue
+    keep_full_results = snakemake.params.keep_full_hmm_results
 
     logger.info("Protein HMM searches starting...")
-    run_id = f"{datetime.now().strftime('%Y%m%d_%H%M%S')}_{uuid.uuid4().hex[:8]}"
-    tmp_dir = Path(wdir) / f"hmmsearch_tmp_{run_id}"
-    tmp_dir.mkdir(parents=True, exist_ok=True)
-
-    aggregated = aggregate_sequences(protein_dir)
-    seq_lengths = {rec.header.name: len(rec.seq) for rec in aggregated}
 
     set_memory_limit(mem_limit)
     logger.debug(f"Memory limit set to {mem_limit} GB")
@@ -621,32 +735,111 @@ def main():
         key=lambda x: priority_order.index(assign_db(x)) if assign_db(x) in priority_order else float("inf"),
     )
 
+    resumable = find_resumable_tmp_dir(wdir)
+    tmp_dir = None
+    manifest = None
+
+    if resumable is not None:
+        manifest = load_manifest(resumable)
+        if manifest is None:
+            logger.info(f"Found previous tmp dir (no manifest): {resumable}")
+            tmp_dir = resumable
+        else:
+            same_inputs = (
+                manifest.get("protein_dir") == str(protein_dir)
+                and manifest.get("db_dir") == str(db_dir)
+                and manifest.get("cov_fraction") == float(cov_fraction)
+                and manifest.get("minscore") == float(minscore)
+                and manifest.get("min_bitscore_fraction") == float(min_bitscore_fraction)
+                and manifest.get("evalue") == float(evalue)
+            )
+            if same_inputs:
+                logger.info(f"Resuming from tmp dir: {resumable}")
+                tmp_dir = resumable
+            else:
+                logger.info(f"Found tmp dir but manifest does not match current inputs: {resumable}")
+
+    if tmp_dir is None:
+        run_id = f"{datetime.now().strftime('%Y%m%d_%H%M%S')}_{uuid.uuid4().hex[:8]}"
+        tmp_dir = wdir / f"hmmsearch_tmp_{run_id}"
+        tmp_dir.mkdir(parents=True, exist_ok=True)
+        logger.debug(f"Creating tmp dir: {tmp_dir}")
+
+    aggregated = aggregate_sequences(protein_dir)
+    seq_lengths = {rec.header.name: len(rec.seq) for rec in aggregated}
     N = len(aggregated)
-    chunk_size = determine_chunk_size(N, mem_limit, est_bytes_per_seq=32768, max_chunk_fraction=0.8)
+    
     batch_files = []
     batch_keys = []
-    for idx, batch in enumerate(split_aggregated_sequences(aggregated, chunk_size)):
-        batch_key = f"seqbatch_{idx}"
-        batch_fasta = Path(tmp_dir) / f"{batch_key}.faa"
-        with open(batch_fasta, "w") as f:
-            for rec in batch:
-                write_fasta(rec, f)
-        batch_files.append(str(batch_fasta))
-        batch_keys.append(batch_key)
-    logger.info(f"Splitting {N:,} sequences into {len(batch_keys):,} batches of {chunk_size:,}")
+
+    manifest = load_manifest(tmp_dir)
+    if manifest is not None and "batch_keys" in manifest and "batch_files" in manifest:
+        batch_keys = list(manifest["batch_keys"])
+        batch_files = list(manifest["batch_files"])
+        missing_batches = [bf for bf in batch_files if not Path(bf).exists()]
+        if missing_batches:
+            logger.warning("Manifest found but some batch FASTAs are missing; regenerating batches.")
+            batch_files = []
+            batch_keys = []
+
+    if not batch_keys:
+        chunk_size = determine_chunk_size(N, mem_limit, est_bytes_per_seq=32768, max_chunk_fraction=0.8)
+        for idx, batch in enumerate(split_aggregated_sequences(aggregated, chunk_size)):
+            batch_key = f"seqbatch_{idx}"
+            batch_fasta = tmp_dir / f"{batch_key}.faa"
+
+            if not batch_fasta.exists() or batch_fasta.stat().st_size == 0:
+                remove_incomplete_outputs([batch_fasta])
+                with open(batch_fasta, "w", encoding="utf-8") as f:
+                    for rec in batch:
+                        write_fasta(rec, f)
+
+            batch_files.append(str(batch_fasta))
+            batch_keys.append(batch_key)
+
+        logger.info(f"Splitting {N:,} sequences into {len(batch_keys):,} batches of {chunk_size:,}")
+
+        manifest = {
+            "created": datetime.now().isoformat(timespec="seconds"),
+            "protein_dir": str(protein_dir),
+            "db_dir": str(db_dir),
+            "n_sequences": int(N),
+            "cov_fraction": float(cov_fraction),
+            "minscore": float(minscore),
+            "min_bitscore_fraction": float(min_bitscore_fraction),
+            "evalue": float(evalue),
+            "batch_keys": batch_keys,
+            "batch_files": batch_files,
+            "hmm_paths": [str(p) for p in hmm_paths],
+        }
+        write_manifest(tmp_dir, manifest)
+    else:
+        logger.info(f"Using existing batches from manifest: {len(batch_keys):,} batches")
 
     result_paths = []
     for db_path in hmm_paths:
         db_name = assign_db(db_path)
-        logger.info(f"Running hmmsearches against {db_name} profile HMMs...")
+        logger.info(f"Running HMMsearches against {db_name} profile HMMs...")
+
         if len(batch_keys) > 1:
-            for batch_key, batch_fasta in tqdm(zip(batch_keys, batch_files), total=len(batch_keys), desc=f"HMMsearches ({db_name})", unit="batch"):
+            for batch_key, batch_fasta in tqdm(
+                list(zip(batch_keys, batch_files)),
+                total=len(batch_keys),
+                desc=f"HMMsearches ({db_name})",
+                unit="batch",
+            ):
+                outfile = tmp_dir / f"{db_path.stem}_{batch_key}_search.tsv"
+                if is_complete(outfile):
+                    logger.info(f"Skipping (complete): {outfile.name}")
+                    result_paths.append((str(outfile), db_path))
+                    continue
+
+                remove_incomplete_outputs([outfile])
                 out_path = hmmsearch_serial(
-                    batch_key=f"{db_path.stem}_{batch_key}",
+                    outfile=outfile,
                     batch_fasta=batch_fasta,
                     db_path=str(db_path),
                     seq_lengths=seq_lengths,
-                    out_dir=tmp_dir,
                     min_coverage=cov_fraction,
                     min_score=minscore,
                     min_bitscore_fraction=min_bitscore_fraction,
@@ -656,12 +849,18 @@ def main():
                 result_paths.append((out_path, db_path))
         else:
             for batch_key, batch_fasta in zip(batch_keys, batch_files):
+                outfile = tmp_dir / f"{db_path.stem}_{batch_key}_search.tsv"
+                if is_complete(outfile):
+                    logger.info(f"Skipping (complete): {outfile.name}")
+                    result_paths.append((str(outfile), db_path))
+                    continue
+
+                remove_incomplete_outputs([outfile])
                 out_path = hmmsearch_serial(
-                    batch_key=f"{db_path.stem}_{batch_key}",
+                    outfile=outfile,
                     batch_fasta=batch_fasta,
                     db_path=str(db_path),
                     seq_lengths=seq_lengths,
-                    out_dir=tmp_dir,
                     min_coverage=cov_fraction,
                     min_score=minscore,
                     min_bitscore_fraction=min_bitscore_fraction,
@@ -674,15 +873,27 @@ def main():
     full_paths = []
     best_paths = []
     for result_path, db_path in result_paths:
-        full_path = result_path.replace("_search.tsv", "_full.tsv")
-        best_path = result_path.replace("_search.tsv", "_best_kept.tsv")
-        logger.debug(f"Standardizing {result_path} to {full_path} and {best_path}")
-        standardize_and_filter_hmm_results(result_path, db_path, full_path, best_path)
-        full_paths.append(full_path)
-        best_paths.append(best_path)
+        db = assign_db(db_path)
+        logger.info(f"Filtering results from {db}...")
+        result_path = Path(result_path)
+        full_path = Path(str(result_path).replace("_search.tsv", "_full.tsv"))
+        best_path = Path(str(result_path).replace("_search.tsv", "_best_kept.tsv"))
 
+        full_done = is_complete(full_path)
+        best_done = is_complete(best_path)
+
+        if full_done and best_done:
+            logger.info(f"Skipping standardize (complete): {full_path.name} and {best_path.name}")
+        else:
+            logger.debug(f"Standardizing {result_path} to {full_path} and {best_path}")
+            standardize_and_filter_hmm_results(result_path, db_path, full_path, best_path)
+
+        full_paths.append(str(full_path))
+        best_paths.append(str(best_path))
+    
+    logger.info("Aggregating final HMMsearch results...")
     # Load + concat full and best
-    schema_overrides = {
+    schema_overrides_full = {
         "hmm_id": pl.Utf8,
         "db": pl.Utf8,
         "sequence": pl.Utf8,
@@ -695,25 +906,44 @@ def main():
         "note": pl.Utf8,
     }
 
-    dfs_full = []
-    for p in full_paths:
-        try:
-            dfs_full.append(pl.read_csv(p, separator="\t", schema_overrides=schema_overrides))
-        except Exception as e:
-            logger.warning(f"Failed to load {p}: {e}")
-    combined_full_df = pl.concat(dfs_full) if dfs_full else pl.DataFrame(schema=schema_overrides)
-    combined_full_df.write_csv(all_hmm_results, separator="\t")
+    schema_overrides_best = {
+        "hmm_id": pl.Utf8,
+        "db": pl.Utf8,
+        "sequence": pl.Utf8,
+        "evalue": pl.Float64,
+        "score": pl.Float64,
+        "alignment_type": pl.Utf8,
+        "coverage_sequence": pl.Float64,
+        "coverage_hmm": pl.Float64,
+    }
 
+    if keep_full_results:
+        logger.debug("Loading and concatenating full HMMsearch results...")
+        dfs_full = []
+        for p in full_paths:
+            logger.debug(f"Loading full HMMsearch results from {p}")
+            try:
+                dfs_full.append(pl.read_csv(p, separator="\t", schema_overrides=schema_overrides_full))
+            except Exception as e:
+                logger.warning(f"Failed to load {p}: {e}")
+        logger.debug("Concatenating full HMMsearch results...")
+        combined_full_df = pl.concat(dfs_full) if dfs_full else pl.DataFrame(schema=schema_overrides_full)
+        combined_full_df.write_csv(all_hmm_results, separator="\t")
+
+    logger.debug("Loading and concatenating best-kept HMMsearch results...")
     dfs_best = []
     for p in best_paths:
+        logger.debug(f"Loading best-kept HMMsearch results from {p}")
         try:
-            dfs_best.append(pl.read_csv(p, separator="\t", schema_overrides=schema_overrides))
+            dfs_best.append(pl.read_csv(p, separator="\t", schema_overrides=schema_overrides_best))
         except Exception as e:
             logger.warning(f"Failed to load {p}: {e}")
-    combined_best_df = pl.concat(dfs_best) if dfs_best else pl.DataFrame(schema=schema_overrides)
+    logger.debug("Concatenating best-kept HMMsearch results...")
+    combined_best_df = pl.concat(dfs_best) if dfs_best else pl.DataFrame(schema=schema_overrides_best)
     combined_best_df.write_csv(filtered_hmm_results, separator="\t")
 
     # Use best-kept for vscore assignment downstream
+    logger.debug("Loading HMM V-scores...")
     vscores_df = pl.read_csv(
         hmm_vscores,
         schema_overrides={"id": pl.Utf8, "V-score": pl.Float64, "VL-score": pl.Float64, "db": pl.Categorical, "name": pl.Utf8},
@@ -727,6 +957,7 @@ def main():
         ]
     )
 
+    logger.debug("Merging best HMM results with V-scores...")
     combined_best_df = combined_best_df.with_columns(
         [
             pl.when(pl.col("db") == "Pfam")
@@ -752,12 +983,27 @@ def main():
     merged_df = merged_df.sort(["sequence", "score", "V-score", "db"])
     merged_df.write_csv(output, separator="\t")
 
+    logger.debug("Cleaning up temporary files and HMMsearch directory...")
     for f in tmp_dir.iterdir():
-        f.unlink()
-    tmp_dir.rmdir()
+        if f.name == "manifest.json":
+            continue
+        try:
+            if f.is_file():
+                f.unlink()
+        except Exception:
+            pass
+    try:
+        (tmp_dir / "manifest.json").unlink()
+    except Exception:
+        pass
+    try:
+        tmp_dir.rmdir()
+    except Exception:
+        pass
 
     logger.info("Protein HMM searches completed.")
-    logger.info(f"Full results: {all_hmm_results}")
+    if keep_full_results:
+        logger.info(f"Full results: {all_hmm_results}")
     logger.info(f"Best hits per protein: {filtered_hmm_results}")
 
 if __name__ == "__main__":
