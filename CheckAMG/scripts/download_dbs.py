@@ -1,363 +1,242 @@
-import os
+#!/usr/bin/env python3
+
 import logging
-import requests
+import os
 import shutil
-import gzip
 import tarfile
 from pathlib import Path
-from urllib.request import urlretrieve
-from concurrent.futures import ThreadPoolExecutor, as_completed
-from collections import defaultdict
-from pyhmmer import easel, plan7, hmmer
+
+import requests
+from packaging.version import InvalidVersion, Version
+from tqdm import tqdm
 
 log_level = logging.INFO
 logging.basicConfig(
     level=log_level,
-    format='%(asctime)s | %(levelname)s | %(message)s',
-    datefmt='%Y-%m-%d %H:%M:%S'
+    format="%(asctime)s | %(levelname)s | %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
 )
-logger = logging.getLogger()
+logger = logging.getLogger(__name__)
 
-KEGG_FTP = 'ftp://ftp.genome.jp/pub/db/kofam/profiles.tar.gz'
-KEGG_HTTPS = 'https://www.genome.jp/ftp/db/kofam/profiles.tar.gz'
-PFAM_FTP = 'ftp://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz'
-PFAM_HTTPS = 'https://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz'
-FOAM_FTP = None
-FOAM_HTTPS = 'https://osf.io/download/bdpv5'
-PHROGS_FTP = None
-PHROGS_HTTPS = 'https://phrogs.lmge.uca.fr/downloads_from_website/MSA_phrogs.tar.gz'
-DBCAN_FTP = None
-DBCAN_HTTPS = 'https://bcb.unl.edu/dbCAN2/download/Databases/V14/dbCAN-HMMdb-V14.txt'
-METABOLIC_FTP = None
-METABOLIC_HTTPS = 'https://github.com/AnantharamanLab/CheckAMG/raw/refs/heads/main/custom_dbs/METABOLIC_custom.hmm.gz'
-CAMPER_FTP = None
-CAMPER_HTTPS = 'https://raw.githubusercontent.com/WrightonLabCSU/CAMPER/refs/heads/main/CAMPER.hmm'
-CAMPER_SCORES_FTP = None
-CAMPER_SCORES_HTTPS = 'https://raw.githubusercontent.com/WrightonLabCSU/CAMPER/refs/heads/main/CAMPER_hmm_scores.tsv'
+# DB URL selection rules:
+# - Rules are evaluated top-to-bottom; first match wins.
+# - Use open-ended ranges (max=None) so newer CheckAMG versions keep using the same DB unless changed.
+# - Can optionally set tar_name explicitly; otherwise it's inferred from the URL basename.
+# - db_version is a stable identifier that can be an override (e.g. "checkamg_db_v1_20260128").
+CHECKAMG_DB_URL_RULES = [
+    {
+        "min_version": "0.7.0",
+        "max_version": None,  # open-ended
+        "db_version": "checkamg_db_v1_20260128",
+        "url": "https://zenodo.org/records/18407279/files/CheckAMG_db_v1_20260128.tar.gz?download=1",
+        # "tar_name": "CheckAMG_db_v1_20260128.tar.gz", # optional
+    },
+]
 
-def try_download(label, dest, ftp_url, https_url):
-    if ftp_url:
-        try:
-            logger.info(f"Trying FTP download for {label}...")
-            urlretrieve(ftp_url, dest)
-            logger.info(f"{label} downloaded via FTP.")
-        except Exception as ftp_err:
-            logger.warning(f"FTP failed for {label}, falling back to HTTPS: {ftp_err}")
-            r = requests.get(https_url, stream=True)
-            with open(dest, 'wb') as f:
-                for chunk in r.iter_content(chunk_size=8192):
-                    f.write(chunk)
-            logger.info(f"{label} downloaded via HTTPS.")
-    else:
-        try:
-            logger.info(f"Trying HTTPS download for {label}...")
-            r = requests.get(https_url, stream=True)
-            with open(dest, 'wb') as f:
-                for chunk in r.iter_content(chunk_size=8192):
-                    f.write(chunk)
-            logger.info(f"{label} downloaded via HTTPS.")
-        except Exception as e:
-            raise RuntimeError(f"Failed to download {label}: {e}")
 
-def hmm_db_complete(dest_path):
-    prefix = str(dest_path).replace('.hmm', '')
-    required = [f"{prefix}.h3m", f"{prefix}.h3i", f"{prefix}.h3f", f"{prefix}.h3p"]
-    return all(Path(f).exists() for f in required)
+def _parse_version(v: str) -> Version:
+    try:
+        return Version(v)
+    except InvalidVersion as e:
+        raise RuntimeError(f"Invalid version string: {v}") from e
 
-def fix_hmm_names(file):
-    # Fix HMM names to be unique by appending a count suffix
-    # Even if the order of the HMMs changes in the source file,
-    # this shouldn't affect mapping to descriptions used by CheckAMG,
-    # since the 'ACC" field is used for matching, and those are
-    # unique in FOAM.
-    logger.info(f"Making HMM names unique in {file}")
-    unique_counts = defaultdict(int)
-    output = []
-    with open(file) as infile:
-        block = []
-        for line in infile:
-            if line.startswith("//"):
-                # At end of block, fix name
-                for i, l in enumerate(block):
-                    if l.startswith("NAME"):
-                        name = l.strip().split()[1]
-                        unique_counts[name] += 1
-                        new_name = f"{name}_{unique_counts[name]}"
-                        block[i] = f"NAME  {new_name}\n"
-                        break
-                output.extend(block + [line])
-                block = []
-            else:
-                block.append(line)
-    with open(file, "w") as out:
-        out.writelines(output)
-        
-def build_hmm_from_fasta(msa_path: Path, output_path: Path):
-    alphabet = easel.Alphabet.amino()
-    builder = plan7.Builder(alphabet)
-    background = plan7.Background(alphabet)
-    with easel.MSAFile(str(msa_path), digital=True, alphabet=alphabet) as msa_file:
-        msa = msa_file.read()
-        msa.name = msa.accession = msa_path.stem.encode()
-        profile, _, _ = builder.build_msa(msa, background)
-        with open(output_path, 'wb') as f:
-            profile.write(f)
+def get_db_rule_for_db_version(db_version: str) -> dict:
+    matches = [r for r in CHECKAMG_DB_URL_RULES if r.get("db_version") == db_version]
+    if not matches:
+        available = ", ".join(sorted({r.get("db_version", "unknown") for r in CHECKAMG_DB_URL_RULES}))
+        raise RuntimeError(f"Unknown db_version '{db_version}'. Available: {available}")
+    if len(matches) > 1:
+        raise RuntimeError(f"Ambiguous db_version '{db_version}': multiple rules match.")
+    rule = matches[0]
+    if "url" not in rule:
+        raise RuntimeError(f"DB rule missing 'url' for db_version '{db_version}': {rule}")
+    return rule
 
-def build_all_phrog_hmms(msa_dir: Path, out_path: Path, threads: int = 10):
-    msa_subdirs = [d for d in msa_dir.iterdir() if d.is_dir()]
-    if not msa_subdirs:
-        raise RuntimeError("No subdirectory with MSA files found in extracted PHROG archive.")
-    msa_data_dir = msa_subdirs[0]
-    tmp_hmm_dir = msa_dir / "phrog_hmms"
-    tmp_hmm_dir.mkdir(parents=True, exist_ok=True)
-    logger.info("Building HMMs from PHROG MSAs...")
-    with ThreadPoolExecutor(max_workers=threads) as executor:
-        futures = [executor.submit(build_hmm_from_fasta, msa_file, tmp_hmm_dir / (msa_file.stem + ".hmm")) for msa_file in msa_data_dir.glob("*.fma")]
-        for future in as_completed(futures):
-            try:
-                future.result()
-            except Exception as e:
-                logger.error(f"Failed to build HMM: {e}")
-    merge_hmm_files_from_dir(tmp_hmm_dir, out_path)
-    logger.info(f"Merged PHROG HMMs into {out_path}")
-    hmmpress_file(out_path)
+def get_db_rule_for_checkamg(checkamg_version: str) -> dict:
+    v = _parse_version(checkamg_version)
 
-def merge_hmm_files_from_dir(src_dir, output_path):
-    logger.info(f"Merging HMM files from {src_dir} into {output_path}")
-    with open(output_path, 'wb') as out_f:
-        for hmm_file in sorted(Path(src_dir).rglob('*.hmm')):
-            if hmm_file.is_file() and hmm_file.stat().st_size > 0:
-                with open(hmm_file, 'rb') as in_f:
-                    shutil.copyfileobj(in_f, out_f)
-    shutil.rmtree(src_dir)
+    for rule in CHECKAMG_DB_URL_RULES:
+        vmin = _parse_version(rule["min_version"])
+        vmax = _parse_version(rule["max_version"]) if rule.get("max_version") is not None else None
 
-def hmmpress_file(hmm_path):
-    logger.info(f"Pressing HMM file {hmm_path}")
-    hmms = list(plan7.HMMFile(hmm_path))
-    output_prefix = str(hmm_path).replace('.hmm', '')
-    for ext in ['.h3m', '.h3i', '.h3f', '.h3p']:
-        p = Path(f"{output_prefix}{ext}")
-        if p.exists():
-            p.unlink()
-    hmmer.hmmpress(hmms, output_prefix)
-    logger.info(f"Pressed HMM database written to {output_prefix}.h3*")
+        if v < vmin:
+            continue
+        if vmax is not None and v >= vmax:
+            continue
 
-def download_database(label, dest_path, ftp_url, https_url, force=False, decompress=False, untar=False, merge=False, threads=10):
-    if hmm_db_complete(dest_path) and not force:
-        logger.info(f"{label} already downloaded.")
+        if "url" not in rule:
+            raise RuntimeError(f"DB rule missing 'url': {rule}")
+        return rule
+
+    raise RuntimeError(f"No DB URL rule matches CheckAMG version: {checkamg_version}")
+
+def _tar_name_from_url(url: str) -> str:
+    name = url.split("?", 1)[0].rstrip("/").split("/")[-1]
+    if not name or not name.endswith(".tar.gz"):
+        raise RuntimeError(f"Could not infer .tar.gz filename from URL: {url}")
+    return name
+
+def _extract_dir_name_from_tar_name(tar_name: str) -> str:
+    if tar_name.endswith(".tar.gz"):
+        return tar_name[: -len(".tar.gz")]
+    if tar_name.endswith(".tgz"):
+        return tar_name[: -len(".tgz")]
+    return tar_name
+
+def _safe_extract_tar(tar: tarfile.TarFile, dest_dir: Path) -> None:
+    dest_dir = dest_dir.resolve()
+    for member in tar.getmembers():
+        member_path = (dest_dir / member.name).resolve()
+        if not str(member_path).startswith(str(dest_dir) + os.sep) and member_path != dest_dir:
+            raise RuntimeError(f"Unsafe tar entry detected (path traversal): {member.name}")
+    tar.extractall(path=dest_dir)
+
+def _download_file(url: str, outpath: Path, force: bool = False, chunk_size: int = 1024 * 1024) -> None:
+    outpath.parent.mkdir(parents=True, exist_ok=True)
+
+    if outpath.exists() and not force:
+        logger.info(f"Tarball already exists at {outpath}. Skipping download.")
         return
-    tmp_path = dest_path.with_suffix('.tmp')
-    try_download(label, tmp_path, ftp_url, https_url)
-    if untar:
-        extract_dir = dest_path.parent / f"{label}_extracted"
-        if extract_dir.exists():
-            shutil.rmtree(extract_dir)
-        extract_dir.mkdir(parents=True, exist_ok=True)
-        with tarfile.open(tmp_path, 'r:gz') as tar:
-            tar.extractall(path=extract_dir)
-        tmp_path.unlink()
-        logger.info(f"{label} downloaded and extracted to {extract_dir}")
-        if label == "PHROGs":
-            build_all_phrog_hmms(extract_dir, dest_path, threads=threads)
-            shutil.rmtree(extract_dir)
-        elif merge:
-            merge_hmm_files_from_dir(extract_dir, dest_path)
-            hmmpress_file(dest_path)
-    elif decompress:
-        with gzip.open(tmp_path, 'rb') as f_in, open(dest_path, 'wb') as f_out:
-            shutil.copyfileobj(f_in, f_out)
-        tmp_path.unlink()
-        if label == "FOAM":
-            fix_hmm_names(dest_path)
-        hmmpress_file(dest_path)
-    else:
-        tmp_path.rename(dest_path)
-        hmmpress_file(dest_path)
 
-def remove_human_readable_files(dest):
-    to_remove = []
-    
-    for file in Path(dest).rglob('*.hmm'):
-        if not file.name.endswith('.h3i') and not file.name.endswith('.h3m') and not file.name.endswith('.h3p') and not file.name.endswith('.h3f'):
-            to_remove.append(file)
-            
-    if not to_remove:
-        logger.info("No human-readable HMM files found to remove.")
+    tmp = outpath.with_suffix(outpath.suffix + ".tmp")
+    if tmp.exists():
+        tmp.unlink()
+
+    logger.info(f"Downloading {url}")
+    with requests.get(url, stream=True, timeout=60) as r:
+        r.raise_for_status()
+        total = r.headers.get("Content-Length")
+        total_bytes = int(total) if total is not None else None
+
+        with open(tmp, "wb") as f, tqdm(
+            total=total_bytes,
+            unit="B",
+            unit_scale=True,
+            unit_divisor=1024,
+            desc=outpath.name,
+            leave=True,
+        ) as pbar:
+            for chunk in r.iter_content(chunk_size=chunk_size):
+                if not chunk:
+                    continue
+                f.write(chunk)
+                pbar.update(len(chunk))
+
+    tmp.replace(outpath)
+    logger.info(f"Downloaded to {outpath}")
+
+def _all_members_share_single_topdir(tar: tarfile.TarFile) -> str | None:
+    top = None
+    for m in tar.getmembers():
+        if not m.name or m.name in (".", "./"):
+            continue
+        name = m.name.lstrip("./")
+        first = name.split("/", 1)[0]
+        if first in ("", ".", ".."):
+            return None
+        if top is None:
+            top = first
+        elif first != top:
+            return None
+    return top
+
+def _extract_tar_gz(tar_gz_path: Path, extract_dir: Path, force: bool = False) -> None:
+    if extract_dir.exists():
+        if force:
+            shutil.rmtree(extract_dir)
+        else:
+            raise RuntimeError(f"Database already exists at {extract_dir}. Use --force to overwrite.")
+
+    extract_dir.mkdir(parents=True, exist_ok=True)
+
+    logger.info(f"Extracting {tar_gz_path}")
+    with tarfile.open(tar_gz_path, mode="r:gz") as tar:
+        topdir = _all_members_share_single_topdir(tar)
+
+        if topdir is None:
+            # Tar has multiple top-level entries; extract as-is into extract_dir
+            _safe_extract_tar(tar, extract_dir)
+            return
+
+        # Tar has a single top-level dir; strip it so contents land directly in extract_dir
+        dest_dir = extract_dir.resolve()
+        for member in tar.getmembers():
+            if not member.name or member.name in (".", "./"):
+                continue
+
+            name = member.name.lstrip("./")
+            if name == topdir:
+                continue
+            if not name.startswith(topdir + "/"):
+                # Shouldn't happen if topdir detection is correct; be conservative.
+                raise RuntimeError(f"Unexpected tar member outside topdir '{topdir}': {member.name}")
+
+            stripped = name[len(topdir) + 1 :]
+            if not stripped:
+                continue
+
+            member.name = stripped  # tarfile uses this for extraction path
+
+            # Repeat your traversal safety check with the stripped path
+            member_path = (dest_dir / member.name).resolve()
+            if not str(member_path).startswith(str(dest_dir) + os.sep) and member_path != dest_dir:
+                raise RuntimeError(f"Unsafe tar entry detected (path traversal): {member.name}")
+
+            tar.extract(member, path=dest_dir)
+
+def download_db(dest: str, checkamg_version: str, force: bool = False, db_version: str | None = None) -> None:
+    if db_version is not None:
+        rule = get_db_rule_for_db_version(db_version)
+        why = f"db_version override: {db_version}"
+    else:
+        rule = get_db_rule_for_checkamg(checkamg_version)
+        why = f"CheckAMG version: {checkamg_version}"
+
+    url = rule["url"]
+    chosen_db_version = rule.get("db_version", "unknown")
+
+    dest_dir = Path(dest).resolve()
+    dest_dir.mkdir(parents=True, exist_ok=True)
+
+    tar_name = rule.get("tar_name") or _tar_name_from_url(url)
+    tar_path = dest_dir / tar_name
+
+    extract_dir_name = rule.get("extract_dir") or _extract_dir_name_from_tar_name(tar_name)
+    extract_dir = dest_dir / extract_dir_name
+
+    logger.info(f"{why}")
+    logger.info(f"Using database version: {chosen_db_version}")
+    logger.info(f"Database source URL: {url}")
+
+    if extract_dir.exists() and not force:
+        logger.error(f"Database {chosen_db_version} already exists at {extract_dir}. Use --force to overwrite.")
+        raise RuntimeError(f"Database {chosen_db_version} already exists at {extract_dir}. Use --force to overwrite.")
+
+    _download_file(url, tar_path, force=force)
+    _extract_tar_gz(tar_path, extract_dir, force=force)
+
+    if tar_path.exists():
+        tar_path.unlink()
+
+    logger.info(f"Database download and extraction complete. Location: {extract_dir}")
+
+def remove_human_readable_files(dest: str) -> None:
+    dest_dir = Path(dest).resolve()
+    if not dest_dir.exists():
+        logger.info(f"Destination does not exist; nothing to remove: {dest_dir}")
         return
-    
-    logger.info(f"Removing human-readable HMM files from {dest}")
-    for file in to_remove:
-        os.remove(file)
-    logger.info("Human-readable HMM files removed.")
 
-def open_text_auto_gz(path):
-    with open(path, 'rb') as probe:
-        head = probe.read(2)
-    if head == b'\x1f\x8b':
-        return gzip.open(path, 'rt')
-    return open(path, 'r')
+    hmm_files = list(dest_dir.rglob("*.hmm"))
+    if not hmm_files:
+        logger.info(f"No *.hmm files found under: {dest_dir}")
+        return
 
-def get_thresholds_from_foam(foam_hmm_path, dest_path):
-    logger.info(f"Extracting FOAM thresholds from {foam_hmm_path}")
-    acc = None
-    cutoff_map = {}
-    with open(foam_hmm_path, 'r') as f:
-        for raw in f:
-            line = raw.strip()
-            if not line:
-                continue
-            if line.startswith('ACC'):
-                parts = line.split()
-                if len(parts) >= 2:
-                    acc = parts[1].strip(';')
-            elif line.startswith('TC') and acc:
-                parts = line.replace(';', '').split()
-                full = float(parts[1]) if len(parts) > 1 else None
-                dom = float(parts[2]) if len(parts) > 2 else None
-                cutoff_map[acc] = (full, dom)
-                acc = None
-    with open(dest_path, 'w') as out:
-        out.write('id\tcutoff_full\tcutoff_domain\n')
-        for acc, tup in cutoff_map.items():
-            full = '' if tup[0] is None else f"{tup[0]}"
-            dom = '' if tup[1] is None else f"{tup[1]}"
-            out.write(f"{acc}\t{full}\t{dom}\n")
-    logger.info(f"FOAM thresholds written to {dest_path}")
-
-def get_thresholds_from_kegg(ftp_url, https_url, dest_path):
-    tmp_path = Path(dest_path).with_suffix('.tmp')
-    try_download("KEGG thresholds", tmp_path, ftp_url, https_url)
-    with open_text_auto_gz(tmp_path) as f_in, open(dest_path, 'w') as f_out:
-        f_out.write('id\tthreshold\n')
-        for idx, raw in enumerate(f_in):
-            line = raw.rstrip('\n')
-            if idx == 0:
-                cols = [c.strip() for c in line.split('\t')]
-                assert len(cols) >= 2, "ko_list header must have at least two columns"
-                assert cols[0].lower() == 'knum', f"Expected first column 'knum', got '{cols[0]}'"
-                assert cols[1].lower() == 'threshold', f"Expected second column 'threshold', got '{cols[1]}'"
-                continue
-            if not line or line.startswith('#'):
-                continue
-            parts = line.split('\t')
-            if parts and parts[0].startswith('K'):
-                knum = parts[0].strip()
-                thr = parts[1].strip() if len(parts) > 1 else ''
-                if thr == "-":
-                    thr = ''
-                f_out.write(f"{knum}\t{thr}\n")
-    try:
-        tmp_path.unlink()
-    except Exception:
-        pass
-    logger.info(f"KEGG thresholds written to {dest_path}")
-
-def get_thresholds_from_camper(ftp_url, https_url, dest_path):
-    tmp_path = Path(dest_path).with_suffix('.tmp')
-    try_download("CAMPER thresholds", tmp_path, ftp_url, https_url)
-    cutoff_map = {}
-    with open(tmp_path) as f_in:
-        for idx, raw in enumerate(f_in):
-            line = raw.rstrip('\n')
-            if idx == 0:
-                cols = [c.strip() for c in line.split('\t')]
-                assert len(cols) >= 4, "CAMPER hmm scores header must have at least four columns"
-                assert cols[0].lower() == 'hmm_name', f"Expected first column 'hmm_name', got '{cols[0]}'"
-                assert cols[1].lower() == 'a_rank', f"Expected second column 'A_rank', got '{cols[1]}'"
-                assert cols[2].lower() == 'b_rank', f"Expected third column 'B_rank', got '{cols[2]}'"
-                assert cols[3].lower() == 'score_type', f"Expected fourth column 'score_type', got '{cols[3]}'"
-                continue
-            if not line or line.startswith('#'):
-                continue
-            parts = line.split('\t')
-            hmm_id = parts[0].strip().replace('.hmm', '') # A few CAMPER HMMs have .hmm suffix in their names
-            if not hmm_id:
-                continue
-            type = parts[3].strip() if len(parts) > 3 else ''
-            full, dom = None, None
-            if type == "full":
-                full = float(parts[1].strip()) if len(parts) > 1 else None
-            elif type == "domain":
-                dom = float(parts[1].strip()) if len(parts) > 1 else None
-            cutoff_map[hmm_id] = (full, dom)
-    try:
-        tmp_path.unlink()
-    except Exception:
-        pass
-    
-    with open(dest_path, 'w') as out:
-        out.write('id\tcutoff_full\tcutoff_domain\n')
-        for acc, tup in cutoff_map.items():
-            full = '' if tup[0] is None else f"{tup[0]}"
-            dom = '' if tup[1] is None else f"{tup[1]}"
-            out.write(f"{acc}\t{full}\t{dom}\n")
-            
-    logger.info(f"CAMPER thresholds written to {dest_path}")
-        
-def download_all(dest=None, force=False, threads=10):
-    os.makedirs(dest, exist_ok=True)
-    
-    logger.info("Starting download of all databases.")
-    dbs = [
-        ("KEGG", 'KEGG.hmm', KEGG_FTP, KEGG_HTTPS, True, True, True),
-        ("Pfam", 'Pfam-A.hmm', PFAM_FTP, PFAM_HTTPS, True, False, False),
-        ("FOAM", 'FOAM.hmm', FOAM_FTP, FOAM_HTTPS, True, False, False),
-        ("PHROGs", 'PHROGs.hmm', PHROGS_FTP, PHROGS_HTTPS, False, True, True),
-        ("dbCAN", 'dbCAN_HMMdb_v14.hmm', DBCAN_FTP, DBCAN_HTTPS, False, False, False),
-        ("METABOLIC", 'METABOLIC_custom.hmm', METABOLIC_FTP, METABOLIC_HTTPS, True, False, False),
-        ("CAMPER", 'CAMPER.hmm', CAMPER_FTP, CAMPER_HTTPS, False, False, False),
-    ]
-    exceptions = []
-    with ThreadPoolExecutor(max_workers=threads) as executor:
-        futures = {
-            executor.submit(download_database, name, Path(dest)/fname, ftp, https, force, decomp, untar, merge, threads): name
-            for name, fname, ftp, https, decomp, untar, merge in dbs
-        }
-        for future in as_completed(futures):
-            name = futures[future]
-            try:
-                future.result()
-            except Exception as e:
-                logger.error(f"Error downloading {name}: {e}")
-                exceptions.append(name)
-    if exceptions:
-        raise Exception(f"Download failed for: {', '.join(exceptions)}")
-    else:
-        logger.info("All databases downloaded successfully.")
-
-    # Build thresholds for FOAM, KEGG, and CAMPER
-    try:
-        foam_hmm = Path(dest) / 'FOAM.hmm'
-        foam_thr = Path(dest) / 'FOAM_cutoffs.tsv'
-        if foam_hmm.exists():
-            get_thresholds_from_foam(foam_hmm, foam_thr)
-        else:
-            logger.warning("FOAM.hmm not found; skipping FOAM thresholds.")
-    except Exception as e:
-        logger.error(f"FOAM thresholds failed: {e}")
-        exceptions.append("FOAM_thresholds")
-
-    try:
-        KO_LIST_FTP = KEGG_FTP.replace('profiles.tar.gz', 'ko_list.gz')
-        KO_LIST_HTTPS = KEGG_HTTPS.replace('profiles.tar.gz', 'ko_list.gz')
-        kegg_thr = Path(dest) / 'KEGG_cutoffs.tsv'
-        get_thresholds_from_kegg(KO_LIST_FTP, KO_LIST_HTTPS, kegg_thr)
-    except Exception as e:
-        logger.error(f"KEGG thresholds failed: {e}")
-        exceptions.append("KEGG_thresholds")
-    
-    try:
-        camper_hmm = Path(dest) / 'CAMPER.hmm'
-        camper_thr = Path(dest) / 'CAMPER_cutoffs.tsv'
-        if camper_hmm.exists():
-            get_thresholds_from_camper(CAMPER_SCORES_FTP, CAMPER_SCORES_HTTPS, camper_thr)
-        else:
-            logger.warning("CAMPER.hmm not found; skipping CAMPER thresholds.")
-    except Exception as e:
-        logger.error(f"CAMPER thresholds failed: {e}")
-        exceptions.append("CAMPER_thresholds")
-
-    if exceptions:
-        raise Exception(f"Completed with errors in: {', '.join(exceptions)}")
-    else:
-        logger.info("All database thresholds prepared successfully.")
+    logger.info(f"Removing {len(hmm_files)} *.hmm files under: {dest_dir}")
+    removed = 0
+    for fp in hmm_files:
+        try:
+            fp.unlink()
+            removed += 1
+        except FileNotFoundError:
+            pass
+    logger.info(f"Removed {removed} *.hmm files.")

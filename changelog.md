@@ -1,3 +1,8 @@
+# 0.9.0
+* Updated `checkamg download` to retrieve and extract a pre-built, standardized CheckAMG database containing all required profile HMMs and cutoff files, rather than downloading individual databases from their original sources.
+  * This ensures reproducibility across CheckAMG and database versions and avoids failures caused by upstream download links changing or disappearing.
+  * Added the notebook `build_checkamg_db.ipynb`, which documents how the standardized CheckAMG database is assembled, including data sources and formatting steps.
+
 # 0.8.1
 
 * Modified **annotate_hmm.py** so it resumes HMM searches from the last completed database instead of restarting all HMM searches across all databases.

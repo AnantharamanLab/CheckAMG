@@ -522,7 +522,9 @@ To make these resources transparent and reproducible, this repository includes a
 - `AMG_filters.tsv`, `APG_filters.tsv`, `AReG_filters.tsv`
 - `viral_hallmark_genes.tsv` and `mobile_genes.tsv`
 
-This notebook is not required to run CheckAMG, but it is provided so others can inspect, regenerate, and update the curated assets when upstream databases change.
+CheckAMG’s required profile HMM database (downloaded via `checkamg download`) is formatted and packaged to ensure consistency and standardization across versions. The notebook used to download, format, and build this database, including documentation of the associated source versions, is available at [`build_checkamg_db.ipynb`](https://github.com/AnantharamanLab/CheckAMG/tree/main/notebooks/build_checkamg_db.ipynb).
+
+These notebooks are not required to run CheckAMG, but they are provided so others can inspect, regenerate, and update the curated assets when upstream databases change.
 
 ## Error reporting
 

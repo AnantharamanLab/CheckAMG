@@ -65,7 +65,7 @@ def main():
           formatter_class=CustomHelpFormatter)
      download_parser.add_argument(
           "-d", "--db_dir", type=str, required=True,
-          help="Path to the directory where CheckAMG databases will be downloaded (Required).")
+          help="Path to the directory where the CheckAMG database will be placed (Required).")
      download_parser.add_argument(
           "-f", "--force", action="store_true", default=False,
           help="Force re-download of databases even if they already exist (default: %(default)s).")
@@ -73,9 +73,9 @@ def main():
           "-r", "--rm_hmm", action="store_true", default=False,
           help="Remove human-readable HMM files from the database directory after downloading, to save space. CheckAMG only needs the binary files (default: %(default)s).")
      download_parser.add_argument(
-          "-t", "--threads", type=int, default=10,
-          help="Number of threads to use for downloading and compiling databases (default: %(default)s).")
-     
+          "--db_version", type=str, required=False, default=None,
+          help="Exact CheckAMG database version identifier to download (overrides the latest compatible database).")
+
      annotate_parser = subparsers.add_parser("annotate",
                                         help="Predict and curate auxiliary genes in viral genomes based on functional annotations and genomic context.",
                                         description="Predict and curate auxiliary genes in viral genomes based on functional annotations and genomic context.",
@@ -187,7 +187,12 @@ def main():
      args = parser.parse_args()
                
      if args.command == "download":
-          download_dbs.download_all(dest=args.db_dir, force=args.force, threads=args.threads)
+          download_dbs.download_db(
+               dest=args.db_dir,
+               checkamg_version=__version__,
+               force=args.force,
+               db_version=getattr(args, "db_version", None),
+          )
           if args.rm_hmm:
                download_dbs.remove_human_readable_files(dest=args.db_dir)
      elif args.command == "annotate":

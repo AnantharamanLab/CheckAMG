@@ -16,6 +16,8 @@ dist/
 *.sln.docstates
 .DS_Store
 .conda
+CheckAMG_db*
+CheckAMG_db*/**
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
