@@ -24506,6 +24506,7 @@ K00226	KEGG	pyrD; dihydroorotate dehydrogenase (fumarate) [EC:1.3.98.1]	False	Fa
 K00254	KEGG	DHODH, pyrD; dihydroorotate dehydrogenase [EC:1.3.5.2]	False	False	True	False	False
 K00287	KEGG	DHFR, folA; dihydrofolate reductase [EC:1.5.1.3]	False	False	True	False	False
 K00312	KEGG	WNT3; wingless-type MMTV integration site family, member 3	True	False	False	False	False
+K00326	KEGG	CYB5R; cytochrome-b5 reductase [EC:1.6.2.2]	False	False	True	False	False
 K00364	KEGG	guaC, GMPR; GMP reductase [EC:1.7.1.7]	False	False	True	False	False
 K00375	KEGG	K00375; GntR family transcriptional regulator / MocR family aminotransferase	True	False	False	False	False
 K00408	KEGG	WNT4; wingless-type MMTV integration site family, member 4	True	False	False	False	False
@@ -25031,7 +25032,9 @@ K01611	KEGG	speD, AMD1; S-adenosylmethionine decarboxylase [EC:4.1.1.50]	False	F
 K01613	KEGG	psd, PISD; phosphatidylserine decarboxylase [EC:4.1.1.65]	False	False	False	False	True
 K01619	KEGG	deoC, DERA; deoxyribose-phosphate aldolase [EC:4.1.2.4]	False	False	True	False	False
 K01636	KEGG	K01636; ribulose 1-phosphate aldolase [EC:4.1.2.-]	False	False	True	False	False
+K01639	KEGG	E4.1.3.3, nanA, NPL; N-acetylneuraminate lyase [EC:4.1.3.3]	False	False	True	False	False
 K01646	KEGG	citD; citrate lyase subunit gamma (acyl carrier protein)	False	False	False	False	True
+K01654	KEGG	neuB, nnaB; N-acetylneuraminate synthase [EC:2.5.1.56]	False	False	True	False	False
 K01669	KEGG	phr, PHR1; deoxyribodipyrimidine photo-lyase [EC:4.1.99.3]	False	False	True	False	False
 K01689	KEGG	ENO1_2_3, eno; enolase 1/2/3 [EC:4.2.1.11]	True	False	False	False	False
 K01709	KEGG	rfbG; CDP-glucose 4,6-dehydratase [EC:4.2.1.45]	False	False	True	False	False
@@ -26508,6 +26511,7 @@ K05284	KEGG	PIGM; GPI mannosyltransferase 1 subunit M [EC:2.4.1.-]	False	True	Fa
 K05286	KEGG	PIGB; GPI mannosyltransferase 3 [EC:2.4.1.-]	False	True	False	False	False
 K05302	KEGG	SETD6; N-lysine methyltransferase SETD6 [EC:2.1.1.-]	False	False	False	True	False
 K05303	KEGG	K05303; O-methyltransferase [EC:2.1.1.-]	False	False	False	True	False
+K05304	KEGG	NANS, SAS; sialic acid synthase [EC:2.5.1.56 2.5.1.57 2.5.1.132]	False	False	True	False	False
 K05312	KEGG	CHRNN; nicotinic acetylcholine receptor, invertebrate	True	False	False	False	False
 K05313	KEGG	GRIN; glutamate receptor, ionotropic, invertebrate	True	False	False	False	False
 K05338	KEGG	lrgA; holin-like protein	True	False	False	False	False
@@ -26955,6 +26959,7 @@ K07016	KEGG	csm1, cas10; CRISPR-associated protein Csm1	True	False	False	False	F
 K07023	KEGG	YGK1, HDDC2; 5'-deoxynucleotidase [EC:3.1.3.89]	False	False	True	False	False
 K07027	KEGG	K07027; glycosyltransferase 2 family protein	False	True	False	False	False
 K07029	KEGG	dagK; diacylglycerol kinase (ATP) [EC:2.7.1.107]	False	False	False	False	True
+K07031	KEGG	hddA; D-glycero-alpha-D-manno-heptose-7-phosphate kinase [EC:2.7.1.168]	False	False	True	False	False
 K07037	KEGG	pgpH; cyclic-di-AMP phosphodiesterase PgpH [EC:3.1.4.-]	False	False	True	False	False
 K07043	KEGG	upp; UTP pyrophosphatase [EC:3.6.1.-]	False	False	True	False	False
 K07049	KEGG	K07049; TatD-related deoxyribonuclease	True	False	False	False	False
@@ -29982,6 +29987,7 @@ K15894	KEGG	pseB, fnlA, wbjB; UDP-N-acetylglucosamine 4,6-dehydratase [EC:4.2.1.
 K15895	KEGG	pseC; UDP-4-amino-4,6-dideoxy-L-N-acetyl-beta-L-altrosamine transaminase [EC:2.6.1.92]	False	False	True	False	False
 K15896	KEGG	pseH; UDP-4-amino-4,6-dideoxy-N-acetyl-beta-L-altrosamine N-acetyltransferase [EC:2.3.1.202]	False	False	True	False	False
 K15897	KEGG	pseG; UDP-2,4-diacetamido-2,4,6-trideoxy-beta-L-altropyranose hydrolase [EC:3.6.1.57]	False	False	True	False	False
+K15898	KEGG	pseI, neuB3; pseudaminic acid synthase [EC:2.5.1.97]	False	False	True	False	False
 K15899	KEGG	pseF; pseudaminic acid cytidylyltransferase [EC:2.7.7.81]	False	False	True	False	False
 K15904	KEGG	kae1-bud32; bifunctional N6-L-threonylcarbamoyladenine synthase / protein kinase Bud32 [EC:2.3.1.234 2.7.11.1]	False	False	True	False	False
 K15910	KEGG	pglE; UDP-N-acetylbacillosamine transaminase [EC:2.6.1.34]	False	False	True	False	False
@@ -30450,6 +30456,7 @@ K18422	KEGG	MOV10; helicase MOV-10 [EC:5.6.2.5]	True	False	False	False	False
 K18423	KEGG	CSE1, CAS, XPO2; exportin-2 (importin alpha re-exporter)	True	False	False	False	False
 K18424	KEGG	ENPP4; ectonucleotide pyrophosphatase/phosphodiesterase family member 4 [EC:3.6.1.29]	False	False	True	False	False
 K18429	KEGG	legG, neuC2; GDP/UDP-N,N'-diacetylbacillosamine 2-epimerase (hydrolysing) [EC:3.2.1.184]	False	True	True	False	False
+K18430	KEGG	legI, neuB2; N,N'-diacetyllegionaminate synthase [EC:2.5.1.101]	False	False	True	False	False
 K18431	KEGG	legF, ptmB; CMP-N,N'-diacetyllegionaminic acid synthase [EC:2.7.7.82]	False	False	True	False	False
 K18433	KEGG	virD1; type IV secretion system T-DNA border endonuclease VirD1	True	False	False	False	False
 K18434	KEGG	virD2; type IV secretion system T-DNA border endonuclease VirD2	True	False	False	False	False
@@ -31252,6 +31259,7 @@ K21039	KEGG	int; Escherichia phage integrase [EC:2.7.7.- 3.1.-.-]	True	False	Tru
 K21047	KEGG	UL144; HCMV TNF alpha-like receptor UL144	True	False	False	False	False
 K21052	KEGG	TMEM5, RXYLT1; alpha-dystroglycan beta1,4-xylosyltransferase [EC:2.4.2.61]	False	True	False	False	False
 K21053	KEGG	ade; adenine deaminase [EC:3.5.4.2]	False	False	True	False	False
+K21055	KEGG	E3.1.3.103; 3-deoxy-D-glycero-D-galacto-nononate 9-phosphatase [EC:3.1.3.103]	False	False	True	False	False
 K21056	KEGG	E2.7.1.212; alpha-D-ribose-1-phosphate 5-kinase (ADP) [EC:2.7.1.212]	False	False	True	False	False
 K21057	KEGG	E2.7.1.213; cytidine kinase [EC:2.7.1.213]	False	False	True	False	False
 K21059	KEGG	fadD29; 4-hydroxyphenylalkanoate adenylyltransferase [EC:6.2.1.51]	False	False	True	False	False
@@ -31322,6 +31330,7 @@ K21260	KEGG	calG2; calicheamicin 4-deoxy-4-thio-alpha-D-digitoxosyltransferase [
 K21261	KEGG	calO4; acyltransferase	False	False	False	False	True
 K21262	KEGG	calG4; calicheamicin aminopentosyltransferase [EC:2.4.2.-]	False	True	False	False	False
 K21263	KEGG	calG1; calicheamicin 3'-O-methyl-rhamnosyltransferase [EC:2.4.1.-]	False	True	False	False	False
+K21279	KEGG	E2.5.1.132; 3-deoxy-D-glycero-D-galacto-nononate 9-phosphate synthase [EC:2.5.1.132]	False	False	True	False	False
 K21282	KEGG	ind7; N-demethylindolmycin N-methyltransferase [EC:2.1.1.328]	False	False	False	True	False
 K21284	KEGG	acmA, sibE; 3-hydroxy-4-methylanthranilate adenylyltransferase [EC:2.7.7.97]	False	False	True	False	False
 K21288	KEGG	arr2; rifampin ADP-ribosylating transferase	False	False	True	False	False
@@ -32083,6 +32092,7 @@ K24250	KEGG	qdtB; dTDP-3-amino-3,6-dideoxy-alpha-D-glucopyranose transaminase [E
 K24251	KEGG	qdtC; dTDP-D-Quip3N acetylase [EC:2.3.1.-]	False	False	True	False	False
 K24257	KEGG	neuC, nnaA; UDP-N-acetylglucosamine 2-epimerase (hydrolysing) [EC:3.2.1.183]	False	True	True	False	False
 K24258	KEGG	wbjD; UDP-N-acetyl-L-fucosamine synthase [EC:5.1.3.28]	False	False	True	False	False
+K24259	KEGG	wbuX; putative aminotransferase	False	False	True	False	False
 K24266	KEGG	gp120; HIV envelope glycoprotein gp120	True	False	False	False	False
 K24269	KEGG	ald2; 5-deoxyribulose 1-phosphate aldolase [EC:4.1.2.62]	False	False	True	False	False
 K24278	KEGG	ERDS; ergosteryl-3beta-O-L-aspartate synthase [EC:6.1.1.12 2.3.2.37]	True	False	False	False	False
@@ -32090,12 +32100,14 @@ K24280	KEGG	elg2, lea2; UDP-4-amino-4,6-dideoxy-N-acetyl-beta-L-idosamine transa
 K24281	KEGG	elg5; UDP-4-amino-4,6-dideoxy-N-acetyl-beta-L-idosamine acetyltransferase [EC:2.3.1.-]	False	False	True	False	False
 K24282	KEGG	elg3; UDP-2,4-diacetamido-2,4,6-trideoxy-beta-L-idose 2-epimerase [EC:5.1.3.-]	False	False	True	False	False
 K24283	KEGG	elg6, lea6; UDP-2,4-diacetamido-2,4,6-trideoxy-beta-L-gulopyranose hydrolase / UDP-2-acetamido-4-(D-alanylamino)-2,4,6-trideoxy-alpha-D-mannopyranose hydrolase [EC:3.6.1.-]	False	False	True	False	False
+K24284	KEGG	elg4; 2,4-diacetamido-2,4,6-trideoxy-beta-L-gulose transferase [EC:2.5.1.-]	False	False	True	False	False
 K24285	KEGG	elg7; N,N'-diacetyl-8-epilegionaminate cytidylyltransferase [EC:2.7.7.-]	False	False	True	False	False
 K24288	KEGG	meT1; MMP 1-O-methyltransferase [EC:2.1.1.365]	False	False	False	True	False
 K24289	KEGG	E3.2.1.214; exo beta-1,2-glucooligosaccharide sophorohydrolase (non-reducing end) [EC:3.2.1.214]	False	True	False	False	False
 K24300	KEGG	wbpM, wbgZ, aatA; UDP-N-acetylglucosamine 4,6-dehydratase [EC:4.2.1.135]	False	False	True	False	False
 K24303	KEGG	lea3; UDP-N-acetylbacillosamine alanyltransferase	False	False	True	False	False
 K24304	KEGG	lea5; UDP-2-acetamido-4-(D-alanylamino)-2,4,6-trideoxy-alpha-D-glucose 2-epimerase	False	False	True	False	False
+K24306	KEGG	lea4; 2-acetamido-4-(D-alanylamino)-2,4,6-trideoxy-D-mannopyranose transferase	False	False	True	False	False
 K24307	KEGG	lea7; 5-N-acetyl-7-N-(D-alanyl)-legionaminic acid cytidylyltransferase	False	False	True	False	False
 K24309	KEGG	TET2_3; methylcytosine dioxygenase TET2/3 [EC:1.14.11.80]	False	False	True	False	False
 K24310	KEGG	wbpV, wreQ; UDP-N-acetyl-alpha-D-quinovosamine dehydrogenase [EC:1.1.1.426]	False	False	True	False	False
@@ -32107,6 +32119,8 @@ K24319	KEGG	SCARF2; scavenger receptor class F member 2	True	False	False	False	F
 K24320	KEGG	GPC; Old World arenavirus glycoprotein	True	False	False	False	False
 K24321	KEGG	GPC; New World clade B/D arenavirus glycoprotein	True	False	False	False	False
 K24324	KEGG	S; MERS coronavirus spike glycoprotein	True	False	False	False	False
+K24326	KEGG	wbpG; aminotransferase	False	False	True	False	False
+K24327	KEGG	wbpS; glutamine-dependent amidotransferase [EC:6.3.5.-]	False	False	True	False	False
 K24328	KEGG	SIGLEC13; sialic acid binding Ig-like lectin 13	True	False	False	False	False
 K24329	KEGG	SIGLEC14; sialic acid binding Ig-like lectin 14	True	False	False	False	False
 K24330	KEGG	SIGLEC16; sialic acid binding Ig-like lectin 16	True	False	False	False	False

@@ -1,6 +1,6 @@
 # CheckAMG
 
-**Automated curation of Auxiliary Metabolic Genes (AMGs), Auxiliary Regulatory Genes (AReGs), and Auxiliary Physiology Genes (APGs) in viral genomes.**
+**Automated discovery and curation of Auxiliary Metabolic Genes (AMGs), Auxiliary Regulatory Genes (AReGs), and Auxiliary Physiology Genes (APGs) encoded by viral genomes**
 
 > ⚠️ **This tool is in active development and has not yet been peer-reviewed.**
 
@@ -11,15 +11,15 @@ checkamg download -d /path/to/db/destination
 
 checkamg annotate \
   -d /path/to/db/destination \
-  -g examples/example_data/single_contig_viruses.fasta \
-  -vg examples/example_data/multi_contig_vMAGs \
+  -i examples/example_data/single_contig_viruses.fasta \
+  -I examples/example_data/multi_contig_vMAGs \
   -o CheckAMG_example_out
 ```
 
 ## Features
 
 * Input: nucleotide or protein sequences
-* Handles single-contig viral genomes and multi-contig vMAGs
+* Handles single-contig viral genomes and multi-contig vMAGs/bins
 * Functional annotation + viral genome context-based curation
 * Outputs curated lists and amino-acid sequences of AMGs, AReGs, and APGs
 

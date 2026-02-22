@@ -153,6 +153,9 @@ K06417	7.01	2.845718018	KEGG	spoVID; stage VI sporulation protein D
 K06438			KEGG	yqfD; similar to stage IV sporulation protein
 K06603	0.04	0.602059991	KEGG	flaG; flagellar protein FlaG
 K06604			KEGG	flaI; flagellar protein FlaI
+K07012	10.0	4.036069701	KEGG	cas3; CRISPR-associated endonuclease/helicase Cas3 [EC:3.1.-.- 5.6.2.4]
+K07016	0.08	0.903089987	KEGG	csm1, cas10; CRISPR-associated protein Csm1
+K07061	0.01	0.0	KEGG	cmr1; CRISPR-associated protein Cmr1
 K07326	0.39	1.591064607	KEGG	fhaC; hemolysin activation/secretion protein
 K07327	0.11	1.041392685	KEGG	flaD; archaeal flagellar protein FlaD
 K07328			KEGG	flaE; archaeal flagellar protein FlaE
@@ -162,7 +165,10 @@ K07331	10.0	3.219060332	KEGG	flaH; archaeal flagellar protein FlaH
 K07332	1.94	2.28780173	KEGG	flaI; archaeal flagellar protein FlaI
 K07333	0.46	1.662757832	KEGG	flaJ; archaeal flagellar protein FlaJ
 K07344	1.01	2.004321374	KEGG	trbL; type IV secretion system protein TrbL
+K07464	10.0	3.333245699	KEGG	cas4; CRISPR-associated exonuclease Cas4 [EC:3.1.12.1]
+K07475	0.72	1.857332496	KEGG	cas3; CRISPR-associated endonuclease Cas3-HD [EC:3.1.-.-]
 K07570	2.27	2.356025857	KEGG	GSP13; general stress protein 13
+K07725	1.94	2.28780173	KEGG	csa3; CRISPR-associated protein Csa3
 K07804	3.4	2.531478917	KEGG	pagC; putatice virulence related protein PagC
 K07822	0.05	0.698970004	KEGG	flaC; archaeal flagellar protein FlaC
 K07934	1.98	2.29666519	KEGG	IFT27, RAYL, RABL4; intraflagellar transport protein 27
@@ -170,6 +176,10 @@ K07935	0.4	1.602059991	KEGG	IFT22, RABL5; intraflagellar transport protein 22
 K08293	10.0	3.043362278	KEGG	SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]
 K08384	1.07	2.029383778	KEGG	spoVD; stage V sporulation protein D (sporulation-specific penicillin-binding protein)
 K08879			KEGG	HSPB8; heat shock protein beta-8
+K09000	0.03	0.477121255	KEGG	cmr4; CRISPR-associated protein Cmr4
+K09002	0.41	1.612783857	KEGG	csm3; CRISPR-associated protein Csm3
+K09127	0.01	0.0	KEGG	cmr3; CRISPR-associated protein Cmr3
+K09144	2.51	2.399673721	KEGG	abiEii; nucleotidyl transferase AbiEii/AbiGii toxin family protein
 K09485	8.4	2.924279286	KEGG	HSP110; heat shock protein 110kDa
 K09487	1.34	2.127104798	KEGG	HSP90B, TRA1; heat shock protein 90kDa beta
 K09489	8.58	2.933487288	KEGG	HSPA4; heat shock 70kDa protein 4
@@ -180,6 +190,8 @@ K09545	0.63	1.799340549	KEGG	HSPB6; heat shock protein beta-6
 K09546			KEGG	HSPB7; heat shock protein beta-7
 K09547	0.01	0.0	KEGG	HSPB9; heat shock protein beta-9
 K09553	2.38	2.376576957	KEGG	STIP1; stress-induced-phosphoprotein 1
+K09951	0.8	1.903089987	KEGG	cas2; CRISPR-associated protein Cas2
+K09952	10.0	3.1430148	KEGG	csn1, cas9; CRISPR-associated endonuclease Csn1 [EC:3.1.-.-]
 K10859	4.12	2.614897216	KEGG	ALKBH2; DNA oxidative demethylase [EC:1.14.11.33]
 K11017	0.34	1.531478917	KEGG	shlB, hhdB, hpmB; hemolysin activation/secretion protein
 K11889	10.0	3.14332713	KEGG	impN; type VI secretion system protein ImpN [EC:2.7.11.1]
@@ -259,6 +271,51 @@ K18381			KEGG	hpaC; type III secretion control protein HpaP
 K18433			KEGG	virD1; type IV secretion system T-DNA border endonuclease VirD1
 K18434	0.39	1.591064607	KEGG	virD2; type IV secretion system T-DNA border endonuclease VirD2
 K18985			KEGG	ELMO2, CED12A; engulfment and cell motility protein 2
+K19046	0.12	1.079181246	KEGG	casB, cse2; CRISPR system Cascade subunit CasB
+K19074			KEGG	csa2; CRISPR-associated protein Csa2
+K19075	0.11	1.041392685	KEGG	cst2, cas7; CRISPR-associated protein Cst2
+K19076	0.03	0.477121255	KEGG	cmr2, cas10; CRISPR-associated protein Cmr2
+K19085	0.04	0.602059991	KEGG	csa1; CRISPR-associated protein Csa1
+K19086			KEGG	csa4, cas8a2; CRISPR-associated protein Csa4
+K19087			KEGG	csa5; CRISPR-associated protein Csa5
+K19088	0.04	0.602059991	KEGG	cst1, cas8a; CRISPR-associated protein Cst1
+K19089	0.01	0.0	KEGG	cas5a_b_c; CRISPR-associated protein Cas5a/b/c
+K19090	0.68	1.832508913	KEGG	cas5t; CRISPR-associated protein Cas5t
+K19091	0.59	1.770852012	KEGG	cas6; CRISPR-associated endoribonuclease Cas6 [EC:3.1.-.-]
+K19114			KEGG	csh1; CRISPR-associated protein Csh1
+K19115	0.6	1.77815125	KEGG	csh2; CRISPR-associated protein Csh2
+K19116	0.48	1.681241237	KEGG	cas5h; CRISPR-associated protein Cas5h
+K19117	0.96	1.982271233	KEGG	csd1, cas8c; CRISPR-associated protein Csd1
+K19118	0.62	1.792391689	KEGG	csd2, cas7; CRISPR-associated protein Csd2
+K19119	0.48	1.681241237	KEGG	cas5d; CRISPR-associated protein Cas5d
+K19120	0.01	0.0	KEGG	csc1; CRISPR-associated protein Csc1
+K19121	0.02	0.301029996	KEGG	csc2; CRISPR-associated protein Csc2
+K19122	0.06	0.77815125	KEGG	csc3; CRISPR-associated protein Csc3
+K19123	0.44	1.643452676	KEGG	casA, cse1; CRISPR system Cascade subunit CasA
+K19124	0.25	1.397940009	KEGG	casC, cse4; CRISPR system Cascade subunit CasC
+K19125	0.22	1.342422681	KEGG	casD, cse5; CRISPR system Cascade subunit CasD
+K19126	0.77	1.886490725	KEGG	casE, cse3; CRISPR system Cascade subunit CasE
+K19127	0.17	1.230448921	KEGG	csy1; CRISPR-associated protein Csy1
+K19128	0.28	1.447158031	KEGG	csy2; CRISPR-associated protein Csy2
+K19129	0.19	1.278753601	KEGG	csy3; CRISPR-associated protein Csy3
+K19130	0.19	1.278753601	KEGG	csy4, cas6f; CRISPR-associated endonuclease Csy4 [EC:3.1.-.-]
+K19131	0.06	0.77815125	KEGG	csb1; CRISPR-associated protein Csb1
+K19132	0.06	0.77815125	KEGG	csb2; CRISPR-associated protein Csb2
+K19133	0.01	0.0	KEGG	csb3; CRISPR-associated protein Csb3
+K19134	0.01	0.0	KEGG	csx10; CRISPR-associated protein Csx10
+K19135			KEGG	csx14; CRISPR-associated protein Csx14
+K19136	0.04	0.602059991	KEGG	csx17; CRISPR-associated protein Csx17
+K19137	0.05	0.698970004	KEGG	csn2; CRISPR-associated protein Csn2
+K19138			KEGG	csm2; CRISPR-associated protein Csm2
+K19139			KEGG	csm4; CRISPR-associated protein Csm4
+K19140			KEGG	csm5; CRISPR-associated protein Csm5
+K19141			KEGG	cmr5; CRISPR-associated protein Cmr5
+K19142			KEGG	cmr6; CRISPR-associated protein Cmr6
+K19143			KEGG	csx1; CRISPR-associated protein Csx1
+K19144	0.39	1.591064607	KEGG	csx3; CRISPR-associated protein Csx3
+K19145	0.22	1.342422681	KEGG	csx16; CRISPR-associated protein Csx16
+K19146			KEGG	csaX; CRISPR-associated protein CsaX
+K19167	1.89	2.276461804	KEGG	abiQ; protein AbiQ
 K19241			KEGG	ELMO3; engulfment and cell motility protein 3
 K19334	0.06	0.77815125	KEGG	tabA; biofilm protein TabA
 K19336	10.0	3.100370545	KEGG	bdcA; cyclic-di-GMP-binding biofilm dispersal mediator protein
@@ -345,12 +402,19 @@ K27099	0.04	0.602059991	KEGG	espB; ESX secretion-associated protein EspB
 K27100			KEGG	espJ; ESX secretion-associated protein EspJ
 K27101	0.01	0.0	KEGG	espK; ESX secretion-associated protein EspK
 K27102			KEGG	espL; ESX secretion-associated protein EspL
+K27579			KEGG	K27579; Straboviridae anti-restriction nuclease
+K27580			KEGG	K27580; Straboviridae anti-restriction nuclease
+K27584			KEGG	K27584; Straboviridae anti-restriction nuclease
 K28183			KEGG	HSPA14; heat shock 70 kDa protein 14
+K28193			KEGG	abiEi; AbiEi antitoxin C-terminal domain-containing protein
 PF00263.27			Pfam	Bacterial type II and III secretion system protein
 PF00437.27			Pfam	Type II/IV secretion system protein
 PF00482.29			Pfam	Type II secretion system (T2SS), protein F
 PF00582.33			Pfam	Universal stress protein family
+PF00873.26			Pfam	AcrB/AcrD/AcrF family
 PF01203.26			Pfam	Type II secretion system (T2SS), protein N
+PF01867.22			Pfam	CRISPR associated protein Cas1
+PF01881.22			Pfam	CRISPR associated protein Cas6, C-terminal
 PF01944.23			Pfam	Stage II sporulation protein M
 PF02049.24			Pfam	Flagellar hook-basal body complex protein FliE
 PF02050.22			Pfam	Flagellar FliJ protein
@@ -366,6 +430,7 @@ PF02512.20			Pfam	Virulence determinant
 PF02561.20			Pfam	Flagellar protein FliS
 PF02604.27			Pfam	Antitoxin Phd_YefM, type II toxin-antitoxin system
 PF03225.20			Pfam	Viral heat shock protein Hsp90 homologue
+PF03230.19			Pfam	Antirestriction protein
 PF03419.19			Pfam	Sporulation factor SpoIIGA
 PF03534.19			Pfam	Salmonella virulence plasmid 65kDa B protein
 PF03536.21			Pfam	Salmonella virulence-associated 28kDa protein
@@ -395,6 +460,7 @@ PF04717.19			Pfam	Type VI secretion system/phage-baseplate injector OB domain
 PF04888.18			Pfam	Secretion system effector C (SseC) like family
 PF05015.19			Pfam	RelE-like toxin of type II toxin-antitoxin system HigB
 PF05016.22			Pfam	ParE toxin of type II toxin-antitoxin system, parDE
+PF05107.18			Pfam	CRISPR-associated protein Cas7
 PF05108.19			Pfam	Type VII secretion system ESX-1, transport TM domain B
 PF05134.20			Pfam	Type II secretion system (T2SS), protein L
 PF05149.18			Pfam	Paraflagellar rod protein
@@ -415,6 +481,7 @@ PF05925.18			Pfam	Enterobacterial virulence protein IpgD
 PF05936.18			Pfam	Bacterial Type VI secretion, VC_A0110, EvfL, ImpJ, VasE
 PF05947.18			Pfam	Type VI secretion system, TssF
 PF05977.20			Pfam	Transmembrane secretion effector
+PF06023.19			Pfam	CRISPR-associated exonuclease Csa1
 PF06057.18			Pfam	Bacterial virulence protein (VirJ)
 PF06257.18			Pfam	Biofilm formation stimulator VEG
 PF06289.17			Pfam	Flagellar and Swarming motility proteins
@@ -437,6 +504,7 @@ PF07195.18			Pfam	Flagellar hook-associated protein 2 C-terminus
 PF07228.18			Pfam	Stage II sporulation protein E (SpoIIE)
 PF07240.17			Pfam	Stress-inducible humoral factor Turandot
 PF07254.18			Pfam	Membrane-bound toxin component of toxin-antitoxin system
+PF07275.17			Pfam	Antirestriction protein (ArdA)
 PF07309.17			Pfam	Flagellar protein FlaF
 PF07321.18			Pfam	Type III secretion protein YscO
 PF07378.17			Pfam	Flagellar protein FlbT
@@ -445,6 +513,7 @@ PF07454.19			Pfam	Stage II sporulation protein P (SpoIIP)
 PF07520.17			Pfam	Virulence factor SrfB
 PF07559.20			Pfam	Flagellar basal body protein FlaE D2 domain
 PF07712.19			Pfam	Stress up-regulated Nod 19
+PF07751.17			Pfam	Abi-like protein
 PF07876.19			Pfam	Stress responsive A/B Barrel Domain
 PF07927.18			Pfam	HicA toxin of bacterial toxin-antitoxin,
 PF07996.17			Pfam	Type IV secretion system proteins
@@ -452,18 +521,26 @@ PF08178.17			Pfam	GnsA/GnsB toxin of bacterial toxin-antitoxin system
 PF08183.17			Pfam	Stage V sporulation protein family
 PF08334.17			Pfam	Type II secretion system (T2SS), protein G
 PF08345.18			Pfam	Flagellar M-ring protein C-terminal
+PF08401.17			Pfam	N-terminal domain of anti-restriction factor ArdC
 PF08486.16			Pfam	Stage II sporulation protein
 PF08769.18			Pfam	Sporulation initiation factor Spo0A C terminal
+PF08798.17			Pfam	CRISPR associated protein
 PF08817.17			Pfam	WXG100 protein secretion system (Wss), protein YukD
+PF08843.18			Pfam	Nucleotidyl transferase AbiEii toxin, Type IV TA system
 PF08845.16			Pfam	Toxin SymE, type I toxin-antitoxin system
 PF08970.16			Pfam	Sporulation inhibitor A
 PF08988.16			Pfam	Type III secretion system, cytoplasmic E component of needle
 PF09392.16			Pfam	Type III secretion needle MxiH, YscF, SsaG, EprI, PscF, EscF
+PF09407.16			Pfam	AbiEi antitoxin C-terminal domain
+PF09455.16			Pfam	CRISPR system endoribonuclease Csx1, HEPN domain
 PF09474.16			Pfam	Type III secretion system YscX (type_III_YscX)
 PF09475.17			Pfam	Dot/Icm secretion system protein (dot_icm_IcmQ)
 PF09480.16			Pfam	Type III secretion system protein PrgH-EprH (PrgH)
+PF09481.16			Pfam	CRISPR-associated protein Cse1 (CRISPR_cse1)
 PF09482.16			Pfam	Bacterial type III secretion apparatus protein (OrgA_MxiK)
 PF09483.16			Pfam	Type III secretion protein (HpaP)
+PF09484.16			Pfam	CRISPR-associated protein TM1802 (cas_TM1802)
+PF09485.16			Pfam	CRISPR-associated protein Cse2 (CRISPR_cse2)
 PF09486.16			Pfam	Bacterial type III secretion protein (HrpB7)
 PF09487.16			Pfam	Bacterial type III secretion protein (HrpB2)
 PF09501.16			Pfam	Probable sporulation protein (Bac_small_yrzI)
@@ -472,18 +549,42 @@ PF09546.16			Pfam	Stage III sporulation protein AE (spore_III_AE)
 PF09547.17			Pfam	Stage IV sporulation protein A, ATPase domain
 PF09548.16			Pfam	Stage III sporulation protein AB (spore_III_AB)
 PF09551.16			Pfam	Stage II sporulation protein R (spore_II_R)
+PF09559.16			Pfam	Cas6 Crispr
 PF09560.16			Pfam	Sporulation protein YunB (Spo_YunB)
 PF09577.16			Pfam	Sporulation protein YpjB (SpoYpjB)
 PF09579.16			Pfam	Sporulation protein YtfJ (Spore_YtfJ)
 PF09580.16			Pfam	Sporulation lipoprotein YhcN/YlaJ (Spore_YhcN_YlaJ)
 PF09581.17			Pfam	Stage III sporulation protein AF (Spore_III_AF)
+PF09609.15			Pfam	CRISPR-associated protein, GSU0054 family (Cas_GSU0054)
+PF09611.16			Pfam	CRISPR-associated protein (Cas_Csy1)
 PF09613.17			Pfam	Bacterial type III secretion protein (HrpB1_HrpK)
+PF09614.16			Pfam	CRISPR-associated protein (Cas_Csy2)
+PF09615.16			Pfam	CRISPR-associated protein (Cas_Csy3)
+PF09617.16			Pfam	CRISPR-associated protein GSU0053 (Cas_GSU0053)
+PF09618.16			Pfam	CRISPR-associated protein (Cas_Csy4)
+PF09620.16			Pfam	CRISPR-associated protein (Cas_csx3)
+PF09623.17			Pfam	CRISPR-associated protein NE0113 (Cas_NE0113)
+PF09651.17			Pfam	CRISPR-associated protein (Cas_APE2256)
+PF09652.16			Pfam	Putative CRISPR-associated protein (Cas_VVA1548)
+PF09657.16			Pfam	CRISPR-associated protein Csx8 (Cas_Csx8)
+PF09658.16			Pfam	CRISPR-associated protein (Cas_Csx9)
 PF09691.16			Pfam	Type II secretion system pilotin lipoprotein (PulS_OutS)
+PF09700.16			Pfam	CRISPR-associated protein (Cas_Cmr3)
+PF09701.16			Pfam	CRISPR-associated protein (Cas_Cmr5)
+PF09702.16			Pfam	CRISPR-associated protein (Cas_Csa5)
+PF09703.16			Pfam	CRISPR-associated protein (Cas_Csa4)
+PF09704.16			Pfam	CRISPR-associated protein (Cas_Cas5)
+PF09706.16			Pfam	CRISPR-associated protein (Cas_CXXC_CXXC)
+PF09707.16			Pfam	CRISPR-associated protein (Cas_Cas2CT1978)
+PF09709.16			Pfam	CRISPR-associated protein (Cas_Csd1)
+PF09711.17			Pfam	CRISPR-associated protein (Cas_Csn2)
+PF09827.15			Pfam	CRISPR associated protein Cas2
 PF09850.15			Pfam	Type VI secretion system protein DotU
 PF09857.15			Pfam	Putative toxin of bacterial toxin-antitoxin pair
 PF09859.16			Pfam	Oxygenase, catalysing oxidative methylation of damaged DNA
 PF09867.15			Pfam	TagF N-terminal domain, Type VI secretion system-associated
 PF09907.16			Pfam	HigB_toxin, RelE-like toxic component of a toxin-antitoxin system
+PF10040.15			Pfam	CRISPR-associated endoribonuclease Cas6
 PF10139.15			Pfam	Putative bacterial virulence factor
 PF10140.16			Pfam	WXG100 protein secretion system (Wss), protein YukC
 PF10144.16			Pfam	Bacterial virulence factor haemolysin
@@ -497,13 +598,17 @@ PF10684.15			Pfam	Putative biofilm-dependent modulation protein
 PF10685.15			Pfam	Stress-induced bacterial acidophilic repeat motif
 PF10741.15			Pfam	Type II secretion system (T2SS), protein M subtype b
 PF10747.15			Pfam	Sporulation inhibitor of replication protein SirA
+PF10766.15			Pfam	Multidrug efflux pump-associated protein AcrZ
 PF10798.14			Pfam	Biofilm development protein YmgB/AriR
 PF10799.13			Pfam	Biofilm formation protein (YliH/bssR)
 PF10824.15			Pfam	Excreted virulence factor EspC, type VII ESX diderm
+PF10899.14			Pfam	Putative abortive phage resistance protein AbiGi, antitoxin
 PF10957.14			Pfam	Sporulation protein Cse60
 PF11036.13			Pfam	Virulence promoting factor
+PF11058.13			Pfam	Antirestriction protein Ral
 PF11160.14			Pfam	Hypervirulence associated proteins TUDOR domain
 PF11181.14			Pfam	Heat induced stress protein YflT domain
+PF11195.15			Pfam	Thoeris anti-defense 2-like domain
 PF11202.15			Pfam	Tellurite-like stress resistance cysteine protease StiP
 PF11203.14			Pfam	Putative type VII ESX secretion system translocon, EccE
 PF11319.14			Pfam	Type VI secretion system VasI, EvfG, VC_A0118
@@ -526,6 +631,7 @@ PF12293.14			Pfam	Putative outer membrane core complex of type IVb secretion
 PF12317.14			Pfam	Intraflagellar transport complex B protein 46 C terminal
 PF12441.15			Pfam	CopG antitoxin of type II toxin-antitoxin system
 PF12468.15			Pfam	Type III secretion system leucine rich repeat protein
+PF12469.14			Pfam	CRISPR-associated protein Cmr2, N-terminal
 PF12486.14			Pfam	Type VI secretion system, EvfB, or VasL
 PF12528.14			Pfam	Type II secretion prepilin peptidase dependent protein C
 PF12608.14			Pfam	Type IVb secretion, IcmS, effector-recruitment
@@ -536,6 +642,7 @@ PF12790.14			Pfam	Type VI secretion lipoprotein, VasD, EvfM, TssJ, VC_A0113
 PF12910.14			Pfam	Antitoxin of toxin-antitoxin, RelE / RelB, TA system
 PF12945.13			Pfam	Flagellar protein YcgR
 PF13296.12			Pfam	Putative type VI secretion system Rhs element Vgr
+PF13304.13			Pfam	AAA domain, putative AbiEii toxin, Type IV TA system
 PF13310.12			Pfam	Virulence protein RhuM family
 PF13327.12			Pfam	Type III secretion system subunit
 PF13753.13			Pfam	Putative flagellar system-associated repeat
@@ -555,7 +662,10 @@ PF14113.13			Pfam	Type VI secretion system (T6SS), amidase effector protein 4
 PF14147.12			Pfam	Sporulation protein YhaL
 PF14171.12			Pfam	Toxin SpoIISA, type II toxin-antitoxin system
 PF14185.12			Pfam	Antitoxin SpoIISB, type II toxin-antitoxin system
+PF14253.12			Pfam	Bacteriophage abortive infection AbiH
+PF14337.14			Pfam	Abortive infection alpha
 PF14349.12			Pfam	Motility related/secretion protein
+PF14355.12			Pfam	Abortive infection C-terminus
 PF14384.13			Pfam	BrnA antitoxin of type II toxin-antitoxin system
 PF14571.12			Pfam	Stress-induced protein Di19, C-terminal
 PF14620.13			Pfam	YpeB sporulation, PepSY1 and PepSY2 domains
@@ -565,6 +675,7 @@ PF14874.13			Pfam	Flagellar-associated PapD-like
 PF14931.12			Pfam	Intraflagellar transport complex B, subunit 20
 PF15284.12			Pfam	Phage-encoded virulence factor
 PF15305.12			Pfam	Intraflagellar transport protein 43
+PF15339.12			Pfam	Acrosome formation-associated factor
 PF15407.13			Pfam	Sporulation protein family 7
 PF15731.12			Pfam	Antitoxin component of bacterial toxin-antitoxin system, MqsA
 PF15738.12			Pfam	Bacterial toxin of type II toxin-antitoxin system, YafQ
@@ -574,6 +685,7 @@ PF15908.11			Pfam	Hyaluronan mediated motility receptor C-terminal
 PF15919.12			Pfam	HicB_like antitoxin of bacterial toxin-antitoxin system
 PF15939.11			Pfam	Putative antitoxin of bacterial toxin-antitoxin system
 PF15950.11			Pfam	Putative sperm flagellar membrane protein
+PF15968.10			Pfam	Membrane-anchored ion channel, Abi component
 PF15970.11			Pfam	HicB_like antitoxin of bacterial toxin-antitoxin system
 PF16537.12			Pfam	Type II secretion system protein B
 PF16538.12			Pfam	Flagellar assembly protein T, C-terminal domain
@@ -581,11 +693,17 @@ PF16539.11			Pfam	Flagellar assembly protein T, middle domain
 PF16548.11			Pfam	Flagellar assembly protein T, N-terminal domain
 PF16549.11			Pfam	Type II secretion system (T2SS) pilotin, S protein
 PF16583.12			Pfam	Zinc-regulated secreted antivirulence protein C-terminal domain
+PF16592.11			Pfam	REC lobe of CRISPR-associated endonuclease Cas9
+PF16593.11			Pfam	Bridge helix of CRISPR-associated endonuclease Cas9
+PF16595.11			Pfam	PAM-interacting domain of CRISPR-associated endonuclease Cas9
 PF16695.11			Pfam	Type VI secretion system (T6SS), amidase immunity protein
 PF16810.11			Pfam	RXLR phytopathogen effector protein, Avirulence activity
+PF16813.12			Pfam	CRISPR-associated protein Csn2 subfamily St
 PF16829.11			Pfam	Avirulence protein ATR13, RxLR effector
 PF16847.11			Pfam	Avirulence AvrPtoB, BAK1-binding domain
 PF16848.11			Pfam	Substrate of the Dot/Icm secretion system, putative
+PF16872.11			Pfam	Putative phage abortive infection protein
+PF16873.11			Pfam	Putative abortive phage resistance protein AbiGii toxin
 PF16937.11			Pfam	Type III secretion system translocator protein, HrpF
 PF16973.11			Pfam	Flagellar motor switch protein FliN N-terminal
 PF16989.11			Pfam	Type VI secretion, EvfE, EvfF, ImpA, BimE, VC_A0119, VasJ
@@ -602,12 +720,28 @@ PF17722.7			Pfam	Intraflagellar transport-associated protein
 PF17735.8			Pfam	Biofilm surface layer A
 PF17849.8			Pfam	Dis3-like cold-shock domain 2 (CSD2)
 PF17876.8			Pfam	Cold shock domain
+PF17893.7			Pfam	CRISPR-associated endonuclease Cas9 beta-hairpin domain
+PF17894.7			Pfam	Topo homolgy domain in CRISPR-associated endonuclease Cas9
+PF17953.7			Pfam	CRISPR Csm4 C-terminal domain
+PF18061.7			Pfam	CRISPR-Cas9 WED domain
+PF18070.7			Pfam	CRISPR-Cas9 PI domain
+PF18182.7			Pfam	minimal CRISPR polymerase domain
 PF18270.6			Pfam	Virulence factor Evf
 PF18286.7			Pfam	Type III secretion system ExsE
+PF18320.7			Pfam	Csc2 Crispr
 PF18383.7			Pfam	Intraflagellar transport 81 calponin homology domain
 PF18661.7			Pfam	Avirulence Effector AvrLm4-7
+PF18728.7			Pfam	AbiV
+PF18732.7			Pfam	HEPN like, Abia C-terminal domain
+PF18734.7			Pfam	AbiU2
+PF18860.7			Pfam	AbiJ N-terminal domain 3
+PF18863.7			Pfam	AbiJ N-terminal domain 4
+PF18864.7			Pfam	AbiTii
+PF18865.7			Pfam	AbiJ N-terminal domain 5
 PF18895.6			Pfam	Type IV secretion system pilin
 PF18962.7			Pfam	Secretion system C-terminal sorting domain
+PF19021.6			Pfam	CRISPR system CMR subunit Cmr7 1
+PF19308.5			Pfam	CRISPR Cas6 N-terminal domain
 PF19568.6			Pfam	Sporulation stage III, protein AA
 PF19572.6			Pfam	Type IX secretion system protein PorV
 PF19732.5			Pfam	Stage II sporulation protein E N-terminal
@@ -618,59 +752,120 @@ PF20250.4			Pfam	Flagellar Assembly Protein A N-terminal region
 PF20438.4			Pfam	Stage IV sporulation protein A, middle domain
 PF20439.4			Pfam	Sporulation stage IV protein A, C-terminal
 PF20560.4			Pfam	Motility protein A N-terminal
+PF20822.3			Pfam	CRISPR RNA silencing complex Cmr2 subunit, first helical domain
+PF20823.3			Pfam	CRISPR RNA silencing complex Cmr2 subunit, Zn-binding domain
+PF20824.3			Pfam	CRISPR RNA silencing complex Cmr2 subunit, second helical domain
+PF20829.3			Pfam	Anti-CRISPR protein Acr30-35/AcrF1
 PF20894.3			Pfam	Small heat shock protein Tsp36, N-terminal domain
 PF20898.2			Pfam	P-type Type IV secretion system, TraN
+PF21069.3			Pfam	CRISPR-associated endonuclease Cas9 alpha-helical lobe
 PF21070.3			Pfam	Type VI secretion protein IcmF helical domain
 PF21158.4			Pfam	Flagellar hook-associated protein 1, D2-like domain
 PF21159.4			Pfam	Flagellar hook-associated protein 1, D3 domain
 PF21178.3			Pfam	Intraflagellar transport protein 52, C-terminal domain
 PF21277.3			Pfam	Type VI secretion system spike protein VgrG3-like, C-terminal
 PF21304.3			Pfam	SPI-1 type 3 secretion system secretin, N0 domain
+PF21350.3			Pfam	CRISPR-associated protein Cas6, N-terminal
+PF21384.3			Pfam	CRISPR-associated nuclease/helicase Cas3, I-F/YPEST, Cas2 domain
+PF21401.3			Pfam	Cas3 inhibitor AcrF3
 PF21421.3			Pfam	Avirulence protein ATR1, WY-domain
 PF21464.3			Pfam	Flagellar hook protein FlgE, D3 domain
 PF21535.3			Pfam	Uncharacterized motility-related protein HVO_2248
 PF21545.4			Pfam	T7SS, ESX-1 secretion system protein EccA1, N-terminal domain
+PF21574.3			Pfam	CRISPR-associated endonuclease Cas9, C-terminal domain
 PF21610.3			Pfam	Flagellar protein FlgA, N-terminal domain-like
 PF21687.4			Pfam	Type II secretion system (T2SS), protein K
+PF21802.3			Pfam	CRISPR-associated Cas3 subtype I-F/YPEST-like, C-terminal domain
 PF21856.3			Pfam	ESX-1 secretion-associated protein EspB, PPE domain
+PF21918.2			Pfam	CRISPR-associated endonuclease Cpf1 REC2 domain
 PF22044.2			Pfam	Sporulation protein 24
+PF22077.2			Pfam	CRISPR-associated endonuclease C2c1 Nuc-II domain
+PF22126.3			Pfam	C2c1 CRISPR-Cas endonuclease, RuvC-like domain
+PF22129.2			Pfam	CRISPR-associated endonuclease CjCas9 wedge domain
+PF22131.2			Pfam	CRISPR-associated endonuclease CjCas9 PI-CTD domain
+PF22147.2			Pfam	Anti-CRISPR protein AcrIC5
+PF22172.2			Pfam	CRISPR-associated endonuclease C2c1 second helical domain
 PF22201.3			Pfam	Conserved flagellar protein F, immunoglobulin-like domain
+PF22202.2			Pfam	CRISPR-associated endonuclease C2c1 first helical domain
+PF22204.2			Pfam	CRISPR-associated endonuclease C2c1, wedge domain, second region
+PF22206.2			Pfam	CRISPR-associated protein Csm6 6H domain
 PF22211.3			Pfam	Type six secretion immunity 3 domain
+PF22222.2			Pfam	CRISPR-associated endonuclease Cpf1 PI domain
+PF22230.2			Pfam	CRISPR system endoribonuclease Csx1, CARF domain
 PF22347.2			Pfam	Avirulence protein AvrPiz-t
 PF22367.2			Pfam	Flagellar hook protein FlgE, third domain
+PF22385.1			Pfam	CRISPR-associated endonuclease Cas9, C-terminal domain
 PF22438.3			Pfam	Flagellar protein FlgA,  HotDog domain-like
 PF22510.2			Pfam	Flagellar biosynthesis protein FlhF, N domain
+PF22590.3			Pfam	CRISPR-associated nuclease/helicase Cas3, C-terminal
 PF22638.2			Pfam	Flagellar hook-associated protein FlgK helical domain
+PF22662.3			Pfam	Csa3 CRISPR-associated Rossmann-like domain
 PF22692.2			Pfam	Flagellar hook protein FlgE/F/G D1 domain
+PF22879.2			Pfam	Abortive infection phage resistance protein N-terminal domain
 PF23456.2			Pfam	Cold shock domain-containing protein E1 CSD domain
+PF23474.2			Pfam	Anti-CBASS protein Acb1
+PF23813.2			Pfam	Anti-DarT factor A
+PF24121.2			Pfam	Type I-B CRISPR Cas8b N-terminal domain
+PF24122.2			Pfam	Type I-B CRISPR Cas8b C-terminal domain
+PF24304.2			Pfam	Anti-CRISPR Suppressor AcrIIA4
 PF24687.2			Pfam	Type III Secretion system protein OrgC
+PF25187.2			Pfam	CBASS inhibitor Acb3
 PF25218.2			Pfam	Type VI secretion system effector TseH-like
 PF25593.2			Pfam	Gliding motility lipoprotein GldD
 PF25594.2			Pfam	Gliding motility protein GldB
+PF25699.1			Pfam	Anti-CRISPR protein AcrF8
+PF25703.2			Pfam	Anti-CRISPR protein F31
+PF25704.2			Pfam	Anti-CRISPR protein AcrF2 protein
+PF25705.2			Pfam	Gabija anti-defense 1
+PF26125.1			Pfam	Anti-CRISPR type V subtype A2 family
+PF26126.1			Pfam	Hachiman anti-defense protein
+PF26128.1			Pfam	Gabija anti-defense 2 family protein
 PF26137.1			Pfam	Sporulation delaying protein family toxin
+PF26151.1			Pfam	Anti-CRISPR Type I-F ADP-ribosyltransferase AcrIF11
+PF26241.1			Pfam	Type I-D CRISPR-associated protein Cas5/Csc1
 PF26323.1			Pfam	Staphylococcus aureus type VII secretion system substrate EsxC
 PF26324.1			Pfam	Type III secretion system effector HopBF1 kinase domain
 PF26347.1			Pfam	Sporulation membrane protein YtrI family
+PF26395.1			Pfam	Type II CBASS E2 protein
+phrog_10089	10.0	3.968996327	PHROG	DarB-like antirestriction
+phrog_10132	0.84	1.924279286	PHROG	anti-restriction protein
 phrog_10856	0.51	1.707570176	PHROG	sporulation protein
 phrog_11726	1.09	2.037426498	PHROG	sporulation stage III protein D
+phrog_14321	0.42	1.62324929	PHROG	anti-restriction protein
+phrog_14587	0.19	1.278753601	PHROG	anti-restriction protein
 phrog_16152	0.13	1.113943352	PHROG	Hsp70 heat shock protein
+phrog_1620	2.16	2.334453751	PHROG	Hdf-like antirestriction
+phrog_1629	1.48	2.170261715	PHROG	Ulx-like anti-restriction
 phrog_16914	2.29	2.359835482	PHROG	sporulation protein
+phrog_1706	10.0	3.16879202	PHROG	CRISPR/Cas system associated
+phrog_1841	2.16	2.334453751	PHROG	Abi alpha-like abortive infection mechanism
+phrog_1855	0.47	1.672097858	PHROG	DdrA-like anti-restriction protein
 phrog_19414	0.01	0.0	PHROG	antitoxin from a toxin-antitoxin system
+phrog_2059	7.69	2.88592634	PHROG	anti-restriction protein
+phrog_2158	10.0	3.005180513	PHROG	abortive infection resistance protein
 phrog_2268	0.99	1.995635195	PHROG	antitoxin from a toxin-antitoxin system
+phrog_2568	1.22	2.086359831	PHROG	ocr-like anti-restriction
 phrog_258	0.88	1.944482672	PHROG	virulence associated
 phrog_3402	0.32	1.505149978	PHROG	antitoxin from a toxin-antitoxin system
 phrog_35646	4.54	2.657055853	PHROG	sporulation protein
+phrog_36653	0.76	1.880813592	PHROG	anti-restriction protein
 phrog_36746	2.92	2.465382851	PHROG	antitoxin from a toxin-antitoxin system
 phrog_4052	0.09	0.954242509	PHROG	PAGK virulence factor
 phrog_432	10.0	3.388101202	PHROG	Hsp20 heat shock protein
+phrog_4452	0.16	1.204119983	PHROG	anti-restriction nuclease
 phrog_4681	10.0	3.006037955	PHROG	antitoxin from a toxin-antitoxin system
 phrog_4692	2.72	2.434568904	PHROG	antitoxin from a toxin-antitoxin system
 phrog_497	10.0	3.363799945	PHROG	toxin-antitoxin system HicB-like
+phrog_6287	3.37	2.527629901	PHROG	BstA abortive infection system, replication inhibitor
 phrog_6494	0.15	1.176091259	PHROG	antitoxin from a toxin-antitoxin system
 phrog_6929	0.44	1.643452676	PHROG	universal stress protein
+phrog_70786			PHROG	CRISPR/Cas system associated
+phrog_7245	10.0	3.363423933	PHROG	anti-restriction protein
 phrog_729	10.0	3.129689892	PHROG	cold shock protein
 phrog_8458	0.43	1.633468456	PHROG	flagellar protein
+phrog_8786	0.08	0.903089987	PHROG	type I-E anti-CRISPR protein
 phrog_8945	0.18	1.255272505	PHROG	stringent starvation protein Sspb-like
+phrog_9769	0.02	0.301029996	PHROG	type I-F anti-CRISPR protein
 HMMsoil100657			FOAM	ERK, MAPK1_3; mitogen-activated protein kinase 1/3 [EC:2.7.11.24]; MAPK4_6; mitogen-activated protein kinase 4/6 [EC:2.7.11.24]; SMK1; sporulation-specific mitogen-activated protein kinase SMK1 [EC:2.7.11.24]
 HMMsoil103890			FOAM	K08884; serine/threonine protein kinase, bacterial [EC:2.7.11.1]; impN; type VI secretion system protein ImpN [EC:2.7.11.1]
 HMMsoil108431			FOAM	SPS1; sporulation-specific protein 1 [EC:2.7.11.1]

@@ -68,6 +68,9 @@ from functools import partial
 import numpy as np
 from pyfastatools import Parser
 
+os.environ["POLARS_MAX_THREADS"] = str(snakemake.threads)
+import polars as pl
+
 def set_memory_limit(limit_in_gb):
     limit_in_bytes = limit_in_gb * 1024 * 1024 * 1024
     try:
@@ -88,9 +91,9 @@ logging.basicConfig(
 )
 logger = logging.getLogger()
 
-print("========================================================================\n     Step 2/11: Check the circularity of the input genome sequences    \n========================================================================")
+print("========================================================================\n        Step 2/11: Check the circularity of the input sequences        \n========================================================================")
 with open(log_file, "a") as log:
-    log.write("========================================================================\n     Step 2/11: Check the circularity of the input genome sequences    \n========================================================================\n")
+    log.write("========================================================================\n        Step 2/11: Check the circularity of the input sequences        \n========================================================================\n")
 
 # Genome class
 class Genome:
@@ -236,8 +239,8 @@ def parallel_processing(single_contig_fasta, input_files, k, tr_min_len, tr_max_
     return combined_genomes
 
 def main():
-    input_fasta = snakemake.params.input_single_contig_genomes
-    input_vmag_fastas = snakemake.params.input_vmag_fastas
+    input_fasta = snakemake.params.input_single_contigs
+    input_bins = snakemake.params.input_bins
     output_path = snakemake.params.circularity_tbl
     tr_min_len = snakemake.params.tr_min_len
     tr_max_len = snakemake.params.tr_max_len
@@ -246,50 +249,66 @@ def main():
     tr_max_basefreq = snakemake.params.tr_max_basefreq
     kmer_max_freq = snakemake.params.kmer_max_freq
     k = snakemake.params.k
+    save_to_parquet = snakemake.params.save_to_parquet
     mem_limit = snakemake.resources.mem
     num_workers = snakemake.threads
     set_memory_limit(mem_limit)
 
     logger.info("Sequence circularity check starting...")
     
-    if os.path.exists(input_vmag_fastas):
-        vmag_fasta_files = [os.path.join(input_vmag_fastas, fna) for fna in os.listdir(input_vmag_fastas) if fna.endswith('.fna')]
-        logger.debug(f"vMAG fna files found: {vmag_fasta_files}")
+    if os.path.exists(input_bins):
+        bin_fasta_files = [os.path.join(input_bins, fna) for fna in os.listdir(input_bins) if fna.endswith('.fna')]
+        logger.debug(f"Binned fna files found: {bin_fasta_files}")
         if os.path.exists(input_fasta):
-            logger.debug(f"Single contig genomes file found: {input_fasta}")
-            input_files = [input_fasta] + vmag_fasta_files
+            logger.debug(f"Single contigs file found: {input_fasta}")
+            input_files = [input_fasta] + bin_fasta_files
         else:
-            logger.debug("No single contig genomes file found.")
-            input_files = vmag_fasta_files
+            logger.debug("No single contigs file found.")
+            input_files = bin_fasta_files
     else:
-        vmag_fasta_files = None
-        logger.debug("No vMAG fna files found.")
+        bin_fasta_files = None
+        logger.debug("No binned fna files found.")
         if os.path.exists(input_fasta):
-            logger.debug(f"Single contig genomes file found: {input_fasta}")
+            logger.debug(f"Single contigs file found: {input_fasta}")
             input_files = [input_fasta]
         else:
-            logger.error("No single contig genomes file found.")
-            raise FileNotFoundError("No input single-contig virus genome or vMAG files found.")
+            logger.error("No single contigs file found.")
+            raise FileNotFoundError("No input single-contig or binned files found.")
 
     # Process genomes in parallel
     sequences = parallel_processing(input_fasta, input_files, k, tr_min_len, tr_max_len, tr_max_count, tr_max_ambig, tr_max_basefreq, kmer_max_freq, num_workers)
     
     # Write results to output
-    with open(output_path, "w") as out:
-        header = [
-            "contig", "contig_length", "kmer_freq", "prediction_type",
-            "repeat_length", "repeat_count", "repeat_n_freq", 
-            "repeat_mode_base_freq", "repeat_seq"
-        ]
-        out.write("\t".join(header) + "\n")
-        for genome in sequences.values():
-            if genome.tr.type is not None:
-                row = [
-                    genome.id, genome.length, genome.kmer_freq, genome.tr.type,
-                    genome.tr.length, genome.tr.count, genome.tr.n_freq, 
-                    genome.tr.mode_freq, genome.tr.seq
-                ]
-                out.write("\t".join(map(str, row)) + "\n")
+    if not save_to_parquet:
+        with open(output_path, "w") as out:
+            header = [
+                "contig", "contig_length", "kmer_freq", "prediction_type",
+                "repeat_length", "repeat_count", "repeat_n_freq", 
+                "repeat_mode_base_freq", "repeat_seq"
+            ]
+            out.write("\t".join(header) + "\n")
+            for genome in sequences.values():
+                if genome.tr.type is not None:
+                    row = [
+                        genome.id, genome.length, genome.kmer_freq, genome.tr.type,
+                        genome.tr.length, genome.tr.count, genome.tr.n_freq, 
+                        genome.tr.mode_freq, genome.tr.seq
+                    ]
+                    out.write("\t".join(map(str, row)) + "\n")
+    else:
+        output_path_parquet = output_path.replace('.tsv', '.parquet')
+        df = pl.DataFrame({
+            "contig": [g.id for g in sequences.values() if g.tr.type is not None],
+            "contig_length": [g.length for g in sequences.values() if g.tr.type is not None],
+            "kmer_freq": [g.kmer_freq for g in sequences.values() if g.tr.type is not None],
+            "prediction_type": [g.tr.type for g in sequences.values() if g.tr.type is not None],
+            "repeat_length": [g.tr.length for g in sequences.values() if g.tr.type is not None],
+            "repeat_count": [g.tr.count for g in sequences.values() if g.tr.type is not None],
+            "repeat_n_freq": [g.tr.n_freq for g in sequences.values() if g.tr.type is not None],
+            "repeat_mode_base_freq": [g.tr.mode_freq for g in sequences.values() if g.tr.type is not None],
+            "repeat_seq": [g.tr.seq for g in sequences.values() if g.tr.type is not None]
+        })
+        df.write_parquet(output_path_parquet)
 
     logger.info(f"Number of sequences checked: {len(sequences):,}")
     logger.info(f"Number of circular sequences detected: {len([g for g in sequences.values() if g.tr.type is not None]):,}")

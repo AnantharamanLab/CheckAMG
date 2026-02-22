@@ -2,6 +2,7 @@
 
 import os
 import sys
+from pathlib import Path
 import logging
 import resource
 import platform
@@ -32,6 +33,12 @@ logger = logging.getLogger()
 print("========================================================================\n      Step 11/11: Write the final summarized auxiliary gene table       \n========================================================================")
 with open(log_file, "a") as log:
     log.write("========================================================================\n      Step 11/11: Writing the final summarized auxiliary gene table       \n========================================================================\n")
+
+def _as_parquet_path_if_enabled(p, save_to_parquet: bool):
+    p = Path(p)
+    if save_to_parquet and p.suffix.lower() == ".tsv":
+        return p.with_suffix(".parquet")
+    return p
 
 def _ensure_function_col(df: pl.DataFrame) -> pl.DataFrame:
     if "Function" not in df.columns:
@@ -127,6 +134,8 @@ def classify_proteins(final_df, metabolism_df, physiology_df, regulatory_df):
                 "CAMPER_Description",
                 "PHROG_hmm_id",
                 "PHROG_Description",
+                # "VOG_hmm_id",
+                # "VOG_Description",
                 "top_hit_hmm_id",
                 "top_hit_description",
                 "top_hit_db",
@@ -150,6 +159,8 @@ def classify_proteins(final_df, metabolism_df, physiology_df, regulatory_df):
                 "CAMPER_Description": "CAMPER Annotation",
                 "PHROG_hmm_id": "PHROG Number",
                 "PHROG_Description": "PHROG Annotation",
+                # "VOG_hmm_id": "VOG Name",
+                # "VOG_Description": "VOG Annotation",
                 "top_hit_hmm_id": "Best Scoring HMM",
                 "top_hit_description": "Best Scoring HMM Annotation",
                 "top_hit_db": "Best Scoring HMM Origin",
@@ -170,28 +181,40 @@ def merge_dataframes(all_genes_df, metabolism_df, physiology_df, regulatory_df):
     return classify_proteins(all_genes_df, metabolism_df, physiology_df, regulatory_df)
 
 def main():
-    all_genes_path = snakemake.params.all_genes_annotated
-    gene_index_path = snakemake.params.gene_index
-    metabolism_path = snakemake.params.metabolism_table
-    physiology_path = snakemake.params.physiology_table
-    regulatory_path = snakemake.params.regulation_table
-    final_table_path = snakemake.params.final_table
+    save_to_parquet = snakemake.params.save_to_parquet
+    all_genes_path = _as_parquet_path_if_enabled(snakemake.params.all_genes_annotated, save_to_parquet)
+    gene_index_path = _as_parquet_path_if_enabled(snakemake.params.gene_index, save_to_parquet)
+    metabolism_path = _as_parquet_path_if_enabled(snakemake.params.metabolism_table, save_to_parquet)
+    physiology_path = _as_parquet_path_if_enabled(snakemake.params.physiology_table, save_to_parquet)
+    regulatory_path = _as_parquet_path_if_enabled(snakemake.params.regulation_table, save_to_parquet)
+    final_table_path = _as_parquet_path_if_enabled(snakemake.params.final_table, save_to_parquet)
     mem_limit = snakemake.resources.mem
     threads = snakemake.threads
     set_memory_limit(mem_limit)
 
-    all_genes_df = pl.read_csv(all_genes_path, separator='\t')
-    gene_index_df = pl.read_csv(gene_index_path, separator='\t')
+    if save_to_parquet:
+        all_genes_df = pl.read_parquet(all_genes_path)
+        gene_index_df = pl.read_parquet(gene_index_path)
+        metabolism_df = pl.read_parquet(metabolism_path)
+        physiology_df = pl.read_parquet(physiology_path,)
+        regulatory_df = pl.read_parquet(regulatory_path)
+    else:
+        all_genes_df = pl.read_csv(all_genes_path, separator='\t')
+        gene_index_df = pl.read_csv(gene_index_path, separator='\t')
+        metabolism_df = pl.read_csv(metabolism_path, separator='\t')
+        physiology_df = pl.read_csv(physiology_path, separator='\t')
+        regulatory_df = pl.read_csv(regulatory_path, separator='\t')
+
     gene_index_df = gene_index_df.select(["protein"] + [
         col for col in gene_index_df.columns if col.endswith("_protein_cluster") or col.endswith("_genome_cluster")
     ]).rename({"protein": "Protein"})
-    metabolism_df = pl.read_csv(metabolism_path, separator='\t')
-    physiology_df = pl.read_csv(physiology_path, separator='\t')
-    regulatory_df = pl.read_csv(regulatory_path, separator='\t')
+
 
     logger.info(f"Generating the final table with proteins, annotations, and classifications...")
 
     final_df = merge_dataframes(all_genes_df, metabolism_df, physiology_df, regulatory_df)
+
+    final_df = final_df.join(gene_index_df, on="Protein", how="left")
 
     # Sort and write the final table output
     confidence_order = {"high": 0, "medium": 1, "low": 2}
@@ -203,7 +226,10 @@ def main():
         pl.col("Protein Classification").replace(classification_order).cast(pl.Int32).alias("Protein Classification_sort")
     ).sort(["Protein Classification_sort", "Protein Viral Origin Confidence_sort", "Protein"]).drop(["Protein Classification_sort", "Protein Viral Origin Confidence_sort"])
 
-    final_df.write_csv(final_table_path, separator='\t')
+    if save_to_parquet:
+        final_df.write_parquet(final_table_path)
+    else:
+        final_df.write_csv(final_table_path, separator='\t')
     logger.info(f"Final table written to {final_table_path}")
 
     # Log classification summary

@@ -4,230 +4,496 @@ import argparse
 import textwrap
 import sys
 import psutil
+from importlib.metadata import version
+
 from CheckAMG.scripts import CheckAMG_annotate, download_dbs
 from CheckAMG.scripts.checkAMG_ASCII import ASCII
-from importlib.metadata import version
 
 __version__ = version("checkamg")
 
 available_memory_gb = psutil.virtual_memory().available / (1024 ** 3) # Get available memory in GB
+PCT_TOTAL_CPU = 25
+default_threads = max(1, int(psutil.cpu_count(logical=True) * (PCT_TOTAL_CPU/100))) # Default to PCT_TOTAL_CPU% of available threads, but at least 1
 
 class CustomHelpFormatter(argparse.ArgumentDefaultsHelpFormatter, argparse.RawDescriptionHelpFormatter):
-     def _fill_text(self, text, width, indent):
-          text = textwrap.dedent(text).strip()
-          return ''.join([
-               textwrap.fill(line, width, initial_indent=indent, subsequent_indent=indent) if not line.strip().startswith('* ') else
-               f"{indent}{line.strip()}\n"
-               for line in text.splitlines()
-          ])
+    def _fill_text(self, text, width, indent):
+        text = textwrap.dedent(text).strip()
+        return "\n".join(
+            textwrap.fill(line, width, initial_indent=indent, subsequent_indent=indent)
+            if line and not line.lstrip().startswith("* ")
+            else f"{indent}{line.strip()}"
+            for line in text.splitlines()
+        )
+
+    def _split_lines(self, text, width):
+        lines = []
+        for part in text.splitlines():
+            if not part.strip():
+                lines.append("")
+            else:
+                lines.extend(textwrap.wrap(part, width))
+        return lines
+
 
 VALID_FILTER_PRESETS = {
-     "default",
-     "allow_glycosyl",
-     "allow_nucleotide",
-     "allow_methyl",
-     "allow_lipid",
-     "no_filter",
+    "default",
+    "allow_glycosyl",
+    "allow_nucleotide",
+    "allow_methyl",
+    "allow_lipid",
+    "no_filter",
 }
 
+
 def _parse_filter_presets(preset_str):
-     if preset_str is None:
-          return []
-     parts = [p.strip() for p in preset_str.split(",") if p.strip()]
-     return parts
+    if preset_str is None:
+        return []
+    parts = [p.strip() for p in preset_str.split(",") if p.strip()]
+    return parts
+
 
 def _validate_and_resolve_filter_presets(presets, parser):
-     unknown = [p for p in presets if p not in VALID_FILTER_PRESETS]
-     if unknown:
-          parser.error(f"Unknown --filter_presets value(s): {', '.join(unknown)}. Valid options are: {', '.join(sorted(VALID_FILTER_PRESETS))}.")
+    unknown = [p for p in presets if p not in VALID_FILTER_PRESETS]
+    if unknown:
+        parser.error(
+            f"Unknown --filter-presets value(s): {', '.join(unknown)}. "
+            f"Valid options are: {', '.join(sorted(VALID_FILTER_PRESETS))}."
+        )
 
-     if len(presets) > 1 and "default" in presets:
-          parser.error("Cannot combine 'default' with other filter presets. Use only 'default' or specify non-default combinations.")
+    if len(presets) > 1 and "default" in presets:
+        parser.error(
+            "Cannot combine 'default' with other filter presets. "
+            "Use only 'default' or specify non-default combinations."
+        )
 
-     if len(presets) > 1 and "no_filter" in presets:
-          parser.error("Cannot combine 'no_filter' with other filter presets. Use only 'no_filter'.")
+    if len(presets) > 1 and "no_filter" in presets:
+        parser.error("Cannot combine 'no_filter' with other filter presets. Use only 'no_filter'.")
 
-     effective = list(presets)
+    return list(presets)
 
-     return effective
+
+def _add_download_subcommand(subparsers):
+    download_parser = subparsers.add_parser(
+        "download",
+        help="Download the databases required by CheckAMG.",
+        description=(
+            "Download the databases required by CheckAMG.\n "
+            "This requires ~40 GB of disk space (or ~21 GB finally, if '--rm-hmm' is provided)."
+        ),
+        formatter_class=CustomHelpFormatter,
+    )
+
+    download_parser.add_argument(
+        "-d",
+        "--db-dir",
+        dest="db_dir",
+        type=str,
+        required=True,
+        help="Directory where the CheckAMG database will be placed.",
+    )
+    download_parser.add_argument(
+        "-f",
+        "--force",
+        action="store_true",
+        default=False,
+        help="Force re-download of databases even if they already exist.",
+    )
+    download_parser.add_argument(
+        "-r",
+        "--rm-hmm",
+        dest="rm_hmm",
+        action="store_true",
+        default=False,
+        help=(
+            "Remove human-readable HMM files after downloading to save space.\n"
+            "CheckAMG only needs the binary files."
+        ),
+    )
+    download_parser.add_argument(
+        "-v",
+        "--db-version",
+        dest="db_version",
+        type=str,
+        default=None,
+        help="Exact CheckAMG database version identifier to download (overrides latest compatible).",
+    )
+
+    def _run_download(args, parser):
+        download_dbs.download_db(
+            dest=args.db_dir,
+            checkamg_version=__version__,
+            force=args.force,
+            db_version=getattr(args, "db_version", None),
+        )
+        if args.rm_hmm:
+            download_dbs.remove_human_readable_files(dest=args.db_dir)
+
+    download_parser.set_defaults(func=_run_download)
+    return download_parser
+
+
+def _add_annotate_subcommand(subparsers):
+    annotate_parser = subparsers.add_parser(
+        "annotate",
+        help="Predict and curate auxiliary genes using functional annotations and genomic context.",
+        description="Predict and curate auxiliary genes in viral genomes based on functional annotations and genomic context.",
+        formatter_class=CustomHelpFormatter,
+    )
+
+    required = annotate_parser.add_argument_group("required arguments")
+    required.add_argument(
+        "-d",
+        "--db-dir",
+        dest="db_dir",
+        type=str,
+        required=True,
+        help="Path to CheckAMG database files.",
+    )
+    required.add_argument(
+        "-o",
+        "--output",
+        dest="output",
+        type=str,
+        required=True,
+        help="Output directory for all generated files and folders.",
+    )
+
+    inputs = annotate_parser.add_argument_group("input arguments")
+    inputs.add_argument(
+        "-i",
+        "--input-contigs",
+        dest="input_contigs",
+        type=str,
+        default=None,
+        help=(
+            "Input nucleotide contigs FASTA (.fna/.fasta; gzipped allowed)."
+        ),
+    )
+    inputs.add_argument(
+        "-I",
+        "--input-bins",
+        dest="input_bins",
+        type=str,
+        default=None,
+        help=(
+            "Folder of binned contig FASTAs (e.g. vMAGs with multiple contigs).\n"
+            "Expects one .fna/.fasta (gzipped allowed) per bin."
+        ),
+    )
+    inputs.add_argument(
+        "-p",
+        "--input-proteins",
+        dest="input_proteins",
+        type=str,
+        default=None,
+        help=(
+            "Input amino-acid FASTA from translated contigs (.faa/.fasta; gzipped allowed).\n"
+            "Expected Prodigal headers: >[CONTIG]_[CDS] # START # END # FRAME # ..."
+        ),
+    )
+    inputs.add_argument(
+        "-P",
+        "--input-bin-proteins",
+        dest="input_bin_proteins",
+        type=str,
+        default=None,
+        help=(
+            "Folder of amino-acid FASTAs from translated binned contigs (.faa/.fasta; gzipped allowed).\n"
+            "Expects one file per bin, each containing proteins from multiple contigs."
+        ),
+    )
+
+    inputs.add_argument(
+        "--input-type",
+        dest="input_type",
+        type=str,
+        choices=["nucl", "prot"],
+        default="nucl",
+        help=(
+            "Input type: 'nucl' for nucleotide sequences or 'prot' for translated amino-acid sequences.\n"
+            "Providing proteins instead of nucleotide sequences skips pyrodigal-gv, and annotations/contextual\n"
+            "analyses are performed using the provided proteins. So ensure all proteins from contigs/bins are\n"
+            "included and that headers are formatted as expected (see --input-proteins)."
+        ),
+    )
+
+    thresholds = annotate_parser.add_argument_group("thresholds and HMMsearch settings")
+    thresholds.add_argument(
+        "-l",
+        "--min-len",
+        dest="min_len",
+        type=int,
+        default=5000,
+        help="Minimum length (bp) of input contigs for them to be considered for analysis.",
+    )
+    thresholds.add_argument(
+        "-f",
+        "--min-orf",
+        dest="min_orf",
+        type=int,
+        default=4,
+        help="Minimum number of ORFs/proteins per contig for it to be considered for analysis.",
+    )
+    thresholds.add_argument(
+        "-a",
+        "--min-annot",
+        dest="min_annot",
+        type=float,
+        default=0.20,
+        help=(
+            "Minimum fraction (0.0-1.0) of genes per contig that must receive an annotation\n"
+            "to be considered for contextual analysis."
+        ),
+    )
+    thresholds.add_argument(
+        "-c",
+        "--cov-fraction",
+        dest="cov_fraction",
+        type=float,
+        default=0.30,
+        help="Minimum covered fraction (0.0-1.0) of HMM profiles required to report hits.",
+    )
+    thresholds.add_argument(
+        "-e",
+        "--evalue",
+        dest="evalue",
+        type=float,
+        default=1e-5,
+        help="Maximum fallback E-value for HMM hits when database-provided cutoffs are unavailable.",
+    )
+    thresholds.add_argument(
+        "-b",
+        "--bitscore",
+        dest="bit_score",
+        type=int,
+        default=30,
+        help="Minimum fallback bit score for HMM hits when database-provided cutoffs are unavailable.",
+    )
+    thresholds.add_argument(
+        "-bf",
+        "--bitscore-fraction-heuristic",
+        dest="bitscore_fraction_heuristic",
+        type=float,
+        default=0.5,
+        help=(
+            "Retain HMM hits scoring at least this fraction (0.0-1.0) of its database-provided threshold\n"
+            "during heuristic filtering."
+        ),
+    )
+
+    context = annotate_parser.add_argument_group("genomic context settings")
+    context.add_argument(
+        "-w",
+        "--window-size",
+        dest="window_size",
+        type=int,
+        default=5000,
+        help="Window size (bp) for local average VL-score calculation.",
+    )
+    context.add_argument(
+        "-v",
+        "--min-flank-vscore",
+        dest="min_flank_Vscore",
+        type=float,
+        default=10.0,
+        help=(
+            "Minimum V-score (0.0-10.0) required in flanking regions to verify viral origin\n"
+            "and reduce host-contamination artifacts (higher = more viral-like)."
+        ),
+    )
+    context.add_argument(
+        "-vl",
+        "--min-window-avg-vlscore",
+        dest="min_window_avg_VL_score",
+        type=float,
+        default=3.0,
+        help=(
+            "Minimum average VL-score within the specified window size around a gene to be\n"
+            "considered a viral region (higher = more viral-like)."
+        ),
+    )
+    context.add_argument(
+        "-ha",
+        "--use-hallmark",
+        dest="use_hallmark",
+        default=False,
+        action=argparse.BooleanOptionalAction,
+        help=(
+            "Use viral hallmark genes instead of V-scores when evaluating flanks.\n"
+            "Enable to be extra conservative."
+        ),
+    )
+
+    filters = annotate_parser.add_argument_group("filtering settings")
+    filters.add_argument(
+        "--filter-ambig-regions",
+        dest="filter_ambig_regions",
+        default=False,
+        action=argparse.BooleanOptionalAction,
+        help=(
+            "Exclude predictions that fall outside strict viral regions (inside ambiguous regions).\n"
+            "Strict viral regions are identified from window-average VL-scores and then refined using\n"
+            "per-gene V-scores (see --min-window-avg-vlscore and --min-flank-vscore) or viral hallmark\n"
+            "genes if --use-hallmark is enabled (stricter, lower recall). When enabled, any prediction\n"
+            "not overlapping a strict viral region is filtered out. Disabled by default because it can\n"
+            "be too strict when annotation rate is low but other viral origin signals are strong.\n"
+            "Enable to be extra conservative."
+        ),
+    )
+    filters.add_argument(
+        "--filter-avg-arrays",
+        dest="filter_avg_arrays",
+        default=True,
+        action=argparse.BooleanOptionalAction,
+        help="Exclude AVG predictions that occur in contiguous runs (arrays), which suggests\n"
+        "non-auxiliary function.",
+    )
+    filters.add_argument(
+        "--avg-array-limit",
+        dest="avg_array_limit",
+        type=int,
+        default=3,
+        help="If --filter-avg-arrays is enabled, exclude runs of AVGs of this length or more.",
+    )
+    filters.add_argument(
+        "--filter-presets",
+        dest="filter_presets",
+        type=str,
+        default="default",
+        help=(
+            "Comma-separated preset(s) controlling functional annotation filtering.\n"
+            "Valid presets:\n"
+            "* default (recommended)\n"
+            "* allow_glycosyl (keep glycosyltransferase, glycoside-hydrolase, and related annotations)\n"
+            "* allow_nucleotide (keep nucleotide metabolism annotations)\n"
+            "* allow_methyl (keep methylase/methyltransferase annotations)\n"
+            "* allow_lipid (keep lipopolysaccharide and phospholipid-related annotations)\n"
+            "* no_filter (disable all filtering, not recommended).\n"
+            "Example: --filter-presets allow_glycosyl,allow_nucleotide."
+            )
+    )
+
+    outputs = annotate_parser.add_argument_group("output files")
+    outputs.add_argument(
+        "-kf",
+        "--keep-full-hmm-results",
+        dest="keep_full_hmm_results",
+        action="store_true",
+        default=False,
+        help=(
+            "Write all HMM search results for every hit in each database.\n"
+            "By default, only the top hit per protein per database is written to reduce file size.\n"
+            "Not recommended for large inputs unless --save-as-parquet is used."
+        ),
+    )
+
+    outputs.add_argument(
+        "-pq",
+        "--save-to-parquet",
+        dest="save_to_parquet",
+        action="store_true",
+        default=False,
+        help=(
+            "Write intermediate and final tables as parquet files instead of TSV.\n"
+            "Tables will be smaller files but not human readable without external tools.\n"
+            "Recommended for large datasets."
+        ),
+    )
+
+    resources = annotate_parser.add_argument_group("resources")
+    resources.add_argument(
+        "-t",
+        "--threads",
+        dest="threads",
+        type=int,
+        default=default_threads,
+        help=f"Maximum number of threads allowed. Default is {PCT_TOTAL_CPU}%% of available.",
+    )
+    resources.add_argument(
+        "-m",
+        "--mem",
+        dest="mem",
+        type=int,
+        default=round(available_memory_gb * 0.80),
+        help="Max memory allowed (GB). Default is 80%% of available.",
+    )
+    resources.add_argument(
+        "--debug",
+        dest="debug",
+        default=False,
+        action=argparse.BooleanOptionalAction,
+        help="Enable debug-level logging.",
+    )
+
+    def _run_annotate(args, parser):
+        if args.input_type == "nucl" and not args.input_contigs and not args.input_bins:
+            parser.error("At least one of --input-contigs or --input-bins is required when --input-type is 'nucl'.")
+        if args.input_type == "nucl" and (args.input_proteins or args.input_bin_proteins):
+            parser.error("Cannot provide --input-proteins or --input-bin-proteins when --input-type is 'nucl'.")
+        if args.input_type == "prot" and not args.input_proteins and not args.input_bin_proteins:
+            parser.error("At least one of --input-proteins or --input-bin-proteins is required when --input-type is 'prot'.")
+        if args.input_type == "prot" and (args.input_contigs or args.input_bins):
+            parser.error("Cannot provide --input-contigs or --input-bins when --input-type is 'prot'.")
+        if (args.input_contigs and args.input_proteins) or (args.input_bins and args.input_bin_proteins):
+            parser.error("Cannot provide both --input-contigs/--input-bins and --input-proteins/--input-bin-proteins.")
+
+        raw_list = _parse_filter_presets(args.filter_presets)
+        if not raw_list:
+            raw_list = ["default"]
+        effective = _validate_and_resolve_filter_presets(raw_list, parser)
+        args.filter_presets = ",".join(effective)
+
+        CheckAMG_annotate.create_output_dir(args.output)
+        config_path = CheckAMG_annotate.generate_config(args)
+        CheckAMG_annotate.run_snakemake(config_path=config_path, args=args, checkamg_version=__version__)
+
+    annotate_parser.set_defaults(func=_run_annotate)
+    return annotate_parser
+
+
+def _add_placeholder_subcommands(subparsers):
+    for name, help_text in [
+        ("de-novo", "(Not yet implemented) Predict auxiliary genes with an annotation-independent method."),
+        ("aggregate", "(Not yet implemented) Aggregate results into a final report."),
+        ("end-to-end", "(Not yet implemented) Run annotate, de-novo, and aggregate in tandem."),
+    ]:
+        p = subparsers.add_parser(
+            name,
+            help=help_text,
+            description="Not yet implemented.",
+            formatter_class=CustomHelpFormatter,
+        )
+
+        def _run_placeholder(args, parser, cmd=name):
+            print(f"CheckAMG {cmd} functionality will be implemented here.")
+
+        p.set_defaults(func=_run_placeholder)
+
 
 def main():
-     parser = argparse.ArgumentParser(description="CheckAMG: automated identification and curation of Auxiliary Metabolic Genes (AMGs),"
-                                                  " Auxiliary Regulatory Genes (AReGs), and Auxiliary Physiology Genes (APGs)"
-                                                  " in viral genomes.", formatter_class=CustomHelpFormatter)
-     parser.add_argument("-v", "--version", action="version", version=f"CheckAMG {__version__}")
-     subparsers = parser.add_subparsers(help="CheckAMG modules", dest="command")
-          
-     download_parser = subparsers.add_parser(
-          "download",
-          help="Download the databases required by CheckAMG.",
-          description="Download the databases required by CheckAMG. This requires ~40 GB of disk space (or ~21 GB finally, if the '--remove' argument is provided).",
-          formatter_class=CustomHelpFormatter)
-     download_parser.add_argument(
-          "-d", "--db_dir", type=str, required=True,
-          help="Path to the directory where the CheckAMG database will be placed (Required).")
-     download_parser.add_argument(
-          "-f", "--force", action="store_true", default=False,
-          help="Force re-download of databases even if they already exist (default: %(default)s).")
-     download_parser.add_argument(
-          "-r", "--rm_hmm", action="store_true", default=False,
-          help="Remove human-readable HMM files from the database directory after downloading, to save space. CheckAMG only needs the binary files (default: %(default)s).")
-     download_parser.add_argument(
-          "--db_version", type=str, required=False, default=None,
-          help="Exact CheckAMG database version identifier to download (overrides the latest compatible database).")
+    parser = argparse.ArgumentParser(
+        description=(
+            "CheckAMG: Automated discovery and curation of Auxiliary Metabolic Genes (AMGs),\n"
+            "          Auxiliary Regulatory Genes (AReGs), and Auxiliary Physiology Genes (APGs)\n"
+            "          encoded in viral genomes."
+        ),
+        formatter_class=CustomHelpFormatter,
+    )
+    parser.add_argument("-v", "--version", action="version", version=f"CheckAMG {__version__}")
 
-     annotate_parser = subparsers.add_parser("annotate",
-                                        help="Predict and curate auxiliary genes in viral genomes based on functional annotations and genomic context.",
-                                        description="Predict and curate auxiliary genes in viral genomes based on functional annotations and genomic context.",
-                                        formatter_class=CustomHelpFormatter)
+    subparsers = parser.add_subparsers(title="modules", dest="command", required=True)
 
-     annotate_required = annotate_parser.add_argument_group('required arguments')
-     annotate_required.add_argument("-d", "--db_dir", type=str, required=True,
-                              help="Path to CheckAMG database files (Required).")
-     annotate_required.add_argument("-o", "--output", type=str, required=True,
-                              help="Output directory for all generated files and folders (Required).")
-     annotate_required.add_argument("-g", "--genomes", type=str, required=False,
-                              help="Input viral genome(s) in nucleotide fasta format (.fna or .fasta). Expectation is that "
-                                   "individual virus genomes are single contigs.")
-     annotate_required.add_argument("-vg", "--vmags", type=str, required=False,
-                              help="Path to folder containing vMAGs (multiple contigs) rather than single-contig viral genomes. "
-                                   "Expectation is that the folder contains one .fna or .fasta file "
-                                   "per virus genome and that each genome contains multiple contigs.")
-     annotate_required.add_argument("-p", "--proteins", type=str, required=False,
-                              help="Input viral genome(s) in amino-acid fasta format (.faa or .fasta). Required if --input_type is prot. "
-                                   "Expectations are that the amino-acid sequence headers are in Prodigal format (>[CONTIG NAME]_[CDS NUMBER] # START # END # FRAME # ...) "
-                                   "and that each contig encoding proteins represents a single virus genome.")
-     annotate_required.add_argument("-vp", "--vmag_proteins", type=str, required=False,
-                              help="Path to folder containing vMAGs (multiple contigs) in amino-acid fasta format (.faa or .fasta) "
-                                   "rather than single-contig viral genomes. Expectation is that the folder contains one .faa or .fasta file "
-                                   "per virus genome and that each genome file contains amino-acid sequences encoded on multiple contigs. "
-                                   "Required if --input_type is 'prot'.")
-          
-     annotate_parser.add_argument("--input_type", type=str, required=False, default="nucl",
-                              help="Specifies whether the input files are nucleotide genomes (nucl) or translated amino-acid genomes (prot). "
-                                   "Providing proteins as input will skip the pyrodigal-gv step, "
-                                   "but it will be unable to tell whether viral genomes are circular, potentially losing additional evidence "
-                                   "for verifying the viral origin of putative auxiliary genes. (default: %(default)s).")
-     
-     annotate_parser.add_argument("-l", "--min_len", type=int, required=False, default = 5000,
-                              help="Minimum length in base pairs for input sequences (default: %(default)s).")
-     annotate_parser.add_argument("-f", "--min_orf", type=int, required=False, default = 4,
-                              help="Minimum number of open reading frames (proteins) inferred by pyrodigal-gv for input sequences (default: %(default)s).")
-     annotate_parser.add_argument("-n", "--min_annot", type=float, required=False, default=0.20,
-                              help="Minimum percentage (0.0-1.0) of genes in a genome/contig required to have been assigned a "
-                                   "functional annotation using the CheckAMG database to be considered for contextual analysis. "
-                                   "(default: %(default)s).")
-     
-     annotate_parser.add_argument("-c", "--cov_fraction", type=float, required=False, default=0.30,
-                              help="Minimum covered fraction (of HMM profiles) for reporting HMM searches (default: %(default)s).")
-     annotate_parser.add_argument("-e", "--evalue", type=float, required=False, default=1e-5,
-                              help="Maximum fallback E-value for HMM searches when database-provided cutoffs are not available (default: %(default)s).")
-     annotate_parser.add_argument("-b", "--bit_score", type=int, required=False, default=30,
-                              help="Minimum fallback bit score for HMM searches when database-provided cutoffs are not available (default: %(default)s).")
-     annotate_parser.add_argument("-bh", "--bitscore_fraction_heuristic", type=float, required=False, default=0.5,
-                              help="Retain HMM hits scoring at least this fraction of the database-provided threshold under heuristic filtering (default: %(default)s).")
-     annotate_parser.add_argument("-k", "--keep_full_hmm_results", required=False, action="store_true", default=False,
-                              help="Keep a file with full HMM search results. By default, only the single best HMM hits per protein, per database are written to save space. "
-                                   "Does not affect final annotations. Not recommended for large inputs (>2 GB fasta file or >10,000 sequences) (default: %(default)s).")
-     
-     annotate_parser.add_argument("-w", "--window_size", type=int, required=False, default=5000,
-                              help="Size in base pairs of the window used to calculate the average VL-score of genes in a local region on a contig (default: %(default)s).")
-     annotate_parser.add_argument("-V", "--min_flank_Vscore", type=float, required=False, default=10.0,
-                              help="Minimum V-score of genes in flanking regions required to verify a potential auxiliary gene as viral and not host sequence contamination (0.0-10.0) (default: %(default)s).")
-     annotate_parser.add_argument("-H", "--use_hallmark", required=False, default=False, action=argparse.BooleanOptionalAction,
-                              help="Use viral hallmark gene annotations instead of V-scores when checking flanking regions of potential auxiliary genes for viral verification (default: %(default)s).")
-     
-     annotate_parser.add_argument("--filter_presets", type=str, required=False, default="default",
-                              help="Preset(s) for filtering auxiliary gene annotations based on keywords (see documentation for details). "
-                                   "Valid choices: "
-                                   "'default' (recommended), "
-                                   "'allow_glycosyl' (keep glycosyltransferase, glycoside-hydrolase, and related annotations), "
-                                   "'allow_nucleotide' (keep nucleotide metabolism annotations), "
-                                   "'allow_methyl' (keep methyltransferase and related annotations), "
-                                   "'allow_lipid' (keep lipopolysaccharide and phospholipid-related annotations), "
-                                   "'no_filter' (disable all annotation filtering, not recommended). "
-                                   "Multiple presets can be provided, separated by commas (e.g., allow_glycosyl,allow_nucleotide).")
-     
-     annotate_parser.add_argument("-t", "--threads", type=int, required=False, default=10,
-                              help="Number of threads to use for pyrodigal-gv and pyhmmer (default: %(default)s).")
-     annotate_parser.add_argument("-m", "--mem", type=int, required=False, default=round(available_memory_gb*0.80), # 80% of available memory
-                              help="Maximum amount of memory allowed to be allocated in GB (default: 80%% of available).")
-     
-     annotate_parser.add_argument("--debug", required=False, default=False, action=argparse.BooleanOptionalAction,
-                              help="Log CheckAMG with debug-level detail (default: %(default)s).")
+    _add_download_subcommand(subparsers)
+    _add_annotate_subcommand(subparsers)
+    _add_placeholder_subcommands(subparsers)
 
-     de_novo_parser = subparsers.add_parser(
-          "de-novo",
-          help="(Not yet implemented) Predict auxiliary genes with an annotation-independent method using Protein Set Transformer.",
-          description="Not yet implemented.",
-          formatter_class=CustomHelpFormatter)
-
-     aggregate_parser = subparsers.add_parser(
-          "aggregate",
-          help="(Not yet implemented) Aggregate the results of the CheckAMG annotate and de-novo modules to produce a final report of auxiliary gene predictions.",
-          description="Not yet implemented.",
-          formatter_class=CustomHelpFormatter)
-          
-     end_to_end_parser = subparsers.add_parser(
-          "end-to-end",
-          help="(Not yet implemented) Executes CheckAMG annotate, de-novo, and aggregate in tandem.",
-          description="Not yet implemented.",
-          formatter_class=CustomHelpFormatter)
+    if "--version" not in sys.argv and "-v" not in sys.argv:
+        print(ASCII)
+        sys.stdout.flush()
      
-     if "--version" not in sys.argv and "-v" not in sys.argv:
-          print(ASCII)
-          sys.stdout.flush()
-          
-     # Validate that only one subcommand is given
-     subcommands = {"download", "annotate", "de-novo", "aggregate", "end-to-end"}
-     used_subcommands = [arg for arg in sys.argv[1:] if arg in subcommands]
-     if len(used_subcommands) > 1:
-          parser.error(f"Too many arguments provided ({', '.join(used_subcommands)}). Please specify only one CheckAMG module to run.")
-          
-     args = parser.parse_args()
-               
-     if args.command == "download":
-          download_dbs.download_db(
-               dest=args.db_dir,
-               checkamg_version=__version__,
-               force=args.force,
-               db_version=getattr(args, "db_version", None),
-          )
-          if args.rm_hmm:
-               download_dbs.remove_human_readable_files(dest=args.db_dir)
-     elif args.command == "annotate":
-          if args.input_type == "nucl" and not args.genomes and not args.vmags:
-               parser.error("At least one of --genomes or --vmags is required when --input_type is 'nucl'.")
-          if args.input_type == "nucl" and (args.proteins or args.vmag_proteins):
-               parser.error("Cannot provide --proteins or --vmag_proteins when --input_type is 'nucl'.")
-          if args.input_type == "prot" and not args.proteins and not args.vmag_proteins:
-               parser.error("At least one of --proteins or --vmag_proteins is required when --input_type is 'prot'.")
-          if args.input_type == "prot" and (args.genomes or args.vmags):
-               parser.error("Cannot provide --genomes or --vmags when --input_type is 'prot'.")
-          if (args.genomes and args.proteins) or (args.vmags and args.vmag_proteins):
-               parser.error("Cannot provide both --genomes/--vmags and --proteins/--vmag_proteins.")
-               
-          raw_list = _parse_filter_presets(args.filter_presets)
-          if not raw_list:
-               raw_list = ["default"]
-          effective = _validate_and_resolve_filter_presets(raw_list, parser)
-          args.filter_presets = ",".join(effective)
-          
-          CheckAMG_annotate.create_output_dir(args.output)
-          config_path = CheckAMG_annotate.generate_config(args)
-          CheckAMG_annotate.run_snakemake(config_path, args)
-          
-     elif args.command == "de-novo":
-          print("CheckAMG de novo functionality will be implemented here.")
-     elif args.command == "aggregate":
-          print("CheckAMG aggregate functionality will be implemented here.")
-     elif args.command == "end-to-end":
-          print("CheckAMG end-to-end pipeline functionality will be implemented here.")
-     else:
-          print("Error: Please specify a CheckAMG module to run.", file=sys.stderr)
-          parser.print_help()
-          sys.exit(1)
+    args = parser.parse_args()
+    args._cli_argv = sys.argv[1:] # for clean command logging
+    args.func(args, parser)
 
 if __name__ == "__main__":
-     main()
-
+    main()

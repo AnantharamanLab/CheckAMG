@@ -6,7 +6,7 @@ import load_prot_paths
 from pyfastatools import Parser, write_fasta
 import logging
 import resource
-import platform
+from pathlib import Path
 import re
 os.environ["POLARS_MAX_THREADS"] = str(snakemake.threads)
 import polars as pl
@@ -32,9 +32,15 @@ logging.basicConfig(
 )
 logger = logging.getLogger()
 
-print("========================================================================\n   Step 10/11: Organize proteins into putative AMGs, APGs, and AReGs    \n========================================================================")
+print("========================================================================\n          Step 10/11: Organize AMGs, APGs, and AReGs proteins           \n========================================================================")
 with open(log_file, "a") as log:
-    log.write("========================================================================\n   Step 10/11: Organize proteins into putative AMGs, APGs, and AReGs    \n========================================================================\n")
+    log.write("========================================================================\n          Step 10/11: Organize AMGs, APGs, and AReGs proteins           \n========================================================================\n")
+
+def _as_parquet_path_if_enabled(p, save_to_parquet: bool):
+    p = Path(p)
+    if save_to_parquet and p.suffix.lower() == ".tsv":
+        return p.with_suffix(".parquet")
+    return p
 
 def load_protein_sequences(prot_paths):
     """Loads protein sequences from provided FASTA files into a dictionary."""
@@ -122,7 +128,7 @@ def write_fasta_str(name, desc, seq):
         return f">{name} {desc}\n{seq}\n"
     return f">{name}\n{seq}\n"
 
-def organize_proteins(category_table_path, category, all_genes_df):
+def organize_proteins(category_table_path, category, all_genes_df, save_to_parquet=False):
     """
     Organizes proteins based on annotations.
     This function reads metabolic/regulatory/physiology gene data and gene annotations from specified file paths.
@@ -139,15 +145,18 @@ def organize_proteins(category_table_path, category, all_genes_df):
     dict: A dictionary containing categorized auxiliary genes and AMGs/AReGs/APGs.
     """
 
-    category_genes_df = pl.read_csv(category_table_path, separator='\t')
+    if save_to_parquet:
+        category_genes_df = pl.read_parquet(category_table_path)
+    else:
+        category_genes_df = pl.read_csv(category_table_path, separator='\t')
     all_category_genes = set(category_genes_df['Protein'].to_list())
     acronym = {"metabolic": "AMG", "regulatory": "AReG", "physiology": "APG"}.get(category, "Unknown")
-    logger.info(f"There are a total of {len(all_category_genes):,} putative {acronym}s.")
+    logger.info(f"There are a total of {len(all_category_genes):,} predicted {acronym}s.")
 
     # Extract relevant gene context information
     all_genes_info = (
         all_genes_df
-        .select(["Protein", "Circular_Contig", "Viral_Origin_Confidence", "Viral_Flanking_Genes_Left_Dist", "Viral_Flanking_Genes_Right_Dist", "MGE_Flanking_Genes_Left_Dist", "MGE_Flanking_Genes_Right_Dist"])
+        .select(["Protein", "Viral_Origin_Confidence", "Viral_Flanking_Genes_Left_Dist", "Viral_Flanking_Genes_Right_Dist", "MGE_Flanking_Genes_Left_Dist", "MGE_Flanking_Genes_Right_Dist"])
         .to_dicts()
     )
 
@@ -179,7 +188,7 @@ def organize_proteins(category_table_path, category, all_genes_df):
         "avgs_all": all_category_genes
     }
 
-def write_organized_files(organized_dict, category, category_table_path, prot_records, output_dir):
+def write_organized_files(organized_dict, category, category_table_path, prot_records, output_dir, save_to_parquet=False):
     """
     Writes organized protein sequences to separate FASTA files based on the provided categories.
 
@@ -193,7 +202,10 @@ def write_organized_files(organized_dict, category, category_table_path, prot_re
     """
 
     # Read category annotation table and convert to lookup dictionary
-    category_genes_df = pl.read_csv(category_table_path, separator='\t')
+    if save_to_parquet:
+        category_genes_df = pl.read_parquet(category_table_path)
+    else:
+        category_genes_df = pl.read_csv(category_table_path, separator='\t')
     category_genes_lookup = {
         row["Protein"]: row for row in category_genes_df.iter_rows(named=True)
     }
@@ -240,32 +252,37 @@ def write_organized_files(organized_dict, category, category_table_path, prot_re
             f.result()
 
 def main():
-    metab_table_path = snakemake.params.metabolism_table
-    phys_table_path = snakemake.params.physiology_table
-    reg_table_path = snakemake.params.regulation_table
-    all_genes_path = snakemake.params.all_genes_annotated
+    save_to_parquet = snakemake.params.save_to_parquet
+    metab_table_path = _as_parquet_path_if_enabled(snakemake.params.metabolism_table, save_to_parquet)
+    phys_table_path = _as_parquet_path_if_enabled(snakemake.params.physiology_table, save_to_parquet)
+    reg_table_path = _as_parquet_path_if_enabled(snakemake.params.regulation_table, save_to_parquet)
+    all_genes_path = _as_parquet_path_if_enabled(snakemake.params.all_genes_annotated, save_to_parquet)
     mem_limit = snakemake.resources.mem
     set_memory_limit(mem_limit)
 
     logger.info("Organizing proteins based on annotations and writing AMG/AReG/APG classifications...")
 
     input_prots_dir = snakemake.params.protein_dir
+    bin_proteins_subdir = snakemake.params.bin_proteins_subdir
     fasta_outdir = snakemake.params.aux_fasta_dir
-    prot_paths = load_prot_paths.load_prots(input_prots_dir)
+    prot_paths = load_prot_paths.load_prots(input_prots_dir, bin_proteins_subdir)
     prot_records = load_protein_sequences(prot_paths)
 
-    all_genes_df = pl.read_csv(all_genes_path, separator='\t')
+    if save_to_parquet:
+        all_genes_df = pl.read_parquet(all_genes_path)
+    else:
+        all_genes_df = pl.read_csv(all_genes_path, separator='\t')
 
-    for category in ["metabolic", "regulatory", "physiology"]:
+    for category in ["metabolic", "physiology", "regulatory"]:
         if category == "metabolic":
-            organized_dict = organize_proteins(metab_table_path, category, all_genes_df)
-            write_organized_files(organized_dict, category, metab_table_path, prot_records, fasta_outdir)
+            organized_dict = organize_proteins(metab_table_path, category, all_genes_df, save_to_parquet)
+            write_organized_files(organized_dict, category, metab_table_path, prot_records, fasta_outdir, save_to_parquet)
         elif category == "regulatory":
-            organized_dict = organize_proteins(reg_table_path, category, all_genes_df)
-            write_organized_files(organized_dict, category, reg_table_path, prot_records, fasta_outdir)
+            organized_dict = organize_proteins(reg_table_path, category, all_genes_df, save_to_parquet)
+            write_organized_files(organized_dict, category, reg_table_path, prot_records, fasta_outdir, save_to_parquet)
         elif category == "physiology":
-            organized_dict = organize_proteins(phys_table_path, category, all_genes_df)
-            write_organized_files(organized_dict, category, phys_table_path, prot_records, fasta_outdir)
+            organized_dict = organize_proteins(phys_table_path, category, all_genes_df, save_to_parquet)
+            write_organized_files(organized_dict, category, phys_table_path, prot_records, fasta_outdir, save_to_parquet)
 
     logger.debug(f"Results were written to {fasta_outdir}.")
     logger.info(f"Organization completed.")

@@ -193,7 +193,7 @@ def assign_db(db_path):
         return "user_custom"
     else:
         return None
-    
+
 def _nan_to_none(v):
     if v is None:
         return None
@@ -201,6 +201,11 @@ def _nan_to_none(v):
         return None
     return float(v)
 
+def _as_parquet_path_if_enabled(p, save_to_parquet: bool):
+    p = Path(p)
+    if save_to_parquet and p.suffix.lower() == ".tsv":
+        return p.with_suffix(".parquet")
+    return p
 
 # Load KEGG thresholds
 KEGG_THRESHOLDS = {}
@@ -213,7 +218,7 @@ if Path(KEGG_THRESHOLDS_PATH).exists():
     )
     KEGG_THRESHOLDS = dict(zip(kegg_df["id"].to_list(), kegg_df["threshold"].to_list()))
 else:
-    logger.warning(f"KEGG thresholds file not found at {KEGG_THRESHOLDS_PATH}. KEGG thresholds will not be used to filter HMMsearch results!")
+    logger.warning(f"KEGG thresholds file not found at {KEGG_THRESHOLDS_PATH}. KEGG thresholds will not be used to filter hmmsearch results!")
 
 # Load FOAM thresholds
 FOAM_THRESHOLDS = {}
@@ -229,7 +234,7 @@ if Path(FOAM_THRESHOLDS_PATH).exists():
     doms = foam_df["cutoff_domain"].to_list()
     FOAM_THRESHOLDS = {i: (_nan_to_none(f), _nan_to_none(d)) for i, f, d in zip(ids, fulls, doms)}
 else:
-    logger.warning(f"FOAM thresholds file not found at {FOAM_THRESHOLDS_PATH}. FOAM thresholds will not be used to filter HMMsearch results!")
+    logger.warning(f"FOAM thresholds file not found at {FOAM_THRESHOLDS_PATH}. FOAM thresholds will not be used to filter hmmsearch results!")
 
 # Load CAMPER thresholds
 CAMPER_THRESHOLDS = {}
@@ -245,8 +250,7 @@ if Path(CAMPER_THRESHOLDS_PATH).exists():
     doms = camper_df["cutoff_domain"].to_list()
     CAMPER_THRESHOLDS = {i: (_nan_to_none(f), _nan_to_none(d)) for i, f, d in zip(ids, fulls, doms)}
 else:
-    logger.warning(f"CAMPER thresholds file not found at {CAMPER_THRESHOLDS_PATH}. CAMPER thresholds will not be used to filter HMMsearch results!")
-
+    logger.warning(f"CAMPER thresholds file not found at {CAMPER_THRESHOLDS_PATH}. CAMPER thresholds will not be used to filter hmmsearch results!")
 
 def get_kegg_threshold(hmm_id):
     return KEGG_THRESHOLDS.get(hmm_id, None)
@@ -257,7 +261,7 @@ def get_foam_threshold(hmm_id):
 def get_camper_threshold(hmm_id):
     return CAMPER_THRESHOLDS.get(hmm_id, (None, None))
 
-def standardize_and_filter_hmm_results(tsv_path, hmm_path, out_full_path, out_best_path):
+def standardize_and_filter_hmm_results(hmm_results_path, hmm_path, out_full_path, out_best_path, save_to_parquet: bool):
     db = assign_db(hmm_path)
 
     best_by_seq = {}
@@ -268,66 +272,135 @@ def standardize_and_filter_hmm_results(tsv_path, hmm_path, out_full_path, out_be
     def _better(a, b):
         return a < b
 
-    tsv_path = Path(tsv_path)
+    hmm_results_path = Path(hmm_results_path)
     out_full_path = Path(out_full_path)
     out_best_path = Path(out_best_path)
 
     remove_incomplete_outputs([out_full_path, out_best_path])
 
-    def _write_full(f_out):
-        f_out.write(
-            "hmm_id\tdb\tsequence\tevalue\tscore\talignment_type\tcoverage_sequence\tcoverage_hmm\tkeep\tnote\n"
+    if save_to_parquet:
+        df_in = pl.read_parquet(hmm_results_path)
+    else:
+        df_in = pl.read_csv(
+            hmm_results_path,
+            separator="\t",
+            has_header=False,
+            new_columns=["sequence", "hmm_id", "evalue", "score", "alignment_type", "coverage_sequence", "coverage_hmm", "keep", "note"],
+            schema_overrides={
+                "sequence": pl.Utf8,
+                "hmm_id": pl.Utf8,
+                "evalue": pl.Float64,
+                "score": pl.Float64,
+                "alignment_type": pl.Utf8,
+                "coverage_sequence": pl.Float64,
+                "coverage_hmm": pl.Float64,
+                "keep": pl.Utf8,
+                "note": pl.Utf8,
+            },
         )
-        with open(tsv_path, "r", encoding="utf-8", errors="replace") as f_in:
-            for line in f_in:
-                parts = line.rstrip("\n").split("\t")
-                if len(parts) != 9:
-                    continue
 
-                sequence, hmm_id, evalue, score, alignment_type, seq_cov, hmm_cov, keep, note = parts
+    # Normalize keep regardless of input type (bool from parquet, string from tsv)
+    if "keep" in df_in.columns:
+        keep_dtype = df_in.schema.get("keep", None)
 
-                try:
-                    evalue_f = float(evalue)
-                    score_f = float(score)
-                    seq_cov_f = float(seq_cov)
-                    hmm_cov_f = float(hmm_cov)
-                except ValueError:
-                    continue
+        if keep_dtype == pl.Boolean:
+            # already correct (parquet path)
+            pass
+        else:
+            # tolerate common string/int representations
+            df_in = df_in.with_columns(
+                pl.col("keep")
+                .cast(pl.Utf8)
+                .str.to_lowercase()
+                .is_in(["true", "t", "1", "yes", "y"])
+                .alias("keep")
+            )
+    else:
+        df_in = df_in.with_columns(pl.lit(False).alias("keep"))
 
-                keep_bool = str(keep).strip().lower() == "true"
-                keep_txt = "true" if keep_bool else "false"
+    df_full = df_in.with_columns(pl.lit(db).alias("db")).select(
+        [
+            "hmm_id",
+            "db",
+            "sequence",
+            "evalue",
+            "score",
+            "alignment_type",
+            "coverage_sequence",
+            "coverage_hmm",
+            "keep",
+            "note",
+        ]
+    ).sort(["sequence", "score"], descending=[False, True])
 
-                f_out.write(
-                    f"{hmm_id}\t{db}\t{sequence}\t{evalue_f}\t{score_f:.6f}\t{alignment_type}\t"
-                    f"{seq_cov_f:.3f}\t{hmm_cov_f:.3f}\t{keep_txt}\t{note}\n"
-                )
+    df_kept = df_full.filter(pl.col("keep") == True).filter(pl.col("alignment_type").is_in(["full", "domain"]))
 
-                if not keep_bool:
-                    continue
-                if not _is_alignment_row(alignment_type):
-                    continue
+    for row in df_kept.select(
+        ["sequence", "hmm_id", "db", "evalue", "score", "alignment_type", "coverage_sequence", "coverage_hmm"]
+    ).iter_rows(named=True):
+        sequence = row["sequence"]
+        evalue_f = float(row["evalue"])
+        score_f = float(row["score"])
+        hmm_cov_f = float(row["coverage_hmm"])
+        seq_cov_f = float(row["coverage_sequence"])
+        hmm_id = row["hmm_id"]
+        alignment_type = row["alignment_type"]
+        keep_bool = True
+        note = ""
 
-                cand_key = (evalue_f, -score_f, -hmm_cov_f, -seq_cov_f, hmm_id, alignment_type, keep_bool, note)
-                prev = best_by_seq.get(sequence)
-                if prev is None or _better(cand_key, prev[0]):
-                    best_by_seq[sequence] = (
-                        cand_key,
-                        (hmm_id, db, sequence, evalue_f, score_f, alignment_type, seq_cov_f, hmm_cov_f),
-                    )
-
-    atomic_write_text(out_full_path, _write_full)
-    write_done_marker(done_path_for(out_full_path), {"tsv": str(out_full_path), "db": db, "status": "ok"})
-
-    def _write_best(f_out):
-        f_out.write("hmm_id\tdb\tsequence\tevalue\tscore\talignment_type\tcoverage_sequence\tcoverage_hmm\n")
-        for _, row in best_by_seq.items():
-            hmm_id, db, seq, evalue_f, score_f, alignment_type, seq_cov_f, hmm_cov_f = row[1]
-            f_out.write(
-                f"{hmm_id}\t{db}\t{seq}\t{evalue_f}\t{score_f:.6f}\t{alignment_type}\t{seq_cov_f:.3f}\t{hmm_cov_f:.3f}\n"
+        cand_key = (evalue_f, -score_f, -hmm_cov_f, -seq_cov_f, hmm_id, alignment_type, keep_bool, note)
+        prev = best_by_seq.get(sequence)
+        if prev is None or _better(cand_key, prev[0]):
+            best_by_seq[sequence] = (
+                cand_key,
+                (hmm_id, db, sequence, evalue_f, score_f, alignment_type, seq_cov_f, hmm_cov_f),
             )
 
-    atomic_write_text(out_best_path, _write_best)
-    write_done_marker(done_path_for(out_best_path), {"tsv": str(out_best_path), "db": db, "status": "ok"})
+    if save_to_parquet:
+        df_full.write_parquet(out_full_path)
+        write_done_marker(done_path_for(out_full_path), {"parquet": str(out_full_path), "db": db, "status": "ok"})
+    else:
+        df_full.write_csv(out_full_path, separator="\t")
+        write_done_marker(done_path_for(out_full_path), {"tsv": str(out_full_path), "db": db, "status": "ok"})
+
+    best_rows = []
+    for _, row in best_by_seq.items():
+        hmm_id, db, seq, evalue_f, score_f, alignment_type, seq_cov_f, hmm_cov_f = row[1]
+        best_rows.append(
+            {
+                "hmm_id": hmm_id,
+                "db": db,
+                "sequence": seq,
+                "evalue": evalue_f,
+                "score": score_f,
+                "alignment_type": alignment_type,
+                "coverage_sequence": seq_cov_f,
+                "coverage_hmm": hmm_cov_f,
+            }
+        )
+
+    best_schema = {
+        "hmm_id": pl.Utf8,
+        "db": pl.Utf8,
+        "sequence": pl.Utf8,
+        "evalue": pl.Float64,
+        "score": pl.Float64,
+        "alignment_type": pl.Utf8,
+        "coverage_sequence": pl.Float64,
+        "coverage_hmm": pl.Float64,
+    }
+
+    if best_rows:
+        df_best = pl.DataFrame(best_rows, schema=best_schema)
+    else:
+        df_best = pl.DataFrame(schema=best_schema)
+
+    if save_to_parquet:
+        df_best.write_parquet(out_best_path)
+        write_done_marker(done_path_for(out_best_path), {"parquet": str(out_best_path), "db": db, "status": "ok"})
+    else:
+        df_best.write_csv(out_best_path, separator="\t")
+        write_done_marker(done_path_for(out_best_path), {"tsv": str(out_best_path), "db": db, "status": "ok"})
 
 def hmmsearch_serial(
     outfile: Path,
@@ -339,6 +412,7 @@ def hmmsearch_serial(
     min_bitscore_fraction: float,
     evalue: float,
     cpus: int,
+    save_to_parquet: bool,
 ):
     outfile = Path(outfile)
     remove_incomplete_outputs([outfile])
@@ -366,6 +440,376 @@ def hmmsearch_serial(
     tmp_out = outfile.with_suffix(outfile.suffix + ".tmp")
 
     n_rows = 0
+    if save_to_parquet:
+        rows = []
+        with easel.SequenceFile(batch_fasta, digital=True, alphabet=alphabet) as seqs:
+            for hits in hmmer.hmmsearch(queries=hmm_list, sequences=seqs, E=0.01, cpus=cpus):
+                hmm = hits.query
+                hmm_id = extract_query_info(hits, db_path)
+
+                for hit in hits:
+                    hit_name = hit.name.decode()
+
+                    domains = list(hit.domains.reported)
+                    if not domains:
+                        continue
+
+                    target_intervals = []
+                    hmm_intervals = []
+                    hmm_length = None
+                    for dom in domains:
+                        a = dom.alignment
+                        target_intervals.append((a.target_from, a.target_to))
+                        hmm_intervals.append((a.hmm_from, a.hmm_to))
+                        if hmm_length is None:
+                            hmm_length = a.hmm_length
+
+                    target_aln_len = _merge_len(target_intervals)
+                    hmm_aln_len = _merge_len(hmm_intervals)
+
+                    seq_len = seq_lengths.get(hit_name, 0)
+                    seq_cov_full = (target_aln_len / seq_len) if seq_len else 0.0
+                    hmm_cov_full = (hmm_aln_len / hmm_length) if (hmm_length and hmm_length > 0) else 0.0
+
+                    # Default to using sequence-level metrics (one output row per hit)
+                    alignment_type = "full"
+                    score = hit.score
+                    reported_evalue = hit.evalue
+                    seq_coverage = seq_cov_full
+                    profile_coverage = hmm_cov_full
+
+                    # Default keep/note
+                    keep = True
+                    note = ""
+
+                    # Pfam: apply GA cutoffs where available, otherwise default
+                    if db == "Pfam":
+                        note += "Pfam;"
+                        if profile_coverage < min_coverage:
+                            note += "coverage_below_minimum;"
+                            keep = False
+                        else:
+                            note += "coverage_above_minimum;"
+                        if hmm.cutoffs.gathering is not None:
+                            note += "has_valid_GA;"
+                            if score < hmm.cutoffs.gathering1:
+                                note += "score_below_GA;"
+                                keep = False
+                            else:
+                                note += "score_above_GA;"
+                        else:
+                            note += "no_GA_found;"
+                            if score < min_score:
+                                note += "score_fails_default_filter;"
+                                keep = False
+                            else:
+                                note += "score_passes_default_filter;"
+
+                    # KEGG: check threshold + heuristic first, then default
+                    elif db == "KEGG":
+                        note += "KEGG;"
+                        if profile_coverage < min_coverage:
+                            note += "coverage_below_minimum;"
+                            keep = False
+                        else:
+                            note += "coverage_above_minimum;"
+                        kegg_thresh = get_kegg_threshold(hmm_id)
+                        if kegg_thresh is not None:
+                            note += "has_valid_threshold;"
+                            if score < kegg_thresh:
+                                note += "score_below_threshold;"
+                                if reported_evalue > evalue:
+                                    note += "evalue_fails_heuristic;"
+                                    keep = False
+                                else:
+                                    note += "evalue_passes_heuristic;"
+                                if score < min_bitscore_fraction * kegg_thresh:
+                                    note += "score_fails_heuristic;"
+                                    keep = False
+                                else:
+                                    note += "score_passes_heuristic;"
+                            else:
+                                note += "score_above_threshold;"
+                        else:
+                            note += "no_threshold_found;"
+                            if score < min_score:
+                                note += "score_fails_default_filter;"
+                                keep = False
+                            else:
+                                note += "score_passes_default_filter;"
+
+                    # FOAM: check full threshold first, then domain threshold, then default
+                    elif db == "FOAM":
+                        note += "FOAM;"
+                        foam_full, foam_dom = get_foam_threshold(hmm_id)
+
+                        if foam_full is not None:
+                            note += "has_valid_full_threshold;"
+                            if profile_coverage < min_coverage:
+                                note += "coverage_below_minimum;"
+                                keep = False
+                            else:
+                                note += "coverage_above_minimum;"
+                            if score < foam_full:
+                                note += "score_below_full_threshold;"
+                                if reported_evalue > evalue:
+                                    note += "evalue_fails_heuristic;"
+                                    keep = False
+                                else:
+                                    note += "evalue_passes_heuristic;"
+                                if score < min_bitscore_fraction * foam_full:
+                                    note += "score_fails_heuristic;"
+                                    keep = False
+                                else:
+                                    note += "score_passes_heuristic;"
+                            else:
+                                note += "score_above_full_threshold;"
+
+                        elif foam_dom is not None:
+                            note += "has_valid_domain_threshold;"
+                            note += "summary_row;domain_rows_emitted;"
+                            any_domain_keep = False
+
+                            for dom in domains:
+                                a = dom.alignment
+                                dom_target_len = a.target_to - a.target_from + 1
+                                dom_hmm_len = a.hmm_to - a.hmm_from + 1
+
+                                dom_seq_cov = (dom_target_len / seq_len) if seq_len else 0.0
+                                dom_hmm_cov = (dom_hmm_len / a.hmm_length) if (a.hmm_length and a.hmm_length > 0) else 0.0
+
+                                dom_score = dom.score
+                                dom_evalue = getattr(dom, "i_evalue", None)
+                                if dom_evalue is None:
+                                    dom_evalue = hit.evalue
+
+                                dom_keep = True
+                                dom_note = "FOAM;has_valid_domain_threshold;domain_row;"
+
+                                if dom_hmm_cov < min_coverage:
+                                    dom_note += "coverage_below_minimum;"
+                                    dom_keep = False
+                                else:
+                                    dom_note += "coverage_above_minimum;"
+
+                                if dom_score < foam_dom:
+                                    dom_note += "score_below_domain_threshold;"
+                                    if dom_evalue > evalue:
+                                        dom_note += "evalue_fails_heuristic;"
+                                        dom_keep = False
+                                    else:
+                                        dom_note += "evalue_passes_heuristic;"
+                                    if dom_score < min_bitscore_fraction * foam_dom:
+                                        dom_note += "score_fails_heuristic;"
+                                        dom_keep = False
+                                    else:
+                                        dom_note += "score_passes_heuristic;"
+                                else:
+                                    dom_note += "score_above_domain_threshold;"
+
+                                rows.append(
+                                    {
+                                        "sequence": hit_name,
+                                        "hmm_id": hmm_id,
+                                        "evalue": float(dom_evalue),
+                                        "score": float(dom_score),
+                                        "alignment_type": "domain",
+                                        "coverage_sequence": float(dom_seq_cov),
+                                        "coverage_hmm": float(dom_hmm_cov),
+                                        "keep": bool(dom_keep),
+                                        "note": dom_note,
+                                    }
+                                )
+                                n_rows += 1
+                                if dom_keep:
+                                    any_domain_keep = True
+
+                            keep = any_domain_keep
+                            if keep:
+                                note += "any_domain_kept;"
+                            else:
+                                note += "no_domains_kept;"
+
+                            alignment_type = "summary"
+
+                        else:
+                            note += "no_threshold_found;"
+                            if profile_coverage < min_coverage:
+                                note += "coverage_below_minimum;"
+                                keep = False
+                            else:
+                                note += "coverage_above_minimum;"
+                            if score < min_score:
+                                note += "score_fails_default_filter;"
+                                keep = False
+                            else:
+                                note += "score_passes_default_filter;"
+
+                    # CAMPER: check full threshold first, then domain threshold, then default
+                    elif db == "CAMPER":
+                        note += "CAMPER;"
+                        camper_full, camper_dom = get_camper_threshold(hmm_id)
+
+                        if camper_full is not None:
+                            note += "has_valid_full_threshold;"
+                            if profile_coverage < min_coverage:
+                                note += "coverage_below_minimum;"
+                                keep = False
+                            else:
+                                note += "coverage_above_minimum;"
+                            if score < camper_full:
+                                note += "score_below_full_threshold;"
+                                if reported_evalue > evalue:
+                                    note += "evalue_fails_heuristic;"
+                                    keep = False
+                                else:
+                                    note += "evalue_passes_heuristic;"
+                                if score < min_bitscore_fraction * camper_full:
+                                    note += "score_fails_heuristic;"
+                                    keep = False
+                                else:
+                                    note += "score_passes_heuristic;"
+                            else:
+                                note += "score_above_full_threshold;"
+
+                        elif camper_dom is not None:
+                            note += "has_valid_domain_threshold;"
+                            note += "summary_row;domain_rows_emitted;"
+                            any_domain_keep = False
+
+                            for dom in domains:
+                                a = dom.alignment
+                                dom_target_len = a.target_to - a.target_from + 1
+                                dom_hmm_len = a.hmm_to - a.hmm_from + 1
+
+                                dom_seq_cov = (dom_target_len / seq_len) if seq_len else 0.0
+                                dom_hmm_cov = (dom_hmm_len / a.hmm_length) if (a.hmm_length and a.hmm_length > 0) else 0.0
+
+                                dom_score = dom.score
+                                dom_evalue = getattr(dom, "i_evalue", None)
+                                if dom_evalue is None:
+                                    dom_evalue = hit.evalue
+
+                                dom_keep = True
+                                dom_note = "CAMPER;has_valid_domain_threshold;domain_row;"
+
+                                if dom_hmm_cov < min_coverage:
+                                    dom_note += "coverage_below_minimum;"
+                                    dom_keep = False
+                                else:
+                                    dom_note += "coverage_above_minimum;"
+
+                                if dom_score < camper_dom:
+                                    dom_note += "score_below_domain_threshold;"
+                                    if dom_evalue > evalue:
+                                        dom_note += "evalue_fails_heuristic;"
+                                        dom_keep = False
+                                    else:
+                                        dom_note += "evalue_passes_heuristic;"
+                                    if dom_score < min_bitscore_fraction * camper_dom:
+                                        dom_note += "score_fails_heuristic;"
+                                        dom_keep = False
+                                    else:
+                                        dom_note += "score_passes_heuristic;"
+                                else:
+                                    dom_note += "score_above_domain_threshold;"
+
+                                rows.append(
+                                    {
+                                        "sequence": hit_name,
+                                        "hmm_id": hmm_id,
+                                        "evalue": float(dom_evalue),
+                                        "score": float(dom_score),
+                                        "alignment_type": "domain",
+                                        "coverage_sequence": float(dom_seq_cov),
+                                        "coverage_hmm": float(dom_hmm_cov),
+                                        "keep": bool(dom_keep),
+                                        "note": dom_note,
+                                    }
+                                )
+                                n_rows += 1
+                                if dom_keep:
+                                    any_domain_keep = True
+
+                            keep = any_domain_keep
+                            if keep:
+                                note += "any_domain_kept;"
+                            else:
+                                note += "no_domains_kept;"
+
+                            alignment_type = "summary"
+
+                        else:
+                            note += "no_threshold_found;"
+                            if profile_coverage < min_coverage:
+                                note += "coverage_below_minimum;"
+                                keep = False
+                            else:
+                                note += "coverage_above_minimum;"
+                            if score < min_score:
+                                note += "score_fails_default_filter;"
+                                keep = False
+                            else:
+                                note += "score_passes_default_filter;"
+
+                    # METABOLIC GA where available, otherwise default
+                    elif db == "METABOLIC":
+                        note += "METABOLIC;"
+                        if profile_coverage < min_coverage:
+                            note += "coverage_below_minimum;"
+                            keep = False
+                        else:
+                            note += "coverage_above_minimum;"
+                        if hmm.cutoffs.gathering is not None:
+                            note += "has_valid_GA;"
+                            if score < hmm.cutoffs.gathering1:
+                                note += "score_below_GA;"
+                                keep = False
+                            else:
+                                note += "score_above_GA;"
+                        else:
+                            note += "no_GA_found;"
+                            if score < min_score:
+                                note += "score_fails_default_filter;"
+                                keep = False
+                            else:
+                                note += "score_passes_default_filter;"
+
+                    # Default fallback for other databases (like PHROG, VOG, and dbCAN)
+                    else:
+                        note += f"{db};"
+                        if profile_coverage < min_coverage:
+                            note += "coverage_below_minimum;"
+                            keep = False
+                        else:
+                            note += "coverage_above_minimum;"
+                        if score < min_score:
+                            note += "score_fails_default_filter;"
+                            keep = False
+                        else:
+                            note += "score_passes_default_filter;"
+
+                    rows.append(
+                        {
+                            "sequence": hit_name,
+                            "hmm_id": hmm_id,
+                            "evalue": float(reported_evalue),
+                            "score": float(score),
+                            "alignment_type": alignment_type,
+                            "coverage_sequence": float(seq_coverage),
+                            "coverage_hmm": float(profile_coverage),
+                            "keep": bool(keep),
+                            "note": note,
+                        }
+                    )
+                    n_rows += 1
+
+        df = pl.DataFrame(rows)
+        df.write_parquet(tmp_out)
+        os.replace(tmp_out, outfile)
+        write_done_marker(done_path_for(outfile), {"parquet": str(outfile), "db": db, "rows": n_rows, "status": "ok"})
+        return str(outfile)
+
     with open(tmp_out, "w", encoding="utf-8") as out, easel.SequenceFile(
         batch_fasta, digital=True, alphabet=alphabet
     ) as seqs:
@@ -537,6 +981,7 @@ def hmmsearch_serial(
                                 f"{hit_name}\t{hmm_id}\t{dom_evalue:.1E}\t{dom_score:.6f}\t"
                                 f"domain\t{dom_seq_cov}\t{dom_hmm_cov}\t{dom_keep}\t{dom_note}\n"
                             )
+                            n_rows += 1
                             if dom_keep:
                                 any_domain_keep = True
 
@@ -634,6 +1079,7 @@ def hmmsearch_serial(
                                 f"{hit_name}\t{hmm_id}\t{dom_evalue:.1E}\t{dom_score:.6f}\t"
                                 f"domain\t{dom_seq_cov}\t{dom_hmm_cov}\t{dom_keep}\t{dom_note}\n"
                             )
+                            n_rows += 1
                             if dom_keep:
                                 any_domain_keep = True
 
@@ -681,7 +1127,7 @@ def hmmsearch_serial(
                         else:
                             note += "score_passes_default_filter;"
 
-                # Default fallback for other databases (like PHROG and dbCAN)
+                # Default fallback for other databases (like PHROG, VOG, and dbCAN)
                 else:
                     note += f"{db};"
                     if profile_coverage < min_coverage:
@@ -714,15 +1160,17 @@ def main():
     hmm_vscores = snakemake.params.hmm_vscores
     cov_fraction = snakemake.params.cov_fraction
     db_dir = snakemake.params.db_dir
-    output = Path(snakemake.params.vscores)
-    all_hmm_results = Path(snakemake.params.all_hmm_results)
-    filtered_hmm_results = Path(snakemake.params.filtered_hmm_results)
     num_threads = snakemake.threads
     mem_limit = snakemake.resources.mem
     minscore = snakemake.params.min_bitscore
     min_bitscore_fraction = snakemake.params.min_bitscore_fraction_heuristic
     evalue = snakemake.params.max_evalue
     keep_full_results = snakemake.params.keep_full_hmm_results
+    save_to_parquet = snakemake.params.save_to_parquet
+
+    output = _as_parquet_path_if_enabled(snakemake.params.vscores, save_to_parquet)
+    all_hmm_results = _as_parquet_path_if_enabled(snakemake.params.all_hmm_results, save_to_parquet)
+    filtered_hmm_results = _as_parquet_path_if_enabled(snakemake.params.filtered_hmm_results, save_to_parquet)
 
     logger.info("Protein HMM searches starting...")
 
@@ -768,7 +1216,7 @@ def main():
     aggregated = aggregate_sequences(protein_dir)
     seq_lengths = {rec.header.name: len(rec.seq) for rec in aggregated}
     N = len(aggregated)
-    
+
     batch_files = []
     batch_keys = []
 
@@ -819,16 +1267,19 @@ def main():
     result_paths = []
     for db_path in hmm_paths:
         db_name = assign_db(db_path)
-        logger.info(f"Running HMMsearches against {db_name} profile HMMs...")
+        logger.info(f"Running hmmsearch against {db_name} profile HMMs...")
 
         if len(batch_keys) > 1:
             for batch_key, batch_fasta in tqdm(
                 list(zip(batch_keys, batch_files)),
                 total=len(batch_keys),
-                desc=f"HMMsearches ({db_name})",
+                desc=f"hmmsearch ({db_name})",
                 unit="batch",
             ):
                 outfile = tmp_dir / f"{db_path.stem}_{batch_key}_search.tsv"
+                if save_to_parquet:
+                    outfile = outfile.with_suffix(".parquet")
+
                 if is_complete(outfile):
                     logger.info(f"Skipping (complete): {outfile.name}")
                     result_paths.append((str(outfile), db_path))
@@ -845,11 +1296,15 @@ def main():
                     min_bitscore_fraction=min_bitscore_fraction,
                     evalue=evalue,
                     cpus=num_threads,
+                    save_to_parquet=save_to_parquet,
                 )
                 result_paths.append((out_path, db_path))
         else:
             for batch_key, batch_fasta in zip(batch_keys, batch_files):
                 outfile = tmp_dir / f"{db_path.stem}_{batch_key}_search.tsv"
+                if save_to_parquet:
+                    outfile = outfile.with_suffix(".parquet")
+
                 if is_complete(outfile):
                     logger.info(f"Skipping (complete): {outfile.name}")
                     result_paths.append((str(outfile), db_path))
@@ -866,18 +1321,24 @@ def main():
                     min_bitscore_fraction=min_bitscore_fraction,
                     evalue=evalue,
                     cpus=num_threads,
+                    save_to_parquet=save_to_parquet,
                 )
                 result_paths.append((out_path, db_path))
 
-    logger.info("Filtering HMMsearch results...")
+    logger.info("Filtering hmmsearch results...")
     full_paths = []
     best_paths = []
     for result_path, db_path in result_paths:
         db = assign_db(db_path)
         logger.info(f"Filtering results from {db}...")
         result_path = Path(result_path)
-        full_path = Path(str(result_path).replace("_search.tsv", "_full.tsv"))
-        best_path = Path(str(result_path).replace("_search.tsv", "_best_kept.tsv"))
+
+        if save_to_parquet:
+            full_path = Path(str(result_path)).with_name(result_path.name.replace("_search.parquet", "_full.parquet"))
+            best_path = Path(str(result_path)).with_name(result_path.name.replace("_search.parquet", "_best_kept.parquet"))
+        else:
+            full_path = Path(str(result_path).replace("_search.tsv", "_full.tsv"))
+            best_path = Path(str(result_path).replace("_search.tsv", "_best_kept.tsv"))
 
         full_done = is_complete(full_path)
         best_done = is_complete(best_path)
@@ -886,12 +1347,12 @@ def main():
             logger.info(f"Skipping standardize (complete): {full_path.name} and {best_path.name}")
         else:
             logger.debug(f"Standardizing {result_path} to {full_path} and {best_path}")
-            standardize_and_filter_hmm_results(result_path, db_path, full_path, best_path)
+            standardize_and_filter_hmm_results(result_path, db_path, full_path, best_path, save_to_parquet)
 
         full_paths.append(str(full_path))
         best_paths.append(str(best_path))
-    
-    logger.info("Aggregating final HMMsearch results...")
+
+    logger.info("Aggregating final hmmsearch results...")
     # Load + concat full and best
     schema_overrides_full = {
         "hmm_id": pl.Utf8,
@@ -918,29 +1379,42 @@ def main():
     }
 
     if keep_full_results:
-        logger.debug("Loading and concatenating full HMMsearch results...")
+        logger.debug("Loading and concatenating full hmmsearch results...")
         dfs_full = []
         for p in full_paths:
-            logger.debug(f"Loading full HMMsearch results from {p}")
+            logger.debug(f"Loading full hmmsearch results from {p}")
             try:
-                dfs_full.append(pl.read_csv(p, separator="\t", schema_overrides=schema_overrides_full))
+                if save_to_parquet:
+                    dfs_full.append(pl.read_parquet(p))
+                else:
+                    dfs_full.append(pl.read_csv(p, separator="\t", schema_overrides=schema_overrides_full))
             except Exception as e:
                 logger.warning(f"Failed to load {p}: {e}")
-        logger.debug("Concatenating full HMMsearch results...")
+        logger.debug("Concatenating full hmmsearch results...")
         combined_full_df = pl.concat(dfs_full) if dfs_full else pl.DataFrame(schema=schema_overrides_full)
-        combined_full_df.write_csv(all_hmm_results, separator="\t")
+        logger.info(f"Writing full hmmsearch results: {all_hmm_results}")
+        if save_to_parquet:
+            combined_full_df.write_parquet(all_hmm_results)
+        else:
+            combined_full_df.write_csv(all_hmm_results, separator="\t")
 
-    logger.debug("Loading and concatenating best-kept HMMsearch results...")
+    logger.debug("Loading and concatenating best-kept hmmsearch results...")
     dfs_best = []
     for p in best_paths:
-        logger.debug(f"Loading best-kept HMMsearch results from {p}")
+        logger.debug(f"Loading best-kept hmmsearch results from {p}")
         try:
-            dfs_best.append(pl.read_csv(p, separator="\t", schema_overrides=schema_overrides_best))
+            if save_to_parquet:
+                dfs_best.append(pl.read_parquet(p))
+            else:
+                dfs_best.append(pl.read_csv(p, separator="\t", schema_overrides=schema_overrides_best))
         except Exception as e:
             logger.warning(f"Failed to load {p}: {e}")
-    logger.debug("Concatenating best-kept HMMsearch results...")
+    logger.debug("Concatenating best-kept hmmsearch results...")
     combined_best_df = pl.concat(dfs_best) if dfs_best else pl.DataFrame(schema=schema_overrides_best)
-    combined_best_df.write_csv(filtered_hmm_results, separator="\t")
+    if save_to_parquet:
+        combined_best_df.write_parquet(filtered_hmm_results)
+    else:
+        combined_best_df.write_csv(filtered_hmm_results, separator="\t")
 
     # Use best-kept for vscore assignment downstream
     logger.debug("Loading HMM V-scores...")
@@ -981,9 +1455,12 @@ def main():
             merged_df = merged_df.drop(col)
 
     merged_df = merged_df.sort(["sequence", "score", "V-score", "db"])
-    merged_df.write_csv(output, separator="\t")
+    if save_to_parquet:
+        merged_df.write_parquet(output)
+    else:
+        merged_df.write_csv(output, separator="\t")
 
-    logger.debug("Cleaning up temporary files and HMMsearch directory...")
+    logger.debug("Cleaning up temporary files and hmmsearch directory...")
     for f in tmp_dir.iterdir():
         if f.name == "manifest.json":
             continue
@@ -1002,8 +1479,6 @@ def main():
         pass
 
     logger.info("Protein HMM searches completed.")
-    if keep_full_results:
-        logger.info(f"Full results: {all_hmm_results}")
     logger.info(f"Best hits per protein: {filtered_hmm_results}")
 
 if __name__ == "__main__":

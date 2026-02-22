@@ -1,3 +1,26 @@
+# 0.10.0
+
+* Added genome-context curation to `curate_annots.py` module:
+  * Flag proteins located outside strict viral regions or directly adjacent to their boundaries, based on window average VL-scores and V-scores of genes (or hallmark genes if enabled). These proteins are not removed from final AVG predictions by default, since strict viral region calls can be too conservative when viral origin confidence remains high.
+  * Flag proteins in contiguous runs of 3 or more AVGs in a row, excluded by default as this indicates non-auxiliary function.
+  * Parameter values are configurable with `--min-flank-vscore`, `--min-window-avg-vlscore`, and `--max-avg-array-length`.
+
+* Updated the viral origin confidence LGBM
+  * Previous versions trained and evaluated the model using train/test splits that could inadvertently exclude some proteins from a contig.
+  * As a result, the model was sometimes trained with incomplete genome context information, though this did not introduce data leakage between training, validation, and test sets.
+  * This has been corrected. The model was retrained and re-evaluated using datasets that retain all proteins encoded by each contig (including a new test dataset comprised of only host chromosomes with integrated proviruses and some integrated MGEs).
+  * Inference is now parallelized by batching multiple contigs per prediction call to improve throughput.
+
+* Additional changes:
+  * Added support for gzipped FASTA file inputs (.fasta.gz, .fna.gz and .faa.gz).
+  * Now logs how many AVGs of each type were filtered during the curation module.
+  * Changed the order of some logging messages in `organize_proteins.py`.
+  * Now writes full HMMsearch results to parquet instead of tsv when `--keep_full_hmm_results`is enabled.
+  * Added additional methyltransferase annotations from Pfam to the AMG and AMG filter lists.
+  * Added additional defense/anti-defense annotations to the APG and AReG lists
+  * Added a feature to optionally save all intermediate and final tables to parquet instead of TSV to reduce filesize on large input datasets
+  * Changed some argument names (e.g., `--genomes` to `--input-contigs`, `--vmags` to `--input-bins`) and renamed variables and log messages to be less specific to genomes/vMAGs and more generalized to contigs/bins
+
 # 0.9.0
 
 * Updated `checkamg download` to retrieve and extract a pre-built, standardized CheckAMG database containing all required profile HMMs and cutoff files, rather than downloading individual databases from their original sources.

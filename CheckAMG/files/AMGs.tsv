@@ -5655,23 +5655,33 @@ K26600	0.01	0.0	KEGG	TLCD3; TLC domain-containing protein 3
 K27072	0.01	0.0	KEGG	hadB; meromycolic acid (3R)-3-hydroxyacyl-[acyl-carrier protein] dehydratase HadB [EC:4.2.1.-]
 PF02867.21	10.0	4.161368002	Pfam	Ribonucleotide reductase, barrel domain
 PF01370.28	10.0	4.151614972	Pfam	NAD dependent epimerase/dehydratase family
+PF02086.22	10.0	4.106122874	Pfam	D12 class N6 adenine-specific DNA methyltransferase
 PF00534.27	10.0	3.991048776	Pfam	Glycosyl transferases group 1
+PF13578.13	10.0	3.937166704	Pfam	Methyltransferase domain
+PF13489.13	10.0	3.924537718	Pfam	Methyltransferase domain
 PF13640.13	10.0	3.889301703	Pfam	2OG-Fe(II) oxygenase superfamily
 PF04321.24	10.0	3.877946952	Pfam	RmlD substrate binding domain
+PF08241.19	10.0	3.849050691	Pfam	Methyltransferase domain
+PF05869.17	10.0	3.835500328	Pfam	DNA N-6-adenine-methyltransferase (Dam)
+PF05050.20	10.0	3.825101412	Pfam	Methyltransferase FkbM domain
 PF02562.23	10.0	3.801883707	Pfam	PhoH-like protein
 PF01832.26	10.0	3.797059695	Pfam	Mannosyl-glycoprotein endo-beta-N-acetylglucosaminidase
 PF00317.27	10.0	3.765743041	Pfam	Ribonucleotide reductase, all-alpha domain
 PF01073.26	10.0	3.750739751	Pfam	3-beta hydroxysteroid dehydrogenase/isomerase family
+PF13649.13	10.0	3.72419392	Pfam	Methyltransferase domain
 PF03477.22	10.0	3.633266411	Pfam	ATP cone domain
 PF01145.32	10.0	3.632760888	Pfam	SPFH domain / Band 7 family
 PF01467.33	10.0	3.629715333	Pfam	Cytidylyltransferase-like
 PF13759.13	10.0	3.608205008	Pfam	Putative 2OG-Fe(II) oxygenase
+PF08242.19	10.0	3.60260252	Pfam	Methyltransferase domain
+PF13847.13	10.0	3.555819683	Pfam	Methyltransferase domain
 PF01242.25	10.0	3.487703863	Pfam	6-pyruvoyl tetrahydropterin synthase
 PF00132.31	10.0	3.486996888	Pfam	Bacterial transferase hexapeptide (six repeats)
 PF01227.28	10.0	3.459241665	Pfam	GTP cyclohydrolase I
 PF01503.23	10.0	3.445604203	Pfam	Phosphoribosyl-ATP pyrophosphohydrolase
 PF06508.20	10.0	3.40363519	Pfam	Queuosine biosynthesis protein QueC
 PF04095.23	10.0	3.33405144	Pfam	Nicotinate phosphoribosyltransferase (NAPRTase) family
+PF19222.6	10.0	3.317018101	Pfam	Nodavirus Vmethyltransferase
 PF00984.25	10.0	3.311541958	Pfam	UDP-glucose/GDP-mannose dehydrogenase family, central domain
 PF01734.28	10.0	3.299289334	Pfam	Patatin-like phospholipase
 PF03721.21	10.0	3.252610341	Pfam	UDP-glucose/GDP-mannose dehydrogenase family, NAD binding domain
@@ -5681,11 +5691,15 @@ PF00106.32	10.0	3.194514342	Pfam	short chain dehydrogenase
 PF02543.22	10.0	3.161068385	Pfam	Carbamoyltransferase N-terminus
 PF13561.13	10.0	3.154119526	Pfam	Enoyl-(Acyl carrier protein) reductase
 PF13469.13	10.0	3.114610984	Pfam	Sulfotransferase family
+PF01660.23	10.0	3.113609151	Pfam	Viral methyltransferase
 PF02348.26	10.0	3.106190897	Pfam	Cytidylyltransferase
 PF00733.28	10.0	3.084576278	Pfam	Asparagine synthase
 PF00625.28	10.0	3.06069784	Pfam	Guanylate kinase
 PF03567.21	10.0	3.031004281	Pfam	Sulfotransferase family
 PF00685.34	9.94	2.997386384	Pfam	Sulfotransferase domain
+PF08484.18	9.3	2.968482949	Pfam	C-methyltransferase C-terminal domain
+PF05711.18	8.77	2.942999593	Pfam	Macrocin-O-methyltransferase (TylF)
+PF03291.23	8.71	2.940018155	Pfam	mRNA (guanine-N(7))-methyltransferase domain
 PF00266.26	8.55	2.931966115	Pfam	Aminotransferase class-V
 PF11775.14	7.97	2.901458321	Pfam	Cobalamin biosynthesis protein CobT VWA domain
 PF01050.25	7.9	2.897627091	Pfam	Mannose-6-phosphate isomerase C-terminal
@@ -5697,9 +5711,11 @@ PF00487.31	7.0	2.84509804	Pfam	Fatty acid desaturase
 PF13091.13	6.85	2.835690571	Pfam	PLD-like domain
 PF00551.25	6.47	2.810904281	Pfam	Formyl transferase
 PF13532.13	5.97	2.775974331	Pfam	2OG-Fe(II) oxygenase superfamily
+PF01728.26	5.88	2.769377326	Pfam	FtsJ-like methyltransferase
 PF02585.23	5.87	2.768638101	Pfam	GlcNAc-PI de-N-acetylase
 PF00291.32	5.83	2.765668555	Pfam	Pyridoxal-phosphate dependent enzyme
 PF02882.26	5.8	2.763427994	Pfam	Tetrahydrofolate dehydrogenase/cyclohydrolase, NAD(P)-binding domain
+PF13651.12	5.59	2.747411808	Pfam	Adenine-specific methyltransferase EcoRI
 PF09206.19	5.17	2.713490543	Pfam	Alpha-L-arabinofuranosidase B, catalytic
 PF02350.26	4.91	2.691081492	Pfam	UDP-N-acetylglucosamine 2-epimerase
 PF14489.12	4.91	2.691081492	Pfam	QueF-like protein
@@ -5711,9 +5727,15 @@ PF00923.26	4.05	2.607455023	Pfam	Transaldolase/Fructose-6-phosphate aldolase
 PF03016.21	3.92	2.593286067	Pfam	Exostosin GT47 domain
 PF00676.26	3.77	2.57634135	Pfam	Dehydrogenase E1 component
 PF03332.20	3.77	2.57634135	Pfam	Eukaryotic phosphomannomutase
+PF19223.6	3.71	2.56937391	Pfam	Chroparavirus methyltransferase
 PF00120.30	3.31	2.519827994	Pfam	Glutamine synthetase, catalytic domain
 PF13661.13	3.24	2.51054501	Pfam	2OG-Fe(II) oxygenase superfamily
 PF05996.18	3.11	2.492760389	Pfam	Ferredoxin-dependent bilin reductase
+PF04989.19	3.02	2.480006943	Pfam	Rhamnosyl O-methyltransferase/CmcI
+PF14314.13	2.98	2.474216264	Pfam	Virus-capping methyltransferase, MT domain
+PF01209.25	2.95	2.469822016	Pfam	ubiE/COQ5 methyltransferase family
+PF01170.25	2.92	2.465382851	Pfam	RMKL-like, methyltransferase domain
+PF20473.5	2.91	2.463892989	Pfam	MmeI, DNA-methyltransferase domain
 PF02672.21	2.87	2.457881897	Pfam	CP12 domain
 PF01126.26	2.85	2.45484486	Pfam	Heme oxygenase
 PF00596.28	2.76	2.440909082	Pfam	Class II Aldolase and Adducin N-terminal domain
@@ -5725,10 +5747,12 @@ PF01048.27	2.49	2.396199347	Pfam	Phosphorylase superfamily
 PF02915.24	2.44	2.387389826	Pfam	Rubrerythrin
 PF00288.33	2.42	2.383815366	Pfam	GHMP kinases N terminal domain
 PF00248.28	2.41	2.382017043	Pfam	Aldo/keto reductase family
+PF05175.21	2.36	2.372912003	Pfam	Methyltransferase small domain
 PF06213.18	2.35	2.371067862	Pfam	Cobalamin biosynthesis protein CobT
 PF01596.24	2.33	2.367355921	Pfam	O-methyltransferase
 PF03703.21	2.31	2.36361198	Pfam	Bacterial PH domain
 PF00682.26	2.2	2.342422681	Pfam	HMGL-like
+PF21080.3	2.14	2.330413773	Pfam	Virus-capping methyltransferase, connector domain
 PF00206.26	2.13	2.328379603	Pfam	Lyase
 PF00391.30	2.13	2.328379603	Pfam	PEP-utilising enzyme, mobile domain
 PF06442.18	2.12	2.326335861	Pfam	R67 dihydrofolate reductase
@@ -5738,13 +5762,16 @@ PF02826.26	2.06	2.31386722	Pfam	D-isomer specific 2-hydroxyacid dehydrogenase, N
 PF00171.28	1.99	2.298853076	Pfam	Aldehyde dehydrogenase family
 PF00109.33	1.93	2.285557309	Pfam	Beta-ketoacyl synthase, N-terminal domain
 PF00255.26	1.9	2.278753601	Pfam	Glutathione peroxidase
+PF09445.17	1.84	2.264817823	Pfam	RNA cap guanine-N2 methyltransferase
 PF01762.28	1.81	2.257678575	Pfam	Galactosyltransferase
 PF00301.26	1.78	2.250420002	Pfam	Rubredoxin
 PF01786.25	1.68	2.225309282	Pfam	Alternative oxidase
+PF05958.18	1.58	2.198657087	Pfam	tRNA (Uracil-5-)-methyltransferase
 PF00719.25	1.57	2.195899652	Pfam	Inorganic pyrophosphatase
 PF02649.20	1.52	2.181843588	Pfam	Type I GTP cyclohydrolase folE2
 PF00441.30	1.51	2.178976947	Pfam	Acyl-CoA dehydrogenase, C-terminal domain
 PF14819.12	1.47	2.167317335	Pfam	Nitrile reductase, 7-cyano-7-deazaguanine-reductase N-term
+PF01135.26	1.45	2.161368002	Pfam	Protein-L-isoaspartate(D-aspartate) O-methyltransferase (PCMT)
 PF01066.27	1.4	2.146128036	Pfam	CDP-alcohol phosphatidyltransferase
 PF02771.22	1.4	2.146128036	Pfam	Acyl-CoA dehydrogenase, N-terminal domain
 PF01451.27	1.39	2.1430148	Pfam	Low molecular weight phosphotyrosine protein phosphatase
@@ -5765,7 +5792,16 @@ PF00491.27	1.05	2.021189299	Pfam	Arginase family
 PF01817.27	1.03	2.012837225	Pfam	Chorismate mutase type II
 PF00485.25	1.02	2.008600172	Pfam	Phosphoribulokinase / Uridine kinase family
 PF01259.25	1.01	2.004321374	Pfam	SAICAR synthetase
+PF06460.19	1.0	2.0	Pfam	Coronavirus 2'-O-methyltransferase
+PF08456.16	1.0	2.0	Pfam	Viral methyltransferase C-terminal
+PF20831.3	1.0	2.0	Pfam	Reovirus VP3 protein, Methyltransferase domain 1
+PF20832.3	1.0	2.0	Pfam	Reovirus VP3 protein, Methyltransferase domain 2
+PF21065.4	1.0	2.0	Pfam	Reovirus core-spike protein lambda-2 (L2), methyltransferase-1
+PF21066.4	1.0	2.0	Pfam	Reovirus core-spike protein lambda-2 (L2), methyltransferase-2
+PF21081.3	1.0	2.0	Pfam	Virus-capping methyltransferase, C-terminal
+PF19587.5	0.98	1.991226076	Pfam	Uncharacterised methyltransferase family (DUF6094)
 PF01637.25	0.95	1.977723605	Pfam	ATPase domain predominantly from Archaea
+PF06325.20	0.94	1.973127854	Pfam	Ribosomal protein L11 methyltransferase (PrmA)
 PF00977.28	0.92	1.963787827	Pfam	Histidine biosynthesis protein
 PF01761.27	0.89	1.949390007	Pfam	3-dehydroquinate synthase N-terminal
 PF00463.28	0.88	1.944482672	Pfam	Isocitrate lyase family
@@ -5779,6 +5815,7 @@ PF05222.22	0.82	1.913813852	Pfam	Alanine dehydrogenase/PNT, N-terminal domain
 PF02781.22	0.81	1.908485019	Pfam	Glucose-6-phosphate dehydrogenase, C-terminal domain
 PF07969.18	0.79	1.897627091	Pfam	Amidohydrolase family
 PF01791.16	0.78	1.892094603	Pfam	DeoC/LacD family aldolase
+PF05148.22	0.76	1.880813592	Pfam	Hypothetical methyltransferase
 PF00135.35	0.75	1.875061263	Pfam	Carboxylesterase family
 PF00208.28	0.74	1.86923172	Pfam	Glutamate/Leucine/Phenylalanine/Valine dehydrogenase
 PF01384.26	0.74	1.86923172	Pfam	Phosphate transporter family
@@ -5793,6 +5830,7 @@ PF01663.28	0.65	1.812913357	Pfam	Type I phosphodiesterase / nucleotide pyrophosp
 PF00348.23	0.64	1.806179974	Pfam	Polyprenyl synthetase
 PF01619.25	0.64	1.806179974	Pfam	Proline dehydrogenase
 PF02812.24	0.64	1.806179974	Pfam	Glu/Leu/Phe/Val dehydrogenase, dimerisation domain
+PF04672.19	0.61	1.785329835	Pfam	S-adenosyl methyltransferase
 PF02700.20	0.59	1.770852012	Pfam	Phosphoribosylformylglycinamidine (FGAM) synthase
 PF08501.17	0.58	1.763427994	Pfam	Shikimate dehydrogenase substrate binding domain
 PF08541.17	0.58	1.763427994	Pfam	3-Oxoacyl-[acyl-carrier-protein (ACP)] synthase III C terminal
@@ -5802,16 +5840,21 @@ PF04909.21	0.54	1.73239376	Pfam	Amidohydrolase
 PF04800.18	0.52	1.716003344	Pfam	NADH dehydrogenase ubiquinone Fe-S protein 4
 PF00141.29	0.51	1.707570176	Pfam	Peroxidase
 PF00108.30	0.5	1.698970004	Pfam	Thiolase, N-terminal domain
+PF02475.24	0.48	1.681241237	Pfam	TRM5/TYW2 methyltransferase domain
 PF13442.12	0.48	1.681241237	Pfam	Cytochrome C oxidase, cbb3-type, subunit III
+PF20553.5	0.48	1.681241237	Pfam	Putative O-methyltransferase
 PF00113.29	0.47	1.672097858	Pfam	Enolase, C-terminal TIM barrel domain
 PF02548.22	0.47	1.672097858	Pfam	Ketopantoate hydroxymethyltransferase
 PF00701.29	0.46	1.662757832	Pfam	Dihydrodipicolinate synthetase family
 PF01118.31	0.45	1.653212514	Pfam	Semialdehyde dehydrogenase, NAD binding domain
+PF04191.19	0.45	1.653212514	Pfam	Phospholipid methyltransferase
 PF05013.18	0.44	1.643452676	Pfam	N-formylglutamate amidohydrolase
 PF05221.24	0.44	1.643452676	Pfam	S-adenosyl-L-homocysteine hydrolase
 PF01648.26	0.43	1.633468456	Pfam	4'-phosphopantetheinyl transferase superfamily
 PF02911.24	0.42	1.62324929	Pfam	Formyl transferase, C-terminal domain
 PF02445.22	0.4	1.602059991	Pfam	Quinolinate synthetase A protein
+PF20258.5	0.4	1.602059991	Pfam	Aminomethyltransferase beta-barrel domain
+PF08032.18	0.39	1.591064607	Pfam	RNA 2'-O ribose methyltransferase substrate binding
 PF00933.28	0.38	1.579783597	Pfam	Glycosyl hydrolase family 3 N terminal domain
 PF07732.22	0.37	1.568201724	Pfam	Multicopper oxidase
 PF01597.26	0.35	1.544068044	Pfam	Glycine cleavage H-protein
@@ -5832,19 +5875,26 @@ PF02347.23	0.24	1.380211242	Pfam	Glycine cleavage system P-protein
 PF02737.25	0.24	1.380211242	Pfam	3-hydroxyacyl-CoA dehydrogenase, NAD binding domain
 PF09290.17	0.24	1.380211242	Pfam	Prokaryotic acetaldehyde dehydrogenase, dimerisation
 PF10396.15	0.24	1.380211242	Pfam	GTP-binding protein TrmE N-terminus
+PF10294.16	0.22	1.342422681	Pfam	Lysine methyltransferase
 PF00274.26	0.21	1.322219295	Pfam	Fructose-bisphosphate aldolase class-I
 PF02224.25	0.21	1.322219295	Pfam	Cytidylate kinase
 PF00920.28	0.2	1.301029996	Pfam	Dihydroxy-acid/6-phosphogluconate dehydratase N-terminal
+PF00891.25	0.19	1.278753601	Pfam	O-methyltransferase domain
 PF02274.23	0.19	1.278753601	Pfam	Arginine deiminase
 PF02468.21	0.19	1.278753601	Pfam	Photosystem II reaction centre N protein (psbN)
 PF02787.26	0.19	1.278753601	Pfam	Carbamoyl-phosphate synthetase large chain, oligomerisation domain
 PF03320.19	0.19	1.278753601	Pfam	Bacterial fructose-1,6-bisphosphatase, glpX-encoded
+PF04072.21	0.19	1.278753601	Pfam	Leucine carboxyl methyltransferase
+PF13679.13	0.19	1.278753601	Pfam	Methyltransferase domain
 PF00361.26	0.18	1.255272505	Pfam	NADH:quinone oxidoreductase/Mrp antiporter, TM
 PF01182.27	0.18	1.255272505	Pfam	Glucosamine-6-phosphate isomerases/6-phosphogluconolactonase
 PF01474.23	0.18	1.255272505	Pfam	Class-II DAHP synthetase family
 PF01557.24	0.18	1.255272505	Pfam	Fumarylacetoacetate (FAA) hydrolase C-terminal
 PF01116.27	0.17	1.230448921	Pfam	Fructose-bisphosphate aldolase class-II
+PF02390.24	0.17	1.230448921	Pfam	Putative methyltransferase
 PF02522.20	0.17	1.230448921	Pfam	Aminoglycoside 3-N-acetyltransferase
+PF02574.23	0.16	1.204119983	Pfam	Homocysteine S-methyltransferase
+PF04140.20	0.16	1.204119983	Pfam	Isoprenylcysteine carboxyl methyltransferase (ICMT) family
 PF00723.28	0.15	1.176091259	Pfam	Glycosyl hydrolases family 15
 PF01288.26	0.15	1.176091259	Pfam	7,8-dihydro-6-hydroxymethylpterin-pyrophosphokinase (HPPK)
 PF01148.26	0.14	1.146128036	Pfam	Cytidylyltransferase family
@@ -5853,12 +5903,18 @@ PF00119.26	0.13	1.113943352	Pfam	ATP synthase A chain
 PF01208.24	0.13	1.113943352	Pfam	Uroporphyrinogen decarboxylase (URO-D)
 PF01717.25	0.13	1.113943352	Pfam	Cobalamin-independent synthase, Catalytic domain
 PF02541.23	0.13	1.113943352	Pfam	Ppx/GppA phosphatase family
+PF05724.18	0.13	1.113943352	Pfam	Thiopurine S-methyltransferase (TPMT)
 PF07977.20	0.13	1.113943352	Pfam	FabA-like domain
 PF01077.28	0.12	1.079181246	Pfam	Nitrite and sulphite reductase 4Fe-4S domain
+PF01739.25	0.12	1.079181246	Pfam	CheR methyltransferase, SAM binding domain
 PF04131.21	0.12	1.079181246	Pfam	Putative N-acetylmannosamine-6-phosphate epimerase
 PF06967.17	0.12	1.079181246	Pfam	Mo-dependent nitrogenase C-terminus
+PF10672.16	0.12	1.079181246	Pfam	S-adenosylmethionine-dependent methyltransferase
 PF00490.28	0.11	1.041392685	Pfam	Delta-aminolevulinic acid dehydratase
+PF01980.23	0.11	1.041392685	Pfam	tRNA-methyltransferase O N-terminal domain
+PF02590.23	0.11	1.041392685	Pfam	Predicted SPOUT methyltransferase
 PF05935.18	0.11	1.041392685	Pfam	Arylsulfotransferase (ASST)
+PF08100.19	0.11	1.041392685	Pfam	O-methyltransferase dimerisation domain
 PF00032.23	0.1	1.0	Pfam	Cytochrome b(C-terminal)/b6/petD
 PF00742.25	0.1	1.0	Pfam	Homoserine dehydrogenase
 PF01654.23	0.1	1.0	Pfam	Cytochrome bd terminal oxidase subunit I
@@ -5867,34 +5923,67 @@ PF05090.20	0.1	1.0	Pfam	HTTM domain
 PF07700.21	0.1	1.0	Pfam	Haem-NO-binding
 PF00262.26	0.09	0.954242509	Pfam	Calreticulin family
 PF01144.30	0.09	0.954242509	Pfam	Coenzyme A transferase
+PF04816.19	0.09	0.954242509	Pfam	tRNA (adenine(22)-N(1))-methyltransferase
+PF10237.16	0.09	0.954242509	Pfam	Probable N6-adenine methyltransferase
+PF12847.14	0.09	0.954242509	Pfam	Methyltransferase domain
 PF00941.28	0.08	0.903089987	Pfam	FAD binding domain in molybdopterin dehydrogenase
 PF02913.25	0.08	0.903089987	Pfam	FAD linked oxidases, C-terminal domain
+PF05430.18	0.08	0.903089987	Pfam	S-adenosyl-L-methionine-dependent methyltransferase
+PF01189.24	0.07	0.84509804	Pfam	16S rRNA methyltransferase RsmB/F
 PF01218.24	0.07	0.84509804	Pfam	Coproporphyrinogen III oxidase
+PF03705.21	0.07	0.84509804	Pfam	CheR methyltransferase, all-alpha domain
 PF03824.23	0.07	0.84509804	Pfam	High-affinity nickel-transport protein
 PF05138.19	0.07	0.84509804	Pfam	Phenylacetic acid catabolic protein
 PF00289.29	0.06	0.77815125	Pfam	Biotin carboxylase, N-terminal domain
+PF01746.27	0.06	0.77815125	Pfam	tRNA (Guanine-1)-methyltransferase TrmD
 PF03460.23	0.06	0.77815125	Pfam	Nitrite/Sulfite reductase ferredoxin-like half domain
+PF05219.18	0.06	0.77815125	Pfam	DREV methyltransferase
+PF05891.19	0.06	0.77815125	Pfam	AdoMet dependent proline di-methyltransferase
 PF06463.19	0.06	0.77815125	Pfam	Molybdenum Cofactor Synthesis C
+PF17125.11	0.06	0.77815125	Pfam	N-terminal domain of 16S rRNA methyltransferase RsmF
 PF00310.27	0.05	0.698970004	Pfam	Glutamine amidotransferases class-II
+PF04375.20	0.05	0.698970004	Pfam	HemX, putative uroporphyrinogen-III C-methyltransferase
 PF06983.20	0.05	0.698970004	Pfam	3-demethylubiquinone-9 3-methyltransferase
 PF07884.20	0.05	0.698970004	Pfam	Vitamin K epoxide reductase family
+PF13383.13	0.05	0.698970004	Pfam	Methyltransferase domain
 PF13631.12	0.05	0.698970004	Pfam	Cytochrome b(N-terminal)/b6/petB
+PF17126.12	0.05	0.698970004	Pfam	RsmF rRNA methyltransferase first C-terminal domain
+PF21016.4	0.05	0.698970004	Pfam	Ribosomal RNA large subunit methyltransferase N-terminal domain
 PF00116.27	0.04	0.602059991	Pfam	Cytochrome C oxidase subunit II, periplasmic domain
 PF00223.25	0.04	0.602059991	Pfam	Photosystem I psaA/psaB protein
 PF02633.20	0.04	0.602059991	Pfam	Creatinine amidohydrolase
+PF03141.23	0.04	0.602059991	Pfam	Putative S-adenosyl-L-methionine-dependent methyltransferase
 PF03264.20	0.04	0.602059991	Pfam	NapC/NirT cytochrome c family, N-terminal region
 PF04107.19	0.04	0.602059991	Pfam	Glutamate-cysteine ligase family 2(GCS2)
 PF04362.20	0.04	0.602059991	Pfam	Bacterial Fe(2+) trafficking
+PF04378.20	0.04	0.602059991	Pfam	Ribosomal RNA large subunit methyltransferase D, RlmJ
+PF04445.20	0.04	0.602059991	Pfam	Putative SAM-dependent methyltransferase
 PF08770.18	0.04	0.602059991	Pfam	Sulphur oxidation protein SoxZ
 PF09489.16	0.04	0.602059991	Pfam	Probable cobalt transporter subunit (CbtB)
+PF10017.16	0.04	0.602059991	Pfam	Histidine-specific methyltransferase, SAM-dependent
 PF13501.13	0.04	0.602059991	Pfam	Sulfur oxidation protein SoxY
 PF02401.24	0.03	0.477121255	Pfam	LytB protein
+PF04452.20	0.03	0.477121255	Pfam	RNA methyltransferase domain
 PF05191.21	0.03	0.477121255	Pfam	Adenylate kinase, active site lid
+PF21150.3	0.03	0.477121255	Pfam	Ribosomal RNA small subunit methyltransferase F, pre-PUA domain
+PF02870.22	0.02	0.301029996	Pfam	6-O-methylguanine DNA methyltransferase, ribonuclease-like domain
+PF05971.19	0.02	0.301029996	Pfam	RNA methyltransferase
+PF11599.15	0.02	0.301029996	Pfam	RRNA methyltransferase AviRa
 PF12139.14	0.02	0.301029996	Pfam	Adenosine-5'-phosphosulfate reductase beta subunit
 PF14765.13	0.02	0.301029996	Pfam	Polyketide synthase dehydratase N-terminal domain
+PF20260.5	0.02	0.301029996	Pfam	RNA methyltransferase PUA domain
 PF01701.24	0.01	0.0	Pfam	Photosystem I reaction centre subunit IX / PsaJ
+PF02005.23	0.01	0.0	Pfam	N2,N2-dimethylguanosine tRNA methyltransferase
 PF02507.21	0.01	0.0	Pfam	Photosystem I reaction centre subunit III
+PF02527.22	0.01	0.0	Pfam	rRNA small subunit methyltransferase G
 PF02531.22	0.01	0.0	Pfam	PsaD
+PF02598.23	0.01	0.0	Pfam	Putative RNA methyltransferase
+PF02636.24	0.01	0.0	Pfam	Putative S-adenosyl-L-methionine-dependent methyltransferase
+PF04207.18	0.01	0.0	Pfam	Tetrahydromethanopterin S-methyltransferase, subunit D
+PF05206.21	0.01	0.0	Pfam	Methyltransferase TRM13
+PF06253.17	0.01	0.0	Pfam	Trimethylamine methyltransferase (MTTB)
+PF08468.17	0.01	0.0	Pfam	Methyltransferase small domain N-terminal
+PF10354.16	0.01	0.0	Pfam	rRNA (uridine-N3-)-methyltransferase BTM5-like
 AA1			CAMPER	AA1
 AA2			CAMPER	AA2
 AA3_2			CAMPER	AA3_2
@@ -61817,9 +61906,60 @@ sulfocyanin			METABOLIC	Iron oxidation
 sulfur_dioxygenase_sdo			METABOLIC	sulfur dioxygenase
 thiosulfate_reductase_phsA			METABOLIC	thiosulfate reductase / polysulfide reductase chain A
 PF00101.26			Pfam	Ribulose bisphosphate carboxylase, small chain
+PF01994.22			Pfam	tRNA ribose 2'-O-methyltransferase, aTrm56
+PF02007.25			Pfam	Tetrahydromethanopterin S-methyltransferase MtrH subunit
+PF02676.20			Pfam	Methyltransferase TYW3
+PF03492.22			Pfam	SAM dependent carboxyl methyltransferase
+PF03587.20			Pfam	EMG1/NEP1 methyltransferase
+PF04013.18			Pfam	Putative SAM-dependent RNA methyltransferase
+PF04206.18			Pfam	Tetrahydromethanopterin S-methyltransferase, subunit E
+PF04208.20			Pfam	Tetrahydromethanopterin S-methyltransferase, subunit A
+PF04210.19			Pfam	Tetrahydromethanopterin S-methyltransferase, subunit G
+PF04211.19			Pfam	Tetrahydromethanopterin S-methyltransferase, subunit C
+PF04252.19			Pfam	Protein arginine N-methyltransferase SFM1-like
+PF05185.23			Pfam	PRMT5 arginine-N-methyltransferase
+PF05369.19			Pfam	Monomethylamine methyltransferase MtmB
+PF05440.18			Pfam	Tetrahydromethanopterin S-methyltransferase subunit B
+PF05499.18			Pfam	DNA methyltransferase 1-associated protein 1 (DMAP1)
+PF06690.18			Pfam	FeGP cofactor biosynthesis protein, methyltransferase HcgC
+PF07091.17			Pfam	Ribosomal RNA methyltransferase (FmrO)
+PF07109.18			Pfam	Magnesium-protoporphyrin IX methyltransferase C-terminus
+PF07757.19			Pfam	Predicted AdoMet-dependent methyltransferase
+PF07942.19			Pfam	Carnosine N-methyltransferase
+PF08498.16			Pfam	Sterol methyltransferase C-terminal
+PF08704.17			Pfam	tRNA methyltransferase complex GCD14 subunit
+PF09153.17			Pfam	Methylated DNA-protein cysteine methyltransferase, N-terminal
+PF09472.16			Pfam	Tetrahydromethanopterin S-methyltransferase, F subunit (MtrF)
+PF09505.16			Pfam	Dimethylamine methyltransferase (Dimeth_PyL)
 PF09778.16			Pfam	Guanylylate cyclase
+PF09936.15			Pfam	SAM-dependent RNA methyltransferase
 PF10032.15			Pfam	Phosphate transport (Pho88)
+PF11312.15			Pfam	Putative SAM-dependent methyltransferase
+PF11861.14			Pfam	Ribosomal RNA methyltransferase Spb1, DUF3381
+PF11968.15			Pfam	25S rRNA (adenine(2142)-N(1))-methyltransferase, Bmt2
+PF12047.14			Pfam	Cytosine specific DNA methyltransferase replication foci domain
+PF12147.15			Pfam	Putative methyltransferase
+PF12176.14			Pfam	Methanol-cobalamin methyltransferase B subunit
+PF12589.14			Pfam	Methyltransferase involved in Williams-Beuren syndrome
+PF12692.14			Pfam	S-adenosyl-L-methionine methyltransferase
 PF14100.12			Pfam	Family of unknown function (DUF6807)
+PF17843.7			Pfam	MycE methyltransferase N-terminal
+PF17987.8			Pfam	Phosphoethanolamine N-methyltransferase 2 N-terminal
+PF18093.8			Pfam	tRNA methyltransferase 5 N-terminal domain
+PF20798.3			Pfam	Cysteine methyltransferase effector NleE
+PF20799.3			Pfam	Protein-L-isoaspartyl O-methyltransferase, C-terminal domain
+PF21137.4			Pfam	Protein arginine N-methyltransferase 3, C2H2 zinc finger domain
+PF21224.4			Pfam	Small RNA 2'-O-methyltransferase-like, La-motif-containing domain
+PF21239.3			Pfam	Ribosomal RNA large subunit methyltransferase M, N-terminal
+PF21336.4			Pfam	Protein arginine N-methyltransferase 3, C2H2 zinc finger
+PF21579.4			Pfam	tRNA (uracil(54)-C(5))-methyltransferase, TRAM domain
+PF21911.2			Pfam	N-terminal domain in putative methyltransferase PG_1098
+PF22528.2			Pfam	Arginine methyltransferase oligomerization subdomain
+PF22837.2			Pfam	Type II methyltransferase M.Eco57I, C-terminal domain
+PF22855.2			Pfam	DNA (cytosine-5-)-methyltransferase, N-terminal
+PF24675.2			Pfam	16S rRNA (adenine(1408)-N(1))-methyltransferase
+PF25350.2			Pfam	Protein arginine methyltransferase N-terminal PH domain
+PF26055.1			Pfam	EDM2 methyltransferase-like domain
 AA0			dbCAN	
 AA1			dbCAN	Laccase / p-diphenol:oxygen oxidoreductase / ferroxidase (EC 1.10.3.2); ; ferroxidase (EC 1.10.3.-); Laccase-like multicopper oxidase (EC 1.10.3.-)
 AA10			dbCAN	AA10 (formerly CBM33) proteins are copper-dependent lytic polysaccharide monooxygenases (LPMOs); some proteins have been shown to act on chitin, others on cellulose; lytic cellulose monooxygenase (C1-hydroxylating) (EC 1.14.99.54); lytic cellulose monooxygenase (C4-dehydrogenating)(EC 1.14.99.56); lytic chitin monooxygenase (EC 1.14.99.53); lytic xylan monooxygenase / xylan oxidase (glycosidic bond-cleaving) (EC 1.14.99.-)

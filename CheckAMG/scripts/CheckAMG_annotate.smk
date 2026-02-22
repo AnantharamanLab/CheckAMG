@@ -12,10 +12,12 @@ if input_type == "nucl":
         output:
             touch(os.path.join(config["paths"]["output_dir"], "snakemake", "filter_by_length.done"))
         params:
-            input_single_contig_genomes = config["input_single_contig_genomes"],
-            input_vmag_fastas = config["input_vmag_fastas"],
+            input_single_contigs = config["input_single_contigs"],
+            input_bins = config["input_bins"],
             min_len = config["min_len"],
-            output = os.path.join(config["paths"]["output_dir"], "wdir", "filtered_input", "filtered_fna_by_length"),
+            output_parent = os.path.join(config["paths"]["output_dir"], "wdir", "filtered_input", "filtered_fna_by_length"),
+            output_single_contigs = os.path.join(config["paths"]["output_dir"], "wdir", "filtered_input", "filtered_fna_by_length", "single_contigs.fna"),
+            output_bins = os.path.join(config["paths"]["output_dir"], "wdir", "filtered_input", "filtered_fna_by_length", "bin_fna"),
             debug = bool(config["debug"]),
             log = config["log"]
         threads:
@@ -27,15 +29,15 @@ if input_type == "nucl":
         script:
             os.path.join(config["paths"]["scripts_dir"], "filter_by_length.py")
 
-    # Check circulatiry of user genomes
+    # Check circulatiry of user contigs
     rule check_circular:
         input:
             os.path.join(config["paths"]["output_dir"], "snakemake", "filter_by_length.done")
         output:
             touch(os.path.join(config["paths"]["output_dir"], "snakemake", "check_circular.done"))
         params:
-            input_single_contig_genomes = os.path.join(config["paths"]["output_dir"], "wdir", "filtered_input", "filtered_fna_by_length", "single_contig_genomes.fna"),
-            input_vmag_fastas = os.path.join(config["paths"]["output_dir"], "wdir", "filtered_input", "filtered_fna_by_length", "vMAG_fna"),
+            input_single_contigs = os.path.join(config["paths"]["output_dir"], "wdir", "filtered_input", "filtered_fna_by_length", "single_contigs.fna"),
+            input_bins = os.path.join(config["paths"]["output_dir"], "wdir", "filtered_input", "filtered_fna_by_length", "bin_fna"),
             tr_min_len = 20,
             tr_max_len = 1000,
             tr_max_count = 8,
@@ -44,6 +46,7 @@ if input_type == "nucl":
             kmer_max_freq = 1.5,
             k = 15,
             circularity_tbl = os.path.join(config["paths"]["output_dir"], "wdir", "circular_contigs.tsv"),
+            save_to_parquet = bool(config["save_to_parquet"]),
             debug = bool(config["debug"]),
             log = config["log"]
         threads:
@@ -55,19 +58,19 @@ if input_type == "nucl":
         script:
             os.path.join(config["paths"]["scripts_dir"], "check_circular.py")
 
-    # Annotate user genomes
+    # Annotate user contigs
     rule run_pyrodigal_gv:
         input:
             os.path.join(config["paths"]["output_dir"], "snakemake", "check_circular.done")
         output:
             touch(os.path.join(config["paths"]["output_dir"], "snakemake", "run_pyrodigal_gv.done"))
         params:
-            input_single_contig_genomes = os.path.join(config["paths"]["output_dir"], "wdir", "filtered_input", "filtered_fna_by_length", "single_contig_genomes.fna"),
-            input_vmag_fastas = os.path.join(config["paths"]["output_dir"], "wdir", "filtered_input", "filtered_fna_by_length", "vMAG_fna"),
+            input_single_contigs = os.path.join(config["paths"]["output_dir"], "wdir", "filtered_input", "filtered_fna_by_length", "single_contigs.fna"),
+            input_bins = os.path.join(config["paths"]["output_dir"], "wdir", "filtered_input", "filtered_fna_by_length", "bin_fna"),
             wdir = os.path.join(config["paths"]["output_dir"], "wdir"),
             output_dir = os.path.join(config["paths"]["output_dir"], "wdir", "pyrodigal-gv"),
             single_contig_prots = os.path.join(config["paths"]["output_dir"], "wdir", "pyrodigal-gv", "single_contig_proteins.faa"),
-            vmag_proteins_subdir = directory(os.path.join(config["paths"]["output_dir"], "wdir", "pyrodigal-gv", "vMAG_proteins")),
+            bin_proteins_subdir = directory(os.path.join(config["paths"]["output_dir"], "wdir", "pyrodigal-gv", "bin_proteins")),
             gene_to_genome = os.path.join(config["paths"]["output_dir"], "wdir", "gene_to_genome.txt"),
             debug = bool(config["debug"]),
             log = config["log"]
@@ -76,7 +79,7 @@ if input_type == "nucl":
         resources:
             mem = config["mem_limit"]
         message:
-            "Predicting genes in input genomes with pyrodigal-gv & translating"
+            "Predicting genes in input contigs with pyrodigal-gv & translating"
         script:
             os.path.join(config["paths"]["scripts_dir"], "run_pyrodigal.py")
 
@@ -88,9 +91,12 @@ if input_type == "nucl":
             touch(os.path.join(config["paths"]["output_dir"], "snakemake", "filter_by_cds.done"))
         params:
             input_type = config["input_type"],
-            input_prot_subdir = os.path.join(config["paths"]["output_dir"], "wdir", "pyrodigal-gv"),
+            pyrodigal_dir = os.path.join(config["paths"]["output_dir"], "wdir", "pyrodigal-gv"),
+            input_single_contig_prots = os.path.join(config["paths"]["output_dir"], "wdir", "pyrodigal-gv", "single_contig_proteins.faa"),
+            input_bin_prots = directory(os.path.join(config["paths"]["output_dir"], "wdir", "pyrodigal-gv", "bin_proteins")),
             min_cds = config["min_cds"],
             output = os.path.join(config["paths"]["output_dir"], "wdir", "filtered_input", "filtered_faa_by_cds"),
+            output_bins = os.path.join(config["paths"]["output_dir"], "wdir", "filtered_input", "filtered_faa_by_cds", "bin_proteins"),
             debug = bool(config["debug"]),
             log = config["log"]
         threads:
@@ -109,10 +115,12 @@ elif input_type == "prot":
             touch(os.path.join(config["paths"]["output_dir"], "snakemake", "filter_by_cds.done"))
         params:
             input_type = config["input_type"],
+            pyrodigal_dir = os.path.join(config["paths"]["output_dir"], "wdir", "pyrodigal-gv"),
             input_single_contig_prots = config["input_single_contig_prots"],
-            input_vmag_prots = config["input_vmag_prots"],
+            input_bin_prots = config["input_bin_prots"],
             min_cds = config["min_cds"],
             output = os.path.join(config["paths"]["output_dir"], "wdir", "filtered_input", "filtered_faa_by_cds"),
+            output_bins = os.path.join(config["paths"]["output_dir"], "wdir", "filtered_input", "filtered_faa_by_cds", "bin_proteins"),
             debug = bool(config["debug"]),
             log = config["log"]
         threads:
@@ -149,6 +157,7 @@ rule assign_annots:
         foam_cutoff_file = os.path.join(config["paths"]["db_dir"], "FOAM_cutoffs.tsv"),
         camper_cutoff_file = os.path.join(config["paths"]["db_dir"], "CAMPER_cutoffs.tsv"),
         keep_full_hmm_results = bool(config["keep_full_hmm_results"]),
+        save_to_parquet = bool(config["save_to_parquet"]),
         debug = bool(config["debug"]),
         log = config["log"]
     threads:
@@ -174,7 +183,8 @@ rule index_genes:
         filtered_hmm_results = os.path.join(config["paths"]["output_dir"], "wdir", "hmm_results.filtered.tsv"),
         out_parent = os.path.join(config["paths"]["output_dir"], "wdir"),
         protein_dir = os.path.join(config["paths"]["output_dir"], "wdir", "filtered_input", "filtered_faa_by_cds"),
-        vmag_proteins_subdir = directory(os.path.join(config["paths"]["output_dir"], "wdir", "filtered_input", "filtered_faa_by_cds", "vMAG_proteins"),),
+        bin_proteins_subdir = directory(os.path.join(config["paths"]["output_dir"], "wdir", "filtered_input", "filtered_faa_by_cds", "bin_proteins"),),
+        save_to_parquet = bool(config["save_to_parquet"]),
         debug = bool(config["debug"]),
         log = config["log"]
     threads:
@@ -198,6 +208,7 @@ rule add_annots:
         vscores = os.path.join(config["paths"]["output_dir"], "wdir", "vscores.tsv"),
         filtered_hmm_results = os.path.join(config["paths"]["output_dir"], "wdir", "hmm_results.filtered.tsv"),
         db_dir = config["paths"]["db_dir"],
+        save_to_parquet = bool(config["save_to_parquet"]),
         debug = bool(config["debug"]),
         log = config["log"]
     threads:
@@ -223,6 +234,10 @@ rule genome_context:
         annotation_percent_threshold = config["annotation_percent_threshold"],
         window_size = config["window_size"],
         minimum_flank_vscore = config["minimum_flank_vscore"],
+        minimum_window_avg_vlscore = config["minimum_window_avg_vlscore"],
+        max_gap_genes = 3,
+        min_rough_run = 1,
+        max_snap_distance_genes = 10,
         use_hallmark = config["use_hallmark"],
         hallmark_path = os.path.join(config["paths"]["files_dir"], "viral_hallmark_genes.tsv"),
         mobile_genes_path = os.path.join(config["paths"]["files_dir"], "mobile_genes.tsv"),
@@ -231,6 +246,7 @@ rule genome_context:
         feature_names = os.path.join(config["paths"]["files_dir"], "lgbm_feature_names.joblib"),
         thresholds = os.path.join(config["paths"]["files_dir"], "lgbm_thresholds.joblib"),
         tmp_dir = os.path.join(config["paths"]["output_dir"], "wdir"),
+        save_to_parquet = bool(config["save_to_parquet"]),
         debug = bool(config["debug"]),
         log = config["log"]
     threads:
@@ -270,6 +286,11 @@ rule curate_annots:
         flagged_apgs = os.path.join(config["paths"]["files_dir"], "APG_filters.tsv"),
         flagged_aregs = os.path.join(config["paths"]["files_dir"], "AReG_filters.tsv"),
         filter_presets = config["filter_presets"],
+        filter_nonviral_regions = config["filter_nonviral_regions"],
+        viral_true_col = "step5_in_merged_region",
+        filter_avg_arrays = config["filter_avg_arrays"],
+        avg_array_len_limit = config["avg_array_len_limit"],
+        save_to_parquet = bool(config["save_to_parquet"]),
         debug = bool(config["debug"]),
         log = config["log"]
     threads:
@@ -293,7 +314,9 @@ rule organize_proteins:
         regulation_table = os.path.join(config["paths"]["output_dir"], "results", "regulation_genes_curated.tsv"),
         all_genes_annotated = os.path.join(config["paths"]["output_dir"], "results", "gene_annotations.tsv"),
         protein_dir = os.path.join(config["paths"]["output_dir"], "wdir", "filtered_input", "filtered_faa_by_cds"),
+        bin_proteins_subdir = directory(os.path.join(config["paths"]["output_dir"], "wdir", "filtered_input", "filtered_faa_by_cds", "bin_proteins")),
         aux_fasta_dir = os.path.join(config["paths"]["output_dir"], "results"),
+        save_to_parquet = bool(config["save_to_parquet"]),
         debug = bool(config["debug"]),
         log = config["log"]
     threads:
@@ -318,6 +341,7 @@ rule make_final_table:
         physiology_table = os.path.join(config["paths"]["output_dir"], "results", "physiology_genes_curated.tsv"),
         regulation_table = os.path.join(config["paths"]["output_dir"], "results", "regulation_genes_curated.tsv"),
         final_table = os.path.join(config["paths"]["output_dir"], "results", "final_results.tsv"),
+        save_to_parquet = bool(config["save_to_parquet"]),
         debug = bool(config["debug"]),
         log = config["log"]
     threads:

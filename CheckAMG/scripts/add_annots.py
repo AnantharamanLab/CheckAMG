@@ -4,6 +4,7 @@ import os
 import sys
 import resource
 import logging
+from pathlib import Path
 os.environ["POLARS_MAX_THREADS"] = str(snakemake.threads)
 import polars as pl
 
@@ -30,6 +31,12 @@ logger = logging.getLogger()
 print("========================================================================\n     Step 7/11: Merge functional annotations with protein metadata      \n========================================================================")
 with open(log_file, "a") as log:
     log.write("========================================================================\n     Step 7/11: Merge functional annotations with protein metadata      \n========================================================================\n")
+
+def _as_parquet_path_if_enabled(p, save_to_parquet: bool):
+    p = Path(p)
+    if save_to_parquet and p.suffix.lower() == ".tsv":
+        return p.with_suffix(".parquet")
+    return p
 
 def prefix_columns(dataframe, prefix):
     cols_to_select = [pl.col("sequence")]
@@ -134,51 +141,67 @@ def assign_db(db_path):
         return None
 
 def main():
-    tsv = snakemake.params.gene_index
+    gene_index_table = snakemake.params.gene_index
     vscores = snakemake.params.vscores
     filtered_hmm_results = snakemake.params.filtered_hmm_results
     db_dir = snakemake.params.db_dir
     output = snakemake.params.gene_index_annotated
+    save_to_parquet = snakemake.params.save_to_parquet
     mem_limit = snakemake.resources.mem
     set_memory_limit(mem_limit)
 
     logger.info("Processing of V-scores/VL-scores and HMM results starting...")
 
     # Load input dataframes
-    logger.debug(f"Loading input dataframes {tsv}, {vscores}, and {filtered_hmm_results}")
-    tsv_df = pl.read_csv(tsv, separator="\t").unique()
-    vscores_df = pl.read_csv(vscores, separator="\t").unique()
-
-    # New hmm results schema, enforce booleans
-    hmm_df = pl.read_csv(
-        filtered_hmm_results,
-        separator="\t",
-        ignore_errors=True,
-    ).unique()
+    logger.debug(f"Loading input dataframes {gene_index_table}, {vscores}, and {filtered_hmm_results}")
+    if save_to_parquet:
+        gene_index_table = _as_parquet_path_if_enabled(gene_index_table, save_to_parquet)
+        gene_index_df = pl.read_parquet(gene_index_table)
+        vscores = _as_parquet_path_if_enabled(vscores, save_to_parquet)
+        vscores_df = pl.read_parquet(vscores)
+        filtered_hmm_results = _as_parquet_path_if_enabled(filtered_hmm_results, save_to_parquet)
+        hmm_df = pl.read_parquet(filtered_hmm_results).unique()
+    else:
+        gene_index_df = pl.read_csv(gene_index_table, separator="\t").unique()
+        vscores_df = pl.read_csv(vscores, separator="\t").unique()
+        hmm_df = pl.read_csv(
+            filtered_hmm_results,
+            separator="\t",
+            ignore_errors=True,
+        ).unique()
 
     hmm_df_wide = widen_hmm_results(hmm_df)
 
     # Merge HMM results with the main dataframe
-    merged_df = tsv_df.join(hmm_df_wide, left_on="protein", right_on="sequence", how="left")
+    merged_df = gene_index_df.join(hmm_df_wide, left_on="protein", right_on="sequence", how="left")
 
     # Split the V-score table by 'db' value
     df_pfam = vscores_df.filter(pl.col("db") == "Pfam")
     df_kegg = vscores_df.filter(pl.col("db") == "KEGG")
     df_phrog = vscores_df.filter(pl.col("db") == "PHROG")
+    # df_vog = vscores_df.filter(pl.col("db") == "VOG")
 
     # Add prefixes
     pfam_prefixed = prefix_columns(df_pfam, "Pfam")
     kegg_prefixed = prefix_columns(df_kegg, "KEGG")
     phrog_prefixed = prefix_columns(df_phrog, "PHROG")
+    # vog_prefixed = prefix_columns(df_vog, "VOG")
 
     # Join on 'sequence'
     wide_df = pfam_prefixed.join(kegg_prefixed, on="sequence", how="full")
     cols_to_remove = [col for col in wide_df.columns if col.endswith("_right") and not col.endswith("_score_right")]
     wide_df = wide_df.drop([col for col in cols_to_remove if col in wide_df.columns])
+
     wide_df = wide_df.join(phrog_prefixed, on="sequence", how="full")
+    cols_to_remove = [col for col in wide_df.columns if col.endswith("_right") and not col.endswith("_score_right")]
+    wide_df = wide_df.drop([col for col in cols_to_remove if col in wide_df.columns])
+
+    # wide_df = wide_df.join(vog_prefixed, on="sequence", how="full")
+    # cols_to_remove = [col for col in wide_df.columns if col.endswith("_right") and not col.endswith("_score_right")]
+    # wide_df = wide_df.drop([col for col in cols_to_remove if col in wide_df.columns])
 
     # Merge V-scores and L-scores with input TSV
-    logger.debug(f"Merging V-scores/VL-scores and annotations with input {tsv} and writing results to {output}")
+    logger.debug(f"Merging V-scores/VL-scores and annotations with input {gene_index_table} and writing results to {output}")
     merged_df = merged_df.join(wide_df, left_on="protein", right_on="sequence", how="left")
 
     # Ensure all DBs are represented in columns, even if there were no hits
@@ -224,9 +247,12 @@ def main():
     merged_df = merged_df.unique()
     merged_df = merged_df.sort(["genome", "contig", "gene_number", "protein"])
 
-    merged_df.write_csv(output, separator="\t")
+    if save_to_parquet:
+        output = _as_parquet_path_if_enabled(output, save_to_parquet)
+        merged_df.write_parquet(output)
+    else:
+        merged_df.write_csv(output, separator="\t")
     logger.info("Processing of V-scores/VL-scores and HMM results completed.")
 
 if __name__ == "__main__":
     main()
-    
