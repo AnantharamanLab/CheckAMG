@@ -54,6 +54,7 @@ K02488	10.0	3.409933123	KEGG	pleD; two-component system, cell cycle response reg
 K02489	9.47	2.976349979	KEGG	hk1; two-component system, glycerol uptake and utilization sensor kinase [EC:2.7.13.3]
 K02490	10.0	3.379849179	KEGG	spo0F; two-component system, response regulator, stage 0 sporulation protein F
 K02491	10.0	3.239549721	KEGG	kinA; two-component system, sporulation sensor kinase A [EC:2.7.13.3]
+K02502	1.18	2.071882007	KEGG	hisZ; ATP phosphoribosyltransferase regulatory subunit
 K02508	5.01	2.699837726	KEGG	hpaA; AraC family transcriptional regulator, 4-hydroxyphenylacetate 3-monooxygenase operon regulatory protein
 K02512	0.01	0.0	KEGG	HRK; activator of apoptosis harakiri
 K02515	8.25	2.916453949	KEGG	HSL1; serine/threonine-protein kinase HSL1, negative regulator of Swe1 kinase [EC:2.7.11.-]
@@ -2225,8 +2226,8 @@ PF00751.24			Pfam	DM DNA binding domain
 PF00765.24			Pfam	Autoinducer synthase
 PF00806.26			Pfam	Pumilio-family RNA binding repeat
 PF00808.30			Pfam	Histone-like transcription factor (CBF/NF-Y) and archaeal histone
-PF00816.27			Pfam	H-NS histone C-terminal domain
-PF00841.25			Pfam	Sperm histone P2
+PF00816.28			Pfam	H-NS histone C-terminal domain
+PF00841.26			Pfam	Sperm histone P2
 PF00850.25			Pfam	Histone deacetylase domain
 PF00859.24			Pfam	CTF/NF-I family transcription modulation region
 PF00870.24			Pfam	P53 DNA-binding domain
@@ -2240,7 +2241,7 @@ PF01052.26			Pfam	Type III flagellar switch regulator (C-ring) FliN C-term
 PF01085.24			Pfam	Hedgehog amino-terminal signalling domain
 PF01096.24			Pfam	Transcription factor S-II (TFIIS)
 PF01111.25			Pfam	Cyclin-dependent kinase regulatory subunit
-PF01133.23			Pfam	Enhancer of rudimentary
+PF01133.24			Pfam	Enhancer of rudimentary
 PF01155.26			Pfam	Hydrogenase/urease nickel incorporation, metallochaperone, hypA
 PF01214.24			Pfam	Casein kinase II regulatory subunit
 PF01252.24			Pfam	Signal peptidase (SPase) II
@@ -2248,7 +2249,7 @@ PF01272.26			Pfam	Transcription elongation factor, GreA/GreB, C-term
 PF01287.27			Pfam	Eukaryotic elongation factor 5A hypusine, DNA-binding OB fold
 PF01316.28			Pfam	Arginine repressor, DNA binding domain
 PF01325.26			Pfam	Iron dependent repressor, N-terminal DNA binding domain
-PF01340.27			Pfam	Met Apo-repressor, MetJ
+PF01340.28			Pfam	Met Apo-repressor, MetJ
 PF01358.25			Pfam	Poly A polymerase regulatory subunit
 PF01371.26			Pfam	Trp repressor protein
 PF01381.29			Pfam	Helix-turn-helix
@@ -2272,13 +2273,13 @@ PF01948.24			Pfam	Aspartate carbamoyltransferase regulatory chain, allosteric do
 PF01978.26			Pfam	Sugar-specific transcriptional regulator TrmB
 PF01984.26			Pfam	Double-stranded DNA-binding domain
 PF01995.22			Pfam	NrpR regulatory domains NRD1 and 2
-PF02045.21			Pfam	CCAAT-binding transcription factor (CBF-B/NF-YA) subunit B
+PF02045.22			Pfam	CCAAT-binding transcription factor (CBF-B/NF-YA) subunit B
 PF02081.21			Pfam	Tryptophan RNA-binding attenuator protein
 PF02082.27			Pfam	Iron-dependent Transcriptional regulator
 PF02197.23			Pfam	Regulatory subunit of type II PKA R-subunit
-PF02200.22			Pfam	STE like transcription factor
+PF02200.23			Pfam	STE like transcription factor
 PF02229.23			Pfam	Transcriptional Coactivator p15 (PC4)
-PF02236.23			Pfam	Viral DNA-binding protein, all alpha domain
+PF02236.24			Pfam	Viral DNA-binding protein, all alpha domain
 PF02251.24			Pfam	Proteasome activator PA28, N-terminal
 PF02252.24			Pfam	Proteasome activator PA28, C-terminal
 PF02257.22			Pfam	RFX DNA-binding domain
@@ -2295,16 +2296,16 @@ PF02362.27			Pfam	B3 DNA binding domain
 PF02454.22			Pfam	Sigma 1s protein
 PF02467.22			Pfam	Transcription factor WhiB
 PF02482.26			Pfam	Sigma 54 modulation protein / S30EA ribosomal protein
-PF02575.22			Pfam	YbaB/EbfC DNA-binding family
+PF02575.23			Pfam	YbaB/EbfC DNA-binding family
 PF02583.23			Pfam	Metal-sensitive transcriptional repressor
 PF02586.20			Pfam	SOS response associated peptidase (SRAP)
 PF02599.22			Pfam	Global regulator protein family
 PF02702.24			Pfam	Osmosensitive K+ channel His kinase sensor domain
 PF02742.22			Pfam	Iron dependent repressor, metal binding and dimerisation domain
-PF02748.21			Pfam	Aspartate carbamoyltransferase regulatory chain, metal binding domain
-PF02751.20			Pfam	Transcription initiation factor IIA, gamma subunit
-PF02753.24			Pfam	Pili assembly chaperone PapD, C-terminal domain
-PF02765.24			Pfam	Telomeric single stranded DNA binding POT1/CDC13
+PF02748.22			Pfam	Aspartate carbamoyltransferase regulatory chain, metal binding domain
+PF02751.21			Pfam	Transcription initiation factor IIA, gamma subunit
+PF02753.25			Pfam	Pili assembly chaperone PapD, C-terminal domain
+PF02765.25			Pfam	Telomeric single stranded DNA binding POT1/CDC13
 PF02796.22			Pfam	Helix-turn-helix domain of resolvase
 PF02863.24			Pfam	Arginine repressor, C-terminal domain
 PF02864.21			Pfam	STAT protein, DNA binding domain
@@ -2315,7 +2316,7 @@ PF02909.23			Pfam	Tetracyclin repressor-like, C-terminal domain
 PF02919.21			Pfam	Eukaryotic DNA topoisomerase I, DNA binding fragment
 PF02920.22			Pfam	DNA binding domain of tn916 integrase
 PF02954.26			Pfam	Bacterial regulatory protein, Fis family
-PF02978.26			Pfam	Signal peptide binding domain
+PF02978.27			Pfam	Signal peptide binding domain
 PF03032.21			Pfam	Frog skin active peptide family signal and propeptide
 PF03084.20			Pfam	Reoviral Sigma1/Sigma2 family
 PF03095.21			Pfam	Phosphotyrosyl phosphate activator (PTPA) protein
@@ -2328,16 +2329,16 @@ PF03226.22			Pfam	Yippee zinc-binding/DNA-binding /Mis18, centromere assembly
 PF03261.21			Pfam	Cyclin-dependent kinase 5 activator protein
 PF03280.20			Pfam	Proteobacterial lipase chaperone protein
 PF03294.20			Pfam	RNA polymerase-associated transcription specificity factor, Rap94
-PF03295.20			Pfam	Poxvirus trans-activator protein A1 C-terminal
-PF03299.20			Pfam	Transcription factor AP-2
+PF03295.21			Pfam	Poxvirus trans-activator protein A1 C-terminal
+PF03299.21			Pfam	Transcription factor AP-2
 PF03310.19			Pfam	Caulimovirus DNA-binding protein
 PF03326.19			Pfam	Herpesvirus transcription activation factor (transactivator)
 PF03333.20			Pfam	Adhesin biosynthesis transcription regulatory protein
-PF03355.20			Pfam	Viral Trans-Activator Protein
-PF03361.20			Pfam	IE2/3-like DNA-binding domain
+PF03355.21			Pfam	Viral Trans-Activator Protein
+PF03361.21			Pfam	IE2/3-like DNA-binding domain
 PF03374.20			Pfam	Phage antirepressor protein KilAC domain
 PF03398.20			Pfam	Regulator of Vps4 activity in the MVB pathway
-PF03430.20			Pfam	Trans-activating transcriptional regulator
+PF03430.21			Pfam	Trans-activating transcriptional regulator
 PF03439.19			Pfam	Early transcription elongation factor of RNA pol II, NGN section
 PF03444.22			Pfam	Winged helix-turn-helix transcription repressor, HrcA DNA-binding
 PF03449.21			Pfam	Transcription elongation factor, N-terminal
@@ -2355,7 +2356,7 @@ PF03704.24			Pfam	Bacterial transcriptional activator domain
 PF03707.22			Pfam	Bacterial signalling protein N terminal repeat
 PF03726.20			Pfam	Polyribonucleotide nucleotidyltransferase, RNA binding domain
 PF03728.19			Pfam	Viral DNA-binding protein, zinc binding domain
-PF03847.20			Pfam	Transcription initiation factor TFIID subunit A
+PF03847.21			Pfam	Transcription initiation factor TFIID subunit A
 PF03849.20			Pfam	Transcription factor Tfb2
 PF03850.21			Pfam	Transcription factor Tfb4
 PF03869.21			Pfam	Arc-like DNA binding domain
@@ -2372,28 +2373,26 @@ PF04021.18			Pfam	Class III signal peptide
 PF04025.19			Pfam	Extracellular matrix regulatory protein A-like
 PF04066.19			Pfam	Multiple resistance and pH regulation protein F (MrpF / PhaF)
 PF04082.24			Pfam	Fungal specific transcription factor domain
-PF04086.20			Pfam	Signal recognition particle, alpha subunit, N-terminal
+PF04086.21			Pfam	Signal recognition particle, alpha subunit, N-terminal
 PF04090.19			Pfam	RNA polymerase I-specific transcription initiation factor Rrn11
 PF04135.19			Pfam	Nucleolar RNA-binding protein, Nop10p family
 PF04152.20			Pfam	Mre11 DNA-binding presumed domain
 PF04218.20			Pfam	CENP-B N-terminal DNA-binding domain
 PF04220.18			Pfam	Der GTPase activator (YihI)
-PF04245.19			Pfam	37-kD nucleoid-associated bacterial protein
-PF04246.18			Pfam	Positive regulator of sigma(E), RseC/MucC
+PF04245.19			Pfam	Nucleoid-associated protein YejK
+PF04246.19			Pfam	Positive regulator of sigma(E), RseC/MucC
 PF04247.18			Pfam	Invasion gene expression up-regulator, SirB
 PF04258.19			Pfam	Signal peptide peptidase
-PF04283.18			Pfam	Chemotaxis signal transduction system protein F from archaea
+PF04283.18			Pfam	Archaeal Chemotaxis signal transduction system protein F
 PF04297.21			Pfam	Putative helix-turn-helix protein, YlxM / p13 like
 PF04309.19			Pfam	Glycerol-3-phosphate responsive antiterminator
-PF04314.19			Pfam	Copper chaperone PCu(A)C domain
 PF04316.20			Pfam	Anti-sigma-28 factor, FlgM
 PF04353.19			Pfam	Regulator of RNA polymerase sigma(70) subunit, Rsd/AlgQ
 PF04366.18			Pfam	Las17-binding protein actin regulator
 PF04397.22			Pfam	LytTr DNA-binding domain
 PF04410.21			Pfam	Gar1/Naf1 RNA binding region
-PF04441.19			Pfam	Poxvirus early transcription factor (VETF), large subunit
+PF04441.20			Pfam	Poxvirus early transcription factor (VETF), large subunit
 PF04478.18			Pfam	Mid2 like cell wall stress sensor
-PF04503.19			Pfam	Single-stranded DNA binding protein, SSDP
 PF04504.21			Pfam	Glabrous-enhancer-binding protein-like family, DBD domain
 PF04516.21			Pfam	CP2 transcription factor
 PF04520.19			Pfam	Senescence regulator
@@ -2412,19 +2411,19 @@ PF04622.19			Pfam	ERG2 and Sigma1 receptor like protein
 PF04640.20			Pfam	PLATZ transcription factor
 PF04647.21			Pfam	Accessory gene regulator B
 PF04650.23			Pfam	YSIRK type signal peptide
-PF04661.19			Pfam	Poxvirus I3 ssDNA-binding protein
+PF04661.20			Pfam	Poxvirus I3 ssDNA-binding protein
 PF04689.19			Pfam	DNA binding protein S1FA
 PF04704.20			Pfam	Zfx/Zfy transcription activation region
 PF04729.20			Pfam	ASF1 like histone chaperone
 PF04732.20			Pfam	Intermediate filament head (DNA binding) region
 PF04761.17			Pfam	Lactococcus bacteriophage putative transcription regulator
-PF04767.18			Pfam	DNA-binding 11 kDa phosphoprotein
+PF04767.19			Pfam	DNA-binding 11 kDa phosphoprotein
 PF04774.21			Pfam	Hyaluronan / mRNA binding family
-PF04786.18			Pfam	ssDNA binding protein
-PF04802.22			Pfam	Phosphatase 4 regulatory subunit 3
+PF04786.19			Pfam	ssDNA binding protein
+PF04802.23			Pfam	Phosphatase 4 regulatory subunit 3
 PF04844.19			Pfam	Transcriptional repressor, ovate
 PF04845.20			Pfam	PurA ssDNA and RNA-binding protein
-PF04873.19			Pfam	Ethylene insensitive 3, DNA-binding domain
+PF04873.20			Pfam	Ethylene insensitive 3, DNA-binding domain
 PF04910.21			Pfam	Transcriptional repressor TCF25
 PF04921.21			Pfam	XAP5, circadian clock regulator C-terminal domain
 PF04926.21			Pfam	Poly(A) polymerase predicted RNA binding domain
@@ -2444,8 +2443,8 @@ PF05224.18			Pfam	NDT80 / PhoG like DNA-binding  family
 PF05225.23			Pfam	helix-turn-helix, Psq domain
 PF05233.19			Pfam	PHB accumulation regulatory domain
 PF05236.21			Pfam	Transcription initiation factor TFIID component TAF4 family
-PF05247.19			Pfam	Flagellar transcriptional activator (FlhD)
-PF05261.18			Pfam	TraM protein, DNA-binding
+PF05247.20			Pfam	Flagellar transcriptional activator (FlhD)
+PF05261.19			Pfam	TraM protein, DNA-binding
 PF05280.17			Pfam	Flagellar transcriptional activator (FlhC)
 PF05308.17			Pfam	Mitochondrial fission regulator
 PF05327.18			Pfam	RNA polymerase I specific transcription initiation factor RRN3
@@ -2453,11 +2452,11 @@ PF05349.18			Pfam	GATA-type transcription activator, N-terminal
 PF05384.17			Pfam	Sensor protein DegS
 PF05389.18			Pfam	Negative regulator of genetic competence (MecA)
 PF05443.18			Pfam	ROS/MUCR transcriptional regulator protein
-PF05459.18			Pfam	Herpesvirus transcriptional regulator family
+PF05459.19			Pfam	Herpesvirus transcriptional regulator family
 PF05464.18			Pfam	Phi-29-like late genes activator (early protein GP4)
 PF05486.18			Pfam	Signal recognition particle 9 kDa protein (SRP9)
 PF05560.16			Pfam	Bacillus thuringiensis P21 molecular chaperone protein
-PF05584.18			Pfam	Sulfolobus plasmid regulatory protein
+PF05584.19			Pfam	Sulfolobus plasmid regulatory protein
 PF05600.18			Pfam	CDK5 regulatory subunit-associated protein 3
 PF05609.19			Pfam	Lamina-associated polypeptide 1, AAA+ activator domain
 PF05634.17			Pfam	APO RNA-binding
@@ -2469,8 +2468,8 @@ PF05757.17			Pfam	Oxygen evolving enhancer protein 3
 PF05760.18			Pfam	Immediate early response protein (IER)
 PF05793.19			Pfam	Transcription initiation factor IIF, alpha subunit (TFIIF-alpha)
 PF05854.17			Pfam	Non-histone chromosomal protein MC1
-PF05930.19			Pfam	Prophage CP4-57 regulatory protein (AlpA)
-PF05932.19			Pfam	Tir chaperone protein (CesT) family
+PF05930.20			Pfam	Prophage CP4-57 regulatory protein (AlpA)
+PF05932.20			Pfam	Tir chaperone protein (CesT) family
 PF05978.23			Pfam	Ion channel regulatory protein UNC-93
 PF06069.16			Pfam	PerC transcriptional activator
 PF06116.18			Pfam	Transcriptional activator RinB
@@ -2479,11 +2478,11 @@ PF06135.18			Pfam	IreB regulatory phosphoprotein
 PF06160.18			Pfam	Septation ring formation regulator, EzrA
 PF06214.18			Pfam	Signaling lymphocytic activation molecule (SLAM) protein
 PF06218.17			Pfam	Nitrogen permease regulator 2
-PF06222.17			Pfam	Phage tail assembly chaperone
+PF06222.18			Pfam	Phage tail assembly chaperone
 PF06239.18			Pfam	Evolutionarily conserved signalling intermediate in Toll pathway
 PF06242.17			Pfam	Transcriptional cell cycle regulator TrcR
 PF06261.16			Pfam	Actinobacillus actinomycetemcomitans leukotoxin activator LktC
-PF06323.17			Pfam	Phage antitermination protein Q
+PF06323.18			Pfam	Phage antitermination protein Q
 PF06331.18			Pfam	Transcription factor TFIIH complex subunit Tfb5
 PF06345.17			Pfam	DRF Autoregulatory Domain
 PF06399.19			Pfam	GTP cyclohydrolase I feedback regulatory protein (GFRP)
@@ -2499,7 +2498,7 @@ PF06542.17			Pfam	Regulator protein PHA-1
 PF06543.18			Pfam	Lactococcus bacteriophage repressor
 PF06546.17			Pfam	Vertebrate heat shock transcription factor
 PF06550.16			Pfam	Signal-peptide peptidase, presenilin aspartyl protease
-PF06603.17			Pfam	UpxZ family of transcription anti-terminator antagonists
+PF06603.18			Pfam	UpxZ family of transcription anti-terminator antagonists
 PF06645.19			Pfam	Microsomal signal peptidase 12 kDa subunit (SPC12)
 PF06663.19			Pfam	Connector enhancer of kinase suppressor of ras 2/3 domain
 PF06682.18			Pfam	SOCE-associated regulatory factor of calcium homoeostasis
@@ -2511,7 +2510,7 @@ PF06876.19			Pfam	Plant self-incompatibility response (SCRL) protein
 PF06877.17			Pfam	Regulator of ribonuclease activity B
 PF06881.17			Pfam	RNA polymerase II transcription factor SIII (Elongin) subunit A
 PF06892.17			Pfam	Phage regulatory protein CII (CP76)
-PF06894.18			Pfam	Bacteriophage lambda tail assembly chaperone, TAC, protein G
+PF06894.19			Pfam	Bacteriophage lambda tail assembly chaperone, TAC, protein G
 PF06896.18			Pfam	Phage tail assembly chaperone proteins, TAC
 PF06923.17			Pfam	Glucitol operon activator protein (GutM)
 PF06956.17			Pfam	Regulator of RNA terminal phosphate cyclase
@@ -2521,7 +2520,7 @@ PF07035.18			Pfam	Regulator of MON1-CCZ1 complex, C-terminal
 PF07037.18			Pfam	Transcription regulator YfeC-like
 PF07073.18			Pfam	Modulator of Rho-dependent transcription termination (ROF)
 PF07100.17			Pfam	Anabaena sensory rhodopsin transducer
-PF07180.18			Pfam	CaiF/GrlA transcriptional regulator
+PF07180.19			Pfam	CaiF/GrlA transcriptional regulator
 PF07194.17			Pfam	P2 response regulator binding domain
 PF07297.18			Pfam	Dolichol phosphate-mannose biosynthesis regulatory protein (DPM2)
 PF07304.17			Pfam	Steroid receptor RNA activator (SRA1)
@@ -2555,7 +2554,7 @@ PF08123.20			Pfam	Histone methylation protein DOT1
 PF08133.17			Pfam	Anticodon nuclease activator family
 PF08164.18			Pfam	Apoptosis-antagonizing transcription factor, C-terminal
 PF08209.18			Pfam	Sgf11 (transcriptional regulation protein)
-PF08214.18			Pfam	Histone acetylation protein
+PF08214.19			Pfam	Histone acetyltransferase KAT11-type domain
 PF08220.19			Pfam	DeoR-like helix-turn-helix domain
 PF08221.18			Pfam	RNA polymerase III subunit RPC82 helix-turn-helix domain
 PF08222.18			Pfam	CodY helix-turn-helix domain
@@ -2586,7 +2585,7 @@ PF08618.16			Pfam	Transcription factor Opi1
 PF08632.16			Pfam	Activator of mitotic machinery Cdc14 phosphatase activation C-term
 PF08637.17			Pfam	ATP synthase regulation protein NCA2
 PF08639.16			Pfam	DNA replication regulator SLD3, STD domain
-PF08642.16			Pfam	Histone deacetylation protein Rxt3
+PF08642.17			Pfam	Histone deacetylation protein Rxt3
 PF08671.17			Pfam	Anti-repressor SinI
 PF08675.18			Pfam	RNA binding domain
 PF08731.18			Pfam	Transcription factor AFT
@@ -2605,12 +2604,12 @@ PF08918.17			Pfam	PhoQ Sensor
 PF08946.16			Pfam	Osmosensory transporter coiled coil
 PF08961.16			Pfam	Nuclear receptor-binding factor 2, autophagy regulator
 PF09003.17			Pfam	Bacteriophage lambda integrase, Arm DNA-binding domain
-PF09010.16			Pfam	Anti-Sigma Factor A
+PF09010.17			Pfam	Anti-Sigma Factor A
 PF09012.18			Pfam	FeoC like transcriptional regulator
 PF09025.16			Pfam	YopR, type III needle-polymerisation regulator
 PF09039.18			Pfam	Mu DNA binding, I gamma subdomain
 PF09057.16			Pfam	Second Mitochondria-derived Activator of Caspases
-PF09114.17			Pfam	Transcription factor MotA, activation domain
+PF09114.18			Pfam	Transcription factor MotA, activation domain
 PF09128.17			Pfam	Regulator of G protein signalling-like domain
 PF09162.17			Pfam	Tap, RNA-binding
 PF09174.16			Pfam	Maf1 regulator
@@ -2618,7 +2617,7 @@ PF09182.17			Pfam	Bacterial purine repressor, N-terminal
 PF09197.17			Pfam	Rap1, DNA-binding
 PF09201.17			Pfam	SRX, signal recognition particle receptor alpha subunit
 PF09209.17			Pfam	HTH-type transcriptional dual regulator CecR, C-terminal domain
-PF09228.16			Pfam	Prokaryotic Transcriptional repressor TraM
+PF09228.17			Pfam	Prokaryotic Transcriptional repressor TraM
 PF09229.18			Pfam	Activator of Hsp90 ATPase, N-terminal
 PF09270.17			Pfam	Beta-trefoil DNA-binding domain
 PF09271.17			Pfam	LAG1, DNA binding
@@ -2634,7 +2633,7 @@ PF09413.16			Pfam	Putative prokaryotic signal transducing protein
 PF09439.17			Pfam	Signal recognition particle receptor beta subunit
 PF09477.17			Pfam	Bacterial type III secretion system chaperone protein
 PF09497.16			Pfam	Transcription mediator complex subunit Med12
-PF09510.16			Pfam	Rtt102p-like transcription regulator protein
+PF09510.17			Pfam	Rtt102p-like transcription regulator protein
 PF09550.17			Pfam	Phage tail assembly chaperone protein, TAC
 PF09607.17			Pfam	Brinker DNA-binding domain
 PF09610.16			Pfam	Mycoplasma virulence signal region (Myco_arth_vir_N)
@@ -2650,7 +2649,6 @@ PF09748.15			Pfam	Transcription factor subunit Med10 of Mediator complex
 PF09750.15			Pfam	Alternative splicing regulator
 PF09816.15			Pfam	RNA polymerase II transcription elongation factor
 PF09824.16			Pfam	ArsR transcriptional regulator
-PF09836.15			Pfam	Putative DNA-binding domain
 PF09856.15			Pfam	Short-chain fatty acyl coenzyme A regulator, C-terminal
 PF09905.15			Pfam	DNA-binding protein VF530
 PF09922.16			Pfam	Cell wall-active antibiotics response LiaF, C-terminal
@@ -2677,7 +2675,7 @@ PF10197.15			Pfam	N-terminal domain of CBF1 interacting co-repressor CIR
 PF10198.15			Pfam	Histone acetyltransferases subunit 3
 PF10212.15			Pfam	Protein phosphatase 1 regulatory subunit 21, six-helix bundle
 PF10221.15			Pfam	Cell cycle and development regulator Mat89Bb
-PF10228.15			Pfam	Histone PARylation factor 1
+PF10228.16			Pfam	Histone PARylation factor 1
 PF10232.15			Pfam	Mediator of RNA polymerase II transcription complex subunit 8
 PF10251.15			Pfam	Presenilin enhancer-2 subunit of gamma secretase
 PF10253.15			Pfam	Mitotic checkpoint regulator, MAD2B-interacting
@@ -2698,7 +2696,7 @@ PF10412.16			Pfam	Type IV secretion-system coupling protein DNA-binding domain
 PF10416.16			Pfam	Transcription-initiator DNA-binding domain IBD
 PF10428.15			Pfam	RAM signalling pathway protein
 PF10448.15			Pfam	20S proteasome chaperone assembly proteins 3 and 4
-PF10450.16			Pfam	POC1 chaperone
+PF10450.17			Pfam	POC1 chaperone
 PF10451.16			Pfam	Telomere regulation protein Stn1
 PF10458.15			Pfam	Valyl tRNA synthetase tRNA binding arm
 PF10472.15			Pfam	eIF2-alpha phosphatase phosphorylation constitutive repressor
@@ -2714,12 +2712,12 @@ PF10597.15			Pfam	U5-snRNA binding site 2 of PrP8
 PF10666.16			Pfam	Phage tail assembly chaperone protein Gp14 ()A118
 PF10680.15			Pfam	RNA polymerase I specific transcription initiation factor
 PF10681.15			Pfam	Chaperone for protein-folding within the ER, fungal
-PF10683.15			Pfam	Hermes transposase DNA-binding domain
+PF10683.16			Pfam	Hermes transposase DNA-binding domain
 PF10707.16			Pfam	PhoP regulatory network protein YrbL
 PF10722.15			Pfam	Putative bacterial sensory transduction regulator
-PF10723.15			Pfam	Replication regulatory protein RepB
-PF10729.16			Pfam	Cell division activator CedA
-PF10743.15			Pfam	Regulatory phage protein cox
+PF10723.16			Pfam	Replication regulatory protein RepB
+PF10729.18			Pfam	Cell division activator CedA
+PF10743.16			Pfam	Regulatory phage protein cox
 PF10744.15			Pfam	Mediator of RNA polymerase II transcription subunit 1
 PF10757.15			Pfam	Biofilm formation regulator YbaJ
 PF10759.15			Pfam	Bacterial proteasome activator
@@ -2732,14 +2730,14 @@ PF10876.15			Pfam	Phage tail assembly chaperone protein, TAC
 PF10955.14			Pfam	Anti-sigma-F factor Fin
 PF10963.15			Pfam	Phage tail assembly chaperone
 PF10991.16			Pfam	Enterobacter phage Enc34, ssDNA-binding protein
-PF11046.13			Pfam	Transcriptional repressor of hyc and hyp operons
+PF11046.14			Pfam	Transcriptional repressor of hyc and hyp operons
 PF11055.14			Pfam	Glucose signalling factor 2
 PF11056.15			Pfam	Recombination, repair and ssDNA binding protein UvsY
-PF11089.13			Pfam	Exopolysaccharide production repressor
+PF11089.14			Pfam	Exopolysaccharide production repressor
 PF11099.14			Pfam	Apoptosis regulator M11L like
 PF11112.14			Pfam	Pyocin activator protein PrtN
 PF11124.15			Pfam	Inorganic phosphate transporter chaperone Pho86
-PF11126.14			Pfam	Transcriptional regulator DsbA
+PF11126.15			Pfam	Transcriptional regulator DsbA
 PF11131.13			Pfam	Rap-phr extracellular signalling
 PF11132.14			Pfam	Transcriptional regulator protein (SplA)
 PF11250.14			Pfam	Fantastic Four meristem regulator
@@ -2748,14 +2746,14 @@ PF11262.14			Pfam	Transcription factor/nuclear export subunit protein 2
 PF11326.14			Pfam	Synaptic plasticity regulator PANTS-like
 PF11357.15			Pfam	Cell cycle regulatory protein
 PF11423.15			Pfam	Regulatory protein Mnt
-PF11426.14			Pfam	Tn7 transposition regulator TnsC
+PF11426.15			Pfam	Tn7 transposition regulator TnsC
 PF11430.14			Pfam	Programmed cell death activator EGL-1
-PF11435.14			Pfam	RNA binding protein She2p
+PF11435.15			Pfam	RNA binding protein She2p
 PF11439.13			Pfam	Type III secretion system filament chaperone CesA
 PF11459.14			Pfam	Transcriptional regulator, AbiEi antitoxin, Type IV TA system
 PF11473.14			Pfam	RNA binding protein B2
-PF11488.15			Pfam	Transcriptional regulatory protein LGE1
-PF11495.15			Pfam	Archaeal transcriptional regulator TrmB
+PF11488.16			Pfam	Transcriptional regulatory protein LGE1
+PF11495.16			Pfam	Transcriptional regulator TrmB, EBD N-terminal subdomaim
 PF11496.15			Pfam	Class II histone deacetylase complex subunits 2 and 3
 PF11498.14			Pfam	Transcriptional activator LAG-3
 PF11507.14			Pfam	Ebola virus-specific transcription factor VP30
@@ -2765,7 +2763,7 @@ PF11532.13			Pfam	HnRNP M nuclear localisation signal
 PF11566.14			Pfam	PI31 proteasome regulator N-terminal
 PF11581.14			Pfam	Antagonist of EGFR signalling, Argos
 PF11619.14			Pfam	Transcription factor P53 - C terminal domain
-PF11657.13			Pfam	Transcriptional activator TraM
+PF11657.14			Pfam	Transcriptional activator TraM
 PF11717.15			Pfam	RNA binding activity-knot of a chromodomain
 PF11732.14			Pfam	Transcription- and export-related complex subunit
 PF11740.14			Pfam	Plasmid replication region DNA-binding N-term
@@ -2787,18 +2785,17 @@ PF11972.15			Pfam	HTH DNA binding domain
 PF12009.14			Pfam	Telomerase ribonucleoprotein complex - RNA binding domain
 PF12032.14			Pfam	Regulatory CLIP domain of proteinases
 PF12041.14			Pfam	Transcriptional regulator DELLA protein N terminal
-PF12113.14			Pfam	SVM protein signal sequence
-PF12163.14			Pfam	DNA replication regulator
+PF12113.15			Pfam	SVM protein signal sequence
+PF12163.15			Pfam	DNA replication regulator
 PF12167.15			Pfam	Arm DNA-binding domain
 PF12171.15			Pfam	Zinc-finger double-stranded RNA-binding
 PF12181.15			Pfam	DNA binding domain of the motility gene repressor (MogR)
 PF12188.14			Pfam	Signal transducer and activator of transcription 2 C terminal
 PF12189.14			Pfam	Single-strand DNA-binding protein
 PF12203.14			Pfam	Glutamine rich N terminal domain of histone deacetylase 4
-PF12209.14			Pfam	Leucine permease transcriptional regulator helical domain
+PF12209.15			Pfam	Leucine permease transcriptional regulator helical domain
 PF12265.15			Pfam	Histone-binding protein RBBP4 or subunit C of CAF1 complex
 PF12271.15			Pfam	Chitin synthase export chaperone
-PF12273.14			Pfam	Chitin synthesis regulation, resistance to Congo red
 PF12298.15			Pfam	Eukaryotic mitochondrial regulator protein
 PF12310.14			Pfam	Transcription factor protein N terminal
 PF12320.14			Pfam	Type 5 capsule protein repressor C-terminal domain
@@ -2867,8 +2864,7 @@ PF13591.13			Pfam	MerR HTH family regulatory protein
 PF13601.13			Pfam	Winged helix DNA-binding domain
 PF13613.13			Pfam	Helix-turn-helix of DDE superfamily endonuclease
 PF13620.13			Pfam	Carboxypeptidase regulatory-like domain
-PF13636.13			Pfam	RNA-binding PUA-like domain of methyltransferase RsmF
-PF13652.12			Pfam	Putative quorum-sensing-regulated virulence factor
+PF13652.13			Pfam	Putative quorum-sensing-regulated virulence factor
 PF13693.13			Pfam	Winged helix-turn-helix DNA-binding
 PF13713.12			Pfam	Transcription factor BRX N-terminal domain
 PF13724.12			Pfam	DNA-binding domain
@@ -2898,7 +2894,7 @@ PF13972.12			Pfam	Bacterial transcriptional repressor
 PF13977.12			Pfam	BetI-type transcriptional repressor, C-terminal
 PF14089.12			Pfam	KinB-signalling pathway activation in sporulation
 PF14090.13			Pfam	Winged helix-turn-helix domain
-PF14156.12			Pfam	Antirepressor AbbA
+PF14156.13			Pfam	Antirepressor AbbA
 PF14184.12			Pfam	Regulatory protein YrvL
 PF14215.13			Pfam	bHLH-MYC and R2R3-MYB transcription factors N-terminal
 PF14246.12			Pfam	AefR-like transcriptional repressor, C-terminal domain
@@ -2920,7 +2916,7 @@ PF14621.12			Pfam	RFX5 DNA-binding domain
 PF14641.12			Pfam	Helix-turn-helix DNA-binding domain of SPT6
 PF14655.13			Pfam	Rab3 GTPase-activating protein regulatory subunit N-terminus
 PF14656.12			Pfam	Rab3 GTPase-activating protein regulatory subunit C-terminus
-PF14657.13			Pfam	Arm DNA-binding domain
+PF14657.14			Pfam	Arm DNA-binding domain
 PF14689.12			Pfam	Sensor_kinase_SpoOB-type, alpha-helical domain
 PF14706.12			Pfam	Transposase DNA-binding
 PF14709.14			Pfam	double strand RNA binding domain from DEAD END PROTEIN 1
@@ -2939,11 +2935,10 @@ PF14998.12			Pfam	Transcription Regulator
 PF15001.13			Pfam	AP-5 complex subunit sigma-1
 PF15010.12			Pfam	Putative cell signalling
 PF15060.12			Pfam	Differentiation and proliferation regulator
-PF15065.12			Pfam	Lysosomal transcription factor, NCU-G1
 PF15089.12			Pfam	Regulator of DNA class I crossover intermediates 1-like
 PF15151.12			Pfam	Response gene to complement 32 protein family
 PF15169.13			Pfam	Cytochrome b-245 chaperone 1 / Eros
-PF15196.11			Pfam	Activator of apoptosis harakiri
+PF15196.12			Pfam	Activator of apoptosis harakiri
 PF15199.12			Pfam	D-amino acid oxidase activator
 PF15245.12			Pfam	Transcription cofactor vestigial-like protein 4
 PF15247.12			Pfam	Histone RNA hairpin-binding protein RNA-binding domain
@@ -3004,7 +2999,7 @@ PF16422.11			Pfam	Transcription factor COE1 DNA-binding domain
 PF16423.11			Pfam	Transcription factor COE1 helix-loop-helix domain
 PF16452.11			Pfam	Bacteriophage CI repressor C-terminal domain
 PF16454.11			Pfam	Phosphatidylinositol 3-kinase regulatory subunit P85 inter-SH2 domain
-PF16459.12			Pfam	Phage tail assembly chaperone, TAC
+PF16459.13			Pfam	Phage tail assembly chaperone, TAC
 PF16462.12			Pfam	Phage tail assembly chaperone protein, TAC
 PF16507.12			Pfam	Proteasome activator complex subunit 4, mid HEAT repeats region
 PF16509.12			Pfam	TrfB plasmid transcriptional repressor
@@ -3032,7 +3027,7 @@ PF16752.11			Pfam	Tubulin-specific chaperone C N-terminal domain
 PF16761.11			Pfam	Transcription-silencing protein, cryptic loci regulator Clr2
 PF16767.11			Pfam	Sensor domain of alginate biosynthesis sensor protein KinB
 PF16770.12			Pfam	Regulator of Ty1 transposition protein 107 BRCT domain
-PF16771.12			Pfam	Regulator of Ty1 transposition protein 107 BRCT domain
+PF16771.13			Pfam	Regulator of Ty1 transposition protein 107 BRCT domain
 PF16773.12			Pfam	Lactococcus phage single-stranded DNA binding protein
 PF16777.12			Pfam	Transcriptional regulator, RHH-like, CopG
 PF16778.11			Pfam	Phage tail assembly chaperone protein
@@ -3049,14 +3044,14 @@ PF16859.11			Pfam	Tetracyclin repressor-like, C-terminal domain
 PF16878.11			Pfam	Transcriptional regulator, SIX1, N-terminal SD domain
 PF16914.11			Pfam	Bacterial transcriptional repressor C-terminal
 PF16925.11			Pfam	Tetracyclin repressor-like, C-terminal domain
-PF16934.12			Pfam	Two-component Enterococcus faecalis cytolysin (EFC)
+PF16934.13			Pfam	Two-component Enterococcus faecalis cytolysin (EFC)
 PF16965.12			Pfam	Ceramide synthase regulator
 PF16969.11			Pfam	RNA-binding signal recognition particle 68
 PF17027.12			Pfam	Histone-fold protein
 PF17035.11			Pfam	Bromodomain extra-terminal - transcription regulation
 PF17058.11			Pfam	Mitochondrial biogenesis regulation protein 1
 PF17073.10			Pfam	Two-component-system connector protein
-PF17075.11			Pfam	Regular of rDNA transcription protein 14
+PF17075.12			Pfam	Regular of rDNA transcription protein 14
 PF17106.11			Pfam	Sigma domain on NACHT-NTPases
 PF17110.11			Pfam	Subunit 11 of the general transcription factor TFIIH
 PF17113.11			Pfam	Regulatory signalling modulator protein AmpE
@@ -3066,19 +3061,19 @@ PF17151.11			Pfam	Periplasmic sensor domain
 PF17152.11			Pfam	Periplasmic sensor domain
 PF17153.10			Pfam	Periplasmic sensor domain, extracellular
 PF17154.11			Pfam	Gammaproteobacterial periplasmic sensor domain
-PF17155.11			Pfam	Gammaproteobacterial periplasmic sensor domain
+PF17155.12			Pfam	Gammaproteobacterial periplasmic sensor domain
 PF17156.9			Pfam	Gammaproteobacterial periplasmic sensor domain
 PF17157.11			Pfam	Gammaproteobacterial periplasmic sensor domain
 PF17158.11			Pfam	Membrane-associated sensor, integral membrane domain
 PF17159.11			Pfam	Membrane-associated sensor domain
 PF17176.11			Pfam	tRNA-binding domain
-PF17178.10			Pfam	Membrane-associated sensor
+PF17178.11			Pfam	Membrane-associated sensor
 PF17194.11			Pfam	Transcriptional regulator, AbiEi antitoxin N-terminal domain
 PF17208.9			Pfam	RNA binding Region
 PF17214.10			Pfam	Transcription termination factor FttA, KH domain
 PF17237.8			Pfam	ERMES regulator 1
 PF17293.9			Pfam	Arm DNA-binding domain
-PF17323.8			Pfam	Trans-membrane regulatory protein ToxS
+PF17323.9			Pfam	Trans-membrane regulatory protein ToxS
 PF17426.7			Pfam	Putative Gamma DNA binding protein G5P
 PF17427.8			Pfam	Phage Single-stranded DNA-binding protein
 PF17446.7			Pfam	Late transcription unit A
@@ -3108,7 +3103,7 @@ PF17924.7			Pfam	Tetracyclin repressor-like, C-terminal domain
 PF17925.7			Pfam	Tetracyclin repressor-like, C-terminal domain
 PF17926.7			Pfam	Tetracyclin repressor-like, C-terminal domain
 PF17928.7			Pfam	Tetracyclin repressor-like, C-terminal domain
-PF17929.7			Pfam	Tetracyclin repressor-like, C-terminal domain
+PF17929.8			Pfam	Tetracyclin repressor-like, C-terminal domain
 PF17931.7			Pfam	Tetracyclin repressor-like, C-terminal domain
 PF17932.7			Pfam	Tetracyclin repressor-like, C-terminal domain
 PF17933.7			Pfam	Tetracyclin repressor-like, C-terminal domain
@@ -3124,7 +3119,7 @@ PF18004.7			Pfam	26S proteasome regulatory subunit RPN2 C-terminal domain
 PF18024.8			Pfam	Helix-turn-helix domain
 PF18032.7			Pfam	Photoprotection regulator fluorescence recovery protein
 PF18051.7			Pfam	26S proteasome non-ATPase regulatory subunit RPN1 C-terminal
-PF18055.8			Pfam	26S proteasome regulatory subunit RPN6 N-terminal domain
+PF18055.9			Pfam	26S proteasome regulatory subunit RPN6 N-terminal domain
 PF18087.7			Pfam	Rubisco Assembly chaperone C-terminal domain
 PF18098.7			Pfam	26S proteasome regulatory subunit RPN5 C-terminal domain
 PF18111.8			Pfam	Retinitis pigmentosa G-protein regulator interacting C-terminal
@@ -3133,8 +3128,8 @@ PF18145.7			Pfam	SMODS-associated and fused to various effectors sensor domain
 PF18148.7			Pfam	Regulator of G-protein signalling DHEX domain
 PF18158.7			Pfam	Adaptive response protein AidB N-terminal domain
 PF18196.8			Pfam	Chromodomain helicase DNA-binding domain 1
-PF18215.7			Pfam	Histone chaperone Rtt106 N-terminal domain
-PF18225.8			Pfam	Sensor histidine kinase (AbfS) sensor domain
+PF18215.9			Pfam	Histone chaperone Rtt106 N-terminal domain
+PF18225.9			Pfam	Sensor histidine kinase (AbfS) sensor domain
 PF18226.7			Pfam	LasR-specific antiactivator QslA
 PF18243.7			Pfam	Metal-independent restriction enzyme BfiI DNA binding domain
 PF18256.7			Pfam	Co-chaperone HscB tetracysteine metal binding motif
@@ -3155,7 +3150,7 @@ PF18420.7			Pfam	CSN4/RPN5/eIF3a helix turn helix domain
 PF18430.8			Pfam	Putative DNA-binding domain
 PF18440.8			Pfam	Putative GlcNAc-1 phosphotransferase regulatory domain
 PF18460.7			Pfam	Heterocyst differentiation regulator C-terminal Hood domain
-PF18490.7			Pfam	tRNA-binding domain
+PF18490.8			Pfam	tRNA-binding domain
 PF18526.6			Pfam	Thymine dioxygenase JBP1 DNA-binding domain
 PF18535.7			Pfam	Gal11 activator-binding domain (ABD1)
 PF18542.7			Pfam	Transcription factor IIB C-terminal module 1
@@ -3170,11 +3165,11 @@ PF18579.8			Pfam	Rubisco accumulation factor 1 helix turn helix domain
 PF18580.8			Pfam	SUN2 helix-turn-helix domain
 PF18598.7			Pfam	Tetracyclin repressor-like, C-terminal domain
 PF18606.8			Pfam	Zap  helix turn helix N-terminal domain
-PF18607.8			Pfam	ParA helix turn helix domain
-PF18622.7			Pfam	RctB helix turn helix domain
+PF18607.9			Pfam	ParA helix turn helix domain
+PF18622.8			Pfam	RctB helix turn helix domain
 PF18662.8			Pfam	Cch helix turn helix domain
 PF18665.7			Pfam	Tetracyclin repressor-like, C-terminal domain
-PF18677.7			Pfam	Archaellum regulatory network B, C-terminal domain
+PF18677.8			Pfam	Archaellum regulatory network B, C-terminal domain
 PF18679.7			Pfam	ThcOx helix turn helix domain
 PF18694.7			Pfam	TAR DNA-binding protein 43, N-terminal domain
 PF18698.8			Pfam	Histidine kinase sensor domain
@@ -3224,10 +3219,10 @@ PF20932.4			Pfam	Dicer, dsRNA-binding domain
 PF20973.3			Pfam	Vitamin uptake-like sensor
 PF20987.4			Pfam	Intron-encoded endonuclease 1, DNA-binding domain
 PF21029.4			Pfam	Regulator of MON1-CCZ1 complex, N-terminal
-PF21033.4			Pfam	Regulator of microtubule dynamics protein 1-3
+PF21033.6			Pfam	Regulator of microtubule dynamics protein 1-3
 PF21084.3			Pfam	Winged Helix-turn-helix domain
 PF21085.4			Pfam	CusS sensor domain
-PF21100.4			Pfam	MCM protein C-terminal winged helix-turn-helix domain
+PF21100.5			Pfam	MCM protein C-terminal winged helix-turn-helix domain
 PF21151.3			Pfam	COP9 signalosome complex subunit 1, C-terminal helix
 PF21154.3			Pfam	26S proteasome regulatory subunit RPN7/PSMD6 C-terminal helix
 PF21179.4			Pfam	DNA-binding protein BldD-like, C-terminal domain
@@ -3251,13 +3246,13 @@ PF21389.4			Pfam	Cytosolic arginine sensor for mTORC1 subunit 1/2, ACT-like
 PF21411.3			Pfam	S. pombe DNA-binding protein Rap1, C-terminal
 PF21457.4			Pfam	RNA-binding, Nab2-type zinc finger
 PF21459.4			Pfam	SWI/SNF Subunit INI1, DNA binding domain
-PF21473.4			Pfam	Single-stranded DNA binding protein Ssb-like, OB fold
+PF21473.5			Pfam	Single-stranded DNA binding protein Ssb-like, OB fold
 PF21501.3			Pfam	Protein LANA1-like, DNA-binding domain
 PF21531.4			Pfam	DNA-binding protein Rv2175c, wHTH domain
 PF21533.3			Pfam	Histone-lysine N-methyltransferase EHMT1/EHMT2, Cys-rich region
-PF21542.3			Pfam	Tetracyclin repressor-like, C-terminal domain
+PF21542.4			Pfam	Tetracyclin repressor-like, C-terminal domain
 PF21543.4			Pfam	Virulence regulatory factor CvfB, second domain
-PF21552.4			Pfam	Transcription factor tau 138 kDa subunit, extended winged helix
+PF21552.5			Pfam	Transcription factor tau 138 kDa subunit, extended winged helix
 PF21559.4			Pfam	DNA-binding protein reb1, Myb-associated domain
 PF21563.4			Pfam	Methyl-accepting chemotaxis sensory transducer, class 40H, sensor
 PF21569.4			Pfam	Histone-lysine N-methyltransferase, RNA-binding domain
@@ -3265,23 +3260,23 @@ PF21597.3			Pfam	Transcriptional regulator SbtR-like, C-terminal domain
 PF21623.4			Pfam	Bacterial histidine kinase, sensor domain
 PF21626.2			Pfam	Tetracyclin repressor, C-terminal domain
 PF21636.3			Pfam	Protein phosphatase 1 regulatory subunit 21, C-terminal
-PF21644.3			Pfam	Histone H3 binding protein ORF158L-like
+PF21644.4			Pfam	Histone H3 binding protein ORF158L-like
 PF21665.3			Pfam	Type III secretory system chaperone SycN
-PF21689.4			Pfam	Sensor protein TorS, sensor domain
-PF21693.3			Pfam	Transcriptional protein SWT1, C-terminal domain
+PF21689.5			Pfam	Sensor protein TorS, sensor domain
+PF21693.4			Pfam	Transcriptional protein SWT1, C-terminal domain
 PF21695.4			Pfam	Transcription regulator GlnR, N-terminal domain
 PF21699.4			Pfam	Iron-only hydrogenase system regulator, putative
 PF21715.4			Pfam	CggR N-terminal DNA binding domain
 PF21725.4			Pfam	Putative T7SS secretion signal domain
-PF21749.3			Pfam	Probable sensor domain DACND
+PF21749.4			Pfam	Probable sensor domain DACND
 PF21750.3			Pfam	Probable sensor domain DACNH
 PF21751.3			Pfam	Probable sensor domain DACNV
-PF21752.3			Pfam	Probable sensor domain DACNG
+PF21752.4			Pfam	Probable sensor domain DACNG
 PF21753.3			Pfam	Probable sensor domain DACNK
 PF21754.3			Pfam	Probable sensor domain DacZ_A
 PF21755.3			Pfam	Probable sensor domain DacZ_P
 PF21756.3			Pfam	Probable sensor domain DacZ_T
-PF21758.3			Pfam	Bacterial proteasome assembling chaperone-like protein
+PF21758.3			Pfam	Prenylated flavin chaperone LpdD-like domain
 PF21767.4			Pfam	Cohesin subunit SCC3, C-terminal domain
 PF21776.3			Pfam	TetR/AcrR family transcriptional repressors, C-terminal domain
 PF21822.4			Pfam	Phage tail assembly chaperone protein, TAC
@@ -3290,14 +3285,14 @@ PF21895.2			Pfam	MTHFR, SAM-binding regulatory domain
 PF21906.3			Pfam	NrtR DNA-binding winged helix domain
 PF21935.2			Pfam	Tetracyclin repressor-like, C-terminal domain
 PF21943.2			Pfam	Tetracyclin repressor-like, C-terminal domain
-PF21949.1			Pfam	Negative regulator of P-body association
+PF21949.2			Pfam	Negative regulator of P-body association
 PF21966.2			Pfam	AppA, sensor containing heme instead of cobalamin
 PF21971.2			Pfam	Transcriptional regulator PINT87aa
-PF21978.1			Pfam	Transcriptional regulator SEHBP
+PF21978.2			Pfam	Transcriptional regulator SEHBP
 PF21993.2			Pfam	Transcriptional regulator LmrA/YxaF-like, C-terminal domain
 PF22004.2			Pfam	Small regulatory polypeptide of amino acid response
 PF22029.3			Pfam	Sigma2 domain of PhyR
-PF22030.2			Pfam	Sarcoplasmic/endoplasmic reticulum calcium ATPase regulator DWORF
+PF22030.3			Pfam	Sarcoplasmic/endoplasmic reticulum calcium ATPase regulator DWORF
 PF22055.2			Pfam	Bacterial xenogeneic silencer MvaT, C-terminal domain
 PF22108.2			Pfam	Transcription factor IIB C-terminal module 2
 PF22109.3			Pfam	Transcription factor IIB, zinc ribbon, Trypanosome
@@ -3305,7 +3300,7 @@ PF22155.2			Pfam	Mre11 accessory DNA binding capping domain
 PF22168.3			Pfam	Transcriptional regulator DIP2311-like, C-terminal domain
 PF22198.2			Pfam	Glucokinase regulatory protein, second SIS domain
 PF22200.3			Pfam	ExsA N-terminal regulatory domain
-PF22214.2			Pfam	Mechanosensory ion channel subunit mec-4/10 cytosolic domain
+PF22214.3			Pfam	Mechanosensory ion channel subunit mec-4/10 cytosolic domain
 PF22231.3			Pfam	DEAD box helicase Hera, RNA-binding domain
 PF22233.3			Pfam	Response regulator PhyR, sigma-like domain
 PF22267.2			Pfam	Transcriptional regulator MlrA, C-terminal domain
@@ -3326,10 +3321,10 @@ PF22443.3			Pfam	FbpC-like, regulatory domain
 PF22470.2			Pfam	H-NS histone-like proteins, N-terminal domain
 PF22487.2			Pfam	Complement regulator-acquiring surface protein 2
 PF22551.2			Pfam	T3SS (YopN, CesT) and YbjN peptide-binding chaperone 1
-PF22552.2			Pfam	T3SS (YopN, CesT) and YbjN peptide-binding chaperone 3
-PF22553.2			Pfam	T3SS (YopN, CesT) and YbjN peptide-binding chaperone 2
+PF22552.3			Pfam	T3SS (YopN, CesT) and YbjN peptide-binding chaperone 3
+PF22553.3			Pfam	T3SS (YopN, CesT) and YbjN peptide-binding chaperone 2
 PF22568.2			Pfam	Tetracyclin repressor-like, C-terminal domain
-PF22576.3			Pfam	Transcriptional cofactor Bfc
+PF22576.4			Pfam	Transcriptional cofactor Bfc
 PF22588.2			Pfam	Histidine kinase sensor domain
 PF22604.2			Pfam	Tetracyclin repressor-like HI_0893, C-terminal domain
 PF22618.2			Pfam	Anti-sigma-K factor RskA, N-terminal domain
@@ -3338,7 +3333,7 @@ PF22645.2			Pfam	Glucokinase regulatory protein N-terminal SIS domain
 PF22648.3			Pfam	Histone H3 K4-specific methyltransferase SET7 N-terminal
 PF22673.3			Pfam	Methyl-accepting chemotaxis protein-like, first PDC sensor domain
 PF22695.2			Pfam	EST1-like DNA-binding domain
-PF22754.4			Pfam	Plant bHLH transcription factor, ACT-like domain
+PF22754.5			Pfam	Plant bHLH transcription factor, ACT-like domain
 PF22757.2			Pfam	Glabrous-enhancer-binding protein-like family, C-terminal domain
 PF22781.3			Pfam	Vertebrate Splicing regulator sde2, N-terminal ubiquitin domain
 PF22782.2			Pfam	Splicing regulator SDE2, SDE2 domain
@@ -3364,18 +3359,17 @@ PF23011.3			Pfam	Histone-lysine N-methyltransferase NSD-like, PHD zinc finger 1
 PF23037.2			Pfam	Transcription elongation factor SPT5, KOWx domain
 PF23038.2			Pfam	Transcription elongation factor SPT5 homolog 1/2, KOW6 domain
 PF23039.3			Pfam	TMEM132 cohesin-like domain
-PF23042.2			Pfam	Transcription elongation factor SPT5, KOW1 domain
+PF23042.3			Pfam	Transcription elongation factor SPT5, KOW1 domain
 PF23057.2			Pfam	ZCCHC3, first RNA-binding domain
 PF23058.2			Pfam	ZCCHC3, second RNA-binding domain
 PF23078.3			Pfam	Chromodomain-helicase-DNA-binding protein 6-9, tri-helical
 PF23082.2			Pfam	Myb-like DNA-binding domain
-PF23095.1			Pfam	Transcription termination/antitermination protein NusA, KH domain
 PF23096.2			Pfam	Proteasome activator complex subunit 4-like, HEAT repeat-like
-PF23159.2			Pfam	Repressor Rok winged helix domain
+PF23159.3			Pfam	Repressor Rok winged helix domain
 PF23172.1			Pfam	Nuclear receptor coactivators bHLH domain
-PF23173.2			Pfam	Transcription factor SAC51 bHLH domain
+PF23173.3			Pfam	Transcription factor SAC51 bHLH domain
 PF23176.1			Pfam	Transcription factor LHW bHLH domain
-PF23177.1			Pfam	Iron-related transcription factor 3 bHLH domain
+PF23177.2			Pfam	Iron-related transcription factor 3 bHLH domain
 PF23246.2			Pfam	CDK5 regulatory subunit-associated protein 2-like, coiled coil
 PF23271.2			Pfam	Stalled ribosome sensor GCN1-like, HEAT repeats
 PF23284.3			Pfam	Transcription elongation factor SPT5, second KOW domain
@@ -3396,7 +3390,7 @@ PF23594.2			Pfam	26S proteasome regulatory subunit RPN11 C-terminal domain
 PF23704.2			Pfam	General transcription factor 3C polypeptide 1, winged-helix domain
 PF23750.2			Pfam	Anti-sigma factor RsgI-like central domain
 PF23781.2			Pfam	Phage tail assembly chaperone protein
-PF23803.2			Pfam	Phage tail assembly chaperone
+PF23803.3			Pfam	Phage tail assembly chaperone
 PF23812.2			Pfam	Phage tail assembly chaperone
 PF23818.2			Pfam	Bacteriophage Tail Tube Terminator Protein
 PF23840.2			Pfam	Phage tail terminator protein
@@ -3406,22 +3400,21 @@ PF23961.2			Pfam	Phage neck terminator protein
 PF24083.2			Pfam	Putative phage ssDNA-binding domain
 PF24099.2			Pfam	Diacylglycerol kinase theta, RNA-binding domain-like
 PF24250.2			Pfam	Transcription regulator HVO_2718-like HTH domain
-PF24294.2			Pfam	Membrane-bound transcription factor PTM, chromo domain-like
+PF24294.3			Pfam	Membrane-bound transcription factor PTM, chromo domain-like
 PF24448.2			Pfam	y05I-like putative transcription factor C-terminal domain
 PF24449.2			Pfam	y05I-like putative transcription factor N-terminal domain
 PF24475.2			Pfam	DEAH11-like, RNA-binding domain
-PF24551.2			Pfam	Probable histone acetyltransferase Rv0428c SH3 domain
 PF24553.3			Pfam	Probable histone acetyltransferase Rv0428c C-terminal
 PF24571.3			Pfam	Cohesin subunit SCC3/SA, HEAT-repeats domain
 PF24572.2			Pfam	RNA-dependent RNA polymerase 6, RNA-binding domain
 PF24623.3			Pfam	Putative DNA-binding phage zinc finger domain
-PF24629.2			Pfam	Signal transducer and activator of transcription b N-terminal
+PF24629.3			Pfam	Signal transducer and activator of transcription b N-terminal
 PF24667.2			Pfam	Dynein regulatory complex subunit 7 MORN domain
 PF24671.3			Pfam	Dynein regulatory complex subunit 7 C-terminal
 PF24779.2			Pfam	UTP23 sensor motif
 PF24812.2			Pfam	TTC3-like, winged helix turn helix domain
 PF24820.2			Pfam	Diguanylate cyclase-like sensor domain
-PF24825.2			Pfam	SNU71 RNA binding domain
+PF24825.4			Pfam	SNU71 RNA binding domain
 PF24980.2			Pfam	Response to Low Sulfur (LSU) family
 PF24993.2			Pfam	Stalled ribosome sensor GCN1 N-terminal
 PF24995.2			Pfam	dsRNA binding domain
@@ -3446,8 +3439,7 @@ PF25767.2			Pfam	Tubulin-specific chaperone D-like, ARM repeats
 PF25791.2			Pfam	BREX ATP-binding protein BrxC winged helix-turn-helix domain
 PF25801.2			Pfam	Stalled ribosome sensor GCN1-like, HEAT repeats
 PF25818.2			Pfam	Mitochondrial transcription rescue factor 1, C-terminal domain
-PF25867.1			Pfam	Putative DNA-binding domain
-PF25870.1			Pfam	Winged helix-turn-helix domain 5 in UFL1 protein
+PF25870.2			Pfam	Winged helix-turn-helix domain 5 in UFL1 protein
 PF25871.1			Pfam	Helix-turn-helix domain
 PF25872.1			Pfam	Winged helix-turn-helix domain
 PF25874.1			Pfam	Winged helix-turn-helix domain in plant reproductive proteins
@@ -3456,15 +3448,14 @@ PF25877.1			Pfam	SOWAH N-terminal winged helix-turn-helix domain
 PF25889.1			Pfam	Fungal-differentiation regulator winged helix domain
 PF25892.1			Pfam	Transcription regulator spe-44-like domain
 PF25896.1			Pfam	Helix-turn-helix domain in AT3G52170-like protein
-PF25974.1			Pfam	Up-regulator of cell proliferation-like domain
 PF25983.1			Pfam	COP9 signalosome complex subunit 2, C-terminal helix
 PF25996.1			Pfam	Histone-lysine N-methyltransferase CLF, N-terminal HTH domain
-PF26019.1			Pfam	TIMELESS, helix-turn-helix domain
+PF26019.2			Pfam	TIMELESS, tri-helical helix-turn-helix domain
 PF26024.1			Pfam	Recombination-activation protein 1 (RAG1) DNA-binding domain
-PF26093.1			Pfam	TGH-like, helix-turn-helix domain
+PF26093.2			Pfam	TGH-like, helix-turn-helix domain
 PF26107.1			Pfam	BrxR transcriptional regulator, C-terminal dimerization domain
 PF26109.1			Pfam	BrxR transcriptional regulator winged helix-turn-helix domain
-PF26121.1			Pfam	Cell division cycle protein CDT1-like, helix-turn-helix domain
+PF26121.2			Pfam	Cell division cycle protein CDT1-like, helix-turn-helix domain
 PF26215.1			Pfam	Animal helix-turn-helix domain
 PF26232.1			Pfam	Anti-sigma factor RsgI4, sensor domain
 PF26281.1			Pfam	Histone domain in ABTB family protein
@@ -3473,6 +3464,142 @@ PF26336.1			Pfam	Penicillin-binding protein 2a activator MacP
 PF26517.1			Pfam	DNA damage response protein D family
 PF26520.1			Pfam	Peptide chaperone MftB family
 PF26619.1			Pfam	Chaperone protein CcmS
+PF26715.1			Pfam	Stalled ribosome sensor GCN1, HEAT repeats
+PF26769.1			Pfam	Sensor protein PhoQ-like, HAMP domain
+PF26773.1			Pfam	Up-regulator of cell proliferation-like, N-terminal domain
+PF26775.1			Pfam	Mok13-like, helix-turn-helix domain
+PF26859.1			Pfam	Phage N antitermination protein
+PF26980.1			Pfam	Dicer-like protein 2, dsRNA binding domain
+PF27008.1			Pfam	Bacteriophage P7 repressor protein C1
+PF27059.1			Pfam	MmpR5-like MarR family transcriptional regulator
+PF27063.1			Pfam	Anti-sigma factor RsmA, C-terminal extracellular domain
+PF27107.1			Pfam	Dynein regulatory complex subunit 11-like, N-terminal domain
+PF27113.1			Pfam	GbsR family transcriptional regulator, C-terminal helical hairpin
+PF27135.1			Pfam	TnsB transposase helix-turn-helix domain
+PF27140.1			Pfam	Sigma-w pathway protein YsdB
+PF27148.1			Pfam	Slr1353 N-terminal dsRNA-binding domain-like
+PF27167.1			Pfam	GRAD helix-turn-helix domain
+PF27358.2			Pfam	Type III secretion system regulatory protein HrpD6
+PF27393.1			Pfam	KlcB N-terminal DNA-binding domain
+PF27439.2			Pfam	Chaperone protein DnaJ C-terminal region
+PF27462.1			Pfam	Regulatory protein RecX N-terminal domain
+PF27465.2			Pfam	DNA-binding protein Fis N-terminal domain
+PF27507.1			Pfam	Co-chaperone DjlA transmembrane domain
+PF27514.1			Pfam	NLRC5, helix-turn-helix domain
+PF27566.1			Pfam	KpeA transcription factor
+PF27579.1			Pfam	Nuclear receptor corepressor 1 N-terminal domain
+PF27584.1			Pfam	Histone transcription regulator 3 helical domain
+PF27602.1			Pfam	ENOX1-like, C-terminal helix-turn-helix domain
+PF27643.1			Pfam	BZIP transcription factor 1 C-terminal domain
+PF27657.1			Pfam	Regulator of rDNA transcription protein 15
+PF27685.1			Pfam	Plasmid transfer regulator TraJ
+PF27686.1			Pfam	Conjugal transfer repressor TrbA
+PF27716.1			Pfam	Trichothecene biosynthesis transcription regulator TRI6
+PF27896.1			Pfam	LipL41-expression chaperone Lep
+PF27915.1			Pfam	Protein phosphatase 1 regulatory subunit 17
+PF27937.1			Pfam	Voltage-dependent calcium channel beta subunit-associated regulator
+PF27979.1			Pfam	CON7 transcription factor helical domain
+PF28030.1			Pfam	Type III secretion system co-regulatory protein PtrC-like
+PF28046.2			Pfam	Alkane oxidation protein activator PraA/PraB-like
+PF28073.1			Pfam	Stress response membrane protein YncL
+PF28094.1			Pfam	BA3454 stress response protein
+PF28150.1			Pfam	Stress response protein AzuC
+PF28189.1			Pfam	Mycofactocin biosynthesis chaperone MftB-like
+PF28196.1			Pfam	Magnetosome-associated regulatory protein
+PF28198.1			Pfam	PCNA-interacting regulator
+PF28200.1			Pfam	Phr signaling regulator
+PF28281.1			Pfam	Transcriptional regulator peptide PatS
+PF28282.1			Pfam	Type III secretion system chaperone SseA
+PF28326.1			Pfam	Actinobacterial sensor domain
+PF28329.1			Pfam	Zinc finger transcription factor ace1 N-terminal domain
+PF28332.1			Pfam	C2H2-type transcription factor zfpA C-terminal domain
+PF28333.1			Pfam	RNA-binding protein 48 helical domain
+PF28334.1			Pfam	pH-response transcription factor pacC/RIM101 helical domain
+PF28377.1			Pfam	Cell death regulator Aven
+PF28384.1			Pfam	PGC-1 and ERR-induced regulator in muscle protein 1
+PF28461.1			Pfam	Regulator of G-protein signalling 9-binding protein C-terminal domain
+PF28519.1			Pfam	Mitochondrial nucleoid-associated protein 1 zinc finger domain
+PF28603.1			Pfam	Winged helix-turn-helix phage repressor
+PF28617.1			Pfam	NCBP2 antisense protein 2
+PF28667.1			Pfam	Plastid transcriptionally active protein 12
+PF28668.1			Pfam	Infection response protein 2 N-terminal domain
+PF28673.1			Pfam	CREB3 regulatory factor, C-terminal bZIP domain
+PF28724.1			Pfam	Regulatory protein PchR N-terminal domain
+PF28820.1			Pfam	Anti-sigma factor, N-terminal domain
+PF28826.1			Pfam	Trypacidin cluster transcriptional coactivator tpcD N-terminal domain
+PF29044.1			Pfam	Filamentous growth regulator 15 N-terminal domain
+PF29112.1			Pfam	CG45076 helix-turn-helix domain
+PF29202.1			Pfam	AAA+ chaperone, N-terminal Rossmann-like domain
+PF29203.1			Pfam	AAA+ chaperone, second helical domain
+PF29282.1			Pfam	Cache-like sensory domain, BaeS-type
+PF29284.1			Pfam	YqjI-type transcriptional regulator, C-terminal domain
+PF29287.1			Pfam	Response regulator receiver-like domain
+PF29302.1			Pfam	Antisense of depressing factor family
+PF29340.1			Pfam	Anti-sigma factor RsmA, N-terminal cytoplasmic anti-sigma domain
+PF29383.1			Pfam	Putative phage 3' DNA-binding domain
+PF29400.1			Pfam	RtcR C-terminal DNA-binding domain
+PF29416.1			Pfam	OSM-8 osmotic stress response protein
+PF29450.1			Pfam	NXF1/2 RNA-binding domain
+PF29505.1			Pfam	Amino acid sensor-independent protein 2
+PF29536.1			Pfam	SPS-sensor component PTR3 N-terminal domain
+PF29578.1			Pfam	Jumbo bacteriophage sigma-like promoter specificity subunit
+PF29609.1			Pfam	Anti-sigma-X factor RsiX central domain
+PF29617.1			Pfam	Functional amyloid chaperone FapA
+PF29625.1			Pfam	Flagellar regulatory protein FliZ N-terminal domain
+PF29643.1			Pfam	YxzC DNA-binding protein
+PF29694.1			Pfam	Regulator of Ty1 transposition protein 105
+PF29705.1			Pfam	Glycolytic genes transcriptional activator GCR2 N-terminal domain
+PF29847.1			Pfam	Histone acetyltransferase domain KAT3
+PF29891.1			Pfam	Protein phosphatase 4 regulatory subunit 1 N-terminal domain
+PF29896.1			Pfam	Protein phosphatase 4 regulatory subunit 1 middle domain
+PF29910.1			Pfam	HssS heme sensor protein N-terminal domain
+PF30049.1			Pfam	Transcriptional activator POG1 N-terminal domain
+PF30257.1			Pfam	Anti-sigma-I factor RsgI9, C-terminal domain
+PF30345.1			Pfam	Enhancer of split m6 protein
+PF30362.1			Pfam	Membrane-associated kinase regulator 5 helix
+PF30364.1			Pfam	Nitrate/nitrite sensor histidine kinase, GAF-like domain
+PF30372.1			Pfam	Transcriptional regulator RcsA, N-terminal dimerisation domain
+PF30376.1			Pfam	Regulatory protein ViaA, N-terminal domain
+PF30424.1			Pfam	HTH-type transcriptional regulator DicA C-terminal region
+PF30437.1			Pfam	HTH-type transcriptional regulator AppY N-terminal domain
+PF30441.1			Pfam	Transcriptional regulator GadX, N-terminal domain
+PF30449.1			Pfam	HilA/YgeH-like transcriptional regulator, second domain
+PF30453.1			Pfam	GadE/DctR transcriptional regulator, N-terminal domain
+PF30456.1			Pfam	Frv operon regulatory protein FrvR, fourth domain
+PF30457.1			Pfam	Frv operon regulatory protein FrvR, third domain
+PF30459.1			Pfam	Transcriptional regulator YfjR, linker domain
+PF30514.1			Pfam	Cyanobacterial OB-fold-like RNA-binding domain, C-terminal
+PF30515.1			Pfam	Cyanobacterial RNA-binding protein Asl3888-like
+PF30516.1			Pfam	NblS/DspA histidine kinase PAS-like sensory domain
+PF30524.1			Pfam	Cyanobacterial PlmA-type GntR regulator, C-terminal domain
+PF30527.1			Pfam	Cyanobacterial DnaJ chaperone, C-terminal domain
+PF30545.1			Pfam	PatR RNA-binding protein, N-terminal OB-fold domain
+PF30550.1			Pfam	Cyanobacterial response regulator, helical hairpin domain
+PF30604.1			Pfam	Picocyanobacterial HTH transcriptional regulator
+PF30609.1			Pfam	Picocyanobacterial DnaJ chaperone, middle domain
+PF30627.1			Pfam	Cyanobacterial helix-turn-helix domain
+PF30646.1			Pfam	Mcf1 activator-binding domain
+PF30651.1			Pfam	Winged helix-turn-helix domain C-terminal to NACHT
+PF30711.1			Pfam	Hybrid histidine kinase-response regulator, C-terminal domain
+PF30880.1			Pfam	Transcriptional activator of proteases prtT middle domain
+PF30942.1			Pfam	Membrane-associated kinase regulator 6
+PF30943.1			Pfam	DNA-binding protein RHL1 domain
+PF30948.1			Pfam	DNA-binding protein BIN4
+PF30963.1			Pfam	Heading date repressor 1
+PF31000.1			Pfam	Warthog N-terminal signalling domain
+PF31024.1			Pfam	Fungal transcription factor C-terminal domain
+PF31026.1			Pfam	Lateral signaling target 2 middle domain
+PF31029.1			Pfam	Caulimoviridae transactivator/viroplasmin C-terminal domain
+PF31032.1			Pfam	Signal peptidase C-terminal short helix
+PF31078.1			Pfam	NIPBL cohesin loader C-terminal domain
+PF31085.1			Pfam	PorX response regulator linker domain
+PF31091.1			Pfam	HyfR-like sigma-54 activator N-terminal domain
+PF31108.1			Pfam	SpoIIE, regulatory domain
+PF31122.1			Pfam	Methanogenesis regulatory protein FilR1, N-terminal domain
+PF31124.1			Pfam	SCO3859 DNA-binding protein C-terminal domain
+PF31201.1			Pfam	CAR1 transcription factor, DNA-binding domain
+PF31220.1			Pfam	PknI serine/threonine-protein kinase sensor domain
+PF31238.1			Pfam	Transcriptional repressor DdrO, C-terminal dimerisation domain
 phrog_1002	1.0	2.0	PHROG	tail fiber chaperone
 phrog_10045	0.28	1.447158031	PHROG	HTH DNA binding protein
 phrog_100607			PHROG	transcriptional repressor
@@ -11166,6 +11293,7 @@ HMMsoil61085			FOAM	arcB; two-component system, OmpR family, aerobic respiration
 HMMsoil61086			FOAM	K02484; two-component system, OmpR family, sensor kinase [EC:2.7.13.3]
 HMMsoil61198			FOAM	hk1; two-component system, glycerol uptake and utilization sensor kinase [EC:2.7.13.3]
 HMMsoil61203			FOAM	phoQ; two-component system, OmpR family, sensor histidine kinase PhoQ [EC:2.7.13.3]
+HMMsoil61204			FOAM	hisZ; ATP phosphoribosyltransferase regulatory subunit
 HMMsoil61206			FOAM	zraS, hydH; two-component system, NtrC family, sensor histidine kinase HydH [EC:2.7.13.3]
 HMMsoil61210			FOAM	uhpB; two-component system, NarL family, sensor histidine kinase UhpB [EC:2.7.13.3]; desK; two-component system, NarL family, sensor histidine kinase DesK [EC:2.7.13.3]
 HMMsoil61215			FOAM	K11527; two-component system, sensor histidine kinase and response regulator [EC:2.7.13.3]; hk1; two-component system, glycerol uptake and utilization sensor kinase [EC:2.7.13.3]
@@ -13489,6 +13617,7 @@ HMMsoil90598			FOAM	barA, gacS, varS; two-component system, NarL family, sensor 
 HMMsoil90618			FOAM	ntrY; two-component system, NtrC family, nitrogen regulation sensor histidine kinase NtrY [EC:2.7.13.3]
 HMMsoil90679			FOAM	cqsS; two-component system, CAI-1 autoinducer sensor kinase/phosphatase CqsS [EC:2.7.13.3] [EC:3.1.3.-]
 HMMsoil9068			FOAM	nrsS, rppB; two-component system, OmpR family, Ni(II)-sensor and/or redox sensor kinase NrsS [EC:2.7.13.3]; K02484; two-component system, OmpR family, sensor kinase [EC:2.7.13.3]
+HMMsoil90686			FOAM	hisZ; ATP phosphoribosyltransferase regulatory subunit
 HMMsoil90715			FOAM	qseC; two-component system, OmpR family, sensor histidine kinase QseC [EC:2.7.13.3]; K02484; two-component system, OmpR family, sensor kinase [EC:2.7.13.3]
 HMMsoil90725			FOAM	envZ; two-component system, OmpR family, osmolarity sensor histidine kinase EnvZ [EC:2.7.13.3]
 HMMsoil90734			FOAM	dctS; two-component system, LuxR family, sensor histidine kinase DctS [EC:2.7.13.3]

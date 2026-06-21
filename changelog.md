@@ -1,3 +1,72 @@
+# 1.0
+
+This is a major release that adds annotation-independent AVG prediction with a protein genome language model, alongside the existing annotation-based approach, and the modules to combine and train them.
+
+## New modules
+
+* `de-novo`: predict auxiliary viral genes with a protein-based genome language model, the Protein Set Transformer (PST).
+  * Reference-independent, deep-learning approach that takes query sequences (contigs, genomes, or proteins) and predicts whether each encoded protein is (A) viral and (B) auxiliary.
+  * Runs on CPU or GPU (GPU recommended).
+  * Accepts viral genomes/metagenomic contigs (.fna/.fasta) or translated proteins (.faa/.fasta, in Prodigal format), gzipped allowed, as single files or folders of bins. Also accepts pre-computed ESM2 or PST embeddings from previous runs on the same input to save time.
+  * Embeds query proteins with PST (via ESM2), then compares them against the pre-trained reference embeddings with a nearest-neighbor search to produce, per protein, an `AVG-like prob` and a `Viral prob`, plus a combined `Final AVG prob`. Each is summarized into very-high-, high-, medium-, or low-confidence calls using thresholds calibrated on benchmark datasets.
+  * Does not assign specific functions or classify predictions as metabolic, physiological, or regulatory on its own.
+
+* `aggregate`: merge the results of `annotate` and `de-novo` into a single report combining functional classification, viral-origin confidence, and the annotation-independent AVG/viral predictions.
+
+* `end-to-end`: run `annotate`, then `de-novo` (reusing the proteins predicted by `annotate`), then `aggregate`, writing each module to its own sub-directory (`01_annotate`, `02_denovo`, `03_aggregate`) in one output. `de-novo` can be directed to a GPU independently while `annotate` runs on CPU.
+
+* `train`: finetune a CheckAMG-PST model to predict whether proteins are viral and auxiliary, for use with `de-novo`. Allows updating the released model or finetuning on user data with labeled viral/non-viral and AVG/non-AVG proteins. Trained models are supplied to `de-novo` via `--model-ckpt` with one of `--train-data-file`, `--train-embed-file`, or (`--train-index-file` and `--train-labels-file`).
+
+## Databases
+
+* Updated the `annotate` database to v1.1:
+  * Updated Pfam-A from v38.0 to v38.2.
+  * Updated KEGG KOfam from 2025-12-01 to 2026-02-01.
+  * Added database-derived bitscore cutoffs for METABOLIC profile HMMs.
+* Added a separate `de-novo` database (v1) containing the pre-trained CheckAMG-PST model checkpoint, reference protein embeddings, FAISS index, and labels for running `de-novo` with `--db-dir`.
+* `checkamg download` now retrieves both databases by default and exposes `--download-annotate-db`/`--download-denovo-db` to fetch them selectively.
+
+## Annotation filtering: AMG weight and reworked presets
+
+* Added the **AMG weight** (`--min-amg-weight`, default 0.6) as the primary continuous filter for candidate AMGs, replacing the older binary hard/soft keyword scheme. It is a capped geometric mean of (i) the ratio of auxiliary-like to non-auxiliary-like metabolic annotations for a function and (ii) the function's rarity in viral genomes (VL-score). Candidates are kept only if their annotation's AMG weight meets the threshold.
+* Reworked `--filter-presets`: renamed `allow_glycosyl` to `allow_glucan`, added `all_filters` (filter all `allow_*` categories, strict), and kept `no_filter`. The default now enables all four `allow_*` categories (`allow_glucan,allow_nucleotide,allow_methyl,allow_lipid`), so CheckAMG relies on the AMG weight plus essential-function filters by default while keeping glycosyl, nucleotide, methyl, and lipid annotations.
+* Updated and expanded the curated reference AVG lists (`AMGs.tsv`, `APGs.tsv`, `AReGs.tsv`) and the AVG filter tables (`AMG_filters.tsv`, `APG_filters.tsv`, `AReG_filters.tsv`).
+
+## Genome context and curation
+
+* Strict viral regions are now identified from window-average VL-scores and refined using per-gene V-scores (or viral hallmark genes if `--use-hallmark`). Added the `--filter-ambig-regions` option to exclude predictions outside strict viral regions (off by default).
+* Added the "Protein in Strict Viral Region" column to `annotate`'s `final_results.tsv`, indicating whether a protein falls within a strict viral region (one that would *not* be filtered under `--filter-ambig-regions`).
+* AVG array filtering is now controlled by `--filter-avg-arrays` (on by default) and `--avg-array-limit` (default 3), replacing `--max-avg-array-length`.
+* Retrained and updated the LightGBM viral-origin confidence model using the new relaxed V/VL-score cutoffs.
+* Assigned reference AMGs, APGs, and AReGs to multi-level categories and report all applicable categories in `metabolic_gene_categories.tsv`, `physiology_gene_categories.tsv`, and `regulatory_gene_categories.tsv` under `results/`.
+
+## HMM annotation changes in `annotate`
+
+* Now enforces a minimum HMM-profile coverage **and** a minimum query-sequence coverage to keep hits, with an updated default of `0.4` for both.
+* Raised the across-the-board minimum fallback bit score to `60` (`--bitscore`) for databases without defined cutoffs.
+* Uses the newly obtained METABOLIC cutoffs, and enforces HMMsearch cutoffs separately for V/VL-score assignment (relaxed) and functional annotation (strict).
+* Revised chunk-size calculations to produce more chunks and reduce memory usage on large inputs, plus other memory-usage improvements.
+
+## CLI and workflow infrastructure
+
+* Reorganized scripts into module-specific directories (`annotate`, `denovo`, `aggregate`, `end_to_end`, `download`, `train_pst`, `common`).
+* Standardized logging across all scripts, including consistent step banners written cleanly to both console and log files.
+* Consolidated shared helpers (Snakemake setup, memory limits, parquet paths, pyrodigal-gv, logger initialization) into `common` to reduce duplication.
+* Corrected command logging so the full set of arguments is logged with their correct names, and made re-runnable commands accurate.
+* Non-CheckAMG messages (errors from other libraries or base Python, and progress bars) are now appended to the log file alongside CheckAMG log messages.
+
+## Input validation
+
+* Added checks to the nucleotide and protein filtering steps to reject duplicate sequence names and avoid downstream mismatching.
+* Added FASTA checks for duplicate sequence names, spaces in sequence names, and more robust verification that proteins are in Prodigal format, refactored into shared helper libraries under `common` for use by both `annotate` and `de-novo`.
+
+## Bug fixes
+
+* Fixed a crash in `annotate` during HMMsearch result filtering (`polars.exceptions.NoDataError`) that occurred when a search yielded no hits to a reference database. This happened with small inputs (< 100 proteins) lacking detectable homology to the smaller specialized databases (dbCAN, METABOLIC, CAMPER).
+* Fixed a genome-context bug that reported V/VL-scores for nonexistent flanking MGE genes and sometimes matched flanking MGE genes to the wrong genes.
+* Updated `hmm_annotate.py` HMM-profile-name retrieval for compatibility with pyhmmer > 0.11.
+
+
 # 0.10.0
 
 * Added genome-context curation to `curate_annots.py` module:

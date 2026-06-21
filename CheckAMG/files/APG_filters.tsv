@@ -1,4 +1,4 @@
-id	db	name	filter_NO_EXCEPTION	filter_allow_glycosyl	filter_allow_nucleotide	filter_allow_methyl	filter_allow_lipid
+id	db	name	filter_essential	filter_glucan	filter_lipid	filter_methyl	filter_nucleotide
 K00910	KEGG	ADRBK, GRK; beta-adrenergic-receptor kinase [EC:2.7.11.15]	True	False	False	False	False
 K00924	KEGG	TMK; receptor protein kinase TMK [EC:2.7.11.1]	True	False	False	False	False
 K02296	KEGG	ARNTL, BMAL1, CYC; aryl hydrocarbon receptor nuclear translocator-like protein 1	True	False	False	False	False
@@ -1158,27 +1158,28 @@ PF00843.23	Pfam	Arenavirus nucleocapsid N-terminal domain	True	False	False	False
 PF00846.25	Pfam	Hantavirus nucleocapsid protein	True	False	False	False	False
 PF00864.25	Pfam	ATP P2X receptor	True	False	False	False	False
 PF00878.25	Pfam	Cation-independent mannose-6-phosphate receptor repeat	True	False	False	False	False
-PF00897.24	Pfam	Orbivirus inner capsid protein VP7	True	False	False	False	False
+PF00897.25	Pfam	Orbivirus inner capsid protein VP7	True	False	False	False	False
 PF00898.23	Pfam	Orbivirus outer capsid protein VP2	True	False	False	False	False
-PF00901.24	Pfam	Orbivirus outer capsid protein VP5	True	False	False	False	False
+PF00901.25	Pfam	Orbivirus outer capsid protein VP5	True	False	False	False	False
 PF00937.24	Pfam	Coronavirus nucleocapsid	True	False	False	False	False
 PF00945.24	Pfam	Rhabdovirus nucleocapsid protein	True	False	False	False	False
-PF00952.23	Pfam	Bunyavirus nucleocapsid (N) protein	True	False	False	False	False
-PF00973.25	Pfam	Paramyxovirus nucleocapsid protein	True	False	False	False	False
+PF00952.24	Pfam	Bunyavirus nucleocapsid (N) protein	True	False	False	False	False
+PF00973.26	Pfam	Paramyxovirus nucleocapsid protein	True	False	False	False	False
 PF00979.23	Pfam	Reovirus outer capsid protein, Sigma 3	True	False	False	False	False
 PF00980.22	Pfam	Rotavirus major capsid protein VP6	True	False	False	False	False
 PF01003.25	Pfam	Flavivirus capsid protein C	True	False	False	False	False
 PF01021.26	Pfam	Ty transposon capsid protein	True	False	False	False	False
-PF01030.31	Pfam	Receptor L domain	True	False	False	False	False
-PF01064.30	Pfam	Activin types I and II receptor domain	True	False	False	False	False
+PF01030.32	Pfam	Receptor L domain	True	False	False	False	False
+PF01064.32	Pfam	Activin types I and II receptor domain	True	False	False	False	False
 PF01094.35	Pfam	Receptor family ligand binding region	True	False	False	False	False
 PF01404.26	Pfam	Ephrin receptor ligand binding domain	True	False	False	False	False
 PF01481.21	Pfam	Arterivirus nucleocapsid protein	True	False	False	False	False
 PF01533.23	Pfam	Tospovirus nucleocapsid protein	True	False	False	False	False
 PF01543.23	Pfam	Hepatitis C virus capsid protein	True	False	False	False	False
-PF01802.23	Pfam	Herpesvirus VP23 like capsid protein	True	False	False	False	False
-PF02064.21	Pfam	MAS20 protein import receptor	True	False	False	False	False
-PF02076.22	Pfam	Pheromone A receptor	True	False	False	False	False
+PF01732.23	Pfam	Mycoplasma immunoglobulin protease	True	False	False	False	False
+PF01802.24	Pfam	Herpesvirus VP23 like capsid protein	True	False	False	False	False
+PF02064.22	Pfam	MAS20 protein import receptor	True	False	False	False	False
+PF02076.23	Pfam	Pheromone A receptor	True	False	False	False	False
 PF02117.23	Pfam	Serpentine type 7TM GPCR chemoreceptor Sra	True	False	False	False	False
 PF02118.28	Pfam	Srg family chemoreceptor	True	False	False	False	False
 PF02155.21	Pfam	Glucocorticoid receptor	True	False	False	False	False
@@ -1189,8 +1190,8 @@ PF02166.21	Pfam	Androgen receptor	True	False	False	False	False
 PF02175.23	Pfam	Serpentine type 7TM GPCR chemoreceptor Srb	True	False	False	False	False
 PF02189.21	Pfam	Immunoreceptor tyrosine-based activation motif	True	False	False	False	False
 PF02305.23	Pfam	Capsid protein (F protein)	True	False	False	False	False
-PF02336.21	Pfam	Capsid protein VP4	True	False	False	False	False
-PF02395.23	Pfam	Immunoglobulin A1 protease	True	False	False	False	False
+PF02336.22	Pfam	Capsid protein VP4	True	False	False	False	False
+PF02395.24	Pfam	Immunoglobulin A1 protease	True	False	False	False	False
 PF02413.23	Pfam	Caudovirales tail fibre assembly protein, lambda gpK	True	False	False	False	False
 PF02443.23	Pfam	Circovirus capsid protein	True	False	False	False	False
 PF02444.21	Pfam	Hepatitis E virus ORF-2 (Putative capsid protein)	True	False	False	False	False
@@ -1205,7 +1206,7 @@ PF02993.20	Pfam	Minor capsid protein VI	True	False	False	False	False
 PF03024.21	Pfam	Folate receptor family	True	False	False	False	False
 PF03035.20	Pfam	Calicivirus putative RNA polymerase/capsid protein	True	False	False	False	False
 PF03115.21	Pfam	Astrovirus capsid protein nucleoplasmin-like domain	True	False	False	False	False
-PF03122.20	Pfam	Herpes virus major capsid protein	True	False	False	False	False
+PF03122.21	Pfam	Herpes virus major capsid protein	True	False	False	False	False
 PF03125.25	Pfam	Sre G protein-coupled chemoreceptor	True	False	False	False	False
 PF03187.21	Pfam	Corona nucleocapsid I protein	True	False	False	False	False
 PF03237.22	Pfam	Terminase large subunit, T4likevirus-type, N-terminal	True	False	False	False	False
@@ -1220,6 +1221,7 @@ PF03406.19	Pfam	Phage tail fibre repeat	True	False	False	False	False
 PF03523.19	Pfam	Macrophage scavenger receptor	True	False	False	False	False
 PF03549.20	Pfam	Translocated intimin receptor (Tir) intimin-binding domain	True	False	False	False	False
 PF03592.22	Pfam	Terminase small subunit	True	False	False	False	False
+PF03732.25	Pfam	Retrotransposon-derived protein PEG10, N-terminal capsid-like domain	True	False	False	False	False
 PF03827.19	Pfam	Orexin receptor type 2	True	False	False	False	False
 PF03864.23	Pfam	Phage major capsid protein E	True	False	False	False	False
 PF03903.19	Pfam	Phage T4 tail fibre	True	False	False	False	False
@@ -1241,7 +1243,7 @@ PF04865.20	Pfam	Baseplate J-like protein barrel domain	True	False	False	False	Fa
 PF04876.18	Pfam	Tenuivirus major non-capsid protein	True	False	False	False	False
 PF04901.19	Pfam	Receptor activity modifying family	True	False	False	False	False
 PF04965.20	Pfam	Baseplate wedge protein gp25	True	False	False	False	False
-PF04984.20	Pfam	Phage tail sheath protein subtilisin-like domain	True	False	False	False	False
+PF04984.20	Pfam	Phage tail sheath protein central domain	True	False	False	False	False
 PF04985.21	Pfam	Phage tail tube protein FII	True	False	False	False	False
 PF05065.20	Pfam	Phage capsid family	True	False	False	False	False
 PF05073.18	Pfam	Baculovirus P24 capsid protein	True	False	False	False	False
@@ -1251,7 +1253,7 @@ PF05119.18	Pfam	Phage terminase, small subunit	True	False	False	False	False
 PF05125.19	Pfam	Phage major capsid protein, P2 family	True	False	False	False	False
 PF05133.20	Pfam	Phage portal protein, SPP1 Gp6-like	True	False	False	False	False
 PF05136.19	Pfam	Phage portal protein, lambda family	True	False	False	False	False
-PF05268.18	Pfam	Phage tail fibre adhesin Gp38	True	False	False	False	False
+PF05268.19	Pfam	Phage tail fibre adhesin Gp38	True	False	False	False	False
 PF05296.20	Pfam	Taste receptor protein (TAS2R)	True	False	False	False	False
 PF05354.18	Pfam	Phage Head-Tail Attachment protein	True	False	False	False	False
 PF05396.17	Pfam	Phage T7 capsid assembly protein	True	False	False	False	False
@@ -1272,7 +1274,6 @@ PF05876.19	Pfam	Phage terminase large subunit gpA, ATPase domain	True	False	Fals
 PF05880.18	Pfam	Fijivirus 64 kDa capsid protein	True	False	False	False	False
 PF05894.19	Pfam	Podovirus DNA encapsidation protein (Gp16)	True	False	False	False	False
 PF05926.17	Pfam	Phage head completion protein (GPL)	True	False	False	False	False
-PF05929.17	Pfam	Phage capsid scaffolding protein (GPO) serine peptidase	True	False	False	False	False
 PF05939.19	Pfam	Phage minor tail protein	True	False	False	False	False
 PF05943.18	Pfam	EvpB/VC_A0108, tail sheath N-terminal domain	True	False	False	False	False
 PF05944.18	Pfam	Phage small terminase subunit	True	False	False	False	False
@@ -1283,12 +1284,12 @@ PF06056.19	Pfam	Putative ATPase subunit of terminase (gpP-like)	True	False	False
 PF06074.19	Pfam	Portal protein of Mu bacteriophage	True	False	False	False	False
 PF06112.17	Pfam	Gammaherpesvirus capsid protein	True	False	False	False	False
 PF06120.16	Pfam	Tail length tape measure protein	True	False	False	False	False
-PF06141.18	Pfam	Phage minor tail protein U	True	False	False	False	False
+PF06141.19	Pfam	Phage minor tail protein U	True	False	False	False	False
 PF06151.19	Pfam	Trehalose receptor	True	False	False	False	False
 PF06152.17	Pfam	Phage minor capsid protein 2	True	False	False	False	False
 PF06153.17	Pfam	Cyclic-di-AMP receptor	True	False	False	False	False
 PF06199.18	Pfam	Phage tail tube protein	True	False	False	False	False
-PF06222.17	Pfam	Phage tail assembly chaperone	True	False	False	False	False
+PF06222.18	Pfam	Phage tail assembly chaperone	True	False	False	False	False
 PF06223.19	Pfam	Minor tail protein T	True	False	False	False	False
 PF06381.17	Pfam	Phage portal protein	True	False	False	False	False
 PF06387.17	Pfam	D1 dopamine receptor-interacting protein (calcyon)	True	False	False	False	False
@@ -1303,7 +1304,7 @@ PF06805.18	Pfam	Bacteriophage lambda tail assembly protein I	True	False	False	Fa
 PF06810.18	Pfam	Phage capsid assembly scaffolding protein	True	False	False	False	False
 PF06820.17	Pfam	Putative prophage tail fibre C-terminus	True	False	False	False	False
 PF06891.18	Pfam	P2 phage tail completion protein R (GpR)	True	False	False	False	False
-PF06894.18	Pfam	Bacteriophage lambda tail assembly chaperone, TAC, protein G	True	False	False	False	False
+PF06894.19	Pfam	Bacteriophage lambda tail assembly chaperone, TAC, protein G	True	False	False	False	False
 PF06896.18	Pfam	Phage tail assembly chaperone proteins, TAC	True	False	False	False	False
 PF07068.18	Pfam	Major capsid protein Gp23	True	False	False	False	False
 PF07124.16	Pfam	Phytoreovirus outer capsid protein P8	True	False	False	False	False
@@ -1311,7 +1312,7 @@ PF07140.18	Pfam	Interferon gamma receptor (IFNGR1), D2 domain	True	False	False	F
 PF07141.17	Pfam	Putative bacteriophage terminase small subunit	True	False	False	False	False
 PF07190.17	Pfam	Tumour necrosis factor receptor, SECRET domain	True	False	False	False	False
 PF07230.17	Pfam	Bacteriophage T4-like portal protein (Gp20)	True	False	False	False	False
-PF07267.17	Pfam	Nucleopolyhedrovirus capsid protein P87	True	False	False	False	False
+PF07267.18	Pfam	Nucleopolyhedrovirus capsid protein P87	True	False	False	False	False
 PF07304.17	Pfam	Steroid receptor RNA activator (SRA1)	True	False	False	False	False
 PF07469.19	Pfam	Nuclear receptor coactivator, DUF1518	True	False	False	False	False
 PF07484.18	Pfam	Phage Tail Collar Domain	True	False	False	False	False
@@ -1335,7 +1336,7 @@ PF08400.17	Pfam	Prophage tail fibre N-terminal	True	False	False	False	False
 PF08475.16	Pfam	Viral capsid protein 91 N-terminal	True	False	False	False	False
 PF08505.16	Pfam	Mitochondrial Myo2 receptor-related protein	True	False	False	False	False
 PF08589.16	Pfam	Autophagy receptor ATG43	True	False	False	False	False
-PF08677.16	Pfam	GP11 baseplate wedge protein	True	False	False	False	False
+PF08677.17	Pfam	GP11 baseplate wedge protein	True	False	False	False	False
 PF08709.18	Pfam	Inositol 1,4,5-trisphosphate/ryanodine receptor	True	False	False	False	False
 PF08748.18	Pfam	Phage tail assembly chaperone	True	False	False	False	False
 PF08762.17	Pfam	CRPV capsid protein like	True	False	False	False	False
@@ -1351,8 +1352,8 @@ PF09018.17	Pfam	P3 major capsid protein N-terminal	True	False	False	False	False
 PF09067.17	Pfam	Erythropoietin receptor, ligand binding	True	False	False	False	False
 PF09085.17	Pfam	Adhesion molecule, immunoglobulin-like	True	False	False	False	False
 PF09089.17	Pfam	Phage short tail fibre protein gp12, middle domain	True	False	False	False	False
-PF09096.17	Pfam	Baseplate structural protein, domain 2	True	False	False	False	False
-PF09097.17	Pfam	Baseplate structural protein, domain 1	True	False	False	False	False
+PF09096.18	Pfam	Baseplate structural protein, domain 2	True	False	False	False	False
+PF09097.18	Pfam	Baseplate structural protein, domain 1	True	False	False	False	False
 PF09193.16	Pfam	Cholecystokinin A receptor, N-terminal	True	False	False	False	False
 PF09201.17	Pfam	SRX, signal recognition particle receptor alpha subunit	True	False	False	False	False
 PF09238.17	Pfam	Interleukin-4 receptor alpha chain, N-terminal	True	False	False	False	False
@@ -1419,6 +1420,7 @@ PF11729.15	Pfam	nodavirus capsid protein	True	False	False	False	False
 PF11733.13	Pfam	Non-capsid protein NP1	True	False	False	False	False
 PF11825.14	Pfam	Nuclear/hormone receptor activator site AF-1	True	False	False	False	False
 PF11836.15	Pfam	Phage tail tube protein, GTA-gp10	True	False	False	False	False
+PF11863.15	Pfam	E217 tail sheath protein gp31-like, N-terminal domain	True	False	False	False	False
 PF11889.14	Pfam	Capsid protein C, pestivirus	True	False	False	False	False
 PF11970.15	Pfam	G protein-coupled glucose receptor regulating Gpa2 C-term	True	False	False	False	False
 PF11979.14	Pfam	Smad anchor for receptor activation-like, C-terminal	True	False	False	False	False
@@ -1432,7 +1434,7 @@ PF12264.15	Pfam	Waikavirus capsid protein 1	True	False	False	False	False
 PF12363.15	Pfam	Phage tail assembly chaperone protein, TAC	True	False	False	False	False
 PF12369.14	Pfam	Gonadotropin hormone receptor transmembrane region	True	False	False	False	False
 PF12398.14	Pfam	Receptor serine/threonine kinase	True	False	False	False	False
-PF12421.15	Pfam	Tip attachment protein J, C-terminal receptor binding domain	True	False	False	False	False
+PF12421.16	Pfam	Tip attachment protein J, C-terminal receptor binding domain	True	False	False	False	False
 PF12430.14	Pfam	Abscisic acid G-protein coupled receptor	True	False	False	False	False
 PF12497.14	Pfam	Estrogen receptor beta	True	False	False	False	False
 PF12567.15	Pfam	Leukocyte receptor CD45	True	False	False	False	False
@@ -1445,7 +1447,7 @@ PF12743.13	Pfam	Oestrogen-type nuclear receptor final C-terminal	True	False	Fals
 PF12772.13	Pfam	Growth hormone receptor binding	True	False	False	False	False
 PF12789.13	Pfam	Phage tail repeat like	True	False	False	False	False
 PF13252.13	Pfam	Phage capsid protein	True	False	False	False	False
-PF13550.13	Pfam	Putative phage tail protein	True	False	False	False	False
+PF13550.14	Pfam	Putative phage tail protein	True	False	False	False	False
 PF13554.13	Pfam	Phage tail terminator protein	True	False	False	False	False
 PF13682.12	Pfam	Chemoreceptor zinc-binding domain	True	False	False	False	False
 PF13820.12	Pfam	Nuclear receptor coactivator 6, TRADD-N domain	True	False	False	False	False
@@ -1475,7 +1477,7 @@ PF15688.11	Pfam	Nuclear receptor-interacting protein 1 repression 2	True	False	F
 PF15689.11	Pfam	Nuclear receptor-interacting protein 1 repression 3	True	False	False	False	False
 PF15690.11	Pfam	Nuclear receptor-interacting protein 1 repression 4	True	False	False	False	False
 PF15713.11	Pfam	Protein tyrosine phosphatase receptor type C-associated	True	False	False	False	False
-PF15721.11	Pfam	Annexin-2 receptor	True	False	False	False	False
+PF15721.12	Pfam	Annexin-2 receptor	True	False	False	False	False
 PF15741.11	Pfam	Ligand-dependent nuclear receptor-interacting factor 1	True	False	False	False	False
 PF15783.11	Pfam	Fibrous sheath-interacting protein 2	True	False	False	False	False
 PF15854.11	Pfam	G-protein coupled receptor ligand 15	True	False	False	False	False
@@ -1485,16 +1487,15 @@ PF15902.13	Pfam	Sortilin, neurotensin receptor 3,	True	False	False	False	False
 PF15905.11	Pfam	Hyaluronan mediated motility receptor N-terminal	True	False	False	False	False
 PF15908.11	Pfam	Hyaluronan mediated motility receptor C-terminal	True	False	False	False	False
 PF16104.11	Pfam	Formyl peptide receptor-like 1 inhibitory protein	True	False	False	False	False
-PF16459.12	Pfam	Phage tail assembly chaperone, TAC	True	False	False	False	False
+PF16297.12	Pfam	RTL1/3-8/LDOC, capsid-like domain	True	False	False	False	False
+PF16459.13	Pfam	Phage tail assembly chaperone, TAC	True	False	False	False	False
 PF16460.12	Pfam	Phage tail tube, TTP, lambda-like	True	False	False	False	False
 PF16461.12	Pfam	Lambda phage tail tube protein, TTP	True	False	False	False	False
 PF16462.12	Pfam	Phage tail assembly chaperone protein, TAC	True	False	False	False	False
 PF16463.12	Pfam	Phage tail tube protein family	True	False	False	False	False
 PF16510.13	Pfam	Phage P22-like portal protein	True	False	False	False	False
 PF16530.12	Pfam	Infectious hypodermal and haematopoietic necrosis virus, capsid	True	False	False	False	False
-PF16532.12	Pfam	Sf6-type phage tail needle knob or tip of some Caudovirales	True	False	False	False	False
-PF16556.12	Pfam	Interleukin-17 receptor, fibronectin-III-like domain 1	True	False	False	False	False
-PF16578.12	Pfam	Interleukin 17 receptor D	True	False	False	False	False
+PF16532.13	Pfam	Sf6-type phage tail needle knob or tip of some Caudovirales	True	False	False	False	False
 PF16580.12	Pfam	C-terminal tail of astrovirus capsid projection or spike	True	False	False	False	False
 PF16665.11	Pfam	Unstructured region on nuclear receptor coactivator protein	True	False	False	False	False
 PF16673.11	Pfam	TNF receptor-associated factor BIRC3 binding domain	True	False	False	False	False
@@ -1502,11 +1503,11 @@ PF16706.12	Pfam	Izumo-like Immunoglobulin domain	True	False	False	False	False
 PF16724.12	Pfam	T4-like virus Myoviridae tail sheath stabiliser	True	False	False	False	False
 PF16732.11	Pfam	Type IV minor pilin ComP, DNA uptake sequence receptor	True	False	False	False	False
 PF16742.11	Pfam	N-terminus of interleukin 17 receptor D	True	False	False	False	False
-PF16774.12	Pfam	Distal tail protein, N-terminal domain	True	False	False	False	False
+PF16774.13	Pfam	Distal tail protein, N-terminal domain	True	False	False	False	False
 PF16778.11	Pfam	Phage tail assembly chaperone protein	True	False	False	False	False
 PF16792.12	Pfam	Phage tail base-plate attachment protein N-terminal barrel domain	True	False	False	False	False
 PF16823.10	Pfam	Atypical PilZ domain, cyclic di-GMP receptor	True	False	False	False	False
-PF16838.12	Pfam	Caudoviral major tail protein N-terminus	True	False	False	False	False
+PF16838.13	Pfam	Caudoviral major tail protein N-terminus	True	False	False	False	False
 PF16855.11	Pfam	Small outer capsid protein	True	False	False	False	False
 PF16903.13	Pfam	Major capsid protein N-terminus	True	False	False	False	False
 PF17071.11	Pfam	Outer capsid protein VP7	True	False	False	False	False
@@ -1533,7 +1534,7 @@ PF18112.8	Pfam	Autophagy receptor zinc finger-C2H2 domain	True	False	False	False
 PF18119.7	Pfam	RIG-I receptor C-terminal domain	True	False	False	False	False
 PF18153.8	Pfam	Cap15, cyclic dinucleotide receptor domain	True	False	False	False	False
 PF18207.8	Pfam	Leukemia inhibitory factor receptor N-terminal domain	True	False	False	False	False
-PF18214.7	Pfam	STATa Immunoglobulin-like domain	True	False	False	False	False
+PF18214.8	Pfam	STATa Immunoglobulin-like domain	True	False	False	False	False
 PF18258.7	Pfam	Interleukin-4 inducing immunoglobulin-binding domain	True	False	False	False	False
 PF18278.8	Pfam	Receptor activator of the NF-KB cysteine-rich repeat domain 2	True	False	False	False	False
 PF18338.8	Pfam	Lower baseplate protein N-terminal domain	True	False	False	False	False
@@ -1546,17 +1547,17 @@ PF18567.7	Pfam	Toll/interleukin-1 receptor domain	True	False	False	False	False
 PF18589.8	Pfam	Obesity receptor immunoglobulin like domain	True	False	False	False	False
 PF18611.8	Pfam	IL-3 receptor alpha chain N-terminal domain	True	False	False	False	False
 PF18613.7	Pfam	Tyrosine kinase receptor A trans-membrane domain	True	False	False	False	False
-PF18667.7	Pfam	Baseplate upper protein immunoglobulin like domain	True	False	False	False	False
+PF18667.8	Pfam	Baseplate upper protein immunoglobulin like domain	True	False	False	False	False
 PF18668.7	Pfam	Tail spike TSP1/Gp66 receptor binding N-terminal domain	True	False	False	False	False
 PF18673.7	Pfam	interleukin receptor mimic protein A	True	False	False	False	False
-PF18683.7	Pfam	Chitinase W immunoglobulin-like domain	True	False	False	False	False
+PF18683.8	Pfam	Chitinase W immunoglobulin-like domain	True	False	False	False	False
 PF18707.8	Pfam	Interleukin-2 receptor subunit beta N-terminal domain 1	True	False	False	False	False
 PF18861.8	Pfam	TM proximal of protein tyrosine phosphatase, receptor type J	True	False	False	False	False
 PF18906.6	Pfam	Phage tail tube protein	True	False	False	False	False
 PF18945.6	Pfam	EvpB/VC_A0108, tail sheath gpW/gp25-like domain	True	False	False	False	False
 PF18965.6	Pfam	Outer capsid protein VP3-like	True	False	False	False	False
-PF19065.7	Pfam	Minor capsid protein P8 central region	True	False	False	False	False
-PF19066.6	Pfam	Minor capsid protein P9 transmembrane helices	True	False	False	False	False
+PF19065.8	Pfam	Minor capsid protein P8 central region	True	False	False	False	False
+PF19066.7	Pfam	Minor capsid protein P9 transmembrane helices	True	False	False	False	False
 PF19251.5	Pfam	Minor capsid protein P2, DUF5899	True	False	False	False	False
 PF19259.5	Pfam	Ty3 transposon capsid-like protein	True	False	False	False	False
 PF19285.5	Pfam	Neuromedin-U receptor 2, C-terminal	True	False	False	False	False
@@ -1564,14 +1565,14 @@ PF19330.5	Pfam	Delta and Notch-like EGF-related receptor C-terminus	True	False	F
 PF19821.6	Pfam	Phage capsid protein	True	False	False	False	False
 PF20036.6	Pfam	Major capsid protein 13-like	True	False	False	False	False
 PF20141.5	Pfam	Brassinosteroid receptor island domain	True	False	False	False	False
-PF20195.5	Pfam	Phage tail protein N-terminal domain	True	False	False	False	False
+PF20195.6	Pfam	Phage tail protein N-terminal domain	True	False	False	False	False
 PF20441.4	Pfam	Terminase large subunit, endonuclease domain	True	False	False	False	False
 PF20454.5	Pfam	Terminase large subunit gpA, endonuclease domain	True	False	False	False	False
 PF20478.4	Pfam	P2X purinoreceptor 7 intracellular domain	True	False	False	False	False
 PF20608.5	Pfam	Phage tail tube protein C-terminal domain	True	False	False	False	False
 PF20634.3	Pfam	Interferon gamma receptor 1, transmembrane region	True	False	False	False	False
 PF20744.4	Pfam	Tail fibre protein gp37 trimerization region	True	False	False	False	False
-PF20747.3	Pfam	Lactophage receptor-binding protein N-terminal shoulder domain	True	False	False	False	False
+PF20747.4	Pfam	Lactophage receptor-binding protein N-terminal shoulder domain	True	False	False	False	False
 PF20753.3	Pfam	Phage tail C-terminal domain	True	False	False	False	False
 PF20765.4	Pfam	Phage tail terminator protein	True	False	False	False	False
 PF20810.3	Pfam	Msx2-interacting protein, nuclear receptor-interacting domain	True	False	False	False	False
@@ -1589,28 +1590,27 @@ PF20954.3	Pfam	Phage tail base-plate attachment protein N0 domain	True	False	Fal
 PF20955.4	Pfam	Phage tail base-plate attachment protein C-terminal barrel domain	True	False	False	False	False
 PF21114.4	Pfam	Discoidin domain-containing receptor 1/2, DS-like domain	True	False	False	False	False
 PF21119.4	Pfam	Ryanodine receptor junctional solenoid repeat	True	False	False	False	False
-PF21165.3	Pfam	Fibroblast growth factor receptor 3 transmembrane domain	True	False	False	False	False
-PF21177.4	Pfam	Leukemia inhibitory factor receptor, Ig-like domain	True	False	False	False	False
+PF21165.4	Pfam	Fibroblast growth factor receptor 3 transmembrane domain	True	False	False	False	False
+PF21177.5	Pfam	Leukemia inhibitory factor receptor, Ig-like domain	True	False	False	False	False
 PF21311.4	Pfam	Phage 5-bladed beta propeller receptor binding platform domain	True	False	False	False	False
 PF21314.3	Pfam	Epidermal growth factor receptor transmembrane-juxtamembrane segment	True	False	False	False	False
 PF21339.4	Pfam	Vascular endothelial growth factor receptor 1-like, Ig-like domain	True	False	False	False	False
 PF21363.4	Pfam	TNF receptor-associated factor 2/3/5, RING domain	True	False	False	False	False
 PF21379.3	Pfam	Baseplate wedge protein gp6-like, helical domain	True	False	False	False	False
-PF21387.3	Pfam	Baseplate structural protein gp6, C-terminal domain I	True	False	False	False	False
-PF21395.3	Pfam	Activity-regulated cytoskeleton-associated protein, capsid domain	True	False	False	False	False
+PF21387.4	Pfam	Baseplate structural protein gp6, C-terminal domain I	True	False	False	False	False
 PF21424.4	Pfam	Distal tail protein pb9, A domain C-terminal	True	False	False	False	False
-PF21425.4	Pfam	Distal tail protein pb9, A domain, N-terminal	True	False	False	False	False
-PF21427.3	Pfam	Baseplate wedge protein gp7, domain V	True	False	False	False	False
-PF21428.3	Pfam	Baseplate wedge protein gp7, helical domain	True	False	False	False	False
-PF21430.4	Pfam	Distal tail protein pb9, B domain	True	False	False	False	False
+PF21425.5	Pfam	Distal tail protein pb9, A domain, N-terminal	True	False	False	False	False
+PF21427.4	Pfam	Baseplate wedge protein gp7, domain V	True	False	False	False	False
+PF21428.4	Pfam	Baseplate wedge protein gp7, helical domain	True	False	False	False	False
+PF21430.5	Pfam	Distal tail protein pb9, B domain	True	False	False	False	False
 PF21434.4	Pfam	Phage G20C small terminase, N-terminal domain	True	False	False	False	False
 PF21446.4	Pfam	Long-tail fiber proximal subunit, C-terminal, trimerization domain	True	False	False	False	False
-PF21456.3	Pfam	Baseplate wedge protein gp7, domain VI	True	False	False	False	False
+PF21456.4	Pfam	Baseplate wedge protein gp7, domain VI	True	False	False	False	False
 PF21460.4	Pfam	GM-CSF/IL-3/IL-5 receptor common beta subunit, N-terminal	True	False	False	False	False
 PF21468.3	Pfam	Tyrosine-protein kinase receptor torso, second FN3 domain	True	False	False	False	False
 PF21472.3	Pfam	Baseplate structural protein gp6, C-terminal domain II	True	False	False	False	False
-PF21507.2	Pfam	Sputnik minor capsid protein V18/19	True	False	False	False	False
-PF21515.3	Pfam	Baseplate wedge protein gp6, domain II	True	False	False	False	False
+PF21507.3	Pfam	Sputnik minor capsid protein V18/19	True	False	False	False	False
+PF21515.4	Pfam	Baseplate wedge protein gp6, domain II	True	False	False	False	False
 PF21560.3	Pfam	Long-tail fiber proximal subunit, C-terminal, second	True	False	False	False	False
 PF21562.3	Pfam	G7C, Tail fiber protein, domain 3	True	False	False	False	False
 PF21564.3	Pfam	Lactococcus phage p2, Receptor binding protein, neck domain	True	False	False	False	False
@@ -1618,23 +1618,23 @@ PF21604.4	Pfam	Cytokine receptor-like factor 2-like, D1 domain	True	False	False	
 PF21605.4	Pfam	Cytokine receptor-like factor 2-like, D2 domain	True	False	False	False	False
 PF21613.3	Pfam	Pesticin, receptor binding domain	True	False	False	False	False
 PF21683.4	Pfam	Mu phage baseplate assembly protein GpP-like, N-terminal	True	False	False	False	False
-PF21685.3	Pfam	Fungal virus Capsid protein, N-terminal domain	True	False	False	False	False
+PF21685.4	Pfam	Fungal virus Capsid protein, N-terminal domain	True	False	False	False	False
 PF21703.4	Pfam	Major capsid protein	True	False	False	False	False
-PF21721.3	Pfam	Phage tail fibre adhesin Gp38 N-terminal domain	True	False	False	False	False
+PF21721.4	Pfam	Phage tail fibre adhesin Gp38 N-terminal domain	True	False	False	False	False
 PF21821.4	Pfam	Dit-like phage tail protein	True	False	False	False	False
 PF21822.4	Pfam	Phage tail assembly chaperone protein, TAC	True	False	False	False	False
-PF21871.2	Pfam	Baseplate structural protein gp6, C-terminal domain III	True	False	False	False	False
+PF21871.3	Pfam	Baseplate structural protein gp6, C-terminal domain III	True	False	False	False	False
 PF21882.3	Pfam	Putative tail fiber protein gp53-like, C-terminal	True	False	False	False	False
 PF21915.4	Pfam	Sputnik virophage major capsid protein 1st domain	True	False	False	False	False
 PF21919.3	Pfam	Phage P23-45 portal protein	True	False	False	False	False
 PF21929.3	Pfam	Mu phage baseplate assembly protein GpP, fourth domain	True	False	False	False	False
 PF21939.2	Pfam	Baseplate structural protein Gp10, C-terminal domain	True	False	False	False	False
-PF21951.1	Pfam	T-cell receptor gamma alternate reading frame protein	True	False	False	False	False
+PF21951.2	Pfam	T-cell receptor gamma alternate reading frame protein	True	False	False	False	False
 PF21963.3	Pfam	TcdA1, receptor binding domain	True	False	False	False	False
-PF21968.3	Pfam	TcdA1, receptor binding domain	True	False	False	False	False
+PF21968.4	Pfam	TcdA1, receptor binding domain	True	False	False	False	False
 PF22003.3	Pfam	MrkD-like receptor binding domain	True	False	False	False	False
 PF22012.3	Pfam	Cytokine receptor-like factor 2, domain 1	True	False	False	False	False
-PF22024.3	Pfam	Major capsid protein VP16-like	True	False	False	False	False
+PF22024.4	Pfam	Major capsid protein VP16-like	True	False	False	False	False
 PF22031.3	Pfam	Major capsid protein V20 C-terminal domain	True	False	False	False	False
 PF22033.2	Pfam	Inner capsid protein lambda-1/VP3	True	False	False	False	False
 PF22050.2	Pfam	Apelin receptor early endogenous ligand	True	False	False	False	False
@@ -1651,30 +1651,30 @@ PF22405.3	Pfam	Sulfolobus turreted icosahedral virus 1-like, major capsid protei
 PF22408.2	Pfam	PsV, capsid protein, C-terminal domain	True	False	False	False	False
 PF22412.2	Pfam	Phage G20C small terminase C-terminal domain	True	False	False	False	False
 PF22424.2	Pfam	HK620, Tail spike protein, C-terminal	True	False	False	False	False
-PF22433.3	Pfam	Magnetotaxis protein MtxA, Immunoglobulin-like domain	True	False	False	False	False
+PF22433.5	Pfam	Magnetotaxis protein MtxA, Immunoglobulin-like domain	True	False	False	False	False
 PF22459.2	Pfam	Pheromone cCF10 receptor, C-terminal TPR region	True	False	False	False	False
 PF22479.3	Pfam	Cyanophage baseplate Pam3 plug gp18	True	False	False	False	False
 PF22508.3	Pfam	Internalin J, Immunoglobulin-like domain	True	False	False	False	False
 PF22530.3	Pfam	Terminase Bacteriophage T7, Ribonuclease H-like domain	True	False	False	False	False
 PF22630.3	Pfam	Tail protein NMB1110-like, third domain	True	False	False	False	False
-PF22639.2	Pfam	Tail sheath protein Gp18-like domain I	True	False	False	False	False
+PF22639.3	Pfam	Tail sheath protein Gp18-like domain I	True	False	False	False	False
 PF22670.2	Pfam	Baseplate wedge protein gp10 domain 3	True	False	False	False	False
 PF22671.2	Pfam	Tail sheath protein Gp18 domain III N-terminal region	True	False	False	False	False
 PF22759.2	Pfam	Baseplate hub gp41	True	False	False	False	False
 PF22760.2	Pfam	Baseplate component gp38	True	False	False	False	False
 PF22764.2	Pfam	Tail fiber protein gp32	True	False	False	False	False
-PF22971.2	Pfam	VEGFR-1-like, immunoglobulin-like domain	True	False	False	False	False
+PF22971.3	Pfam	VEGFR-1-like, immunoglobulin-like domain	True	False	False	False	False
 PF22993.5	Pfam	Ephrin receptor 1 SAM domain-like	True	False	False	False	False
 PF23006.2	Pfam	Tyrosine-protein kinase receptor torso, first FN3 domain	True	False	False	False	False
 PF23008.4	Pfam	Tyrosine-protein kinase receptor torso, third FN3 domain	True	False	False	False	False
-PF23087.2	Pfam	ELAPOR1-like, mannose 6-phosphate receptor homology domain	True	False	False	False	False
+PF23087.3	Pfam	ELAPOR1-like, mannose 6-phosphate receptor homology domain	True	False	False	False	False
 PF23091.3	Pfam	ELAPOR1-like, TNF receptor-like	True	False	False	False	False
 PF23144.2	Pfam	Receptor-type tyrosine-protein phosphatase U Fn3 domain	True	False	False	False	False
 PF23172.1	Pfam	Nuclear receptor coactivators bHLH domain	True	False	False	False	False
 PF23180.2	Pfam	Receptor-like PK ALE2 N-terminal domain	True	False	False	False	False
 PF23265.2	Pfam	KY-like, immunoglobulin-like domain	True	False	False	False	False
-PF23301.1	Pfam	Platelet endothelial aggregation receptor 1-like, EGF domain	True	False	False	False	False
-PF23322.1	Pfam	AH receptor-interacting protein, N-terminal FKBP-type PPIase	True	False	False	False	False
+PF23301.2	Pfam	Platelet endothelial aggregation receptor 1-like, EGF domain	True	False	False	False	False
+PF23322.2	Pfam	AH receptor-interacting protein, N-terminal FKBP-type PPIase	True	False	False	False	False
 PF23369.1	Pfam	Capsid protein Vp25	True	False	False	False	False
 PF23370.1	Pfam	Capsid protein Vp20	True	False	False	False	False
 PF23371.1	Pfam	Capsid protein Vp24	True	False	False	False	False
@@ -1686,27 +1686,27 @@ PF23779.2	Pfam	Bacteriophage Baseplate Tube Protein Family	True	False	False	Fals
 PF23781.2	Pfam	Phage tail assembly chaperone protein	True	False	False	False	False
 PF23784.2	Pfam	Smacovirus capsid protein	True	False	False	False	False
 PF23786.2	Pfam	Phage baseplate wedge subunit	True	False	False	False	False
-PF23803.2	Pfam	Phage tail assembly chaperone	True	False	False	False	False
+PF23803.3	Pfam	Phage tail assembly chaperone	True	False	False	False	False
 PF23806.2	Pfam	Phage tail tube protein	True	False	False	False	False
 PF23812.2	Pfam	Phage tail assembly chaperone	True	False	False	False	False
 PF23818.2	Pfam	Bacteriophage Tail Tube Terminator Protein	True	False	False	False	False
 PF23840.2	Pfam	Phage tail terminator protein	True	False	False	False	False
-PF23841.2	Pfam	Phage tail termination protein	True	False	False	False	False
+PF23841.3	Pfam	Phage tail termination protein	True	False	False	False	False
 PF23842.2	Pfam	Phage tail termination protein	True	False	False	False	False
 PF23844.2	Pfam	Non-contractile tail sheath N-terminal domain	True	False	False	False	False
 PF23845.2	Pfam	Non-contractile tail sheath protein TIM barrel	True	False	False	False	False
-PF23849.2	Pfam	Phage tail tube protein	True	False	False	False	False
+PF23849.3	Pfam	Phage tail tube protein	True	False	False	False	False
 PF23857.2	Pfam	Phage tail chaperone protein	True	False	False	False	False
-PF23898.2	Pfam	Crassvirus major capsid protein	True	False	False	False	False
+PF23898.3	Pfam	Crassvirus major capsid protein	True	False	False	False	False
 PF23899.2	Pfam	Phage SU10 portal protein	True	False	False	False	False
-PF23931.2	Pfam	Terminase small subunit	True	False	False	False	False
-PF23971.2	Pfam	Putative phage tail tube protein	True	False	False	False	False
+PF23931.3	Pfam	Terminase small subunit	True	False	False	False	False
+PF23971.3	Pfam	Putative phage tail tube protein	True	False	False	False	False
 PF23980.2	Pfam	Putative phage tail tube initiator protein	True	False	False	False	False
 PF23982.3	Pfam	XM1 gp53 minor capsid protein	True	False	False	False	False
 PF23983.3	Pfam	Minor capsid protein P11, C-terminal conserved region	True	False	False	False	False
 PF24061.2	Pfam	Putative ionotropic receptor, ligand binding domain	True	False	False	False	False
 PF24077.2	Pfam	Immunoglobulin A1 protease autotransporter domain 2	True	False	False	False	False
-PF24214.2	Pfam	Putative phage head-tail joining protein	True	False	False	False	False
+PF24214.3	Pfam	Putative phage head-tail joining protein	True	False	False	False	False
 PF24215.2	Pfam	Phage head to tail associated domain	True	False	False	False	False
 PF24228.2	Pfam	Phage tail ring protein 1	True	False	False	False	False
 PF24243.2	Pfam	Phage tail tip domain	True	False	False	False	False
@@ -1718,8 +1718,8 @@ PF24576.2	Pfam	Ionotropic receptor 75a N-terminal	True	False	False	False	False
 PF24612.2	Pfam	TgrO1-like, immunoglobulin-like domain	True	False	False	False	False
 PF24619.2	Pfam	SibA-like, immunoglobulin-like domain	True	False	False	False	False
 PF25011.2	Pfam	Vacuolar sorting receptor thioredoxin-like domain	True	False	False	False	False
-PF25138.2	Pfam	Phage head-tail joining protein	True	False	False	False	False
-PF25209.2	Pfam	Phage capsid protein	True	False	False	False	False
+PF25138.3	Pfam	Phage head-tail joining protein	True	False	False	False	False
+PF25209.3	Pfam	Phage capsid protein	True	False	False	False	False
 PF25272.2	Pfam	Vitelline envelope sperm lysin receptor, C-terminal domain	True	False	False	False	False
 PF25294.2	Pfam	Renin receptor N-terminal domain	True	False	False	False	False
 PF25305.2	Pfam	Platelet-derived growth factor receptor Ig-like domain 4	True	False	False	False	False
@@ -1732,11 +1732,11 @@ PF25511.2	Pfam	Metal transporter CNNM4-like, immunoglobulin-like domain	True	Fal
 PF25514.1	Pfam	P3 major capsid protein C-terminal	True	False	False	False	False
 PF25523.2	Pfam	RIMBP2-like, immunoglobulin-like domain	True	False	False	False	False
 PF25529.2	Pfam	ENGASE1-like, C-terminal immunoglobulin-like domain	True	False	False	False	False
-PF25552.1	Pfam	Leukemia inhibitory factor receptor D4 domain	True	False	False	False	False
+PF25552.2	Pfam	Leukemia inhibitory factor receptor D4 domain	True	False	False	False	False
 PF25595.2	Pfam	Phage tail tube protein	True	False	False	False	False
 PF25609.1	Pfam	Netrin receptor unc-5 N-terminal domain	True	False	False	False	False
 PF25616.2	Pfam	Bacteriophage PhiKZ capsid decoration protein gp35	True	False	False	False	False
-PF25620.2	Pfam	Bacteriophage PhiKZ major capsid protein gp120	True	False	False	False	False
+PF25620.3	Pfam	Bacteriophage PhiKZ major capsid protein gp120	True	False	False	False	False
 PF25621.2	Pfam	Bacteriophage PhiKZ capsid decoration protein gp244	True	False	False	False	False
 PF25622.2	Pfam	Phi29-like phage major capsid protein	True	False	False	False	False
 PF25623.2	Pfam	T4-phage like capsid assembly scaffolding protein family	True	False	False	False	False
@@ -1772,7 +1772,7 @@ PF25673.2	Pfam	Phage terminase small subunit	True	False	False	False	False
 PF25681.2	Pfam	Phage tail tube protein	True	False	False	False	False
 PF25685.2	Pfam	Skunalikevirus tail terminator protein family	True	False	False	False	False
 PF25691.2	Pfam	Baseplate wedge 3 tail fiber network component	True	False	False	False	False
-PF25702.2	Pfam	Phage tail ring protein 2	True	False	False	False	False
+PF25702.3	Pfam	Phage tail ring protein 2	True	False	False	False	False
 PF25707.2	Pfam	Herpesvirus UL78 G protein-coupled receptor	True	False	False	False	False
 PF25709.2	Pfam	Portal vertex auxiliary protein	True	False	False	False	False
 PF25710.2	Pfam	Phage tail ring protein 3/4	True	False	False	False	False
@@ -1780,21 +1780,96 @@ PF25732.2	Pfam	Gammaherpesvirus G-protein coupled receptor	True	False	False	Fals
 PF25741.2	Pfam	Viral Fc-gamma receptor-like domain	True	False	False	False	False
 PF25759.2	Pfam	Bacteriophage HP1 ORF34 baseplate complex protein	True	False	False	False	False
 PF25776.2	Pfam	VWDE-like, immunoglobulin domain	True	False	False	False	False
-PF25788.2	Pfam	Rha78A-like, N-terminal immunoglobulin domain	True	False	False	False	False
+PF25788.3	Pfam	Rha78A-like, N-terminal immunoglobulin domain	True	False	False	False	False
 PF25839.1	Pfam	D-apionate lactonase, C-terminal immunoglobulin-like domain	True	False	False	False	False
-PF25992.1	Pfam	TM7SF3-like, N-terminal immunoglobulin-like domain	True	False	False	False	False
+PF25992.2	Pfam	TM7SF3-like, N-terminal immunoglobulin-like domain	True	False	False	False	False
 PF26074.1	Pfam	Bacteriophage PhiTE minor capsid decoration protein	True	False	False	False	False
 PF26078.1	Pfam	Baseplate J-like central domain	True	False	False	False	False
 PF26079.1	Pfam	Baseplate J-like protein C-terminal domain	True	False	False	False	False
 PF26102.1	Pfam	SPL7-like, immunoglobulin-like domain	True	False	False	False	False
 PF26208.1	Pfam	Putative phage tail fibre N-terminal domain	True	False	False	False	False
-PF26209.1	Pfam	Putative phage tail fibre C-terminal domain	True	False	False	False	False
+PF26209.2	Pfam	Putative phage tail fibre C-terminal domain	True	False	False	False	False
 PF26360.1	Pfam	Mycoplasma immunoglobulin binding protein M1 domain	True	False	False	False	False
 PF26361.1	Pfam	Mycoplasma immunoglobulin binding protein arm domain	True	False	False	False	False
 PF26364.1	Pfam	Mycoplasma immunoglobulin binding protein M2 domain	True	False	False	False	False
 PF26428.1	Pfam	Zwei immunoglobulin domain protein, N-terminal	True	False	False	False	False
 PF26562.1	Pfam	immunoglobulin-like domain	True	False	False	False	False
 PF26579.1	Pfam	CFAP47-like, immunoglobulin-like domain	True	False	False	False	False
+PF26669.1	Pfam	Mitochondrial ribosome receptor Mrx15	True	False	False	False	False
+PF26696.1	Pfam	Phage tail like trimerisation region	True	False	False	False	False
+PF26737.1	Pfam	GNPTAB, immunoglobulin-like domain	True	False	False	False	False
+PF26755.1	Pfam	Receptor-type tyrosine-protein phosphatase O, N-terminal domain	True	False	False	False	False
+PF26776.1	Pfam	Baseplate J-like N-terminal domain	True	False	False	False	False
+PF26823.1	Pfam	Putative phage T5 terminase, small subunit	True	False	False	False	False
+PF26841.1	Pfam	Hendrixvirinae small terminase family	True	False	False	False	False
+PF26860.1	Pfam	Phage T5 Receptor-binding protein pb5 family	True	False	False	False	False
+PF26881.1	Pfam	Bacteriophage P1 tail fiber protein R	True	False	False	False	False
+PF26918.1	Pfam	Intimin, immunoglobulin-like domain	True	False	False	False	False
+PF27104.1	Pfam	Cyclic-di-GMP receptor FimW, N-terminal domain	True	False	False	False	False
+PF27114.1	Pfam	Phage tail protein small four-stranded beta-sheet domain	True	False	False	False	False
+PF27364.1	Pfam	SPbeta prophage-derived putative capsid protein YonB	True	False	False	False	False
+PF27413.1	Pfam	S-layer protein A fifth immunoglobulin-like domain	True	False	False	False	False
+PF27416.1	Pfam	S-layer protein A C-terminal immunoglobulin-like domain	True	False	False	False	False
+PF27579.1	Pfam	Nuclear receptor corepressor 1 N-terminal domain	True	False	False	False	False
+PF27666.1	Pfam	Encapsidation protein CP3	True	False	False	False	False
+PF27830.1	Pfam	Apolipoprotein B receptor	True	False	False	False	False
+PF27919.1	Pfam	TM7SF3-like, second immunoglobulin-like domain	True	False	False	False	False
+PF27930.1	Pfam	Mitochondrial import receptor subunit TOM5 homologue	True	False	False	False	False
+PF28211.1	Pfam	Gephyrin-like molybdotransferase receptor GlpR	True	False	False	False	False
+PF28222.1	Pfam	Bombesin receptor-activated protein C6orf89 N-terminal domain	True	False	False	False	False
+PF28276.1	Pfam	IgSF3-like, immunoglobulin-like domain	True	False	False	False	False
+PF28299.1	Pfam	VSIG10L2, immunoglobulin-like domain	True	False	False	False	False
+PF28321.1	Pfam	Myomesin-1-like, immunoglobulin-like domain	True	False	False	False	False
+PF28354.1	Pfam	Semaphorin-3/4/7A, immunoglobulin-like domain	True	False	False	False	False
+PF28381.1	Pfam	TRS130-like, immunoglobulin-like domain	True	False	False	False	False
+PF28393.1	Pfam	Cadherin-99C-like, immunoglobulin-like domain	True	False	False	False	False
+PF28399.1	Pfam	Calsyntenin, immunoglobulin-like domain	True	False	False	False	False
+PF28407.1	Pfam	Anosmin-1, immunoglobulin-like domain	True	False	False	False	False
+PF28430.1	Pfam	LY6G6F, immunoglobulin-like domain	True	False	False	False	False
+PF28434.1	Pfam	Let-653, immunoglobulin-like domain	True	False	False	False	False
+PF28452.1	Pfam	Basic immunoglobulin-like variable motif-containing protein	True	False	False	False	False
+PF28498.1	Pfam	G-protein coupled receptor 149 middle domain	True	False	False	False	False
+PF28499.1	Pfam	G-protein coupled receptor 149 C-terminal domain	True	False	False	False	False
+PF28596.1	Pfam	Tail fiber assembly protein, N-terminal domain	True	False	False	False	False
+PF28602.1	Pfam	Baseplate hub assembly protein Gp51 C-terminal domain	True	False	False	False	False
+PF28626.1	Pfam	GMI1 first immunoglobulin-like domain	True	False	False	False	False
+PF28627.1	Pfam	GMI1 third immunoglobulin-like domain	True	False	False	False	False
+PF28628.1	Pfam	GMI1 second immunoglobulin-like domain	True	False	False	False	False
+PF28648.1	Pfam	Dopamine receptor-interacting protein 1	True	False	False	False	False
+PF28658.1	Pfam	GMI1 4th immunoglobulin-like domain	True	False	False	False	False
+PF28665.1	Pfam	TPLATE immunoglobulin-like domain	True	False	False	False	False
+PF28679.1	Pfam	Interleukin-27 receptor alpha N-terminal domain	True	False	False	False	False
+PF28708.1	Pfam	AbpF third immunoglobulin-like domain	True	False	False	False	False
+PF28709.1	Pfam	AbpF first immunoglobulin-like domain	True	False	False	False	False
+PF28710.1	Pfam	AbpF seventh immunoglobulin-like domain	True	False	False	False	False
+PF28714.1	Pfam	Colossin-D second immunoglobulin-like domain	True	False	False	False	False
+PF28742.1	Pfam	SECTM1 immunoglobulin-like domain	True	False	False	False	False
+PF28791.1	Pfam	TNF receptor grnd cysteine-rich domain	True	False	False	False	False
+PF28842.1	Pfam	Interleukin-9 receptor C-terminal domain	True	False	False	False	False
+PF28896.1	Pfam	Tumour necrosis factor receptor superfamily member 18 N-terminal	True	False	False	False	False
+PF29294.1	Pfam	S-layer protein A sixth immunoglobulin-like domain	True	False	False	False	False
+PF29373.1	Pfam	Baseplate wedge Pvc12-like domain 3	True	False	False	False	False
+PF29433.1	Pfam	Baseplate wedge Pvc12-like domain 2	True	False	False	False	False
+PF29434.1	Pfam	Baseplate protein PVC11-like	True	False	False	False	False
+PF29449.1	Pfam	Archaeal immunoglobulin-like domain	True	False	False	False	False
+PF29489.1	Pfam	Cyclic-di-GMP receptor FimW, middle PilZ domain	True	False	False	False	False
+PF29514.1	Pfam	E217 tail sheath protein gp31-like, C-terminal domain	True	False	False	False	False
+PF29544.1	Pfam	Taste receptor cell protein 1 middle domain	True	False	False	False	False
+PF29548.1	Pfam	E217 tail sheath protein gp31, insert domain	True	False	False	False	False
+PF30177.1	Pfam	YonE portal protein C-terminal region	True	False	False	False	False
+PF30597.1	Pfam	Seven transmembrane receptor	True	False	False	False	False
+PF30656.1	Pfam	Bacteriophage baseplate protein, N-terminal domain	True	False	False	False	False
+PF30658.1	Pfam	Baseplate J-like central domain	True	False	False	False	False
+PF30765.1	Pfam	Phage baseplate V C-terminal trimerisation domain	True	False	False	False	False
+PF30794.1	Pfam	Phage baseplate assembly protein, N-terminal domain	True	False	False	False	False
+PF30891.1	Pfam	SorCS receptor membrane-proximal stalk domain	True	False	False	False	False
+PF30901.1	Pfam	PEG10/RTL1, C-terminal capsid-like domain	True	False	False	False	False
+PF30909.1	Pfam	ARB_00926 immunoglobulin-like domain	True	False	False	False	False
+PF30928.1	Pfam	Pa193 gp26 major capsid protein	True	False	False	False	False
+PF31090.1	Pfam	Prophage side tail fiber protein StfR third domain	True	False	False	False	False
+PF31222.1	Pfam	Bacteriophage baseplate wedge protein gp6, third domain	True	False	False	False	False
+PF31235.1	Pfam	Baseplate wedge protein gp7, FN3-like domain	True	False	False	False	False
+PF31249.1	Pfam	Long-tail fiber proximal subunit gp34, C-terminal region	True	False	False	False	False
 phrog_10	PHROG	major head protein	True	False	False	False	False
 phrog_1002	PHROG	tail fiber chaperone	True	False	False	False	False
 phrog_10030	PHROG	tail length tape measure protein	True	False	False	False	False

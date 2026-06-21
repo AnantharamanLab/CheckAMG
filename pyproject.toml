@@ -4,10 +4,10 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "checkamg"
-version = "0.10.0"
+version = "1.0"
 description = "Automated discovery and curation of Auxiliary Metabolic Genes (AMGs), Auxiliary Regulatory Genes (AReGs), and Auxiliary Physiology Genes (APGs) encoded by viral genomes."
 readme = {file = "README-pypi.md", content-type = "text/markdown"}
-requires-python = ">=3.11, <3.13"
+requires-python = ">=3.11"
 authors = [
   {name = "James C. Kosmopoulos", email = "kosmopoulos@wisc.edu"}
 ]
@@ -24,21 +24,29 @@ dependencies = [
   "joblib>=1.5.1",
   "lightgbm>=4.5.0",
   "metapyrodigal>=1.4.1",
-  "numba>=0.61.2",
-  "numpy>=1.24, <2.3",
-  "pandas>=2.3.0",
-  "polars-u64-idx>=1.30.0",
+  "numba>=0.61.2,<0.62",
+  "numpy>=1.24,<2.3",
+  "pandas>=2.3.0,<3",
+  "polars-u64-idx>=1.30.0,<2",
+  # The CheckAMG CLI imports the de-novo subcommand at module load,
+  # which transitively imports `pst`. PST and its torch toolchain are
+  # therefore required for every module, including `annotate`.
+  # NOTE: `torch`, `torch_geometric`, `torch_scatter`, and `faiss-*`
+  # must be installed manually BEFORE `pip install checkamg` so that
+  # the correct CPU/CUDA build is selected and `torch_scatter` is
+  # source-built against the matching torch (see README Step 3).
+  "ptn-set-transformer>=2.8,<3",
   "psutil>=7.0.0",
   "pyarrow>=20.0.0",
   "pyfastatools==2.5.0",
-  "pyhmmer==0.11.1",
-  "pyrodigal>=3.5.2",
-  "pyrodigal-gv>=0.3.2",
+  "pyhmmer>=0.11.1,<0.13",
+  "pyrodigal>=3.5.2,<4",
+  "pyrodigal-gv>=0.3.2,<0.4",
   "pyyaml>=6.0",
   "requests>=2.32",
   "scikit-learn==1.7.2",
   "snakemake==8.23.2",
-  "tqdm>=4.67.1"
+  "tqdm>=4.67.1",
 ]
 
 [project.urls]
@@ -52,8 +60,8 @@ include-package-data = true
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["CheckAMG", "CheckAMG.scripts"]
+include = ["CheckAMG*"]
 
 [tool.setuptools.package-data]
 "CheckAMG" = ["files/**/*"]
-"CheckAMG.scripts" = ["*.smk"]
+"CheckAMG.scripts" = ["**/*.smk"]

@@ -105,14 +105,14 @@ PF00073.27	Pfam	picornavirus capsid protein
 PF00426.26	Pfam	Outer Capsid protein VP4 (Hemagglutinin) Concanavalin-like domain
 PF00843.23	Pfam	Arenavirus nucleocapsid N-terminal domain
 PF00846.25	Pfam	Hantavirus nucleocapsid protein
-PF00897.24	Pfam	Orbivirus inner capsid protein VP7
+PF00897.25	Pfam	Orbivirus inner capsid protein VP7
 PF00898.23	Pfam	Orbivirus outer capsid protein VP2
-PF00901.24	Pfam	Orbivirus outer capsid protein VP5
+PF00901.25	Pfam	Orbivirus outer capsid protein VP5
 PF00932.26	Pfam	Lamin Tail Domain
 PF00937.24	Pfam	Coronavirus nucleocapsid
 PF00945.24	Pfam	Rhabdovirus nucleocapsid protein
-PF00952.23	Pfam	Bunyavirus nucleocapsid (N) protein
-PF00973.25	Pfam	Paramyxovirus nucleocapsid protein
+PF00952.24	Pfam	Bunyavirus nucleocapsid (N) protein
+PF00973.26	Pfam	Paramyxovirus nucleocapsid protein
 PF00979.23	Pfam	Reovirus outer capsid protein, Sigma 3
 PF00980.22	Pfam	Rotavirus major capsid protein VP6
 PF01003.25	Pfam	Flavivirus capsid protein C
@@ -121,9 +121,9 @@ PF01481.21	Pfam	Arterivirus nucleocapsid protein
 PF01533.23	Pfam	Tospovirus nucleocapsid protein
 PF01543.23	Pfam	Hepatitis C virus capsid protein
 PF01576.25	Pfam	Myosin tail
-PF01802.23	Pfam	Herpesvirus VP23 like capsid protein
+PF01802.24	Pfam	Herpesvirus VP23 like capsid protein
 PF02305.23	Pfam	Capsid protein (F protein)
-PF02336.21	Pfam	Capsid protein VP4
+PF02336.22	Pfam	Capsid protein VP4
 PF02413.23	Pfam	Caudovirales tail fibre assembly protein, lambda gpK
 PF02443.23	Pfam	Circovirus capsid protein
 PF02444.21	Pfam	Hepatitis E virus ORF-2 (Putative capsid protein)
@@ -131,7 +131,7 @@ PF02477.21	Pfam	Nucleocapsid N protein
 PF02993.20	Pfam	Minor capsid protein VI
 PF03035.20	Pfam	Calicivirus putative RNA polymerase/capsid protein
 PF03115.21	Pfam	Astrovirus capsid protein nucleoplasmin-like domain
-PF03122.20	Pfam	Herpes virus major capsid protein
+PF03122.21	Pfam	Herpes virus major capsid protein
 PF03187.21	Pfam	Corona nucleocapsid I protein
 PF03237.22	Pfam	Terminase large subunit, T4likevirus-type, N-terminal
 PF03246.19	Pfam	Pneumovirus nucleocapsid protein
@@ -140,6 +140,7 @@ PF03335.19	Pfam	Phage tail fibre repeat
 PF03354.22	Pfam	Terminase large subunit, ATPase domain
 PF03406.19	Pfam	Phage tail fibre repeat
 PF03592.22	Pfam	Terminase small subunit
+PF03732.25	Pfam	Retrotransposon-derived protein PEG10, N-terminal capsid-like domain
 PF03864.23	Pfam	Phage major capsid protein E
 PF03903.19	Pfam	Phage T4 tail fibre
 PF03906.21	Pfam	Phage T7 tail fibre protein, N-terminal domain
@@ -152,7 +153,7 @@ PF04630.19	Pfam	Phage tail tube protein
 PF04860.18	Pfam	Phage portal protein
 PF04876.18	Pfam	Tenuivirus major non-capsid protein
 PF04883.18	Pfam	Bacteriophage HK97-gp10, putative tail-component
-PF04984.20	Pfam	Phage tail sheath protein subtilisin-like domain
+PF04984.20	Pfam	Phage tail sheath protein central domain
 PF04985.21	Pfam	Phage tail tube protein FII
 PF05065.20	Pfam	Phage capsid family
 PF05073.18	Pfam	Baculovirus P24 capsid protein
@@ -162,7 +163,7 @@ PF05125.19	Pfam	Phage major capsid protein, P2 family
 PF05133.20	Pfam	Phage portal protein, SPP1 Gp6-like
 PF05135.20	Pfam	Phage gp6-like head-tail connector protein
 PF05136.19	Pfam	Phage portal protein, lambda family
-PF05268.18	Pfam	Phage tail fibre adhesin Gp38
+PF05268.19	Pfam	Phage tail fibre adhesin Gp38
 PF05354.18	Pfam	Phage Head-Tail Attachment protein
 PF05396.17	Pfam	Phage T7 capsid assembly protein
 PF05489.19	Pfam	Phage Tail Protein X
@@ -174,7 +175,6 @@ PF05868.16	Pfam	Rotavirus major outer capsid protein VP7
 PF05876.19	Pfam	Phage terminase large subunit gpA, ATPase domain
 PF05880.18	Pfam	Fijivirus 64 kDa capsid protein
 PF05894.19	Pfam	Podovirus DNA encapsidation protein (Gp16)
-PF05929.17	Pfam	Phage capsid scaffolding protein (GPO) serine peptidase
 PF05939.19	Pfam	Phage minor tail protein
 PF05943.18	Pfam	EvpB/VC_A0108, tail sheath N-terminal domain
 PF05944.18	Pfam	Phage small terminase subunit
@@ -185,14 +185,14 @@ PF06056.19	Pfam	Putative ATPase subunit of terminase (gpP-like)
 PF06074.19	Pfam	Portal protein of Mu bacteriophage
 PF06112.17	Pfam	Gammaherpesvirus capsid protein
 PF06120.16	Pfam	Tail length tape measure protein
-PF06141.18	Pfam	Phage minor tail protein U
+PF06141.19	Pfam	Phage minor tail protein U
 PF06152.17	Pfam	Phage minor capsid protein 2
 PF06199.18	Pfam	Phage tail tube protein
-PF06222.17	Pfam	Phage tail assembly chaperone
+PF06222.18	Pfam	Phage tail assembly chaperone
 PF06223.19	Pfam	Minor tail protein T
 PF06381.17	Pfam	Phage portal protein
 PF06488.18	Pfam	Phage tail tube protein
-PF06605.18	Pfam	Prophage endopeptidase tail
+PF06605.19	Pfam	Prophage endopeptidase tail
 PF06673.18	Pfam	Lactococcus lactis bacteriophage major capsid protein
 PF06763.18	Pfam	Prophage minor tail protein Z (GPZ)
 PF06791.19	Pfam	Prophage tail length tape measure protein
@@ -201,14 +201,14 @@ PF06810.18	Pfam	Phage capsid assembly scaffolding protein
 PF06820.17	Pfam	Putative prophage tail fibre C-terminus
 PF06841.19	Pfam	T4-like virus tail tube protein gp19
 PF06891.18	Pfam	P2 phage tail completion protein R (GpR)
-PF06894.18	Pfam	Bacteriophage lambda tail assembly chaperone, TAC, protein G
+PF06894.19	Pfam	Bacteriophage lambda tail assembly chaperone, TAC, protein G
 PF06896.18	Pfam	Phage tail assembly chaperone proteins, TAC
 PF07004.18	Pfam	Sperm-tail PG-rich repeat
 PF07068.18	Pfam	Major capsid protein Gp23
 PF07124.16	Pfam	Phytoreovirus outer capsid protein P8
 PF07141.17	Pfam	Putative bacteriophage terminase small subunit
 PF07230.17	Pfam	Bacteriophage T4-like portal protein (Gp20)
-PF07267.17	Pfam	Nucleopolyhedrovirus capsid protein P87
+PF07267.18	Pfam	Nucleopolyhedrovirus capsid protein P87
 PF07484.18	Pfam	Phage Tail Collar Domain
 PF07965.18	Pfam	Integrin beta tail domain
 PF08400.17	Pfam	Prophage tail fibre N-terminal
@@ -247,6 +247,7 @@ PF11729.15	Pfam	nodavirus capsid protein
 PF11733.13	Pfam	Non-capsid protein NP1
 PF11818.14	Pfam	C-terminal domain of tail specific protease (DUF3340)
 PF11836.15	Pfam	Phage tail tube protein, GTA-gp10
+PF11863.15	Pfam	E217 tail sheath protein gp31-like, N-terminal domain
 PF11889.14	Pfam	Capsid protein C, pestivirus
 PF12226.15	Pfam	Turkey astrovirus capsid protein
 PF12236.15	Pfam	Bacteriophage head to tail connecting protein
@@ -258,7 +259,8 @@ PF12621.14	Pfam	Extracellular tail, of 10TM putative phosphate transporter
 PF12691.14	Pfam	Bacteriophage tail terminator protein
 PF12789.13	Pfam	Phage tail repeat like
 PF13252.13	Pfam	Phage capsid protein
-PF13550.13	Pfam	Putative phage tail protein
+PF13262.12	Pfam	E217 head-to-tail connector protein gp27-like
+PF13550.14	Pfam	Putative phage tail protein
 PF13554.13	Pfam	Phage tail terminator protein
 PF14265.12	Pfam	Capsid assembly scaffolding protein Gp46
 PF14654.11	Pfam	Mucin, cleavage site, TM and cytoplasmic tail region
@@ -267,21 +269,22 @@ PF14775.12	Pfam	Sperm tail C-terminal domain
 PF14928.12	Pfam	Short tail fibre protein receptor-binding domain
 PF15974.11	Pfam	Cadherin C-terminal cytoplasmic tail, catenin-binding region
 PF16210.11	Pfam	Keratin type II cytoskeletal 1 tail
-PF16459.12	Pfam	Phage tail assembly chaperone, TAC
+PF16297.12	Pfam	RTL1/3-8/LDOC, capsid-like domain
+PF16459.13	Pfam	Phage tail assembly chaperone, TAC
 PF16460.12	Pfam	Phage tail tube, TTP, lambda-like
 PF16461.12	Pfam	Lambda phage tail tube protein, TTP
 PF16462.12	Pfam	Phage tail assembly chaperone protein, TAC
 PF16463.12	Pfam	Phage tail tube protein family
 PF16510.13	Pfam	Phage P22-like portal protein
 PF16530.12	Pfam	Infectious hypodermal and haematopoietic necrosis virus, capsid
-PF16532.12	Pfam	Sf6-type phage tail needle knob or tip of some Caudovirales
+PF16532.13	Pfam	Sf6-type phage tail needle knob or tip of some Caudovirales
 PF16580.12	Pfam	C-terminal tail of astrovirus capsid projection or spike
 PF16724.12	Pfam	T4-like virus Myoviridae tail sheath stabiliser
-PF16774.12	Pfam	Distal tail protein, N-terminal domain
+PF16774.13	Pfam	Distal tail protein, N-terminal domain
 PF16778.11	Pfam	Phage tail assembly chaperone protein
 PF16792.12	Pfam	Phage tail base-plate attachment protein N-terminal barrel domain
 PF16807.12	Pfam	Putative tail termination protein
-PF16838.12	Pfam	Caudoviral major tail protein N-terminus
+PF16838.13	Pfam	Caudoviral major tail protein N-terminus
 PF16855.11	Pfam	Small outer capsid protein
 PF16903.13	Pfam	Major capsid protein N-terminus
 PF17071.11	Pfam	Outer capsid protein VP7
@@ -303,14 +306,14 @@ PF18906.6	Pfam	Phage tail tube protein
 PF18945.6	Pfam	EvpB/VC_A0108, tail sheath gpW/gp25-like domain
 PF18965.6	Pfam	Outer capsid protein VP3-like
 PF18994.7	Pfam	Prophage endopeptidase tail N-terminal domain
-PF19065.7	Pfam	Minor capsid protein P8 central region
-PF19066.6	Pfam	Minor capsid protein P9 transmembrane helices
+PF19065.8	Pfam	Minor capsid protein P8 central region
+PF19066.7	Pfam	Minor capsid protein P9 transmembrane helices
 PF19251.5	Pfam	Minor capsid protein P2, DUF5899
 PF19259.5	Pfam	Ty3 transposon capsid-like protein
 PF19821.6	Pfam	Phage capsid protein
 PF19978.5	Pfam	Tail virion protein G7P
 PF20036.6	Pfam	Major capsid protein 13-like
-PF20195.5	Pfam	Phage tail protein N-terminal domain
+PF20195.6	Pfam	Phage tail protein N-terminal domain
 PF20441.4	Pfam	Terminase large subunit, endonuclease domain
 PF20454.5	Pfam	Terminase large subunit gpA, endonuclease domain
 PF20608.5	Pfam	Phage tail tube protein C-terminal domain
@@ -325,33 +328,32 @@ PF20855.3	Pfam	CPV Capsid shell protein VP1, small protrusion domain
 PF20895.3	Pfam	PsV, capsid protein
 PF20901.4	Pfam	Bacteriophage Sf6, terminase small subunit-like
 PF20911.4	Pfam	Major capsid protein GP7
-PF20934.3	Pfam	Bacillus phage phi29, Tail knob protein gp9, C-terminal domain
+PF20934.5	Pfam	Bacillus phage phi29, Tail knob protein gp9, C-terminal domain
 PF20953.3	Pfam	Phage tail base-plate attachment protein C-terminal insertion domain
 PF20954.3	Pfam	Phage tail base-plate attachment protein N0 domain
 PF20955.4	Pfam	Phage tail base-plate attachment protein C-terminal barrel domain
-PF21395.3	Pfam	Activity-regulated cytoskeleton-associated protein, capsid domain
 PF21424.4	Pfam	Distal tail protein pb9, A domain C-terminal
-PF21425.4	Pfam	Distal tail protein pb9, A domain, N-terminal
-PF21430.4	Pfam	Distal tail protein pb9, B domain
+PF21425.5	Pfam	Distal tail protein pb9, A domain, N-terminal
+PF21430.5	Pfam	Distal tail protein pb9, B domain
 PF21434.4	Pfam	Phage G20C small terminase, N-terminal domain
 PF21446.4	Pfam	Long-tail fiber proximal subunit, C-terminal, trimerization domain
-PF21507.2	Pfam	Sputnik minor capsid protein V18/19
+PF21507.3	Pfam	Sputnik minor capsid protein V18/19
 PF21519.3	Pfam	Tailspike protein, C-terminal
 PF21532.3	Pfam	Bridging integrator 2, C-terminal tail
 PF21550.4	Pfam	Myosin A tail domain interacting protein, N-terminal
 PF21560.3	Pfam	Long-tail fiber proximal subunit, C-terminal, second
 PF21562.3	Pfam	G7C, Tail fiber protein, domain 3
-PF21685.3	Pfam	Fungal virus Capsid protein, N-terminal domain
+PF21685.4	Pfam	Fungal virus Capsid protein, N-terminal domain
 PF21703.4	Pfam	Major capsid protein
-PF21721.3	Pfam	Phage tail fibre adhesin Gp38 N-terminal domain
+PF21721.4	Pfam	Phage tail fibre adhesin Gp38 N-terminal domain
 PF21821.4	Pfam	Dit-like phage tail protein
 PF21822.4	Pfam	Phage tail assembly chaperone protein, TAC
 PF21869.4	Pfam	Distal tail component, second carbohydrate binding domain
 PF21882.3	Pfam	Putative tail fiber protein gp53-like, C-terminal
 PF21915.4	Pfam	Sputnik virophage major capsid protein 1st domain
 PF21919.3	Pfam	Phage P23-45 portal protein
-PF21988.3	Pfam	Podovirus tailspike protein Galactose-binding domain-like
-PF22024.3	Pfam	Major capsid protein VP16-like
+PF21988.4	Pfam	Podovirus tailspike protein Galactose-binding domain-like
+PF22024.4	Pfam	Major capsid protein VP16-like
 PF22031.3	Pfam	Major capsid protein V20 C-terminal domain
 PF22033.2	Pfam	Inner capsid protein lambda-1/VP3
 PF22144.2	Pfam	Fungal virus Capsid protein, C-terminal domain
@@ -364,7 +366,7 @@ PF22412.2	Pfam	Phage G20C small terminase C-terminal domain
 PF22424.2	Pfam	HK620, Tail spike protein, C-terminal
 PF22530.3	Pfam	Terminase Bacteriophage T7, Ribonuclease H-like domain
 PF22630.3	Pfam	Tail protein NMB1110-like, third domain
-PF22639.2	Pfam	Tail sheath protein Gp18-like domain I
+PF22639.3	Pfam	Tail sheath protein Gp18-like domain I
 PF22671.2	Pfam	Tail sheath protein Gp18 domain III N-terminal region
 PF22762.2	Pfam	NrS-1 polymerase-like, tail domain
 PF22764.2	Pfam	Tail fiber protein gp32
@@ -377,35 +379,35 @@ PF23681.2	Pfam	ATP-dependent rRNA helicase SPB4-like, C-terminal tail
 PF23746.2	Pfam	Tail assembly protein gp41
 PF23781.2	Pfam	Phage tail assembly chaperone protein
 PF23784.2	Pfam	Smacovirus capsid protein
-PF23803.2	Pfam	Phage tail assembly chaperone
+PF23803.3	Pfam	Phage tail assembly chaperone
 PF23806.2	Pfam	Phage tail tube protein
 PF23812.2	Pfam	Phage tail assembly chaperone
 PF23818.2	Pfam	Bacteriophage Tail Tube Terminator Protein
 PF23840.2	Pfam	Phage tail terminator protein
-PF23841.2	Pfam	Phage tail termination protein
+PF23841.3	Pfam	Phage tail termination protein
 PF23842.2	Pfam	Phage tail termination protein
 PF23844.2	Pfam	Non-contractile tail sheath N-terminal domain
 PF23845.2	Pfam	Non-contractile tail sheath protein TIM barrel
-PF23849.2	Pfam	Phage tail tube protein
+PF23849.3	Pfam	Phage tail tube protein
 PF23857.2	Pfam	Phage tail chaperone protein
-PF23898.2	Pfam	Crassvirus major capsid protein
+PF23898.3	Pfam	Crassvirus major capsid protein
 PF23899.2	Pfam	Phage SU10 portal protein
-PF23931.2	Pfam	Terminase small subunit
-PF23971.2	Pfam	Putative phage tail tube protein
+PF23931.3	Pfam	Terminase small subunit
+PF23971.3	Pfam	Putative phage tail tube protein
 PF23980.2	Pfam	Putative phage tail tube initiator protein
 PF23982.3	Pfam	XM1 gp53 minor capsid protein
 PF23983.3	Pfam	Minor capsid protein P11, C-terminal conserved region
-PF24214.2	Pfam	Putative phage head-tail joining protein
+PF24214.3	Pfam	Putative phage head-tail joining protein
 PF24215.2	Pfam	Phage head to tail associated domain
 PF24228.2	Pfam	Phage tail ring protein 1
 PF24243.2	Pfam	Phage tail tip domain
-PF24650.2	Pfam	Tal, N-terminal tail tube TT1 domain
-PF25138.2	Pfam	Phage head-tail joining protein
-PF25209.2	Pfam	Phage capsid protein
+PF24650.3	Pfam	Tal, N-terminal tail tube TT1 domain
+PF25138.3	Pfam	Phage head-tail joining protein
+PF25209.3	Pfam	Phage capsid protein
 PF25514.1	Pfam	P3 major capsid protein C-terminal
 PF25595.2	Pfam	Phage tail tube protein
 PF25616.2	Pfam	Bacteriophage PhiKZ capsid decoration protein gp35
-PF25620.2	Pfam	Bacteriophage PhiKZ major capsid protein gp120
+PF25620.3	Pfam	Bacteriophage PhiKZ major capsid protein gp120
 PF25621.2	Pfam	Bacteriophage PhiKZ capsid decoration protein gp244
 PF25622.2	Pfam	Phi29-like phage major capsid protein
 PF25623.2	Pfam	T4-phage like capsid assembly scaffolding protein family
@@ -437,21 +439,41 @@ PF25666.2	Pfam	Partitivirus capsid protein
 PF25667.2	Pfam	African swine fever virus minor capsid protein p17
 PF25668.1	Pfam	African swine fever virus minor capsid protein p49
 PF25670.2	Pfam	Phage tail protein C-terminal domain
-PF25671.2	Pfam	Phage T4-tail tape measure protein
+PF25671.3	Pfam	Phage T4-tail tape measure protein
 PF25673.2	Pfam	Phage terminase small subunit
 PF25681.2	Pfam	Phage tail tube protein
 PF25685.2	Pfam	Skunalikevirus tail terminator protein family
 PF25691.2	Pfam	Baseplate wedge 3 tail fiber network component
-PF25702.2	Pfam	Phage tail ring protein 2
+PF25702.3	Pfam	Phage tail ring protein 2
 PF25709.2	Pfam	Portal vertex auxiliary protein
 PF25710.2	Pfam	Phage tail ring protein 3/4
 PF25711.2	Pfam	Crassvirus tail hub protein B
 PF25724.2	Pfam	Crassvirus tail hub protein A
-PF25747.2	Pfam	Bacteriophage T5 tail completion protein p143
+PF25747.3	Pfam	Bacteriophage T5 tail completion protein p143
 PF26074.1	Pfam	Bacteriophage PhiTE minor capsid decoration protein
 PF26208.1	Pfam	Putative phage tail fibre N-terminal domain
-PF26209.1	Pfam	Putative phage tail fibre C-terminal domain
+PF26209.2	Pfam	Putative phage tail fibre C-terminal domain
 PF26461.1	Pfam	Phi812 tail tube protein
+PF26674.1	Pfam	Prophage endopeptidase tail domain
+PF26696.1	Pfam	Phage tail like trimerisation region
+PF26823.1	Pfam	Putative phage T5 terminase, small subunit
+PF26841.1	Pfam	Hendrixvirinae small terminase family
+PF26881.1	Pfam	Bacteriophage P1 tail fiber protein R
+PF27114.1	Pfam	Phage tail protein small four-stranded beta-sheet domain
+PF27364.1	Pfam	SPbeta prophage-derived putative capsid protein YonB
+PF27666.1	Pfam	Encapsidation protein CP3
+PF28072.1	Pfam	Low-complexity tail membrane protein-like
+PF28596.1	Pfam	Tail fiber assembly protein, N-terminal domain
+PF29514.1	Pfam	E217 tail sheath protein gp31-like, C-terminal domain
+PF29548.1	Pfam	E217 tail sheath protein gp31, insert domain
+PF29706.1	Pfam	Poly-cysteine and histidine-tailed protein C-terminal domain
+PF30177.1	Pfam	YonE portal protein C-terminal region
+PF30901.1	Pfam	PEG10/RTL1, C-terminal capsid-like domain
+PF30928.1	Pfam	Pa193 gp26 major capsid protein
+PF31020.1	Pfam	Unconventional myosin-IX tail domain
+PF31090.1	Pfam	Prophage side tail fiber protein StfR third domain
+PF31149.1	Pfam	Tail-anchor membrane protein
+PF31249.1	Pfam	Long-tail fiber proximal subunit gp34, C-terminal region
 phrog_1002	PHROG	tail fiber chaperone
 phrog_10030	PHROG	tail length tape measure protein
 phrog_1004	PHROG	virion structural protein

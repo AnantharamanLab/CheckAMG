@@ -1,4 +1,4 @@
-id	db	name	filter_NO_EXCEPTION	filter_allow_glycosyl	filter_allow_nucleotide	filter_allow_methyl	filter_allow_lipid
+id	db	name	filter_essential	filter_glucan	filter_lipid	filter_methyl	filter_nucleotide
 K00182	KEGG	WNT2; wingless-type MMTV integration site family, member 2	True	False	False	False	False
 K00312	KEGG	WNT3; wingless-type MMTV integration site family, member 3	True	False	False	False	False
 K00408	KEGG	WNT4; wingless-type MMTV integration site family, member 4	True	False	False	False	False
@@ -3038,7 +3038,7 @@ PF00588.25	Pfam	SpoU rRNA Methylase family	True	False	False	False	False
 PF00589.28	Pfam	Phage integrase family	True	False	False	False	False
 PF00593.31	Pfam	TonB dependent receptor-like, beta-barrel	True	False	False	False	False
 PF00602.23	Pfam	Influenza RNA-dependent RNA polymerase subunit PB1	True	False	False	False	False
-PF00603.24	Pfam	Influenza RNA-dependent RNA polymerase subunit PA	True	False	False	False	False
+PF00603.25	Pfam	Influenza RNA-dependent RNA polymerase subunit PA	True	False	False	False	False
 PF00604.23	Pfam	Influenza RNA polymerase PB2 CAP binding domain	True	False	False	False	False
 PF00623.26	Pfam	RNA polymerase Rpb1, domain 2	True	False	False	False	False
 PF00636.32	Pfam	Ribonuclease III domain	True	False	False	False	False
@@ -3054,19 +3054,19 @@ PF00864.25	Pfam	ATP P2X receptor	True	False	False	False	False
 PF00872.25	Pfam	Transposase, Mutator family	True	False	False	False	False
 PF00878.25	Pfam	Cation-independent mannose-6-phosphate receptor repeat	True	False	False	False	False
 PF00891.25	Pfam	O-methyltransferase domain	True	False	False	False	False
-PF00897.24	Pfam	Orbivirus inner capsid protein VP7	True	False	False	False	False
+PF00897.25	Pfam	Orbivirus inner capsid protein VP7	True	False	False	False	False
 PF00898.23	Pfam	Orbivirus outer capsid protein VP2	True	False	False	False	False
-PF00901.24	Pfam	Orbivirus outer capsid protein VP5	True	False	False	False	False
+PF00901.25	Pfam	Orbivirus outer capsid protein VP5	True	False	False	False	False
 PF00910.29	Pfam	RNA helicase	True	False	False	False	False
 PF00929.32	Pfam	Exonuclease	True	False	False	False	False
 PF00937.24	Pfam	Coronavirus nucleocapsid	True	False	False	False	False
 PF00940.25	Pfam	DNA-dependent RNA polymerase	True	False	False	False	False
 PF00945.24	Pfam	Rhabdovirus nucleocapsid protein	True	False	False	False	False
 PF00946.25	Pfam	Mononegavirales RNA dependent RNA polymerase	True	False	False	False	False
-PF00952.23	Pfam	Bunyavirus nucleocapsid (N) protein	True	False	False	False	False
+PF00952.24	Pfam	Bunyavirus nucleocapsid (N) protein	True	False	False	False	False
 PF00961.25	Pfam	LAGLIDADG endonuclease	True	False	False	False	False
 PF00972.26	Pfam	Flavivirus RNA-directed RNA polymerase, fingers and palm domains	True	False	False	False	False
-PF00973.25	Pfam	Paramyxovirus nucleocapsid protein	True	False	False	False	False
+PF00973.26	Pfam	Paramyxovirus nucleocapsid protein	True	False	False	False	False
 PF00978.27	Pfam	RNA dependent RNA polymerase	True	False	False	False	False
 PF00979.23	Pfam	Reovirus outer capsid protein, Sigma 3	True	False	False	False	False
 PF00980.22	Pfam	Rotavirus major capsid protein VP6	True	False	False	False	False
@@ -3076,11 +3076,11 @@ PF01000.32	Pfam	RNA polymerase Rpb3/RpoA insert domain	True	False	False	False	Fa
 PF01003.25	Pfam	Flavivirus capsid protein C	True	False	False	False	False
 PF01021.26	Pfam	Ty transposon capsid protein	True	False	False	False	False
 PF01028.26	Pfam	Eukaryotic DNA topoisomerase I, catalytic core	True	False	False	False	False
-PF01030.31	Pfam	Receptor L domain	True	False	False	False	False
+PF01030.32	Pfam	Receptor L domain	True	False	False	False	False
 PF01035.27	Pfam	6-O-methylguanine DNA methyltransferase, DNA binding domain	True	False	False	False	False
 PF01042.27	Pfam	Endoribonuclease L-PSP	True	False	False	False	False
 PF01051.28	Pfam	Initiator Replication protein, WH1	True	False	False	False	False
-PF01064.30	Pfam	Activin types I and II receptor domain	True	False	False	False	False
+PF01064.32	Pfam	Activin types I and II receptor domain	True	False	False	False	False
 PF01068.27	Pfam	ATP dependent DNA ligase domain	True	False	False	False	False
 PF01076.26	Pfam	Plasmid recombination enzyme	True	False	False	False	False
 PF01094.35	Pfam	Receptor family ligand binding region	True	False	False	False	False
@@ -3106,7 +3106,7 @@ PF01443.25	Pfam	Viral superfamily 1 RNA helicase core domain	True	False	False	Fa
 PF01446.24	Pfam	Replication protein	True	False	False	False	False
 PF01481.21	Pfam	Arterivirus nucleocapsid protein	True	False	False	False	False
 PF01498.25	Pfam	Transposase	True	False	False	False	False
-PF01516.22	Pfam	Orbivirus helicase VP6	True	False	False	False	False
+PF01516.23	Pfam	Orbivirus helicase VP6	True	False	False	False	False
 PF01526.24	Pfam	Tn3 transposase DDE domain	True	False	False	False	False
 PF01527.27	Pfam	Transposase	True	False	False	False	False
 PF01533.23	Pfam	Tospovirus nucleocapsid protein	True	False	False	False	False
@@ -3118,24 +3118,25 @@ PF01596.24	Pfam	O-methyltransferase	True	False	False	False	False
 PF01609.28	Pfam	Transposase DDE domain	True	False	False	False	False
 PF01610.24	Pfam	Transposase	True	False	False	False	False
 PF01612.27	Pfam	3'-5' exonuclease	True	False	False	False	False
-PF01620.22	Pfam	Ribonuclease (pollen allergen)	True	False	False	False	False
-PF01625.28	Pfam	Peptide methionine sulfoxide reductase	True	False	False	False	False
+PF01620.23	Pfam	Ribonuclease (pollen allergen)	True	False	False	False	False
+PF01625.29	Pfam	Peptide methionine sulfoxide reductase	True	False	False	False	False
 PF01653.24	Pfam	NAD-dependent DNA ligase adenylation domain	True	False	False	False	False
 PF01660.23	Pfam	Viral methyltransferase	True	False	False	False	False
-PF01693.23	Pfam	Ribonuclease H1 N-terminal domain	True	False	False	False	False
+PF01693.24	Pfam	Ribonuclease H1 N-terminal domain	True	False	False	False	False
 PF01710.23	Pfam	Transposase	True	False	False	False	False
 PF01719.24	Pfam	Plasmid replication protein, origin binding domain	True	False	False	False	False
 PF01728.26	Pfam	FtsJ-like methyltransferase	True	False	False	False	False
+PF01732.23	Pfam	Mycoplasma immunoglobulin protease	True	False	False	False	False
 PF01739.25	Pfam	CheR methyltransferase, SAM binding domain	True	False	False	False	False
 PF01746.27	Pfam	tRNA (Guanine-1)-methyltransferase TrmD	True	False	False	False	False
 PF01771.24	Pfam	Viral alkaline exonuclease	True	False	False	False	False
 PF01795.26	Pfam	MraW methylase family	True	False	False	False	False
 PF01797.22	Pfam	Transposase IS200 like	True	False	False	False	False
-PF01802.23	Pfam	Herpesvirus VP23 like capsid protein	True	False	False	False	False
+PF01802.24	Pfam	Herpesvirus VP23 like capsid protein	True	False	False	False	False
 PF01844.30	Pfam	HNH endonuclease	True	False	False	False	False
 PF01867.22	Pfam	CRISPR associated protein Cas1	True	False	False	False	False
 PF01868.22	Pfam	Ribonuclease P/MRP, subunit p29	True	False	False	False	False
-PF01870.25	Pfam	Archaeal holliday junction resolvase (hjc)	True	False	False	False	False
+PF01870.26	Pfam	Archaeal holliday junction resolvase (hjc)	True	False	False	False	False
 PF01881.22	Pfam	CRISPR associated protein Cas6, C-terminal	True	False	False	False	False
 PF01887.22	Pfam	SAM hydroxide adenosyltransferase N-terminal domain	True	False	False	False	False
 PF01896.26	Pfam	DNA primase small subunit	True	False	False	False	False
@@ -3147,18 +3148,18 @@ PF01941.25	Pfam	S-adenosylmethionine synthetase (AdoMet synthetase)	True	False	F
 PF01949.24	Pfam	Endonuclease dU	True	False	False	False	False
 PF01964.25	Pfam	Radical SAM ThiC family	True	False	False	False	False
 PF01974.24	Pfam	tRNA intron endonuclease, catalytic C-terminal domain	True	False	False	False	False
-PF01980.23	Pfam	tRNA-methyltransferase O N-terminal domain	True	False	False	False	False
+PF01980.24	Pfam	tRNA-methyltransferase O N-terminal domain	True	False	False	False	False
 PF01994.22	Pfam	tRNA ribose 2'-O-methyltransferase, aTrm56	True	False	False	False	False
 PF02005.23	Pfam	N2,N2-dimethylguanosine tRNA methyltransferase	True	False	False	False	False
 PF02007.25	Pfam	Tetrahydromethanopterin S-methyltransferase MtrH subunit	True	False	False	False	False
 PF02022.26	Pfam	Integrase Zinc binding domain	True	False	False	False	False
-PF02064.21	Pfam	MAS20 protein import receptor	True	False	False	False	False
+PF02064.22	Pfam	MAS20 protein import receptor	True	False	False	False	False
 PF02075.24	Pfam	Crossover junction endodeoxyribonuclease RuvC	True	False	False	False	False
-PF02076.22	Pfam	Pheromone A receptor	True	False	False	False	False
+PF02076.23	Pfam	Pheromone A receptor	True	False	False	False	False
 PF02086.22	Pfam	D12 class N6 adenine-specific DNA methyltransferase	True	False	False	False	False
 PF02117.23	Pfam	Serpentine type 7TM GPCR chemoreceptor Sra	True	False	False	False	False
 PF02118.28	Pfam	Srg family chemoreceptor	True	False	False	False	False
-PF02130.24	Pfam	Endoribonuclease YbeY	True	False	False	False	False
+PF02130.25	Pfam	Endoribonuclease YbeY	True	False	False	False	False
 PF02150.22	Pfam	RNA polymerases M/15 Kd subunit	True	False	False	False	False
 PF02155.21	Pfam	Glucocorticoid receptor	True	False	False	False	False
 PF02157.22	Pfam	Mannose-6-phosphate receptor	True	False	False	False	False
@@ -3173,11 +3174,11 @@ PF02281.22	Pfam	Transposase Tn5 dimerisation domain	True	False	False	False	False
 PF02282.22	Pfam	DNA polymerase processivity factor (UL42)	True	False	False	False	False
 PF02305.23	Pfam	Capsid protein (F protein)	True	False	False	False	False
 PF02334.23	Pfam	Replication terminator protein	True	False	False	False	False
-PF02336.21	Pfam	Capsid protein VP4	True	False	False	False	False
+PF02336.22	Pfam	Capsid protein VP4	True	False	False	False	False
 PF02371.23	Pfam	Transposase IS116/IS110/IS902 family	True	False	False	False	False
 PF02384.23	Pfam	N-6 DNA Methylase	True	False	False	False	False
 PF02390.24	Pfam	Putative methyltransferase	True	False	False	False	False
-PF02395.23	Pfam	Immunoglobulin A1 protease	True	False	False	False	False
+PF02395.24	Pfam	Immunoglobulin A1 protease	True	False	False	False	False
 PF02399.22	Pfam	Origin of replication binding protein	True	False	False	False	False
 PF02407.23	Pfam	Putative viral replication protein	True	False	False	False	False
 PF02413.23	Pfam	Caudovirales tail fibre assembly protein, lambda gpK	True	False	False	False	False
@@ -3199,7 +3200,7 @@ PF02598.23	Pfam	Putative RNA methyltransferase	True	False	False	False	False
 PF02601.21	Pfam	Exonuclease VII, large subunit	True	False	False	False	False
 PF02609.22	Pfam	Exonuclease VII small subunit	True	False	False	False	False
 PF02636.24	Pfam	Putative S-adenosyl-L-methionine-dependent methyltransferase	True	False	False	False	False
-PF02675.22	Pfam	S-adenosylmethionine decarboxylase	True	False	False	False	False
+PF02675.23	Pfam	S-adenosylmethionine decarboxylase	True	False	False	False	False
 PF02676.20	Pfam	Methyltransferase TYW3	True	False	False	False	False
 PF02689.21	Pfam	Helicase	True	False	False	False	False
 PF02707.22	Pfam	Major Outer Sheath Protein N-terminal region	True	False	False	False	False
@@ -3216,15 +3217,15 @@ PF02832.23	Pfam	Flavivirus glycoprotein, immunoglobulin-like domain	True	False	F
 PF02870.22	Pfam	6-O-methylguanine DNA methyltransferase, ribonuclease-like domain	True	False	False	False	False
 PF02899.24	Pfam	Phage integrase, N-terminal SAM-like domain	True	False	False	False	False
 PF02914.22	Pfam	Bacteriophage Mu transposase	True	False	False	False	False
-PF02916.21	Pfam	DNA polymerase processivity factor	True	False	False	False	False
+PF02916.22	Pfam	DNA polymerase processivity factor	True	False	False	False	False
 PF02919.21	Pfam	Eukaryotic DNA topoisomerase I, DNA binding fragment	True	False	False	False	False
 PF02920.22	Pfam	DNA binding domain of tn916 integrase	True	False	False	False	False
-PF02923.22	Pfam	Restriction endonuclease BamHI	True	False	False	False	False
+PF02923.23	Pfam	Restriction endonuclease BamHI	True	False	False	False	False
 PF02924.20	Pfam	Bacteriophage lambda head decoration protein D	True	False	False	False	False
 PF02945.22	Pfam	Recombination endonuclease VII	True	False	False	False	False
 PF02949.26	Pfam	7tm Odorant receptor	True	False	False	False	False
 PF02961.23	Pfam	Barrier to autointegration factor	True	False	False	False	False
-PF02963.23	Pfam	Restriction endonuclease EcoRI	True	False	False	False	False
+PF02963.24	Pfam	Restriction endonuclease EcoRI	True	False	False	False	False
 PF02992.21	Pfam	Transposase family tnp2	True	False	False	False	False
 PF02993.20	Pfam	Minor capsid protein VI	True	False	False	False	False
 PF03004.20	Pfam	Plant transposase (Ptta/En/Spm family)	True	False	False	False	False
@@ -3240,7 +3241,7 @@ PF03118.22	Pfam	Bacterial RNA polymerase, alpha chain C terminal domain	True	Fal
 PF03119.22	Pfam	NAD-dependent DNA ligase C4 zinc finger domain	True	False	False	False	False
 PF03120.23	Pfam	NAD-dependent DNA ligase OB-fold domain	True	False	False	False	False
 PF03121.21	Pfam	Herpesviridae UL52/UL70 DNA primase	True	False	False	False	False
-PF03122.20	Pfam	Herpes virus major capsid protein	True	False	False	False	False
+PF03122.21	Pfam	Herpes virus major capsid protein	True	False	False	False	False
 PF03125.25	Pfam	Sre G protein-coupled chemoreceptor	True	False	False	False	False
 PF03141.23	Pfam	Putative S-adenosyl-L-methionine-dependent methyltransferase	True	False	False	False	False
 PF03159.25	Pfam	XRN 5'-3' exonuclease N-terminus	True	False	False	False	False
@@ -3254,40 +3255,40 @@ PF03237.22	Pfam	Terminase large subunit, T4likevirus-type, N-terminal	True	False
 PF03246.19	Pfam	Pneumovirus nucleocapsid protein	True	False	False	False	False
 PF03265.22	Pfam	Deoxyribonuclease II	True	False	False	False	False
 PF03291.23	Pfam	mRNA (guanine-N(7))-methyltransferase domain	True	False	False	False	False
-PF03293.20	Pfam	Poxvirus DNA-directed RNA polymerase, 18 kD subunit	True	False	False	False	False
+PF03293.21	Pfam	Poxvirus DNA-directed RNA polymerase, 18 kD subunit	True	False	False	False	False
 PF03294.20	Pfam	RNA polymerase-associated transcription specificity factor, Rap94	True	False	False	False	False
-PF03324.20	Pfam	Herpesvirus DNA helicase/primase complex associated protein	True	False	False	False	False
+PF03324.21	Pfam	Herpesvirus DNA helicase/primase complex associated protein	True	False	False	False	False
 PF03327.20	Pfam	Herpesvirus capsid shell protein VP19C	True	False	False	False	False
 PF03335.19	Pfam	Phage tail fibre repeat	True	False	False	False	False
 PF03354.22	Pfam	Terminase large subunit, ATPase domain	True	False	False	False	False
 PF03372.30	Pfam	Endonuclease/Exonuclease/phosphatase family	True	False	False	False	False
 PF03383.22	Pfam	Caenorhabditis serpentine receptor-like protein, class xa	True	False	False	False	False
-PF03396.21	Pfam	Poxvirus DNA-directed RNA polymerase, 35 kD subunit	True	False	False	False	False
+PF03396.22	Pfam	Poxvirus DNA-directed RNA polymerase, 35 kD subunit	True	False	False	False	False
 PF03400.19	Pfam	IS1 transposase	True	False	False	False	False
 PF03401.19	Pfam	Tripartite tricarboxylate transporter family receptor	True	False	False	False	False
 PF03402.21	Pfam	Vomeronasal organ pheromone receptor family, V1R	True	False	False	False	False
 PF03406.19	Pfam	Phage tail fibre repeat	True	False	False	False	False
 PF03428.20	Pfam	Replication protein C N-terminal domain	True	False	False	False	False
 PF03432.21	Pfam	MobA/VirD2-like, nuclease domain	True	False	False	False	False
-PF03457.20	Pfam	Helicase associated domain	True	False	False	False	False
-PF03492.22	Pfam	SAM dependent carboxyl methyltransferase	True	False	False	False	False
+PF03457.21	Pfam	Helicase associated domain	True	False	False	False	False
+PF03492.23	Pfam	SAM dependent carboxyl methyltransferase	True	False	False	False	False
 PF03523.19	Pfam	Macrophage scavenger receptor	True	False	False	False	False
-PF03525.21	Pfam	Meiotic recombination protein Rec7 N-terminal domain	True	False	False	False	False
+PF03525.22	Pfam	Meiotic recombination protein Rec7 N-terminal domain	True	False	False	False	False
 PF03549.20	Pfam	Translocated intimin receptor (Tir) intimin-binding domain	True	False	False	False	False
 PF03587.20	Pfam	EMG1/NEP1 methyltransferase	True	False	False	False	False
 PF03592.22	Pfam	Terminase small subunit	True	False	False	False	False
 PF03603.19	Pfam	DNA polymerase III psi subunit	True	False	False	False	False
-PF03604.19	Pfam	DNA directed RNA polymerase, 7 kDa subunit	True	False	False	False	False
+PF03604.20	Pfam	DNA directed RNA polymerase, 7 kDa subunit	True	False	False	False	False
 PF03652.21	Pfam	Holliday junction resolvase	True	False	False	False	False
-PF03705.21	Pfam	CheR methyltransferase, all-alpha domain	True	False	False	False	False
+PF03705.22	Pfam	CheR methyltransferase, all-alpha domain	True	False	False	False	False
 PF03725.21	Pfam	3' exoribonuclease family, domain 2	True	False	False	False	False
-PF03732.24	Pfam	Retrotransposon gag protein	True	False	False	False	False
+PF03732.25	Pfam	Retrotransposon-derived protein PEG10, N-terminal capsid-like domain	True	False	False	False	False
 PF03755.19	Pfam	Endoribonuclease YicC-like, N-terminal region	True	False	False	False	False
 PF03796.22	Pfam	DnaB-like helicase C terminal domain	True	False	False	False	False
 PF03827.19	Pfam	Orexin receptor type 2	True	False	False	False	False
 PF03833.20	Pfam	DNA polymerase II large subunit DP2, N-terminal	True	False	False	False	False
-PF03838.21	Pfam	Recombination protein U	True	False	False	False	False
-PF03851.21	Pfam	UV-endonuclease UvdE	True	False	False	False	False
+PF03838.22	Pfam	Recombination protein U	True	False	False	False	False
+PF03851.22	Pfam	UV-endonuclease UvdE	True	False	False	False	False
 PF03852.22	Pfam	DNA mismatch endonuclease Vsr	True	False	False	False	False
 PF03864.23	Pfam	Phage major capsid protein E	True	False	False	False	False
 PF03870.22	Pfam	RNA polymerase Rpb8	True	False	False	False	False
@@ -3312,7 +3313,7 @@ PF04191.19	Pfam	Phospholipid methyltransferase	True	False	False	False	False
 PF04195.18	Pfam	Putative gypsy type transposon	True	False	False	False	False
 PF04196.18	Pfam	Bunyavirus RNA dependent RNA polymerase	True	False	False	False	False
 PF04197.18	Pfam	Birnavirus RNA dependent RNA polymerase (VP1), palm domain	True	False	False	False	False
-PF04206.18	Pfam	Tetrahydromethanopterin S-methyltransferase, subunit E	True	False	False	False	False
+PF04206.19	Pfam	Tetrahydromethanopterin S-methyltransferase, subunit E	True	False	False	False	False
 PF04207.18	Pfam	Tetrahydromethanopterin S-methyltransferase, subunit D	True	False	False	False	False
 PF04208.20	Pfam	Tetrahydromethanopterin S-methyltransferase, subunit A	True	False	False	False	False
 PF04210.19	Pfam	Tetrahydromethanopterin S-methyltransferase, subunit G	True	False	False	False	False
@@ -3321,7 +3322,6 @@ PF04231.20	Pfam	Endonuclease I	True	False	False	False	False
 PF04236.21	Pfam	Tc5 transposase C-terminal domain	True	False	False	False	False
 PF04252.19	Pfam	Protein arginine N-methyltransferase SFM1-like	True	False	False	False	False
 PF04253.21	Pfam	Transferrin receptor-like dimerisation domain	True	False	False	False	False
-PF04257.21	Pfam	Exodeoxyribonuclease V, gamma subunit	True	False	False	False	False
 PF04281.19	Pfam	Mitochondrial import receptor subunit Tom22	True	False	False	False	False
 PF04308.19	Pfam	Ribonuclease H-like	True	False	False	False	False
 PF04364.19	Pfam	DNA polymerase III chi subunit, HolC	True	False	False	False	False
@@ -3357,7 +3357,7 @@ PF04675.20	Pfam	DNA ligase N terminus	True	False	False	False	False
 PF04679.22	Pfam	ATP dependent DNA ligase C terminal region	True	False	False	False	False
 PF04680.19	Pfam	Opioid growth factor receptor disordered repeat	True	False	False	False	False
 PF04693.18	Pfam	Archaeal putative transposase ISC1217	True	False	False	False	False
-PF04705.18	Pfam	Thiostrepton-resistance methylase, N terminus	True	False	False	False	False
+PF04705.19	Pfam	Thiostrepton-resistance methylase, N terminus	True	False	False	False	False
 PF04717.19	Pfam	Type VI secretion system/phage-baseplate injector OB domain	True	False	False	False	False
 PF04735.17	Pfam	Baculovirus DNA helicase	True	False	False	False	False
 PF04754.19	Pfam	Putative transposase, YhgA-like	True	False	False	False	False
@@ -3372,7 +3372,7 @@ PF04929.18	Pfam	Herpes DNA replication accessory factor	True	False	False	False	F
 PF04931.19	Pfam	DNA polymerase phi	True	False	False	False	False
 PF04965.20	Pfam	Baseplate wedge protein gp25	True	False	False	False	False
 PF04983.24	Pfam	RNA polymerase Rpb1, domain 3	True	False	False	False	False
-PF04984.20	Pfam	Phage tail sheath protein subtilisin-like domain	True	False	False	False	False
+PF04984.20	Pfam	Phage tail sheath protein central domain	True	False	False	False	False
 PF04985.21	Pfam	Phage tail tube protein FII	True	False	False	False	False
 PF04986.19	Pfam	Putative transposase	True	False	False	False	False
 PF04989.19	Pfam	Rhamnosyl O-methyltransferase/CmcI	True	False	False	False	False
@@ -3406,15 +3406,15 @@ PF05202.18	Pfam	Recombinase Flp protein	True	False	False	False	False
 PF05204.20	Pfam	Homing endonuclease	True	False	False	False	False
 PF05206.21	Pfam	Methyltransferase TRM13	True	False	False	False	False
 PF05219.18	Pfam	DREV methyltransferase	True	False	False	False	False
-PF05268.18	Pfam	Phage tail fibre adhesin Gp38	True	False	False	False	False
-PF05273.19	Pfam	Poxvirus RNA polymerase 22 kDa subunit	True	False	False	False	False
+PF05268.19	Pfam	Phage tail fibre adhesin Gp38	True	False	False	False	False
+PF05273.20	Pfam	Poxvirus RNA polymerase 22 kDa subunit	True	False	False	False	False
 PF05296.20	Pfam	Taste receptor protein (TAS2R)	True	False	False	False	False
 PF05320.18	Pfam	Poxvirus DNA-directed RNA polymerase 19 kDa subunit	True	False	False	False	False
 PF05327.18	Pfam	RNA polymerase I specific transcription initiation factor RRN3	True	False	False	False	False
 PF05354.18	Pfam	Phage Head-Tail Attachment protein	True	False	False	False	False
 PF05367.18	Pfam	Phage endonuclease I	True	False	False	False	False
 PF05369.19	Pfam	Monomethylamine methyltransferase MtmB	True	False	False	False	False
-PF05380.19	Pfam	Pao retrotransposon peptidase	True	False	False	False	False
+PF05380.19	Pfam	Pao retrotransposon-like RNaseH-like domain	True	False	False	False	False
 PF05396.17	Pfam	Phage T7 capsid assembly protein	True	False	False	False	False
 PF05399.17	Pfam	Ectropic viral integration site 2A protein (EVI2A)	True	False	False	False	False
 PF05430.18	Pfam	S-adenosyl-L-methionine-dependent methyltransferase	True	False	False	False	False
@@ -3455,7 +3455,6 @@ PF05891.19	Pfam	AdoMet dependent proline di-methyltransferase	True	False	False	F
 PF05894.19	Pfam	Podovirus DNA encapsidation protein (Gp16)	True	False	False	False	False
 PF05919.17	Pfam	Mitovirus RNA-dependent RNA polymerase	True	False	False	False	False
 PF05926.17	Pfam	Phage head completion protein (GPL)	True	False	False	False	False
-PF05929.17	Pfam	Phage capsid scaffolding protein (GPO) serine peptidase	True	False	False	False	False
 PF05939.19	Pfam	Phage minor tail protein	True	False	False	False	False
 PF05943.18	Pfam	EvpB/VC_A0108, tail sheath N-terminal domain	True	False	False	False	False
 PF05944.18	Pfam	Phage small terminase subunit	True	False	False	False	False
@@ -3474,13 +3473,13 @@ PF06074.19	Pfam	Portal protein of Mu bacteriophage	True	False	False	False	False
 PF06112.17	Pfam	Gammaherpesvirus capsid protein	True	False	False	False	False
 PF06120.16	Pfam	Tail length tape measure protein	True	False	False	False	False
 PF06122.17	Pfam	Conjugative relaxosome accessory transposon protein	True	False	False	False	False
-PF06141.18	Pfam	Phage minor tail protein U	True	False	False	False	False
+PF06141.19	Pfam	Phage minor tail protein U	True	False	False	False	False
 PF06144.20	Pfam	DNA polymerase III, delta subunit	True	False	False	False	False
 PF06151.19	Pfam	Trehalose receptor	True	False	False	False	False
 PF06152.17	Pfam	Phage minor capsid protein 2	True	False	False	False	False
 PF06153.17	Pfam	Cyclic-di-AMP receptor	True	False	False	False	False
 PF06199.18	Pfam	Phage tail tube protein	True	False	False	False	False
-PF06222.17	Pfam	Phage tail assembly chaperone	True	False	False	False	False
+PF06222.18	Pfam	Phage tail assembly chaperone	True	False	False	False	False
 PF06223.19	Pfam	Minor tail protein T	True	False	False	False	False
 PF06250.18	Pfam	YhcG PDDEXK nuclease domain	True	False	False	False	False
 PF06253.17	Pfam	Trimethylamine methyltransferase (MTTB)	True	False	False	False	False
@@ -3492,31 +3491,31 @@ PF06396.17	Pfam	Angiotensin II, type I receptor-associated protein (AGTRAP)	True
 PF06440.17	Pfam	DNA polymerase III, theta subunit	True	False	False	False	False
 PF06459.18	Pfam	Ryanodine Receptor TM 4-6	True	False	False	False	False
 PF06460.19	Pfam	Coronavirus 2'-O-methyltransferase	True	False	False	False	False
-PF06471.19	Pfam	Coronavirus proofreading exoribonuclease	True	False	False	False	False
-PF06478.19	Pfam	Coronavirus RNA-dependent RNA polymerase, N-terminal	True	False	False	False	False
+PF06471.20	Pfam	Coronavirus proofreading exoribonuclease	True	False	False	False	False
+PF06478.20	Pfam	Coronavirus RNA-dependent RNA polymerase, N-terminal	True	False	False	False	False
 PF06479.18	Pfam	Ribonuclease 2-5A	True	False	False	False	False
 PF06488.18	Pfam	Phage tail tube protein	True	False	False	False	False
 PF06504.17	Pfam	Replication protein C (RepC)	True	False	False	False	False
 PF06552.19	Pfam	Plant specific mitochondrial import receptor subunit TOM20	True	False	False	False	False
 PF06616.18	Pfam	BsuBI/PstI restriction endonuclease domain	True	False	False	False	False
-PF06630.17	Pfam	Enterobacterial exodeoxyribonuclease VIII	True	False	False	False	False
+PF06630.18	Pfam	Enterobacterial exodeoxyribonuclease VIII	True	False	False	False	False
 PF06673.18	Pfam	Lactococcus lactis bacteriophage major capsid protein	True	False	False	False	False
 PF06690.18	Pfam	FeGP cofactor biosynthesis protein, methyltransferase HcgC	True	False	False	False	False
 PF06763.18	Pfam	Prophage minor tail protein Z (GPZ)	True	False	False	False	False
 PF06791.19	Pfam	Prophage tail length tape measure protein	True	False	False	False	False
 PF06805.18	Pfam	Bacteriophage lambda tail assembly protein I	True	False	False	False	False
-PF06806.19	Pfam	Putative excisionase (DUF1233)	True	False	False	False	False
+PF06806.20	Pfam	Putative excisionase (DUF1233)	True	False	False	False	False
 PF06810.18	Pfam	Phage capsid assembly scaffolding protein	True	False	False	False	False
 PF06820.17	Pfam	Putative prophage tail fibre C-terminus	True	False	False	False	False
 PF06870.18	Pfam	A49-like RNA polymerase I associated factor	True	False	False	False	False
 PF06881.17	Pfam	RNA polymerase II transcription factor SIII (Elongin) subunit A	True	False	False	False	False
 PF06883.18	Pfam	RNA polymerase I, Rpa2 specific domain	True	False	False	False	False
 PF06891.18	Pfam	P2 phage tail completion protein R (GpR)	True	False	False	False	False
-PF06894.18	Pfam	Bacteriophage lambda tail assembly chaperone, TAC, protein G	True	False	False	False	False
+PF06894.19	Pfam	Bacteriophage lambda tail assembly chaperone, TAC, protein G	True	False	False	False	False
 PF06896.18	Pfam	Phage tail assembly chaperone proteins, TAC	True	False	False	False	False
 PF06959.17	Pfam	RecQ helicase protein-like 5 (RecQ5)	True	False	False	False	False
 PF06962.19	Pfam	Putative rRNA methylase	True	False	False	False	False
-PF06970.18	Pfam	Replication initiator protein A (RepA) N-terminus	True	False	False	False	False
+PF06970.19	Pfam	Replication initiator protein A (RepA) N-terminus	True	False	False	False	False
 PF06978.17	Pfam	Ribonucleases P/MRP protein subunit POP1, N-terminal	True	False	False	False	False
 PF06983.20	Pfam	3-demethylubiquinone-9 3-methyltransferase	True	False	False	False	False
 PF06992.17	Pfam	Replication protein P	True	False	False	False	False
@@ -3531,7 +3530,7 @@ PF07141.17	Pfam	Putative bacteriophage terminase small subunit	True	False	False	
 PF07190.17	Pfam	Tumour necrosis factor receptor, SECRET domain	True	False	False	False	False
 PF07230.17	Pfam	Bacteriophage T4-like portal protein (Gp20)	True	False	False	False	False
 PF07261.17	Pfam	Replication initiation and membrane attachment	True	False	False	False	False
-PF07267.17	Pfam	Nucleopolyhedrovirus capsid protein P87	True	False	False	False	False
+PF07267.18	Pfam	Nucleopolyhedrovirus capsid protein P87	True	False	False	False	False
 PF07288.17	Pfam	RNA polymerase epsilon subunit	True	False	False	False	False
 PF07304.17	Pfam	Steroid receptor RNA activator (SRA1)	True	False	False	False	False
 PF07328.18	Pfam	T-DNA border endonuclease VirD1	True	False	False	False	False
@@ -3599,7 +3598,7 @@ PF08400.17	Pfam	Prophage tail fibre N-terminal	True	False	False	False	False
 PF08408.17	Pfam	DNA polymerase family B viral insert	True	False	False	False	False
 PF08411.16	Pfam	Exonuclease I SH3-like domain	True	False	False	False	False
 PF08418.16	Pfam	DNA polymerase alpha subunit B N-terminal	True	False	False	False	False
-PF08452.16	Pfam	DNA polymerase family B exonuclease domain, N-terminal	True	False	False	False	False
+PF08452.17	Pfam	DNA polymerase family B exonuclease domain, N-terminal	True	False	False	False	False
 PF08455.16	Pfam	Bacterial SNF2 helicase associated	True	False	False	False	False
 PF08456.16	Pfam	Viral methyltransferase C-terminal	True	False	False	False	False
 PF08459.18	Pfam	UvrC RNAse H endonuclease domain	True	False	False	False	False
@@ -3622,8 +3621,8 @@ PF08615.17	Pfam	Ribonuclease H2 non-catalytic subunit (Ylr154p-like)	True	False	
 PF08646.17	Pfam	Replication factor-A C terminal domain	True	False	False	False	False
 PF08652.18	Pfam	RAI1 like PD-(D/E)XK nuclease	True	False	False	False	False
 PF08661.18	Pfam	Replication factor A protein 3	True	False	False	False	False
-PF08677.16	Pfam	GP11 baseplate wedge protein	True	False	False	False	False
-PF08682.17	Pfam	Putative endonuclease, protein of unknown function (DUF1780)	True	False	False	False	False
+PF08677.17	Pfam	GP11 baseplate wedge protein	True	False	False	False	False
+PF08682.18	Pfam	Putative endonuclease, protein of unknown function (DUF1780)	True	False	False	False	False
 PF08696.18	Pfam	DNA replication factor Dna2	True	False	False	False	False
 PF08704.17	Pfam	tRNA methyltransferase complex GCD14 subunit	True	False	False	False	False
 PF08707.17	Pfam	Primase C terminal 2 (PriCT-2)	True	False	False	False	False
@@ -3657,8 +3656,8 @@ PF09067.17	Pfam	Erythropoietin receptor, ligand binding	True	False	False	False	F
 PF09077.17	Pfam	Mu B transposition protein, C terminal	True	False	False	False	False
 PF09085.17	Pfam	Adhesion molecule, immunoglobulin-like	True	False	False	False	False
 PF09089.17	Pfam	Phage short tail fibre protein gp12, middle domain	True	False	False	False	False
-PF09096.17	Pfam	Baseplate structural protein, domain 2	True	False	False	False	False
-PF09097.17	Pfam	Baseplate structural protein, domain 1	True	False	False	False	False
+PF09096.18	Pfam	Baseplate structural protein, domain 2	True	False	False	False	False
+PF09097.18	Pfam	Baseplate structural protein, domain 1	True	False	False	False	False
 PF09115.16	Pfam	DNA polymerase III, delta subunit, C terminal	True	False	False	False	False
 PF09124.17	Pfam	T4 recombination endonuclease VII, dimerisation	True	False	False	False	False
 PF09126.17	Pfam	Restriction endonuclease NaeI	True	False	False	False	False
@@ -3671,14 +3670,14 @@ PF09195.18	Pfam	Restriction endonuclease BglII/BglIII	True	False	False	False	Fal
 PF09201.17	Pfam	SRX, signal recognition particle receptor alpha subunit	True	False	False	False	False
 PF09208.17	Pfam	Restriction endonuclease MspI	True	False	False	False	False
 PF09217.15	Pfam	Restriction endonuclease EcoRII, N-terminal	True	False	False	False	False
-PF09225.17	Pfam	Restriction endonuclease PvuII	True	False	False	False	False
+PF09225.18	Pfam	Restriction endonuclease PvuII	True	False	False	False	False
 PF09226.18	Pfam	Restriction endonuclease HincII	True	False	False	False	False
-PF09233.18	Pfam	Restriction endonuclease EcoRV	True	False	False	False	False
+PF09233.19	Pfam	Restriction endonuclease EcoRV	True	False	False	False	False
 PF09238.17	Pfam	Interleukin-4 receptor alpha chain, N-terminal	True	False	False	False	False
 PF09239.18	Pfam	Topoisomerase VI B subunit, transducer	True	False	False	False	False
 PF09240.17	Pfam	Interleukin-6 receptor alpha chain, binding	True	False	False	False	False
 PF09250.17	Pfam	Bifunctional DNA primase/polymerase, N-terminal	True	False	False	False	False
-PF09266.16	Pfam	Viral DNA topoisomerase I, N-terminal	True	False	False	False	False
+PF09266.17	Pfam	Viral DNA topoisomerase I, N-terminal	True	False	False	False	False
 PF09281.17	Pfam	Taq polymerase, exonuclease	True	False	False	False	False
 PF09292.16	Pfam	Endonuclease VIII-like 1, DNA bind	True	False	False	False	False
 PF09294.17	Pfam	Interferon-alpha/beta receptor, fibronectin type III	True	False	False	False	False
@@ -3693,25 +3692,24 @@ PF09414.16	Pfam	RNA ligase	True	False	False	False	False
 PF09416.17	Pfam	RNA helicase (UPF2 interacting domain)	True	False	False	False	False
 PF09439.17	Pfam	Signal recognition particle receptor beta subunit	True	False	False	False	False
 PF09445.17	Pfam	RNA cap guanine-N2 methyltransferase	True	False	False	False	False
-PF09455.16	Pfam	CRISPR system endoribonuclease Csx1, HEPN domain	True	False	False	False	False
+PF09455.17	Pfam	CRISPR system endoribonuclease Csx1, HEPN domain	True	False	False	False	False
 PF09465.17	Pfam	Lamin-B receptor of TUDOR domain	True	False	False	False	False
-PF09472.16	Pfam	Tetrahydromethanopterin S-methyltransferase, F subunit (MtrF)	True	False	False	False	False
+PF09472.17	Pfam	Tetrahydromethanopterin S-methyltransferase, F subunit (MtrF)	True	False	False	False	False
 PF09481.16	Pfam	CRISPR-associated protein Cse1 (CRISPR_cse1)	True	False	False	False	False
-PF09484.16	Pfam	CRISPR-associated protein TM1802 (cas_TM1802)	True	False	False	False	False
+PF09484.17	Pfam	CRISPR-associated protein TM1802 (cas_TM1802) N-terminal domain	True	False	False	False	False
 PF09485.16	Pfam	CRISPR-associated protein Cse2 (CRISPR_cse2)	True	False	False	False	False
 PF09491.17	Pfam	AlwI restriction endonuclease	True	False	False	False	False
 PF09494.17	Pfam	Slx4 endonuclease	True	False	False	False	False
-PF09499.17	Pfam	ApaLI-like restriction endonuclease	True	False	False	False	False
+PF09499.19	Pfam	ApaLI-like restriction endonuclease	True	False	False	False	False
 PF09504.17	Pfam	Bsp6I restriction endonuclease	True	False	False	False	False
 PF09505.16	Pfam	Dimethylamine methyltransferase (Dimeth_PyL)	True	False	False	False	False
 PF09507.17	Pfam	DNA polymerase subunit Cdc27	True	False	False	False	False
 PF09511.16	Pfam	RNA ligase	True	False	False	False	False
-PF09516.16	Pfam	CfrBI restriction endonuclease	True	False	False	False	False
-PF09517.17	Pfam	Eco29kI restriction endonuclease	True	False	False	False	False
+PF09516.17	Pfam	CfrBI restriction endonuclease	True	False	False	False	False
 PF09518.17	Pfam	HindIII restriction endonuclease	True	False	False	False	False
-PF09519.17	Pfam	HindVP restriction endonuclease	True	False	False	False	False
-PF09520.17	Pfam	Type II restriction endonuclease, TdeIII	True	False	False	False	False
-PF09521.17	Pfam	NgoPII restriction endonuclease	True	False	False	False	False
+PF09519.18	Pfam	HindVP restriction endonuclease	True	False	False	False	False
+PF09520.17	Pfam	Type II restriction endonuclease, HinfI	True	False	False	False	False
+PF09521.18	Pfam	NgoPII restriction endonuclease	True	False	False	False	False
 PF09522.16	Pfam	R.Pab1 restriction endonuclease	True	False	False	False	False
 PF09545.16	Pfam	AccI restriction endonuclease	True	False	False	False	False
 PF09549.17	Pfam	Bpu10I restriction endonuclease	True	False	False	False	False
@@ -3724,15 +3722,15 @@ PF09559.16	Pfam	Cas6 Crispr	True	False	False	False	False
 PF09561.17	Pfam	HpaII restriction endonuclease	True	False	False	False	False
 PF09562.16	Pfam	LlaMI restriction endonuclease	True	False	False	False	False
 PF09563.17	Pfam	LlaJI restriction endonuclease	True	False	False	False	False
-PF09564.16	Pfam	NgoBV restriction endonuclease	True	False	False	False	False
+PF09564.17	Pfam	NgoBV restriction endonuclease	True	False	False	False	False
 PF09565.17	Pfam	NgoFVII restriction endonuclease N-terminal PLD domain	True	False	False	False	False
-PF09566.17	Pfam	SacI restriction endonuclease	True	False	False	False	False
+PF09566.19	Pfam	SacI restriction endonuclease N-terminal domain	True	False	False	False	False
 PF09567.16	Pfam	MamI restriction endonuclease	True	False	False	False	False
-PF09568.17	Pfam	MjaI restriction endonuclease	True	False	False	False	False
+PF09568.18	Pfam	MjaI restriction endonuclease	True	False	False	False	False
 PF09569.16	Pfam	ScaI restriction endonuclease	True	False	False	False	False
 PF09570.17	Pfam	SinI restriction endonuclease	True	False	False	False	False
 PF09571.16	Pfam	XcyI restriction endonuclease	True	False	False	False	False
-PF09572.17	Pfam	XamI restriction endonuclease	True	False	False	False	False
+PF09572.18	Pfam	XamI restriction endonuclease	True	False	False	False	False
 PF09573.17	Pfam	TaqI restriction endonuclease	True	False	False	False	False
 PF09588.17	Pfam	YqaJ-like viral recombinase domain	True	False	False	False	False
 PF09609.15	Pfam	CRISPR-associated protein, GSU0054 family (Cas_GSU0054)	True	False	False	False	False
@@ -3744,7 +3742,7 @@ PF09618.16	Pfam	CRISPR-associated protein (Cas_Csy4)	True	False	False	False	Fals
 PF09620.16	Pfam	CRISPR-associated protein (Cas_csx3)	True	False	False	False	False
 PF09623.17	Pfam	CRISPR-associated protein NE0113 (Cas_NE0113)	True	False	False	False	False
 PF09651.17	Pfam	CRISPR-associated protein (Cas_APE2256)	True	False	False	False	False
-PF09652.16	Pfam	Putative CRISPR-associated protein (Cas_VVA1548)	True	False	False	False	False
+PF09652.17	Pfam	Putative CRISPR-associated protein (Cas_VVA1548)	True	False	False	False	False
 PF09657.16	Pfam	CRISPR-associated protein Csx8 (Cas_Csx8)	True	False	False	False	False
 PF09658.16	Pfam	CRISPR-associated protein (Cas_Csx9)	True	False	False	False	False
 PF09665.15	Pfam	Type II restriction endonuclease (RE_Alw26IDE)	True	False	False	False	False
@@ -3767,14 +3765,14 @@ PF09827.15	Pfam	CRISPR associated protein Cas2	True	False	False	False	False
 PF09848.16	Pfam	Schlafen group 3, DNA/RNA helicase domain	True	False	False	False	False
 PF09853.15	Pfam	Putative transposon-encoded protein (DUF2080)	True	False	False	False	False
 PF09859.16	Pfam	Oxygenase, catalysing oxidative methylation of damaged DNA	True	False	False	False	False
-PF09895.15	Pfam	RecB-family nuclease (DUF2122)	True	False	False	False	False
+PF09895.16	Pfam	RecB-family nuclease (DUF2122)	True	False	False	False	False
 PF09931.16	Pfam	Baseplate hub protein, N-terminal attachment domain	True	False	False	False	False
 PF09936.15	Pfam	SAM-dependent RNA methyltransferase	True	False	False	False	False
 PF09950.16	Pfam	Major capsid protein	True	False	False	False	False
 PF10017.16	Pfam	Histidine-specific methyltransferase, SAM-dependent	True	False	False	False	False
 PF10018.15	Pfam	Vitamin-D-receptor interacting Mediator subunit 4	True	False	False	False	False
 PF10040.15	Pfam	CRISPR-associated endoribonuclease Cas6	True	False	False	False	False
-PF10107.16	Pfam	Endonuclease related to archaeal Holliday junction resolvase	True	False	False	False	False
+PF10107.17	Pfam	Endonuclease related to archaeal Holliday junction resolvase	True	False	False	False	False
 PF10108.16	Pfam	Predicted 3'-5' exonuclease related to the exonuclease domain of PolB	True	False	False	False	False
 PF10109.16	Pfam	Phage tail assembly chaperone proteins, E, or 41 or 14	True	False	False	False	False
 PF10127.16	Pfam	RNA repair pathway DNA polymerase beta family	True	False	False	False	False
@@ -3829,7 +3827,7 @@ PF10666.16	Pfam	Phage tail assembly chaperone protein Gp14 ()A118	True	False	Fal
 PF10668.15	Pfam	Phage terminase small subunit	True	False	False	False	False
 PF10672.16	Pfam	S-adenosylmethionine-dependent methyltransferase	True	False	False	False	False
 PF10680.15	Pfam	RNA polymerase I specific transcription initiation factor	True	False	False	False	False
-PF10683.15	Pfam	Hermes transposase DNA-binding domain	True	False	False	False	False
+PF10683.16	Pfam	Hermes transposase DNA-binding domain	True	False	False	False	False
 PF10715.17	Pfam	T4-page Endoribonuclease RegB	True	False	False	False	False
 PF10744.15	Pfam	Mediator of RNA polymerase II transcription subunit 1	True	False	False	False	False
 PF10747.15	Pfam	Sporulation inhibitor of replication protein SirA	True	False	False	False	False
@@ -3858,7 +3856,7 @@ PF11490.14	Pfam	DNA polymerase III polC-type N-terminus II	True	False	False	Fals
 PF11531.15	Pfam	Coactivator-associated arginine methyltransferase 1 N terminal	True	False	False	False	False
 PF11548.14	Pfam	Protein-tyrosine phosphatase receptor IA-2	True	False	False	False	False
 PF11555.14	Pfam	EGFR receptor inhibitor Mig-6	True	False	False	False	False
-PF11564.15	Pfam	Restriction endonuclease BpuJI - N terminal	True	False	False	False	False
+PF11564.16	Pfam	Restriction endonuclease BpuJI - N terminal	True	False	False	False	False
 PF11570.14	Pfam	Coiled-coil receptor-binding R-domain of colicin E2	True	False	False	False	False
 PF11590.13	Pfam	DNA polymerase catalytic subunit Pol	True	False	False	False	False
 PF11599.15	Pfam	RRNA methyltransferase AviRa	True	False	False	False	False
@@ -3876,9 +3874,10 @@ PF11767.15	Pfam	Histone lysine methyltransferase SET associated	True	False	False
 PF11772.14	Pfam	DNA-directed RNA polymerase subunit beta	True	False	False	False	False
 PF11800.14	Pfam	Replication protein C C-terminal region	True	False	False	False	False
 PF11825.14	Pfam	Nuclear/hormone receptor activator site AF-1	True	False	False	False	False
-PF11826.14	Pfam	Vibrionales, replication initiator protein RctB, central region	True	False	False	False	False
+PF11826.15	Pfam	Vibrionales, replication initiator protein RctB, central region	True	False	False	False	False
 PF11836.15	Pfam	Phage tail tube protein, GTA-gp10	True	False	False	False	False
 PF11861.14	Pfam	Ribosomal RNA methyltransferase Spb1, DUF3381	True	False	False	False	False
+PF11863.15	Pfam	E217 tail sheath protein gp31-like, N-terminal domain	True	False	False	False	False
 PF11867.14	Pfam	Type I restriction enzyme HindI endonuclease subunit-like, C-terminal	True	False	False	False	False
 PF11889.14	Pfam	Capsid protein C, pestivirus	True	False	False	False	False
 PF11967.15	Pfam	Recombination protein O N terminal	True	False	False	False	False
@@ -3891,7 +3890,7 @@ PF12017.14	Pfam	Transposable element P transposase-like, HTH domain	True	False	F
 PF12047.14	Pfam	Cytosine specific DNA methyltransferase replication foci domain	True	False	False	False	False
 PF12104.14	Pfam	T cell CD4 receptor C terminal region	True	False	False	False	False
 PF12105.14	Pfam	SpoU, rRNA methylase, C-terminal	True	False	False	False	False
-PF12106.14	Pfam	Colicin E5 ribonuclease domain	True	False	False	False	False
+PF12106.15	Pfam	Colicin E5 ribonuclease domain	True	False	False	False	False
 PF12109.14	Pfam	CXCR4 Chemokine receptor N terminal	True	False	False	False	False
 PF12136.14	Pfam	RNA polymerase Rpo13 subunit HTH domain	True	False	False	False	False
 PF12137.14	Pfam	RNA polymerase recycling family C-terminal	True	False	False	False	False
@@ -3911,7 +3910,7 @@ PF12246.14	Pfam	Temperature dependent protein affecting M2 dsRNA replication	Tru
 PF12247.14	Pfam	Temperature dependent protein affecting M2 dsRNA replication	True	False	False	False	False
 PF12254.14	Pfam	DNA polymerase alpha subunit p180 N terminal	True	False	False	False	False
 PF12264.15	Pfam	Waikavirus capsid protein 1	True	False	False	False	False
-PF12300.13	Pfam	ATP-dependent RNA helicase RhlB	True	False	False	False	False
+PF12300.14	Pfam	ATP-dependent RNA helicase RhlB	True	False	False	False	False
 PF12343.14	Pfam	DeaD helicase C-terminal disordered region	True	False	False	False	False
 PF12362.14	Pfam	DNA polymerase III gamma and tau subunits C terminal	True	False	False	False	False
 PF12363.15	Pfam	Phage tail assembly chaperone protein, TAC	True	False	False	False	False
@@ -3919,10 +3918,10 @@ PF12369.14	Pfam	Gonadotropin hormone receptor transmembrane region	True	False	Fa
 PF12382.14	Pfam	Retrotransposon peptidase	True	False	False	False	False
 PF12384.13	Pfam	Ty3 transposon peptidase	True	False	False	False	False
 PF12398.14	Pfam	Receptor serine/threonine kinase	True	False	False	False	False
-PF12410.14	Pfam	Poxvirus DNA dependent RNA polymerase 30kDa subunit	True	False	False	False	False
-PF12415.14	Pfam	Poxvirus DNA dependent RNA polymerase	True	False	False	False	False
+PF12410.15	Pfam	Poxvirus DNA dependent RNA polymerase 30kDa subunit	True	False	False	False	False
+PF12415.15	Pfam	Poxvirus DNA dependent RNA polymerase	True	False	False	False	False
 PF12419.14	Pfam	SNF2 Helicase protein	True	False	False	False	False
-PF12421.15	Pfam	Tip attachment protein J, C-terminal receptor binding domain	True	False	False	False	False
+PF12421.16	Pfam	Tip attachment protein J, C-terminal receptor binding domain	True	False	False	False	False
 PF12426.14	Pfam	RNA dependent RNA polymerase	True	False	False	False	False
 PF12430.14	Pfam	Abscisic acid G-protein coupled receptor	True	False	False	False	False
 PF12462.14	Pfam	DNA helicase IV / RNA helicase N terminal	True	False	False	False	False
@@ -3937,7 +3936,7 @@ PF12567.15	Pfam	Leukocyte receptor CD45	True	False	False	False	False
 PF12571.14	Pfam	Phage tail-collar fibre protein, N-terminal	True	False	False	False	False
 PF12589.14	Pfam	Methyltransferase involved in Williams-Beuren syndrome	True	False	False	False	False
 PF12596.14	Pfam	87kDa Transposase	True	False	False	False	False
-PF12603.14	Pfam	RNA-directed RNA polymerase L, PA-C-like domain	True	False	False	False	False
+PF12603.15	Pfam	RNA-directed RNA polymerase L, PA-C-like domain	True	False	False	False	False
 PF12604.15	Pfam	Tail fibre protein gp37 C terminal domain	True	False	False	False	False
 PF12606.14	Pfam	Tumour necrosis factor receptor superfamily member 19	True	False	False	False	False
 PF12642.14	Pfam	Conjugative transposon protein TcpC	True	False	False	False	False
@@ -3990,7 +3989,7 @@ PF13495.13	Pfam	Phage integrase, N-terminal SAM-like domain	True	False	False	Fal
 PF13538.13	Pfam	UvrD-like helicase C-terminal domain	True	False	False	False	False
 PF13542.13	Pfam	Helix-turn-helix domain of transposase family ISL3	True	False	False	False	False
 PF13546.13	Pfam	DDE superfamily endonuclease	True	False	False	False	False
-PF13550.13	Pfam	Putative phage tail protein	True	False	False	False	False
+PF13550.14	Pfam	Putative phage tail protein	True	False	False	False	False
 PF13554.13	Pfam	Phage tail terminator protein	True	False	False	False	False
 PF13563.13	Pfam	2'-5' RNA ligase superfamily	True	False	False	False	False
 PF13578.13	Pfam	Methyltransferase domain	True	False	False	False	False
@@ -3999,7 +3998,7 @@ PF13589.13	Pfam	Histidine kinase-, DNA gyrase B-, and HSP90-like ATPase	True	Fal
 PF13612.13	Pfam	Transposase DDE domain	True	False	False	False	False
 PF13613.13	Pfam	Helix-turn-helix of DDE superfamily endonuclease	True	False	False	False	False
 PF13625.12	Pfam	Helicase conserved C-terminal domain	True	False	False	False	False
-PF13636.13	Pfam	RNA-binding PUA-like domain of methyltransferase RsmF	True	False	False	False	False
+PF13636.14	Pfam	Methyltransferase RsmF PUA domain	True	False	False	False	False
 PF13649.13	Pfam	Methyltransferase domain	True	False	False	False	False
 PF13651.12	Pfam	Adenine-specific methyltransferase EcoRI	True	False	False	False	False
 PF13656.12	Pfam	RNA polymerase Rpb3/Rpb11 dimerisation domain	True	False	False	False	False
@@ -4038,14 +4037,14 @@ PF14281.13	Pfam	PD-(D/E)XK nuclease superfamily	True	False	False	False	False
 PF14314.13	Pfam	Virus-capping methyltransferase, MT domain	True	False	False	False	False
 PF14319.12	Pfam	Transposase zinc-binding domain	True	False	False	False	False
 PF14370.12	Pfam	C-terminal topoisomerase domain	True	False	False	False	False
-PF14372.12	Pfam	hAT-like transposase, RNase-H fold	True	False	False	False	False
+PF14372.13	Pfam	hAT-like transposase, RNase-H fold	True	False	False	False	False
 PF14380.12	Pfam	Wall-associated receptor kinase C-terminal	True	False	False	False	False
 PF14382.13	Pfam	Exosome complex exonuclease RRP4 N-terminal region	True	False	False	False	False
 PF14410.13	Pfam	HNH/ENDO VII superfamily nuclease with conserved GHE residues	True	False	False	False	False
 PF14411.13	Pfam	A nuclease of the HNH/ENDO VII superfamily with conserved LHH	True	False	False	False	False
 PF14412.13	Pfam	A nuclease family of the HNH/ENDO VII superfamily with conserved AHH	True	False	False	False	False
 PF14414.13	Pfam	A nuclease of the HNH/ENDO VII superfamily with conserved WHH	True	False	False	False	False
-PF14419.12	Pfam	AF2226-like SPOUT RNA Methylase fused to THUMP	True	False	False	False	False
+PF14419.13	Pfam	AF2226-like SPOUT RNA Methylase fused to THUMP	True	False	False	False	False
 PF14436.12	Pfam	Bacterial EndoU nuclease	True	False	False	False	False
 PF14448.12	Pfam	Nuclease N terminal	True	False	False	False	False
 PF14480.12	Pfam	DNA polymerase III polC-type N-terminus I	True	False	False	False	False
@@ -4095,11 +4094,11 @@ PF15547.12	Pfam	Steroid receptor-associated and regulated protein	True	False	Fal
 PF15635.12	Pfam	GHH signature containing HNH/Endo VII superfamily nuclease toxin  2	True	False	False	False	False
 PF15636.12	Pfam	GHH signature containing HNH/Endo VII superfamily nuclease toxin	True	False	False	False	False
 PF15637.12	Pfam	HNH/Endo VII superfamily nuclease toxin with a HHH motif	True	False	False	False	False
-PF15646.13	Pfam	Restriction endonuclease fold toxin 2	True	False	False	False	False
+PF15646.14	Pfam	Restriction endonuclease fold toxin 2	True	False	False	False	False
 PF15647.12	Pfam	Restriction endonuclease fold toxin 3	True	False	False	False	False
 PF15648.13	Pfam	Restriction endonuclease fold toxin 5	True	False	False	False	False
 PF15649.13	Pfam	Restriction endonuclease fold toxin 7	True	False	False	False	False
-PF15650.13	Pfam	Restriction endonuclease fold toxin 9	True	False	False	False	False
+PF15650.14	Pfam	Restriction endonuclease fold toxin 9	True	False	False	False	False
 PF15657.12	Pfam	HNH/Endo VII superfamily nuclease toxins	True	False	False	False	False
 PF15687.11	Pfam	Nuclear receptor-interacting protein 1 repression 1	True	False	False	False	False
 PF15688.11	Pfam	Nuclear receptor-interacting protein 1 repression 2	True	False	False	False	False
@@ -4108,7 +4107,7 @@ PF15690.11	Pfam	Nuclear receptor-interacting protein 1 repression 4	True	False	F
 PF15710.11	Pfam	Break repair meiotic recombinase recruitment factor 1	True	False	False	False	False
 PF15713.11	Pfam	Protein tyrosine phosphatase receptor type C-associated	True	False	False	False	False
 PF15719.11	Pfam	Ribonuclease MRP subunit P24-like	True	False	False	False	False
-PF15721.11	Pfam	Annexin-2 receptor	True	False	False	False	False
+PF15721.12	Pfam	Annexin-2 receptor	True	False	False	False	False
 PF15741.11	Pfam	Ligand-dependent nuclear receptor-interacting factor 1	True	False	False	False	False
 PF15783.11	Pfam	Fibrous sheath-interacting protein 2	True	False	False	False	False
 PF15854.11	Pfam	G-protein coupled receptor ligand 15	True	False	False	False	False
@@ -4120,7 +4119,8 @@ PF15908.11	Pfam	Hyaluronan mediated motility receptor C-terminal	True	False	Fals
 PF15978.12	Pfam	Tn7-like transposition protein D	True	False	False	False	False
 PF16104.11	Pfam	Formyl peptide receptor-like 1 inhibitory protein	True	False	False	False	False
 PF16203.12	Pfam	ERCC3/RAD25/XPB C-terminal helicase	True	False	False	False	False
-PF16459.12	Pfam	Phage tail assembly chaperone, TAC	True	False	False	False	False
+PF16297.12	Pfam	RTL1/3-8/LDOC, capsid-like domain	True	False	False	False	False
+PF16459.13	Pfam	Phage tail assembly chaperone, TAC	True	False	False	False	False
 PF16460.12	Pfam	Phage tail tube, TTP, lambda-like	True	False	False	False	False
 PF16461.12	Pfam	Lambda phage tail tube protein, TTP	True	False	False	False	False
 PF16462.12	Pfam	Phage tail assembly chaperone protein, TAC	True	False	False	False	False
@@ -4128,12 +4128,10 @@ PF16463.12	Pfam	Phage tail tube protein family	True	False	False	False	False
 PF16473.12	Pfam	3'-5' exoribonuclease Rv2179c-like domain	True	False	False	False	False
 PF16510.13	Pfam	Phage P22-like portal protein	True	False	False	False	False
 PF16530.12	Pfam	Infectious hypodermal and haematopoietic necrosis virus, capsid	True	False	False	False	False
-PF16532.12	Pfam	Sf6-type phage tail needle knob or tip of some Caudovirales	True	False	False	False	False
-PF16556.12	Pfam	Interleukin-17 receptor, fibronectin-III-like domain 1	True	False	False	False	False
-PF16578.12	Pfam	Interleukin 17 receptor D	True	False	False	False	False
+PF16532.13	Pfam	Sf6-type phage tail needle knob or tip of some Caudovirales	True	False	False	False	False
 PF16580.12	Pfam	C-terminal tail of astrovirus capsid projection or spike	True	False	False	False	False
 PF16592.11	Pfam	REC lobe of CRISPR-associated endonuclease Cas9	True	False	False	False	False
-PF16593.11	Pfam	Bridge helix of CRISPR-associated endonuclease Cas9	True	False	False	False	False
+PF16593.12	Pfam	Bridge helix of CRISPR-associated endonuclease Cas9	True	False	False	False	False
 PF16595.11	Pfam	PAM-interacting domain of CRISPR-associated endonuclease Cas9	True	False	False	False	False
 PF16665.11	Pfam	Unstructured region on nuclear receptor coactivator protein	True	False	False	False	False
 PF16673.11	Pfam	TNF receptor-associated factor BIRC3 binding domain	True	False	False	False	False
@@ -4141,11 +4139,11 @@ PF16679.12	Pfam	DNA replication factor Cdt1 C-terminal domain	True	False	False	F
 PF16684.11	Pfam	Telomere resolvase ResT/TelK catalytic domain	True	False	False	False	False
 PF16706.12	Pfam	Izumo-like Immunoglobulin domain	True	False	False	False	False
 PF16724.12	Pfam	T4-like virus Myoviridae tail sheath stabiliser	True	False	False	False	False
-PF16730.11	Pfam	DnaG-primase C-terminal, helicase-binding domain	True	False	False	False	False
+PF16730.12	Pfam	DnaG-primase C-terminal, helicase-binding domain	True	False	False	False	False
 PF16732.11	Pfam	Type IV minor pilin ComP, DNA uptake sequence receptor	True	False	False	False	False
 PF16742.11	Pfam	N-terminus of interleukin 17 receptor D	True	False	False	False	False
 PF16759.13	Pfam	DNA ligase 3 BRCT domain	True	False	False	False	False
-PF16774.12	Pfam	Distal tail protein, N-terminal domain	True	False	False	False	False
+PF16774.13	Pfam	Distal tail protein, N-terminal domain	True	False	False	False	False
 PF16778.11	Pfam	Phage tail assembly chaperone protein	True	False	False	False	False
 PF16784.11	Pfam	Putative HNHc nuclease	True	False	False	False	False
 PF16786.12	Pfam	Recombination enhancement, RecA-dependent nuclease	True	False	False	False	False
@@ -4154,7 +4152,7 @@ PF16793.11	Pfam	RepB DNA-primase N-terminal domain	True	False	False	False	False
 PF16795.11	Pfam	Archaeal phage integrase	True	False	False	False	False
 PF16813.12	Pfam	CRISPR-associated protein Csn2 subfamily St	True	False	False	False	False
 PF16823.10	Pfam	Atypical PilZ domain, cyclic di-GMP receptor	True	False	False	False	False
-PF16838.12	Pfam	Caudoviral major tail protein N-terminus	True	False	False	False	False
+PF16838.13	Pfam	Caudoviral major tail protein N-terminus	True	False	False	False	False
 PF16855.11	Pfam	Small outer capsid protein	True	False	False	False	False
 PF16857.11	Pfam	RNA polymerase inhibitor	True	False	False	False	False
 PF16900.12	Pfam	Replication protein A OB domain	True	False	False	False	False
@@ -4163,7 +4161,7 @@ PF16922.12	Pfam	DNA replication complex GINS protein SLD5 C-terminus	True	False	
 PF16992.12	Pfam	DNA-directed RNA polymerase, subunit G	True	False	False	False	False
 PF17021.11	Pfam	Putative double-strand recombination repair-like	True	False	False	False	False
 PF17071.11	Pfam	Outer capsid protein VP7	True	False	False	False	False
-PF17084.11	Pfam	Topoisomerase I damage affected protein 11	True	False	False	False	False
+PF17084.12	Pfam	Topoisomerase I damage affected protein 11	True	False	False	False	False
 PF17086.11	Pfam	Small capsid protein of Herpesviridae	True	False	False	False	False
 PF17112.11	Pfam	Mitochondrial import receptor subunit Tom6, fungal	True	False	False	False	False
 PF17125.11	Pfam	N-terminal domain of 16S rRNA methyltransferase RsmF	True	False	False	False	False
@@ -4188,13 +4186,13 @@ PF17691.7	Pfam	Contingent replication of cDNA 4	True	False	False	False	False
 PF17720.8	Pfam	RNA ligase 1	True	False	False	False	False
 PF17728.8	Pfam	BsuBI/PstI restriction endonuclease HTH domain	True	False	False	False	False
 PF17750.7	Pfam	Reovirus sigma C capsid protein triple beta spiral	True	False	False	False	False
-PF17770.7	Pfam	Ribonuclease J C-terminal domain	True	False	False	False	False
+PF17770.8	Pfam	Ribonuclease J C-terminal domain	True	False	False	False	False
 PF17843.7	Pfam	MycE methyltransferase N-terminal	True	False	False	False	False
 PF17870.7	Pfam	Insulin receptor trans-membrane segment	True	False	False	False	False
 PF17877.8	Pfam	DIS3-like exonuclease 2 C terminal	True	False	False	False	False
 PF17879.8	Pfam	DNA ligase C-terminal domain	True	False	False	False	False
-PF17893.7	Pfam	CRISPR-associated endonuclease Cas9 beta-hairpin domain	True	False	False	False	False
-PF17894.7	Pfam	Topo homolgy domain in CRISPR-associated endonuclease Cas9	True	False	False	False	False
+PF17893.8	Pfam	CRISPR-associated endonuclease Cas9 beta-hairpin domain	True	False	False	False	False
+PF17894.8	Pfam	Topo homolgy domain in CRISPR-associated endonuclease Cas9	True	False	False	False	False
 PF17906.8	Pfam	HTH domain in Mos1 transposase	True	False	False	False	False
 PF17915.8	Pfam	Reverse gyrase zinc finger	True	False	False	False	False
 PF17921.8	Pfam	Integrase zinc binding domain	True	False	False	False	False
@@ -4203,10 +4201,10 @@ PF17950.8	Pfam	S-adenosylmethionine decarboxylase N -terminal	True	False	False	F
 PF17953.7	Pfam	CRISPR Csm4 C-terminal domain	True	False	False	False	False
 PF17968.7	Pfam	Toll-like receptor 3 trans-membrane domain	True	False	False	False	False
 PF17971.8	Pfam	Leukemia inhibitory factor receptor D2 domain	True	False	False	False	False
-PF17987.8	Pfam	Phosphoethanolamine N-methyltransferase 2 N-terminal	True	False	False	False	False
+PF17987.9	Pfam	Phosphoethanolamine N-methyltransferase 2 N-terminal	True	False	False	False	False
 PF18000.8	Pfam	Type 2 DNA topoisomerase 6 subunit B C-terminal domain	True	False	False	False	False
 PF18001.8	Pfam	Interleukin-13 receptor subunit alpha Ig-like domain	True	False	False	False	False
-PF18008.7	Pfam	Replication initiator protein A C-terminal domain	True	False	False	False	False
+PF18008.8	Pfam	Replication initiator protein A C-terminal domain	True	False	False	False	False
 PF18013.7	Pfam	Phage tail lysozyme	True	False	False	False	False
 PF18018.8	Pfam	DNA polymerase delta subunit OB-fold domain	True	False	False	False	False
 PF18026.7	Pfam	Endo/exonuclease (EXOG) C-terminal domain	True	False	False	False	False
@@ -4214,12 +4212,11 @@ PF18043.7	Pfam	T4 RNA ligase 2 C-terminal	True	False	False	False	False
 PF18048.8	Pfam	TNF receptor-associated factor 6 zinc finger 2	True	False	False	False	False
 PF18049.7	Pfam	DNA polymerase nu pseudo-exo	True	False	False	False	False
 PF18053.7	Pfam	DNA gyrase B subunit insert domain	True	False	False	False	False
-PF18061.7	Pfam	CRISPR-Cas9 WED domain	True	False	False	False	False
-PF18062.8	Pfam	Restriction endonuclease AspBHI N-terminal	True	False	False	False	False
-PF18070.7	Pfam	CRISPR-Cas9 PI domain	True	False	False	False	False
+PF18061.8	Pfam	CRISPR-Cas9 WED domain	True	False	False	False	False
+PF18062.9	Pfam	Restriction endonuclease AspBHI N-terminal	True	False	False	False	False
+PF18070.8	Pfam	CRISPR-Cas9 PI domain	True	False	False	False	False
 PF18081.8	Pfam	Fanconi anemia-associated nuclease SAP domain	True	False	False	False	False
 PF18093.8	Pfam	tRNA methyltransferase 5 N-terminal domain	True	False	False	False	False
-PF18094.8	Pfam	DNA polymerase beta N-terminal domain	True	False	False	False	False
 PF18103.8	Pfam	Retroviral integrase C-terminal SH3 domain	True	False	False	False	False
 PF18106.8	Pfam	Rolling Circle replication initiation protein N-terminal domain	True	False	False	False	False
 PF18112.8	Pfam	Autophagy receptor zinc finger-C2H2 domain	True	False	False	False	False
@@ -4233,7 +4230,7 @@ PF18166.7	Pfam	Predicted pPIWI-associating nuclease	True	False	False	False	False
 PF18182.7	Pfam	minimal CRISPR polymerase domain	True	False	False	False	False
 PF18196.8	Pfam	Chromodomain helicase DNA-binding domain 1	True	False	False	False	False
 PF18207.8	Pfam	Leukemia inhibitory factor receptor N-terminal domain	True	False	False	False	False
-PF18214.7	Pfam	STATa Immunoglobulin-like domain	True	False	False	False	False
+PF18214.8	Pfam	STATa Immunoglobulin-like domain	True	False	False	False	False
 PF18245.6	Pfam	5-3 exonuclease XRN1 DCP1-binding motif	True	False	False	False	False
 PF18258.7	Pfam	Interleukin-4 inducing immunoglobulin-binding domain	True	False	False	False	False
 PF18275.8	Pfam	His-Me finger endonuclease beta4-alpha2 domain	True	False	False	False	False
@@ -4248,7 +4245,7 @@ PF18332.8	Pfam	Exoribonuclease Xrn1 D1 domain	True	False	False	False	False
 PF18334.8	Pfam	Exoribonuclease Xrn1 D2/D3 domain	True	False	False	False	False
 PF18335.8	Pfam	ATP-dependent RecD-like DNA helicase SH3 domain	True	False	False	False	False
 PF18338.8	Pfam	Lower baseplate protein N-terminal domain	True	False	False	False	False
-PF18343.8	Pfam	Dda helicase SH3 domain	True	False	False	False	False
+PF18343.9	Pfam	Dda helicase SH3 domain	True	False	False	False	False
 PF18350.8	Pfam	Restriction endonuclease SH3 domain	True	False	False	False	False
 PF18358.8	Pfam	Histone methyltransferase Tudor domain	True	False	False	False	False
 PF18359.8	Pfam	Histone methyltransferase Tudor domain 1	True	False	False	False	False
@@ -4258,9 +4255,9 @@ PF18422.7	Pfam	Tumor necrosis factor receptor member 16 trans-membrane domain	Tr
 PF18452.8	Pfam	Immunoglobulin domain	True	False	False	False	False
 PF18455.7	Pfam	Gamma-aminobutyric acid type B receptor subunit 2 coiled-coil domain	True	False	False	False	False
 PF18458.7	Pfam	Xeroderma pigmentosum group B helicase damage recognition domain	True	False	False	False	False
-PF18466.7	Pfam	Glutamate--tRNA ligase N-terminal domain	True	False	False	False	False
+PF18466.8	Pfam	Glutamate--tRNA ligase N-terminal domain	True	False	False	False	False
 PF18497.7	Pfam	Ribonuclease III N-terminal domain	True	False	False	False	False
-PF18510.7	Pfam	Nuclease domain	True	False	False	False	False
+PF18510.8	Pfam	Nuclease domain	True	False	False	False	False
 PF18516.8	Pfam	RuvC nuclease domain	True	False	False	False	False
 PF18518.8	Pfam	TcA receptor binding domain	True	False	False	False	False
 PF18541.8	Pfam	RuvC endonuclease subdomain 3	True	False	False	False	False
@@ -4271,20 +4268,20 @@ PF18589.8	Pfam	Obesity receptor immunoglobulin like domain	True	False	False	Fals
 PF18611.8	Pfam	IL-3 receptor alpha chain N-terminal domain	True	False	False	False	False
 PF18613.7	Pfam	Tyrosine kinase receptor A trans-membrane domain	True	False	False	False	False
 PF18614.8	Pfam	RNase II-type exonuclease C-terminal S1 domain	True	False	False	False	False
-PF18643.8	Pfam	BsaWI restriction endonuclease type 2	True	False	False	False	False
+PF18643.9	Pfam	BsaWI restriction endonuclease type 2	True	False	False	False	False
 PF18644.8	Pfam	Phage integrase SAM-like domain	True	False	False	False	False
-PF18667.7	Pfam	Baseplate upper protein immunoglobulin like domain	True	False	False	False	False
+PF18667.8	Pfam	Baseplate upper protein immunoglobulin like domain	True	False	False	False	False
 PF18668.7	Pfam	Tail spike TSP1/Gp66 receptor binding N-terminal domain	True	False	False	False	False
 PF18673.7	Pfam	interleukin receptor mimic protein A	True	False	False	False	False
-PF18683.7	Pfam	Chitinase W immunoglobulin-like domain	True	False	False	False	False
-PF18689.7	Pfam	Primase X	True	False	False	False	False
+PF18683.8	Pfam	Chitinase W immunoglobulin-like domain	True	False	False	False	False
+PF18689.8	Pfam	Primase X	True	False	False	False	False
 PF18697.8	Pfam	Murine leukemia virus (MLV) integrase (IN) C-terminal domain	True	False	False	False	False
 PF18707.8	Pfam	Interleukin-2 receptor subunit beta N-terminal domain 1	True	False	False	False	False
 PF18714.7	Pfam	DNA polymerase II intein Domain IV	True	False	False	False	False
 PF18717.7	Pfam	CxC4 like cysteine cluster associated with KDZ transposases	True	False	False	False	False
 PF18718.7	Pfam	CxC5 like cysteine cluster associated with KDZ transposases	True	False	False	False	False
 PF18721.7	Pfam	CxC6 like cysteine cluster associated with KDZ transposases	True	False	False	False	False
-PF18740.8	Pfam	EC042_2821-like Restriction Endonuclease-like domain	True	False	False	False	False
+PF18740.9	Pfam	EC042_2821-like Restriction Endonuclease-like domain	True	False	False	False	False
 PF18755.7	Pfam	Restriction Enzyme Adenine Methylase Associated	True	False	False	False	False
 PF18758.8	Pfam	Kyakuja-Dileera-Zisupton transposase	True	False	False	False	False
 PF18759.8	Pfam	Plavaka transposase	True	False	False	False	False
@@ -4299,14 +4296,14 @@ PF18812.7	Pfam	phage-Barnase-EndoU-ColicinE5/D-RelE like nuclease3	True	False	Fa
 PF18813.7	Pfam	phage-Barnase-EndoU-ColicinE5/D-RelE like nuclease4	True	False	False	False	False
 PF18814.7	Pfam	phage-Barnase-EndoU-ColicinE5/D-RelE like nuclease5	True	False	False	False	False
 PF18861.8	Pfam	TM proximal of protein tyrosine phosphatase, receptor type J	True	False	False	False	False
-PF18866.7	Pfam	CxC7 like cysteine cluster associated with KDZ transposases	True	False	False	False	False
+PF18866.8	Pfam	CxC7 like cysteine cluster associated with KDZ transposases	True	False	False	False	False
 PF18897.6	Pfam	Recombination directionality factor-like	True	False	False	False	False
 PF18906.6	Pfam	Phage tail tube protein	True	False	False	False	False
 PF18945.6	Pfam	EvpB/VC_A0108, tail sheath gpW/gp25-like domain	True	False	False	False	False
 PF18965.6	Pfam	Outer capsid protein VP3-like	True	False	False	False	False
 PF19021.6	Pfam	CRISPR system CMR subunit Cmr7 1	True	False	False	False	False
-PF19065.7	Pfam	Minor capsid protein P8 central region	True	False	False	False	False
-PF19066.6	Pfam	Minor capsid protein P9 transmembrane helices	True	False	False	False	False
+PF19065.8	Pfam	Minor capsid protein P8 central region	True	False	False	False	False
+PF19066.7	Pfam	Minor capsid protein P9 transmembrane helices	True	False	False	False	False
 PF19215.6	Pfam	Coronavirus replicase NSP15, uridylate-specific endoribonuclease	True	False	False	False	False
 PF19222.6	Pfam	Nodavirus Vmethyltransferase	True	False	False	False	False
 PF19223.6	Pfam	Chroparavirus methyltransferase	True	False	False	False	False
@@ -4324,18 +4321,18 @@ PF19725.5	Pfam	DNA-directed RNA polymerase III subunit RPC5 C-terminal	True	Fals
 PF19778.6	Pfam	Endonuclease domain	True	False	False	False	False
 PF19821.6	Pfam	Phage capsid protein	True	False	False	False	False
 PF19833.5	Pfam	ATP-dependent DNA helicase RecG, domain 3, C-terminal	True	False	False	False	False
-PF19835.6	Pfam	Putative endonuclease segE, GIY-YIG domain	True	False	False	False	False
+PF19835.7	Pfam	Putative endonuclease segE, GIY-YIG domain	True	False	False	False	False
 PF19864.6	Pfam	Radical SAM proteins, N-terminal	True	False	False	False	False
 PF20036.6	Pfam	Major capsid protein 13-like	True	False	False	False	False
 PF20141.5	Pfam	Brassinosteroid receptor island domain	True	False	False	False	False
-PF20167.4	Pfam	Putative plant transposon protein	True	False	False	False	False
-PF20195.5	Pfam	Phage tail protein N-terminal domain	True	False	False	False	False
+PF20167.4	Pfam	Putative plant retrotransposon-related domain	True	False	False	False	False
+PF20195.6	Pfam	Phage tail protein N-terminal domain	True	False	False	False	False
 PF20199.5	Pfam	Replication initiator protein, pSAM2	True	False	False	False	False
 PF20257.4	Pfam	SAM hydroxide adenosyltransferase C-terminal domain	True	False	False	False	False
 PF20258.5	Pfam	Aminomethyltransferase beta-barrel domain	True	False	False	False	False
 PF20260.5	Pfam	RNA methyltransferase PUA domain	True	False	False	False	False
 PF20286.4	Pfam	Divergent Family B DNA polymerase	True	False	False	False	False
-PF20287.4	Pfam	SH3 fold domain associated with phage DNA polymerases	True	False	False	False	False
+PF20287.5	Pfam	SH3 fold domain associated with phage DNA polymerases	True	False	False	False	False
 PF20296.4	Pfam	Methylase-associated X1	True	False	False	False	False
 PF20310.4	Pfam	Transposon related HTH domain protein	True	False	False	False	False
 PF20441.4	Pfam	Terminase large subunit, endonuclease domain	True	False	False	False	False
@@ -4350,14 +4347,14 @@ PF20488.4	Pfam	Birnavirus RNA dependent RNA polymerase (VP1), thumb domain	True	
 PF20489.4	Pfam	Birnavirus RNA dependent RNA polymerase (VP1), C-terminal	True	False	False	False	False
 PF20516.5	Pfam	PD-(D/E)XK nuclease superfamily	True	False	False	False	False
 PF20552.5	Pfam	Recombinase-like helix-turn-helix domain	True	False	False	False	False
-PF20553.5	Pfam	Putative O-methyltransferase	True	False	False	False	False
+PF20553.6	Pfam	Putative O-methyltransferase	True	False	False	False	False
 PF20600.4	Pfam	Exodeoxyribonuclease X-like C-terminal	True	False	False	False	False
 PF20608.5	Pfam	Phage tail tube protein C-terminal domain	True	False	False	False	False
 PF20634.3	Pfam	Interferon gamma receptor 1, transmembrane region	True	False	False	False	False
 PF20692.4	Pfam	Circularly permuted SF2 helicase found in GREB1 proteins	True	False	False	False	False
 PF20700.4	Pfam	Mutator-like transposase	True	False	False	False	False
 PF20744.4	Pfam	Tail fibre protein gp37 trimerization region	True	False	False	False	False
-PF20747.3	Pfam	Lactophage receptor-binding protein N-terminal shoulder domain	True	False	False	False	False
+PF20747.4	Pfam	Lactophage receptor-binding protein N-terminal shoulder domain	True	False	False	False	False
 PF20753.3	Pfam	Phage tail C-terminal domain	True	False	False	False	False
 PF20765.4	Pfam	Phage tail terminator protein	True	False	False	False	False
 PF20768.3	Pfam	All-beta domain in DNA topoisomerase VI alpha subunit	True	False	False	False	False
@@ -4408,25 +4405,25 @@ PF21065.4	Pfam	Reovirus core-spike protein lambda-2 (L2), methyltransferase-1	Tr
 PF21066.4	Pfam	Reovirus core-spike protein lambda-2 (L2), methyltransferase-2	True	False	False	False	False
 PF21069.3	Pfam	CRISPR-associated endonuclease Cas9 alpha-helical lobe	True	False	False	False	False
 PF21080.3	Pfam	Virus-capping methyltransferase, connector domain	True	False	False	False	False
-PF21081.3	Pfam	Virus-capping methyltransferase, C-terminal	True	False	False	False	False
+PF21081.4	Pfam	Virus-capping methyltransferase, C-terminal	True	False	False	False	False
 PF21099.3	Pfam	DNA_pol_Q helicase like region helical domain	True	False	False	False	False
-PF21111.4	Pfam	CDI toxin restriction endonuclease-like domain	True	False	False	False	False
+PF21111.5	Pfam	CDI toxin restriction endonuclease-like domain	True	False	False	False	False
 PF21114.4	Pfam	Discoidin domain-containing receptor 1/2, DS-like domain	True	False	False	False	False
 PF21119.4	Pfam	Ryanodine receptor junctional solenoid repeat	True	False	False	False	False
-PF21134.3	Pfam	Bacteriophage T4, Recombination and repair protein, C-terminal domain	True	False	False	False	False
+PF21134.4	Pfam	Bacteriophage T4, Recombination and repair protein, C-terminal domain	True	False	False	False	False
 PF21136.3	Pfam	Crossover junction endonuclease MUS81-like, winged helix domain	True	False	False	False	False
 PF21137.4	Pfam	Protein arginine N-methyltransferase 3, C2H2 zinc finger domain	True	False	False	False	False
 PF21138.4	Pfam	Helicase SMUBP-2/HCS1, 1B domain	True	False	False	False	False
 PF21150.3	Pfam	Ribosomal RNA small subunit methyltransferase F, pre-PUA domain	True	False	False	False	False
-PF21165.3	Pfam	Fibroblast growth factor receptor 3 transmembrane domain	True	False	False	False	False
+PF21165.4	Pfam	Fibroblast growth factor receptor 3 transmembrane domain	True	False	False	False	False
 PF21169.4	Pfam	Fanconi-associated nuclease 1, SAP subdomain	True	False	False	False	False
 PF21170.5	Pfam	Fanconi-associated nuclease 1, TPR domain	True	False	False	False	False
-PF21177.4	Pfam	Leukemia inhibitory factor receptor, Ig-like domain	True	False	False	False	False
+PF21177.5	Pfam	Leukemia inhibitory factor receptor, Ig-like domain	True	False	False	False	False
 PF21180.4	Pfam	Topoisomerase 6 subunit A/Spo11, Toprim domain	True	False	False	False	False
 PF21188.3	Pfam	Pre-mRNA-splicing helicase BRR2 plug domain	True	False	False	False	False
 PF21198.4	Pfam	Set1/Ash2 histone methyltransferase complex subunit ASH2-like, WH	True	False	False	False	False
 PF21202.4	Pfam	Structure-specific endonuclease subunit SLX1, C-terminal	True	False	False	False	False
-PF21210.3	Pfam	Putative ATP-dependent RNA helicase, helical bundle	True	False	False	False	False
+PF21210.4	Pfam	Putative ATP-dependent RNA helicase, helical bundle	True	False	False	False	False
 PF21224.4	Pfam	Small RNA 2'-O-methyltransferase-like, La-motif-containing domain	True	False	False	False	False
 PF21239.3	Pfam	Ribosomal RNA large subunit methyltransferase M, N-terminal	True	False	False	False	False
 PF21241.3	Pfam	DNA helicase UvsW, N-terminal	True	False	False	False	False
@@ -4444,41 +4441,40 @@ PF21368.4	Pfam	AI2M/AI1M-like, HNH endonuclease	True	False	False	False	False
 PF21372.4	Pfam	Topoisomerase I, zinc finger	True	False	False	False	False
 PF21379.3	Pfam	Baseplate wedge protein gp6-like, helical domain	True	False	False	False	False
 PF21384.3	Pfam	CRISPR-associated nuclease/helicase Cas3, I-F/YPEST, Cas2 domain	True	False	False	False	False
-PF21387.3	Pfam	Baseplate structural protein gp6, C-terminal domain I	True	False	False	False	False
-PF21395.3	Pfam	Activity-regulated cytoskeleton-associated protein, capsid domain	True	False	False	False	False
+PF21387.4	Pfam	Baseplate structural protein gp6, C-terminal domain I	True	False	False	False	False
 PF21408.3	Pfam	Exosome RNA helicase MTR4-like, stalk	True	False	False	False	False
 PF21424.4	Pfam	Distal tail protein pb9, A domain C-terminal	True	False	False	False	False
-PF21425.4	Pfam	Distal tail protein pb9, A domain, N-terminal	True	False	False	False	False
-PF21427.3	Pfam	Baseplate wedge protein gp7, domain V	True	False	False	False	False
-PF21428.3	Pfam	Baseplate wedge protein gp7, helical domain	True	False	False	False	False
-PF21430.4	Pfam	Distal tail protein pb9, B domain	True	False	False	False	False
+PF21425.5	Pfam	Distal tail protein pb9, A domain, N-terminal	True	False	False	False	False
+PF21427.4	Pfam	Baseplate wedge protein gp7, domain V	True	False	False	False	False
+PF21428.4	Pfam	Baseplate wedge protein gp7, helical domain	True	False	False	False	False
+PF21430.5	Pfam	Distal tail protein pb9, B domain	True	False	False	False	False
 PF21434.4	Pfam	Phage G20C small terminase, N-terminal domain	True	False	False	False	False
 PF21446.4	Pfam	Long-tail fiber proximal subunit, C-terminal, trimerization domain	True	False	False	False	False
-PF21456.3	Pfam	Baseplate wedge protein gp7, domain VI	True	False	False	False	False
+PF21456.4	Pfam	Baseplate wedge protein gp7, domain VI	True	False	False	False	False
 PF21460.4	Pfam	GM-CSF/IL-3/IL-5 receptor common beta subunit, N-terminal	True	False	False	False	False
 PF21468.3	Pfam	Tyrosine-protein kinase receptor torso, second FN3 domain	True	False	False	False	False
 PF21472.3	Pfam	Baseplate structural protein gp6, C-terminal domain II	True	False	False	False	False
 PF21474.4	Pfam	DNA polymerase II, N-terminal	True	False	False	False	False
 PF21500.4	Pfam	DNA polymerase III subunit delta', AAA+ ATPase lid domain	True	False	False	False	False
-PF21507.2	Pfam	Sputnik minor capsid protein V18/19	True	False	False	False	False
-PF21515.3	Pfam	Baseplate wedge protein gp6, domain II	True	False	False	False	False
+PF21507.3	Pfam	Sputnik minor capsid protein V18/19	True	False	False	False	False
+PF21515.4	Pfam	Baseplate wedge protein gp6, domain II	True	False	False	False	False
 PF21517.4	Pfam	Transposable element Tc3 transposase, HTH	True	False	False	False	False
 PF21530.4	Pfam	DNA helicase Pif1, 2B domain	True	False	False	False	False
 PF21533.3	Pfam	Histone-lysine N-methyltransferase EHMT1/EHMT2, Cys-rich region	True	False	False	False	False
 PF21560.3	Pfam	Long-tail fiber proximal subunit, C-terminal, second	True	False	False	False	False
-PF21561.3	Pfam	Virus, RNA-directed RNA polymerase L, thumb ring domain	True	False	False	False	False
+PF21561.4	Pfam	Virus, RNA-directed RNA polymerase L, thumb ring domain	True	False	False	False	False
 PF21562.3	Pfam	G7C, Tail fiber protein, domain 3	True	False	False	False	False
 PF21564.3	Pfam	Lactococcus phage p2, Receptor binding protein, neck domain	True	False	False	False	False
 PF21569.4	Pfam	Histone-lysine N-methyltransferase, RNA-binding domain	True	False	False	False	False
-PF21574.3	Pfam	CRISPR-associated endonuclease Cas9, C-terminal domain	True	False	False	False	False
-PF21579.4	Pfam	tRNA (uracil(54)-C(5))-methyltransferase, TRAM domain	True	False	False	False	False
-PF21591.2	Pfam	RNA helicase Hera, dimerization domain	True	False	False	False	False
+PF21574.4	Pfam	CRISPR-associated endonuclease Cas9, C-terminal domain	True	False	False	False	False
+PF21579.5	Pfam	tRNA (uracil(54)-C(5))-methyltransferase, TRAM domain	True	False	False	False	False
+PF21591.3	Pfam	RNA helicase Hera, dimerization domain	True	False	False	False	False
 PF21598.4	Pfam	Restriction endonuclease PvuRts1 I-like, N-terminal	True	False	False	False	False
 PF21604.4	Pfam	Cytokine receptor-like factor 2-like, D1 domain	True	False	False	False	False
 PF21605.4	Pfam	Cytokine receptor-like factor 2-like, D2 domain	True	False	False	False	False
 PF21613.3	Pfam	Pesticin, receptor binding domain	True	False	False	False	False
 PF21616.4	Pfam	Topoisomerase V, second (HhH)2 tandem domain	True	False	False	False	False
-PF21624.2	Pfam	Virion DNA-directed RNA polymerase, plug insertion	True	False	False	False	False
+PF21624.3	Pfam	Virion DNA-directed RNA polymerase, plug insertion	True	False	False	False	False
 PF21632.4	Pfam	Helicase MOV-10, N-terminal	True	False	False	False	False
 PF21633.4	Pfam	Helicase MOV-10, Ig-like domain	True	False	False	False	False
 PF21634.4	Pfam	Helicase MOV-10, beta-barrel domain	True	False	False	False	False
@@ -4486,39 +4482,39 @@ PF21635.3	Pfam	Helicase MOV-10, helical domain	True	False	False	False	False
 PF21650.3	Pfam	DNA primase DnaG, catalytic core, helical bundle	True	False	False	False	False
 PF21668.4	Pfam	DNA-directed RNA polymerase subunit beta', hybrid domain	True	False	False	False	False
 PF21683.4	Pfam	Mu phage baseplate assembly protein GpP-like, N-terminal	True	False	False	False	False
-PF21685.3	Pfam	Fungal virus Capsid protein, N-terminal domain	True	False	False	False	False
+PF21685.4	Pfam	Fungal virus Capsid protein, N-terminal domain	True	False	False	False	False
 PF21686.4	Pfam	LigD, primase-polymerase domain	True	False	False	False	False
 PF21694.3	Pfam	DNA polymerase III delta subunit, C-terminal domain	True	False	False	False	False
 PF21703.4	Pfam	Major capsid protein	True	False	False	False	False
-PF21721.3	Pfam	Phage tail fibre adhesin Gp38 N-terminal domain	True	False	False	False	False
+PF21721.4	Pfam	Phage tail fibre adhesin Gp38 N-terminal domain	True	False	False	False	False
 PF21762.4	Pfam	DNA polymerase III subunit epsilon-like, C-terminal domain	True	False	False	False	False
-PF21769.3	Pfam	Virion DNA-directed RNA polymerase domain	True	False	False	False	False
-PF21802.3	Pfam	CRISPR-associated Cas3 subtype I-F/YPEST-like, C-terminal domain	True	False	False	False	False
+PF21769.5	Pfam	Virion DNA-directed RNA polymerase domain	True	False	False	False	False
+PF21802.4	Pfam	CRISPR-associated Cas3 subtype I-F/YPEST-like, C-terminal domain	True	False	False	False	False
 PF21804.4	Pfam	Transposase protein	True	False	False	False	False
 PF21821.4	Pfam	Dit-like phage tail protein	True	False	False	False	False
 PF21822.4	Pfam	Phage tail assembly chaperone protein, TAC	True	False	False	False	False
-PF21859.3	Pfam	Replitron, HUH endonuclease domain	True	False	False	False	False
+PF21859.4	Pfam	Replitron, HUH endonuclease domain	True	False	False	False	False
 PF21861.3	Pfam	Replication protein RepB, C-terminal	True	False	False	False	False
-PF21867.2	Pfam	Virion DNA-directed RNA polymerase domain	True	False	False	False	False
-PF21871.2	Pfam	Baseplate structural protein gp6, C-terminal domain III	True	False	False	False	False
+PF21867.4	Pfam	Virion DNA-directed RNA polymerase domain	True	False	False	False	False
+PF21871.3	Pfam	Baseplate structural protein gp6, C-terminal domain III	True	False	False	False	False
 PF21882.3	Pfam	Putative tail fiber protein gp53-like, C-terminal	True	False	False	False	False
-PF21894.2	Pfam	Bacteriophage N4 RNA polymerase, helical domain	True	False	False	False	False
+PF21894.4	Pfam	Bacteriophage N4 RNA polymerase, helical domain	True	False	False	False	False
 PF21911.2	Pfam	N-terminal domain in putative methyltransferase PG_1098	True	False	False	False	False
 PF21915.4	Pfam	Sputnik virophage major capsid protein 1st domain	True	False	False	False	False
-PF21918.2	Pfam	CRISPR-associated endonuclease Cpf1 REC2 domain	True	False	False	False	False
+PF21918.3	Pfam	CRISPR-associated endonuclease Cpf1 REC2 domain	True	False	False	False	False
 PF21919.3	Pfam	Phage P23-45 portal protein	True	False	False	False	False
 PF21929.3	Pfam	Mu phage baseplate assembly protein GpP, fourth domain	True	False	False	False	False
 PF21939.2	Pfam	Baseplate structural protein Gp10, C-terminal domain	True	False	False	False	False
-PF21951.1	Pfam	T-cell receptor gamma alternate reading frame protein	True	False	False	False	False
+PF21951.2	Pfam	T-cell receptor gamma alternate reading frame protein	True	False	False	False	False
 PF21963.3	Pfam	TcdA1, receptor binding domain	True	False	False	False	False
-PF21968.3	Pfam	TcdA1, receptor binding domain	True	False	False	False	False
-PF21991.2	Pfam	Cap-snatching endonuclease	True	False	False	False	False
+PF21968.4	Pfam	TcdA1, receptor binding domain	True	False	False	False	False
+PF21991.3	Pfam	Cap-snatching endonuclease	True	False	False	False	False
 PF21999.3	Pfam	DNA polymerase-iota, thumb domain	True	False	False	False	False
 PF22003.3	Pfam	MrkD-like receptor binding domain	True	False	False	False	False
-PF22008.2	Pfam	Restriction endonuclease BpuSI, specificity domain	True	False	False	False	False
+PF22008.3	Pfam	Restriction endonuclease BpuSI, specificity domain	True	False	False	False	False
 PF22012.3	Pfam	Cytokine receptor-like factor 2, domain 1	True	False	False	False	False
 PF22022.3	Pfam	Phage integrase central domain	True	False	False	False	False
-PF22024.3	Pfam	Major capsid protein VP16-like	True	False	False	False	False
+PF22024.4	Pfam	Major capsid protein VP16-like	True	False	False	False	False
 PF22027.2	Pfam	NS3 RNA helicase, C-terminal helical domain	True	False	False	False	False
 PF22031.3	Pfam	Major capsid protein V20 C-terminal domain	True	False	False	False	False
 PF22033.2	Pfam	Inner capsid protein lambda-1/VP3	True	False	False	False	False
@@ -4536,18 +4532,18 @@ PF22139.2	Pfam	DNA repair helicase XPD, arch domain	True	False	False	False	False
 PF22144.2	Pfam	Fungal virus Capsid protein, C-terminal domain	True	False	False	False	False
 PF22147.2	Pfam	Anti-CRISPR protein AcrIC5	True	False	False	False	False
 PF22152.2	Pfam	Permutotetravirus RNA-dependent RNA polymerase palm domain	True	False	False	False	False
-PF22172.2	Pfam	CRISPR-associated endonuclease C2c1 second helical domain	True	False	False	False	False
+PF22172.3	Pfam	CRISPR-associated endonuclease C2c1 second helical domain	True	False	False	False	False
 PF22174.3	Pfam	Tail protein, C-terminal domain	True	False	False	False	False
 PF22201.3	Pfam	Conserved flagellar protein F, immunoglobulin-like domain	True	False	False	False	False
 PF22202.2	Pfam	CRISPR-associated endonuclease C2c1 first helical domain	True	False	False	False	False
-PF22204.2	Pfam	CRISPR-associated endonuclease C2c1, wedge domain, second region	True	False	False	False	False
-PF22206.2	Pfam	CRISPR-associated protein Csm6 6H domain	True	False	False	False	False
+PF22204.3	Pfam	CRISPR-associated endonuclease C2c1, wedge domain, second region	True	False	False	False	False
+PF22206.3	Pfam	CRISPR-associated protein Csm6 6H domain	True	False	False	False	False
 PF22209.2	Pfam	CPV, RNA-directed RNA polymerase, N-terminal	True	False	False	False	False
 PF22212.2	Pfam	CPV, RNA-directed RNA polymerase, central polymerase domain	True	False	False	False	False
 PF22213.2	Pfam	CPV, RNA-directed RNA polymerase, C-terminal	True	False	False	False	False
 PF22222.2	Pfam	CRISPR-associated endonuclease Cpf1 PI domain	True	False	False	False	False
 PF22227.2	Pfam	DNA polymerase III gamma subunit-related, C-terminal domain	True	False	False	False	False
-PF22230.2	Pfam	CRISPR system endoribonuclease Csx1, CARF domain	True	False	False	False	False
+PF22230.3	Pfam	CRISPR system endoribonuclease Csx1, CARF domain	True	False	False	False	False
 PF22231.3	Pfam	DEAD box helicase Hera, RNA-binding domain	True	False	False	False	False
 PF22232.3	Pfam	TraI helicase-associated ssDNA bd, N-terminal	True	False	False	False	False
 PF22255.3	Pfam	Baseplate hub protein gp44-like, second domain	True	False	False	False	False
@@ -4568,7 +4564,7 @@ PF22412.2	Pfam	Phage G20C small terminase C-terminal domain	True	False	False	Fal
 PF22421.2	Pfam	Tyrosine--tRNA ligase SYY-like C-terminal domain	True	False	False	False	False
 PF22424.2	Pfam	HK620, Tail spike protein, C-terminal	True	False	False	False	False
 PF22428.3	Pfam	DIS3-like exonuclease 2-like, C-terminal	True	False	False	False	False
-PF22433.3	Pfam	Magnetotaxis protein MtxA, Immunoglobulin-like domain	True	False	False	False	False
+PF22433.5	Pfam	Magnetotaxis protein MtxA, Immunoglobulin-like domain	True	False	False	False	False
 PF22447.3	Pfam	Endonuclease/exonuclease/phosphatase family, ig-like domain	True	False	False	False	False
 PF22448.2	Pfam	RepB DNA-primase C-terminal helical domain	True	False	False	False	False
 PF22459.2	Pfam	Pheromone cCF10 receptor, C-terminal TPR region	True	False	False	False	False
@@ -4582,9 +4578,9 @@ PF22508.3	Pfam	Internalin J, Immunoglobulin-like domain	True	False	False	False	F
 PF22527.3	Pfam	DEXQ-box helicase domain of Suv3	True	False	False	False	False
 PF22528.2	Pfam	Arginine methyltransferase oligomerization subdomain	True	False	False	False	False
 PF22530.3	Pfam	Terminase Bacteriophage T7, Ribonuclease H-like domain	True	False	False	False	False
-PF22534.2	Pfam	Replication factor C subunit 3, C-terminal domain	True	False	False	False	False
+PF22534.3	Pfam	Replication factor C subunit 3, C-terminal domain	True	False	False	False	False
 PF22548.3	Pfam	TOTE conflict system, Archaeo-Eukaryotic Primase domain	True	False	False	False	False
-PF22555.2	Pfam	Phage DNA Adenine Methylase-like domain 1	True	False	False	False	False
+PF22555.3	Pfam	Phage DNA Adenine Methylase-like domain 1	True	False	False	False	False
 PF22556.2	Pfam	Phage DNA Adenine Methylase-like domain 2	True	False	False	False	False
 PF22558.4	Pfam	Restriction Endonuclease associating with ARP	True	False	False	False	False
 PF22587.2	Pfam	DNA polymerase II, insertion domain	True	False	False	False	False
@@ -4595,20 +4591,20 @@ PF22619.3	Pfam	DNA polymerase I, ribonuclease H-like domain	True	False	False	Fal
 PF22630.3	Pfam	Tail protein NMB1110-like, third domain	True	False	False	False	False
 PF22634.2	Pfam	DNA polymerase epsilon catalytic subunit A, thumb domain	True	False	False	False	False
 PF22635.2	Pfam	Intron-associated endonuclease 1 zinc finger domain	True	False	False	False	False
-PF22639.2	Pfam	Tail sheath protein Gp18-like domain I	True	False	False	False	False
+PF22639.3	Pfam	Tail sheath protein Gp18-like domain I	True	False	False	False	False
 PF22648.3	Pfam	Histone H3 K4-specific methyltransferase SET7 N-terminal	True	False	False	False	False
-PF22662.3	Pfam	Csa3 CRISPR-associated Rossmann-like domain	True	False	False	False	False
+PF22662.4	Pfam	Csa3 CRISPR-associated Rossmann-like domain	True	False	False	False	False
 PF22669.3	Pfam	Endonuclease/Exonuclease/phosphatase family 2	True	False	False	False	False
 PF22670.2	Pfam	Baseplate wedge protein gp10 domain 3	True	False	False	False	False
 PF22671.2	Pfam	Tail sheath protein Gp18 domain III N-terminal region	True	False	False	False	False
 PF22722.3	Pfam	NACHT-associated inactive Restriction Endonuclease 1	True	False	False	False	False
 PF22723.3	Pfam	NACHT-associated inactive Restriction Endonuclease 2	True	False	False	False	False
 PF22739.3	Pfam	NACHT-associated inactive Restriction Endonuclease 2	True	False	False	False	False
-PF22745.2	Pfam	DNA ligase-like, N-terminal NAD+-binding domain	True	False	False	False	False
+PF22745.3	Pfam	DNA ligase-like, N-terminal NAD+-binding domain	True	False	False	False	False
 PF22759.2	Pfam	Baseplate hub gp41	True	False	False	False	False
 PF22760.2	Pfam	Baseplate component gp38	True	False	False	False	False
 PF22764.2	Pfam	Tail fiber protein gp32	True	False	False	False	False
-PF22824.2	Pfam	DNA transposase THAP9, C-terminal domain	True	False	False	False	False
+PF22824.3	Pfam	DNA transposase THAP9, C-terminal domain	True	False	False	False	False
 PF22837.2	Pfam	Type II methyltransferase M.Eco57I, C-terminal domain	True	False	False	False	False
 PF22855.2	Pfam	DNA (cytosine-5-)-methyltransferase, N-terminal	True	False	False	False	False
 PF22896.4	Pfam	Ribonuclease R, OB first domain, N-terminal	True	False	False	False	False
@@ -4618,7 +4614,7 @@ PF22920.3	Pfam	UvrC Ribonuclease H-like domain	True	False	False	False	False
 PF22935.2	Pfam	Large ribosomal subunit protein mL44, endonuclease domain	True	False	False	False	False
 PF22938.3	Pfam	Integrase p58, C-terminal domain	True	False	False	False	False
 PF22947.3	Pfam	Leucine--tRNA ligase, ubiquitin-like domain	True	False	False	False	False
-PF22971.2	Pfam	VEGFR-1-like, immunoglobulin-like domain	True	False	False	False	False
+PF22971.3	Pfam	VEGFR-1-like, immunoglobulin-like domain	True	False	False	False	False
 PF22981.2	Pfam	Mediator of RNA polymerase II transcription subunit 14, RM2	True	False	False	False	False
 PF22982.4	Pfam	ATP-dependent helicase HRQ1, winged helix domain	True	False	False	False	False
 PF22983.2	Pfam	Mediator of RNA polymerase II transcription subunit 14, RM8	True	False	False	False	False
@@ -4630,7 +4626,7 @@ PF23006.2	Pfam	Tyrosine-protein kinase receptor torso, first FN3 domain	True	Fal
 PF23008.4	Pfam	Tyrosine-protein kinase receptor torso, third FN3 domain	True	False	False	False	False
 PF23011.3	Pfam	Histone-lysine N-methyltransferase NSD-like, PHD zinc finger 1	True	False	False	False	False
 PF23078.3	Pfam	Chromodomain-helicase-DNA-binding protein 6-9, tri-helical	True	False	False	False	False
-PF23087.2	Pfam	ELAPOR1-like, mannose 6-phosphate receptor homology domain	True	False	False	False	False
+PF23087.3	Pfam	ELAPOR1-like, mannose 6-phosphate receptor homology domain	True	False	False	False	False
 PF23091.3	Pfam	ELAPOR1-like, TNF receptor-like	True	False	False	False	False
 PF23109.2	Pfam	RTEL1 helicase, ARCH domain	True	False	False	False	False
 PF23139.2	Pfam	ATP-dependent DNA helicase YrrC, OB-fold domain	True	False	False	False	False
@@ -4644,8 +4640,8 @@ PF23235.2	Pfam	Large helicase-related protein, winged-helix domain	True	False	Fa
 PF23236.2	Pfam	Large helicase-related protein, winged-helix domain	True	False	False	False	False
 PF23250.2	Pfam	Zinc finger domain of DNA polymerase-epsilon	True	False	False	False	False
 PF23265.2	Pfam	KY-like, immunoglobulin-like domain	True	False	False	False	False
-PF23301.1	Pfam	Platelet endothelial aggregation receptor 1-like, EGF domain	True	False	False	False	False
-PF23322.1	Pfam	AH receptor-interacting protein, N-terminal FKBP-type PPIase	True	False	False	False	False
+PF23301.2	Pfam	Platelet endothelial aggregation receptor 1-like, EGF domain	True	False	False	False	False
+PF23322.2	Pfam	AH receptor-interacting protein, N-terminal FKBP-type PPIase	True	False	False	False	False
 PF23343.3	Pfam	Replication-associated protein ORF2/G2P	True	False	False	False	False
 PF23362.2	Pfam	DEAH helicase DHX37 C-terminal domain	True	False	False	False	False
 PF23369.1	Pfam	Capsid protein Vp25	True	False	False	False	False
@@ -4668,21 +4664,21 @@ PF23780.2	Pfam	S-Adenosylmethionine lyase family	True	False	False	False	False
 PF23781.2	Pfam	Phage tail assembly chaperone protein	True	False	False	False	False
 PF23784.2	Pfam	Smacovirus capsid protein	True	False	False	False	False
 PF23786.2	Pfam	Phage baseplate wedge subunit	True	False	False	False	False
-PF23803.2	Pfam	Phage tail assembly chaperone	True	False	False	False	False
+PF23803.3	Pfam	Phage tail assembly chaperone	True	False	False	False	False
 PF23806.2	Pfam	Phage tail tube protein	True	False	False	False	False
 PF23812.2	Pfam	Phage tail assembly chaperone	True	False	False	False	False
 PF23818.2	Pfam	Bacteriophage Tail Tube Terminator Protein	True	False	False	False	False
 PF23840.2	Pfam	Phage tail terminator protein	True	False	False	False	False
-PF23841.2	Pfam	Phage tail termination protein	True	False	False	False	False
+PF23841.3	Pfam	Phage tail termination protein	True	False	False	False	False
 PF23842.2	Pfam	Phage tail termination protein	True	False	False	False	False
 PF23844.2	Pfam	Non-contractile tail sheath N-terminal domain	True	False	False	False	False
 PF23845.2	Pfam	Non-contractile tail sheath protein TIM barrel	True	False	False	False	False
-PF23849.2	Pfam	Phage tail tube protein	True	False	False	False	False
+PF23849.3	Pfam	Phage tail tube protein	True	False	False	False	False
 PF23857.2	Pfam	Phage tail chaperone protein	True	False	False	False	False
-PF23898.2	Pfam	Crassvirus major capsid protein	True	False	False	False	False
+PF23898.3	Pfam	Crassvirus major capsid protein	True	False	False	False	False
 PF23899.2	Pfam	Phage SU10 portal protein	True	False	False	False	False
-PF23931.2	Pfam	Terminase small subunit	True	False	False	False	False
-PF23971.2	Pfam	Putative phage tail tube protein	True	False	False	False	False
+PF23931.3	Pfam	Terminase small subunit	True	False	False	False	False
+PF23971.3	Pfam	Putative phage tail tube protein	True	False	False	False	False
 PF23980.2	Pfam	Putative phage tail tube initiator protein	True	False	False	False	False
 PF23982.3	Pfam	XM1 gp53 minor capsid protein	True	False	False	False	False
 PF23983.3	Pfam	Minor capsid protein P11, C-terminal conserved region	True	False	False	False	False
@@ -4692,8 +4688,8 @@ PF24065.2	Pfam	DNA polymerase zeta catalytic subunit, N-terminal	True	False	Fals
 PF24077.2	Pfam	Immunoglobulin A1 protease autotransporter domain 2	True	False	False	False	False
 PF24121.2	Pfam	Type I-B CRISPR Cas8b N-terminal domain	True	False	False	False	False
 PF24122.2	Pfam	Type I-B CRISPR Cas8b C-terminal domain	True	False	False	False	False
-PF24190.2	Pfam	Ribonuclease R second OB domain	True	False	False	False	False
-PF24214.2	Pfam	Putative phage head-tail joining protein	True	False	False	False	False
+PF24190.3	Pfam	Ribonuclease R second OB domain	True	False	False	False	False
+PF24214.3	Pfam	Putative phage head-tail joining protein	True	False	False	False	False
 PF24215.2	Pfam	Phage head to tail associated domain	True	False	False	False	False
 PF24228.2	Pfam	Phage tail ring protein 1	True	False	False	False	False
 PF24243.2	Pfam	Phage tail tip domain	True	False	False	False	False
@@ -4720,11 +4716,11 @@ PF24810.2	Pfam	Leucine--tRNA ligase, RagD-binding domain	True	False	False	False	
 PF24844.2	Pfam	DNA polymerase II large subunit DP2, central domain	True	False	False	False	False
 PF24846.2	Pfam	DNA polymerase II large subunit DP2, catalytic domain	True	False	False	False	False
 PF24899.2	Pfam	ATP-dependent RNA helicase DHX29, UBA domain	True	False	False	False	False
-PF24901.2	Pfam	DNA replication licensing factor MCM7, winged helix	True	False	False	False	False
+PF24901.3	Pfam	DNA replication licensing factor MCM7, winged helix	True	False	False	False	False
 PF25011.2	Pfam	Vacuolar sorting receptor thioredoxin-like domain	True	False	False	False	False
 PF25049.2	Pfam	3'-5' exoribonuclease HELZ2, OB-fold domain	True	False	False	False	False
-PF25138.2	Pfam	Phage head-tail joining protein	True	False	False	False	False
-PF25209.2	Pfam	Phage capsid protein	True	False	False	False	False
+PF25138.3	Pfam	Phage head-tail joining protein	True	False	False	False	False
+PF25209.3	Pfam	Phage capsid protein	True	False	False	False	False
 PF25255.2	Pfam	Ribonuclease II, winged helix domain	True	False	False	False	False
 PF25272.2	Pfam	Vitelline envelope sperm lysin receptor, C-terminal domain	True	False	False	False	False
 PF25294.2	Pfam	Renin receptor N-terminal domain	True	False	False	False	False
@@ -4742,11 +4738,11 @@ PF25514.1	Pfam	P3 major capsid protein C-terminal	True	False	False	False	False
 PF25523.2	Pfam	RIMBP2-like, immunoglobulin-like domain	True	False	False	False	False
 PF25529.2	Pfam	ENGASE1-like, C-terminal immunoglobulin-like domain	True	False	False	False	False
 PF25531.1	Pfam	Histone-lysine N-methyltransferase ATXR3, GYF domain	True	False	False	False	False
-PF25552.1	Pfam	Leukemia inhibitory factor receptor D4 domain	True	False	False	False	False
+PF25552.2	Pfam	Leukemia inhibitory factor receptor D4 domain	True	False	False	False	False
 PF25595.2	Pfam	Phage tail tube protein	True	False	False	False	False
 PF25609.1	Pfam	Netrin receptor unc-5 N-terminal domain	True	False	False	False	False
 PF25616.2	Pfam	Bacteriophage PhiKZ capsid decoration protein gp35	True	False	False	False	False
-PF25620.2	Pfam	Bacteriophage PhiKZ major capsid protein gp120	True	False	False	False	False
+PF25620.3	Pfam	Bacteriophage PhiKZ major capsid protein gp120	True	False	False	False	False
 PF25621.2	Pfam	Bacteriophage PhiKZ capsid decoration protein gp244	True	False	False	False	False
 PF25622.2	Pfam	Phi29-like phage major capsid protein	True	False	False	False	False
 PF25623.2	Pfam	T4-phage like capsid assembly scaffolding protein family	True	False	False	False	False
@@ -4783,7 +4779,7 @@ PF25681.2	Pfam	Phage tail tube protein	True	False	False	False	False
 PF25685.2	Pfam	Skunalikevirus tail terminator protein family	True	False	False	False	False
 PF25691.2	Pfam	Baseplate wedge 3 tail fiber network component	True	False	False	False	False
 PF25699.1	Pfam	Anti-CRISPR protein AcrF8	True	False	False	False	False
-PF25702.2	Pfam	Phage tail ring protein 2	True	False	False	False	False
+PF25702.3	Pfam	Phage tail ring protein 2	True	False	False	False	False
 PF25703.2	Pfam	Anti-CRISPR protein F31	True	False	False	False	False
 PF25704.2	Pfam	Anti-CRISPR protein AcrF2 protein	True	False	False	False	False
 PF25707.2	Pfam	Herpesvirus UL78 G protein-coupled receptor	True	False	False	False	False
@@ -4796,14 +4792,14 @@ PF25759.2	Pfam	Bacteriophage HP1 ORF34 baseplate complex protein	True	False	Fals
 PF25766.2	Pfam	RNA polymerase II-associated protein 1, TPR repeats	True	False	False	False	False
 PF25776.2	Pfam	VWDE-like, immunoglobulin domain	True	False	False	False	False
 PF25787.2	Pfam	Sleeping Beauty transposase HTH domain	True	False	False	False	False
-PF25788.2	Pfam	Rha78A-like, N-terminal immunoglobulin domain	True	False	False	False	False
+PF25788.3	Pfam	Rha78A-like, N-terminal immunoglobulin domain	True	False	False	False	False
 PF25839.1	Pfam	D-apionate lactonase, C-terminal immunoglobulin-like domain	True	False	False	False	False
 PF25894.1	Pfam	DNA helicase B winged helix domain	True	False	False	False	False
 PF25941.1	Pfam	PD-(D/E)XK nuclease superfamily domain	True	False	False	False	False
-PF25992.1	Pfam	TM7SF3-like, N-terminal immunoglobulin-like domain	True	False	False	False	False
+PF25992.2	Pfam	TM7SF3-like, N-terminal immunoglobulin-like domain	True	False	False	False	False
 PF25996.1	Pfam	Histone-lysine N-methyltransferase CLF, N-terminal HTH domain	True	False	False	False	False
 PF26003.1	Pfam	Phage integrase, N-terminal domain	True	False	False	False	False
-PF26005.1	Pfam	Putative radical SAM target protein	True	False	False	False	False
+PF26005.2	Pfam	Putative radical SAM target protein	True	False	False	False	False
 PF26016.1	Pfam	Exonuclease I C-terminal domain	True	False	False	False	False
 PF26023.1	Pfam	Alanine--tRNA ligase domain	True	False	False	False	False
 PF26024.1	Pfam	Recombination-activation protein 1 (RAG1) DNA-binding domain	True	False	False	False	False
@@ -4819,11 +4815,11 @@ PF26101.1	Pfam	Recombination-activation protein 1 (RAG1) ZnC2 domain	True	False	
 PF26102.1	Pfam	SPL7-like, immunoglobulin-like domain	True	False	False	False	False
 PF26104.1	Pfam	Recombination-activation protein 1 (RAG1) ZnH2 domain	True	False	False	False	False
 PF26105.1	Pfam	Recombination-activation protein 1 (RAG1) C-terminal domain	True	False	False	False	False
-PF26115.1	Pfam	GAPS4 protein PD-(D/E)XK nuclease domain	True	False	False	False	False
+PF26115.2	Pfam	GAPS4 protein PD-(D/E)XK nuclease domain	True	False	False	False	False
 PF26125.1	Pfam	Anti-CRISPR type V subtype A2 family	True	False	False	False	False
 PF26151.1	Pfam	Anti-CRISPR Type I-F ADP-ribosyltransferase AcrIF11	True	False	False	False	False
 PF26208.1	Pfam	Putative phage tail fibre N-terminal domain	True	False	False	False	False
-PF26209.1	Pfam	Putative phage tail fibre C-terminal domain	True	False	False	False	False
+PF26209.2	Pfam	Putative phage tail fibre C-terminal domain	True	False	False	False	False
 PF26241.1	Pfam	Type I-D CRISPR-associated protein Cas5/Csc1	True	False	False	False	False
 PF26252.1	Pfam	RNA dependent RNA polymerase, helical domain	True	False	False	False	False
 PF26295.1	Pfam	PD-(D/E)XK nuclease superfamily domain	True	False	False	False	False
@@ -4841,6 +4837,212 @@ PF26497.1	Pfam	Putative halobacteria restriction endonuclease	True	False	False	F
 PF26562.1	Pfam	immunoglobulin-like domain	True	False	False	False	False
 PF26579.1	Pfam	CFAP47-like, immunoglobulin-like domain	True	False	False	False	False
 PF26611.1	Pfam	Methylation-associated defense system protein MAD7	True	False	False	False	False
+PF26669.1	Pfam	Mitochondrial ribosome receptor Mrx15	True	False	False	False	False
+PF26683.1	Pfam	Halobacterial tyrosine recombinase N-terminal domain	True	False	False	False	False
+PF26696.1	Pfam	Phage tail like trimerisation region	True	False	False	False	False
+PF26737.1	Pfam	GNPTAB, immunoglobulin-like domain	True	False	False	False	False
+PF26755.1	Pfam	Receptor-type tyrosine-protein phosphatase O, N-terminal domain	True	False	False	False	False
+PF26776.1	Pfam	Baseplate J-like N-terminal domain	True	False	False	False	False
+PF26815.1	Pfam	Phage replication gene B protein family	True	False	False	False	False
+PF26823.1	Pfam	Putative phage T5 terminase, small subunit	True	False	False	False	False
+PF26829.1	Pfam	Valyl--tRNA ligase modifier family	True	False	False	False	False
+PF26841.1	Pfam	Hendrixvirinae small terminase family	True	False	False	False	False
+PF26845.1	Pfam	Phage phi29 DNA replication protein 1 family	True	False	False	False	False
+PF26847.1	Pfam	Phage T5 Apurinic/Apyrimidinic endonuclease family	True	False	False	False	False
+PF26848.1	Pfam	Nicking endonuclease family	True	False	False	False	False
+PF26860.1	Pfam	Phage T5 Receptor-binding protein pb5 family	True	False	False	False	False
+PF26868.1	Pfam	Phage P1 replication protein RepL	True	False	False	False	False
+PF26881.1	Pfam	Bacteriophage P1 tail fiber protein R	True	False	False	False	False
+PF26887.1	Pfam	Bacteriophage T4 endonuclease IV	True	False	False	False	False
+PF26912.1	Pfam	Staphylococcus phage L54a excisionase	True	False	False	False	False
+PF26918.1	Pfam	Intimin, immunoglobulin-like domain	True	False	False	False	False
+PF27070.1	Pfam	Rpn/YhgA-like nuclease family, C-terminal HTH domain	True	False	False	False	False
+PF27096.1	Pfam	UvrC/Cho excinuclease, middle domain	True	False	False	False	False
+PF27104.1	Pfam	Cyclic-di-GMP receptor FimW, N-terminal domain	True	False	False	False	False
+PF27114.1	Pfam	Phage tail protein small four-stranded beta-sheet domain	True	False	False	False	False
+PF27115.1	Pfam	Excinuclease Cho C-terminal domain	True	False	False	False	False
+PF27117.1	Pfam	FliB lysine N-methylase C-terminal domain	True	False	False	False	False
+PF27135.1	Pfam	TnsB transposase helix-turn-helix domain	True	False	False	False	False
+PF27227.1	Pfam	Restriction endonuclease-like C-terminal domain	True	False	False	False	False
+PF27248.1	Pfam	CRISPR-associated protein MJ1674, second domain	True	False	False	False	False
+PF27364.1	Pfam	SPbeta prophage-derived putative capsid protein YonB	True	False	False	False	False
+PF27368.1	Pfam	tRNA (adenine(9)-N1)-methyltransferase N-terminal domain	True	False	False	False	False
+PF27369.1	Pfam	tRNA (adenine(9)-N1)-methyltransferase C-terminal domain	True	False	False	False	False
+PF27379.1	Pfam	tRNA (guanine(9)-/adenine(9)-N1)-methyltransferase N domain	True	False	False	False	False
+PF27381.1	Pfam	tRNA (guanine(9)-/adenine(9)-N1)-methyltransferase C domain	True	False	False	False	False
+PF27413.1	Pfam	S-layer protein A fifth immunoglobulin-like domain	True	False	False	False	False
+PF27416.1	Pfam	S-layer protein A C-terminal immunoglobulin-like domain	True	False	False	False	False
+PF27445.1	Pfam	Adaptation to cold protein A	True	False	False	False	False
+PF27457.2	Pfam	Ribonuclease HII N-terminal domain	True	False	False	False	False
+PF27467.2	Pfam	ATP-dependent helicase/deoxyribonuclease AddB fifth domain	True	False	False	False	False
+PF27579.1	Pfam	Nuclear receptor corepressor 1 N-terminal domain	True	False	False	False	False
+PF27593.1	Pfam	Meroterpenoid methyltransferase N-terminal domain	True	False	False	False	False
+PF27666.1	Pfam	Encapsidation protein CP3	True	False	False	False	False
+PF27669.1	Pfam	RNA-directed RNA polymerase, phytoreovirus	True	False	False	False	False
+PF27691.1	Pfam	Replication-associated protein RepA4	True	False	False	False	False
+PF27704.2	Pfam	Guanidinoacetate N-methyltransferase	True	False	False	False	False
+PF27708.1	Pfam	Increased recombination centres protein 19	True	False	False	False	False
+PF27710.1	Pfam	tRNA (guanine(9)-N(1))-methyltransferase TRM10/TRM10A	True	False	False	False	False
+PF27781.1	Pfam	CRISPR-associated protein Csf1	True	False	False	False	False
+PF27782.1	Pfam	CRISPR type IV associated protein Csf3	True	False	False	False	False
+PF27787.1	Pfam	CRISPR-associated protein Csp2	True	False	False	False	False
+PF27788.1	Pfam	CRISPR-associated protein Cas5p	True	False	False	False	False
+PF27795.1	Pfam	CRISPR-associated protein, CsaX	True	False	False	False	False
+PF27799.1	Pfam	CRISPR-associated protein Csx19	True	False	False	False	False
+PF27829.1	Pfam	Cytochrome c lysine N-methyltransferase 1	True	False	False	False	False
+PF27830.1	Pfam	Apolipoprotein B receptor	True	False	False	False	False
+PF27842.1	Pfam	Putative radical SAM-modified peptide	True	False	False	False	False
+PF27845.1	Pfam	RNA-directed RNA polymerase	True	False	False	False	False
+PF27848.1	Pfam	Cys-rich radical SAM target, FibroRumin family	True	False	False	False	False
+PF27890.1	Pfam	CRISPR type III-associated protein, CHP04423 family	True	False	False	False	False
+PF27912.1	Pfam	ATP synthase subunit C lysine N-methyltransferase N-terminal domain	True	False	False	False	False
+PF27919.1	Pfam	TM7SF3-like, second immunoglobulin-like domain	True	False	False	False	False
+PF27930.1	Pfam	Mitochondrial import receptor subunit TOM5 homologue	True	False	False	False	False
+PF28075.1	Pfam	Phenylalanyl--tRNA ligase operon leader peptide PheM	True	False	False	False	False
+PF28100.1	Pfam	Anti-CRISPR type I subtype E3-like	True	False	False	False	False
+PF28119.1	Pfam	Transposon-encoded protein TnpC-like	True	False	False	False	False
+PF28149.1	Pfam	Anti-CRISPR type II subtype A6-like	True	False	False	False	False
+PF28157.1	Pfam	Type I-Fv CRISPR-associated protein Cas7fv-like	True	False	False	False	False
+PF28165.1	Pfam	Host nuclease inhibitor GamL-like	True	False	False	False	False
+PF28192.1	Pfam	CRISPR-associated endoribonuclease Cas13a	True	False	False	False	False
+PF28211.1	Pfam	Gephyrin-like molybdotransferase receptor GlpR	True	False	False	False	False
+PF28222.1	Pfam	Bombesin receptor-activated protein C6orf89 N-terminal domain	True	False	False	False	False
+PF28248.1	Pfam	Type IV CRISPR-associated endonuclease Csf5	True	False	False	False	False
+PF28276.1	Pfam	IgSF3-like, immunoglobulin-like domain	True	False	False	False	False
+PF28299.1	Pfam	VSIG10L2, immunoglobulin-like domain	True	False	False	False	False
+PF28321.1	Pfam	Myomesin-1-like, immunoglobulin-like domain	True	False	False	False	False
+PF28354.1	Pfam	Semaphorin-3/4/7A, immunoglobulin-like domain	True	False	False	False	False
+PF28365.1	Pfam	RNA exonuclease 3 N-terminal domain	True	False	False	False	False
+PF28381.1	Pfam	TRS130-like, immunoglobulin-like domain	True	False	False	False	False
+PF28393.1	Pfam	Cadherin-99C-like, immunoglobulin-like domain	True	False	False	False	False
+PF28399.1	Pfam	Calsyntenin, immunoglobulin-like domain	True	False	False	False	False
+PF28407.1	Pfam	Anosmin-1, immunoglobulin-like domain	True	False	False	False	False
+PF28430.1	Pfam	LY6G6F, immunoglobulin-like domain	True	False	False	False	False
+PF28434.1	Pfam	Let-653, immunoglobulin-like domain	True	False	False	False	False
+PF28452.1	Pfam	Basic immunoglobulin-like variable motif-containing protein	True	False	False	False	False
+PF28498.1	Pfam	G-protein coupled receptor 149 middle domain	True	False	False	False	False
+PF28499.1	Pfam	G-protein coupled receptor 149 C-terminal domain	True	False	False	False	False
+PF28538.1	Pfam	Probable ATP-dependent RNA helicase, helical domain	True	False	False	False	False
+PF28551.1	Pfam	ATP-dependent DNA helicase Q-like 1, UBA domain	True	False	False	False	False
+PF28553.1	Pfam	Probable helicase, winged helix domain	True	False	False	False	False
+PF28555.1	Pfam	Probable helicase domain	True	False	False	False	False
+PF28596.1	Pfam	Tail fiber assembly protein, N-terminal domain	True	False	False	False	False
+PF28602.1	Pfam	Baseplate hub assembly protein Gp51 C-terminal domain	True	False	False	False	False
+PF28618.1	Pfam	Meiotic topoisomerase VIB-like C-terminal domain	True	False	False	False	False
+PF28626.1	Pfam	GMI1 first immunoglobulin-like domain	True	False	False	False	False
+PF28627.1	Pfam	GMI1 third immunoglobulin-like domain	True	False	False	False	False
+PF28628.1	Pfam	GMI1 second immunoglobulin-like domain	True	False	False	False	False
+PF28648.1	Pfam	Dopamine receptor-interacting protein 1	True	False	False	False	False
+PF28658.1	Pfam	GMI1 4th immunoglobulin-like domain	True	False	False	False	False
+PF28665.1	Pfam	TPLATE immunoglobulin-like domain	True	False	False	False	False
+PF28679.1	Pfam	Interleukin-27 receptor alpha N-terminal domain	True	False	False	False	False
+PF28708.1	Pfam	AbpF third immunoglobulin-like domain	True	False	False	False	False
+PF28709.1	Pfam	AbpF first immunoglobulin-like domain	True	False	False	False	False
+PF28710.1	Pfam	AbpF seventh immunoglobulin-like domain	True	False	False	False	False
+PF28714.1	Pfam	Colossin-D second immunoglobulin-like domain	True	False	False	False	False
+PF28728.1	Pfam	Topoisomerase C-terminal domain, Bacteroidota	True	False	False	False	False
+PF28729.1	Pfam	Winged helix domain, PriA helicase, Bacteroidota	True	False	False	False	False
+PF28742.1	Pfam	SECTM1 immunoglobulin-like domain	True	False	False	False	False
+PF28752.1	Pfam	RecQ helicase winged-helix domain, Bacteroidota	True	False	False	False	False
+PF28791.1	Pfam	TNF receptor grnd cysteine-rich domain	True	False	False	False	False
+PF28818.1	Pfam	DNA polymerase III alpha subunit, C-terminal domain	True	False	False	False	False
+PF28822.1	Pfam	DNA helicase, middle domain	True	False	False	False	False
+PF28842.1	Pfam	Interleukin-9 receptor C-terminal domain	True	False	False	False	False
+PF28843.1	Pfam	RNA exonuclease 3 middle domain	True	False	False	False	False
+PF28896.1	Pfam	Tumour necrosis factor receptor superfamily member 18 N-terminal	True	False	False	False	False
+PF28940.1	Pfam	Poly(A)-specific ribonuclease PARN, RNA-recognition domain	True	False	False	False	False
+PF28962.1	Pfam	Mu-like transposase middle domain	True	False	False	False	False
+PF29000.1	Pfam	Retrotransposon-like protein N-terminal domain	True	False	False	False	False
+PF29013.1	Pfam	Retrotransposon-like protein 1 C-terminal domain	True	False	False	False	False
+PF29084.1	Pfam	DNA polymerase epsilon subunit 2-like, OB-fold domain	True	False	False	False	False
+PF29087.1	Pfam	RNA helicase Mov10l1-like, N-terminal OB domain	True	False	False	False	False
+PF29108.1	Pfam	Mediator of RNA polymerase II N-terminal domain	True	False	False	False	False
+PF29124.1	Pfam	Meiotic sister-chromatid recombination protein 3 beta-sheet domain	True	False	False	False	False
+PF29140.1	Pfam	RNA polymerase-associated N-terminal domain	True	False	False	False	False
+PF29182.1	Pfam	Adaptation to cold protein C N-terminal domain	True	False	False	False	False
+PF29183.1	Pfam	Adaptation to cold protein C C-terminal domain	True	False	False	False	False
+PF29187.1	Pfam	SacI restriction endonuclease C-terminal domain	True	False	False	False	False
+PF29244.1	Pfam	ANTKMT methyltransferase domain	True	False	False	False	False
+PF29294.1	Pfam	S-layer protein A sixth immunoglobulin-like domain	True	False	False	False	False
+PF29319.1	Pfam	Ribonuclease ageritin-like	True	False	False	False	False
+PF29373.1	Pfam	Baseplate wedge Pvc12-like domain 3	True	False	False	False	False
+PF29420.1	Pfam	Non-virion RNA polymerase subunit	True	False	False	False	False
+PF29426.1	Pfam	Bacteriophage RNA polymerase	True	False	False	False	False
+PF29433.1	Pfam	Baseplate wedge Pvc12-like domain 2	True	False	False	False	False
+PF29434.1	Pfam	Baseplate protein PVC11-like	True	False	False	False	False
+PF29449.1	Pfam	Archaeal immunoglobulin-like domain	True	False	False	False	False
+PF29489.1	Pfam	Cyclic-di-GMP receptor FimW, middle PilZ domain	True	False	False	False	False
+PF29494.1	Pfam	Y' element helicase middle domain	True	False	False	False	False
+PF29498.1	Pfam	Y' element helicase C-terminal domain	True	False	False	False	False
+PF29514.1	Pfam	E217 tail sheath protein gp31-like, C-terminal domain	True	False	False	False	False
+PF29521.1	Pfam	Ribosomal lysine N-methyltransferase 2 C-terminal domain	True	False	False	False	False
+PF29527.1	Pfam	Topoisomerase I damage affected protein 7 domain	True	False	False	False	False
+PF29544.1	Pfam	Taste receptor cell protein 1 middle domain	True	False	False	False	False
+PF29548.1	Pfam	E217 tail sheath protein gp31, insert domain	True	False	False	False	False
+PF29583.1	Pfam	HEN1 methyltransferase C-terminal domain	True	False	False	False	False
+PF29702.1	Pfam	Transposon Ty4 N-terminal domain	True	False	False	False	False
+PF29703.1	Pfam	Transposon Ty4 C-terminal domain	True	False	False	False	False
+PF29741.1	Pfam	R1 retrotransposon ORF1 N-terminal domain	True	False	False	False	False
+PF29829.1	Pfam	Ty4 retrotransposon middle domain	True	False	False	False	False
+PF29923.1	Pfam	Suppressor of HU sensitivity involved in recombination protein 1	True	False	False	False	False
+PF30170.1	Pfam	Type I restriction enzyme EcoKI endonuclease subunit second domain	True	False	False	False	False
+PF30177.1	Pfam	YonE portal protein C-terminal region	True	False	False	False	False
+PF30180.1	Pfam	Type II restriction endonuclease HpaI	True	False	False	False	False
+PF30198.1	Pfam	Halobacterial tyrosine recombinase, middle domain	True	False	False	False	False
+PF30237.1	Pfam	Primer-independent DNA polymerase PolB C-terminal domain	True	False	False	False	False
+PF30263.1	Pfam	Type II restriction endonuclease HgaI, N-terminal domain	True	False	False	False	False
+PF30272.1	Pfam	Meiotic recombination protein P22 C-terminal region	True	False	False	False	False
+PF30361.1	Pfam	tRNA methyltransferase TRM82 WD40 domain	True	False	False	False	False
+PF30373.1	Pfam	tRNA/rRNA methyltransferase LasT, C-terminal domain	True	False	False	False	False
+PF30374.1	Pfam	IS481 family transposase, C-terminal domain	True	False	False	False	False
+PF30394.1	Pfam	Phage replication protein O, C-terminal domain	True	False	False	False	False
+PF30395.1	Pfam	Phage integrase N-terminal domain	True	False	False	False	False
+PF30405.1	Pfam	Phage integrase core-binding domain	True	False	False	False	False
+PF30409.1	Pfam	ParB-methyltransferase HTH domain	True	False	False	False	False
+PF30410.1	Pfam	tRNA methyltransferase TrmJ, C-terminal domain	True	False	False	False	False
+PF30411.1	Pfam	Mitochondrial helicase Irc3, C-terminal domain	True	False	False	False	False
+PF30413.1	Pfam	IS1634 family transposase, N-terminal domain	True	False	False	False	False
+PF30419.1	Pfam	Corrinoid adenosyltransferase EutT N-terminal domain	True	False	False	False	False
+PF30425.1	Pfam	DEAD/DEAH box helicase YjiV, C-terminal domain	True	False	False	False	False
+PF30430.1	Pfam	Exodeoxyribonuclease VIII, middle domain	True	False	False	False	False
+PF30445.1	Pfam	IS2 transposase InsD, N-terminal domain	True	False	False	False	False
+PF30447.1	Pfam	Type I restriction enzyme methylase subunit, C-terminal domain	True	False	False	False	False
+PF30450.1	Pfam	Endoribonuclease SymE C-terminal domain	True	False	False	False	False
+PF30455.1	Pfam	CRISPR-associated endonuclease/helicase Cas3, fourth domain	True	False	False	False	False
+PF30461.1	Pfam	IS30 family transposase, N-terminal domain	True	False	False	False	False
+PF30512.1	Pfam	Cyanobacterial DNA polymerase III delta prime, C-terminal domain	True	False	False	False	False
+PF30517.1	Pfam	Cyanobacterial transposase-derived protein, C-terminal domain	True	False	False	False	False
+PF30523.1	Pfam	Cyanobacterial DNA primase DnaG, C-terminal domain	True	False	False	False	False
+PF30547.1	Pfam	Cyanobacterial Ski2-like RNA helicase, middle domain	True	False	False	False	False
+PF30597.1	Pfam	Seven transmembrane receptor	True	False	False	False	False
+PF30636.1	Pfam	Precorrin methyltransferase domain	True	False	False	False	False
+PF30656.1	Pfam	Bacteriophage baseplate protein, N-terminal domain	True	False	False	False	False
+PF30658.1	Pfam	Baseplate J-like central domain	True	False	False	False	False
+PF30765.1	Pfam	Phage baseplate V C-terminal trimerisation domain	True	False	False	False	False
+PF30794.1	Pfam	Phage baseplate assembly protein, N-terminal domain	True	False	False	False	False
+PF30803.1	Pfam	HNH endonuclease-associated, N-terminal domain	True	False	False	False	False
+PF30804.1	Pfam	DNA helicase IV HelD, N-terminal domain	True	False	False	False	False
+PF30840.1	Pfam	CRISPR-associated protein TM1802 (cas_TM1802) central domain	True	False	False	False	False
+PF30841.1	Pfam	CRISPR-associated protein TM1802 (cas_TM1802) C-terminal domain	True	False	False	False	False
+PF30891.1	Pfam	SorCS receptor membrane-proximal stalk domain	True	False	False	False	False
+PF30901.1	Pfam	PEG10/RTL1, C-terminal capsid-like domain	True	False	False	False	False
+PF30909.1	Pfam	ARB_00926 immunoglobulin-like domain	True	False	False	False	False
+PF30928.1	Pfam	Pa193 gp26 major capsid protein	True	False	False	False	False
+PF31002.1	Pfam	Increased DNA methylation protein N-terminal domain	True	False	False	False	False
+PF31004.1	Pfam	Increased DNA methylation protein C-terminal domain	True	False	False	False	False
+PF31090.1	Pfam	Prophage side tail fiber protein StfR third domain	True	False	False	False	False
+PF31132.1	Pfam	Actinobacterial helicase N-terminal four helix bundle	True	False	False	False	False
+PF31144.1	Pfam	Actinomycete integrative conjugative element replication protein	True	False	False	False	False
+PF31174.1	Pfam	Probable primase/polymerase C-terminal domain	True	False	False	False	False
+PF31182.1	Pfam	ATP-dependent DNA helicase-like PIF8, C-terminal domain	True	False	False	False	False
+PF31200.1	Pfam	Arsenite methyltransferase C-terminal domain	True	False	False	False	False
+PF31222.1	Pfam	Bacteriophage baseplate wedge protein gp6, third domain	True	False	False	False	False
+PF31232.1	Pfam	Intron-encoded DNA endonuclease aI3, C-terminal domain	True	False	False	False	False
+PF31235.1	Pfam	Baseplate wedge protein gp7, FN3-like domain	True	False	False	False	False
+PF31249.1	Pfam	Long-tail fiber proximal subunit gp34, C-terminal region	True	False	False	False	False
+PF31254.1	Pfam	Alphaherpesvirus DNA polymerase N-terminal domain	True	False	False	False	False
+PF31260.1	Pfam	Ribonuclease H2 subunit C	True	False	False	False	False
+PF31274.1	Pfam	Restriction endonuclease CglI H-subunit, C-terminal domain	True	False	False	False	False
 phrog_1	PHROG	integrase	True	False	False	False	False
 phrog_10	PHROG	major head protein	True	False	False	False	False
 phrog_100	PHROG	SbcD-like subunit of palindrome specific endonuclease	True	False	False	False	False

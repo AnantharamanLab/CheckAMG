@@ -1,0 +1,297 @@
+category_L1	category_L2	category_L3
+Amino acid metabolism	Alanine / aspartate / glutamate metabolism	
+Amino acid metabolism	Amino acid metabolism (other)	
+Amino acid metabolism	Aminotransferase / transamination	
+Amino acid metabolism	Arginine / proline metabolism	
+Amino acid metabolism	Aromatic amino acid metabolism (Phe / Tyr / Trp)	
+Amino acid metabolism	Branched-chain amino acid metabolism (Val/Leu/Ile)	
+Amino acid metabolism	Cysteine / methionine metabolism	Cysteine biosynthesis / metabolism
+Amino acid metabolism	Cysteine / methionine metabolism	Methionine biosynthesis / metabolism
+Amino acid metabolism	Cysteine / methionine metabolism	SAM cycle / transmethylation
+Amino acid metabolism	Cysteine / methionine metabolism	
+Amino acid metabolism	D-amino acid metabolism	
+Amino acid metabolism	Glycine / serine / threonine metabolism	
+Amino acid metabolism	Histidine metabolism	
+Amino acid metabolism	L-threonine biosynthetic process	
+Amino acid metabolism	Lysine metabolism	
+Amino acid metabolism	Other amino-acid-related metabolism (β-Ala, taurine, glutathione, Se)	
+Amino acid metabolism	Peptide / protein degradation	
+Amino acid metabolism	SAM-cycle methyltransferase (DNA / histone / protein)	
+Amino acid metabolism		
+Aromatic & xenobiotic degradation	Aliphatic hydrocarbon degradation	
+Aromatic & xenobiotic degradation	Aromatic / xenobiotic degradation (other)	
+Aromatic & xenobiotic degradation	BTEX / monoaromatic hydrocarbon degradation	
+Aromatic & xenobiotic degradation	Benzoate / aromatic carboxylic acid degradation	
+Aromatic & xenobiotic degradation	Drug / xenobiotic by P450	
+Aromatic & xenobiotic degradation	Halogenated aromatic / chlorinated degradation	
+Aromatic & xenobiotic degradation	Nitroaromatic / nitrotoluene degradation	
+Aromatic & xenobiotic degradation	PAH / polycyclic aromatic degradation	
+Aromatic & xenobiotic degradation	Phenol / catechol / protocatechuate degradation	
+Carbohydrate metabolism	2-dehydro-3-deoxygalactonokinase activity	
+Carbohydrate metabolism	6-phosphofructo-2-kinase activity	
+Carbohydrate metabolism	CAZy: auxiliary activity / LPMO (AA)	
+Carbohydrate metabolism	CAZy: carbohydrate esterase (CE)	
+Carbohydrate metabolism	CAZy: carbohydrate-binding module (CBM)	
+Carbohydrate metabolism	CAZy: glycoside hydrolase (GH)	
+Carbohydrate metabolism	CAZy: glycosyltransferase (GT)	
+Carbohydrate metabolism	CAZy: polysaccharide lyase (PL)	
+Carbohydrate metabolism	Carbohydrate metabolism (other)	
+Carbohydrate metabolism	Fermentation	Acetogenesis (homo)
+Carbohydrate metabolism	Fermentation	Butyric / butanol fermentation
+Carbohydrate metabolism	Fermentation	Ethanol fermentation
+Carbohydrate metabolism	Fermentation	Lactic acid fermentation
+Carbohydrate metabolism	Fermentation	Mixed-acid fermentation
+Carbohydrate metabolism	Fermentation	
+Carbohydrate metabolism	Gluconeogenesis	
+Carbohydrate metabolism	Glycan / glycoside metabolism	
+Carbohydrate metabolism	Glycan biosynthesis & metabolism	
+Carbohydrate metabolism	Glycolysis / EMP	
+Carbohydrate metabolism	Glyoxylate / dicarboxylate metabolism	
+Carbohydrate metabolism	Pentose phosphate pathway	
+Carbohydrate metabolism	Polysaccharide / complex carbon degradation	
+Carbohydrate metabolism	Polysaccharide metabolism	
+Carbohydrate metabolism	Pyruvate metabolism	
+Carbohydrate metabolism	Starch	
+Carbohydrate metabolism	Sugar interconversion	
+Carbohydrate metabolism	TCA cycle	
+Carbohydrate metabolism	glucokinase activity	
+Carbohydrate metabolism	glucose catabolic process	
+Carbohydrate metabolism	glycerol metabolic process	
+Carbohydrate metabolism	lipopolysaccharide biosynthetic process	
+Carbohydrate metabolism	monosaccharide metabolic process	
+Carbohydrate metabolism	oligosaccharide biosynthetic process	
+Carbohydrate metabolism	photosynthesis, dark reaction	
+Carbohydrate metabolism	polysaccharide biosynthetic process	
+Carbohydrate metabolism	trehalose biosynthetic process	
+Carbohydrate metabolism	trehalose catabolic process	
+Carbohydrate metabolism	trehalose metabolic process	
+Carbon fixation & C1 metabolism	3HP / 4HB / DC4HB cycle	
+Carbon fixation & C1 metabolism	CO oxidation	
+Carbon fixation & C1 metabolism	Calvin-Benson-Bassham (CBB) cycle	
+Carbon fixation & C1 metabolism	Carbon fixation / C1 (other)	
+Carbon fixation & C1 metabolism	Formaldehyde oxidation / fixation	
+Carbon fixation & C1 metabolism	Formate oxidation	
+Carbon fixation & C1 metabolism	Glycolysis	
+Carbon fixation & C1 metabolism	Methanogenesis	Methanogenesis from CO2 / formate
+Carbon fixation & C1 metabolism	Methanogenesis	Methanogenesis from acetate
+Carbon fixation & C1 metabolism	Methanogenesis	Methanogenesis from methylated compounds
+Carbon fixation & C1 metabolism	Methanogenesis	
+Carbon fixation & C1 metabolism	Methanol oxidation	
+Carbon fixation & C1 metabolism	Methanotrophy / methane oxidation	Particulate methane monooxygenase (pMMO)
+Carbon fixation & C1 metabolism	Methanotrophy / methane oxidation	Soluble methane monooxygenase (sMMO)
+Carbon fixation & C1 metabolism	Methanotrophy / methane oxidation	
+Carbon fixation & C1 metabolism	Methylamine / methylated amine metabolism	
+Carbon fixation & C1 metabolism	Reductive TCA (rTCA) cycle	
+Carbon fixation & C1 metabolism	Wood-Ljungdahl pathway / homoacetogenesis	
+Cofactor & vitamin metabolism	Biotin metabolism	
+Cofactor & vitamin metabolism	Cobalamin (B12) metabolism	
+Cofactor & vitamin metabolism	Coenzyme M biosynthesis	
+Cofactor & vitamin metabolism	Folate / one-carbon pool metabolism	
+Cofactor & vitamin metabolism	Heme / porphyrin / chlorophyll metabolism	
+Cofactor & vitamin metabolism	Iron-sulfur cluster assembly	
+Cofactor & vitamin metabolism	Lipoic acid metabolism	
+Cofactor & vitamin metabolism	Molybdopterin / MoCo metabolism	
+Cofactor & vitamin metabolism	NAD(P) / nicotinamide metabolism	
+Cofactor & vitamin metabolism	PQQ biosynthesis	
+Cofactor & vitamin metabolism	Pantothenate / CoA metabolism	
+Cofactor & vitamin metabolism	Pyridoxal (B6) metabolism	
+Cofactor & vitamin metabolism	Retinol / vitamin A metabolism	
+Cofactor & vitamin metabolism	Riboflavin / FAD metabolism	
+Cofactor & vitamin metabolism	Thiamine metabolism	
+Cofactor & vitamin metabolism	Thiol cofactor metabolism	
+Cofactor & vitamin metabolism	Ubiquinone / quinone biosynthesis	
+Energy metabolism	Aerobic respiration / terminal oxidases	
+Energy metabolism	Anammox	
+Energy metabolism	CO oxidation	
+Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+Energy metabolism	Denitrification (NO3 → N2)	Nitric oxide reduction
+Energy metabolism	Denitrification (NO3 → N2)	Nitrite reduction (denitrification)
+Energy metabolism	Denitrification (NO3 → N2)	Nitrous oxide reduction
+Energy metabolism	Denitrification (NO3 → N2)	
+Energy metabolism	Dissimilatory nitrate reduction to ammonia (DNRA)	
+Energy metabolism	Elemental sulfur (S0) oxidation	
+Energy metabolism	Elemental sulfur (S0) reduction	
+Energy metabolism	Fermentation	Acetogenesis (homo)
+Energy metabolism	Fermentation	Butyric / butanol fermentation
+Energy metabolism	Fermentation	Ethanol fermentation
+Energy metabolism	Fermentation	Lactic acid fermentation
+Energy metabolism	Fermentation	Mixed-acid fermentation
+Energy metabolism	Fermentation	
+Energy metabolism	Formate oxidation	
+Energy metabolism	Glycolysis / EMP	
+Energy metabolism	H2 evolution / production	
+Energy metabolism	Hydrogenase	[FeFe]-hydrogenase
+Energy metabolism	Hydrogenase	[Fe]-only hydrogenase (Hmd)
+Energy metabolism	Hydrogenase	[NiFe]-hydrogenase
+Energy metabolism	Hydrogenase	
+Energy metabolism	Iron oxidation	
+Energy metabolism	Iron reduction	
+Energy metabolism	Methanogenesis	Methanogenesis from CO2 / formate
+Energy metabolism	Methanogenesis	Methanogenesis from acetate
+Energy metabolism	Methanogenesis	Methanogenesis from methylated compounds
+Energy metabolism	Methanogenesis	
+Energy metabolism	Methanol oxidation	
+Energy metabolism	Methanotrophy / methane oxidation	Particulate methane monooxygenase (pMMO)
+Energy metabolism	Methanotrophy / methane oxidation	Soluble methane monooxygenase (sMMO)
+Energy metabolism	Methanotrophy / methane oxidation	
+Energy metabolism	NADH dehydrogenase (ubiquinone) activity	
+Energy metabolism	Nitrification (NH3 / NO2 oxidation)	Ammonia oxidation
+Energy metabolism	Nitrification (NH3 / NO2 oxidation)	
+Energy metabolism	Oxidative phosphorylation / ETC	Butyric / butanol fermentation
+Energy metabolism	Oxidative phosphorylation / ETC	Cytochrome c oxidase (aa3 / cbb3 / caa3-type)
+Energy metabolism	Oxidative phosphorylation / ETC	Methanogenesis from CO2 / formate
+Energy metabolism	Oxidative phosphorylation / ETC	Methanogenesis from acetate
+Energy metabolism	Oxidative phosphorylation / ETC	Methanogenesis from methylated compounds
+Energy metabolism	Oxidative phosphorylation / ETC	Nitrate reduction (dissimilatory)
+Energy metabolism	Oxidative phosphorylation / ETC	Nitrite reduction (denitrification)
+Energy metabolism	Oxidative phosphorylation / ETC	
+Energy metabolism	Perchlorate / chlorite reduction	
+Energy metabolism	Photosynthesis	Anoxygenic photosynthesis
+Energy metabolism	Photosynthesis	Oxygenic photosynthesis (PSII / water-splitting)
+Energy metabolism	Photosynthesis	Photosynthetic antenna / light-harvesting
+Energy metabolism	Photosynthesis	
+Energy metabolism	Reductive TCA (rTCA) cycle	
+Energy metabolism	Sulfate reduction	Dissimilatory sulfate reduction
+Energy metabolism	Sulfide oxidation	
+Energy metabolism	Sulfite oxidation	
+Energy metabolism	Sulfite reduction	Dissimilatory sulfite reduction
+Energy metabolism	TCA cycle	
+Energy metabolism	Tetrathionate metabolism	
+Energy metabolism	Thiosulfate disproportionation	
+Energy metabolism	Thiosulfate oxidation	
+Energy metabolism	Wood-Ljungdahl pathway / homoacetogenesis	
+Energy metabolism	cytochrome bo3 ubiquinol oxidase activity	
+Energy metabolism	quinol-cytochrome-c reductase activity	
+Hydrogen metabolism	H2 evolution / production	
+Hydrogen metabolism	Hydrogenase (general)	[NiFe]-hydrogenase
+Hydrogen metabolism	Hydrogenase (general)	
+Lipid & fatty acid metabolism	Bile / wax / mycolic / lipopolysaccharide	
+Lipid & fatty acid metabolism	Fatty acid biosynthesis	
+Lipid & fatty acid metabolism	Fatty acid degradation (β-oxidation)	
+Lipid & fatty acid metabolism	Glycerolipid / glycerophospholipid metabolism	
+Lipid & fatty acid metabolism	Lipid degradation	
+Lipid & fatty acid metabolism	Lipid metabolism (other)	
+Lipid & fatty acid metabolism	Polyunsaturated / specific fatty acid metabolism	
+Lipid & fatty acid metabolism	Sphingolipid / ceramide metabolism	
+Lipid & fatty acid metabolism	Sterol / isoprenoid metabolism	
+Metabolic substrate transport	2-keto-3-deoxygluconate transmembrane transport	
+Metabolic substrate transport	ABC transporters	
+Metabolic substrate transport	ABC-type transport	
+Metabolic substrate transport	Amino-acid / peptide transport	
+Metabolic substrate transport	Bacterial secretion system	
+Metabolic substrate transport	C4-dicarboxylate transport	
+Metabolic substrate transport	Inorganic ion transport	
+Metabolic substrate transport	L-glutamate transmembrane transport	
+Metabolic substrate transport	L-lysine transmembrane transport	
+Metabolic substrate transport	MFS transport	
+Metabolic substrate transport	Nucleoside / nucleobase transport	
+Metabolic substrate transport	PTS / phosphotransferase transport	
+Metabolic substrate transport	Substrate transport (other)	
+Metabolic substrate transport	Sugar transport	
+Metabolic substrate transport	TRAP-type transport	
+Metabolic substrate transport	TonB-dependent / outer membrane transport	
+Metabolic substrate transport	Vitamin / cofactor transport	
+Metabolic substrate transport	acetyl-CoA transmembrane transport	
+Metabolic substrate transport	arachidonate secretion	
+Metabolic substrate transport	benzoate transport	
+Metabolic substrate transport	bile acid and bile salt transport	
+Metabolic substrate transport	biotin transport	
+Metabolic substrate transport	carbohydrate transmembrane transport	
+Metabolic substrate transport	carbohydrate transport	
+Metabolic substrate transport	gluconate transmembrane transport	
+Metabolic substrate transport	hexose transmembrane transport	
+Metabolic substrate transport	lactate transport	
+Metabolic substrate transport	organic anion transport	
+Metabolic substrate transport	p-aminobenzoyl-glutamate transmembrane transport	
+Metabolic substrate transport	polysaccharide transport	
+Metabolic substrate transport	riboflavin transport	
+Nitrogen metabolism	Ammonia assimilation (GS-GOGAT)	
+Nitrogen metabolism	Anammox	
+Nitrogen metabolism	Assimilatory nitrate / nitrite reduction	
+Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+Nitrogen metabolism	Denitrification (NO3 → N2)	Nitric oxide reduction
+Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrite reduction (denitrification)
+Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrous oxide reduction
+Nitrogen metabolism	Denitrification (NO3 → N2)	
+Nitrogen metabolism	Dissimilatory nitrate reduction to ammonia (DNRA)	
+Nitrogen metabolism	Nitrification (NH3 / NO2 oxidation)	Ammonia oxidation
+Nitrogen metabolism	Nitrification (NH3 / NO2 oxidation)	
+Nitrogen metabolism	Nitrile / cyanide metabolism	
+Nitrogen metabolism	Nitrite reduction	
+Nitrogen metabolism	Nitrogen fixation	
+Nitrogen metabolism	Nitrogen metabolism (other)	
+Nitrogen metabolism	Urea utilization	
+Nitrogen metabolism		
+Other		
+Other inorganic element cycling	Arsenic (As) cycling / detoxification	Arsenate reduction (detox)
+Other inorganic element cycling	Arsenic (As) cycling / detoxification	Arsenite efflux / methylation
+Other inorganic element cycling	Arsenic (As) cycling / detoxification	Arsenite oxidation
+Other inorganic element cycling	Arsenic (As) cycling / detoxification	
+Other inorganic element cycling	Copper / multicopper metabolism	
+Other inorganic element cycling	Halogenated compound metabolism	
+Other inorganic element cycling	Iron oxidation	
+Other inorganic element cycling	Iron reduction	
+Other inorganic element cycling	Iron uptake / siderophore / Fe homeostasis	
+Other inorganic element cycling	Manganese cycling	
+Other inorganic element cycling	Mercury (Hg) cycling	Hg(II) reduction
+Other inorganic element cycling	Mercury (Hg) cycling	
+Other inorganic element cycling	Nickel cycling	
+Other inorganic element cycling	Perchlorate / chlorite reduction	
+Other inorganic element cycling	Selenium / selenocompound metabolism	
+Oxygen metabolism	Aerobic respiration / terminal oxidases	Cytochrome c oxidase (aa3 / cbb3 / caa3-type)
+Oxygen metabolism	Aerobic respiration / terminal oxidases	
+Oxygen metabolism	Dark O2 production	Chlorite dismutase
+Oxygen metabolism	Oxygenase / monooxygenase / dioxygenase	
+Oxygen metabolism	Reactive oxygen species detoxification	Catalase / catalase-peroxidase
+Oxygen metabolism	Reactive oxygen species detoxification	Peroxidase / peroxiredoxin
+Oxygen metabolism	Reactive oxygen species detoxification	Superoxide dismutase (SOD)
+Phosphorus metabolism	Inositol phosphate / phytate metabolism	
+Phosphorus metabolism	Phosphatase / phosphate liberation	Acid phosphatase
+Phosphorus metabolism	Phosphatase / phosphate liberation	Alkaline phosphatase
+Phosphorus metabolism	Phosphatase / phosphate liberation	
+Phosphorus metabolism	Phosphate starvation response	
+Phosphorus metabolism	Phosphate transport	Pi transport (Pst, Pit)
+Phosphorus metabolism	Phosphate transport	
+Phosphorus metabolism	Phosphonate / phosphite metabolism	
+Phosphorus metabolism	Polyphosphate metabolism	
+Secondary metabolite metabolism	Alkaloid biosynthesis	
+Secondary metabolite metabolism	Other secondary metabolite metabolism	
+Secondary metabolite metabolism	Pigment biosynthesis (carotenoid, melanin, betalain, anthocyanin)	
+Secondary metabolite metabolism	Plant / glucosinolate / mycotoxin secondary metabolites	
+Secondary metabolite metabolism	Polyketide / antibiotic biosynthesis	
+Secondary metabolite metabolism	Polyphenol / flavonoid metabolism	
+Secondary metabolite metabolism	Terpenoid / carotenoid metabolism	
+Secondary metabolite metabolism	Zeatin biosynthesis	
+Secondary metabolite metabolism		
+Sulfur metabolism	Elemental sulfur (S0) oxidation	
+Sulfur metabolism	Elemental sulfur (S0) reduction	
+Sulfur metabolism	Organosulfur metabolism	DMSO / DMS metabolism
+Sulfur metabolism	Organosulfur metabolism	DMSP / methanethiol metabolism
+Sulfur metabolism	Organosulfur metabolism	Methanesulfonate metabolism
+Sulfur metabolism	Organosulfur metabolism	Sulfonate / taurine degradation
+Sulfur metabolism	Organosulfur metabolism	
+Sulfur metabolism	Sulfate reduction	Assimilatory sulfate reduction
+Sulfur metabolism	Sulfate reduction	Dissimilatory sulfate reduction
+Sulfur metabolism	Sulfate reduction	
+Sulfur metabolism	Sulfide oxidation	
+Sulfur metabolism	Sulfite oxidation	
+Sulfur metabolism	Sulfite reduction	Assimilatory sulfite reduction
+Sulfur metabolism	Sulfite reduction	Dissimilatory sulfite reduction
+Sulfur metabolism	Sulfite reduction	
+Sulfur metabolism	Sulfur amino acid metabolism	Cysteine biosynthesis / metabolism
+Sulfur metabolism	Sulfur amino acid metabolism	Methionine biosynthesis / metabolism
+Sulfur metabolism	Sulfur amino acid metabolism	SAM cycle / transmethylation
+Sulfur metabolism	Sulfur amino acid metabolism	
+Sulfur metabolism	Sulfur metabolism (other)	
+Sulfur metabolism	Tetrathionate metabolism	
+Sulfur metabolism	Thiosulfate disproportionation	
+Sulfur metabolism	Thiosulfate oxidation	
+Sulfur metabolism	acetyl-CoA metabolic process	
+Sulfur metabolism	biotin biosynthetic process	
+Sulfur metabolism	coenzyme A biosynthetic process	
+Sulfur metabolism	coenzyme A metabolic process	
+Sulfur metabolism	glutathione biosynthetic process	
+Sulfur metabolism	glutathione catabolic process	
+Sulfur metabolism	thiamine biosynthetic process	
+Sulfur metabolism	thiamine diphosphate biosynthetic process	
+Sulfur metabolism		

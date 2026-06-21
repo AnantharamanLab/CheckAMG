@@ -4,21 +4,29 @@ channels:
   - bioconda
   - defaults
 dependencies:
-  - python>=3.11
-  - joblib>=1.5.1
-  - numba>=0.61.2
-  - numpy>=2.3.1
-  - pandas>=2.3.0
-  - psutil>=7.0.0
-  - pyyaml>=6.0
-  - requests>=2.32
-  - tqdm>=4.67.1
-  - snakemake==8.23.2
+  - python>=3.11,<3.13
   - pip
   - pip:
-      - polars-u64-idx>=1.30.0
+      - joblib>=1.5.1
+      - lightgbm>=4.5.0
       - metapyrodigal>=1.4.1
+      - numba>=0.61.2,<0.62
+      - numpy>=1.24,<2.3
+      - pandas>=2.3.0,<3
+      - polars-u64-idx>=1.30.0,<2
+      # NOTE: install torch, torch_geometric, torch_scatter, and
+      # faiss-cpu/gpu manually BEFORE creating this env from yaml
+      # (see README Step 2), or the conda solver will pull the
+      # default torch wheel from PyPI to satisfy ptn-set-transformer.
+      - ptn-set-transformer>=2.8,<3
+      - psutil>=7.0.0
+      - pyarrow>=20.0.0
       - pyfastatools==2.5.0
-      - pyhmmer==0.11.1
-      - pyrodigal>=3.5.2
-      - pyrodigal-gv>=0.3
+      - pyhmmer>=0.11.1,<0.13
+      - pyrodigal>=3.5.2,<4
+      - pyrodigal-gv>=0.3.2,<0.4
+      - pyyaml>=6.0
+      - requests>=2.32
+      - scikit-learn==1.7.2
+      - snakemake==8.23.2
+      - tqdm>=4.67.1
