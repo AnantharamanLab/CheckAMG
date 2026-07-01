@@ -88,7 +88,7 @@ Run `checkamg -h` or `checkamg <module> -h` for all options, and see the **[Wiki
 
 ## Error reporting
 
-To report bugs or request features, please use the [GitHub Issues page](https://github.com/AnantharamanLab/CheckAMG/issues). To help diagnose issues and debug, please re-run your command that led to the error with the `--debug` flag, and provide all log files (including module-specific logs within the `01_annotate`, `02_denovo`, and `03_aggregate` if running `checkamg end-to-end`).
+To report bugs or request features, please use the [GitHub Issues page](https://github.com/AnantharamanLab/CheckAMG/issues). To help diagnose issues and debug, please re-run your command that led to the error with the `--debug` flag, and provide all log files (including module-specific logs within the `01_annotate`, `02_denovo`, and `03_aggregate` outputs if running `checkamg end-to-end`).
 
 ## Citation
 
