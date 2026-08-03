@@ -1,17 +1,17 @@
 {
     "AVG-like": {
-        "very_high": 0.95,
-        "high": 0.42,
-        "medium": 0.067
+        "very_high": 0.89,
+        "high": 0.201,
+        "medium": 0.034
     },
     "Viral": {
-        "very_high": 0.968,
-        "high": 0.4,
-        "medium": 0.057
+        "very_high": 0.622,
+        "high": 0.051,
+        "medium": 0.001
     },
     "AVG": {
-        "very_high": 0.906,
-        "high": 0.358,
-        "medium": 0.076
+        "very_high": 0.956,
+        "high": 0.512,
+        "medium": 0.096
     }
 }

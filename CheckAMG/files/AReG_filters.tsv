@@ -231,6 +231,7 @@ K03091	KEGG	sigE_F_G; RNA polymerase sigma-E/F/G factor	True	False	False	False	F
 K03092	KEGG	rpoN; RNA polymerase sigma-54 factor	True	False	False	False	False
 K03093	KEGG	sigI; RNA polymerase sigma-I factor	True	False	False	False	False
 K03110	KEGG	ftsY; fused signal recognition particle receptor	True	False	False	False	False
+K03111	KEGG	ssb; single-strand DNA-binding protein	True	False	False	False	False
 K03158	KEGG	TNFRSF1A, TNFR1, CD120a; tumor necrosis factor receptor superfamily member 1A	True	False	False	False	False
 K03159	KEGG	TNFRSF3, LTBR; lymphotoxin beta receptor TNFR superfamily member 3	True	False	False	False	False
 K03160	KEGG	TNFRSF5, CD40; tumor necrosis factor receptor superfamily member 5	True	False	False	False	False
@@ -1812,6 +1813,7 @@ K18897	KEGG	sdmt; sarcosine/dimethylglycine N-methyltransferase [EC:2.1.1.157]	T
 K18911	KEGG	egtD; L-histidine Nalpha-methyltransferase [EC:2.1.1.44]	True	False	False	False	False
 K18942	KEGG	gp43; Straboviridae DNA polymerase [EC:2.7.7.7]	True	False	False	False	False
 K18943	KEGG	gp45; Straboviridae DNA polymerase processivity component	True	False	False	False	False
+K18946	KEGG	gp32, ssb; Straboviridae single-stranded DNA-binding protein	True	False	False	False	False
 K18947	KEGG	gp41; Straboviridae DNA replication helicase [EC:5.6.2.3]	True	False	False	False	False
 K18948	KEGG	gp61; Straboviridae DNA primase [EC:2.7.7.-]	True	False	False	False	False
 K18949	KEGG	gp59; Straboviridae DNA helicase loader	True	False	False	False	False
@@ -1891,6 +1893,7 @@ K19308	KEGG	BMT6; 25S rRNA (uracil2843-N3)-methyltransferase [EC:2.1.1.312]	True
 K19376	KEGG	L; Morbillivirus RNA-directed RNA polymerase L [EC:2.7.7.48 3.6.1.- 2.7.7.88 2.1.1.375]	True	False	False	False	False
 K19389	KEGG	PB1; Influenza virus RNA-directed RNA polymerase catalytic subunit [EC:2.7.7.48]	True	False	False	False	False
 K19447	KEGG	UL41; Simplexvirus virion host shutoff protein [EC:3.1.27.-]	True	False	False	False	False
+K19453	KEGG	BBRF2; Lymphocryptovirus virion egress protein UL7	True	False	False	False	False
 K19465	KEGG	MGME1, DDK1; mitochondrial genome maintenance exonuclease 1 [EC:3.1.-.-]	True	False	False	False	False
 K19466	KEGG	DDX59; ATP-dependent RNA helicase DDX59 [EC:5.6.2.7]	True	False	False	False	False
 K19514	KEGG	ATP6AP2, PRR; renin receptor	True	False	False	False	False
@@ -2130,6 +2133,7 @@ K22855	KEGG	EEF1AKMT1, EFM5; EEF1A lysine methyltransferase 1 [EC:2.1.1.-]	True	
 K22856	KEGG	EEF1AKMT2, EFM4, METTL10; EEF1A lysine methyltransferase 2 [EC:2.1.1.-]	True	False	False	False	False
 K22857	KEGG	EEF1AKMT4; EEF1A lysine methyltransferase 4 [EC:2.1.1.-]	True	False	False	False	False
 K22872	KEGG	ASTC-R; allatostatin C receptor	True	False	False	False	False
+K22892	KEGG	vif; HIV virion infectivity factor	True	False	False	False	False
 K22900	KEGG	TRMO, trmO; tRNA (adenine37-N6)-methyltransferase [EC:2.1.1.-]	True	False	False	False	False
 K22901	KEGG	trm4; tRNA (cytosine40_48-C5)-methyltransferase [EC:2.1.1.-]	True	False	False	False	False
 K22919	KEGG	DopEcR; dopamine/ecdysteroid receptor	True	False	False	False	False
@@ -2217,6 +2221,7 @@ K24498	KEGG	SORL1; sortilin-related receptor	True	False	False	False	False
 K24596	KEGG	VP7; Rotavirus outer capsid protein VP7	True	False	False	False	False
 K24597	KEGG	VP6; Rotavirus inner capsid protein VP6	True	False	False	False	False
 K24598	KEGG	VP2; Rotavirus core capsid protein VP2	True	False	False	False	False
+K24600	KEGG	A21L; Orthopoxvirus virion membrane protein A21	True	False	False	False	False
 K24609	KEGG	LRIG2; leucine-rich repeats and immunoglobulin-like domains protein 2	True	False	False	False	False
 K24610	KEGG	LRIG1_3; leucine-rich repeats and immunoglobulin-like domains protein 1/3	True	False	False	False	False
 K24659	KEGG	wbdD; O-antigen chain-terminating methyltransferase [EC:2.1.1.-]	True	False	False	False	False
@@ -2281,6 +2286,7 @@ K25276	KEGG	RPO35; Poxviridae DNA-directed RNA polymerase 35 kDa subunit [EC:2.7
 K25277	KEGG	RPO22; Poxviridae DNA-directed RNA polymerase 22 kDa subunit [EC:2.7.7.6]	True	False	False	False	False
 K25278	KEGG	RPO7; Poxviridae DNA-directed RNA polymerase 7 kDa subunit [EC:2.7.7.6]	True	False	False	False	False
 K25279	KEGG	RPO19; Poxviridae DNA-directed RNA polymerase 19 kDa subunit [EC:2.7.7.6]	True	False	False	False	False
+K25280	KEGG	gp2.5, ssb; Autographiviridae single-stranded DNA-binding protein	True	False	False	False	False
 K25303	KEGG	L; Mammarenavirus RNA-directed RNA polymerase L [EC:2.7.7.48 3.1.-.-]	True	False	False	False	False
 K25304	KEGG	RPC9, CRCP; DNA-directed RNA polymerase III subunit RPC9	True	False	False	False	False
 K25306	KEGG	CA; HIV capsid protein	True	False	False	False	False
@@ -2332,7 +2338,13 @@ K25917	KEGG	mtoA; [methyl-Co(III) methoxylated-aromatic-compound-specific corrin
 K25925	KEGG	p150; Rubella virus protease/methyltransferase p150 [EC:3.4.22.-]	True	False	False	False	False
 K25928	KEGG	VP0; Enterovirus capsid protein VP0	True	False	False	False	False
 K25929	KEGG	C; Alphavirus capsid protein [EC:3.4.21.90]	True	False	False	False	False
+K25945	KEGG	A16L; Poxviridae virion membrane protein A16	True	False	False	False	False
+K25955	KEGG	A14.5L; Poxviridae virion membrane protein A14.5	True	False	False	False	False
+K25956	KEGG	A13L; Poxviridae virion membrane protein A13	True	False	False	False	False
+K25962	KEGG	A9L; Poxviridae virion membrane protein A9	True	False	False	False	False
 K25968	KEGG	MRAP2; melanocortin-2 receptor accessory protein 2	True	False	False	False	False
+K25969	KEGG	A14L; Poxviridae virion membrane protein A14	True	False	False	False	False
+K25970	KEGG	A17L; Poxviridae virion membrane protein A17	True	False	False	False	False
 K25988	KEGG	TOP1, H6R; Poxviridae DNA topoisomerase 1B [EC:5.6.2.1]	True	False	False	False	False
 K26000	KEGG	C; Flavivirus capsid protein C	True	False	False	False	False
 K26007	KEGG	L2; Mastadenovirus core-capsid bridging protein	True	False	False	False	False
@@ -2429,6 +2441,9 @@ K26528	KEGG	C1; Begomovirus replication-associated protein [EC:2.7.7.- 3.1.21.-]
 K26530	KEGG	A50R; Poxviridae DNA ligase [EC:6.5.1.1]	True	False	False	False	False
 K26533	KEGG	G5R; Poxviridae putative nuclease [EC:3.1.-.-]	True	False	False	False	False
 K26534	KEGG	A22R; Poxviridae DNA holliday junction resolvase [EC:3.1.-.-]	True	False	False	False	False
+K26559	KEGG	WHY1; single-stranded DNA-binding protein WHY1	True	False	False	False	False
+K26560	KEGG	WHY3; single-stranded DNA-binding protein WHY3	True	False	False	False	False
+K26561	KEGG	WHY2; single-stranded DNA-binding protein WHY2	True	False	False	False	False
 K26586	KEGG	COLQ; acetylcholinesterase collagenic tail peptide	True	False	False	False	False
 K26590	KEGG	umaA; mycolic acid methyltransferase UmaA [EC:2.1.1.-]	True	False	False	False	False
 K26594	KEGG	mmaA1; mycolic acid methyltransferase MmaA1 [EC:2.1.1.-]	True	False	False	False	False
@@ -2631,6 +2646,8 @@ K26929	KEGG	K26929; Zierdtviridae DNA helicase	True	False	False	False	False
 K26930	KEGG	mtqA; [methyl-Co(III) quaternary-amine-specific corrinoid protein]---tetrahydrofolate methyltransferase [EC:2.1.1.389]	True	False	False	False	False
 K26936	KEGG	TIMD4, TIM4; T-cell immunoglobulin and mucin domain-containing protein 4	True	False	False	False	False
 K26940	KEGG	gp10; Autographiviridae major head protein	True	False	False	False	False
+K26941	KEGG	gp15; Autographiviridae internal virion protein Gp15	True	False	False	False	False
+K26942	KEGG	gp14; Autographiviridae internal virion protein Gp14	True	False	False	False	False
 K26943	KEGG	gp8; Autographiviridae portal protein	True	False	False	False	False
 K26946	KEGG	gp17; Autographiviridae tail fiber protein	True	False	False	False	False
 K26947	KEGG	gp9; Autographiviridae capsid assembly scaffolding protein	True	False	False	False	False
@@ -2656,6 +2673,7 @@ K27000	KEGG	sigH; RNA polymerase sigma-H factor	True	False	False	False	False
 K27008	KEGG	ORF3b; Bromovirus capsid protein	True	False	False	False	False
 K27013	KEGG	ORF5; Closteroviridae minor capsid protein	True	False	False	False	False
 K27021	KEGG	gp1; Genomoviridae capsid protein	True	False	False	False	False
+K27046	KEGG	K27046; Poxviridae trimeric virion coat protein rifampicin res	True	False	False	False	False
 K27047	KEGG	K27047; Rudiviridae major capsid protein	True	False	False	False	False
 K27053	KEGG	ORF2; Tombusviridae capsid protein	True	False	False	False	False
 K27058	KEGG	s2gp1; Virgaviridae capsid protein	True	False	False	False	False
@@ -2945,6 +2963,7 @@ K27779	KEGG	NNMT; norajmaline N-methyltransferase [EC:2.1.1.392]	True	False	Fals
 K27787	KEGG	OMT; hydroxystrychnine O-methyltransferase [EC:2.1.1.397]	True	False	False	False	False
 K27800	KEGG	HEVgp10; Hepeviridae capsid protein	True	False	False	False	False
 K27803	KEGG	HROB; homologous recombination OB-fold protein	True	False	False	False	False
+K27824	KEGG	K27824; Betaentomopoxvirus virion core cysteine protease	True	False	False	False	False
 K27829	KEGG	K27829; Gordonia phage head maturation protease	True	False	False	False	False
 K27844	KEGG	ANMT; ajmaline N-methyltransferase [EC:2.1.1.393]	True	False	False	False	False
 K27903	KEGG	APOBR; apolipoprotein B receptor	True	False	False	False	False
@@ -3187,6 +3206,7 @@ PF02444.21	Pfam	Hepatitis E virus ORF-2 (Putative capsid protein)	True	False	Fal
 PF02475.24	Pfam	TRM5/TYW2 methyltransferase domain	True	False	False	False	False
 PF02477.21	Pfam	Nucleocapsid N protein	True	False	False	False	False
 PF02481.22	Pfam	DNA recombination-mediator protein A	True	False	False	False	False
+PF02484.21	Pfam	Rhabdovirus Non-virion protein	True	False	False	False	False
 PF02486.26	Pfam	Replication initiation factor	True	False	False	False	False
 PF02518.32	Pfam	Histidine kinase-, DNA gyrase B-, and HSP90-like ATPase	True	False	False	False	False
 PF02527.22	Pfam	rRNA small subunit methyltransferase G	True	False	False	False	False
@@ -3206,6 +3226,7 @@ PF02689.21	Pfam	Helicase	True	False	False	False	False
 PF02707.22	Pfam	Major Outer Sheath Protein N-terminal region	True	False	False	False	False
 PF02722.22	Pfam	Major Outer Sheath Protein C-terminal domain	True	False	False	False	False
 PF02739.23	Pfam	5'-3' exonuclease, N-terminal resolvase-like domain	True	False	False	False	False
+PF02765.25	Pfam	Telomeric single stranded DNA binding POT1/CDC13	True	False	False	False	False
 PF02767.22	Pfam	DNA polymerase III beta subunit, central domain	True	False	False	False	False
 PF02768.21	Pfam	DNA polymerase III beta subunit, C-terminal domain	True	False	False	False	False
 PF02772.22	Pfam	S-adenosylmethionine synthetase, central domain	True	False	False	False	False
@@ -3340,6 +3361,7 @@ PF04471.19	Pfam	Restriction endonuclease	True	False	False	False	False
 PF04492.20	Pfam	Bacteriophage replication protein O	True	False	False	False	False
 PF04493.21	Pfam	Endonuclease V	True	False	False	False	False
 PF04501.18	Pfam	Baculovirus major capsid protein VP39	True	False	False	False	False
+PF04541.20	Pfam	Herpesvirus virion protein U34	True	False	False	False	False
 PF04555.20	Pfam	Restriction endonuclease XhoI	True	False	False	False	False
 PF04556.19	Pfam	DpnII restriction endonuclease	True	False	False	False	False
 PF04560.26	Pfam	RNA polymerase Rpb2, domain 7	True	False	False	False	False
@@ -3385,6 +3407,7 @@ PF05001.19	Pfam	RNA polymerase Rpb1 C-terminal repeat	True	False	False	False	Fal
 PF05050.20	Pfam	Methyltransferase FkbM domain	True	False	False	False	False
 PF05065.20	Pfam	Phage capsid family	True	False	False	False	False
 PF05066.20	Pfam	HB1, ASXL, restriction endonuclease HTH domain	True	False	False	False	False
+PF05069.19	Pfam	Phage virion morphogenesis family	True	False	False	False	False
 PF05073.18	Pfam	Baculovirus P24 capsid protein	True	False	False	False	False
 PF05100.18	Pfam	Phage minor tail protein L	True	False	False	False	False
 PF05104.18	Pfam	Ribosome receptor lysine/proline rich region	True	False	False	False	False
@@ -3426,6 +3449,7 @@ PF05496.19	Pfam	Holliday junction DNA helicase RuvB P-loop domain	True	False	Fal
 PF05499.18	Pfam	DNA methyltransferase 1-associated protein 1 (DMAP1)	True	False	False	False	False
 PF05521.19	Pfam	Phage head completion protein	True	False	False	False	False
 PF05551.18	Pfam	Zinc-binding loop region of homing endonuclease	True	False	False	False	False
+PF05554.17	Pfam	Viral hemorrhagic septicemia virus non-virion protein	True	False	False	False	False
 PF05586.17	Pfam	Anthrax receptor C-terminus region	True	False	False	False	False
 PF05587.20	Pfam	Anthrax receptor extracellular domain	True	False	False	False	False
 PF05598.17	Pfam	Transposase domain (DUF772)	True	False	False	False	False
@@ -3439,11 +3463,13 @@ PF05724.18	Pfam	Thiopurine S-methyltransferase (TPMT)	True	False	False	False	Fal
 PF05732.17	Pfam	Firmicute plasmid replication protein (RepL)	True	False	False	False	False
 PF05733.17	Pfam	Tenuivirus/Phlebovirus nucleocapsid protein	True	False	False	False	False
 PF05750.18	Pfam	Rubella capsid protein	True	False	False	False	False
+PF05767.18	Pfam	Poxvirus virion envelope protein A14	True	False	False	False	False
 PF05774.17	Pfam	Herpesvirus helicase-primase complex component	True	False	False	False	False
 PF05788.19	Pfam	Orbivirus RNA-dependent RNA polymerase (VP1)	True	False	False	False	False
 PF05790.22	Pfam	Immunoglobulin C2-set domain	True	False	False	False	False
 PF05801.17	Pfam	Lagovirus minor capsid protein VP2	True	False	False	False	False
 PF05840.20	Pfam	Bacteriophage replication gene A protein (GPA)	True	False	False	False	False
+PF05851.17	Pfam	Lentivirus virion infectivity factor (VIF)	True	False	False	False	False
 PF05864.18	Pfam	Chordopoxvirus DNA-directed RNA polymerase 7 kDa polypeptide (RPO7)	True	False	False	False	False
 PF05866.17	Pfam	Endodeoxyribonuclease RusA	True	False	False	False	False
 PF05868.16	Pfam	Rotavirus major outer capsid protein VP7	True	False	False	False	False
@@ -3852,6 +3878,7 @@ PF11427.15	Pfam	Tc3 transposase	True	False	False	False	False
 PF11463.15	Pfam	R.HinP1I restriction endonuclease	True	False	False	False	False
 PF11465.15	Pfam	Natural killer cell receptor 2B4	True	False	False	False	False
 PF11469.14	Pfam	Ribonuclease III	True	False	False	False	False
+PF11475.13	Pfam	Virion protein N terminal domain	True	False	False	False	False
 PF11490.14	Pfam	DNA polymerase III polC-type N-terminus II	True	False	False	False	False
 PF11531.15	Pfam	Coactivator-associated arginine methyltransferase 1 N terminal	True	False	False	False	False
 PF11548.14	Pfam	Protein-tyrosine phosphatase receptor IA-2	True	False	False	False	False
@@ -3862,6 +3889,7 @@ PF11590.13	Pfam	DNA polymerase catalytic subunit Pol	True	False	False	False	Fals
 PF11599.15	Pfam	RRNA methyltransferase AviRa	True	False	False	False	False
 PF11634.14	Pfam	Nuclease inhibitor from bacteriophage T4	True	False	False	False	False
 PF11645.15	Pfam	PD-(D/E)XK endonuclease	True	False	False	False	False
+PF11653.14	Pfam	Bacteriophage T7 virion assembly protein	True	False	False	False	False
 PF11663.15	Pfam	Toxin with endonuclease activity, of toxin-antitoxin system	True	False	False	False	False
 PF11705.14	Pfam	DNA-directed RNA polymerase III subunit Rpc31	True	False	False	False	False
 PF11710.15	Pfam	G protein-coupled glucose receptor regulating Gpa2	True	False	False	False	False
@@ -3895,12 +3923,14 @@ PF12109.14	Pfam	CXCR4 Chemokine receptor N terminal	True	False	False	False	False
 PF12136.14	Pfam	RNA polymerase Rpo13 subunit HTH domain	True	False	False	False	False
 PF12137.14	Pfam	RNA polymerase recycling family C-terminal	True	False	False	False	False
 PF12147.15	Pfam	Putative methyltransferase	True	False	False	False	False
+PF12149.14	Pfam	Herpes simplex virus virion protein 16 C terminal	True	False	False	False	False
 PF12168.14	Pfam	DNA polymerase III subunits tau domain IV DnaB-binding	True	False	False	False	False
 PF12169.14	Pfam	DNA polymerase III subunits gamma and tau domain III	True	False	False	False	False
 PF12170.14	Pfam	DNA polymerase III tau subunit V interacting with alpha	True	False	False	False	False
 PF12176.14	Pfam	Methanol-cobalamin methyltransferase B subunit	True	False	False	False	False
 PF12183.14	Pfam	Restriction endonuclease NotI	True	False	False	False	False
 PF12187.15	Pfam	Viral/Archaeal nuclease	True	False	False	False	False
+PF12189.14	Pfam	Single-strand DNA-binding protein	True	False	False	False	False
 PF12191.14	Pfam	Tumour necrosis factor receptor stn_TNFRSF12A_TNFR domain	True	False	False	False	False
 PF12205.14	Pfam	G protein-coupled receptor kinase-interacting protein 1 C term	True	False	False	False	False
 PF12213.15	Pfam	DNA polymerases epsilon N terminal	True	False	False	False	False
@@ -4126,6 +4156,8 @@ PF16461.12	Pfam	Lambda phage tail tube protein, TTP	True	False	False	False	False
 PF16462.12	Pfam	Phage tail assembly chaperone protein, TAC	True	False	False	False	False
 PF16463.12	Pfam	Phage tail tube protein family	True	False	False	False	False
 PF16473.12	Pfam	3'-5' exoribonuclease Rv2179c-like domain	True	False	False	False	False
+PF16504.12	Pfam	Putative virion membrane protein of plant and insect virus	True	False	False	False	False
+PF16506.11	Pfam	Putative virion glycoprotein of insect viruses	True	False	False	False	False
 PF16510.13	Pfam	Phage P22-like portal protein	True	False	False	False	False
 PF16530.12	Pfam	Infectious hypodermal and haematopoietic necrosis virus, capsid	True	False	False	False	False
 PF16532.13	Pfam	Sf6-type phage tail needle knob or tip of some Caudovirales	True	False	False	False	False
@@ -4143,6 +4175,7 @@ PF16730.12	Pfam	DnaG-primase C-terminal, helicase-binding domain	True	False	Fals
 PF16732.11	Pfam	Type IV minor pilin ComP, DNA uptake sequence receptor	True	False	False	False	False
 PF16742.11	Pfam	N-terminus of interleukin 17 receptor D	True	False	False	False	False
 PF16759.13	Pfam	DNA ligase 3 BRCT domain	True	False	False	False	False
+PF16773.12	Pfam	Lactococcus phage single-stranded DNA binding protein	True	False	False	False	False
 PF16774.13	Pfam	Distal tail protein, N-terminal domain	True	False	False	False	False
 PF16778.11	Pfam	Phage tail assembly chaperone protein	True	False	False	False	False
 PF16784.11	Pfam	Putative HNHc nuclease	True	False	False	False	False
@@ -4176,6 +4209,7 @@ PF17290.9	Pfam	Arenavirus nucleocapsid C-terminal domain	True	False	False	False	
 PF17378.8	Pfam	Meiotic recombination protein REC104	True	False	False	False	False
 PF17388.8	Pfam	Mycobacteriophage tail assembly protein	True	False	False	False	False
 PF17411.7	Pfam	Type II site-specific deoxyribonuclease	True	False	False	False	False
+PF17427.8	Pfam	Phage Single-stranded DNA-binding protein	True	False	False	False	False
 PF17469.9	Pfam	Gp68-like predicted RNA polymerase component	True	False	False	False	False
 PF17481.8	Pfam	Phage tail sheath protein beta-sandwich domain	True	False	False	False	False
 PF17482.8	Pfam	Phage tail sheath C-terminal domain	True	False	False	False	False
@@ -4190,6 +4224,7 @@ PF17770.8	Pfam	Ribonuclease J C-terminal domain	True	False	False	False	False
 PF17843.7	Pfam	MycE methyltransferase N-terminal	True	False	False	False	False
 PF17870.7	Pfam	Insulin receptor trans-membrane segment	True	False	False	False	False
 PF17877.8	Pfam	DIS3-like exonuclease 2 C terminal	True	False	False	False	False
+PF17878.9	Pfam	Phage single-stranded DNA-binding protein	True	False	False	False	False
 PF17879.8	Pfam	DNA ligase C-terminal domain	True	False	False	False	False
 PF17893.8	Pfam	CRISPR-associated endonuclease Cas9 beta-hairpin domain	True	False	False	False	False
 PF17894.8	Pfam	Topo homolgy domain in CRISPR-associated endonuclease Cas9	True	False	False	False	False
@@ -4233,6 +4268,7 @@ PF18207.8	Pfam	Leukemia inhibitory factor receptor N-terminal domain	True	False	
 PF18214.8	Pfam	STATa Immunoglobulin-like domain	True	False	False	False	False
 PF18245.6	Pfam	5-3 exonuclease XRN1 DCP1-binding motif	True	False	False	False	False
 PF18258.7	Pfam	Interleukin-4 inducing immunoglobulin-binding domain	True	False	False	False	False
+PF18272.6	Pfam	single-stranded DNA binding TraI N-terminal subdomain	True	False	False	False	False
 PF18275.8	Pfam	His-Me finger endonuclease beta4-alpha2 domain	True	False	False	False	False
 PF18278.8	Pfam	Receptor activator of the NF-KB cysteine-rich repeat domain 2	True	False	False	False	False
 PF18279.7	Pfam	Werner helicase-interacting protein 1 ubiquitin-binding domain	True	False	False	False	False
@@ -4242,6 +4278,7 @@ PF18311.8	Pfam	Exosome complex exonuclease Rrp40 N-terminal domain	True	False	Fa
 PF18319.8	Pfam	PriA DNA helicase Cys-rich region (CRR) domain	True	False	False	False	False
 PF18320.7	Pfam	Csc2 Crispr	True	False	False	False	False
 PF18332.8	Pfam	Exoribonuclease Xrn1 D1 domain	True	False	False	False	False
+PF18333.7	Pfam	Non-canonical single-stranded DNA-binding domain	True	False	False	False	False
 PF18334.8	Pfam	Exoribonuclease Xrn1 D2/D3 domain	True	False	False	False	False
 PF18335.8	Pfam	ATP-dependent RecD-like DNA helicase SH3 domain	True	False	False	False	False
 PF18338.8	Pfam	Lower baseplate protein N-terminal domain	True	False	False	False	False
@@ -4249,6 +4286,7 @@ PF18343.9	Pfam	Dda helicase SH3 domain	True	False	False	False	False
 PF18350.8	Pfam	Restriction endonuclease SH3 domain	True	False	False	False	False
 PF18358.8	Pfam	Histone methyltransferase Tudor domain	True	False	False	False	False
 PF18359.8	Pfam	Histone methyltransferase Tudor domain 1	True	False	False	False	False
+PF18361.7	Pfam	Single stranded DNA-binding protein ss DNA binding domain	True	False	False	False	False
 PF18380.8	Pfam	Holliday junction resolvase Gen1 C-terminal domain	True	False	False	False	False
 PF18415.7	Pfam	Histidine kinase receptor ArcB trans-membrane domain	True	False	False	False	False
 PF18422.7	Pfam	Tumor necrosis factor receptor member 16 trans-membrane domain	True	False	False	False	False
@@ -4304,6 +4342,7 @@ PF18965.6	Pfam	Outer capsid protein VP3-like	True	False	False	False	False
 PF19021.6	Pfam	CRISPR system CMR subunit Cmr7 1	True	False	False	False	False
 PF19065.8	Pfam	Minor capsid protein P8 central region	True	False	False	False	False
 PF19066.7	Pfam	Minor capsid protein P9 transmembrane helices	True	False	False	False	False
+PF19214.6	Pfam	Coronavirus spike glycoprotein S2, intravirion	True	False	False	False	False
 PF19215.6	Pfam	Coronavirus replicase NSP15, uridylate-specific endoribonuclease	True	False	False	False	False
 PF19222.6	Pfam	Nodavirus Vmethyltransferase	True	False	False	False	False
 PF19223.6	Pfam	Chroparavirus methyltransferase	True	False	False	False	False
@@ -4323,6 +4362,7 @@ PF19821.6	Pfam	Phage capsid protein	True	False	False	False	False
 PF19833.5	Pfam	ATP-dependent DNA helicase RecG, domain 3, C-terminal	True	False	False	False	False
 PF19835.7	Pfam	Putative endonuclease segE, GIY-YIG domain	True	False	False	False	False
 PF19864.6	Pfam	Radical SAM proteins, N-terminal	True	False	False	False	False
+PF19978.5	Pfam	Tail virion protein G7P	True	False	False	False	False
 PF20036.6	Pfam	Major capsid protein 13-like	True	False	False	False	False
 PF20141.5	Pfam	Brassinosteroid receptor island domain	True	False	False	False	False
 PF20167.4	Pfam	Putative plant retrotransposon-related domain	True	False	False	False	False
@@ -4427,6 +4467,7 @@ PF21210.4	Pfam	Putative ATP-dependent RNA helicase, helical bundle	True	False	Fa
 PF21224.4	Pfam	Small RNA 2'-O-methyltransferase-like, La-motif-containing domain	True	False	False	False	False
 PF21239.3	Pfam	Ribosomal RNA large subunit methyltransferase M, N-terminal	True	False	False	False	False
 PF21241.3	Pfam	DNA helicase UvsW, N-terminal	True	False	False	False	False
+PF21265.4	Pfam	Single-stranded DNA-binding protein, Bacteriophage T7	True	False	False	False	False
 PF21268.4	Pfam	Bacteriophage T7 DNA helicase/primase, N-terminal a+b fold	True	False	False	False	False
 PF21280.3	Pfam	Archaeal helicase, domain 4	True	False	False	False	False
 PF21293.3	Pfam	Ribonuclease D, C-terminal HRDC domain	True	False	False	False	False
@@ -4454,6 +4495,7 @@ PF21456.4	Pfam	Baseplate wedge protein gp7, domain VI	True	False	False	False	Fal
 PF21460.4	Pfam	GM-CSF/IL-3/IL-5 receptor common beta subunit, N-terminal	True	False	False	False	False
 PF21468.3	Pfam	Tyrosine-protein kinase receptor torso, second FN3 domain	True	False	False	False	False
 PF21472.3	Pfam	Baseplate structural protein gp6, C-terminal domain II	True	False	False	False	False
+PF21473.5	Pfam	Single-stranded DNA binding protein Ssb-like, OB fold	True	False	False	False	False
 PF21474.4	Pfam	DNA polymerase II, N-terminal	True	False	False	False	False
 PF21500.4	Pfam	DNA polymerase III subunit delta', AAA+ ATPase lid domain	True	False	False	False	False
 PF21507.3	Pfam	Sputnik minor capsid protein V18/19	True	False	False	False	False
@@ -4685,6 +4727,7 @@ PF23983.3	Pfam	Minor capsid protein P11, C-terminal conserved region	True	False	
 PF24055.3	Pfam	DNA polymerase delta catalytic subunit-like, N-terminal domain	True	False	False	False	False
 PF24061.2	Pfam	Putative ionotropic receptor, ligand binding domain	True	False	False	False	False
 PF24065.2	Pfam	DNA polymerase zeta catalytic subunit, N-terminal	True	False	False	False	False
+PF24072.2	Pfam	T7 virus internal virion protein gp14 family	True	False	False	False	False
 PF24077.2	Pfam	Immunoglobulin A1 protease autotransporter domain 2	True	False	False	False	False
 PF24121.2	Pfam	Type I-B CRISPR Cas8b N-terminal domain	True	False	False	False	False
 PF24122.2	Pfam	Type I-B CRISPR Cas8b C-terminal domain	True	False	False	False	False
@@ -4820,6 +4863,7 @@ PF26125.1	Pfam	Anti-CRISPR type V subtype A2 family	True	False	False	False	False
 PF26151.1	Pfam	Anti-CRISPR Type I-F ADP-ribosyltransferase AcrIF11	True	False	False	False	False
 PF26208.1	Pfam	Putative phage tail fibre N-terminal domain	True	False	False	False	False
 PF26209.2	Pfam	Putative phage tail fibre C-terminal domain	True	False	False	False	False
+PF26212.1	Pfam	Phage T7 Internal virion protein gp15	True	False	False	False	False
 PF26241.1	Pfam	Type I-D CRISPR-associated protein Cas5/Csc1	True	False	False	False	False
 PF26252.1	Pfam	RNA dependent RNA polymerase, helical domain	True	False	False	False	False
 PF26295.1	Pfam	PD-(D/E)XK nuclease superfamily domain	True	False	False	False	False
@@ -4967,6 +5011,7 @@ PF29294.1	Pfam	S-layer protein A sixth immunoglobulin-like domain	True	False	Fal
 PF29319.1	Pfam	Ribonuclease ageritin-like	True	False	False	False	False
 PF29373.1	Pfam	Baseplate wedge Pvc12-like domain 3	True	False	False	False	False
 PF29420.1	Pfam	Non-virion RNA polymerase subunit	True	False	False	False	False
+PF29422.1	Pfam	Bacteriophage G278-like virion protein	True	False	False	False	False
 PF29426.1	Pfam	Bacteriophage RNA polymerase	True	False	False	False	False
 PF29433.1	Pfam	Baseplate wedge Pvc12-like domain 2	True	False	False	False	False
 PF29434.1	Pfam	Baseplate protein PVC11-like	True	False	False	False	False
@@ -5204,6 +5249,7 @@ phrog_11419	PHROG	tail fiber protein	True	False	False	False	False
 phrog_1143	PHROG	DNA helicase	True	False	False	False	False
 phrog_11431	PHROG	virion structural protein	True	False	False	False	False
 phrog_11439	PHROG	tail fiber protein	True	False	False	False	False
+phrog_1144	PHROG	single strand DNA binding protein	True	False	False	False	False
 phrog_11445	PHROG	minor tail protein	True	False	False	False	False
 phrog_1149	PHROG	Hoc-like head decoration	True	False	False	False	False
 phrog_11494	PHROG	terminase small subunit	True	False	False	False	False
@@ -5213,6 +5259,7 @@ phrog_11515	PHROG	DNA polymerase/primase	True	False	False	False	False
 phrog_11518	PHROG	tail fiber protein	True	False	False	False	False
 phrog_11531	PHROG	integrase	True	False	False	False	False
 phrog_1154	PHROG	long tail fiber protein proximal connector	True	False	False	False	False
+phrog_11550	PHROG	internal virion protein	True	False	False	False	False
 phrog_1156	PHROG	DNA primase	True	False	False	False	False
 phrog_11564	PHROG	DNA methyltransferase	True	False	False	False	False
 phrog_1157	PHROG	transposase	True	False	False	False	False
@@ -5256,13 +5303,16 @@ phrog_11894	PHROG	RusA-like Holliday junction resolvase	True	False	False	False	F
 phrog_119	PHROG	HNH endonuclease	True	False	False	False	False
 phrog_1190	PHROG	RNA polymerase sigma factor	True	False	False	False	False
 phrog_1191	PHROG	transposase	True	False	False	False	False
+phrog_1192	PHROG	single strand DNA binding protein	True	False	False	False	False
 phrog_11922	PHROG	tail protein	True	False	False	False	False
 phrog_11953	PHROG	exonuclease	True	False	False	False	False
 phrog_1196	PHROG	tail assembly chaperone	True	False	False	False	False
 phrog_1197	PHROG	tail protein	True	False	False	False	False
 phrog_11985	PHROG	head protein	True	False	False	False	False
+phrog_1199	PHROG	single strand DNA binding protein	True	False	False	False	False
 phrog_12	PHROG	portal protein	True	False	False	False	False
 phrog_120	PHROG	baseplate wedge subunit	True	False	False	False	False
+phrog_12003	PHROG	internal virion protein	True	False	False	False	False
 phrog_12023	PHROG	DNA topoisomerase	True	False	False	False	False
 phrog_12032	PHROG	short tail fiber protein	True	False	False	False	False
 phrog_1204	PHROG	tail protein	True	False	False	False	False
@@ -5328,6 +5378,7 @@ phrog_1259	PHROG	baseplate hub subunit and tail lysozyme	True	False	False	False	
 phrog_12598	PHROG	RusA-like Holliday junction resolvase	True	False	False	False	False
 phrog_1260	PHROG	minor tail protein	True	False	False	False	False
 phrog_12622	PHROG	DNA primase	True	False	False	False	False
+phrog_12631	PHROG	single strand DNA binding protein	True	False	False	False	False
 phrog_12634	PHROG	virion structural protein	True	False	False	False	False
 phrog_1266	PHROG	excisionase	True	False	False	False	False
 phrog_12660	PHROG	virion structural protein	True	False	False	False	False
@@ -5340,6 +5391,7 @@ phrog_12717	PHROG	tail length tape measure protein	True	False	False	False	False
 phrog_1272	PHROG	tail length tape measure protein	True	False	False	False	False
 phrog_12736	PHROG	virion structural protein	True	False	False	False	False
 phrog_1277	PHROG	DNA methyltransferase	True	False	False	False	False
+phrog_1278	PHROG	single strand DNA binding protein	True	False	False	False	False
 phrog_12780	PHROG	RNA polymerase sigma factor	True	False	False	False	False
 phrog_12796	PHROG	tail fiber protein	True	False	False	False	False
 phrog_12798	PHROG	tail length tape measure protein	True	False	False	False	False
@@ -5404,6 +5456,7 @@ phrog_13339	PHROG	tail length tape measure protein	True	False	False	False	False
 phrog_13349	PHROG	virion structural protein	True	False	False	False	False
 phrog_13352	PHROG	minor tail protein	True	False	False	False	False
 phrog_13377	PHROG	virion structural protein	True	False	False	False	False
+phrog_1339	PHROG	internal virion protein	True	False	False	False	False
 phrog_13423	PHROG	exonuclease	True	False	False	False	False
 phrog_13431	PHROG	virion structural protein	True	False	False	False	False
 phrog_13453	PHROG	nuclease	True	False	False	False	False
@@ -5476,6 +5529,7 @@ phrog_14086	PHROG	radical SAM domain-containing protein	True	False	False	False	F
 phrog_14097	PHROG	HNH endonuclease	True	False	False	False	False
 phrog_14098	PHROG	tail protein	True	False	False	False	False
 phrog_141	PHROG	terminase small subunit	True	False	False	False	False
+phrog_1410	PHROG	single strand DNA binding protein	True	False	False	False	False
 phrog_14117	PHROG	virion structural protein	True	False	False	False	False
 phrog_14121	PHROG	virion structural protein	True	False	False	False	False
 phrog_14138	PHROG	minor tail protein	True	False	False	False	False
@@ -5535,6 +5589,7 @@ phrog_14543	PHROG	virion structural protein	True	False	False	False	False
 phrog_14558	PHROG	tail spike protein	True	False	False	False	False
 phrog_14569	PHROG	virion structural protein	True	False	False	False	False
 phrog_14572	PHROG	tail fiber protein	True	False	False	False	False
+phrog_14578	PHROG	single strand DNA binding protein	True	False	False	False	False
 phrog_1459	PHROG	terminase small subunit	True	False	False	False	False
 phrog_14592	PHROG	virion structural protein	True	False	False	False	False
 phrog_146	PHROG	portal protein	True	False	False	False	False
@@ -5552,6 +5607,7 @@ phrog_1480	PHROG	tail sheath	True	False	False	False	False
 phrog_14802	PHROG	virion structural protein	True	False	False	False	False
 phrog_1482	PHROG	terminase small subunit	True	False	False	False	False
 phrog_1484	PHROG	virion structural protein	True	False	False	False	False
+phrog_14847	PHROG	single strand DNA binding protein	True	False	False	False	False
 phrog_14859	PHROG	RNA ligase	True	False	False	False	False
 phrog_14867	PHROG	major head protein	True	False	False	False	False
 phrog_14872	PHROG	RNA polymerase beta subunit	True	False	False	False	False
@@ -5573,8 +5629,10 @@ phrog_14971	PHROG	virion structural protein	True	False	False	False	False
 phrog_14976	PHROG	virion structural protein	True	False	False	False	False
 phrog_14985	PHROG	virion structural protein	True	False	False	False	False
 phrog_14991	PHROG	virion structural protein	True	False	False	False	False
+phrog_14995	PHROG	single strand DNA binding protein	True	False	False	False	False
 phrog_15	PHROG	terminase large subunit	True	False	False	False	False
 phrog_150	PHROG	baseplate hub	True	False	False	False	False
+phrog_15004	PHROG	single strand DNA binding protein	True	False	False	False	False
 phrog_15006	PHROG	tail fiber protein	True	False	False	False	False
 phrog_15027	PHROG	tail assembly chaperone	True	False	False	False	False
 phrog_15050	PHROG	virion structural protein	True	False	False	False	False
@@ -5647,6 +5705,7 @@ phrog_15727	PHROG	virion structural protein	True	False	False	False	False
 phrog_15729	PHROG	baseplate protein	True	False	False	False	False
 phrog_1573	PHROG	DNA methyltransferase	True	False	False	False	False
 phrog_15731	PHROG	tail assembly chaperone	True	False	False	False	False
+phrog_15746	PHROG	internal virion protein	True	False	False	False	False
 phrog_15783	PHROG	head decoration	True	False	False	False	False
 phrog_158	PHROG	major tail protein	True	False	False	False	False
 phrog_15824	PHROG	tail fiber protein proximal subunit	True	False	False	False	False
@@ -5656,6 +5715,7 @@ phrog_15865	PHROG	RNA polymerase sigma factor	True	False	False	False	False
 phrog_15872	PHROG	virion structural protein	True	False	False	False	False
 phrog_15877	PHROG	DNA methyltransferase	True	False	False	False	False
 phrog_15881	PHROG	tail protein	True	False	False	False	False
+phrog_15890	PHROG	single strand DNA binding protein	True	False	False	False	False
 phrog_159	PHROG	RuvC-like Holliday junction resolvase	True	False	False	False	False
 phrog_1591	PHROG	tail fiber protein	True	False	False	False	False
 phrog_15928	PHROG	major head protein	True	False	False	False	False
@@ -5678,6 +5738,7 @@ phrog_16040	PHROG	virion structural protein	True	False	False	False	False
 phrog_16048	PHROG	virion structural protein	True	False	False	False	False
 phrog_16051	PHROG	tail length tape measure protein	True	False	False	False	False
 phrog_16053	PHROG	tail fiber protein	True	False	False	False	False
+phrog_1607	PHROG	single strand DNA binding protein	True	False	False	False	False
 phrog_1608	PHROG	tail protein	True	False	False	False	False
 phrog_16097	PHROG	hinge connector of long tail fiber protein distal connector	True	False	False	False	False
 phrog_16099	PHROG	methyltransferase	True	False	False	False	False
@@ -5756,6 +5817,7 @@ phrog_1668	PHROG	tail assembly protein	True	False	False	False	False
 phrog_167	PHROG	tail length tape measure protein	True	False	False	False	False
 phrog_16710	PHROG	virion structural protein	True	False	False	False	False
 phrog_16726	PHROG	HNH endonuclease	True	False	False	False	False
+phrog_16727	PHROG	single strand DNA binding protein	True	False	False	False	False
 phrog_1674	PHROG	exonuclease	True	False	False	False	False
 phrog_16740	PHROG	tail protein	True	False	False	False	False
 phrog_16781	PHROG	tail assembly chaperone	True	False	False	False	False
@@ -5874,6 +5936,7 @@ phrog_1808	PHROG	HNH endonuclease	True	False	False	False	False
 phrog_18097	PHROG	DNA primase	True	False	False	False	False
 phrog_18112	PHROG	recombinase	True	False	False	False	False
 phrog_18146	PHROG	DNA methyltransferase	True	False	False	False	False
+phrog_18154	PHROG	single strand DNA binding protein	True	False	False	False	False
 phrog_18162	PHROG	tail fiber protein	True	False	False	False	False
 phrog_18178	PHROG	portal protein	True	False	False	False	False
 phrog_18179	PHROG	virion structural protein	True	False	False	False	False
@@ -5925,6 +5988,7 @@ phrog_18604	PHROG	minor tail protein	True	False	False	False	False
 phrog_18627	PHROG	tail protein	True	False	False	False	False
 phrog_18629	PHROG	tail protein	True	False	False	False	False
 phrog_18657	PHROG	DNA methyltransferase	True	False	False	False	False
+phrog_1867	PHROG	single strand DNA binding protein	True	False	False	False	False
 phrog_18673	PHROG	tail fiber protein	True	False	False	False	False
 phrog_18698	PHROG	virion structural protein	True	False	False	False	False
 phrog_1870	PHROG	exonuclease	True	False	False	False	False
@@ -6137,6 +6201,7 @@ phrog_20787	PHROG	virion structural protein	True	False	False	False	False
 phrog_20798	PHROG	virion structural protein	True	False	False	False	False
 phrog_2081	PHROG	HNH endonuclease	True	False	False	False	False
 phrog_2082	PHROG	exonuclease	True	False	False	False	False
+phrog_2083	PHROG	internal virion lysozyme motif	True	False	False	False	False
 phrog_20876	PHROG	nuclease	True	False	False	False	False
 phrog_20878	PHROG	tail fiber protein	True	False	False	False	False
 phrog_20891	PHROG	HNH endonuclease	True	False	False	False	False
@@ -6269,6 +6334,7 @@ phrog_22322	PHROG	tail protein	True	False	False	False	False
 phrog_2234	PHROG	tail spike protein	True	False	False	False	False
 phrog_2235	PHROG	minor tail protein	True	False	False	False	False
 phrog_22377	PHROG	restriction endonuclease II	True	False	False	False	False
+phrog_224	PHROG	single strand DNA binding protein	True	False	False	False	False
 phrog_22470	PHROG	replication protein	True	False	False	False	False
 phrog_2248	PHROG	tail protein	True	False	False	False	False
 phrog_22489	PHROG	virion structural protein	True	False	False	False	False
@@ -6325,6 +6391,7 @@ phrog_23136	PHROG	integrase	True	False	False	False	False
 phrog_23175	PHROG	excisionase	True	False	False	False	False
 phrog_23188	PHROG	tail length tape measure protein	True	False	False	False	False
 phrog_232	PHROG	baseplate wedge subunit	True	False	False	False	False
+phrog_23202	PHROG	internal virion protein	True	False	False	False	False
 phrog_23208	PHROG	virion structural protein	True	False	False	False	False
 phrog_2321	PHROG	Ref-like RecA filament endonuclease	True	False	False	False	False
 phrog_23224	PHROG	DNA methyltransferase	True	False	False	False	False
@@ -6641,6 +6708,7 @@ phrog_27561	PHROG	DNA methyltransferase	True	False	False	False	False
 phrog_27577	PHROG	tail protein	True	False	False	False	False
 phrog_27601	PHROG	tail length tape measure protein	True	False	False	False	False
 phrog_27613	PHROG	tail protein	True	False	False	False	False
+phrog_27667	PHROG	single strand DNA binding protein	True	False	False	False	False
 phrog_277	PHROG	replication initiation O-like	True	False	False	False	False
 phrog_27723	PHROG	RNA ligase	True	False	False	False	False
 phrog_27764	PHROG	DNA polymerase III theta subunit	True	False	False	False	False
@@ -6693,6 +6761,7 @@ phrog_2854	PHROG	tail length tape measure protein	True	False	False	False	False
 phrog_28556	PHROG	clamp loader of DNA polymerase	True	False	False	False	False
 phrog_2857	PHROG	tail fiber protein	True	False	False	False	False
 phrog_28600	PHROG	major head protein	True	False	False	False	False
+phrog_2866	PHROG	single strand DNA binding protein	True	False	False	False	False
 phrog_2867	PHROG	virion structural protein	True	False	False	False	False
 phrog_28673	PHROG	tail protein	True	False	False	False	False
 phrog_28674	PHROG	RNA polymerase	True	False	False	False	False
@@ -6808,6 +6877,7 @@ phrog_30742	PHROG	tail fiber protein	True	False	False	False	False
 phrog_30751	PHROG	minor head protein	True	False	False	False	False
 phrog_30767	PHROG	virion structural protein	True	False	False	False	False
 phrog_30785	PHROG	major head protein	True	False	False	False	False
+phrog_308	PHROG	internal virion protein	True	False	False	False	False
 phrog_30830	PHROG	virion structural protein	True	False	False	False	False
 phrog_309	PHROG	terminase small subunit	True	False	False	False	False
 phrog_30923	PHROG	virion structural protein	True	False	False	False	False
@@ -6841,6 +6911,7 @@ phrog_31409	PHROG	tail length tape measure protein	True	False	False	False	False
 phrog_31452	PHROG	tail length tape measure protein	True	False	False	False	False
 phrog_31460	PHROG	tail protein	True	False	False	False	False
 phrog_3148	PHROG	RNA polymerase beta subunit	True	False	False	False	False
+phrog_3155	PHROG	internal virion protein	True	False	False	False	False
 phrog_31602	PHROG	virion structural protein	True	False	False	False	False
 phrog_31603	PHROG	terminase	True	False	False	False	False
 phrog_31660	PHROG	tail fiber protein	True	False	False	False	False
@@ -6981,6 +7052,7 @@ phrog_34082	PHROG	tail length tape measure protein	True	False	False	False	False
 phrog_341	PHROG	major tail protein	True	False	False	False	False
 phrog_34100	PHROG	tail protein	True	False	False	False	False
 phrog_3419	PHROG	rolling circle DNA replication initiation	True	False	False	False	False
+phrog_342	PHROG	internal virion protein with endolysin domain	True	False	False	False	False
 phrog_34270	PHROG	tail length tape measure protein	True	False	False	False	False
 phrog_3430	PHROG	virion structural protein	True	False	False	False	False
 phrog_3432	PHROG	minor tail protein	True	False	False	False	False
@@ -7132,6 +7204,7 @@ phrog_37651	PHROG	virion structural protein	True	False	False	False	False
 phrog_37720	PHROG	virion structural protein	True	False	False	False	False
 phrog_37752	PHROG	tail protein	True	False	False	False	False
 phrog_3779	PHROG	tail length tape measure protein	True	False	False	False	False
+phrog_378	PHROG	single strand DNA binding protein	True	False	False	False	False
 phrog_3783	PHROG	tail spike protein	True	False	False	False	False
 phrog_37862	PHROG	endonuclease	True	False	False	False	False
 phrog_37871	PHROG	baseplate protein	True	False	False	False	False
@@ -7175,6 +7248,7 @@ phrog_38670	PHROG	tail fiber protein	True	False	False	False	False
 phrog_3869	PHROG	NAD-dependent DNA ligase	True	False	False	False	False
 phrog_3875	PHROG	RuvC-like Holliday junction resolvase	True	False	False	False	False
 phrog_38766	PHROG	virion structural protein	True	False	False	False	False
+phrog_3883	PHROG	internal virion protein	True	False	False	False	False
 phrog_38839	PHROG	tail fiber protein	True	False	False	False	False
 phrog_3884	PHROG	major tail protein	True	False	False	False	False
 phrog_38876	PHROG	DNA polymerase exonuclease subunit	True	False	False	False	False
@@ -7228,6 +7302,7 @@ phrog_4150	PHROG	virion structural protein	True	False	False	False	False
 phrog_416	PHROG	minor tail protein	True	False	False	False	False
 phrog_4176	PHROG	tail fiber protein	True	False	False	False	False
 phrog_4178	PHROG	major tail protein	True	False	False	False	False
+phrog_418	PHROG	internal virion protein	True	False	False	False	False
 phrog_4185	PHROG	minor head protein	True	False	False	False	False
 phrog_4197	PHROG	tail length tape measure protein	True	False	False	False	False
 phrog_4199	PHROG	minor tail protein	True	False	False	False	False
@@ -7258,6 +7333,7 @@ phrog_4277	PHROG	tail fiber protein	True	False	False	False	False
 phrog_428	PHROG	replication initiation protein	True	False	False	False	False
 phrog_4285	PHROG	transposase	True	False	False	False	False
 phrog_4291	PHROG	RNA-dependent RNA polymerase	True	False	False	False	False
+phrog_4295	PHROG	internal virion protein	True	False	False	False	False
 phrog_42990	PHROG	DNA methyltransferase	True	False	False	False	False
 phrog_43	PHROG	baseplate wedge subunit	True	False	False	False	False
 phrog_430	PHROG	baseplate hub subunit and tail lysozyme	True	False	False	False	False
@@ -7266,6 +7342,7 @@ phrog_4321	PHROG	HNH endonuclease	True	False	False	False	False
 phrog_4322	PHROG	virion structural protein	True	False	False	False	False
 phrog_4336	PHROG	tail assembly chaperone	True	False	False	False	False
 phrog_434	PHROG	RecE-like recombination exonuclease	True	False	False	False	False
+phrog_4363	PHROG	internal virion protein	True	False	False	False	False
 phrog_437	PHROG	virion structural protein	True	False	False	False	False
 phrog_4370	PHROG	excisionase	True	False	False	False	False
 phrog_4372	PHROG	tail length tape measure protein	True	False	False	False	False
@@ -7273,6 +7350,7 @@ phrog_438	PHROG	baseplate wedge subunit	True	False	False	False	False
 phrog_439	PHROG	site-specific recombination directionality factor RDF	True	False	False	False	False
 phrog_4398	PHROG	tail fiber protein	True	False	False	False	False
 phrog_4399	PHROG	ribonuclease toxin of AT system	True	False	False	False	False
+phrog_44	PHROG	single strand DNA binding protein	True	False	False	False	False
 phrog_4402	PHROG	replication initiation protein	True	False	False	False	False
 phrog_4406	PHROG	virion structural protein	True	False	False	False	False
 phrog_441	PHROG	tail assembly chaperone	True	False	False	False	False
@@ -7362,6 +7440,7 @@ phrog_4913	PHROG	replication	True	False	False	False	False
 phrog_4914	PHROG	terminase large subunit	True	False	False	False	False
 phrog_4924	PHROG	short tail fiber protein	True	False	False	False	False
 phrog_4930	PHROG	baseplate hub	True	False	False	False	False
+phrog_4932	PHROG	single strand DNA binding protein	True	False	False	False	False
 phrog_4946	PHROG	tail protein	True	False	False	False	False
 phrog_4950	PHROG	tail fiber protein	True	False	False	False	False
 phrog_496	PHROG	tail fiber protein	True	False	False	False	False
@@ -7389,6 +7468,7 @@ phrog_51	PHROG	terminase small subunit	True	False	False	False	False
 phrog_510	PHROG	DNA primase	True	False	False	False	False
 phrog_5103	PHROG	tail assembly chaperone	True	False	False	False	False
 phrog_5108	PHROG	SAM-dependent methyltransferase	True	False	False	False	False
+phrog_511	PHROG	internal virion protein	True	False	False	False	False
 phrog_5110	PHROG	terminase small subunit	True	False	False	False	False
 phrog_5123	PHROG	homing endonuclease with GIY-YIG motif	True	False	False	False	False
 phrog_5127	PHROG	integrase	True	False	False	False	False
@@ -7418,6 +7498,7 @@ phrog_5330	PHROG	tail assembly chaperone	True	False	False	False	False
 phrog_5334	PHROG	terminase small subunit	True	False	False	False	False
 phrog_5339	PHROG	virion structural protein	True	False	False	False	False
 phrog_5340	PHROG	terminase large subunit	True	False	False	False	False
+phrog_5341	PHROG	internal virion protein	True	False	False	False	False
 phrog_5342	PHROG	tail fiber protein	True	False	False	False	False
 phrog_5351	PHROG	HNH endonuclease	True	False	False	False	False
 phrog_5357	PHROG	tail length tape measure protein	True	False	False	False	False
@@ -7473,6 +7554,8 @@ phrog_5715	PHROG	exonuclease	True	False	False	False	False
 phrog_5717	PHROG	tail protein	True	False	False	False	False
 phrog_5718	PHROG	HNH endonuclease	True	False	False	False	False
 phrog_5726	PHROG	tail protein	True	False	False	False	False
+phrog_5738	PHROG	single strand DNA binding protein	True	False	False	False	False
+phrog_5745	PHROG	internal virion protein	True	False	False	False	False
 phrog_5749	PHROG	transposase	True	False	False	False	False
 phrog_575	PHROG	Cox-like excisionase and repressor	True	False	False	False	False
 phrog_5750	PHROG	internal head protein	True	False	False	False	False
@@ -7517,11 +7600,13 @@ phrog_6005	PHROG	virion structural protein	True	False	False	False	False
 phrog_6011	PHROG	virion structural protein	True	False	False	False	False
 phrog_6012	PHROG	DNA helicase	True	False	False	False	False
 phrog_6013	PHROG	tail protein	True	False	False	False	False
+phrog_6015	PHROG	single strand DNA binding protein	True	False	False	False	False
 phrog_6020	PHROG	major head protein	True	False	False	False	False
 phrog_6025	PHROG	DNA methyltransferase	True	False	False	False	False
 phrog_6042	PHROG	minor head protein	True	False	False	False	False
 phrog_6049	PHROG	tail fiber protein	True	False	False	False	False
 phrog_6050	PHROG	HNH endonuclease	True	False	False	False	False
+phrog_6056	PHROG	internal virion protein	True	False	False	False	False
 phrog_606	PHROG	terminase small subunit	True	False	False	False	False
 phrog_607	PHROG	exonuclease VII	True	False	False	False	False
 phrog_6079	PHROG	tail protein	True	False	False	False	False
@@ -7548,6 +7633,7 @@ phrog_621	PHROG	tail assembly chaperone	True	False	False	False	False
 phrog_6211	PHROG	minor tail protein	True	False	False	False	False
 phrog_623	PHROG	transposase	True	False	False	False	False
 phrog_6234	PHROG	host RecBCD nuclease inhibitor	True	False	False	False	False
+phrog_6243	PHROG	single strand DNA binding protein	True	False	False	False	False
 phrog_6247	PHROG	DNA topoisomerase	True	False	False	False	False
 phrog_6253	PHROG	minor tail protein	True	False	False	False	False
 phrog_6254	PHROG	HNH endonuclease	True	False	False	False	False
@@ -7594,8 +7680,10 @@ phrog_6616	PHROG	tail protein	True	False	False	False	False
 phrog_6620	PHROG	transposase	True	False	False	False	False
 phrog_663	PHROG	minor head protein	True	False	False	False	False
 phrog_6633	PHROG	tail protein	True	False	False	False	False
+phrog_66351	PHROG	single strand DNA binding protein	True	False	False	False	False
 phrog_6636	PHROG	methyltransferase	True	False	False	False	False
 phrog_6643	PHROG	replication initiation protein	True	False	False	False	False
+phrog_6651	PHROG	internal virion protein	True	False	False	False	False
 phrog_6672	PHROG	terminase large subunit	True	False	False	False	False
 phrog_66764	PHROG	methyltransferase	True	False	False	False	False
 phrog_6681	PHROG	terminase large subunit	True	False	False	False	False
@@ -7647,6 +7735,7 @@ phrog_696	PHROG	major head protein	True	False	False	False	False
 phrog_6960	PHROG	baseplate protein	True	False	False	False	False
 phrog_6977	PHROG	minor tail protein	True	False	False	False	False
 phrog_6982	PHROG	DNA polymerase	True	False	False	False	False
+phrog_69945	PHROG	internal virion protein	True	False	False	False	False
 phrog_70	PHROG	major head protein	True	False	False	False	False
 phrog_701	PHROG	virion structural protein	True	False	False	False	False
 phrog_702	PHROG	replication protein	True	False	False	False	False
@@ -7705,6 +7794,7 @@ phrog_735	PHROG	terminase small subunit	True	False	False	False	False
 phrog_7354	PHROG	major head protein	True	False	False	False	False
 phrog_7361	PHROG	baseplate hub	True	False	False	False	False
 phrog_7363	PHROG	homing endonuclease	True	False	False	False	False
+phrog_7364	PHROG	single strand DNA binding protein	True	False	False	False	False
 phrog_737	PHROG	minor tail protein	True	False	False	False	False
 phrog_7370	PHROG	HNH endonuclease	True	False	False	False	False
 phrog_7376	PHROG	portal protein	True	False	False	False	False
@@ -7713,6 +7803,7 @@ phrog_7389	PHROG	tail fiber protein	True	False	False	False	False
 phrog_74	PHROG	terminase small subunit	True	False	False	False	False
 phrog_740	PHROG	HNH endonuclease	True	False	False	False	False
 phrog_7426	PHROG	HNH endonuclease	True	False	False	False	False
+phrog_743	PHROG	single strand DNA binding protein	True	False	False	False	False
 phrog_7440	PHROG	major tail protein	True	False	False	False	False
 phrog_7455	PHROG	tail protein	True	False	False	False	False
 phrog_7458	PHROG	tail spike protein	True	False	False	False	False
@@ -7758,6 +7849,7 @@ phrog_7766	PHROG	DNA polymerase	True	False	False	False	False
 phrog_777	PHROG	major head protein	True	False	False	False	False
 phrog_7776	PHROG	DNA helicase	True	False	False	False	False
 phrog_77775	PHROG	exonuclease	True	False	False	False	False
+phrog_7778	PHROG	single strand DNA binding protein	True	False	False	False	False
 phrog_778	PHROG	tail assembly protein	True	False	False	False	False
 phrog_7785	PHROG	HNH endonuclease	True	False	False	False	False
 phrog_78	PHROG	tail terminator	True	False	False	False	False
@@ -7768,6 +7860,7 @@ phrog_7821	PHROG	virion structural protein	True	False	False	False	False
 phrog_78291	PHROG	virion structural protein	True	False	False	False	False
 phrog_78321	PHROG	nuclease	True	False	False	False	False
 phrog_7838	PHROG	exonuclease	True	False	False	False	False
+phrog_7857	PHROG	internal virion protein	True	False	False	False	False
 phrog_788	PHROG	tail protein	True	False	False	False	False
 phrog_7882	PHROG	DnaD-like helicase loader	True	False	False	False	False
 phrog_7911	PHROG	tail protein	True	False	False	False	False
@@ -7789,6 +7882,7 @@ phrog_80264	PHROG	DNA polymerase	True	False	False	False	False
 phrog_803	PHROG	host nuclease inhibitor	True	False	False	False	False
 phrog_8047	PHROG	virion structural protein	True	False	False	False	False
 phrog_8048	PHROG	HNH endonuclease	True	False	False	False	False
+phrog_805	PHROG	internal virion protein	True	False	False	False	False
 phrog_8064	PHROG	replication initiation protein	True	False	False	False	False
 phrog_807	PHROG	major tail protein with Ig-like domain	True	False	False	False	False
 phrog_8078	PHROG	virion structural protein	True	False	False	False	False
@@ -7796,6 +7890,7 @@ phrog_8089	PHROG	head morphogenesis	True	False	False	False	False
 phrog_8097	PHROG	exonuclease	True	False	False	False	False
 phrog_8102	PHROG	replication initiation protein	True	False	False	False	False
 phrog_81048	PHROG	baseplate hub	True	False	False	False	False
+phrog_8111	PHROG	internal virion protein	True	False	False	False	False
 phrog_8122	PHROG	minor tail protein	True	False	False	False	False
 phrog_8125	PHROG	tail length tape measure protein	True	False	False	False	False
 phrog_8147	PHROG	tail fiber protein	True	False	False	False	False
@@ -7839,6 +7934,7 @@ phrog_8460	PHROG	tail fiber protein	True	False	False	False	False
 phrog_8462	PHROG	tail length tape measure protein	True	False	False	False	False
 phrog_8463	PHROG	transposase	True	False	False	False	False
 phrog_8469	PHROG	tail fiber protein	True	False	False	False	False
+phrog_8473	PHROG	single strand DNA binding protein	True	False	False	False	False
 phrog_8489	PHROG	DnaD-like helicase loader	True	False	False	False	False
 phrog_849	PHROG	DNA primase	True	False	False	False	False
 phrog_8501	PHROG	minor tail protein	True	False	False	False	False
@@ -7868,6 +7964,7 @@ phrog_8746	PHROG	tail fiber assembly protein	True	False	False	False	False
 phrog_8757	PHROG	virion structural protein	True	False	False	False	False
 phrog_8763	PHROG	tail protein	True	False	False	False	False
 phrog_8764	PHROG	virion structural protein	True	False	False	False	False
+phrog_8765	PHROG	internal virion protein	True	False	False	False	False
 phrog_8769	PHROG	methyltransferase	True	False	False	False	False
 phrog_8780	PHROG	minor tail protein	True	False	False	False	False
 phrog_8786	PHROG	type I-E anti-CRISPR protein	True	False	False	False	False
@@ -7895,6 +7992,7 @@ phrog_8940	PHROG	capsid assembly protein	True	False	False	False	False
 phrog_8963	PHROG	tail assembly chaperone	True	False	False	False	False
 phrog_9	PHROG	terminase large subunit	True	False	False	False	False
 phrog_9001	PHROG	tail assembly chaperone	True	False	False	False	False
+phrog_9002	PHROG	single strand DNA binding protein	True	False	False	False	False
 phrog_9014	PHROG	Gp5.9-like inihibitor of recBCD nuclease	True	False	False	False	False
 phrog_9017	PHROG	tail fiber protein	True	False	False	False	False
 phrog_9019	PHROG	Holliday junction resolvase	True	False	False	False	False
@@ -7996,6 +8094,7 @@ phrog_97	PHROG	UvsX-like recombinase	True	False	False	False	False
 phrog_9703	PHROG	head decoration	True	False	False	False	False
 phrog_9707	PHROG	tail protein	True	False	False	False	False
 phrog_972	PHROG	tail fiber protein proximal subunit	True	False	False	False	False
+phrog_9721	PHROG	single strand DNA binding protein	True	False	False	False	False
 phrog_9729	PHROG	tail fiber protein	True	False	False	False	False
 phrog_973	PHROG	tail length tape measure protein	True	False	False	False	False
 phrog_974	PHROG	minor head protein	True	False	False	False	False

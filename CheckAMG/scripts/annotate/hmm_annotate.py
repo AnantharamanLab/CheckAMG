@@ -283,7 +283,7 @@ def get_metabolic_threshold(hmm_id):
 def get_hmm_id_from_profile(hmm, db_path):
     s = str(db_path)
     if "Pfam" in s or "pfam" in s or "FOAM" in s or "foam" in s:
-        # Accession can be None or empty on some profiles — fall back to name
+        # Accession can be None or empty on some profiles, fall back to name
         acc = hmm.accession
         if acc is not None:
             acc_str = _as_str(acc).strip()
@@ -511,7 +511,7 @@ def hmmsearch_serial(
 
     # Profile-level pre-filtering is intentionally skipped here.  Searching all profiles,
     # including those with low DB-provided thresholds, ensures their hits are present in
-    # the raw results for the relaxed scoring path (evalue ≤ 1e-5) to pick up.  Per-hit
+    # the raw results for the relaxed scoring path (evalue <= 1e-5) to pick up.  Per-hit
     # annotation quality is still enforced by the keep=True logic below (GA cutoffs,
     # bitscore floors, coverage checks, etc.).
 
@@ -1788,11 +1788,11 @@ def main():
     else:
         combined_best_df.write_csv(filtered_hmm_results, separator="\t")
 
-    # V/VL-score assignment uses a relaxed threshold (evalue ≤ 1e-5 only) so weak viral
+    # V/VL-score assignment uses a relaxed threshold (evalue <= 1e-5 only) so weak viral
     # signal is not silenced by the strict annotation filters applied to filtered_hmm_results.
     # Annotation decisions (AMG curation etc.) still use only the strict best-kept hits there.
     SCORING_EVALUE = snakemake.params.scoring_evalue
-    logger.info(f"Building V/VL-score table from all hits at evalue ≤ {SCORING_EVALUE:.0E} (no bitscore/coverage/GA requirements)...")
+    logger.info(f"Building V/VL-score table from all hits at evalue <= {SCORING_EVALUE:.0E} (no bitscore/coverage/GA requirements)...")
 
     scoring_best_by_seq = {}
 
@@ -1875,7 +1875,7 @@ def main():
     else:
         scoring_best_df = pl.DataFrame(schema=scoring_schema)
 
-    logger.info(f"Scoring table: {len(scoring_rows):,} proteins with a hit at evalue ≤ {SCORING_EVALUE:.0E}")
+    logger.info(f"Scoring table: {len(scoring_rows):,} proteins with a hit at evalue <= {SCORING_EVALUE:.0E}")
 
     logger.debug("Loading HMM V-scores...")
     vscores_df = pl.read_csv(

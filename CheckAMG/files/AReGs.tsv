@@ -1,5 +1,4 @@
 id	V-score	VL-score	db	name
-K00373			KEGG	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 K00375	10.0	3.148910993	KEGG	K00375; GntR family transcriptional regulator / MocR family aminotransferase
 K00478			KEGG	HR; [histone H3]-dimethyl-L-lysine9 demethylase [EC:1.14.11.65]
 K00610	0.03	0.477121255	KEGG	pyrI; aspartate carbamoyltransferase regulatory subunit
@@ -4300,7 +4299,6 @@ HMMsoil10039			FOAM	barA, gacS, varS; two-component system, NarL family, sensor 
 HMMsoil100423			FOAM	atoS; two-component system, NtrC family, sensor histidine kinase AtoS [EC:2.7.13.3]
 HMMsoil100428			FOAM	narX; two-component system, NarL family, nitrate/nitrite sensor histidine kinase NarX [EC:2.7.13.3]; uhpB; two-component system, NarL family, sensor histidine kinase UhpB [EC:2.7.13.3]; K02480; two-component system, NarL family, sensor kinase [EC:2.7.13.3]; cheA; two-component system, chemotaxis family, sensor kinase CheA [EC:2.7.13.3]
 HMMsoil100462			FOAM	ada; AraC family transcriptional regulator, regulatory protein of adaptative response / methylated-DNA-[protein]-cysteine methyltransferase [EC:2.1.1.63]
-HMMsoil10049			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil100519			FOAM	K11527; two-component system, sensor histidine kinase and response regulator [EC:2.7.13.3]
 HMMsoil100562			FOAM	rcsC; two-component system, NarL family, capsular synthesis sensor histidine kinase RcsC [EC:2.7.13.3]
 HMMsoil100563			FOAM	K02484; two-component system, OmpR family, sensor kinase [EC:2.7.13.3]
@@ -4445,7 +4443,6 @@ HMMsoil102273			FOAM	evgS, bvgS; two-component system, NarL family, sensor histi
 HMMsoil102275			FOAM	pilS, pehS; two-component system, NtrC family, sensor histidine kinase PilS [EC:2.7.13.3]
 HMMsoil102277			FOAM	cheA; two-component system, chemotaxis family, sensor kinase CheA [EC:2.7.13.3]
 HMMsoil102281			FOAM	K11527; two-component system, sensor histidine kinase and response regulator [EC:2.7.13.3]
-HMMsoil102285			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil102291			FOAM	cheA; two-component system, chemotaxis family, sensor kinase CheA [EC:2.7.13.3]
 HMMsoil102295			FOAM	barA, gacS, varS; two-component system, NarL family, sensor histidine kinase BarA [EC:2.7.13.3]
 HMMsoil102300			FOAM	rcsC; two-component system, NarL family, capsular synthesis sensor histidine kinase RcsC [EC:2.7.13.3]
@@ -4536,8 +4533,6 @@ HMMsoil103338			FOAM	tctE; two-component system, OmpR family, sensor histidine k
 HMMsoil103344			FOAM	torS; two-component system, OmpR family, sensor histidine kinase TorS [EC:2.7.13.3]
 HMMsoil103357			FOAM	K11527; two-component system, sensor histidine kinase and response regulator [EC:2.7.13.3]
 HMMsoil103358			FOAM	K11527; two-component system, sensor histidine kinase and response regulator [EC:2.7.13.3]
-HMMsoil103360			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
-HMMsoil10340			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil103521			FOAM	vicK; two-component system, OmpR family, sensor histidine kinase VicK [EC:2.7.13.3]
 HMMsoil103525			FOAM	vicK; two-component system, OmpR family, sensor histidine kinase VicK [EC:2.7.13.3]
 HMMsoil103529			FOAM	glnL, ntrB; two-component system, NtrC family, nitrogen regulation sensor histidine kinase GlnL [EC:2.7.13.3]
@@ -4582,7 +4577,6 @@ HMMsoil104114			FOAM	comP; two-component system, NarL family, sensor histidine k
 HMMsoil104115			FOAM	vicK; two-component system, OmpR family, sensor histidine kinase VicK [EC:2.7.13.3]
 HMMsoil104123			FOAM	ada-alkA; AraC family transcriptional regulator, regulatory protein of adaptative response / DNA-3-methyladenine glycosylase II [EC:3.2.2.21]
 HMMsoil104132			FOAM	yesM; two-component system, sensor histidine kinase YesM [EC:2.7.13.3]
-HMMsoil104133			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil104145			FOAM	prrB; two-component system, OmpR family, sensor histidine kinase PrrB [EC:2.7.13.3]
 HMMsoil104170			FOAM	dctS; two-component system, LuxR family, sensor histidine kinase DctS [EC:2.7.13.3]
 HMMsoil104185			FOAM	rpfC; two-component system, sensor histidine kinase RpfC [EC:2.7.13.3]
@@ -4630,7 +4624,6 @@ HMMsoil104711			FOAM	phoR; two-component system, OmpR family, phosphate regulon 
 HMMsoil104770			FOAM	cheA; two-component system, chemotaxis family, sensor kinase CheA [EC:2.7.13.3]
 HMMsoil104778			FOAM	cheA; two-component system, chemotaxis family, sensor kinase CheA [EC:2.7.13.3]
 HMMsoil104850			FOAM	Response to osmotic stress
-HMMsoil104920			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil104938			FOAM	flgS; two-component system, NtrC family, sensor kinase [EC:2.7.13.3]
 HMMsoil104939			FOAM	cheA; two-component system, chemotaxis family, sensor kinase CheA [EC:2.7.13.3]
 HMMsoil104946			FOAM	barA, gacS, varS; two-component system, NarL family, sensor histidine kinase BarA [EC:2.7.13.3]
@@ -5015,7 +5008,6 @@ HMMsoil110141			FOAM	dcuS; two-component system, CitB family, sensor histidine k
 HMMsoil110142			FOAM	K11527; two-component system, sensor histidine kinase and response regulator [EC:2.7.13.3]
 HMMsoil110157			FOAM	flgS; two-component system, NtrC family, sensor kinase [EC:2.7.13.3]
 HMMsoil110207			FOAM	barA, gacS, varS; two-component system, NarL family, sensor histidine kinase BarA [EC:2.7.13.3]
-HMMsoil110304			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil11032			FOAM	K11527; two-component system, sensor histidine kinase and response regulator [EC:2.7.13.3]
 HMMsoil11034			FOAM	K02484; two-component system, OmpR family, sensor kinase [EC:2.7.13.3]
 HMMsoil11035			FOAM	ttrS; two-component system, LuxR family, sensor histidine kinase TtrS [EC:2.7.13.3]
@@ -5106,7 +5098,6 @@ HMMsoil11135			FOAM	devS; two-component system, NarL family, sensor histidine ki
 HMMsoil11137			FOAM	arcB; two-component system, OmpR family, aerobic respiration control sensor histidine kinase ArcB [EC:2.7.13.3]
 HMMsoil111391			FOAM	degS; two-component system, NarL family, sensor histidine kinase DegS [EC:2.7.13.3]; ydfH; two-component system, NarL family, sensor histidine kinase YdfH [EC:2.7.13.3]
 HMMsoil111392			FOAM	K02484; two-component system, OmpR family, sensor kinase [EC:2.7.13.3]
-HMMsoil111400			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil111404			FOAM	cpxA; two-component system, OmpR family, sensor histidine kinase CpxA [EC:2.7.13.3]
 HMMsoil111407			FOAM	atoS; two-component system, NtrC family, sensor histidine kinase AtoS [EC:2.7.13.3]; flgS; two-component system, NtrC family, sensor kinase [EC:2.7.13.3]
 HMMsoil111423			FOAM	qseC; two-component system, OmpR family, sensor histidine kinase QseC [EC:2.7.13.3]; K02484; two-component system, OmpR family, sensor kinase [EC:2.7.13.3]
@@ -5156,7 +5147,6 @@ HMMsoil112163			FOAM	senX3; two-component system, OmpR family, sensor histidine 
 HMMsoil112166			FOAM	nreB; two-component system, NarL family, sensor histidine kinase NreB [EC:2.7.13.3]
 HMMsoil112178			FOAM	mprB; two-component system, OmpR family, sensor histidine kinase MprB [EC:2.7.13.3]
 HMMsoil112184			FOAM	phoR; two-component system, OmpR family, phosphate regulon sensor histidine kinase PhoR [EC:2.7.13.3]
-HMMsoil112188			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil112198			FOAM	phoQ; two-component system, OmpR family, sensor histidine kinase PhoQ [EC:2.7.13.3]
 HMMsoil112199			FOAM	K02480; two-component system, NarL family, sensor kinase [EC:2.7.13.3]
 HMMsoil112235			FOAM	kdpD; two-component system, OmpR family, sensor histidine kinase KdpD [EC:2.7.13.3]
@@ -5264,7 +5254,6 @@ HMMsoil113261			FOAM	cheA; two-component system, chemotaxis family, sensor kinas
 HMMsoil113263			FOAM	dcuS; two-component system, CitB family, sensor histidine kinase DcuS [EC:2.7.13.3]; yufL, malK; two-component system, CitB family, sensor histidine kinase MalK [EC:2.7.13.3]; dctS; two-component system, LuxR family, sensor histidine kinase DctS [EC:2.7.13.3]; K02476; two-component system, CitB family, sensor kinase [EC:2.7.13.3]
 HMMsoil113268			FOAM	kdpD; two-component system, OmpR family, sensor histidine kinase KdpD [EC:2.7.13.3]
 HMMsoil113273			FOAM	ttrS; two-component system, LuxR family, sensor histidine kinase TtrS [EC:2.7.13.3]
-HMMsoil113278			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil113281			FOAM	flgS; two-component system, NtrC family, sensor kinase [EC:2.7.13.3]
 HMMsoil113297			FOAM	flgS; two-component system, NtrC family, sensor kinase [EC:2.7.13.3]
 HMMsoil113322			FOAM	flgS; two-component system, NtrC family, sensor kinase [EC:2.7.13.3]
@@ -5479,7 +5468,6 @@ HMMsoil11629			FOAM	uhpB; two-component system, NarL family, sensor histidine ki
 HMMsoil116295			FOAM	uhpB; two-component system, NarL family, sensor histidine kinase UhpB [EC:2.7.13.3]; degS; two-component system, NarL family, sensor histidine kinase DegS [EC:2.7.13.3]; K02480; two-component system, NarL family, sensor kinase [EC:2.7.13.3]
 HMMsoil116296			FOAM	flrB, fleS, flaL; two-component system, sensor histidine kinase FlrB [EC:2.7.13.3]
 HMMsoil116300			FOAM	atoS; two-component system, NtrC family, sensor histidine kinase AtoS [EC:2.7.13.3]
-HMMsoil116305			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil116313			FOAM	barA, gacS, varS; two-component system, NarL family, sensor histidine kinase BarA [EC:2.7.13.3]
 HMMsoil116319			FOAM	trcS; two-component system, OmpR family, sensor histidine kinase TrcS [EC:2.7.13.3]; K02484; two-component system, OmpR family, sensor kinase [EC:2.7.13.3]
 HMMsoil116379			FOAM	zraS, hydH; two-component system, NtrC family, sensor histidine kinase HydH [EC:2.7.13.3]
@@ -5500,7 +5488,6 @@ HMMsoil116505			FOAM	kinB; two-component system, sporulation sensor kinase B [EC
 HMMsoil11651			FOAM	rcsC; two-component system, NarL family, capsular synthesis sensor histidine kinase RcsC [EC:2.7.13.3]
 HMMsoil116520			FOAM	baeS, smeS; two-component system, OmpR family, sensor histidine kinase BaeS [EC:2.7.13.3]
 HMMsoil11654			FOAM	dctS; two-component system, LuxR family, sensor histidine kinase DctS [EC:2.7.13.3]
-HMMsoil116551			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil116567			FOAM	vraS; two-component system, NarL family, vancomycin resistance sensor histidine kinase VraS [EC:2.7.13.3]; liaS; two-component system, NarL family, sensor histidine kinase LiaS [EC:2.7.13.3]
 HMMsoil116577			FOAM	K02480; two-component system, NarL family, sensor kinase [EC:2.7.13.3]
 HMMsoil11658			FOAM	barA, gacS, varS; two-component system, NarL family, sensor histidine kinase BarA [EC:2.7.13.3]
@@ -5559,7 +5546,6 @@ HMMsoil117313			FOAM	K02480; two-component system, NarL family, sensor kinase [E
 HMMsoil117314			FOAM	vicK; two-component system, OmpR family, sensor histidine kinase VicK [EC:2.7.13.3]
 HMMsoil117315			FOAM	cusS, copS, silS; two-component system, OmpR family, heavy metal sensor histidine kinase CusS [EC:2.7.13.3]
 HMMsoil117323			FOAM	cph1; two-component system, chemotaxis family, sensor kinase Cph1 [EC:2.7.13.3]
-HMMsoil117324			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil117325			FOAM	flgS; two-component system, NtrC family, sensor kinase [EC:2.7.13.3]
 HMMsoil117330			FOAM	flgS; two-component system, NtrC family, sensor kinase [EC:2.7.13.3]
 HMMsoil117337			FOAM	rcsC; two-component system, NarL family, capsular synthesis sensor histidine kinase RcsC [EC:2.7.13.3]
@@ -5700,7 +5686,6 @@ HMMsoil118935			FOAM	narX; two-component system, NarL family, nitrate/nitrite se
 HMMsoil118949			FOAM	K02480; two-component system, NarL family, sensor kinase [EC:2.7.13.3]
 HMMsoil118971			FOAM	flgS; two-component system, NtrC family, sensor kinase [EC:2.7.13.3]
 HMMsoil118976			FOAM	K02486; two-component system, sensor kinase [EC:2.7.13.3]
-HMMsoil118987			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil118988			FOAM	yesM; two-component system, sensor histidine kinase YesM [EC:2.7.13.3]
 HMMsoil118992			FOAM	uhpB; two-component system, NarL family, sensor histidine kinase UhpB [EC:2.7.13.3]
 HMMsoil118995			FOAM	lytS; two-component system, LytTR family, sensor histidine kinase LytS [EC:2.7.13.3]; yesM; two-component system, sensor histidine kinase YesM [EC:2.7.13.3]; K02478; two-component system, LytTR family, sensor kinase [EC:2.7.13.3]
@@ -6016,7 +6001,6 @@ HMMsoil123110			FOAM	lytS; two-component system, LytTR family, sensor histidine 
 HMMsoil123121			FOAM	K11527; two-component system, sensor histidine kinase and response regulator [EC:2.7.13.3]
 HMMsoil123131			FOAM	narX; two-component system, NarL family, nitrate/nitrite sensor histidine kinase NarX [EC:2.7.13.3]
 HMMsoil123139			FOAM	ada-alkA; AraC family transcriptional regulator, regulatory protein of adaptative response / DNA-3-methyladenine glycosylase II [EC:3.2.2.21]
-HMMsoil123169			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil123170			FOAM	flgS; two-component system, NtrC family, sensor kinase [EC:2.7.13.3]
 HMMsoil123173			FOAM	flgS; two-component system, NtrC family, sensor kinase [EC:2.7.13.3]
 HMMsoil123195			FOAM	zraS, hydH; two-component system, NtrC family, sensor histidine kinase HydH [EC:2.7.13.3]; atoS; two-component system, NtrC family, sensor histidine kinase AtoS [EC:2.7.13.3]; flrB, fleS, flaL; two-component system, sensor histidine kinase FlrB [EC:2.7.13.3]
@@ -6054,7 +6038,6 @@ HMMsoil12369			FOAM	rcsC; two-component system, NarL family, capsular synthesis 
 HMMsoil123698			FOAM	zraS, hydH; two-component system, NtrC family, sensor histidine kinase HydH [EC:2.7.13.3]; phoR; two-component system, OmpR family, phosphate regulon sensor histidine kinase PhoR [EC:2.7.13.3]
 HMMsoil1237			FOAM	flgS; two-component system, NtrC family, sensor kinase [EC:2.7.13.3]
 HMMsoil123700			FOAM	phoQ; two-component system, OmpR family, sensor histidine kinase PhoQ [EC:2.7.13.3]
-HMMsoil123727			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil12373			FOAM	degS; two-component system, NarL family, sensor histidine kinase DegS [EC:2.7.13.3]
 HMMsoil123734			FOAM	phoR; two-component system, OmpR family, phosphate regulon sensor histidine kinase PhoR [EC:2.7.13.3]
 HMMsoil12376			FOAM	degS; two-component system, NarL family, sensor histidine kinase DegS [EC:2.7.13.3]
@@ -6636,7 +6619,6 @@ HMMsoil131817			FOAM	K02476; two-component system, CitB family, sensor kinase [E
 HMMsoil131828			FOAM	qseC; two-component system, OmpR family, sensor histidine kinase QseC [EC:2.7.13.3]; phoR; two-component system, OmpR family, phosphate regulon sensor histidine kinase PhoR [EC:2.7.13.3]
 HMMsoil131835			FOAM	flgS; two-component system, NtrC family, sensor kinase [EC:2.7.13.3]
 HMMsoil131877			FOAM	cph1; two-component system, chemotaxis family, sensor kinase Cph1 [EC:2.7.13.3]
-HMMsoil131878			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil131881			FOAM	atoS; two-component system, NtrC family, sensor histidine kinase AtoS [EC:2.7.13.3]
 HMMsoil13189			FOAM	glrK, qseE; two-component system, NtrC family, sensor histidine kinase GlrK [EC:2.7.13.3]
 HMMsoil1319			FOAM	ntrY; two-component system, NtrC family, nitrogen regulation sensor histidine kinase NtrY [EC:2.7.13.3]
@@ -6706,9 +6688,7 @@ HMMsoil132824			FOAM	rcsC; two-component system, NarL family, capsular synthesis
 HMMsoil132828			FOAM	rcsC; two-component system, NarL family, capsular synthesis sensor histidine kinase RcsC [EC:2.7.13.3]
 HMMsoil132830			FOAM	ttrS; two-component system, LuxR family, sensor histidine kinase TtrS [EC:2.7.13.3]
 HMMsoil132831			FOAM	nrsS, rppB; two-component system, OmpR family, Ni(II)-sensor and/or redox sensor kinase NrsS [EC:2.7.13.3]; K02484; two-component system, OmpR family, sensor kinase [EC:2.7.13.3]
-HMMsoil132839			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil132866			FOAM	rcsD; two-component system, NarL family, sensor histidine kinase RcsD [EC:2.7.13.3]
-HMMsoil132867			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil132871			FOAM	saeS; two-component system, OmpR family, sensor histidine kinase SaeS [EC:2.7.13.3]
 HMMsoil132878			FOAM	flgS; two-component system, NtrC family, sensor kinase [EC:2.7.13.3]
 HMMsoil132881			FOAM	zraS, hydH; two-component system, NtrC family, sensor histidine kinase HydH [EC:2.7.13.3]
@@ -6717,7 +6697,6 @@ HMMsoil132886			FOAM	desK; two-component system, NarL family, sensor histidine k
 HMMsoil132895			FOAM	hk1; two-component system, glycerol uptake and utilization sensor kinase [EC:2.7.13.3]
 HMMsoil132896			FOAM	atoS; two-component system, NtrC family, sensor histidine kinase AtoS [EC:2.7.13.3]
 HMMsoil132906			FOAM	glnL, ntrB; two-component system, NtrC family, nitrogen regulation sensor histidine kinase GlnL [EC:2.7.13.3]
-HMMsoil132918			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil132923			FOAM	creC; two-component system, OmpR family, sensor histidine kinase CreC [EC:2.7.13.3]
 HMMsoil132926			FOAM	K11527; two-component system, sensor histidine kinase and response regulator [EC:2.7.13.3]
 HMMsoil132927			FOAM	uhpB; two-component system, NarL family, sensor histidine kinase UhpB [EC:2.7.13.3]
@@ -6812,7 +6791,6 @@ HMMsoil134203			FOAM	cheA; two-component system, chemotaxis family, sensor kinas
 HMMsoil134225			FOAM	glnL, ntrB; two-component system, NtrC family, nitrogen regulation sensor histidine kinase GlnL [EC:2.7.13.3]
 HMMsoil134229			FOAM	glnL, ntrB; two-component system, NtrC family, nitrogen regulation sensor histidine kinase GlnL [EC:2.7.13.3]
 HMMsoil134242			FOAM	kdpD; two-component system, OmpR family, sensor histidine kinase KdpD [EC:2.7.13.3]
-HMMsoil134254			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil1344			FOAM	rcsC; two-component system, NarL family, capsular synthesis sensor histidine kinase RcsC [EC:2.7.13.3]
 HMMsoil134405			FOAM	evgS, bvgS; two-component system, NarL family, sensor histidine kinase EvgS [EC:2.7.13.3]
 HMMsoil134409			FOAM	barA, gacS, varS; two-component system, NarL family, sensor histidine kinase BarA [EC:2.7.13.3]
@@ -6951,9 +6929,7 @@ HMMsoil136263			FOAM	phoR; two-component system, OmpR family, phosphate regulon 
 HMMsoil136264			FOAM	vicK; two-component system, OmpR family, sensor histidine kinase VicK [EC:2.7.13.3]; K02484; two-component system, OmpR family, sensor kinase [EC:2.7.13.3]
 HMMsoil13627			FOAM	envZ; two-component system, OmpR family, osmolarity sensor histidine kinase EnvZ [EC:2.7.13.3]
 HMMsoil136273			FOAM	flgS; two-component system, NtrC family, sensor kinase [EC:2.7.13.3]
-HMMsoil136284			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil136286			FOAM	narX; two-component system, NarL family, nitrate/nitrite sensor histidine kinase NarX [EC:2.7.13.3]
-HMMsoil136290			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil136293			FOAM	lytS; two-component system, LytTR family, sensor histidine kinase LytS [EC:2.7.13.3]
 HMMsoil136311			FOAM	K02478; two-component system, LytTR family, sensor kinase [EC:2.7.13.3]
 HMMsoil136315			FOAM	K02484; two-component system, OmpR family, sensor kinase [EC:2.7.13.3]
@@ -7187,10 +7163,8 @@ HMMsoil15093			FOAM	uhpB; two-component system, NarL family, sensor histidine ki
 HMMsoil15095			FOAM	K02484; two-component system, OmpR family, sensor kinase [EC:2.7.13.3]
 HMMsoil15099			FOAM	zraS, hydH; two-component system, NtrC family, sensor histidine kinase HydH [EC:2.7.13.3]
 HMMsoil1510			FOAM	qseC; two-component system, OmpR family, sensor histidine kinase QseC [EC:2.7.13.3]; K02484; two-component system, OmpR family, sensor kinase [EC:2.7.13.3]
-HMMsoil15104			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil15106			FOAM	evgS, bvgS; two-component system, NarL family, sensor histidine kinase EvgS [EC:2.7.13.3]
 HMMsoil15108			FOAM	zraS, hydH; two-component system, NtrC family, sensor histidine kinase HydH [EC:2.7.13.3]; atoS; two-component system, NtrC family, sensor histidine kinase AtoS [EC:2.7.13.3]
-HMMsoil15120			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil15123			FOAM	phoR; two-component system, OmpR family, phosphate regulon sensor histidine kinase PhoR [EC:2.7.13.3]
 HMMsoil15127			FOAM	flgS; two-component system, NtrC family, sensor kinase [EC:2.7.13.3]
 HMMsoil15137			FOAM	saeS; two-component system, OmpR family, sensor histidine kinase SaeS [EC:2.7.13.3]
@@ -7204,7 +7178,6 @@ HMMsoil15151			FOAM	qseC; two-component system, OmpR family, sensor histidine ki
 HMMsoil15161			FOAM	glrK, qseE; two-component system, NtrC family, sensor histidine kinase GlrK [EC:2.7.13.3]
 HMMsoil15165			FOAM	K11527; two-component system, sensor histidine kinase and response regulator [EC:2.7.13.3]
 HMMsoil1519			FOAM	HSL1; serine/threonine-protein kinase HSL1, negative regulator of Swe1 kinase [EC:2.7.11.-]
-HMMsoil15207			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil1521			FOAM	pilS, pehS; two-component system, NtrC family, sensor histidine kinase PilS [EC:2.7.13.3]
 HMMsoil1522			FOAM	uhpB; two-component system, NarL family, sensor histidine kinase UhpB [EC:2.7.13.3]
 HMMsoil1526			FOAM	comP; two-component system, NarL family, sensor histidine kinase ComP [EC:2.7.13.3]
@@ -7360,7 +7333,6 @@ HMMsoil16743			FOAM	evgS, bvgS; two-component system, NarL family, sensor histid
 HMMsoil16752			FOAM	uhpB; two-component system, NarL family, sensor histidine kinase UhpB [EC:2.7.13.3]
 HMMsoil16754			FOAM	cheA; two-component system, chemotaxis family, sensor kinase CheA [EC:2.7.13.3]
 HMMsoil16762			FOAM	envZ; two-component system, OmpR family, osmolarity sensor histidine kinase EnvZ [EC:2.7.13.3]
-HMMsoil16763			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil16769			FOAM	rpfC; two-component system, sensor histidine kinase RpfC [EC:2.7.13.3]
 HMMsoil16777			FOAM	pilS, pehS; two-component system, NtrC family, sensor histidine kinase PilS [EC:2.7.13.3]
 HMMsoil16907			FOAM	evgS, bvgS; two-component system, NarL family, sensor histidine kinase EvgS [EC:2.7.13.3]
@@ -7525,7 +7497,6 @@ HMMsoil18330			FOAM	baeS, smeS; two-component system, OmpR family, sensor histid
 HMMsoil18378			FOAM	envZ; two-component system, OmpR family, osmolarity sensor histidine kinase EnvZ [EC:2.7.13.3]; K02484; two-component system, OmpR family, sensor kinase [EC:2.7.13.3]
 HMMsoil18380			FOAM	flgS; two-component system, NtrC family, sensor kinase [EC:2.7.13.3]
 HMMsoil18384			FOAM	evgS, bvgS; two-component system, NarL family, sensor histidine kinase EvgS [EC:2.7.13.3]
-HMMsoil18388			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil18392			FOAM	rcsC; two-component system, NarL family, capsular synthesis sensor histidine kinase RcsC [EC:2.7.13.3]
 HMMsoil18405			FOAM	envZ; two-component system, OmpR family, osmolarity sensor histidine kinase EnvZ [EC:2.7.13.3]; K02484; two-component system, OmpR family, sensor kinase [EC:2.7.13.3]
 HMMsoil18408			FOAM	cheA; two-component system, chemotaxis family, sensor kinase CheA [EC:2.7.13.3]
@@ -7841,7 +7812,6 @@ HMMsoil22054			FOAM	vicK; two-component system, OmpR family, sensor histidine ki
 HMMsoil22060			FOAM	ada-alkA; AraC family transcriptional regulator, regulatory protein of adaptative response / DNA-3-methyladenine glycosylase II [EC:3.2.2.21]
 HMMsoil22071			FOAM	evgS, bvgS; two-component system, NarL family, sensor histidine kinase EvgS [EC:2.7.13.3]
 HMMsoil22099			FOAM	phoQ; two-component system, OmpR family, sensor histidine kinase PhoQ [EC:2.7.13.3]
-HMMsoil22112			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil22155			FOAM	hk1; two-component system, glycerol uptake and utilization sensor kinase [EC:2.7.13.3]
 HMMsoil22160			FOAM	K02478; two-component system, LytTR family, sensor kinase [EC:2.7.13.3]
 HMMsoil22164			FOAM	barA, gacS, varS; two-component system, NarL family, sensor histidine kinase BarA [EC:2.7.13.3]
@@ -8120,7 +8090,6 @@ HMMsoil25141			FOAM	flrB, fleS, flaL; two-component system, sensor histidine kin
 HMMsoil25167			FOAM	kinE; two-component system, sporulation sensor kinase E [EC:2.7.13.3]; kinA; two-component system, sporulation sensor kinase A [EC:2.7.13.3]
 HMMsoil25168			FOAM	vicK; two-component system, OmpR family, sensor histidine kinase VicK [EC:2.7.13.3]; K02484; two-component system, OmpR family, sensor kinase [EC:2.7.13.3]; phoR; two-component system, OmpR family, phosphate regulon sensor histidine kinase PhoR [EC:2.7.13.3]
 HMMsoil25176			FOAM	lytS; two-component system, LytTR family, sensor histidine kinase LytS [EC:2.7.13.3]; yesM; two-component system, sensor histidine kinase YesM [EC:2.7.13.3]; K02478; two-component system, LytTR family, sensor kinase [EC:2.7.13.3]
-HMMsoil25192			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil25198			FOAM	dcuS; two-component system, CitB family, sensor histidine kinase DcuS [EC:2.7.13.3]; dctS; two-component system, LuxR family, sensor histidine kinase DctS [EC:2.7.13.3]; K02476; two-component system, CitB family, sensor kinase [EC:2.7.13.3]
 HMMsoil25211			FOAM	cusS, copS, silS; two-component system, OmpR family, heavy metal sensor histidine kinase CusS [EC:2.7.13.3]
 HMMsoil25213			FOAM	K02476; two-component system, CitB family, sensor kinase [EC:2.7.13.3]
@@ -8190,7 +8159,6 @@ HMMsoil25762			FOAM	envZ; two-component system, OmpR family, osmolarity sensor h
 HMMsoil25765			FOAM	glnL, ntrB; two-component system, NtrC family, nitrogen regulation sensor histidine kinase GlnL [EC:2.7.13.3]
 HMMsoil25767			FOAM	lytS; two-component system, LytTR family, sensor histidine kinase LytS [EC:2.7.13.3]; yesM; two-component system, sensor histidine kinase YesM [EC:2.7.13.3]; K02478; two-component system, LytTR family, sensor kinase [EC:2.7.13.3]
 HMMsoil25769			FOAM	K02484; two-component system, OmpR family, sensor kinase [EC:2.7.13.3]
-HMMsoil25774			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil25776			FOAM	uhpB; two-component system, NarL family, sensor histidine kinase UhpB [EC:2.7.13.3]
 HMMsoil25778			FOAM	pleC; two-component system, cell cycle sensor histidine kinase PleC [EC:2.7.13.3]; divJ; two-component system, cell cycle sensor histidine kinase DivJ [EC:2.7.13.3]
 HMMsoil25781			FOAM	pilS, pehS; two-component system, NtrC family, sensor histidine kinase PilS [EC:2.7.13.3]
@@ -8445,7 +8413,6 @@ HMMsoil2864			FOAM	lytS; two-component system, LytTR family, sensor histidine ki
 HMMsoil28646			FOAM	rpfC; two-component system, sensor histidine kinase RpfC [EC:2.7.13.3]
 HMMsoil28647			FOAM	degS; two-component system, NarL family, sensor histidine kinase DegS [EC:2.7.13.3]
 HMMsoil28648			FOAM	saeS; two-component system, OmpR family, sensor histidine kinase SaeS [EC:2.7.13.3]
-HMMsoil28649			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil28655			FOAM	cheA; two-component system, chemotaxis family, sensor kinase CheA [EC:2.7.13.3]
 HMMsoil28658			FOAM	evgS, bvgS; two-component system, NarL family, sensor histidine kinase EvgS [EC:2.7.13.3]
 HMMsoil2866			FOAM	degS; two-component system, NarL family, sensor histidine kinase DegS [EC:2.7.13.3]
@@ -8473,7 +8440,6 @@ HMMsoil28882			FOAM	phoR; two-component system, OmpR family, phosphate regulon s
 HMMsoil28883			FOAM	vicK; two-component system, OmpR family, sensor histidine kinase VicK [EC:2.7.13.3]
 HMMsoil28888			FOAM	uhpB; two-component system, NarL family, sensor histidine kinase UhpB [EC:2.7.13.3]
 HMMsoil28889			FOAM	zraS, hydH; two-component system, NtrC family, sensor histidine kinase HydH [EC:2.7.13.3]
-HMMsoil28894			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil2890			FOAM	K02486; two-component system, sensor kinase [EC:2.7.13.3]
 HMMsoil28905			FOAM	cheA; two-component system, chemotaxis family, sensor kinase CheA [EC:2.7.13.3]
 HMMsoil28907			FOAM	pilS, pehS; two-component system, NtrC family, sensor histidine kinase PilS [EC:2.7.13.3]
@@ -8746,7 +8712,6 @@ HMMsoil32471			FOAM	cpxA; two-component system, OmpR family, sensor histidine ki
 HMMsoil32472			FOAM	uhpB; two-component system, NarL family, sensor histidine kinase UhpB [EC:2.7.13.3]
 HMMsoil32473			FOAM	ada; AraC family transcriptional regulator, regulatory protein of adaptative response / methylated-DNA-[protein]-cysteine methyltransferase [EC:2.1.1.63]
 HMMsoil32477			FOAM	uhpB; two-component system, NarL family, sensor histidine kinase UhpB [EC:2.7.13.3]
-HMMsoil32484			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil32504			FOAM	flgS; two-component system, NtrC family, sensor kinase [EC:2.7.13.3]
 HMMsoil32506			FOAM	pgtB; two-component system, NtrC family, phosphoglycerate transport system sensor histidine kinase PgtB [EC:2.7.13.3]; ttrS; two-component system, LuxR family, sensor histidine kinase TtrS [EC:2.7.13.3]
 HMMsoil32509			FOAM	kdpD; two-component system, OmpR family, sensor histidine kinase KdpD [EC:2.7.13.3]
@@ -8823,7 +8788,6 @@ HMMsoil33226			FOAM	cckA; two-component system, cell cycle sensor histidine kina
 HMMsoil33243			FOAM	envZ; two-component system, OmpR family, osmolarity sensor histidine kinase EnvZ [EC:2.7.13.3]
 HMMsoil33257			FOAM	rcsC; two-component system, NarL family, capsular synthesis sensor histidine kinase RcsC [EC:2.7.13.3]
 HMMsoil33262			FOAM	K02486; two-component system, sensor kinase [EC:2.7.13.3]
-HMMsoil33263			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil33292			FOAM	desK; two-component system, NarL family, sensor histidine kinase DesK [EC:2.7.13.3]
 HMMsoil33301			FOAM	barA, gacS, varS; two-component system, NarL family, sensor histidine kinase BarA [EC:2.7.13.3]
 HMMsoil33305			FOAM	K02484; two-component system, OmpR family, sensor kinase [EC:2.7.13.3]
@@ -8837,7 +8801,6 @@ HMMsoil33362			FOAM	ampG; MFS transporter, PAT family, beta-lactamase induction 
 HMMsoil33381			FOAM	ntrY; two-component system, NtrC family, nitrogen regulation sensor histidine kinase NtrY [EC:2.7.13.3]
 HMMsoil33385			FOAM	baeS, smeS; two-component system, OmpR family, sensor histidine kinase BaeS [EC:2.7.13.3]
 HMMsoil33394			FOAM	cckA; two-component system, cell cycle sensor histidine kinase and response regulator CckA [EC:2.7.13.3]
-HMMsoil33425			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil33452			FOAM	vicK; two-component system, OmpR family, sensor histidine kinase VicK [EC:2.7.13.3]
 HMMsoil33454			FOAM	rcsC; two-component system, NarL family, capsular synthesis sensor histidine kinase RcsC [EC:2.7.13.3]
 HMMsoil33457			FOAM	evgS, bvgS; two-component system, NarL family, sensor histidine kinase EvgS [EC:2.7.13.3]
@@ -8939,7 +8902,6 @@ HMMsoil34501			FOAM	uhpB; two-component system, NarL family, sensor histidine ki
 HMMsoil3452			FOAM	ntrY; two-component system, NtrC family, nitrogen regulation sensor histidine kinase NtrY [EC:2.7.13.3]
 HMMsoil34527			FOAM	cckA; two-component system, cell cycle sensor histidine kinase and response regulator CckA [EC:2.7.13.3]
 HMMsoil34533			FOAM	flgS; two-component system, NtrC family, sensor kinase [EC:2.7.13.3]
-HMMsoil34595			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil34601			FOAM	lytS; two-component system, LytTR family, sensor histidine kinase LytS [EC:2.7.13.3]; yesM; two-component system, sensor histidine kinase YesM [EC:2.7.13.3]; K02478; two-component system, LytTR family, sensor kinase [EC:2.7.13.3]
 HMMsoil34603			FOAM	barA, gacS, varS; two-component system, NarL family, sensor histidine kinase BarA [EC:2.7.13.3]
 HMMsoil34624			FOAM	tctE; two-component system, OmpR family, sensor histidine kinase TctE [EC:2.7.13.3]
@@ -8956,7 +8918,6 @@ HMMsoil34828			FOAM	atoS; two-component system, NtrC family, sensor histidine ki
 HMMsoil34838			FOAM	dctB; two-component system, NtrC family, C4-dicarboxylate transport sensor histidine kinase DctB [EC:2.7.13.3]
 HMMsoil34839			FOAM	K02476; two-component system, CitB family, sensor kinase [EC:2.7.13.3]
 HMMsoil34850			FOAM	pilS, pehS; two-component system, NtrC family, sensor histidine kinase PilS [EC:2.7.13.3]
-HMMsoil34872			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil34877			FOAM	dctS; two-component system, LuxR family, sensor histidine kinase DctS [EC:2.7.13.3]
 HMMsoil34883			FOAM	zraS, hydH; two-component system, NtrC family, sensor histidine kinase HydH [EC:2.7.13.3]
 HMMsoil34885			FOAM	K11527; two-component system, sensor histidine kinase and response regulator [EC:2.7.13.3]
@@ -8984,7 +8945,6 @@ HMMsoil35076			FOAM	atoS; two-component system, NtrC family, sensor histidine ki
 HMMsoil35077			FOAM	cheA; two-component system, chemotaxis family, sensor kinase CheA [EC:2.7.13.3]
 HMMsoil35081			FOAM	dctB; two-component system, NtrC family, C4-dicarboxylate transport sensor histidine kinase DctB [EC:2.7.13.3]
 HMMsoil35083			FOAM	phoR; two-component system, OmpR family, phosphate regulon sensor histidine kinase PhoR [EC:2.7.13.3]
-HMMsoil35092			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil35099			FOAM	phoR; two-component system, OmpR family, phosphate regulon sensor histidine kinase PhoR [EC:2.7.13.3]
 HMMsoil35100			FOAM	arcB; two-component system, OmpR family, aerobic respiration control sensor histidine kinase ArcB [EC:2.7.13.3]
 HMMsoil35101			FOAM	kinB; two-component system, sporulation sensor kinase B [EC:2.7.13.3]
@@ -9118,7 +9078,6 @@ HMMsoil3636			FOAM	cheA; two-component system, chemotaxis family, sensor kinase 
 HMMsoil36377			FOAM	barA, gacS, varS; two-component system, NarL family, sensor histidine kinase BarA [EC:2.7.13.3]
 HMMsoil36393			FOAM	K02484; two-component system, OmpR family, sensor kinase [EC:2.7.13.3]; phoR; two-component system, OmpR family, phosphate regulon sensor histidine kinase PhoR [EC:2.7.13.3]
 HMMsoil3640			FOAM	evgS, bvgS; two-component system, NarL family, sensor histidine kinase EvgS [EC:2.7.13.3]
-HMMsoil36402			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil36432			FOAM	glnL, ntrB; two-component system, NtrC family, nitrogen regulation sensor histidine kinase GlnL [EC:2.7.13.3]
 HMMsoil36433			FOAM	hk1; two-component system, glycerol uptake and utilization sensor kinase [EC:2.7.13.3]
 HMMsoil36436			FOAM	flgS; two-component system, NtrC family, sensor kinase [EC:2.7.13.3]
@@ -9148,7 +9107,6 @@ HMMsoil36618			FOAM	phoQ; two-component system, OmpR family, sensor histidine ki
 HMMsoil36626			FOAM	kdpD; two-component system, OmpR family, sensor histidine kinase KdpD [EC:2.7.13.3]
 HMMsoil3663			FOAM	envZ; two-component system, OmpR family, osmolarity sensor histidine kinase EnvZ [EC:2.7.13.3]; K02484; two-component system, OmpR family, sensor kinase [EC:2.7.13.3]
 HMMsoil36631			FOAM	cusS, copS, silS; two-component system, OmpR family, heavy metal sensor histidine kinase CusS [EC:2.7.13.3]
-HMMsoil36639			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil3664			FOAM	rcsC; two-component system, NarL family, capsular synthesis sensor histidine kinase RcsC [EC:2.7.13.3]
 HMMsoil36646			FOAM	zraS, hydH; two-component system, NtrC family, sensor histidine kinase HydH [EC:2.7.13.3]
 HMMsoil36647			FOAM	ada; AraC family transcriptional regulator, regulatory protein of adaptative response / methylated-DNA-[protein]-cysteine methyltransferase [EC:2.1.1.63]
@@ -9378,7 +9336,6 @@ HMMsoil38992			FOAM	atoS; two-component system, NtrC family, sensor histidine ki
 HMMsoil390			FOAM	rcsC; two-component system, NarL family, capsular synthesis sensor histidine kinase RcsC [EC:2.7.13.3]
 HMMsoil39004			FOAM	kinD; two-component system, sporulation sensor kinase D [EC:2.7.13.3]
 HMMsoil39005			FOAM	K02486; two-component system, sensor kinase [EC:2.7.13.3]
-HMMsoil3902			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil3904			FOAM	manS; two-component system, OmpR family, manganese sensing sensor histidine kinase [EC:2.7.13.3]
 HMMsoil39054			FOAM	ampG; MFS transporter, PAT family, beta-lactamase induction signal transducer AmpG
 HMMsoil3908			FOAM	flgS; two-component system, NtrC family, sensor kinase [EC:2.7.13.3]
@@ -9647,7 +9604,6 @@ HMMsoil41931			FOAM	flgS; two-component system, NtrC family, sensor kinase [EC:2
 HMMsoil41933			FOAM	K02484; two-component system, OmpR family, sensor kinase [EC:2.7.13.3]; phoR; two-component system, OmpR family, phosphate regulon sensor histidine kinase PhoR [EC:2.7.13.3]
 HMMsoil41956			FOAM	dcuS; two-component system, CitB family, sensor histidine kinase DcuS [EC:2.7.13.3]; dctS; two-component system, LuxR family, sensor histidine kinase DctS [EC:2.7.13.3]
 HMMsoil41968			FOAM	lytS; two-component system, LytTR family, sensor histidine kinase LytS [EC:2.7.13.3]; yesM; two-component system, sensor histidine kinase YesM [EC:2.7.13.3]; K02478; two-component system, LytTR family, sensor kinase [EC:2.7.13.3]
-HMMsoil41970			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil41971			FOAM	pgtB; two-component system, NtrC family, phosphoglycerate transport system sensor histidine kinase PgtB [EC:2.7.13.3]; dctB; two-component system, NtrC family, C4-dicarboxylate transport sensor histidine kinase DctB [EC:2.7.13.3]
 HMMsoil41988			FOAM	evgS, bvgS; two-component system, NarL family, sensor histidine kinase EvgS [EC:2.7.13.3]
 HMMsoil41992			FOAM	flgS; two-component system, NtrC family, sensor kinase [EC:2.7.13.3]
@@ -9723,7 +9679,6 @@ HMMsoil42744			FOAM	saeS; two-component system, OmpR family, sensor histidine ki
 HMMsoil42745			FOAM	comP; two-component system, NarL family, sensor histidine kinase ComP [EC:2.7.13.3]
 HMMsoil4276			FOAM	comP; two-component system, NarL family, sensor histidine kinase ComP [EC:2.7.13.3]
 HMMsoil4277			FOAM	envZ; two-component system, OmpR family, osmolarity sensor histidine kinase EnvZ [EC:2.7.13.3]; K02484; two-component system, OmpR family, sensor kinase [EC:2.7.13.3]
-HMMsoil42772			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil4284			FOAM	K11527; two-component system, sensor histidine kinase and response regulator [EC:2.7.13.3]
 HMMsoil42897			FOAM	zraS, hydH; two-component system, NtrC family, sensor histidine kinase HydH [EC:2.7.13.3]
 HMMsoil42900			FOAM	uhpB; two-component system, NarL family, sensor histidine kinase UhpB [EC:2.7.13.3]
@@ -10012,7 +9967,6 @@ HMMsoil45879			FOAM	rstB; two-component system, OmpR family, sensor histidine ki
 HMMsoil45881			FOAM	yesM; two-component system, sensor histidine kinase YesM [EC:2.7.13.3]
 HMMsoil45891			FOAM	rcsC; two-component system, NarL family, capsular synthesis sensor histidine kinase RcsC [EC:2.7.13.3]
 HMMsoil45894			FOAM	dctS; two-component system, LuxR family, sensor histidine kinase DctS [EC:2.7.13.3]
-HMMsoil45899			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil45910			FOAM	saeS; two-component system, OmpR family, sensor histidine kinase SaeS [EC:2.7.13.3]
 HMMsoil45917			FOAM	degS; two-component system, NarL family, sensor histidine kinase DegS [EC:2.7.13.3]
 HMMsoil45925			FOAM	K02476; two-component system, CitB family, sensor kinase [EC:2.7.13.3]
@@ -10201,7 +10155,6 @@ HMMsoil48107			FOAM	flgS; two-component system, NtrC family, sensor kinase [EC:2
 HMMsoil48108			FOAM	lytS; two-component system, LytTR family, sensor histidine kinase LytS [EC:2.7.13.3]; K02478; two-component system, LytTR family, sensor kinase [EC:2.7.13.3]
 HMMsoil48112			FOAM	cqsS; two-component system, CAI-1 autoinducer sensor kinase/phosphatase CqsS [EC:2.7.13.3] [EC:3.1.3.-]
 HMMsoil48119			FOAM	zraS, hydH; two-component system, NtrC family, sensor histidine kinase HydH [EC:2.7.13.3]; atoS; two-component system, NtrC family, sensor histidine kinase AtoS [EC:2.7.13.3]
-HMMsoil4814			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil48165			FOAM	barA, gacS, varS; two-component system, NarL family, sensor histidine kinase BarA [EC:2.7.13.3]
 HMMsoil48166			FOAM	creC; two-component system, OmpR family, sensor histidine kinase CreC [EC:2.7.13.3]
 HMMsoil48169			FOAM	envZ; two-component system, OmpR family, osmolarity sensor histidine kinase EnvZ [EC:2.7.13.3]
@@ -10781,8 +10734,6 @@ HMMsoil54891			FOAM	Response to osmotic stress
 HMMsoil54898			FOAM	ada-alkA; AraC family transcriptional regulator, regulatory protein of adaptative response / DNA-3-methyladenine glycosylase II [EC:3.2.2.21]
 HMMsoil54903			FOAM	barA, gacS, varS; two-component system, NarL family, sensor histidine kinase BarA [EC:2.7.13.3]
 HMMsoil54910			FOAM	cusS, copS, silS; two-component system, OmpR family, heavy metal sensor histidine kinase CusS [EC:2.7.13.3]
-HMMsoil54928			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
-HMMsoil54929			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil54932			FOAM	nblS; two-component system, OmpR family, sensor histidine kinase NblS [EC:2.7.13.3]
 HMMsoil54935			FOAM	torS; two-component system, OmpR family, sensor histidine kinase TorS [EC:2.7.13.3]
 HMMsoil54946			FOAM	rcsC; two-component system, NarL family, capsular synthesis sensor histidine kinase RcsC [EC:2.7.13.3]
@@ -10878,7 +10829,6 @@ HMMsoil55895			FOAM	kdpD; two-component system, OmpR family, sensor histidine ki
 HMMsoil55896			FOAM	qseC; two-component system, OmpR family, sensor histidine kinase QseC [EC:2.7.13.3]; K02484; two-component system, OmpR family, sensor kinase [EC:2.7.13.3]
 HMMsoil5590			FOAM	rcsC; two-component system, NarL family, capsular synthesis sensor histidine kinase RcsC [EC:2.7.13.3]
 HMMsoil5591			FOAM	barA, gacS, varS; two-component system, NarL family, sensor histidine kinase BarA [EC:2.7.13.3]
-HMMsoil55959			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil55984			FOAM	yesM; two-component system, sensor histidine kinase YesM [EC:2.7.13.3]
 HMMsoil55993			FOAM	resE; two-component system, OmpR family, sensor histidine kinase ResE [EC:2.7.13.3]; vicK; two-component system, OmpR family, sensor histidine kinase VicK [EC:2.7.13.3]; phoR; two-component system, OmpR family, phosphate regulon sensor histidine kinase PhoR [EC:2.7.13.3]
 HMMsoil56006			FOAM	lytS; two-component system, LytTR family, sensor histidine kinase LytS [EC:2.7.13.3]; K02478; two-component system, LytTR family, sensor kinase [EC:2.7.13.3]
@@ -11200,7 +11150,6 @@ HMMsoil59911			FOAM	K02484; two-component system, OmpR family, sensor kinase [EC
 HMMsoil59917			FOAM	vraS; two-component system, NarL family, vancomycin resistance sensor histidine kinase VraS [EC:2.7.13.3]; liaS; two-component system, NarL family, sensor histidine kinase LiaS [EC:2.7.13.3]
 HMMsoil59918			FOAM	narX; two-component system, NarL family, nitrate/nitrite sensor histidine kinase NarX [EC:2.7.13.3]
 HMMsoil5993			FOAM	ada-alkA; AraC family transcriptional regulator, regulatory protein of adaptative response / DNA-3-methyladenine glycosylase II [EC:3.2.2.21]
-HMMsoil59932			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil5994			FOAM	dcuS; two-component system, CitB family, sensor histidine kinase DcuS [EC:2.7.13.3]; citS; two-component system, CitB family, sensor histidine kinase CitS [EC:2.7.13.3]; K02476; two-component system, CitB family, sensor kinase [EC:2.7.13.3]
 HMMsoil59944			FOAM	E2.7.11.1; non-specific serine/threonine protein kinase [EC:2.7.11.1]; PIK3R4, VPS15; phosphoinositide-3-kinase, regulatory subunit 4 [EC:2.7.11.1]; BUB1; checkpoint serine/threonine-protein kinase [EC:2.7.11.1]
 HMMsoil59967			FOAM	rpfC; two-component system, sensor histidine kinase RpfC [EC:2.7.13.3]
@@ -11274,7 +11223,6 @@ HMMsoil60963			FOAM	barA, gacS, varS; two-component system, NarL family, sensor 
 HMMsoil60966			FOAM	flgS; two-component system, NtrC family, sensor kinase [EC:2.7.13.3]
 HMMsoil60973			FOAM	K11527; two-component system, sensor histidine kinase and response regulator [EC:2.7.13.3]
 HMMsoil6099			FOAM	qseC; two-component system, OmpR family, sensor histidine kinase QseC [EC:2.7.13.3]
-HMMsoil60999			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil61012			FOAM	flgS; two-component system, NtrC family, sensor kinase [EC:2.7.13.3]
 HMMsoil61025			FOAM	degS; two-component system, NarL family, sensor histidine kinase DegS [EC:2.7.13.3]; K02480; two-component system, NarL family, sensor kinase [EC:2.7.13.3]
 HMMsoil61027			FOAM	flgS; two-component system, NtrC family, sensor kinase [EC:2.7.13.3]
@@ -11380,7 +11328,6 @@ HMMsoil62257			FOAM	hk1; two-component system, glycerol uptake and utilization s
 HMMsoil62258			FOAM	K02486; two-component system, sensor kinase [EC:2.7.13.3]
 HMMsoil62288			FOAM	envZ; two-component system, OmpR family, osmolarity sensor histidine kinase EnvZ [EC:2.7.13.3]
 HMMsoil62291			FOAM	cheA; two-component system, chemotaxis family, sensor kinase CheA [EC:2.7.13.3]
-HMMsoil62297			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil62304			FOAM	phoR; two-component system, OmpR family, phosphate regulon sensor histidine kinase PhoR [EC:2.7.13.3]
 HMMsoil62312			FOAM	flgS; two-component system, NtrC family, sensor kinase [EC:2.7.13.3]
 HMMsoil62320			FOAM	qseC; two-component system, OmpR family, sensor histidine kinase QseC [EC:2.7.13.3]
@@ -11840,7 +11787,6 @@ HMMsoil68545			FOAM	ada; AraC family transcriptional regulator, regulatory prote
 HMMsoil68547			FOAM	cpxA; two-component system, OmpR family, sensor histidine kinase CpxA [EC:2.7.13.3]
 HMMsoil6855			FOAM	lytS; two-component system, LytTR family, sensor histidine kinase LytS [EC:2.7.13.3]
 HMMsoil68551			FOAM	cheA; two-component system, chemotaxis family, sensor kinase CheA [EC:2.7.13.3]
-HMMsoil68558			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil68567			FOAM	cheA; two-component system, chemotaxis family, sensor kinase CheA [EC:2.7.13.3]
 HMMsoil6857			FOAM	rcsC; two-component system, NarL family, capsular synthesis sensor histidine kinase RcsC [EC:2.7.13.3]
 HMMsoil68571			FOAM	rcsC; two-component system, NarL family, capsular synthesis sensor histidine kinase RcsC [EC:2.7.13.3]
@@ -12006,7 +11952,6 @@ HMMsoil70220			FOAM	K11527; two-component system, sensor histidine kinase and re
 HMMsoil70221			FOAM	K02486; two-component system, sensor kinase [EC:2.7.13.3]
 HMMsoil70225			FOAM	flgS; two-component system, NtrC family, sensor kinase [EC:2.7.13.3]
 HMMsoil70230			FOAM	cheA; two-component system, chemotaxis family, sensor kinase CheA [EC:2.7.13.3]
-HMMsoil70233			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil70238			FOAM	K02480; two-component system, NarL family, sensor kinase [EC:2.7.13.3]
 HMMsoil70249			FOAM	torS; two-component system, OmpR family, sensor histidine kinase TorS [EC:2.7.13.3]
 HMMsoil70250			FOAM	evgS, bvgS; two-component system, NarL family, sensor histidine kinase EvgS [EC:2.7.13.3]
@@ -12052,7 +11997,6 @@ HMMsoil70822			FOAM	flgS; two-component system, NtrC family, sensor kinase [EC:2
 HMMsoil70847			FOAM	evgS, bvgS; two-component system, NarL family, sensor histidine kinase EvgS [EC:2.7.13.3]
 HMMsoil70868			FOAM	zraS, hydH; two-component system, NtrC family, sensor histidine kinase HydH [EC:2.7.13.3]
 HMMsoil70896			FOAM	creC; two-component system, OmpR family, sensor histidine kinase CreC [EC:2.7.13.3]; baeS, smeS; two-component system, OmpR family, sensor histidine kinase BaeS [EC:2.7.13.3]; kdpD; two-component system, OmpR family, sensor histidine kinase KdpD [EC:2.7.13.3]; mprB; two-component system, OmpR family, sensor histidine kinase MprB [EC:2.7.13.3]; mtrB; two-component system, OmpR family, sensor histidine kinase MtrB [EC:2.7.13.3]; cheA; two-component system, chemotaxis family, sensor kinase CheA [EC:2.7.13.3]; phoR; two-component system, OmpR family, phosphate regulon sensor histidine kinase PhoR [EC:2.7.13.3]
-HMMsoil70904			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil70914			FOAM	pilS, pehS; two-component system, NtrC family, sensor histidine kinase PilS [EC:2.7.13.3]
 HMMsoil70915			FOAM	baeS, smeS; two-component system, OmpR family, sensor histidine kinase BaeS [EC:2.7.13.3]; kdpD; two-component system, OmpR family, sensor histidine kinase KdpD [EC:2.7.13.3]; K02484; two-component system, OmpR family, sensor kinase [EC:2.7.13.3]
 HMMsoil70927			FOAM	flgS; two-component system, NtrC family, sensor kinase [EC:2.7.13.3]
@@ -12096,7 +12040,6 @@ HMMsoil71499			FOAM	glnL, ntrB; two-component system, NtrC family, nitrogen regu
 HMMsoil715			FOAM	phoR; two-component system, OmpR family, phosphate regulon sensor histidine kinase PhoR [EC:2.7.13.3]
 HMMsoil71505			FOAM	K02480; two-component system, NarL family, sensor kinase [EC:2.7.13.3]
 HMMsoil71508			FOAM	cpxA; two-component system, OmpR family, sensor histidine kinase CpxA [EC:2.7.13.3]
-HMMsoil71558			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil71567			FOAM	flgS; two-component system, NtrC family, sensor kinase [EC:2.7.13.3]
 HMMsoil71569			FOAM	qseC; two-component system, OmpR family, sensor histidine kinase QseC [EC:2.7.13.3]
 HMMsoil71590			FOAM	lytS; two-component system, LytTR family, sensor histidine kinase LytS [EC:2.7.13.3]
@@ -12324,7 +12267,6 @@ HMMsoil74268			FOAM	flgS; two-component system, NtrC family, sensor kinase [EC:2
 HMMsoil74276			FOAM	dctB; two-component system, NtrC family, C4-dicarboxylate transport sensor histidine kinase DctB [EC:2.7.13.3]
 HMMsoil74304			FOAM	flgS; two-component system, NtrC family, sensor kinase [EC:2.7.13.3]
 HMMsoil74305			FOAM	K02484; two-component system, OmpR family, sensor kinase [EC:2.7.13.3]
-HMMsoil74306			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil74311			FOAM	Cellular response to oxidative stress
 HMMsoil74313			FOAM	Response to osmotic stress
 HMMsoil74320			FOAM	uhpB; two-component system, NarL family, sensor histidine kinase UhpB [EC:2.7.13.3]; K02486; two-component system, sensor kinase [EC:2.7.13.3]
@@ -12482,7 +12424,6 @@ HMMsoil76204			FOAM	K02484; two-component system, OmpR family, sensor kinase [EC
 HMMsoil76225			FOAM	baeS, smeS; two-component system, OmpR family, sensor histidine kinase BaeS [EC:2.7.13.3]
 HMMsoil76230			FOAM	envZ; two-component system, OmpR family, osmolarity sensor histidine kinase EnvZ [EC:2.7.13.3]; K02484; two-component system, OmpR family, sensor kinase [EC:2.7.13.3]
 HMMsoil76235			FOAM	lytS; two-component system, LytTR family, sensor histidine kinase LytS [EC:2.7.13.3]; yesM; two-component system, sensor histidine kinase YesM [EC:2.7.13.3]; K02478; two-component system, LytTR family, sensor kinase [EC:2.7.13.3]
-HMMsoil76239			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil76243			FOAM	dctS; two-component system, LuxR family, sensor histidine kinase DctS [EC:2.7.13.3]
 HMMsoil76249			FOAM	qseC; two-component system, OmpR family, sensor histidine kinase QseC [EC:2.7.13.3]
 HMMsoil76252			FOAM	barA, gacS, varS; two-component system, NarL family, sensor histidine kinase BarA [EC:2.7.13.3]; hk1; two-component system, glycerol uptake and utilization sensor kinase [EC:2.7.13.3]
@@ -13082,7 +13023,6 @@ HMMsoil83435			FOAM	ada-alkA; AraC family transcriptional regulator, regulatory 
 HMMsoil83443			FOAM	K02486; two-component system, sensor kinase [EC:2.7.13.3]
 HMMsoil83444			FOAM	uhpB; two-component system, NarL family, sensor histidine kinase UhpB [EC:2.7.13.3]
 HMMsoil83448			FOAM	degS; two-component system, NarL family, sensor histidine kinase DegS [EC:2.7.13.3]
-HMMsoil83456			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil83468			FOAM	uhpB; two-component system, NarL family, sensor histidine kinase UhpB [EC:2.7.13.3]
 HMMsoil83473			FOAM	cheA; two-component system, chemotaxis family, sensor kinase CheA [EC:2.7.13.3]
 HMMsoil83478			FOAM	qseC; two-component system, OmpR family, sensor histidine kinase QseC [EC:2.7.13.3]; K02484; two-component system, OmpR family, sensor kinase [EC:2.7.13.3]
@@ -13097,7 +13037,6 @@ HMMsoil83531			FOAM	baeS, smeS; two-component system, OmpR family, sensor histid
 HMMsoil83532			FOAM	uhpB; two-component system, NarL family, sensor histidine kinase UhpB [EC:2.7.13.3]; degS; two-component system, NarL family, sensor histidine kinase DegS [EC:2.7.13.3]; K02480; two-component system, NarL family, sensor kinase [EC:2.7.13.3]
 HMMsoil83534			FOAM	bceS; two-component system, OmpR family, bacitracin resistance sensor histidine kinase BceS [EC:2.7.13.3]; K02484; two-component system, OmpR family, sensor kinase [EC:2.7.13.3]
 HMMsoil83535			FOAM	flgS; two-component system, NtrC family, sensor kinase [EC:2.7.13.3]
-HMMsoil83538			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil83561			FOAM	qseC; two-component system, OmpR family, sensor histidine kinase QseC [EC:2.7.13.3]
 HMMsoil83569			FOAM	narX; two-component system, NarL family, nitrate/nitrite sensor histidine kinase NarX [EC:2.7.13.3]
 HMMsoil83595			FOAM	flgS; two-component system, NtrC family, sensor kinase [EC:2.7.13.3]
@@ -13148,7 +13087,6 @@ HMMsoil84295			FOAM	ndh; NADH:ubiquinone reductase (H+-translocating) [EC:7.1.1.
 HMMsoil84303			FOAM	Response to osmotic stress
 HMMsoil84310			FOAM	K02484; two-component system, OmpR family, sensor kinase [EC:2.7.13.3]
 HMMsoil84314			FOAM	dctS; two-component system, LuxR family, sensor histidine kinase DctS [EC:2.7.13.3]; K02476; two-component system, CitB family, sensor kinase [EC:2.7.13.3]
-HMMsoil84317			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil84325			FOAM	cusS, copS, silS; two-component system, OmpR family, heavy metal sensor histidine kinase CusS [EC:2.7.13.3]
 HMMsoil84339			FOAM	torS; two-component system, OmpR family, sensor histidine kinase TorS [EC:2.7.13.3]
 HMMsoil8438			FOAM	cheA; two-component system, chemotaxis family, sensor kinase CheA [EC:2.7.13.3]
@@ -13218,7 +13156,6 @@ HMMsoil85164			FOAM	rpfC; two-component system, sensor histidine kinase RpfC [EC
 HMMsoil8518			FOAM	qseC; two-component system, OmpR family, sensor histidine kinase QseC [EC:2.7.13.3]; K02484; two-component system, OmpR family, sensor kinase [EC:2.7.13.3]
 HMMsoil8528			FOAM	envZ; two-component system, OmpR family, osmolarity sensor histidine kinase EnvZ [EC:2.7.13.3]
 HMMsoil85295			FOAM	glrK, qseE; two-component system, NtrC family, sensor histidine kinase GlrK [EC:2.7.13.3]
-HMMsoil8530			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil85301			FOAM	atoS; two-component system, NtrC family, sensor histidine kinase AtoS [EC:2.7.13.3]; flgS; two-component system, NtrC family, sensor kinase [EC:2.7.13.3]
 HMMsoil85308			FOAM	nreB; two-component system, NarL family, sensor histidine kinase NreB [EC:2.7.13.3]
 HMMsoil85312			FOAM	lytS; two-component system, LytTR family, sensor histidine kinase LytS [EC:2.7.13.3]; K02478; two-component system, LytTR family, sensor kinase [EC:2.7.13.3]
@@ -13304,7 +13241,6 @@ HMMsoil86234			FOAM	rcsC; two-component system, NarL family, capsular synthesis 
 HMMsoil86240			FOAM	K02486; two-component system, sensor kinase [EC:2.7.13.3]
 HMMsoil86258			FOAM	K11527; two-component system, sensor histidine kinase and response regulator [EC:2.7.13.3]
 HMMsoil86267			FOAM	glnL, ntrB; two-component system, NtrC family, nitrogen regulation sensor histidine kinase GlnL [EC:2.7.13.3]
-HMMsoil86272			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil86321			FOAM	ada; AraC family transcriptional regulator, regulatory protein of adaptative response / methylated-DNA-[protein]-cysteine methyltransferase [EC:2.1.1.63]
 HMMsoil86399			FOAM	barA, gacS, varS; two-component system, NarL family, sensor histidine kinase BarA [EC:2.7.13.3]
 HMMsoil86406			FOAM	atoS; two-component system, NtrC family, sensor histidine kinase AtoS [EC:2.7.13.3]
@@ -13492,7 +13428,6 @@ HMMsoil88829			FOAM	K02478; two-component system, LytTR family, sensor kinase [E
 HMMsoil88837			FOAM	K02484; two-component system, OmpR family, sensor kinase [EC:2.7.13.3]
 HMMsoil88838			FOAM	rstB; two-component system, OmpR family, sensor histidine kinase RstB [EC:2.7.13.3]; K02484; two-component system, OmpR family, sensor kinase [EC:2.7.13.3]
 HMMsoil88842			FOAM	ada-alkA; AraC family transcriptional regulator, regulatory protein of adaptative response / DNA-3-methyladenine glycosylase II [EC:3.2.2.21]; alkA; DNA-3-methyladenine glycosylase II [EC:3.2.2.21]
-HMMsoil88887			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil88910			FOAM	dcuS; two-component system, CitB family, sensor histidine kinase DcuS [EC:2.7.13.3]; yufL, malK; two-component system, CitB family, sensor histidine kinase MalK [EC:2.7.13.3]; dctS; two-component system, LuxR family, sensor histidine kinase DctS [EC:2.7.13.3]; K02476; two-component system, CitB family, sensor kinase [EC:2.7.13.3]
 HMMsoil88911			FOAM	K02480; two-component system, NarL family, sensor kinase [EC:2.7.13.3]
 HMMsoil88940			FOAM	K02484; two-component system, OmpR family, sensor kinase [EC:2.7.13.3]
@@ -13569,7 +13504,6 @@ HMMsoil89936			FOAM	kdpD; two-component system, OmpR family, sensor histidine ki
 HMMsoil89943			FOAM	K02484; two-component system, OmpR family, sensor kinase [EC:2.7.13.3]
 HMMsoil89947			FOAM	uhpB; two-component system, NarL family, sensor histidine kinase UhpB [EC:2.7.13.3]
 HMMsoil89951			FOAM	uhpB; two-component system, NarL family, sensor histidine kinase UhpB [EC:2.7.13.3]
-HMMsoil89970			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil89982			FOAM	narX; two-component system, NarL family, nitrate/nitrite sensor histidine kinase NarX [EC:2.7.13.3]; narQ; two-component system, NarL family, nitrate/nitrite sensor histidine kinase NarQ [EC:2.7.13.3]
 HMMsoil8999			FOAM	flgS; two-component system, NtrC family, sensor kinase [EC:2.7.13.3]
 HMMsoil90012			FOAM	flgS; two-component system, NtrC family, sensor kinase [EC:2.7.13.3]
@@ -13690,7 +13624,6 @@ HMMsoil91542			FOAM	K11527; two-component system, sensor histidine kinase and re
 HMMsoil91543			FOAM	dctS; two-component system, LuxR family, sensor histidine kinase DctS [EC:2.7.13.3]
 HMMsoil91586			FOAM	K02484; two-component system, OmpR family, sensor kinase [EC:2.7.13.3]
 HMMsoil91591			FOAM	ttrS; two-component system, LuxR family, sensor histidine kinase TtrS [EC:2.7.13.3]
-HMMsoil91598			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil91599			FOAM	vicK; two-component system, OmpR family, sensor histidine kinase VicK [EC:2.7.13.3]
 HMMsoil91608			FOAM	glnL, ntrB; two-component system, NtrC family, nitrogen regulation sensor histidine kinase GlnL [EC:2.7.13.3]
 HMMsoil91616			FOAM	dctB; two-component system, NtrC family, C4-dicarboxylate transport sensor histidine kinase DctB [EC:2.7.13.3]
@@ -13855,7 +13788,6 @@ HMMsoil93815			FOAM	vicK; two-component system, OmpR family, sensor histidine ki
 HMMsoil93824			FOAM	phoR; two-component system, OmpR family, phosphate regulon sensor histidine kinase PhoR [EC:2.7.13.3]
 HMMsoil93832			FOAM	flgS; two-component system, NtrC family, sensor kinase [EC:2.7.13.3]
 HMMsoil93846			FOAM	flgS; two-component system, NtrC family, sensor kinase [EC:2.7.13.3]
-HMMsoil93854			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil93869			FOAM	rpfC; two-component system, sensor histidine kinase RpfC [EC:2.7.13.3]
 HMMsoil93870			FOAM	Response to osmotic stress
 HMMsoil93898			FOAM	rcsC; two-component system, NarL family, capsular synthesis sensor histidine kinase RcsC [EC:2.7.13.3]
@@ -13963,7 +13895,6 @@ HMMsoil95127			FOAM	sasA; two-component system, OmpR family, clock-associated hi
 HMMsoil9513			FOAM	ada-alkA; AraC family transcriptional regulator, regulatory protein of adaptative response / DNA-3-methyladenine glycosylase II [EC:3.2.2.21]
 HMMsoil95140			FOAM	comP; two-component system, NarL family, sensor histidine kinase ComP [EC:2.7.13.3]
 HMMsoil95142			FOAM	prrB; two-component system, OmpR family, sensor histidine kinase PrrB [EC:2.7.13.3]
-HMMsoil95143			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil9515			FOAM	uhpB; two-component system, NarL family, sensor histidine kinase UhpB [EC:2.7.13.3]
 HMMsoil95158			FOAM	nreB; two-component system, NarL family, sensor histidine kinase NreB [EC:2.7.13.3]
 HMMsoil95159			FOAM	lytS; two-component system, LytTR family, sensor histidine kinase LytS [EC:2.7.13.3]; cheA; two-component system, chemotaxis family, sensor kinase CheA [EC:2.7.13.3]
@@ -14021,7 +13952,6 @@ HMMsoil95727			FOAM	lytS; two-component system, LytTR family, sensor histidine k
 HMMsoil9573			FOAM	barA, gacS, varS; two-component system, NarL family, sensor histidine kinase BarA [EC:2.7.13.3]
 HMMsoil95735			FOAM	K11527; two-component system, sensor histidine kinase and response regulator [EC:2.7.13.3]
 HMMsoil95736			FOAM	rpfC; two-component system, sensor histidine kinase RpfC [EC:2.7.13.3]
-HMMsoil95751			FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW
 HMMsoil95771			FOAM	devS; two-component system, NarL family, sensor histidine kinase DevS [EC:2.7.13.3]
 HMMsoil95774			FOAM	degS; two-component system, NarL family, sensor histidine kinase DegS [EC:2.7.13.3]
 HMMsoil9580			FOAM	envZ; two-component system, OmpR family, osmolarity sensor histidine kinase EnvZ [EC:2.7.13.3]

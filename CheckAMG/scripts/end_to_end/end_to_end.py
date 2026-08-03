@@ -255,7 +255,11 @@ def run_end_to_end(common, annotate_ns, denovo_ns, aggregate_ns, scripts_dir, ch
         append_raw_to_log(e2e_log, banner)
         print(banner, file=terminal, flush=True)
 
+    current_module_log = None
+
     def start_module(idx, label, module_steps, module_output, module_log, extra_lines=()):
+        nonlocal current_module_log
+        current_module_log = module_log
         controller.set_module_log(module_log)
         controller.on_step = make_on_step(label, module_steps)
         unit = "step" if module_steps == 1 else "steps"
@@ -366,7 +370,13 @@ def run_end_to_end(common, annotate_ns, denovo_ns, aggregate_ns, scripts_dir, ch
         emit_banner("The CheckAMG end-to-end pipeline is complete.")
         logger.info(f"Aggregated results -> {aggregate_ns.output}")
     except Exception:
-        logger.error("CheckAMG end-to-end ended prematurely with an error!")
+        if current_module_log:
+            logger.error(
+                f"CheckAMG end-to-end ended prematurely with an error! "
+                f"Check {current_module_log} for more detail."
+            )
+        else:
+            logger.error("CheckAMG end-to-end ended prematurely with an error!")
         raise
     finally:
         controller.close()

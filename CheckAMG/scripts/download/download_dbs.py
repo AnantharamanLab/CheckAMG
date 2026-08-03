@@ -24,8 +24,16 @@ logger = setup_runner_logger(log_file_path=None, debug=False)
 #   "denovo_url" is set so the de-novo DB is version-pinned alongside the annotate DB.
 CHECKAMG_DB_URL_RULES = [
     {
-        "min_version": "1.0",
+        "min_version": "1.1",
         "max_version": None, # open-ended
+        "db_version": "CheckAMG_annotate_db_v1.1_20260316",
+        "url": "https://zenodo.org/records/21776005/files/CheckAMG_annotate_db_v1.1_20260316.tar.gz?download=1",
+        "denovo_db_version": "CheckAMG_denovo_db_v1.1_20260714",
+        "denovo_url": "https://zenodo.org/records/21776005/files/CheckAMG_denovo_db_v1.1_20260714.tar.gz?download=1",
+    },
+    {
+        "min_version": "1.0",
+        "max_version": "1.0",
         "db_version": "CheckAMG_annotate_db_v1.1_20260316",
         "url": "https://zenodo.org/records/20750360/files/CheckAMG_annotate_db_v1.1_20260316.tar.gz?download=1",
         "denovo_db_version": "checkamg_denovo_db_v1.1_20260316",

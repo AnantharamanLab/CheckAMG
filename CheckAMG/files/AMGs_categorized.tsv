@@ -639,6 +639,8 @@ HMMsoil100486	FOAM	ABC.CD.A; putative ABC transport system ATP-binding protein	M
 HMMsoil100487	FOAM	Multiple sugar transporter [mD:m00207]	Metabolic substrate transport	ABC-type transport	
 HMMsoil100488	FOAM	Antibiotic ABC transporter [mD:m00248]	Metabolic substrate transport	ABC-type transport	
 HMMsoil100489	FOAM	ABC.SN.A; NitT/TauT family transport system ATP-binding protein	Metabolic substrate transport	ABC-type transport	
+HMMsoil10049	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil10049	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil100491	FOAM	ABC.PA.A; polar amino acid transport system ATP-binding protein [EC:7.4.2.1]	Metabolic substrate transport	ABC-type transport	
 HMMsoil100492	FOAM	tyrA2; prephenate dehydrogenase [EC:1.3.1.12]	Amino acid metabolism	Aminotransferase / transamination	
 HMMsoil100492	FOAM	tyrA2; prephenate dehydrogenase [EC:1.3.1.12]	Amino acid metabolism	Aromatic amino acid metabolism (Phe / Tyr / Trp)	
@@ -1603,6 +1605,8 @@ HMMsoil102267	FOAM	ddpF; peptide/nickel transport system ATP-binding protein	Met
 HMMsoil10227	FOAM	lolD; lipoprotein-releasing system ATP-binding protein [EC:7.6.2.-]	Metabolic substrate transport	ABC-type transport	
 HMMsoil102271	FOAM	HPD, hppD; 4-hydroxyphenylpyruvate dioxygenase [EC:1.13.11.27]	Amino acid metabolism	Aromatic amino acid metabolism (Phe / Tyr / Trp)	
 HMMsoil102271	FOAM	HPD, hppD; 4-hydroxyphenylpyruvate dioxygenase [EC:1.13.11.27]	Amino acid metabolism	Cysteine / methionine metabolism	
+HMMsoil102285	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil102285	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil102286	FOAM	E5.4.99.2B, mcmA2; methylmalonyl-CoA mutase, C-terminal domain [EC:5.4.99.2]	Amino acid metabolism	Aminotransferase / transamination	
 HMMsoil102286	FOAM	E5.4.99.2B, mcmA2; methylmalonyl-CoA mutase, C-terminal domain [EC:5.4.99.2]	Amino acid metabolism	Branched-chain amino acid metabolism (Val/Leu/Ile)	
 HMMsoil10229	FOAM	ptsI; phosphoenolpyruvate-protein phosphotransferase (PTS system enzyme I) [EC:2.7.3.9]	Metabolic substrate transport	PTS / phosphotransferase transport	
@@ -2184,6 +2188,8 @@ HMMsoil103355	FOAM	DLST, sucB; 2-oxoglutarate dehydrogenase E2 component (dihydr
 HMMsoil103356	FOAM	DLST, sucB; 2-oxoglutarate dehydrogenase E2 component (dihydrolipoamide succinyltransferase) [EC:2.3.1.61]	Carbohydrate metabolism	TCA cycle	
 HMMsoil103356	FOAM	DLST, sucB; 2-oxoglutarate dehydrogenase E2 component (dihydrolipoamide succinyltransferase) [EC:2.3.1.61]	Energy metabolism	TCA cycle	
 HMMsoil10336	FOAM	hcaD; 3-phenylpropionate/trans-cinnamate dioxygenase ferredoxin reductase component [EC:1.18.1.3]	Amino acid metabolism	Aromatic amino acid metabolism (Phe / Tyr / Trp)	
+HMMsoil103360	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil103360	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil103373	FOAM	nasA; assimilatory nitrate reductase catalytic subunit [EC:1.7.99.-]	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil103373	FOAM	nasA; assimilatory nitrate reductase catalytic subunit [EC:1.7.99.-]	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil103375	FOAM	nasA; assimilatory nitrate reductase catalytic subunit [EC:1.7.99.-]	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
@@ -2209,6 +2215,8 @@ HMMsoil103399	FOAM	hdrA2; heterodisulfide reductase subunit A2 [EC:1.8.7.3] [EC:
 HMMsoil103399	FOAM	hdrA2; heterodisulfide reductase subunit A2 [EC:1.8.7.3] [EC:1.8.98.4] [EC:1.8.98.5] [EC:1.8.98.6]	Energy metabolism	Methanogenesis	Methanogenesis from CO2 / formate
 HMMsoil103399	FOAM	hdrA2; heterodisulfide reductase subunit A2 [EC:1.8.7.3] [EC:1.8.98.4] [EC:1.8.98.5] [EC:1.8.98.6]	Energy metabolism	Methanogenesis	Methanogenesis from acetate
 HMMsoil103399	FOAM	hdrA2; heterodisulfide reductase subunit A2 [EC:1.8.7.3] [EC:1.8.98.4] [EC:1.8.98.5] [EC:1.8.98.6]	Energy metabolism	Methanogenesis	Methanogenesis from methylated compounds
+HMMsoil10340	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil10340	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil103400	FOAM	pta; phosphate acetyltransferase [EC:2.3.1.8]	Carbon fixation & C1 metabolism	Methanogenesis	Methanogenesis from acetate
 HMMsoil103400	FOAM	pta; phosphate acetyltransferase [EC:2.3.1.8]	Energy metabolism	Methanogenesis	Methanogenesis from acetate
 HMMsoil103400	FOAM	pta; phosphate acetyltransferase [EC:2.3.1.8]	Sulfur metabolism	Sulfur metabolism (other)	
@@ -2587,6 +2595,8 @@ HMMsoil10413	FOAM	afuC, fbpC; iron(III) transport system ATP-binding protein [EC
 HMMsoil104131	FOAM	nirA; ferredoxin-nitrite reductase [EC:1.7.7.1]	Amino acid metabolism	Cysteine / methionine metabolism	
 HMMsoil104131	FOAM	nirA; ferredoxin-nitrite reductase [EC:1.7.7.1]	Energy metabolism	Denitrification (NO3 → N2)	Nitrite reduction (denitrification)
 HMMsoil104131	FOAM	nirA; ferredoxin-nitrite reductase [EC:1.7.7.1]	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrite reduction (denitrification)
+HMMsoil104133	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil104133	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil104140	FOAM	fwdG; 4Fe-4S ferredoxin	Carbon fixation & C1 metabolism	Methanogenesis	Methanogenesis from CO2 / formate
 HMMsoil104140	FOAM	fwdG; 4Fe-4S ferredoxin	Energy metabolism	Methanogenesis	Methanogenesis from CO2 / formate
 HMMsoil104141	FOAM	E1.12.7.2; ferredoxin hydrogenase [EC:1.12.7.2]; fdoG, fdhF, fdwA; formate dehydrogenase major subunit [EC:1.17.1.9]	Carbon fixation & C1 metabolism	Formaldehyde oxidation / fixation	
@@ -3035,6 +3045,8 @@ HMMsoil104910	FOAM	Polycyclic aromatic hydrocarbon degradation	Aromatic & xenobi
 HMMsoil104912	FOAM	hisC; histidinol-phosphate aminotransferase [EC:2.6.1.9]	Amino acid metabolism	Histidine metabolism	
 HMMsoil10492	FOAM	IDH1, IDH2, icd; isocitrate dehydrogenase [EC:1.1.1.42]	Carbohydrate metabolism	TCA cycle	
 HMMsoil10492	FOAM	IDH1, IDH2, icd; isocitrate dehydrogenase [EC:1.1.1.42]	Energy metabolism	TCA cycle	
+HMMsoil104920	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil104920	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil104922	FOAM	livF; branched-chain amino acid transport system ATP-binding protein	Metabolic substrate transport	ABC-type transport	
 HMMsoil104924	FOAM	petC; cytochrome b6-f complex iron-sulfur subunit [EC:7.1.1.6]	Energy metabolism	Oxidative phosphorylation / ETC	
 HMMsoil104925	FOAM	E2.2.1.6L, ilvB, ilvG, ilvI; acetolactate synthase I/II/III large subunit [EC:2.2.1.6]	Amino acid metabolism	Branched-chain amino acid metabolism (Val/Leu/Ile)	
@@ -5974,6 +5986,8 @@ HMMsoil1103	FOAM	galE, GALE; UDP-glucose 4-epimerase [EC:5.1.3.2]	Carbohydrate m
 HMMsoil110300	FOAM	ddpF; peptide/nickel transport system ATP-binding protein	Metabolic substrate transport	ABC-type transport	
 HMMsoil110301	FOAM	yaaU; MFS transporter, putative metabolite transport protein	Metabolic substrate transport	MFS transport	
 HMMsoil110302	FOAM	ABC.FEV.A; iron complex transport system ATP-binding protein [EC:7.2.2.-]	Metabolic substrate transport	ABC-type transport	
+HMMsoil110304	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil110304	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil110308	FOAM	dapB; 4-hydroxy-tetrahydrodipicolinate reductase [EC:1.17.1.8]	Amino acid metabolism	Lysine metabolism	
 HMMsoil110308	FOAM	dapB; 4-hydroxy-tetrahydrodipicolinate reductase [EC:1.17.1.8]	Lipid & fatty acid metabolism	Fatty acid biosynthesis	
 HMMsoil11031	FOAM	fadH; 2,4-dienoyl-CoA reductase (NADPH2) [EC:1.3.1.34]	Lipid & fatty acid metabolism	Fatty acid biosynthesis	
@@ -6582,6 +6596,8 @@ HMMsoil111398	FOAM	cysI; sulfite reductase (NADPH) hemoprotein beta-component [E
 HMMsoil111399	FOAM	pycB; pyruvate carboxylase subunit B [EC:6.4.1.1]	Carbohydrate metabolism	Gluconeogenesis	
 HMMsoil111399	FOAM	pycB; pyruvate carboxylase subunit B [EC:6.4.1.1]	Carbohydrate metabolism	TCA cycle	
 HMMsoil111399	FOAM	pycB; pyruvate carboxylase subunit B [EC:6.4.1.1]	Energy metabolism	TCA cycle	
+HMMsoil111400	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil111400	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil11141	FOAM	proV; glycine betaine/proline transport system ATP-binding protein [EC:7.6.2.9]	Metabolic substrate transport	ABC-type transport	
 HMMsoil111410	FOAM	ACADM, acd; acyl-CoA dehydrogenase [EC:1.3.8.7]	Amino acid metabolism	Aminotransferase / transamination	
 HMMsoil111410	FOAM	ACADM, acd; acyl-CoA dehydrogenase [EC:1.3.8.7]	Amino acid metabolism	Branched-chain amino acid metabolism (Val/Leu/Ile)	
@@ -7007,6 +7023,8 @@ HMMsoil112177	FOAM	ACADM, acd; acyl-CoA dehydrogenase [EC:1.3.8.7]	Amino acid me
 HMMsoil112177	FOAM	ACADM, acd; acyl-CoA dehydrogenase [EC:1.3.8.7]	Amino acid metabolism	Cysteine / methionine metabolism	
 HMMsoil112187	FOAM	gltB; glutamate synthase (NADPH) large chain [EC:1.4.1.13]	Amino acid metabolism	Alanine / aspartate / glutamate metabolism	
 HMMsoil112187	FOAM	gltB; glutamate synthase (NADPH) large chain [EC:1.4.1.13]	Nitrogen metabolism	Ammonia assimilation (GS-GOGAT)	
+HMMsoil112188	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil112188	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil112189	FOAM	bchR; bacteriochlorophyllide d C-12(1)-methyltransferase [EC:2.1.1.331]	Amino acid metabolism	Histidine metabolism	
 HMMsoil112189	FOAM	bchR; bacteriochlorophyllide d C-12(1)-methyltransferase [EC:2.1.1.331]	Carbon fixation & C1 metabolism	Wood-Ljungdahl pathway / homoacetogenesis	
 HMMsoil112189	FOAM	bchR; bacteriochlorophyllide d C-12(1)-methyltransferase [EC:2.1.1.331]	Energy metabolism	Photosynthesis	Anoxygenic photosynthesis
@@ -7602,6 +7620,8 @@ HMMsoil11327	FOAM	nirA; ferredoxin-nitrite reductase [EC:1.7.7.1]	Energy metabol
 HMMsoil11327	FOAM	nirA; ferredoxin-nitrite reductase [EC:1.7.7.1]	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrite reduction (denitrification)
 HMMsoil113274	FOAM	yhdR; aspartate aminotransferase [EC:2.6.1.1]	Amino acid metabolism	Alanine / aspartate / glutamate metabolism	
 HMMsoil113274	FOAM	yhdR; aspartate aminotransferase [EC:2.6.1.1]	Sulfur metabolism	Sulfur metabolism (other)	
+HMMsoil113278	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil113278	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil11328	FOAM	nirB; nitrite reductase (NADH) large subunit [EC:1.7.1.15]	Energy metabolism	Denitrification (NO3 → N2)	Nitrite reduction (denitrification)
 HMMsoil11328	FOAM	nirB; nitrite reductase (NADH) large subunit [EC:1.7.1.15]	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrite reduction (denitrification)
 HMMsoil113280	FOAM	ACSL, fadD; long-chain acyl-CoA synthetase [EC:6.2.1.3]	Lipid & fatty acid metabolism	Fatty acid degradation (β-oxidation)	
@@ -9325,6 +9345,8 @@ HMMsoil116285	FOAM	aspA; aspartate ammonia-lyase [EC:4.3.1.1]	Amino acid metabol
 HMMsoil11630	FOAM	puuB, ordL; gamma-glutamylputrescine oxidase [EC:1.4.3.-]	Amino acid metabolism	Arginine / proline metabolism	
 HMMsoil116302	FOAM	E4.3.1.19, ilvA, tdcB; threonine dehydratase [EC:4.3.1.19]	Amino acid metabolism	Branched-chain amino acid metabolism (Val/Leu/Ile)	
 HMMsoil116302	FOAM	E4.3.1.19, ilvA, tdcB; threonine dehydratase [EC:4.3.1.19]	Amino acid metabolism	Glycine / serine / threonine metabolism	
+HMMsoil116305	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil116305	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil116309	FOAM	DLST, sucB; 2-oxoglutarate dehydrogenase E2 component (dihydrolipoamide succinyltransferase) [EC:2.3.1.61]	Carbohydrate metabolism	TCA cycle	
 HMMsoil116309	FOAM	DLST, sucB; 2-oxoglutarate dehydrogenase E2 component (dihydrolipoamide succinyltransferase) [EC:2.3.1.61]	Energy metabolism	TCA cycle	
 HMMsoil116315	FOAM	ABC.SN.A; NitT/TauT family transport system ATP-binding protein	Metabolic substrate transport	ABC-type transport	
@@ -9467,6 +9489,8 @@ HMMsoil116538	FOAM	K10907; aminotransferase [EC:2.6.1.-]	Amino acid metabolism	L
 HMMsoil116549	FOAM	gltD; glutamate synthase (NADPH) small chain [EC:1.4.1.13]	Amino acid metabolism	Alanine / aspartate / glutamate metabolism	
 HMMsoil116549	FOAM	gltD; glutamate synthase (NADPH) small chain [EC:1.4.1.13]	Amino acid metabolism	Lysine metabolism	
 HMMsoil116549	FOAM	gltD; glutamate synthase (NADPH) small chain [EC:1.4.1.13]	Nitrogen metabolism	Ammonia assimilation (GS-GOGAT)	
+HMMsoil116551	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil116551	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil116554	FOAM	DLD, lpd, pdhD; dihydrolipoamide dehydrogenase [EC:1.8.1.4]	Amino acid metabolism	Branched-chain amino acid metabolism (Val/Leu/Ile)	
 HMMsoil116554	FOAM	DLD, lpd, pdhD; dihydrolipoamide dehydrogenase [EC:1.8.1.4]	Amino acid metabolism	Glycine / serine / threonine metabolism	
 HMMsoil116561	FOAM	hcaD; 3-phenylpropionate/trans-cinnamate dioxygenase ferredoxin reductase component [EC:1.18.1.3]	Amino acid metabolism	Aromatic amino acid metabolism (Phe / Tyr / Trp)	
@@ -9894,6 +9918,8 @@ HMMsoil11731	FOAM	IMA, malL; oligo-1,6-glucosidase [EC:3.2.1.10]	Carbohydrate me
 HMMsoil117318	FOAM	hyaA, hybO; hydrogenase small subunit [EC:1.12.99.6]	Energy metabolism	Hydrogenase	[NiFe]-hydrogenase
 HMMsoil11732	FOAM	lacZ; beta-galactosidase [EC:3.2.1.23]	Carbohydrate metabolism	CAZy: glycoside hydrolase (GH)	
 HMMsoil11732	FOAM	lacZ; beta-galactosidase [EC:3.2.1.23]	Carbohydrate metabolism	Polysaccharide / complex carbon degradation	
+HMMsoil117324	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil117324	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil11733	FOAM	ABC.CD.A; putative ABC transport system ATP-binding protein	Metabolic substrate transport	ABC-type transport	
 HMMsoil117331	FOAM	ALDH; aldehyde dehydrogenase (NAD+) [EC:1.2.1.3]	Amino acid metabolism	Aromatic amino acid metabolism (Phe / Tyr / Trp)	
 HMMsoil117331	FOAM	ALDH; aldehyde dehydrogenase (NAD+) [EC:1.2.1.3]	Amino acid metabolism	Branched-chain amino acid metabolism (Val/Leu/Ile)	
@@ -10852,6 +10878,8 @@ HMMsoil118975	FOAM	glk; glucokinase [EC:2.7.1.2]	Energy metabolism	Glycolysis / 
 HMMsoil118977	FOAM	sir; sulfite reductase (ferredoxin) [EC:1.8.7.1]	Sulfur metabolism	Sulfate reduction	Assimilatory sulfate reduction
 HMMsoil118983	FOAM	cysI; sulfite reductase (NADPH) hemoprotein beta-component [EC:1.8.1.2]	Sulfur metabolism	Sulfate reduction	Assimilatory sulfate reduction
 HMMsoil118985	FOAM	cysH; phosphoadenosine phosphosulfate reductase [EC:1.8.4.8] [EC:1.8.4.10]	Sulfur metabolism	Sulfate reduction	Assimilatory sulfate reduction
+HMMsoil118987	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil118987	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil11899	FOAM	ALDH; aldehyde dehydrogenase (NAD+) [EC:1.2.1.3]	Amino acid metabolism	Aromatic amino acid metabolism (Phe / Tyr / Trp)	
 HMMsoil11899	FOAM	ALDH; aldehyde dehydrogenase (NAD+) [EC:1.2.1.3]	Amino acid metabolism	Branched-chain amino acid metabolism (Val/Leu/Ile)	
 HMMsoil11899	FOAM	ALDH; aldehyde dehydrogenase (NAD+) [EC:1.2.1.3]	Amino acid metabolism	Histidine metabolism	
@@ -12985,6 +13013,8 @@ HMMsoil123161	FOAM	ALDH; aldehyde dehydrogenase (NAD+) [EC:1.2.1.3]	Carbohydrate
 HMMsoil123161	FOAM	ALDH; aldehyde dehydrogenase (NAD+) [EC:1.2.1.3]	Lipid & fatty acid metabolism	Fatty acid degradation (β-oxidation)	
 HMMsoil123165	FOAM	malZ; alpha-glucosidase [EC:3.2.1.20]	Carbohydrate metabolism	Polysaccharide / complex carbon degradation	
 HMMsoil123165	FOAM	malZ; alpha-glucosidase [EC:3.2.1.20]	Carbohydrate metabolism	Sugar interconversion	
+HMMsoil123169	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil123169	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil123174	FOAM	nirB; nitrite reductase (NADH) large subunit [EC:1.7.1.15]	Energy metabolism	Denitrification (NO3 → N2)	Nitrite reduction (denitrification)
 HMMsoil123174	FOAM	nirB; nitrite reductase (NADH) large subunit [EC:1.7.1.15]	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrite reduction (denitrification)
 HMMsoil123178	FOAM	nirB; nitrite reductase (NADH) large subunit [EC:1.7.1.15]	Energy metabolism	Denitrification (NO3 → N2)	Nitrite reduction (denitrification)
@@ -13299,6 +13329,8 @@ HMMsoil12372	FOAM	znuB; zinc transport system permease protein	Metabolic substra
 HMMsoil123726	FOAM	hemK, prmC, HEMK; release factor glutamine methyltransferase [EC:2.1.1.297]	Amino acid metabolism	Histidine metabolism	
 HMMsoil123726	FOAM	hemK, prmC, HEMK; release factor glutamine methyltransferase [EC:2.1.1.297]	Carbon fixation & C1 metabolism	Wood-Ljungdahl pathway / homoacetogenesis	
 HMMsoil123726	FOAM	hemK, prmC, HEMK; release factor glutamine methyltransferase [EC:2.1.1.297]	Energy metabolism	Wood-Ljungdahl pathway / homoacetogenesis	
+HMMsoil123727	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil123727	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil123735	FOAM	korD, oorD; 2-oxoglutarate ferredoxin oxidoreductase subunit delta [EC:1.2.7.3]	Carbohydrate metabolism	TCA cycle	
 HMMsoil123735	FOAM	korD, oorD; 2-oxoglutarate ferredoxin oxidoreductase subunit delta [EC:1.2.7.3]	Energy metabolism	TCA cycle	
 HMMsoil123737	FOAM	fwdH; 4Fe-4S ferredoxin	Carbon fixation & C1 metabolism	Methanogenesis	Methanogenesis from CO2 / formate
@@ -17435,6 +17467,8 @@ HMMsoil131874	FOAM	fdoH, fdsB; formate dehydrogenase iron-sulfur subunit	Carbon 
 HMMsoil131874	FOAM	fdoH, fdsB; formate dehydrogenase iron-sulfur subunit	Carbon fixation & C1 metabolism	Methanotrophy / methane oxidation	
 HMMsoil131874	FOAM	fdoH, fdsB; formate dehydrogenase iron-sulfur subunit	Energy metabolism	Methanogenesis	Methanogenesis from CO2 / formate
 HMMsoil131874	FOAM	fdoH, fdsB; formate dehydrogenase iron-sulfur subunit	Energy metabolism	Methanotrophy / methane oxidation	
+HMMsoil131878	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil131878	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil13188	FOAM	ptsI; phosphoenolpyruvate-protein phosphotransferase (PTS system enzyme I) [EC:2.7.3.9]	Metabolic substrate transport	PTS / phosphotransferase transport	
 HMMsoil131886	FOAM	ddpD; peptide/nickel transport system ATP-binding protein	Metabolic substrate transport	ABC-type transport	
 HMMsoil131892	FOAM	benK; MFS transporter, AAHS family, benzoate transport protein	Metabolic substrate transport	MFS transport	
@@ -17842,6 +17876,8 @@ HMMsoil132829	FOAM	E4.4.1.11; methionine-gamma-lyase [EC:4.4.1.11]	Amino acid me
 HMMsoil13283	FOAM	aroK, aroL; shikimate kinase [EC:2.7.1.71]	Amino acid metabolism	Aromatic amino acid metabolism (Phe / Tyr / Trp)	
 HMMsoil132834	FOAM	E2.6.1.83; LL-diaminopimelate aminotransferase [EC:2.6.1.83]	Amino acid metabolism	Lysine metabolism	
 HMMsoil132835	FOAM	Polycyclic aromatic hydrocarbon degradation	Aromatic & xenobiotic degradation	PAH / polycyclic aromatic degradation	
+HMMsoil132839	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil132839	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil13284	FOAM	AMY, amyA, malS; alpha-amylase [EC:3.2.1.1]	Carbohydrate metabolism	CAZy: glycoside hydrolase (GH)	
 HMMsoil13284	FOAM	AMY, amyA, malS; alpha-amylase [EC:3.2.1.1]	Carbohydrate metabolism	Polysaccharide / complex carbon degradation	
 HMMsoil132850	FOAM	fwdH; 4Fe-4S ferredoxin	Carbon fixation & C1 metabolism	Methanogenesis	Methanogenesis from CO2 / formate
@@ -17857,6 +17893,8 @@ HMMsoil132863	FOAM	fdoH, fdsB; formate dehydrogenase iron-sulfur subunit	Carbon 
 HMMsoil132863	FOAM	fdoH, fdsB; formate dehydrogenase iron-sulfur subunit	Carbon fixation & C1 metabolism	Methanotrophy / methane oxidation	
 HMMsoil132863	FOAM	fdoH, fdsB; formate dehydrogenase iron-sulfur subunit	Energy metabolism	Methanogenesis	Methanogenesis from CO2 / formate
 HMMsoil132863	FOAM	fdoH, fdsB; formate dehydrogenase iron-sulfur subunit	Energy metabolism	Methanotrophy / methane oxidation	
+HMMsoil132867	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil132867	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil132875	FOAM	ALDH; aldehyde dehydrogenase (NAD+) [EC:1.2.1.3]	Amino acid metabolism	Aromatic amino acid metabolism (Phe / Tyr / Trp)	
 HMMsoil132875	FOAM	ALDH; aldehyde dehydrogenase (NAD+) [EC:1.2.1.3]	Amino acid metabolism	Branched-chain amino acid metabolism (Val/Leu/Ile)	
 HMMsoil132875	FOAM	ALDH; aldehyde dehydrogenase (NAD+) [EC:1.2.1.3]	Amino acid metabolism	Histidine metabolism	
@@ -17890,6 +17928,8 @@ HMMsoil132909	FOAM	cysI; sulfite reductase (NADPH) hemoprotein beta-component [E
 HMMsoil132910	FOAM	nasA; assimilatory nitrate reductase catalytic subunit [EC:1.7.99.-]; nasB; assimilatory nitrate reductase electron transfer subunit [EC:1.7.99.-]; napA; nitrate reductase (cytochrome) [EC:1.9.6.1]	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil132910	FOAM	nasA; assimilatory nitrate reductase catalytic subunit [EC:1.7.99.-]; nasB; assimilatory nitrate reductase electron transfer subunit [EC:1.7.99.-]; napA; nitrate reductase (cytochrome) [EC:1.9.6.1]	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil132916	FOAM	amiABC; N-acetylmuramoyl-L-alanine amidase [EC:3.5.1.28]	Amino acid metabolism	Alanine / aspartate / glutamate metabolism	
+HMMsoil132918	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil132918	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil13292	FOAM	ALDH; aldehyde dehydrogenase (NAD+) [EC:1.2.1.3]	Amino acid metabolism	Aromatic amino acid metabolism (Phe / Tyr / Trp)	
 HMMsoil13292	FOAM	ALDH; aldehyde dehydrogenase (NAD+) [EC:1.2.1.3]	Amino acid metabolism	Branched-chain amino acid metabolism (Val/Leu/Ile)	
 HMMsoil13292	FOAM	ALDH; aldehyde dehydrogenase (NAD+) [EC:1.2.1.3]	Amino acid metabolism	Histidine metabolism	
@@ -18506,6 +18546,8 @@ HMMsoil134228	FOAM	trpD; anthranilate phosphoribosyltransferase [EC:2.4.2.18]	Am
 HMMsoil13424	FOAM	CYP81F; indol-3-yl-methylglucosinolate hydroxylase [EC:1.14.-.-]	Aromatic & xenobiotic degradation	PAH / polycyclic aromatic degradation	
 HMMsoil134244	FOAM	Phenylalanine, tyrosine and tryptophan biosynthesis; tyrA2; prephenate dehydrogenase [EC:1.3.1.12]; PEP	Amino acid metabolism	Aromatic amino acid metabolism (Phe / Tyr / Trp)	
 HMMsoil13425	FOAM	bkdA; 2-oxoisovalerate dehydrogenase E1 component [EC:1.2.4.4]	Amino acid metabolism	Branched-chain amino acid metabolism (Val/Leu/Ile)	
+HMMsoil134254	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil134254	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil134256	FOAM	fdoH, fdsB; formate dehydrogenase iron-sulfur subunit	Carbon fixation & C1 metabolism	Formaldehyde oxidation / fixation	
 HMMsoil134256	FOAM	fdoH, fdsB; formate dehydrogenase iron-sulfur subunit	Carbon fixation & C1 metabolism	Methanogenesis	Methanogenesis from CO2 / formate
 HMMsoil134256	FOAM	fdoH, fdsB; formate dehydrogenase iron-sulfur subunit	Carbon fixation & C1 metabolism	Methanotrophy / methane oxidation	
@@ -19464,7 +19506,11 @@ HMMsoil136262	FOAM	hdrA2; heterodisulfide reductase subunit A2 [EC:1.8.7.3] [EC:
 HMMsoil136262	FOAM	hdrA2; heterodisulfide reductase subunit A2 [EC:1.8.7.3] [EC:1.8.98.4] [EC:1.8.98.5] [EC:1.8.98.6]	Energy metabolism	Methanogenesis	Methanogenesis from acetate
 HMMsoil136262	FOAM	hdrA2; heterodisulfide reductase subunit A2 [EC:1.8.7.3] [EC:1.8.98.4] [EC:1.8.98.5] [EC:1.8.98.6]	Energy metabolism	Methanogenesis	Methanogenesis from methylated compounds
 HMMsoil13628	FOAM	ABC-2.A; ABC-2 type transport system ATP-binding protein	Metabolic substrate transport	ABC-type transport	
+HMMsoil136284	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil136284	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil13629	FOAM	metI; D-methionine transport system permease protein	Metabolic substrate transport	ABC-type transport	
+HMMsoil136290	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil136290	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil136303	FOAM	proP; MFS transporter, MHS family, proline/betaine transporter	Metabolic substrate transport	MFS transport	
 HMMsoil136304	FOAM	lacZ; beta-galactosidase [EC:3.2.1.23]	Carbohydrate metabolism	CAZy: glycoside hydrolase (GH)	
 HMMsoil136304	FOAM	lacZ; beta-galactosidase [EC:3.2.1.23]	Carbohydrate metabolism	Polysaccharide / complex carbon degradation	
@@ -21675,6 +21721,8 @@ HMMsoil15101	FOAM	aroA; 3-phosphoshikimate 1-carboxyvinyltransferase [EC:2.5.1.1
 HMMsoil15101	FOAM	aroA; 3-phosphoshikimate 1-carboxyvinyltransferase [EC:2.5.1.19]	Amino acid metabolism	Cysteine / methionine metabolism	
 HMMsoil15103	FOAM	narI, narV; nitrate reductase gamma subunit [EC:1.7.5.1] [EC:1.7.99.-]	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil15103	FOAM	narI, narV; nitrate reductase gamma subunit [EC:1.7.5.1] [EC:1.7.99.-]	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil15104	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil15104	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil15105	FOAM	cysJ; sulfite reductase (NADPH) flavoprotein alpha-component [EC:1.8.1.2]	Sulfur metabolism	Sulfate reduction	Assimilatory sulfate reduction
 HMMsoil15110	FOAM	fdoH, fdsB; formate dehydrogenase iron-sulfur subunit	Carbon fixation & C1 metabolism	Formaldehyde oxidation / fixation	
 HMMsoil15110	FOAM	fdoH, fdsB; formate dehydrogenase iron-sulfur subunit	Carbon fixation & C1 metabolism	Methanogenesis	Methanogenesis from CO2 / formate
@@ -21690,6 +21738,8 @@ HMMsoil15119	FOAM	PGAM, gpmA; 2,3-bisphosphoglycerate-dependent phosphoglycerate
 HMMsoil15119	FOAM	PGAM, gpmA; 2,3-bisphosphoglycerate-dependent phosphoglycerate mutase [EC:5.4.2.11]	Carbohydrate metabolism	Glycolysis / EMP	
 HMMsoil15119	FOAM	PGAM, gpmA; 2,3-bisphosphoglycerate-dependent phosphoglycerate mutase [EC:5.4.2.11]	Energy metabolism	Glycolysis / EMP	
 HMMsoil1512	FOAM	amiABC; N-acetylmuramoyl-L-alanine amidase [EC:3.5.1.28]	Amino acid metabolism	Alanine / aspartate / glutamate metabolism	
+HMMsoil15120	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil15120	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil15121	FOAM	Polycyclic aromatic hydrocarbon degradation	Aromatic & xenobiotic degradation	PAH / polycyclic aromatic degradation	
 HMMsoil15122	FOAM	trpG; anthranilate synthase component II [EC:4.1.3.27]	Amino acid metabolism	Aminotransferase / transamination	
 HMMsoil15122	FOAM	trpG; anthranilate synthase component II [EC:4.1.3.27]	Amino acid metabolism	Aromatic amino acid metabolism (Phe / Tyr / Trp)	
@@ -21817,6 +21867,8 @@ HMMsoil15205	FOAM	ACSS1_2, acs; acetyl-CoA synthetase [EC:6.2.1.1]	Carbon fixati
 HMMsoil15205	FOAM	ACSS1_2, acs; acetyl-CoA synthetase [EC:6.2.1.1]	Energy metabolism	Methanogenesis	Methanogenesis from acetate
 HMMsoil15206	FOAM	FDH; formate dehydrogenase [EC:1.17.1.9]	Carbon fixation & C1 metabolism	Methanotrophy / methane oxidation	
 HMMsoil15206	FOAM	FDH; formate dehydrogenase [EC:1.17.1.9]	Energy metabolism	Methanotrophy / methane oxidation	
+HMMsoil15207	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil15207	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil15210	FOAM	nirB; nitrite reductase (NADH) large subunit [EC:1.7.1.15]	Energy metabolism	Denitrification (NO3 → N2)	Nitrite reduction (denitrification)
 HMMsoil15210	FOAM	nirB; nitrite reductase (NADH) large subunit [EC:1.7.1.15]	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrite reduction (denitrification)
 HMMsoil15214	FOAM	rbsA; ribose transport system ATP-binding protein [EC:7.5.2.7]; araG; L-arabinose transport system ATP-binding protein [EC:7.5.2.12]; mglA; methyl-galactoside transport system ATP-binding protein [EC:7.5.2.11]; xylG; D-xylose transport system ATP-binding protein [EC:7.5.2.10]; ABC.SS.A; simple sugar transport system ATP-binding protein [EC:7.5.2.-]	Metabolic substrate transport	ABC-type transport	
@@ -23480,6 +23532,8 @@ HMMsoil16755	FOAM	AMY, amyA, malS; alpha-amylase [EC:3.2.1.1]	Carbohydrate metab
 HMMsoil16757	FOAM	DLD, lpd, pdhD; dihydrolipoamide dehydrogenase [EC:1.8.1.4]	Amino acid metabolism	Branched-chain amino acid metabolism (Val/Leu/Ile)	
 HMMsoil16757	FOAM	DLD, lpd, pdhD; dihydrolipoamide dehydrogenase [EC:1.8.1.4]	Amino acid metabolism	Glycine / serine / threonine metabolism	
 HMMsoil1676	FOAM	gltI, aatJ; glutamate/aspartate transport system substrate-binding protein	Metabolic substrate transport	ABC-type transport	
+HMMsoil16763	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil16763	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil16764	FOAM	PC, pyc; pyruvate carboxylase [EC:6.4.1.1]	Carbohydrate metabolism	Gluconeogenesis	
 HMMsoil16764	FOAM	PC, pyc; pyruvate carboxylase [EC:6.4.1.1]	Carbohydrate metabolism	TCA cycle	
 HMMsoil16764	FOAM	PC, pyc; pyruvate carboxylase [EC:6.4.1.1]	Energy metabolism	TCA cycle	
@@ -25071,6 +25125,8 @@ HMMsoil18386	FOAM	fruB; fructose PTS system EIIA component [EC:2.7.1.202]; ptsN;
 HMMsoil18386	FOAM	fruB; fructose PTS system EIIA component [EC:2.7.1.202]; ptsN; nitrogen PTS system EIIA component [EC:2.7.1.-]	Carbohydrate metabolism	Sugar interconversion	
 HMMsoil18386	FOAM	fruB; fructose PTS system EIIA component [EC:2.7.1.202]; ptsN; nitrogen PTS system EIIA component [EC:2.7.1.-]	Metabolic substrate transport	PTS / phosphotransferase transport	
 HMMsoil18387	FOAM	proV; glycine betaine/proline transport system ATP-binding protein [EC:7.6.2.9]	Metabolic substrate transport	ABC-type transport	
+HMMsoil18388	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil18388	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil18389	FOAM	ABC-2.A; ABC-2 type transport system ATP-binding protein	Metabolic substrate transport	ABC-type transport	
 HMMsoil18390	FOAM	gltB; glutamate synthase (NADPH) large chain [EC:1.4.1.13]	Amino acid metabolism	Alanine / aspartate / glutamate metabolism	
 HMMsoil18390	FOAM	gltB; glutamate synthase (NADPH) large chain [EC:1.4.1.13]	Nitrogen metabolism	Ammonia assimilation (GS-GOGAT)	
@@ -29062,6 +29118,8 @@ HMMsoil22110	FOAM	PC, pyc; pyruvate carboxylase [EC:6.4.1.1]	Carbohydrate metabo
 HMMsoil22110	FOAM	PC, pyc; pyruvate carboxylase [EC:6.4.1.1]	Energy metabolism	TCA cycle	
 HMMsoil22111	FOAM	argE; acetylornithine deacetylase [EC:3.5.1.16]	Amino acid metabolism	Arginine / proline metabolism	
 HMMsoil22111	FOAM	argE; acetylornithine deacetylase [EC:3.5.1.16]	Carbohydrate metabolism	CAZy: carbohydrate esterase (CE)	
+HMMsoil22112	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil22112	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil22114	FOAM	PCCA, pccA; propionyl-CoA carboxylase alpha chain [EC:6.4.1.3]	Amino acid metabolism	Branched-chain amino acid metabolism (Val/Leu/Ile)	
 HMMsoil22119	FOAM	emrB; MFS transporter, DHA2 family, multidrug resistance protein	Metabolic substrate transport	MFS transport	
 HMMsoil2212	FOAM	HIBADH, mmsB; 3-hydroxyisobutyrate dehydrogenase [EC:1.1.1.31]	Amino acid metabolism	Histidine metabolism	
@@ -32206,6 +32264,8 @@ HMMsoil25188	FOAM	lacC; tagatose 6-phosphate kinase [EC:2.7.1.144]	Carbohydrate 
 HMMsoil2519	FOAM	proV; glycine betaine/proline transport system ATP-binding protein [EC:7.6.2.9]	Metabolic substrate transport	ABC-type transport	
 HMMsoil25191	FOAM	nasA; assimilatory nitrate reductase catalytic subunit [EC:1.7.99.-]	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil25191	FOAM	nasA; assimilatory nitrate reductase catalytic subunit [EC:1.7.99.-]	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil25192	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil25192	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil25196	FOAM	pycB; pyruvate carboxylase subunit B [EC:6.4.1.1]	Carbohydrate metabolism	Gluconeogenesis	
 HMMsoil25196	FOAM	pycB; pyruvate carboxylase subunit B [EC:6.4.1.1]	Carbohydrate metabolism	TCA cycle	
 HMMsoil25196	FOAM	pycB; pyruvate carboxylase subunit B [EC:6.4.1.1]	Energy metabolism	TCA cycle	
@@ -32783,6 +32843,8 @@ HMMsoil25766	FOAM	PC, pyc; pyruvate carboxylase [EC:6.4.1.1]; pycA; pyruvate car
 HMMsoil25770	FOAM	aspC; aspartate aminotransferase [EC:2.6.1.1]	Amino acid metabolism	Alanine / aspartate / glutamate metabolism	
 HMMsoil25770	FOAM	aspC; aspartate aminotransferase [EC:2.6.1.1]	Sulfur metabolism	Sulfur metabolism (other)	
 HMMsoil25773	FOAM	proV; glycine betaine/proline transport system ATP-binding protein [EC:7.6.2.9]	Metabolic substrate transport	ABC-type transport	
+HMMsoil25774	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil25774	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil25777	FOAM	avtA; valine--pyruvate aminotransferase [EC:2.6.1.66]	Amino acid metabolism	Branched-chain amino acid metabolism (Val/Leu/Ile)	
 HMMsoil25779	FOAM	hcaD; 3-phenylpropionate/trans-cinnamate dioxygenase ferredoxin reductase component [EC:1.18.1.3]	Amino acid metabolism	Aromatic amino acid metabolism (Phe / Tyr / Trp)	
 HMMsoil25786	FOAM	aroB; 3-dehydroquinate synthase [EC:4.2.3.4]	Amino acid metabolism	Aromatic amino acid metabolism (Phe / Tyr / Trp)	
@@ -35520,6 +35582,8 @@ HMMsoil28639	FOAM	cysJ; sulfite reductase (NADPH) flavoprotein alpha-component [
 HMMsoil28640	FOAM	hcaD; 3-phenylpropionate/trans-cinnamate dioxygenase ferredoxin reductase component [EC:1.18.1.3]	Amino acid metabolism	Aromatic amino acid metabolism (Phe / Tyr / Trp)	
 HMMsoil28642	FOAM	nrfC; protein NrfC	Energy metabolism	Denitrification (NO3 → N2)	
 HMMsoil28642	FOAM	nrfC; protein NrfC	Nitrogen metabolism	Denitrification (NO3 → N2)	
+HMMsoil28649	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil28649	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil28650	FOAM	porD; pyruvate ferredoxin oxidoreductase delta subunit [EC:1.2.7.1]; porC, porG; pyruvate ferredoxin oxidoreductase gamma subunit [EC:1.2.7.1]	Carbohydrate metabolism	Fermentation	
 HMMsoil28650	FOAM	porD; pyruvate ferredoxin oxidoreductase delta subunit [EC:1.2.7.1]; porC, porG; pyruvate ferredoxin oxidoreductase gamma subunit [EC:1.2.7.1]	Carbohydrate metabolism	Glycolysis / EMP	
 HMMsoil28650	FOAM	porD; pyruvate ferredoxin oxidoreductase delta subunit [EC:1.2.7.1]; porC, porG; pyruvate ferredoxin oxidoreductase gamma subunit [EC:1.2.7.1]	Carbohydrate metabolism	Pyruvate metabolism	
@@ -35724,6 +35788,8 @@ HMMsoil28878	FOAM	treS; maltose alpha-D-glucosyltransferase / alpha-amylase [EC:
 HMMsoil28886	FOAM	ACS; 1-aminocyclopropane-1-carboxylate synthase [EC:4.4.1.14]	Amino acid metabolism	Cysteine / methionine metabolism	
 HMMsoil28891	FOAM	aroB; 3-dehydroquinate synthase [EC:4.2.3.4]	Amino acid metabolism	Aromatic amino acid metabolism (Phe / Tyr / Trp)	
 HMMsoil28893	FOAM	PDHB, pdhB; pyruvate dehydrogenase E1 component beta subunit [EC:1.2.4.1]	Amino acid metabolism	Branched-chain amino acid metabolism (Val/Leu/Ile)	
+HMMsoil28894	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil28894	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil28896	FOAM	MAO, aofH; monoamine oxidase [EC:1.4.3.4]	Amino acid metabolism	Arginine / proline metabolism	
 HMMsoil28896	FOAM	MAO, aofH; monoamine oxidase [EC:1.4.3.4]	Amino acid metabolism	Aromatic amino acid metabolism (Phe / Tyr / Trp)	
 HMMsoil28896	FOAM	MAO, aofH; monoamine oxidase [EC:1.4.3.4]	Amino acid metabolism	Glycine / serine / threonine metabolism	
@@ -39223,6 +39289,8 @@ HMMsoil32478	FOAM	iscS, NFS1; cysteine desulfurase [EC:2.8.1.7]	Amino acid metab
 HMMsoil3248	FOAM	bcr, tcaB; MFS transporter, DHA1 family, multidrug resistance protein	Metabolic substrate transport	MFS transport	
 HMMsoil32482	FOAM	E2.4.1.7; sucrose phosphorylase [EC:2.4.1.7]	Carbohydrate metabolism	CAZy: glycoside hydrolase (GH)	
 HMMsoil32482	FOAM	E2.4.1.7; sucrose phosphorylase [EC:2.4.1.7]	Carbohydrate metabolism	Sugar interconversion	
+HMMsoil32484	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil32484	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil32485	FOAM	hcaD; 3-phenylpropionate/trans-cinnamate dioxygenase ferredoxin reductase component [EC:1.18.1.3]	Amino acid metabolism	Aromatic amino acid metabolism (Phe / Tyr / Trp)	
 HMMsoil32492	FOAM	coxL, cutL; aerobic carbon-monoxide dehydrogenase large subunit [EC:1.2.5.3]	Energy metabolism	Hydrogenase	
 HMMsoil32495	FOAM	nifK; nitrogenase molybdenum-iron protein beta chain [EC:1.18.6.1]	Nitrogen metabolism	Nitrogen fixation	
@@ -40000,6 +40068,8 @@ HMMsoil3326	FOAM	paaF, echA; enoyl-CoA hydratase [EC:4.2.1.17]	Lipid & fatty aci
 HMMsoil3326	FOAM	paaF, echA; enoyl-CoA hydratase [EC:4.2.1.17]	Lipid & fatty acid metabolism	Fatty acid degradation (β-oxidation)	
 HMMsoil33260	FOAM	E3.2.1.4; endoglucanase [EC:3.2.1.4]	Carbohydrate metabolism	CAZy: glycoside hydrolase (GH)	
 HMMsoil33260	FOAM	E3.2.1.4; endoglucanase [EC:3.2.1.4]	Carbohydrate metabolism	Polysaccharide / complex carbon degradation	
+HMMsoil33263	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil33263	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil33266	FOAM	ALDH; aldehyde dehydrogenase (NAD+) [EC:1.2.1.3]	Amino acid metabolism	Aromatic amino acid metabolism (Phe / Tyr / Trp)	
 HMMsoil33266	FOAM	ALDH; aldehyde dehydrogenase (NAD+) [EC:1.2.1.3]	Amino acid metabolism	Branched-chain amino acid metabolism (Val/Leu/Ile)	
 HMMsoil33266	FOAM	ALDH; aldehyde dehydrogenase (NAD+) [EC:1.2.1.3]	Amino acid metabolism	Histidine metabolism	
@@ -40141,6 +40211,8 @@ HMMsoil33423	FOAM	Phosphocarrier protein hpr	Metabolic substrate transport	PTS /
 HMMsoil33424	FOAM	xynB; xylan 1,4-beta-xylosidase [EC:3.2.1.37]	Carbohydrate metabolism	CAZy: glycoside hydrolase (GH)	
 HMMsoil33424	FOAM	xynB; xylan 1,4-beta-xylosidase [EC:3.2.1.37]	Carbohydrate metabolism	Polysaccharide / complex carbon degradation	
 HMMsoil33424	FOAM	xynB; xylan 1,4-beta-xylosidase [EC:3.2.1.37]	Carbohydrate metabolism	Sugar interconversion	
+HMMsoil33425	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil33425	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil33426	FOAM	E3.2.1.14; chitinase [EC:3.2.1.14]	Carbohydrate metabolism	CAZy: glycoside hydrolase (GH)	
 HMMsoil33426	FOAM	E3.2.1.14; chitinase [EC:3.2.1.14]	Carbohydrate metabolism	Polysaccharide / complex carbon degradation	
 HMMsoil33427	FOAM	HEXA_B; hexosaminidase [EC:3.2.1.52]	Carbohydrate metabolism	CAZy: glycoside hydrolase (GH)	
@@ -41213,6 +41285,8 @@ HMMsoil34589	FOAM	fdoH, fdsB; formate dehydrogenase iron-sulfur subunit	Carbon f
 HMMsoil34589	FOAM	fdoH, fdsB; formate dehydrogenase iron-sulfur subunit	Energy metabolism	Methanogenesis	Methanogenesis from CO2 / formate
 HMMsoil34589	FOAM	fdoH, fdsB; formate dehydrogenase iron-sulfur subunit	Energy metabolism	Methanotrophy / methane oxidation	
 HMMsoil3459	FOAM	ABC.MS.P1; multiple sugar transport system permease protein	Metabolic substrate transport	ABC-type transport	
+HMMsoil34595	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil34595	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil346	FOAM	paaF, echA; enoyl-CoA hydratase [EC:4.2.1.17]	Amino acid metabolism	Aromatic amino acid metabolism (Phe / Tyr / Trp)	
 HMMsoil346	FOAM	paaF, echA; enoyl-CoA hydratase [EC:4.2.1.17]	Amino acid metabolism	Branched-chain amino acid metabolism (Val/Leu/Ile)	
 HMMsoil346	FOAM	paaF, echA; enoyl-CoA hydratase [EC:4.2.1.17]	Carbohydrate metabolism	Fermentation	Mixed-acid fermentation
@@ -41487,6 +41561,8 @@ HMMsoil34869	FOAM	nirA; ferredoxin-nitrite reductase [EC:1.7.7.1]	Energy metabol
 HMMsoil34869	FOAM	nirA; ferredoxin-nitrite reductase [EC:1.7.7.1]	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrite reduction (denitrification)
 HMMsoil3487	FOAM	nasA; assimilatory nitrate reductase catalytic subunit [EC:1.7.99.-]	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil3487	FOAM	nasA; assimilatory nitrate reductase catalytic subunit [EC:1.7.99.-]	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil34872	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil34872	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil34873	FOAM	nirA; ferredoxin-nitrite reductase [EC:1.7.7.1]	Amino acid metabolism	Cysteine / methionine metabolism	
 HMMsoil34873	FOAM	nirA; ferredoxin-nitrite reductase [EC:1.7.7.1]	Energy metabolism	Denitrification (NO3 → N2)	Nitrite reduction (denitrification)
 HMMsoil34873	FOAM	nirA; ferredoxin-nitrite reductase [EC:1.7.7.1]	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrite reduction (denitrification)
@@ -41702,6 +41778,8 @@ HMMsoil35088	FOAM	paaF, echA; enoyl-CoA hydratase [EC:4.2.1.17]	Lipid & fatty ac
 HMMsoil35088	FOAM	paaF, echA; enoyl-CoA hydratase [EC:4.2.1.17]	Lipid & fatty acid metabolism	Fatty acid degradation (β-oxidation)	
 HMMsoil3509	FOAM	livF; branched-chain amino acid transport system ATP-binding protein	Metabolic substrate transport	ABC-type transport	
 HMMsoil35091	FOAM	livG; branched-chain amino acid transport system ATP-binding protein	Metabolic substrate transport	ABC-type transport	
+HMMsoil35092	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil35092	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil35093	FOAM	PCCA, pccA; propionyl-CoA carboxylase alpha chain [EC:6.4.1.3]	Amino acid metabolism	Branched-chain amino acid metabolism (Val/Leu/Ile)	
 HMMsoil35095	FOAM	pycB; pyruvate carboxylase subunit B [EC:6.4.1.1]	Carbohydrate metabolism	Gluconeogenesis	
 HMMsoil35095	FOAM	pycB; pyruvate carboxylase subunit B [EC:6.4.1.1]	Carbohydrate metabolism	TCA cycle	
@@ -42927,6 +43005,8 @@ HMMsoil36391	FOAM	chnB; cyclohexanone monooxygenase [EC:1.14.13.22]	Aromatic & x
 HMMsoil36397	FOAM	mtmC; monomethylamine corrinoid protein	Carbon fixation & C1 metabolism	Methanogenesis	Methanogenesis from methylated compounds
 HMMsoil36397	FOAM	mtmC; monomethylamine corrinoid protein	Energy metabolism	Methanogenesis	Methanogenesis from methylated compounds
 HMMsoil364	FOAM	phnL; alpha-D-ribose 1-methylphosphonate 5-triphosphate synthase subunit PhnL [EC:2.7.8.37]	Metabolic substrate transport	ABC-type transport	
+HMMsoil36402	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil36402	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil36404	FOAM	Pyruvate to leucine; Pyrimidine metabolism	Amino acid metabolism	Aminotransferase / transamination	
 HMMsoil36413	FOAM	E2.2.1.6L, ilvB, ilvG, ilvI; acetolactate synthase I/II/III large subunit [EC:2.2.1.6]	Amino acid metabolism	Branched-chain amino acid metabolism (Val/Leu/Ile)	
 HMMsoil36415	FOAM	porD; pyruvate ferredoxin oxidoreductase delta subunit [EC:1.2.7.1]	Carbohydrate metabolism	Fermentation	
@@ -43107,6 +43187,8 @@ HMMsoil36633	FOAM	ipdC; indolepyruvate decarboxylase [EC:4.1.1.74]	Amino acid me
 HMMsoil36636	FOAM	ACADS, bcd; butyryl-CoA dehydrogenase [EC:1.3.8.1]	Amino acid metabolism	Branched-chain amino acid metabolism (Val/Leu/Ile)	
 HMMsoil36636	FOAM	ACADS, bcd; butyryl-CoA dehydrogenase [EC:1.3.8.1]	Carbohydrate metabolism	Pyruvate metabolism	
 HMMsoil36636	FOAM	ACADS, bcd; butyryl-CoA dehydrogenase [EC:1.3.8.1]	Lipid & fatty acid metabolism	Fatty acid degradation (β-oxidation)	
+HMMsoil36639	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil36639	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil36645	FOAM	paaF, echA; enoyl-CoA hydratase [EC:4.2.1.17]	Amino acid metabolism	Aromatic amino acid metabolism (Phe / Tyr / Trp)	
 HMMsoil36645	FOAM	paaF, echA; enoyl-CoA hydratase [EC:4.2.1.17]	Amino acid metabolism	Branched-chain amino acid metabolism (Val/Leu/Ile)	
 HMMsoil36645	FOAM	paaF, echA; enoyl-CoA hydratase [EC:4.2.1.17]	Carbohydrate metabolism	Fermentation	Mixed-acid fermentation
@@ -45248,6 +45330,8 @@ HMMsoil39008	FOAM	livF; branched-chain amino acid transport system ATP-binding p
 HMMsoil39010	FOAM	xylG; D-xylose transport system ATP-binding protein [EC:7.5.2.10]	Metabolic substrate transport	ABC-type transport	
 HMMsoil39014	FOAM	rbsA; ribose transport system ATP-binding protein [EC:7.5.2.7]; ABC.SS.A; simple sugar transport system ATP-binding protein [EC:7.5.2.-]	Metabolic substrate transport	ABC-type transport	
 HMMsoil39017	FOAM	E3.1.3.70; mannosyl-3-phosphoglycerate phosphatase [EC:3.1.3.70]	Carbohydrate metabolism	Polysaccharide / complex carbon degradation	
+HMMsoil3902	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil3902	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil39020	FOAM	agaV; N-acetylgalactosamine PTS system EIIB component [EC:2.7.1.-]	Carbohydrate metabolism	Polysaccharide / complex carbon degradation	
 HMMsoil39020	FOAM	agaV; N-acetylgalactosamine PTS system EIIB component [EC:2.7.1.-]	Carbohydrate metabolism	Starch	
 HMMsoil39020	FOAM	agaV; N-acetylgalactosamine PTS system EIIB component [EC:2.7.1.-]	Carbohydrate metabolism	Sugar interconversion	
@@ -47771,6 +47855,8 @@ HMMsoil41962	FOAM	fdoG, fdhF, fdwA; formate dehydrogenase major subunit [EC:1.17
 HMMsoil41962	FOAM	fdoG, fdhF, fdwA; formate dehydrogenase major subunit [EC:1.17.1.9]	Energy metabolism	Methanotrophy / methane oxidation	
 HMMsoil41964	FOAM	malZ; alpha-glucosidase [EC:3.2.1.20]	Carbohydrate metabolism	Polysaccharide / complex carbon degradation	
 HMMsoil41964	FOAM	malZ; alpha-glucosidase [EC:3.2.1.20]	Carbohydrate metabolism	Sugar interconversion	
+HMMsoil41970	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil41970	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil41974	FOAM	E3.2.1.4; endoglucanase [EC:3.2.1.4]	Carbohydrate metabolism	CAZy: glycoside hydrolase (GH)	
 HMMsoil41974	FOAM	E3.2.1.4; endoglucanase [EC:3.2.1.4]	Carbohydrate metabolism	Polysaccharide / complex carbon degradation	
 HMMsoil41975	FOAM	porB; pyruvate ferredoxin oxidoreductase beta subunit [EC:1.2.7.1]	Carbohydrate metabolism	Fermentation	
@@ -48513,6 +48599,8 @@ HMMsoil42763	FOAM	fdoH, fdsB; formate dehydrogenase iron-sulfur subunit	Energy m
 HMMsoil42763	FOAM	fdoH, fdsB; formate dehydrogenase iron-sulfur subunit	Energy metabolism	Methanotrophy / methane oxidation	
 HMMsoil42768	FOAM	DLST, sucB; 2-oxoglutarate dehydrogenase E2 component (dihydrolipoamide succinyltransferase) [EC:2.3.1.61]	Carbohydrate metabolism	TCA cycle	
 HMMsoil42768	FOAM	DLST, sucB; 2-oxoglutarate dehydrogenase E2 component (dihydrolipoamide succinyltransferase) [EC:2.3.1.61]	Energy metabolism	TCA cycle	
+HMMsoil42772	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil42772	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil42773	FOAM	DLD, lpd, pdhD; dihydrolipoamide dehydrogenase [EC:1.8.1.4]	Amino acid metabolism	Branched-chain amino acid metabolism (Val/Leu/Ile)	
 HMMsoil42773	FOAM	DLD, lpd, pdhD; dihydrolipoamide dehydrogenase [EC:1.8.1.4]	Amino acid metabolism	Glycine / serine / threonine metabolism	
 HMMsoil42778	FOAM	cysM; S-sulfo-L-cysteine synthase (O-acetyl-L-serine-dependent) [EC:2.5.1.144]	Amino acid metabolism	Cysteine / methionine metabolism	Cysteine biosynthesis / metabolism
@@ -51054,6 +51142,8 @@ HMMsoil4589	FOAM	ABC-2.A; ABC-2 type transport system ATP-binding protein	Metabo
 HMMsoil45895	FOAM	ABC.MS.P1; multiple sugar transport system permease protein	Metabolic substrate transport	ABC-type transport	
 HMMsoil45896	FOAM	nirB; nitrite reductase (NADH) large subunit [EC:1.7.1.15]	Energy metabolism	Denitrification (NO3 → N2)	Nitrite reduction (denitrification)
 HMMsoil45896	FOAM	nirB; nitrite reductase (NADH) large subunit [EC:1.7.1.15]	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrite reduction (denitrification)
+HMMsoil45899	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil45899	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil45903	FOAM	liuC; methylglutaconyl-CoA hydratase [EC:4.2.1.18]	Amino acid metabolism	Branched-chain amino acid metabolism (Val/Leu/Ile)	
 HMMsoil4591	FOAM	ABC.CD.A; putative ABC transport system ATP-binding protein	Metabolic substrate transport	ABC-type transport	
 HMMsoil45913	FOAM	rbsB; ribose transport system substrate-binding protein	Metabolic substrate transport	ABC-type transport	
@@ -52820,6 +52910,8 @@ HMMsoil48134	FOAM	afuC, fbpC; iron(III) transport system ATP-binding protein [EC
 HMMsoil48135	FOAM	ABC-2.A; ABC-2 type transport system ATP-binding protein	Metabolic substrate transport	ABC-type transport	
 HMMsoil48138	FOAM	pgmB; beta-phosphoglucomutase [EC:5.4.2.6]	Carbohydrate metabolism	CAZy: glycoside hydrolase (GH)	
 HMMsoil48138	FOAM	pgmB; beta-phosphoglucomutase [EC:5.4.2.6]	Carbohydrate metabolism	Starch	
+HMMsoil4814	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil4814	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil48140	FOAM	ABC.SP.P; putative spermidine/putrescine transport system permease protein	Metabolic substrate transport	ABC-type transport	
 HMMsoil48149	FOAM	afuC, fbpC; iron(III) transport system ATP-binding protein [EC:7.2.2.7]	Metabolic substrate transport	ABC-type transport	
 HMMsoil48150	FOAM	mmuM, BHMT2; homocysteine S-methyltransferase [EC:2.1.1.10]	Amino acid metabolism	Cysteine / methionine metabolism	
@@ -58272,6 +58364,10 @@ HMMsoil54921	FOAM	trpG; anthranilate synthase component II [EC:4.1.3.27]	Amino a
 HMMsoil54921	FOAM	trpG; anthranilate synthase component II [EC:4.1.3.27]	Carbohydrate metabolism	Fermentation	
 HMMsoil54921	FOAM	trpG; anthranilate synthase component II [EC:4.1.3.27]	Carbohydrate metabolism	Pyruvate metabolism	
 HMMsoil54921	FOAM	trpG; anthranilate synthase component II [EC:4.1.3.27]	Energy metabolism	Fermentation	
+HMMsoil54928	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil54928	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil54929	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil54929	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil5493	FOAM	bkdA; 2-oxoisovalerate dehydrogenase E1 component [EC:1.2.4.4]	Amino acid metabolism	Branched-chain amino acid metabolism (Val/Leu/Ile)	
 HMMsoil54937	FOAM	ACADM, acd; acyl-CoA dehydrogenase [EC:1.3.8.7]	Amino acid metabolism	Aminotransferase / transamination	
 HMMsoil54937	FOAM	ACADM, acd; acyl-CoA dehydrogenase [EC:1.3.8.7]	Amino acid metabolism	Branched-chain amino acid metabolism (Val/Leu/Ile)	
@@ -59062,6 +59158,8 @@ HMMsoil55954	FOAM	FAEB; feruloyl esterase [EC:3.1.1.73]	Carbohydrate metabolism	
 HMMsoil55955	FOAM	metN; D-methionine transport system ATP-binding protein	Metabolic substrate transport	ABC-type transport	
 HMMsoil55956	FOAM	E3.2.1.4; endoglucanase [EC:3.2.1.4]	Carbohydrate metabolism	CAZy: glycoside hydrolase (GH)	
 HMMsoil55956	FOAM	E3.2.1.4; endoglucanase [EC:3.2.1.4]	Carbohydrate metabolism	Polysaccharide / complex carbon degradation	
+HMMsoil55959	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil55959	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil5596	FOAM	gcvT, AMT; aminomethyltransferase [EC:2.1.2.10]	Amino acid metabolism	Glycine / serine / threonine metabolism	
 HMMsoil55961	FOAM	ptsI; phosphoenolpyruvate-protein phosphotransferase (PTS system enzyme I) [EC:2.7.3.9]; fruB, fpr; multiphosphoryl transfer protein [EC:2.7.1.202]; fruB; fructose PTS system EIIA component [EC:2.7.1.202]	Carbohydrate metabolism	Polysaccharide / complex carbon degradation	
 HMMsoil55961	FOAM	ptsI; phosphoenolpyruvate-protein phosphotransferase (PTS system enzyme I) [EC:2.7.3.9]; fruB, fpr; multiphosphoryl transfer protein [EC:2.7.1.202]; fruB; fructose PTS system EIIA component [EC:2.7.1.202]	Carbohydrate metabolism	Sugar interconversion	
@@ -62056,6 +62154,8 @@ HMMsoil59926	FOAM	metH, MTR; 5-methyltetrahydrofolate--homocysteine methyltransf
 HMMsoil59929	FOAM	mmsA, iolA, ALDH6A1; malonate-semialdehyde dehydrogenase (acetylating) / methylmalonate-semialdehyde dehydrogenase [EC:1.2.1.18] [EC:1.2.1.27]	Amino acid metabolism	Branched-chain amino acid metabolism (Val/Leu/Ile)	
 HMMsoil59931	FOAM	narH, narY, nxrB; nitrate reductase / nitrite oxidoreductase, beta subunit [EC:1.7.5.1] [EC:1.7.99.-]	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil59931	FOAM	narH, narY, nxrB; nitrate reductase / nitrite oxidoreductase, beta subunit [EC:1.7.5.1] [EC:1.7.99.-]	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil59932	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil59932	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil59933	FOAM	E2.2.1.6L, ilvB, ilvG, ilvI; acetolactate synthase I/II/III large subunit [EC:2.2.1.6]	Amino acid metabolism	Branched-chain amino acid metabolism (Val/Leu/Ile)	
 HMMsoil59936	FOAM	aroB; 3-dehydroquinate synthase [EC:4.2.3.4]	Amino acid metabolism	Aromatic amino acid metabolism (Phe / Tyr / Trp)	
 HMMsoil59937	FOAM	E1.12.7.2; ferredoxin hydrogenase [EC:1.12.7.2]; E1.12.7.2L; ferredoxin hydrogenase large subunit [EC:1.12.7.2]	Energy metabolism	Hydrogenase	
@@ -62898,6 +62998,8 @@ HMMsoil60990	FOAM	pta; phosphate acetyltransferase [EC:2.3.1.8]	Carbon fixation 
 HMMsoil60990	FOAM	pta; phosphate acetyltransferase [EC:2.3.1.8]	Energy metabolism	Methanogenesis	Methanogenesis from acetate
 HMMsoil60990	FOAM	pta; phosphate acetyltransferase [EC:2.3.1.8]	Sulfur metabolism	Sulfur metabolism (other)	
 HMMsoil60997	FOAM	Antibiotic ABC transporter [mD:m00248]	Metabolic substrate transport	ABC-type transport	
+HMMsoil60999	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil60999	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil61	FOAM	ACADS, bcd; butyryl-CoA dehydrogenase [EC:1.3.8.1]	Amino acid metabolism	Branched-chain amino acid metabolism (Val/Leu/Ile)	
 HMMsoil61	FOAM	ACADS, bcd; butyryl-CoA dehydrogenase [EC:1.3.8.1]	Carbohydrate metabolism	Pyruvate metabolism	
 HMMsoil61	FOAM	ACADS, bcd; butyryl-CoA dehydrogenase [EC:1.3.8.1]	Lipid & fatty acid metabolism	Fatty acid degradation (β-oxidation)	
@@ -63832,6 +63934,8 @@ HMMsoil62284	FOAM	E1.12.7.2; ferredoxin hydrogenase [EC:1.12.7.2]; E1.12.7.2L; f
 HMMsoil62286	FOAM	hyaA, hybO; hydrogenase small subunit [EC:1.12.99.6]	Energy metabolism	Hydrogenase	[NiFe]-hydrogenase
 HMMsoil6229	FOAM	argJ; glutamate N-acetyltransferase / amino-acid N-acetyltransferase [EC:2.3.1.35] [EC:2.3.1.1]; argB; acetylglutamate kinase [EC:2.7.2.8]	Amino acid metabolism	Arginine / proline metabolism	
 HMMsoil6229	FOAM	argJ; glutamate N-acetyltransferase / amino-acid N-acetyltransferase [EC:2.3.1.35] [EC:2.3.1.1]; argB; acetylglutamate kinase [EC:2.7.2.8]	Amino acid metabolism	Lysine metabolism	
+HMMsoil62297	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil62297	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil62299	FOAM	hcaD; 3-phenylpropionate/trans-cinnamate dioxygenase ferredoxin reductase component [EC:1.18.1.3]	Amino acid metabolism	Aromatic amino acid metabolism (Phe / Tyr / Trp)	
 HMMsoil623	FOAM	livG; branched-chain amino acid transport system ATP-binding protein	Metabolic substrate transport	ABC-type transport	
 HMMsoil6230	FOAM	livM; branched-chain amino acid transport system permease protein; livG; branched-chain amino acid transport system ATP-binding protein	Metabolic substrate transport	ABC-type transport	
@@ -68234,6 +68338,8 @@ HMMsoil68556	FOAM	TST, MPST, sseA; thiosulfate/3-mercaptopyruvate sulfurtransfer
 HMMsoil68556	FOAM	TST, MPST, sseA; thiosulfate/3-mercaptopyruvate sulfurtransferase [EC:2.8.1.1] [EC:2.8.1.2]	Carbohydrate metabolism	Pyruvate metabolism	
 HMMsoil68556	FOAM	TST, MPST, sseA; thiosulfate/3-mercaptopyruvate sulfurtransferase [EC:2.8.1.1] [EC:2.8.1.2]	Energy metabolism	Thiosulfate disproportionation	
 HMMsoil68556	FOAM	TST, MPST, sseA; thiosulfate/3-mercaptopyruvate sulfurtransferase [EC:2.8.1.1] [EC:2.8.1.2]	Sulfur metabolism	Thiosulfate disproportionation	
+HMMsoil68558	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil68558	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil6856	FOAM	ACADS, bcd; butyryl-CoA dehydrogenase [EC:1.3.8.1]	Amino acid metabolism	Branched-chain amino acid metabolism (Val/Leu/Ile)	
 HMMsoil6856	FOAM	ACADS, bcd; butyryl-CoA dehydrogenase [EC:1.3.8.1]	Carbohydrate metabolism	Pyruvate metabolism	
 HMMsoil6856	FOAM	ACADS, bcd; butyryl-CoA dehydrogenase [EC:1.3.8.1]	Lipid & fatty acid metabolism	Fatty acid degradation (β-oxidation)	
@@ -69453,6 +69559,8 @@ HMMsoil70226	FOAM	paaF, echA; enoyl-CoA hydratase [EC:4.2.1.17]	Energy metabolis
 HMMsoil70226	FOAM	paaF, echA; enoyl-CoA hydratase [EC:4.2.1.17]	Lipid & fatty acid metabolism	Fatty acid biosynthesis	
 HMMsoil70226	FOAM	paaF, echA; enoyl-CoA hydratase [EC:4.2.1.17]	Lipid & fatty acid metabolism	Fatty acid degradation (β-oxidation)	
 HMMsoil7023	FOAM	ABC.SN.A; NitT/TauT family transport system ATP-binding protein	Metabolic substrate transport	ABC-type transport	
+HMMsoil70233	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil70233	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil70234	FOAM	cysI; sulfite reductase (NADPH) hemoprotein beta-component [EC:1.8.1.2]	Sulfur metabolism	Sulfate reduction	Assimilatory sulfate reduction
 HMMsoil70237	FOAM	ACADM, acd; acyl-CoA dehydrogenase [EC:1.3.8.7]	Amino acid metabolism	Aminotransferase / transamination	
 HMMsoil70237	FOAM	ACADM, acd; acyl-CoA dehydrogenase [EC:1.3.8.7]	Amino acid metabolism	Branched-chain amino acid metabolism (Val/Leu/Ile)	
@@ -69873,6 +69981,8 @@ HMMsoil70899	FOAM	rlmI; 23S rRNA (cytosine1962-C5)-methyltransferase [EC:2.1.1.1
 HMMsoil70899	FOAM	rlmI; 23S rRNA (cytosine1962-C5)-methyltransferase [EC:2.1.1.191]	Energy metabolism	Wood-Ljungdahl pathway / homoacetogenesis	
 HMMsoil7090	FOAM	rbsA; ribose transport system ATP-binding protein [EC:7.5.2.7]; araG; L-arabinose transport system ATP-binding protein [EC:7.5.2.12]; ABC.SS.A; simple sugar transport system ATP-binding protein [EC:7.5.2.-]	Metabolic substrate transport	ABC-type transport	
 HMMsoil70901	FOAM	gltJ, aatQ; glutamate/aspartate transport system permease protein	Metabolic substrate transport	ABC-type transport	
+HMMsoil70904	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil70904	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil70909	FOAM	galE, GALE; UDP-glucose 4-epimerase [EC:5.1.3.2]	Carbohydrate metabolism	Pentose phosphate pathway	
 HMMsoil70909	FOAM	galE, GALE; UDP-glucose 4-epimerase [EC:5.1.3.2]	Carbohydrate metabolism	Polysaccharide / complex carbon degradation	
 HMMsoil7091	FOAM	ABC.CD.A; putative ABC transport system ATP-binding protein	Metabolic substrate transport	ABC-type transport	
@@ -70317,6 +70427,8 @@ HMMsoil71545	FOAM	Multiple sugar transporter [mD:m00207]	Metabolic substrate tra
 HMMsoil71546	FOAM	livG; branched-chain amino acid transport system ATP-binding protein	Metabolic substrate transport	ABC-type transport	
 HMMsoil71547	FOAM	cysH; phosphoadenosine phosphosulfate reductase [EC:1.8.4.8] [EC:1.8.4.10]	Sulfur metabolism	Sulfate reduction	Assimilatory sulfate reduction
 HMMsoil71549	FOAM	cysJ; sulfite reductase (NADPH) flavoprotein alpha-component [EC:1.8.1.2]; cysI; sulfite reductase (NADPH) hemoprotein beta-component [EC:1.8.1.2]	Sulfur metabolism	Sulfate reduction	Assimilatory sulfate reduction
+HMMsoil71558	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil71558	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil7156	FOAM	nrfC; protein NrfC	Energy metabolism	Denitrification (NO3 → N2)	
 HMMsoil7156	FOAM	nrfC; protein NrfC	Nitrogen metabolism	Denitrification (NO3 → N2)	
 HMMsoil71560	FOAM	AMY, amyA, malS; alpha-amylase [EC:3.2.1.1]	Carbohydrate metabolism	CAZy: glycoside hydrolase (GH)	
@@ -72123,6 +72235,8 @@ HMMsoil74298	FOAM	hutI, AMDHD1; imidazolonepropionase [EC:3.5.2.7]	Amino acid me
 HMMsoil74299	FOAM	hpaI, hpcH; 4-hydroxy-2-oxoheptanedioate aldolase [EC:4.1.2.52]	Amino acid metabolism	Aminotransferase / transamination	
 HMMsoil743	FOAM	hyaA, hybO; hydrogenase small subunit [EC:1.12.99.6]	Energy metabolism	Hydrogenase	[NiFe]-hydrogenase
 HMMsoil74302	FOAM	cysJ; sulfite reductase (NADPH) flavoprotein alpha-component [EC:1.8.1.2]	Sulfur metabolism	Sulfate reduction	Assimilatory sulfate reduction
+HMMsoil74306	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil74306	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil7431	FOAM	cysI; sulfite reductase (NADPH) hemoprotein beta-component [EC:1.8.1.2]	Sulfur metabolism	Sulfate reduction	Assimilatory sulfate reduction
 HMMsoil74312	FOAM	fwdF, fmdF; 4Fe-4S ferredoxin	Carbon fixation & C1 metabolism	Methanogenesis	Methanogenesis from CO2 / formate
 HMMsoil74312	FOAM	fwdF, fmdF; 4Fe-4S ferredoxin	Energy metabolism	Methanogenesis	Methanogenesis from CO2 / formate
@@ -73442,6 +73556,8 @@ HMMsoil76232	FOAM	racD; aspartate racemase [EC:5.1.1.13]	Amino acid metabolism	A
 HMMsoil76238	FOAM	gpmB; 2,3-bisphosphoglycerate-dependent phosphoglycerate mutase [EC:5.4.2.11]; PGAM, gpmA; 2,3-bisphosphoglycerate-dependent phosphoglycerate mutase [EC:5.4.2.11]	Carbohydrate metabolism	Gluconeogenesis	
 HMMsoil76238	FOAM	gpmB; 2,3-bisphosphoglycerate-dependent phosphoglycerate mutase [EC:5.4.2.11]; PGAM, gpmA; 2,3-bisphosphoglycerate-dependent phosphoglycerate mutase [EC:5.4.2.11]	Carbohydrate metabolism	Glycolysis / EMP	
 HMMsoil76238	FOAM	gpmB; 2,3-bisphosphoglycerate-dependent phosphoglycerate mutase [EC:5.4.2.11]; PGAM, gpmA; 2,3-bisphosphoglycerate-dependent phosphoglycerate mutase [EC:5.4.2.11]	Energy metabolism	Glycolysis / EMP	
+HMMsoil76239	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil76239	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil7624	FOAM	phnE; phosphonate transport system permease protein	Metabolic substrate transport	ABC-type transport	
 HMMsoil76240	FOAM	fdoH, fdsB; formate dehydrogenase iron-sulfur subunit	Carbon fixation & C1 metabolism	Formaldehyde oxidation / fixation	
 HMMsoil76240	FOAM	fdoH, fdsB; formate dehydrogenase iron-sulfur subunit	Carbon fixation & C1 metabolism	Methanogenesis	Methanogenesis from CO2 / formate
@@ -78230,6 +78346,8 @@ HMMsoil83453	FOAM	nasA; assimilatory nitrate reductase catalytic subunit [EC:1.7
 HMMsoil83453	FOAM	nasA; assimilatory nitrate reductase catalytic subunit [EC:1.7.99.-]	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil83455	FOAM	nasA; assimilatory nitrate reductase catalytic subunit [EC:1.7.99.-]	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil83455	FOAM	nasA; assimilatory nitrate reductase catalytic subunit [EC:1.7.99.-]	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil83456	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil83456	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil83457	FOAM	nirA; ferredoxin-nitrite reductase [EC:1.7.7.1]	Amino acid metabolism	Cysteine / methionine metabolism	
 HMMsoil83457	FOAM	nirA; ferredoxin-nitrite reductase [EC:1.7.7.1]	Energy metabolism	Denitrification (NO3 → N2)	Nitrite reduction (denitrification)
 HMMsoil83457	FOAM	nirA; ferredoxin-nitrite reductase [EC:1.7.7.1]	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrite reduction (denitrification)
@@ -78284,6 +78402,8 @@ HMMsoil83519	FOAM	DLD, lpd, pdhD; dihydrolipoamide dehydrogenase [EC:1.8.1.4]	Am
 HMMsoil83527	FOAM	pycB; pyruvate carboxylase subunit B [EC:6.4.1.1]	Carbohydrate metabolism	Gluconeogenesis	
 HMMsoil83527	FOAM	pycB; pyruvate carboxylase subunit B [EC:6.4.1.1]	Carbohydrate metabolism	TCA cycle	
 HMMsoil83527	FOAM	pycB; pyruvate carboxylase subunit B [EC:6.4.1.1]	Energy metabolism	TCA cycle	
+HMMsoil83538	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil83538	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil83539	FOAM	trpGD; anthranilate synthase/phosphoribosyltransferase [EC:4.1.3.27] [EC:2.4.2.18]; trpG; anthranilate synthase component II [EC:4.1.3.27]; trpD; anthranilate phosphoribosyltransferase [EC:2.4.2.18]	Amino acid metabolism	Aminotransferase / transamination	
 HMMsoil83539	FOAM	trpGD; anthranilate synthase/phosphoribosyltransferase [EC:4.1.3.27] [EC:2.4.2.18]; trpG; anthranilate synthase component II [EC:4.1.3.27]; trpD; anthranilate phosphoribosyltransferase [EC:2.4.2.18]	Amino acid metabolism	Aromatic amino acid metabolism (Phe / Tyr / Trp)	
 HMMsoil83539	FOAM	trpGD; anthranilate synthase/phosphoribosyltransferase [EC:4.1.3.27] [EC:2.4.2.18]; trpG; anthranilate synthase component II [EC:4.1.3.27]; trpD; anthranilate phosphoribosyltransferase [EC:2.4.2.18]	Amino acid metabolism	Cysteine / methionine metabolism	
@@ -78789,6 +78909,8 @@ HMMsoil84312	FOAM	fwdF, fmdF; 4Fe-4S ferredoxin	Energy metabolism	Methanogenesis
 HMMsoil84313	FOAM	sdhB, frdB; succinate dehydrogenase / fumarate reductase, iron-sulfur subunit [EC:1.3.5.1] [EC:1.3.5.4]	Carbohydrate metabolism	TCA cycle	
 HMMsoil84313	FOAM	sdhB, frdB; succinate dehydrogenase / fumarate reductase, iron-sulfur subunit [EC:1.3.5.1] [EC:1.3.5.4]	Energy metabolism	Oxidative phosphorylation / ETC	
 HMMsoil84316	FOAM	E2.7.1.4, scrK; fructokinase [EC:2.7.1.4]	Carbohydrate metabolism	Starch	
+HMMsoil84317	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil84317	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil84318	FOAM	E6.4.1.4A; 3-methylcrotonyl-CoA carboxylase alpha subunit [EC:6.4.1.4]	Amino acid metabolism	Branched-chain amino acid metabolism (Val/Leu/Ile)	
 HMMsoil8432	FOAM	ABC-2.A; ABC-2 type transport system ATP-binding protein	Metabolic substrate transport	ABC-type transport	
 HMMsoil84326	FOAM	ACADM, acd; acyl-CoA dehydrogenase [EC:1.3.8.7]	Amino acid metabolism	Aminotransferase / transamination	
@@ -79422,6 +79544,8 @@ HMMsoil85299	FOAM	paaF, echA; enoyl-CoA hydratase [EC:4.2.1.17]	Energy metabolis
 HMMsoil85299	FOAM	paaF, echA; enoyl-CoA hydratase [EC:4.2.1.17]	Lipid & fatty acid metabolism	Fatty acid biosynthesis	
 HMMsoil85299	FOAM	paaF, echA; enoyl-CoA hydratase [EC:4.2.1.17]	Lipid & fatty acid metabolism	Fatty acid degradation (β-oxidation)	
 HMMsoil853	FOAM	IVD, ivd; isovaleryl-CoA dehydrogenase [EC:1.3.8.4]	Amino acid metabolism	Branched-chain amino acid metabolism (Val/Leu/Ile)	
+HMMsoil8530	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil8530	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil85300	FOAM	kamD; beta-lysine 5,6-aminomutase alpha subunit [EC:5.4.3.3]	Carbohydrate metabolism	Pyruvate metabolism	
 HMMsoil8531	FOAM	ACADM, acd; acyl-CoA dehydrogenase [EC:1.3.8.7]	Amino acid metabolism	Aminotransferase / transamination	
 HMMsoil8531	FOAM	ACADM, acd; acyl-CoA dehydrogenase [EC:1.3.8.7]	Amino acid metabolism	Branched-chain amino acid metabolism (Val/Leu/Ile)	
@@ -79987,6 +80111,8 @@ HMMsoil86260	FOAM	fdoG, fdhF, fdwA; formate dehydrogenase major subunit [EC:1.17
 HMMsoil86266	FOAM	LYS2; L-2-aminoadipate reductase [EC:1.2.1.95]	Amino acid metabolism	Lysine metabolism	
 HMMsoil86270	FOAM	FDH; formate dehydrogenase [EC:1.17.1.9]	Carbon fixation & C1 metabolism	Methanotrophy / methane oxidation	
 HMMsoil86270	FOAM	FDH; formate dehydrogenase [EC:1.17.1.9]	Energy metabolism	Methanotrophy / methane oxidation	
+HMMsoil86272	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil86272	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil86273	FOAM	cysJ; sulfite reductase (NADPH) flavoprotein alpha-component [EC:1.8.1.2]	Sulfur metabolism	Sulfate reduction	Assimilatory sulfate reduction
 HMMsoil86277	FOAM	4CL; 4-coumarate--CoA ligase [EC:6.2.1.12]	Amino acid metabolism	Aromatic amino acid metabolism (Phe / Tyr / Trp)	
 HMMsoil86278	FOAM	ACADM, acd; acyl-CoA dehydrogenase [EC:1.3.8.7]	Amino acid metabolism	Aminotransferase / transamination	
@@ -81589,6 +81715,8 @@ HMMsoil88878	FOAM	hprA; glycerate dehydrogenase [EC:1.1.1.29]	Amino acid metabol
 HMMsoil8888	FOAM	ACADM, acd; acyl-CoA dehydrogenase [EC:1.3.8.7]	Amino acid metabolism	Aminotransferase / transamination	
 HMMsoil8888	FOAM	ACADM, acd; acyl-CoA dehydrogenase [EC:1.3.8.7]	Amino acid metabolism	Branched-chain amino acid metabolism (Val/Leu/Ile)	
 HMMsoil8888	FOAM	ACADM, acd; acyl-CoA dehydrogenase [EC:1.3.8.7]	Amino acid metabolism	Cysteine / methionine metabolism	
+HMMsoil88887	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil88887	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil88888	FOAM	galK; galactokinase [EC:2.7.1.6]	Carbohydrate metabolism	Polysaccharide / complex carbon degradation	
 HMMsoil88894	FOAM	DLD, lpd, pdhD; dihydrolipoamide dehydrogenase [EC:1.8.1.4]	Amino acid metabolism	Branched-chain amino acid metabolism (Val/Leu/Ile)	
 HMMsoil88894	FOAM	DLD, lpd, pdhD; dihydrolipoamide dehydrogenase [EC:1.8.1.4]	Amino acid metabolism	Glycine / serine / threonine metabolism	
@@ -82263,6 +82391,8 @@ HMMsoil89965	FOAM	desB, galA; gallate dioxygenase [EC:1.13.11.57]; ligA; protoca
 HMMsoil89965	FOAM	desB, galA; gallate dioxygenase [EC:1.13.11.57]; ligA; protocatechuate 4,5-dioxygenase, alpha chain [EC:1.13.11.8]; ligB; protocatechuate 4,5-dioxygenase, beta chain [EC:1.13.11.8]	Sulfur metabolism	Sulfide oxidation	
 HMMsoil89967	FOAM	LNAA, LNBA; L-tyrosine reductase [EC:1.2.1.101]	Aromatic & xenobiotic degradation	PAH / polycyclic aromatic degradation	
 HMMsoil8997	FOAM	E5.4.99.5; chorismate mutase [EC:5.4.99.5]	Amino acid metabolism	Aromatic amino acid metabolism (Phe / Tyr / Trp)	
+HMMsoil89970	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil89970	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil89971	FOAM	hcaD; 3-phenylpropionate/trans-cinnamate dioxygenase ferredoxin reductase component [EC:1.18.1.3]; nahAa, nagAa, ndoR, nbzAa, dntAa; naphthalene 1,2-dioxygenase ferredoxin reductase component [EC:1.18.1.7]	Amino acid metabolism	Aromatic amino acid metabolism (Phe / Tyr / Trp)	
 HMMsoil89971	FOAM	hcaD; 3-phenylpropionate/trans-cinnamate dioxygenase ferredoxin reductase component [EC:1.18.1.3]; nahAa, nagAa, ndoR, nbzAa, dntAa; naphthalene 1,2-dioxygenase ferredoxin reductase component [EC:1.18.1.7]	Aromatic & xenobiotic degradation	PAH / polycyclic aromatic degradation	
 HMMsoil89974	FOAM	PK, pyk; pyruvate kinase [EC:2.7.1.40]	Carbohydrate metabolism	Glycolysis / EMP	
@@ -83345,6 +83475,8 @@ HMMsoil91592	FOAM	E2.3.1.8, pta; phosphate acetyltransferase [EC:2.3.1.8]	Energy
 HMMsoil91592	FOAM	E2.3.1.8, pta; phosphate acetyltransferase [EC:2.3.1.8]	Energy metabolism	Methanogenesis	Methanogenesis from acetate
 HMMsoil91592	FOAM	E2.3.1.8, pta; phosphate acetyltransferase [EC:2.3.1.8]	Sulfur metabolism	Sulfur metabolism (other)	
 HMMsoil91596	FOAM	hisF; imidazole glycerol-phosphate synthase subunit HisF [EC:4.3.2.10]	Amino acid metabolism	Histidine metabolism	
+HMMsoil91598	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil91598	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil91603	FOAM	fdoH, fdsB; formate dehydrogenase iron-sulfur subunit	Carbon fixation & C1 metabolism	Formaldehyde oxidation / fixation	
 HMMsoil91603	FOAM	fdoH, fdsB; formate dehydrogenase iron-sulfur subunit	Carbon fixation & C1 metabolism	Methanogenesis	Methanogenesis from CO2 / formate
 HMMsoil91603	FOAM	fdoH, fdsB; formate dehydrogenase iron-sulfur subunit	Carbon fixation & C1 metabolism	Methanotrophy / methane oxidation	
@@ -84808,6 +84940,8 @@ HMMsoil93843	FOAM	PDHB, pdhB; pyruvate dehydrogenase E1 component beta subunit [
 HMMsoil93845	FOAM	sdhC, frdC; succinate dehydrogenase / fumarate reductase, cytochrome b subunit	Carbohydrate metabolism	TCA cycle	
 HMMsoil93845	FOAM	sdhC, frdC; succinate dehydrogenase / fumarate reductase, cytochrome b subunit	Energy metabolism	Oxidative phosphorylation / ETC	
 HMMsoil93848	FOAM	hcaD; 3-phenylpropionate/trans-cinnamate dioxygenase ferredoxin reductase component [EC:1.18.1.3]	Amino acid metabolism	Aromatic amino acid metabolism (Phe / Tyr / Trp)	
+HMMsoil93854	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil93854	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil93855	FOAM	E4.3.1.12, ocd; ornithine cyclodeaminase [EC:4.3.1.12]	Amino acid metabolism	Arginine / proline metabolism	
 HMMsoil93857	FOAM	kdgK; 2-dehydro-3-deoxygluconokinase [EC:2.7.1.45]	Carbohydrate metabolism	Polysaccharide / complex carbon degradation	
 HMMsoil93858	FOAM	fdoG, fdhF, fdwA; formate dehydrogenase major subunit [EC:1.17.1.9]	Carbon fixation & C1 metabolism	Formaldehyde oxidation / fixation	
@@ -85612,6 +85746,8 @@ HMMsoil95132	FOAM	ACADM, acd; acyl-CoA dehydrogenase [EC:1.3.8.7]	Amino acid met
 HMMsoil95134	FOAM	gltI, aatJ; glutamate/aspartate transport system substrate-binding protein	Metabolic substrate transport	ABC-type transport	
 HMMsoil95135	FOAM	E2.2.1.6L, ilvB, ilvG, ilvI; acetolactate synthase I/II/III large subunit [EC:2.2.1.6]	Amino acid metabolism	Branched-chain amino acid metabolism (Val/Leu/Ile)	
 HMMsoil95139	FOAM	aroB; 3-dehydroquinate synthase [EC:4.2.3.4]	Amino acid metabolism	Aromatic amino acid metabolism (Phe / Tyr / Trp)	
+HMMsoil95143	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil95143	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil95156	FOAM	hdrA2; heterodisulfide reductase subunit A2 [EC:1.8.7.3] [EC:1.8.98.4] [EC:1.8.98.5] [EC:1.8.98.6]; frhG; coenzyme F420 hydrogenase subunit gamma [EC:1.12.98.1]	Carbon fixation & C1 metabolism	Methanogenesis	Methanogenesis from CO2 / formate
 HMMsoil95156	FOAM	hdrA2; heterodisulfide reductase subunit A2 [EC:1.8.7.3] [EC:1.8.98.4] [EC:1.8.98.5] [EC:1.8.98.6]; frhG; coenzyme F420 hydrogenase subunit gamma [EC:1.12.98.1]	Carbon fixation & C1 metabolism	Methanogenesis	Methanogenesis from acetate
 HMMsoil95156	FOAM	hdrA2; heterodisulfide reductase subunit A2 [EC:1.8.7.3] [EC:1.8.98.4] [EC:1.8.98.5] [EC:1.8.98.6]; frhG; coenzyme F420 hydrogenase subunit gamma [EC:1.12.98.1]	Carbon fixation & C1 metabolism	Methanogenesis	Methanogenesis from methylated compounds
@@ -85973,6 +86109,8 @@ HMMsoil95749	FOAM	hdrA2; heterodisulfide reductase subunit A2 [EC:1.8.7.3] [EC:1
 HMMsoil95749	FOAM	hdrA2; heterodisulfide reductase subunit A2 [EC:1.8.7.3] [EC:1.8.98.4] [EC:1.8.98.5] [EC:1.8.98.6]	Energy metabolism	Methanogenesis	Methanogenesis from methylated compounds
 HMMsoil9575	FOAM	narI, narV; nitrate reductase gamma subunit [EC:1.7.5.1] [EC:1.7.99.-]	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil9575	FOAM	narI, narV; nitrate reductase gamma subunit [EC:1.7.5.1] [EC:1.7.99.-]	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil95751	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Energy metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
+HMMsoil95751	FOAM	narJ, narW; nitrate reductase molybdenum cofactor assembly chaperone NarJ/NarW	Nitrogen metabolism	Denitrification (NO3 → N2)	Nitrate reduction (dissimilatory)
 HMMsoil9576	FOAM	gpmB; 2,3-bisphosphoglycerate-dependent phosphoglycerate mutase [EC:5.4.2.11]; PGAM, gpmA; 2,3-bisphosphoglycerate-dependent phosphoglycerate mutase [EC:5.4.2.11]	Carbohydrate metabolism	Gluconeogenesis	
 HMMsoil9576	FOAM	gpmB; 2,3-bisphosphoglycerate-dependent phosphoglycerate mutase [EC:5.4.2.11]; PGAM, gpmA; 2,3-bisphosphoglycerate-dependent phosphoglycerate mutase [EC:5.4.2.11]	Carbohydrate metabolism	Glycolysis / EMP	
 HMMsoil9576	FOAM	gpmB; 2,3-bisphosphoglycerate-dependent phosphoglycerate mutase [EC:5.4.2.11]; PGAM, gpmA; 2,3-bisphosphoglycerate-dependent phosphoglycerate mutase [EC:5.4.2.11]	Energy metabolism	Glycolysis / EMP	

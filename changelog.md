@@ -1,3 +1,15 @@
+# 1.1.1
+
+* Updated the database download script as was required for the 1.1 release
+* Minor edits to code comments and log messages
+
+# 1.1
+
+* Modified the AMG weight calculation to slightly down-scale VL-scores in the formula (multiplied by 0.75)
+* Added additional filtering keywords for AReGs and APGs
+* Minor edits to `checkamg end-to-end` logging to point to module-specific log files when errors are encountered
+* Updated the `de-novo` database to v1.1, containing newly-trained CheckAMG-PST model checkpoints and reference embeddings
+
 # 1.0
 
 This is a major release that adds annotation-independent AVG prediction with a protein genome language model, alongside the existing annotation-based approach, and the modules to combine and train them.
