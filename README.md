@@ -1,6 +1,6 @@
 # CheckAMG
 [![PyPI](https://img.shields.io/pypi/v/checkamg)](https://pypi.org/project/checkamg/)
-[![CheckAMG DB v1.1.1](https://img.shields.io/badge/CheckAMG%20DB-v1.1-blue)](https://zenodo.org/records/21776005)
+[![CheckAMG DB v1.1.1](https://img.shields.io/badge/CheckAMG%20DB-v1.1.1-blue)](https://zenodo.org/records/21776005)
 
 **Automated discovery and curation of Auxiliary Metabolic Genes (AMGs), Auxiliary Regulatory Genes (AReGs), and Auxiliary Physiology Genes (APGs) encoded by viral genomes**
 
