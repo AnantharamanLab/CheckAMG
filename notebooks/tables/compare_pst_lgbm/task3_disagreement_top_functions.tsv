@@ -1,0 +1,41 @@
+cell	Function	len
+denovo_only	transcriptional regulator	55
+denovo_only	anti-restriction protein	49
+denovo_only	parB, spo0J; ParB family transcriptional regulator, chromosome partitioning protein	48
+denovo_only	transcriptional repressor	45
+denovo_only	DNA binding protein	43
+denovo_only	PSMD10; 26S proteasome non-ATPase regulatory subunit 10	40
+denovo_only	gmd, GMDS; GDPmannose 4,6-dehydratase [EC:4.2.1.47]	40
+denovo_only	Poxvirus Late Transcription Factor VLTF3 like	34
+denovo_only	groEL, HSPD1, HSP60, CPN60; chaperonin GroEL [EC:5.6.1.7]	28
+denovo_only	anti-repressor Ant	25
+denovo_only	Patatin-like phospholipase	24
+denovo_only	Hsp20 heat shock protein	19
+denovo_only	groES, HSPE1; chaperonin GroES	19
+denovo_only	cobS; cobaltochelatase CobS [EC:6.6.1.2]	19
+denovo_only	SOS response associated peptidase (SRAP)	18
+denovo_only	RelE-like toxin	18
+denovo_only	UGDH, ugd; UDPglucose 6-dehydrogenase [EC:1.1.1.22]	16
+denovo_only	Acyltransferase domain	16
+denovo_only	anti-repressor	15
+denovo_only	abortive infection resistance protein	14
+annotate_only	transcriptional regulator	137
+annotate_only	DNA binding protein	56
+annotate_only	groEL, HSPD1, HSP60, CPN60; chaperonin GroEL [EC:5.6.1.7]	50
+annotate_only	Helix-turn-helix	44
+annotate_only	transcriptional repressor	43
+annotate_only	HTH DNA binding protein	41
+annotate_only	Gp2.5-like ssDNA binding protein and ssDNA annealing protein	40
+annotate_only	groES, HSPE1; chaperonin GroES	35
+annotate_only	MotB-like transcriptional regulator	23
+annotate_only	Poxvirus Late Transcription Factor VLTF3 like	23
+annotate_only	repA; regulatory protein RepA	23
+annotate_only	parB, spo0J; ParB family transcriptional regulator, chromosome partitioning protein	21
+annotate_only	Helix-turn-helix domain	20
+annotate_only	Thoeris anti-defense 2-like domain	18
+annotate_only	histone family DNA-binding	18
+annotate_only	sigma-K factor	17
+annotate_only	anti-repressor Ant	17
+annotate_only	AOX1, AOX2; ubiquinol oxidase [EC:1.10.3.11]	17
+annotate_only	tail chaperone protein	16
+annotate_only	anti-restriction protein	16

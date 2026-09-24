@@ -1,0 +1,2 @@
+term	coef	std_err	p_value
+log_genes:model(LGBM)	0.41142582831770175	0.00498242460507499	0.0

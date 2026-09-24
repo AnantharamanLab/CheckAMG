@@ -1,0 +1,3 @@
+test	statistic	p_value
+denovo_only vs both: VOC distribution (chi-square)	10987.000000000002	0.0
+annotate_only PST viral prob < both (Mann-Whitney)	5146996.5	0.0

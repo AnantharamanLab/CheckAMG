@@ -1,0 +1,2 @@
+tier	both	pst_only	lgbm_only	neither	jaccard	pst_total	lgbm_total	frac_lgbm_within_pst	frac_pst_within_lgbm
+medium+	774761	75857	60539	747449	0.8503046127067014	850618	835300	0.9275242427870226	0.9108213087425848
