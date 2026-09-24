@@ -1,0 +1,37 @@
+cluster,n,soil_frac,category,cx,cy,top_function,function_purity,skew,fn,pct,label
+17,21957,0.14332559092772237,regulatory,0.8598520916692843,-6.696464405341265,transcriptional regulator,0.83,gut-specific,transcriptional regulator,86% gut,"transcriptional regulator
+86% gut"
+133,3058,0.1249182472204055,physiological,4.198298067419727,4.110982520974797,"PemK-like, MazF-like toxin of type II toxin-antitoxin system",0.934,gut-specific,"PemK-like, MazF-like toxin of type II...",88% gut,"PemK-like, MazF-like toxin of type II...
+88% gut"
+73,2681,0.061917195076464,physiological,8.151939488310994,-3.3434796441806336,abortive infection resistance protein,0.606,gut-specific,abortive infection resistance,94% gut,"abortive infection resistance
+94% gut"
+21,2012,0.12972166998011928,regulatory,3.156517155483276,14.116330807062077,DNA binding protein,0.903,gut-specific,DNA binding,87% gut,"DNA binding
+87% gut"
+36,1960,0.13316326530612244,metabolic,0.983515616156617,7.052473782763189,GGCT; gamma-glutamylcyclotransferase [EC:4.3.2.9],0.972,gut-specific,gamma-glutamylcyclotransferase,87% gut,"gamma-glutamylcyclotransferase
+87% gut"
+4,1875,0.0784,regulatory,0.33740195281023044,8.977073967488607,DNA packaging chaperone FI,0.804,gut-specific,DNA packaging chaperone FI,92% gut,"DNA packaging chaperone FI
+92% gut"
+69,1754,0.08095781071835804,metabolic,13.522454080179317,8.454149260896097,metK; S-adenosylmethionine synthetase [EC:2.5.1.6],0.865,gut-specific,S-adenosylmethionine synthetase,92% gut,"S-adenosylmethionine synthetase
+92% gut"
+123,1725,0.11188405797101449,metabolic,5.811318472433781,6.576852425285008,nrdG; anaerobic ribonucleoside-triphosphate reductase activating protein [EC:1.97.1.4],0.976,gut-specific,anaerobic ribonucleoside-triphosphate...,89% gut,"anaerobic ribonucleoside-triphosphate...
+89% gut"
+9,1655,0.014501510574018127,regulatory,6.373449284360488,-9.435306815870579,DNA binding protein,0.962,gut-specific,DNA binding,99% gut,"DNA binding
+99% gut"
+122,6429,0.972779592471613,regulatory,13.058562094064945,2.0470703665215186,Transcription factor WhiB,0.549,soil-specific,Transcription factor WhiB,97% soil,"Transcription factor WhiB
+97% soil"
+113,5329,0.9971852129855507,metabolic,7.212720696575804,8.048900809603888,meT1; MMP 1-O-methyltransferase [EC:2.1.1.365],0.393,soil-specific,MMP 1-O-methyltransferase,100% soil,"MMP 1-O-methyltransferase
+100% soil"
+0,4194,0.9430138292799237,regulatory,4.680590372513064,17.448825336378075,Putative DnaT-like ssDNA binding protein,0.994,soil-specific,DnaT-like ssDNA binding,94% soil,"DnaT-like ssDNA binding
+94% soil"
+11,4149,0.9115449505905038,regulatory,4.543738573882976,-5.420450572939947,"groES, HSPE1; chaperonin GroES",0.538,soil-specific,chaperonin GroES,91% soil,"chaperonin GroES
+91% soil"
+20,3880,0.9443298969072165,regulatory,13.212167625083136,-9.789452853399453,"GapR-like, DNA-binding domain",0.725,soil-specific,"GapR-like, DNA-binding",94% soil,"GapR-like, DNA-binding
+94% soil"
+13,3530,0.9484419263456091,regulatory,12.253102237171897,14.226445661658268,repA; regulatory protein RepA,0.756,soil-specific,regulatory RepA,95% soil,"regulatory RepA
+95% soil"
+121,3474,0.9930915371329879,regulatory,12.092907135831123,1.5655076125605598,gcrA; GcrA cell cycle regulator,0.936,soil-specific,GcrA cell cycle regulator,99% soil,"GcrA cell cycle regulator
+99% soil"
+130,3096,0.9580103359173127,unclassified,9.319069616246285,1.3194798735916153,Bacterial dnaA protein helix-turn-helix,0.707,soil-specific,Bacterial dnaA helix-turn-helix,96% soil,"Bacterial dnaA helix-turn-helix
+96% soil"
+41,2739,0.8608981380065718,physiological,13.996963044508133,-0.4345069022596905,cspA; cold shock protein,0.608,soil-specific,cold shock,86% soil,"cold shock
+86% soil"

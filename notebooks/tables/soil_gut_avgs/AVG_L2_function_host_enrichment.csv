@@ -1,0 +1,943 @@
+function,group,genomes_with_F,group_size,prevalence_per_1000,odds_ratio,p,fdr_q,enriched,biome
+Nucleoside / nucleobase transport,Bacillota,27,14558,1.9,Inf,2.70328808469777e-32,7.800917044413565e-31,TRUE,soil
+Iron reduction,Desulfobacterota_B,34,712,47.8,5366.63,1.4088007491513785e-82,1.7074665079714708e-80,TRUE,soil
+Iron uptake / siderophore / Fe homeostasis,Desulfobacterota_B,54,712,75.8,117.02,1.0544769956300027e-85,1.5975326483794541e-83,TRUE,soil
+Nitrogen fixation,Bacillota,24,14558,1.6,110.19,2.084785093144895e-25,4.211265888152688e-24,TRUE,soil
+Photosynthesis,Cyanobacteriota,7,716,9.8,96.04,6.5142573589703875e-12,5.721217332660949e-11,TRUE,soil
+Iron-sulfur cluster assembly,Nanobdellota,3,457,6.6,88.49,9.045170082741403e-6,4.1213331354445794e-5,TRUE,soil
+ABC-type transport,Desulfobacterota_B,55,712,77.2,80.27,1.7468698172645896e-79,1.7643385154372354e-77,TRUE,soil
+Manganese cycling,Bacillota,67,14558,4.6,71.19,5.456844737120911e-65,4.1335598883690905e-63,TRUE,soil
+Aliphatic hydrocarbon degradation,Desulfobacterota_B,7,712,9.8,49.41,3.7746113375243074e-10,2.9706681435580914e-9,TRUE,soil
+Substrate transport (other),Desulfobacterota_B,56,712,78.7,47.5,1.9083447636200509e-69,1.6520813239339297e-67,TRUE,soil
+Alkaloid biosynthesis,Nanobdellota,3,457,6.6,34.53,1.1883178259202332e-4,4.64593937101717e-4,TRUE,soil
+Terpenoid / carotenoid metabolism,Desulfobacterota_B,5,712,7,26.55,2.1865887193401555e-6,1.0686070676775275e-5,TRUE,soil
+Polyphosphate metabolism,Pseudomonadota,71,75389,0.9,26.27,1.1412991172140826e-26,2.470097375113336e-25,TRUE,soil
+polysaccharide biosynthetic process,Pseudomonadota,14,75389,0.2,25.88,4.351843434715033e-6,2.0443543577033412e-5,TRUE,soil
+Phosphonate / phosphite metabolism,Actinomycetota,214,58870,3.6,25.85,1.9148251180543486e-93,3.867946738469784e-91,TRUE,soil
+Organosulfur metabolism,Cyanobacteriota,7,716,9.8,25.76,2.418447159201152e-8,1.6284210871954424e-7,TRUE,soil
+Iron-sulfur cluster assembly,Thermoproteota,3,1608,1.9,24.9,3.7122686997717976e-4,0.0012855056183209768,TRUE,soil
+Cobalamin (B12) metabolism,Asgardarchaeota,30,614,48.9,24.5,2.6175806165231754e-30,6.896755885274105e-29,TRUE,soil
+Reactive oxygen species detoxification,Bacillota,61,14558,4.2,23.39,1.919169363002745e-46,7.753444226531089e-45,TRUE,soil
+Glycolysis,Halobacteriota,8,873,9.2,16.9,5.5900910183607934e-8,3.4567297521700417e-7,TRUE,soil
+Bile / wax / mycolic / lipopolysaccharide,Thermoplasmatota,7,910,7.7,15.34,7.063386983719782e-7,3.722097836638424e-6,TRUE,soil
+Aminotransferase / transamination,Thermoplasmatota,64,910,70.3,13.26,1.2501750631835595e-46,5.411472059208836e-45,TRUE,soil
+Fatty acid degradation (β-oxidation),Desulfobacterota_B,4,712,5.6,11.85,4.553580390951782e-4,0.0015245689043739117,TRUE,soil
+Polysaccharide / complex carbon degradation,Thermoplasmatota,72,910,79.1,11.51,3.674217132258171e-48,1.7127504478065011e-46,TRUE,soil
+Lysine metabolism,Nanobdellota,4,457,8.8,11.46,5.031487922941997e-4,0.001657109609403723,TRUE,soil
+3HP / 4HB / DC4HB cycle,Pseudomonadota,92,75389,1.2,10.64,8.05570797749172e-27,1.8080589016148082e-25,TRUE,soil
+PAH / polycyclic aromatic degradation,Planctomycetota,19,3184,6,10.15,7.035781437500504e-13,6.876908953427912e-12,TRUE,soil
+Riboflavin / FAD metabolism,Actinomycetota,121,58870,2.1,10.03,3.3786893724959082e-40,1.137492088740289e-38,TRUE,soil
+Sugar interconversion,Thermoplasmatota,71,910,78,9.9,1.9154604152041724e-43,7.254806322585803e-42,TRUE,soil
+Benzoate / aromatic carboxylic acid degradation,Desulfobacterota_B,6,712,8.4,9.88,4.681641803726038e-5,1.956603402108951e-4,TRUE,soil
+Terpenoid / carotenoid metabolism,Desulfobacterota,4,1513,2.6,9.74,9.894681707358977e-4,0.0031068275205489845,TRUE,soil
+Sulfur metabolism (other),Thermoplasmatota,3,910,3.3,9.43,0.004556445149987059,0.011749811748477267,TRUE,soil
+Oxidative phosphorylation / ETC,Bacillota,30,14558,2.1,9.39,2.0063066886336187e-16,2.7018263406932733e-15,TRUE,soil
+Denitrification (NO3 → N2),Thermoproteota,18,1608,11.2,9.38,5.860270265674923e-12,5.285591945208778e-11,TRUE,soil
+Branched-chain amino acid metabolism (Val/Leu/Ile),Desulfobacterota_B,5,712,7,9.34,2.586597365222514e-4,9.330226210266926e-4,TRUE,soil
+Lysine metabolism,Desulfobacterota_B,5,712,7,9.22,2.732357071324828e-4,9.797682752797905e-4,TRUE,soil
+Drug / xenobiotic by P450,Bacillota,4,14558,0.3,9.17,0.003179736315400014,0.008798722406997299,TRUE,soil
+CAZy: carbohydrate esterase (CE),Myxococcota,8,1466,5.5,9.14,5.036957890327238e-6,2.347997293491005e-5,TRUE,soil
+"Other amino-acid-related metabolism (β-Ala, taurine, glutathione, Se)",Bacillota,124,14558,8.5,8.86,1.12416727493666e-60,7.56939298457351e-59,TRUE,soil
+Cysteine / methionine metabolism,Thermoplasmatota,10,910,11,8.41,6.463503806716791e-7,3.435862549886294e-6,TRUE,soil
+D-amino acid metabolism,Thermoproteota,3,1608,1.9,8.3,0.00667909140782733,0.016520528135279027,TRUE,soil
+Organosulfur metabolism,Thermoplasmatota,3,910,3.3,8.22,0.006572375493680998,0.01632319487365035,TRUE,soil
+Fermentation,Halobacteriota,9,873,10.3,8.15,2.966536847112614e-6,1.415528605787594e-5,TRUE,soil
+Fermentation,Desulfobacterota_B,7,712,9.8,7.72,5.084632186675801e-5,2.110470619948997e-4,TRUE,soil
+D-amino acid metabolism,Patescibacteriota,4,2411,1.7,7.51,0.0026034196799330877,0.0073723005889693985,TRUE,soil
+Denitrification (NO3 → N2),Halobacteriota,8,873,9.2,7.4,2.040523665105103e-5,8.960560442418061e-5,TRUE,soil
+Pantothenate / CoA metabolism,Halobacteriota,3,873,3.4,7.3,0.008994336606569205,0.021889831259361198,TRUE,soil
+Gluconeogenesis,Acidobacteriota,129,22995,5.6,7.02,4.069826732717978e-50,2.2421045454791773e-48,TRUE,soil
+Cysteine / methionine metabolism,Nanobdellota,4,457,8.8,6.56,0.003710615674279517,0.009993924882726166,TRUE,soil
+Methanotrophy / methane oxidation,Thermoplasmatota,6,910,6.6,6.44,4.47982477047375e-4,0.0015166334139145767,TRUE,soil
+TCA cycle,Pseudomonadota,66,75389,0.9,6.43,1.4306431197558305e-15,1.7339394611440664e-14,TRUE,soil
+Pyruvate metabolism,Halobacteriota,7,873,8,6.37,1.633286144888854e-4,6.186071273766535e-4,TRUE,soil
+CAZy: polysaccharide lyase (PL),Desulfobacterota_B,5,712,7,6.35,0.0014002068119277273,0.004242626640141013,TRUE,soil
+Iron uptake / siderophore / Fe homeostasis,Cyanobacteriota,4,716,5.6,6.01,0.005077237962794522,0.012873666131604521,TRUE,soil
+Folate / one-carbon pool metabolism,Nanobdellota,11,457,24.1,5.85,5.5089716326368355e-6,2.548425045326658e-5,TRUE,soil
+Pentose phosphate pathway,Thermoplasmatota,16,910,17.6,5.84,4.726679231276158e-8,2.986803695196311e-7,TRUE,soil
+Bile / wax / mycolic / lipopolysaccharide,Acidobacteriota,47,22995,2,5.77,6.000220186836144e-17,8.456124263308612e-16,TRUE,soil
+Glycan / glycoside metabolism,Bacteroidota,3,15021,0.2,5.7,0.02828264659367316,0.05910097874402047,FALSE,soil
+Sulfur metabolism (other),Actinomycetota,53,58870,0.9,5.62,1.1049935779672417e-13,1.1747826460493833e-12,TRUE,soil
+Phosphate starvation response,Bacillota,81,14558,5.6,5.59,1.8383619175418013e-29,4.456189288121326e-28,TRUE,soil
+Methanogenesis,Pseudomonadota,9,75389,0.1,5.55,0.005739353465013276,0.014431735268871556,TRUE,soil
+Ubiquinone / quinone biosynthesis,Pseudomonadota,15,75389,0.2,5.55,4.977511925694649e-4,0.0016482908344103591,TRUE,soil
+Glycolysis,Thermoproteota,5,1608,3.1,5.54,0.00261621236026988,0.007374068327086267,TRUE,soil
+Pyruvate metabolism,Desulfobacterota_B,5,712,7,5.54,0.0025104956326146453,0.007176228081907901,TRUE,soil
+Glycine / serine / threonine metabolism,Thermoplasmatota,6,910,6.6,5.43,0.0010641724641157163,0.0032910174532059804,TRUE,soil
+Lipid degradation,Planctomycetota,3,3184,0.9,5.39,0.021402201153403334,0.046991789488994275,TRUE,soil
+Cysteine / methionine metabolism,Cyanobacteriota,5,716,7,5.24,0.003170936015358284,0.008798722406997299,TRUE,soil
+Calvin-Benson-Bassham (CBB) cycle,Patescibacteriota,5,2411,2.1,5.19,0.00355070475078414,0.009605924459710665,TRUE,soil
+Phosphate starvation response,Thermoplasmatota,6,910,6.6,5.15,0.001380065143565603,0.004202610437189726,TRUE,soil
+Pyruvate metabolism,Nanobdellota,3,457,6.6,5.14,0.022060775159158066,0.04826292327238191,TRUE,soil
+Arginine / proline metabolism,Nanobdellota,3,457,6.6,5.09,0.022680342660678313,0.04926267975760235,TRUE,soil
+Folate / one-carbon pool metabolism,Thermoplasmatota,19,910,20.9,5.09,2.352109065663396e-8,1.6015484199910315e-7,TRUE,soil
+MFS transport,Pseudomonadota,65,75389,0.9,5.01,3.6961160107241285e-13,3.861803969825555e-12,TRUE,soil
+NAD(P) / nicotinamide metabolism,Nitrospirota,5,669,7.5,5.01,0.0037941626662289186,0.010173728211215595,TRUE,soil
+Glycerolipid / glycerophospholipid metabolism,Thermoproteota,8,1608,5,4.91,3.3436465614560353e-4,0.0011712426683481835,TRUE,soil
+Lipid metabolism (other),Verrucomicrobiota,58,3581,16.2,4.87,5.208673832252239e-21,8.093477800884249e-20,TRUE,soil
+"Other amino-acid-related metabolism (β-Ala, taurine, glutathione, Se)",Desulfobacterota_B,5,712,7,4.83,0.00443678576855395,0.011490137503178179,TRUE,soil
+Glycolysis,Myxococcota,4,1466,2.7,4.82,0.010927170211078701,0.025666143984161602,TRUE,soil
+BTEX / monoaromatic hydrocarbon degradation,Pseudomonadota,18,75389,0.2,4.75,2.0892378653665578e-4,7.719988697634964e-4,TRUE,soil
+"Other amino-acid-related metabolism (β-Ala, taurine, glutathione, Se)",Myxococcota,10,1466,6.8,4.75,8.143863370509749e-5,3.24682973850586e-4,TRUE,soil
+Oxygenase / monooxygenase / dioxygenase,Actinomycetota,32,58870,0.5,4.71,7.295982705362883e-8,4.3346720778920655e-7,TRUE,soil
+Methanotrophy / methane oxidation,Acidobacteriota,81,22995,3.5,4.67,1.34406718332339e-23,2.3956020973352187e-22,TRUE,soil
+Glyoxylate / dicarboxylate metabolism,Bacillota,22,14558,1.5,4.66,5.692091767794304e-8,3.4842501124074223e-7,TRUE,soil
+PAH / polycyclic aromatic degradation,Bacillota,36,14558,2.5,4.59,5.9310272652507734e-12,5.285591945208778e-11,TRUE,soil
+Glycolysis / EMP,Acidobacteriota,138,22995,6,4.55,4.75897676557521e-38,1.5178631157571458e-36,TRUE,soil
+Pantothenate / CoA metabolism,Chloroflexota,10,4951,2,4.52,1.531807403631081e-4,5.875160041774906e-4,TRUE,soil
+Phosphate starvation response,Halobacteriota,5,873,5.7,4.46,0.00617098772115962,0.015389376786101768,TRUE,soil
+Pantothenate / CoA metabolism,Myxococcota,3,1466,2,4.33,0.034778765041073176,0.0695958265736175,FALSE,soil
+Ammonia assimilation (GS-GOGAT),Bacteroidota,50,15021,3.3,4.27,6.4657225645628314e-15,7.3928827813680675e-14,TRUE,soil
+Arginine / proline metabolism,Pseudomonadota,196,75389,2.6,4.27,3.8206726156294993e-32,1.0524216386688531e-30,TRUE,soil
+Fatty acid biosynthesis,Pseudomonadota,1282,75389,17,4.27,5.262799411204008e-200,3.189256443189629e-197,TRUE,soil
+Gluconeogenesis,Thermoplasmatota,5,910,5.5,4.24,0.0075244998182570485,0.01846091858244442,TRUE,soil
+CAZy: polysaccharide lyase (PL),Nitrospirota,3,669,4.5,4.01,0.04108730905499793,0.078794016732053,FALSE,soil
+Phosphate starvation response,Thermoproteota,8,1608,5,3.9,0.0014106263953067198,0.004252933311223245,TRUE,soil
+Phosphatase / phosphate liberation,Thermoproteota,8,1608,5,3.8,0.0016454738417730024,0.004912104177903643,TRUE,soil
+CAZy: carbohydrate esterase (CE),Actinomycetota,80,58870,1.4,3.79,1.9451216714539985e-14,2.1828587646317092e-13,TRUE,soil
+PTS / phosphotransferase transport,Bacillota,3,14558,0.2,3.75,0.06456826307816815,0.11374525414351716,FALSE,soil
+Nitroaromatic / nitrotoluene degradation,Pseudomonadota,8,75389,0.1,3.7,0.031565769229387995,0.06397610753514757,FALSE,soil
+Iron-sulfur cluster assembly,Bacillota,4,14558,0.3,3.67,0.036002056056051744,0.07153195399989297,FALSE,soil
+Cysteine / methionine metabolism,Asgardarchaeota,3,614,4.9,3.63,0.05219520236170933,0.09614070708570169,FALSE,soil
+Branched-chain amino acid metabolism (Val/Leu/Ile),Chloroflexota,13,4951,2.6,3.58,1.4872904417328808e-4,5.740751641338381e-4,TRUE,soil
+Sugar interconversion,Thermoproteota,48,1608,29.9,3.54,6.470605903625182e-13,6.515495911374094e-12,TRUE,soil
+Polysaccharide / complex carbon degradation,Thermoproteota,42,1608,26.1,3.51,2.053836630454659e-11,1.7780357115078905e-10,TRUE,soil
+Cysteine / methionine metabolism,Bacillota,59,14558,4.1,3.49,4.3221371374217763e-14,4.677169830852851e-13,TRUE,soil
+Denitrification (NO3 → N2),Thermoplasmatota,4,910,4.4,3.48,0.030422374364459083,0.06249477581309222,FALSE,soil
+Cysteine / methionine metabolism,Desulfobacterota,7,1513,4.6,3.47,0.005042446565852261,0.012839170667674243,TRUE,soil
+Pentose phosphate pathway,Planctomycetota,33,3184,10.4,3.47,3.767179548847501e-9,2.784037569026324e-8,TRUE,soil
+Aminotransferase / transamination,Thermoproteota,32,1608,19.9,3.46,6.303624715698873e-9,4.494113620839432e-8,TRUE,soil
+Lipoic acid metabolism,Bacillota,3,14558,0.2,3.44,0.07677776199606351,0.13106288385806897,FALSE,soil
+Glycine / serine / threonine metabolism,Acidobacteriota,77,22995,3.3,3.39,2.83428226881842e-16,3.654415010433963e-15,TRUE,soil
+PTS / phosphotransferase transport,Pseudomonadota,9,75389,0.1,3.33,0.04497805110463049,0.0846481334453605,FALSE,soil
+Lipoic acid metabolism,Bacteroidota,3,15021,0.2,3.32,0.08270626032071299,0.14039213936793296,FALSE,soil
+Sterol / isoprenoid metabolism,Bacillota,7,14558,0.5,3.32,0.009585460503049273,0.023050750257332775,TRUE,soil
+Polysaccharide / complex carbon degradation,Patescibacteriota,59,2411,24.5,3.31,3.0260115350923455e-14,3.334114527756293e-13,TRUE,soil
+ABC-type transport,Cyanobacteriota,3,716,4.2,3.27,0.06693373175399127,0.11695190377344702,FALSE,soil
+Pentose phosphate pathway,Thermoproteota,16,1608,10,3.27,6.240521146749943e-5,2.555240415493558e-4,TRUE,soil
+Glycerolipid / glycerophospholipid metabolism,Desulfobacterota,5,1513,3.3,3.21,0.022350567729196427,0.048721021740622435,TRUE,soil
+ABC transporters,Pseudomonadota,19,75389,0.3,3.19,0.0018425970414359077,0.005394269599565991,TRUE,soil
+Halogenated aromatic / chlorinated degradation,Actinomycetota,41,58870,0.7,3.19,7.482125957209713e-7,3.875357547067595e-6,TRUE,soil
+Cobalamin (B12) metabolism,Cyanobacteriota,5,716,7,3.18,0.022972974726548665,0.04972008101531604,TRUE,soil
+Organosulfur metabolism,Planctomycetota,4,3184,1.3,3.13,0.043753197096119106,0.08285761700077555,FALSE,soil
+PAH / polycyclic aromatic degradation,Myxococcota,3,1466,2,3.1,0.07651346995072045,0.13106288385806897,FALSE,soil
+Heme / porphyrin / chlorophyll metabolism,Acidobacteriota,51,22995,2.2,3.09,3.612511578676903e-10,2.8805026535239517e-9,TRUE,soil
+Glycolysis / EMP,Thermoplasmatota,5,910,5.5,3.05,0.026780392831414822,0.05654675280779576,FALSE,soil
+Heme / porphyrin / chlorophyll metabolism,Desulfobacterota,4,1513,2.6,3.05,0.04562417080424059,0.08533409724496852,FALSE,soil
+Aminotransferase / transamination,Patescibacteriota,42,2411,17.4,3.03,1.4856987397501939e-9,1.125416795360772e-8,TRUE,soil
+CAZy: auxiliary activity / LPMO (AA),Actinomycetota,8,58870,0.1,3.03,0.03809959778233962,0.07447856856805746,FALSE,soil
+Cobalamin (B12) metabolism,Thermoplasmatota,6,910,6.6,3,0.01714386855756611,0.03847846054031505,TRUE,soil
+Branched-chain amino acid metabolism (Val/Leu/Ile),Verrucomicrobiota,8,3581,2.2,2.97,0.007307927493188889,0.018002455532001898,TRUE,soil
+Sugar interconversion,Patescibacteriota,60,2411,24.9,2.95,1.9283408247493917e-12,1.7705674845426233e-11,TRUE,soil
+CAZy: polysaccharide lyase (PL),Thermoplasmatota,3,910,3.3,2.94,0.08535317559980829,0.1436778455930106,FALSE,soil
+Heme / porphyrin / chlorophyll metabolism,Planctomycetota,8,3184,2.5,2.94,0.007634858474675585,0.01865614611150566,TRUE,soil
+NAD(P) / nicotinamide metabolism,Thermoproteota,7,1608,4.4,2.92,0.012205097758478927,0.028122772781894408,TRUE,soil
+TCA cycle,Verrucomicrobiota,4,3581,1.1,2.91,0.0541383098113916,0.09880678568038562,FALSE,soil
+Gluconeogenesis,Thermoproteota,6,1608,3.7,2.88,0.020712365874038928,0.045642522616973054,TRUE,soil
+Heme / porphyrin / chlorophyll metabolism,Thermoproteota,4,1608,2.5,2.87,0.05469087655860169,0.0992295544745887,FALSE,soil
+Pentose phosphate pathway,Patescibacteriota,21,2411,8.7,2.87,3.32996083391229e-5,1.4111582275180753e-4,TRUE,soil
+Alanine / aspartate / glutamate metabolism,Bacteroidota,54,15021,3.6,2.86,5.826653500722687e-10,4.526861565946087e-9,TRUE,soil
+Iron uptake / siderophore / Fe homeostasis,Bacteroidota,36,15021,2.4,2.85,2.762666901914086e-7,1.5359414151926021e-6,TRUE,soil
+Pentose phosphate pathway,Nanobdellota,4,457,8.8,2.84,0.05595291436422253,0.10091507769261562,FALSE,soil
+Thiamine metabolism,Bacillota,8,14558,0.5,2.82,0.01296416369127463,0.02953489923651288,TRUE,soil
+Calvin-Benson-Bassham (CBB) cycle,Verrucomicrobiota,4,3581,1.1,2.74,0.06411319033632955,0.11327286689159097,FALSE,soil
+Carbohydrate metabolism (other),Pseudomonadota,66,75389,0.9,2.71,2.2000978744095756e-7,1.2460367400861709e-6,TRUE,soil
+Pyruvate metabolism,Myxococcota,5,1466,3.4,2.67,0.04320988898259926,0.0823433733441986,FALSE,soil
+Inorganic ion transport,Bacillota,6,14558,0.4,2.66,0.036743538694968464,0.072294105354386,FALSE,soil
+Phosphatase / phosphate liberation,Chloroflexota,17,4951,3.4,2.66,4.475593623926532e-4,0.0015166334139145767,TRUE,soil
+Drug / xenobiotic by P450,Actinomycetota,5,58870,0.1,2.65,0.1501126398360331,0.23138445199600122,FALSE,soil
+Iron uptake / siderophore / Fe homeostasis,Chloroflexota,12,4951,2.4,2.65,0.002992938619296606,0.008396855570804366,TRUE,soil
+NAD(P) / nicotinamide metabolism,Desulfobacterota,6,1513,4,2.65,0.029185375329687346,0.060647669643890054,FALSE,soil
+Sugar interconversion,Asgardarchaeota,14,614,22.8,2.65,0.0012928804302601313,0.003956997680493129,TRUE,soil
+Alanine / aspartate / glutamate metabolism,Bacillota,49,14558,3.4,2.63,3.2170888544021186e-8,2.1190824410518305e-7,TRUE,soil
+Cobalamin (B12) metabolism,Halobacteriota,5,873,5.7,2.6,0.04712117726183555,0.08786287206360721,FALSE,soil
+Polyketide / antibiotic biosynthesis,Thermoproteota,30,1608,18.7,2.59,5.887635241912511e-6,2.702959815605289e-5,TRUE,soil
+Phosphatase / phosphate liberation,Halobacteriota,3,873,3.4,2.58,0.11376158421482942,0.18334978732496443,FALSE,soil
+Amino-acid / peptide transport,Actinomycetota,30,58870,0.5,2.56,4.348597300984298e-4,0.001488841787794624,TRUE,soil
+Arginine / proline metabolism,Desulfobacterota,5,1513,3.3,2.56,0.050099094008105007,0.09312899070218292,FALSE,soil
+Aminotransferase / transamination,Asgardarchaeota,9,614,14.7,2.5,0.012293510009930505,0.02821919343188593,TRUE,soil
+Aminotransferase / transamination,Actinomycetota,612,58870,10.4,2.45,5.815282488304001e-55,3.524061187912225e-53,TRUE,soil
+D-amino acid metabolism,Pseudomonadota,29,75389,0.4,2.44,0.0017850400634372694,0.0052767525777706594,TRUE,soil
+Lipid degradation,Bacillota,6,14558,0.4,2.43,0.05115737913488555,0.09451637730408734,FALSE,soil
+Methanotrophy / methane oxidation,Patescibacteriota,6,2411,2.5,2.41,0.043510154576404295,0.082655654148279,FALSE,soil
+Fermentation,Thermoproteota,5,1608,3.1,2.4,0.062444380533583053,0.1112979253039745,FALSE,soil
+Formaldehyde oxidation / fixation,Pseudomonadota,26,75389,0.3,2.4,0.0031294820830349364,0.008739475310226596,TRUE,soil
+Fermentation,Chloroflexota,15,4951,3,2.38,0.003980380884602434,0.010533235004668452,TRUE,soil
+Fatty acid degradation (β-oxidation),Bacteroidota,16,15021,1.1,2.37,0.003326760420585407,0.009107505131480901,TRUE,soil
+Polysaccharide / complex carbon degradation,Asgardarchaeota,11,614,17.9,2.35,0.009150131333201226,0.022179918351679772,TRUE,soil
+Lysine metabolism,Pseudomonadota,94,75389,1.2,2.32,6.589432973718863e-8,3.9931963820736305e-7,TRUE,soil
+Glycolysis,Bacillota,18,14558,1.2,2.31,0.0021304574533583765,0.0061478915082627435,TRUE,soil
+Glycolysis / EMP,Patescibacteriota,10,2411,4.1,2.31,0.014287148208226692,0.03242701054002014,TRUE,soil
+Inorganic ion transport,Acidobacteriota,8,22995,0.3,2.3,0.05429293896140159,0.09880678568038562,FALSE,soil
+Polyketide / antibiotic biosynthesis,Verrucomicrobiota,59,3581,16.5,2.3,2.971736082324672e-8,1.978980292185441e-7,TRUE,soil
+Lipid metabolism (other),Asgardarchaeota,5,614,8.1,2.29,0.07172776936362382,0.12454735883769638,FALSE,soil
+Pentose phosphate pathway,Desulfobacterota_B,5,712,7,2.27,0.07383598739841338,0.12747751670495303,FALSE,soil
+Cobalamin (B12) metabolism,Thermoproteota,8,1608,5,2.26,0.029222969531379366,0.060647669643890054,FALSE,soil
+Terpenoid / carotenoid metabolism,Pseudomonadota,34,75389,0.5,2.25,0.0019323614215056928,0.005629860679963701,TRUE,soil
+Aminotransferase / transamination,Nanobdellota,6,457,13.1,2.23,0.05739993324361832,0.10260873022310531,FALSE,soil
+Polyketide / antibiotic biosynthesis,Asgardarchaeota,10,614,16.3,2.23,0.02780989575293252,0.05831417586947096,FALSE,soil
+Starch,Patescibacteriota,11,2411,4.6,2.22,0.020086710533221627,0.04458808272209636,TRUE,soil
+Ammonia assimilation (GS-GOGAT),Acidobacteriota,43,22995,1.9,2.2,2.1385651410861012e-5,9.323528600706312e-5,TRUE,soil
+NAD(P) / nicotinamide metabolism,Pseudomonadota,177,75389,2.3,2.2,1.6702235658750877e-12,1.557162278338928e-11,TRUE,soil
+Substrate transport (other),Nitrospirota,3,669,4.5,2.2,0.1590826672919928,0.24283147702505703,FALSE,soil
+Benzoate / aromatic carboxylic acid degradation,Pseudomonadota,103,75389,1.4,2.19,1.0582367006912971e-7,6.166263852105057e-7,TRUE,soil
+Inorganic ion transport,Pseudomonadota,20,75389,0.3,2.18,0.023632610680877505,0.05060551969120766,FALSE,soil
+Cobalamin (B12) metabolism,Bacteroidota,67,15021,4.5,2.17,7.166191345355822e-8,4.299714807213493e-7,TRUE,soil
+Glycolysis,Patescibacteriota,3,2411,1.2,2.17,0.16645812960981046,0.2521840663588628,FALSE,soil
+Pyruvate metabolism,Pseudomonadota,150,75389,2,2.17,1.8913926449703142e-10,1.585350453821287e-9,TRUE,soil
+Branched-chain amino acid metabolism (Val/Leu/Ile),Pseudomonadota,90,75389,1.2,2.16,8.377624693909786e-7,4.302407258058754e-6,TRUE,soil
+ABC-type transport,Myxococcota,4,1466,2.7,2.13,0.1241523356183548,0.19903787138815612,FALSE,soil
+Calvin-Benson-Bassham (CBB) cycle,Pseudomonadota,48,75389,0.6,2.11,5.33235434699479e-4,0.0017373154485370121,TRUE,soil
+Glyoxylate / dicarboxylate metabolism,Verrucomicrobiota,3,3581,0.8,2.11,0.17771737147809089,0.2664476515628047,FALSE,soil
+Polyketide / antibiotic biosynthesis,Thermoplasmatota,14,910,15.4,2.11,0.010019192444352018,0.023904057564083953,TRUE,soil
+Fermentation,Myxococcota,4,1466,2.7,2.1,0.12885741590348282,0.20388405753919212,FALSE,soil
+Starch,Thermoproteota,7,1608,4.4,2.1,0.054294817873875266,0.09880678568038562,FALSE,soil
+Aromatic amino acid metabolism (Phe / Tyr / Trp),Bacillota,100,14558,6.9,2.09,2.829714163013304e-10,2.28640904371475e-9,TRUE,soil
+Folate / one-carbon pool metabolism,Thermoproteota,14,1608,8.7,2.08,0.011077743571608626,0.025919353684922115,TRUE,soil
+Glycolysis / EMP,Thermoproteota,6,1608,3.7,2.06,0.07659930597285565,0.13106288385806897,FALSE,soil
+Biotin metabolism,Pseudomonadota,70,75389,0.9,2.05,3.724200882984632e-5,1.5672678715893657e-4,TRUE,soil
+Lipid metabolism (other),Pseudomonadota,404,75389,5.4,2.05,5.372136105990671e-23,9.301469943515276e-22,TRUE,soil
+NAD(P) / nicotinamide metabolism,Bacillota,42,14558,2.9,2.04,8.906292273545378e-5,3.504683842706818e-4,TRUE,soil
+Cobalamin (B12) metabolism,Nitrospirota,3,669,4.5,2.03,0.18807961957140368,0.27935355259870254,FALSE,soil
+Lysine metabolism,Planctomycetota,5,3184,1.6,2.03,0.1080048160488332,0.17594332936987345,FALSE,soil
+Aromatic amino acid metabolism (Phe / Tyr / Trp),Desulfobacterota_B,5,712,7,2,0.11034612585426562,0.17831933938049324,FALSE,soil
+Polysaccharide / complex carbon degradation,Nanobdellota,7,457,15.3,2,0.09527671134253078,0.15862001943289467,FALSE,soil
+Formaldehyde oxidation / fixation,Bacteroidota,6,15021,0.4,1.99,0.13543748414338766,0.21153380255384774,FALSE,soil
+Starch,Planctomycetota,13,3184,4.1,1.99,0.027544099419152097,0.05795737586113253,FALSE,soil
+Organosulfur metabolism,Pseudomonadota,46,75389,0.6,1.98,0.0016967240507689675,0.005040268503754874,TRUE,soil
+Aminotransferase / transamination,Myxococcota,17,1466,11.6,1.97,0.009463431128496999,0.022847965194697936,TRUE,soil
+CAZy: carbohydrate esterase (CE),Bacillota,17,14558,1.2,1.97,0.015053902597010473,0.03403979467831473,TRUE,soil
+Substrate transport (other),Pseudomonadota,227,75389,3,1.97,1.5892532653500104e-12,1.528710283812867e-11,TRUE,soil
+Fermentation,Bacillota,35,14558,2.4,1.95,5.257639277194786e-4,0.0017222321091784,TRUE,soil
+Denitrification (NO3 → N2),Chloroflexota,12,4951,2.4,1.94,0.03946207006719945,0.07689393717274234,FALSE,soil
+Lipid metabolism (other),Bacillota,94,14558,6.5,1.92,5.0100613519638294e-8,3.1299970920516293e-7,TRUE,soil
+Thiol cofactor metabolism,Acidobacteriota,3,22995,0.1,1.92,0.24152424341624218,0.3356965401611072,FALSE,soil
+Histidine metabolism,Pseudomonadota,41,75389,0.5,1.9,0.004886049185663416,0.012546380536067924,TRUE,soil
+Lipid degradation,Bacteroidota,5,15021,0.3,1.9,0.19999833417914817,0.29275118481295603,FALSE,soil
+Phosphonate / phosphite metabolism,Gemmatimonadota,3,1450,2.1,1.9,0.21454607405716727,0.30955933542534136,FALSE,soil
+Biotin metabolism,Bacillota,16,14558,1.1,1.88,0.023408255523356028,0.05030284697572253,FALSE,soil
+Polysaccharide / complex carbon degradation,Myxococcota,21,1466,14.3,1.88,0.009646321308765474,0.023105417838386866,TRUE,soil
+Aliphatic hydrocarbon degradation,Pseudomonadota,25,75389,0.3,1.85,0.036872900906918415,0.0723138444970633,FALSE,soil
+Cysteine / methionine metabolism,Patescibacteriota,6,2411,2.5,1.85,0.15014700686313592,0.23138445199600122,FALSE,soil
+Sterol / isoprenoid metabolism,Pseudomonadota,18,75389,0.2,1.85,0.07927845843759357,0.13495153318309466,FALSE,soil
+CAZy: polysaccharide lyase (PL),Gemmatimonadota,3,1450,2.1,1.84,0.22685319622385755,0.3234659692039004,FALSE,soil
+Lipid metabolism (other),Nanobdellota,3,457,6.6,1.84,0.22584042853333475,0.32278136719622846,FALSE,soil
+Aromatic amino acid metabolism (Phe / Tyr / Trp),Actinomycetota,310,58870,5.3,1.83,1.5565312771890287e-15,1.8495253999540223e-14,TRUE,soil
+BTEX / monoaromatic hydrocarbon degradation,Bacteroidota,3,15021,0.2,1.81,0.2530701499096981,0.3462274828058872,FALSE,soil
+Glycerolipid / glycerophospholipid metabolism,Actinomycetota,91,58870,1.5,1.8,2.4925589182469447e-5,1.0789219317554632e-4,TRUE,soil
+Alanine / aspartate / glutamate metabolism,Planctomycetota,8,3184,2.5,1.79,0.09828146780389906,0.16272833193760336,FALSE,soil
+Alanine / aspartate / glutamate metabolism,Verrucomicrobiota,9,3581,2.5,1.79,0.10913142675836539,0.17730199628838988,FALSE,soil
+Aromatic amino acid metabolism (Phe / Tyr / Trp),Patescibacteriota,15,2411,6.2,1.78,0.03574521483095645,0.07125526377486713,FALSE,soil
+Cobalamin (B12) metabolism,Verrucomicrobiota,14,3581,3.9,1.78,0.04540191805461896,0.08518130755758233,FALSE,soil
+Methanotrophy / methane oxidation,Thermoproteota,3,1608,1.9,1.78,0.24038240433194086,0.3356491636524336,FALSE,soil
+Phosphate starvation response,Bacteroidota,33,15021,2.2,1.77,0.0032966911587562387,0.009080885646392185,TRUE,soil
+Sugar interconversion,Nanobdellota,7,457,15.3,1.76,0.12825415487182898,0.20346077971813706,FALSE,soil
+Polysaccharide / complex carbon degradation,Actinomycetota,658,58870,11.2,1.75,1.9003037127200003e-27,4.429169422724308e-26,TRUE,soil
+Ammonia assimilation (GS-GOGAT),Bacillota,23,14558,1.6,1.73,0.01764497064066656,0.039457019218612305,TRUE,soil
+Sugar interconversion,Myxococcota,22,1466,15,1.73,0.01593078982902029,0.035888693815562436,TRUE,soil
+Gluconeogenesis,Chloroflexota,11,4951,2.2,1.72,0.10635075316848612,0.17371578549892883,FALSE,soil
+"Other amino-acid-related metabolism (β-Ala, taurine, glutathione, Se)",Patescibacteriota,6,2411,2.5,1.7,0.17807145030187443,0.2664476515628047,FALSE,soil
+3HP / 4HB / DC4HB cycle,Verrucomicrobiota,3,3581,0.8,1.69,0.2691585002972452,0.3624667804002902,FALSE,soil
+Sphingolipid / ceramide metabolism,Pseudomonadota,11,75389,0.1,1.69,0.27368955827770586,0.3669377706112605,FALSE,soil
+Folate / one-carbon pool metabolism,Patescibacteriota,17,2411,7.1,1.68,0.03961738136212995,0.0769491445687524,FALSE,soil
+Glycine / serine / threonine metabolism,Patescibacteriota,5,2411,2.1,1.68,0.23225321425769024,0.3280779669933806,FALSE,soil
+Pyridoxal (B6) metabolism,Pseudomonadota,10,75389,0.1,1.68,0.25561933686778743,0.3471833947224885,FALSE,soil
+ABC transporters,Acidobacteriota,5,22995,0.2,1.67,0.2466140104067498,0.3397177237046762,FALSE,soil
+Fermentation,Pseudomonadota,134,75389,1.8,1.67,1.987127278684944e-5,8.789774677978658e-5,TRUE,soil
+Iron uptake / siderophore / Fe homeostasis,Planctomycetota,5,3184,1.6,1.67,0.23499116678350226,0.3304052136213512,FALSE,soil
+Substrate transport (other),Myxococcota,5,1466,3.4,1.67,0.23355370495486313,0.3291477795410397,FALSE,soil
+Calvin-Benson-Bassham (CBB) cycle,Bacteroidota,10,15021,0.7,1.66,0.14243717323069258,0.22132545378923002,FALSE,soil
+Denitrification (NO3 → N2),Actinomycetota,106,58870,1.8,1.66,6.115159112947299e-5,2.5209431445211313e-4,TRUE,soil
+Folate / one-carbon pool metabolism,Actinomycetota,351,58870,6,1.66,3.8400826440562466e-13,3.944220478471331e-12,TRUE,soil
+Aminotransferase / transamination,Cyanobacteriota,7,716,9.8,1.65,0.21177356743872477,0.3077572706663482,FALSE,soil
+Polyketide / antibiotic biosynthesis,Patescibacteriota,29,2411,12,1.65,0.011449403240084064,0.026583671890769895,TRUE,soil
+CAZy: polysaccharide lyase (PL),Chloroflexota,9,4951,1.8,1.63,0.13513515621660183,0.21153380255384774,FALSE,soil
+Denitrification (NO3 → N2),Patescibacteriota,5,2411,2.1,1.63,0.24338216758508144,0.33673423186429075,FALSE,soil
+Glycolysis,Planctomycetota,3,3184,0.9,1.63,0.4378554066414097,0.5415109722952944,FALSE,soil
+Pyridoxal (B6) metabolism,Actinomycetota,8,58870,0.1,1.63,0.3262666414760965,0.4255075671243103,FALSE,soil
+CAZy: auxiliary activity / LPMO (AA),Pseudomonadota,7,75389,0.1,1.62,0.4184791512060926,0.5228832281049322,FALSE,soil
+Starch,Actinomycetota,170,58870,2.9,1.62,1.6707129438570677e-6,8.298787245716256e-6,TRUE,soil
+Sugar interconversion,Actinomycetota,712,58870,12.1,1.62,8.781605398010849e-23,1.4782369086651595e-21,TRUE,soil
+Sugar interconversion,Cyanobacteriota,10,716,14,1.6,0.1529371631773454,0.234632711102459,FALSE,soil
+Gluconeogenesis,Patescibacteriota,5,2411,2.1,1.59,0.255297231170157,0.3471833947224885,FALSE,soil
+Lysine metabolism,Patescibacteriota,3,2411,1.2,1.59,0.4436495263532365,0.5470801981874364,FALSE,soil
+Iron uptake / siderophore / Fe homeostasis,Bacillota,21,14558,1.4,1.58,0.050822828151137873,0.09418542464706285,FALSE,soil
+Starch,Thermoplasmatota,3,910,3.3,1.58,0.44518449688805983,0.5472247568238626,FALSE,soil
+Thiamine metabolism,Bacteroidota,5,15021,0.3,1.58,0.3803311202661987,0.4842030648767151,FALSE,soil
+Arginine / proline metabolism,Myxococcota,3,1466,2,1.57,0.4468366365555262,0.5481437282442284,FALSE,soil
+Pantothenate / CoA metabolism,Bacteroidota,11,15021,0.7,1.57,0.17302103498463847,0.2608227542305744,FALSE,soil
+Biotin metabolism,Acidobacteriota,21,22995,0.9,1.56,0.06696750925641273,0.11695190377344702,FALSE,soil
+Aminotransferase / transamination,Halobacteriota,8,873,9.2,1.55,0.18692877531676985,0.27832638290408485,FALSE,soil
+Glycolysis / EMP,Verrucomicrobiota,10,3581,2.8,1.55,0.16437637168322966,0.24965433894746158,FALSE,soil
+Folate / one-carbon pool metabolism,Asgardarchaeota,4,614,6.5,1.54,0.337955093287257,0.43854558143913863,FALSE,soil
+Phosphatase / phosphate liberation,Myxococcota,3,1466,2,1.53,0.4529809152833488,0.5534403924631237,FALSE,soil
+Starch,Bacillota,45,14558,3.1,1.53,0.01072684971139042,0.02529366118716963,TRUE,soil
+Substrate transport (other),Bacillota,44,14558,3,1.53,0.010108349913090136,0.0240221962640495,TRUE,soil
+Alanine / aspartate / glutamate metabolism,Acidobacteriota,47,22995,2,1.51,0.012114815846079353,0.028021291613450718,TRUE,soil
+Glycine / serine / threonine metabolism,Bacteroidota,27,15021,1.8,1.5,0.05369064120484856,0.09859554112163099,FALSE,soil
+Methanotrophy / methane oxidation,Planctomycetota,5,3184,1.6,1.5,0.3960773418843767,0.5010915849309652,FALSE,soil
+Polyketide / antibiotic biosynthesis,Nanobdellota,5,457,10.9,1.49,0.3988860449735052,0.5025466595716095,FALSE,soil
+Glycolysis / EMP,Bacillota,38,14558,2.6,1.48,0.026510389765672257,0.05617236432866219,FALSE,soil
+Organosulfur metabolism,Chloroflexota,3,4951,0.6,1.48,0.46290756115766735,0.5644305474075381,FALSE,soil
+Amino-acid / peptide transport,Pseudomonadota,27,75389,0.4,1.47,0.1411155710627648,0.2198355682880089,FALSE,soil
+Pantothenate / CoA metabolism,Pseudomonadota,46,75389,0.6,1.47,0.06374780899027799,0.11295664400031713,FALSE,soil
+Calvin-Benson-Bassham (CBB) cycle,Chloroflexota,3,4951,0.6,1.46,0.46632409252549634,0.5655307014001831,FALSE,soil
+Polysaccharide / complex carbon degradation,Cyanobacteriota,8,716,11.2,1.46,0.2782293613927691,0.37220086755853876,FALSE,soil
+Pyruvate metabolism,Thermoproteota,3,1608,1.9,1.45,0.4690861364175768,0.5673976021338354,FALSE,soil
+Lysine metabolism,Verrucomicrobiota,4,3581,1.1,1.43,0.3699843400375868,0.4762861025409835,FALSE,soil
+Fatty acid degradation (β-oxidation),Pseudomonadota,46,75389,0.6,1.42,0.08326413877297285,0.1409443242916803,FALSE,soil
+Heme / porphyrin / chlorophyll metabolism,Patescibacteriota,3,2411,1.2,1.42,0.47474240061272016,0.5730954079109729,FALSE,soil
+Phosphate starvation response,Pseudomonadota,122,75389,1.6,1.42,0.003980004252517302,0.010533235004668452,FALSE,soil
+Pyruvate metabolism,Bacillota,26,14558,1.8,1.42,0.09373056191906741,0.1569080677429692,FALSE,soil
+Folate / one-carbon pool metabolism,Bacteroidota,87,15021,5.8,1.41,0.004066846442888491,0.010715256279958372,FALSE,soil
+Folate / one-carbon pool metabolism,Nitrospirota,4,669,6,1.41,0.3743278356779013,0.47958280850065155,FALSE,soil
+Oxidative phosphorylation / ETC,Pseudomonadota,32,75389,0.4,1.41,0.14536132068570634,0.22529145865866507,FALSE,soil
+Polyketide / antibiotic biosynthesis,Gemmatimonadota,15,1450,10.3,1.41,0.21376758157982698,0.30955933542534136,FALSE,soil
+Folate / one-carbon pool metabolism,Chloroflexota,29,4951,5.9,1.4,0.09520217347062017,0.15862001943289467,FALSE,soil
+Aromatic amino acid metabolism (Phe / Tyr / Trp),Asgardarchaeota,3,614,4.9,1.39,0.48277876007921516,0.5793345120950582,FALSE,soil
+Polyketide / antibiotic biosynthesis,Bacteroidota,149,15021,9.9,1.38,2.996766252853685e-4,0.001062011900134113,FALSE,soil
+NAD(P) / nicotinamide metabolism,Patescibacteriota,5,2411,2.1,1.37,0.42296580010423745,0.5274018001299751,FALSE,soil
+ABC-type transport,Bacillota,25,14558,1.7,1.36,0.1504380760502054,0.23138445199600122,FALSE,soil
+Aromatic amino acid metabolism (Phe / Tyr / Trp),Myxococcota,7,1466,4.8,1.36,0.37308485370429834,0.47900301132373896,FALSE,soil
+Carbohydrate metabolism (other),Bacillota,10,14558,0.7,1.36,0.3417265404231654,0.4415485788836636,FALSE,soil
+Glycine / serine / threonine metabolism,Verrucomicrobiota,6,3581,1.7,1.36,0.46455954004741773,0.5653073921058939,FALSE,soil
+CAZy: polysaccharide lyase (PL),Actinomycetota,82,58870,1.4,1.35,0.030684107709791412,0.06267447144532567,FALSE,soil
+Glyoxylate / dicarboxylate metabolism,Bacteroidota,8,15021,0.5,1.35,0.397333412212671,0.5016334329184972,FALSE,soil
+NAD(P) / nicotinamide metabolism,Bacteroidota,30,15021,2,1.35,0.12691245844910426,0.20186076068282727,FALSE,soil
+Sterol / isoprenoid metabolism,Acidobacteriota,5,22995,0.2,1.35,0.5846830672458655,0.6774721582236988,FALSE,soil
+Lysine metabolism,Bacillota,15,14558,1,1.34,0.2813541259510385,0.37555198309764165,FALSE,soil
+Polysaccharide / complex carbon degradation,Halobacteriota,9,873,10.3,1.34,0.33154096774918357,0.4311455503347752,FALSE,soil
+Alkaloid biosynthesis,Bacteroidota,4,15021,0.3,1.33,0.54798865667958,0.642323261020939,FALSE,soil
+Denitrification (NO3 → N2),Bacteroidota,25,15021,1.7,1.33,0.191142889771997,0.28251851512641507,FALSE,soil
+Alkaloid biosynthesis,Acidobacteriota,6,22995,0.3,1.32,0.46660948960411147,0.5655307014001831,FALSE,soil
+Formaldehyde oxidation / fixation,Bacillota,4,14558,0.3,1.31,0.5521342771427625,0.645933150479757,FALSE,soil
+Iron uptake / siderophore / Fe homeostasis,Patescibacteriota,3,2411,1.2,1.31,0.5016854003834875,0.5961202992792028,FALSE,soil
+Pentose phosphate pathway,Chloroflexota,20,4951,4,1.31,0.24307259515185614,0.33673423186429075,FALSE,soil
+Phosphatase / phosphate liberation,Acidobacteriota,39,22995,1.7,1.31,0.1264187025593406,0.20160456250252737,FALSE,soil
+Starch,Myxococcota,4,1466,2.7,1.31,0.555731728628997,0.648889070422297,FALSE,soil
+Photosynthesis,Pseudomonadota,12,75389,0.2,1.3,0.5598795623100798,0.6524750283844393,FALSE,soil
+Polysaccharide / complex carbon degradation,Bacteroidota,146,15021,9.7,1.29,0.004975635026012958,0.012722509813349589,FALSE,soil
+Cobalamin (B12) metabolism,Planctomycetota,9,3184,2.8,1.28,0.4441641213006909,0.5470801981874364,FALSE,soil
+Riboflavin / FAD metabolism,Bacillota,13,14558,0.9,1.28,0.4180032741801621,0.5228832281049322,FALSE,soil
+Glycine / serine / threonine metabolism,Planctomycetota,5,3184,1.6,1.27,0.6048754957386817,0.6977011181444305,FALSE,soil
+Lipid degradation,Actinomycetota,13,58870,0.2,1.27,0.4798636312639602,0.5769788899721426,FALSE,soil
+Starch,Bacteroidota,39,15021,2.6,1.27,0.16399321673233982,0.24965433894746158,FALSE,soil
+Cysteine / methionine metabolism,Bacteroidota,25,15021,1.7,1.25,0.2999247569647494,0.3946993672264926,FALSE,soil
+CAZy: polysaccharide lyase (PL),Verrucomicrobiota,5,3581,1.4,1.24,0.6093708710293233,0.7007186866105691,FALSE,soil
+Arginine / proline metabolism,Bacillota,23,14558,1.6,1.23,0.3410800755881959,0.4415485788836636,FALSE,soil
+Fatty acid degradation (β-oxidation),Chloroflexota,3,4951,0.6,1.23,0.7384424380054807,0.8207702776835074,FALSE,soil
+Glycan / glycoside metabolism,Pseudomonadota,4,75389,0.1,1.23,0.7483671453790005,0.8265202590659289,FALSE,soil
+Branched-chain amino acid metabolism (Val/Leu/Ile),Planctomycetota,3,3184,0.9,1.22,0.7408271332403701,0.8207702776835074,FALSE,soil
+Cobalamin (B12) metabolism,Pseudomonadota,190,75389,2.5,1.22,0.03479791328680875,0.0695958265736175,FALSE,soil
+Glycolysis / EMP,Chloroflexota,11,4951,2.2,1.22,0.49696689758097595,0.5928384644371485,FALSE,soil
+Polyketide / antibiotic biosynthesis,Acidobacteriota,202,22995,8.8,1.22,0.01015253667325092,0.024032957906211162,FALSE,soil
+Polyketide / antibiotic biosynthesis,Nitrospirota,6,669,9,1.22,0.6454626835664549,0.7270453275860067,FALSE,soil
+ABC-type transport,Pseudomonadota,110,75389,1.5,1.21,0.13113652825423047,0.20694983365120748,FALSE,soil
+Glycolysis / EMP,Planctomycetota,7,3184,2.2,1.21,0.5297590032751409,0.6270194452826863,FALSE,soil
+Pentose phosphate pathway,Bacillota,54,14558,3.7,1.21,0.18970244066035713,0.28107500987818196,FALSE,soil
+Arginine / proline metabolism,Planctomycetota,5,3184,1.6,1.2,0.6162447222790841,0.7059438595484404,FALSE,soil
+Bile / wax / mycolic / lipopolysaccharide,Pseudomonadota,45,75389,0.6,1.19,0.37972949729772193,0.4842030648767151,FALSE,soil
+Fatty acid biosynthesis,Bacillota,146,14558,10,1.18,0.05626179807752065,0.10109967135464276,FALSE,soil
+MFS transport,Acidobacteriota,11,22995,0.5,1.18,0.6055953599735486,0.6977011181444305,FALSE,soil
+Phosphatase / phosphate liberation,Pseudomonadota,112,75389,1.5,1.18,0.19443093736482794,0.28598336903661586,FALSE,soil
+Sugar interconversion,Chloroflexota,51,4951,10.3,1.18,0.2466597333829332,0.3397177237046762,FALSE,soil
+Sugar interconversion,Halobacteriota,9,873,10.3,1.18,0.5823898060058875,0.6761077058229269,FALSE,soil
+CAZy: polysaccharide lyase (PL),Pseudomonadota,94,75389,1.2,1.17,0.25310028858582184,0.3462274828058872,FALSE,soil
+D-amino acid metabolism,Bacillota,4,14558,0.3,1.17,0.7767555062847177,0.8542900849519762,FALSE,soil
+Halogenated aromatic / chlorinated degradation,Pseudomonadota,29,75389,0.4,1.17,0.5458001447107942,0.6416136444033794,FALSE,soil
+Pentose phosphate pathway,Bacteroidota,54,15021,3.6,1.17,0.28709238429963835,0.3823691975507271,FALSE,soil
+Alkaloid biosynthesis,Pseudomonadota,17,75389,0.2,1.16,0.6374506138842606,0.7233727906738253,FALSE,soil
+Aromatic amino acid metabolism (Phe / Tyr / Trp),Planctomycetota,13,3184,4.1,1.16,0.5463244892939666,0.6416136444033794,FALSE,soil
+Cysteine / methionine metabolism,Planctomycetota,5,3184,1.6,1.16,0.6271093549487016,0.7170344699979493,FALSE,soil
+Polysaccharide / complex carbon degradation,Chloroflexota,44,4951,8.9,1.16,0.32400303514699286,0.4240730870390446,FALSE,soil
+Sphingolipid / ceramide metabolism,Actinomycetota,7,58870,0.1,1.16,0.8153064198766775,0.8822780186522616,FALSE,soil
+Sugar interconversion,Bacteroidota,151,15021,10.1,1.16,0.0845833123672464,0.14277851614081147,FALSE,soil
+"Other amino-acid-related metabolism (β-Ala, taurine, glutathione, Se)",Pseudomonadota,122,75389,1.6,1.15,0.2395986063307942,0.33532737976088056,FALSE,soil
+Pantothenate / CoA metabolism,Bacillota,8,14558,0.5,1.15,0.6941848470181102,0.7747256303738026,FALSE,soil
+Aminotransferase / transamination,Bacteroidota,101,15021,6.7,1.14,0.20529926790284547,0.2997864008412635,FALSE,soil
+Cobalamin (B12) metabolism,Patescibacteriota,6,2411,2.5,1.12,0.6638707774700343,0.7436334401974876,FALSE,soil
+Benzoate / aromatic carboxylic acid degradation,Actinomycetota,56,58870,1,1.11,0.5159142423937966,0.6118278491010581,FALSE,soil
+Pentose phosphate pathway,Actinomycetota,197,58870,3.3,1.11,0.24127874595210116,0.3356965401611072,FALSE,soil
+Thiol cofactor metabolism,Pseudomonadota,6,75389,0.1,1.11,0.7998039953008532,0.8764579044345697,FALSE,soil
+Glycerolipid / glycerophospholipid metabolism,Pseudomonadota,84,75389,1.1,1.1,0.4852933520910127,0.5812011291840982,FALSE,soil
+Aminotransferase / transamination,Chloroflexota,32,4951,6.5,1.09,0.6392316832334142,0.7233727906738253,FALSE,soil
+Polysaccharide / complex carbon degradation,Desulfobacterota_B,6,712,8.4,1.09,0.8276802492158717,0.8860687055640571,FALSE,soil
+Glyoxylate / dicarboxylate metabolism,Pseudomonadota,32,75389,0.4,1.08,0.7372486996677036,0.8207702776835074,FALSE,soil
+Pyruvate metabolism,Verrucomicrobiota,5,3581,1.4,1.08,0.8120549305051218,0.8822780186522616,FALSE,soil
+Benzoate / aromatic carboxylic acid degradation,Planctomycetota,3,3184,0.9,1.07,0.7619101200977161,0.839486423234938,FALSE,soil
+Gluconeogenesis,Verrucomicrobiota,5,3581,1.4,1.06,0.8143725439764513,0.8822780186522616,FALSE,soil
+Methanotrophy / methane oxidation,Verrucomicrobiota,4,3581,1.1,1.06,0.7929032586499108,0.8704698817787064,FALSE,soil
+Pentose phosphate pathway,Desulfobacterota,5,1513,3.3,1.06,0.8147498779223861,0.8822780186522616,FALSE,soil
+Lipid metabolism (other),Thermoproteota,6,1608,3.7,1.04,0.8327555045928902,0.8884680207452315,FALSE,soil
+TCA cycle,Bacillota,6,14558,0.4,1.04,0.8290444819386474,0.8860687055640571,FALSE,soil
+Arginine / proline metabolism,Bacteroidota,20,15021,1.3,1.02,0.9066876728554116,0.9440768552412019,FALSE,soil
+Heme / porphyrin / chlorophyll metabolism,Bacillota,13,14558,0.9,1.02,0.8850631315924394,0.9275798353039553,FALSE,soil
+Methanotrophy / methane oxidation,Bacteroidota,16,15021,1.1,1.01,0.8963040650869875,0.9348713656501108,FALSE,soil
+Substrate transport (other),Bacteroidota,31,15021,2.1,1.01,0.9254780445989141,0.961989185294926,FALSE,soil
+Substrate transport (other),Patescibacteriota,5,2411,2.1,1.01,0.8217168898883914,0.8844767944446984,FALSE,soil
+Sugar interconversion,Bacillota,129,14558,8.9,1.01,0.8901694810419498,0.9300736301921062,FALSE,soil
+Thiamine metabolism,Actinomycetota,13,58870,0.2,1.01,1,1,FALSE,soil
+Polysaccharide / complex carbon degradation,Bacillota,112,14558,7.7,1,1,1,FALSE,soil
+MFS transport,Bacillota,6,14558,0.4,0.99,1,1,FALSE,soil
+Organosulfur metabolism,Bacillota,6,14558,0.4,0.99,1,1,FALSE,soil
+Starch,Gemmatimonadota,3,1450,2.1,0.99,1,1,FALSE,soil
+Ammonia assimilation (GS-GOGAT),Planctomycetota,3,3184,0.9,0.98,0.9999999999999999,1,FALSE,soil
+Phosphatase / phosphate liberation,Actinomycetota,77,58870,1.3,0.97,0.8429242255248426,0.8914695997697287,FALSE,soil
+ABC-type transport,Patescibacteriota,3,2411,1.2,0.96,0.9999999999999999,1,FALSE,soil
+Glycine / serine / threonine metabolism,Pseudomonadota,91,75389,1.2,0.96,0.7487782545003218,0.8265202590659289,FALSE,soil
+Polyketide / antibiotic biosynthesis,Chloroflexota,35,4951,7.1,0.96,0.8666629524609792,0.9118016479016552,FALSE,soil
+Pyruvate metabolism,Patescibacteriota,3,2411,1.2,0.96,0.9999999999999999,1,FALSE,soil
+Fermentation,Patescibacteriota,3,2411,1.2,0.95,1,1,FALSE,soil
+PAH / polycyclic aromatic degradation,Actinomycetota,38,58870,0.6,0.95,0.8519108628600525,0.8994041513818672,FALSE,soil
+Polyketide / antibiotic biosynthesis,Actinomycetota,420,58870,7.1,0.95,0.42880412837612764,0.5329359830139394,FALSE,soil
+Polyketide / antibiotic biosynthesis,Cyanobacteriota,5,716,7,0.95,1,1,FALSE,soil
+Thiamine metabolism,Pseudomonadota,16,75389,0.2,0.95,0.9999999999999999,1,FALSE,soil
+Branched-chain amino acid metabolism (Val/Leu/Ile),Bacteroidota,11,15021,0.7,0.94,1,1,FALSE,soil
+Ammonia assimilation (GS-GOGAT),Actinomycetota,53,58870,0.9,0.92,0.6394083096233634,0.7233727906738253,FALSE,soil
+Lipid metabolism (other),Thermoplasmatota,3,910,3.3,0.92,1,1,FALSE,soil
+Polyketide / antibiotic biosynthesis,Myxococcota,10,1466,6.8,0.92,0.9999999999999999,1,FALSE,soil
+Histidine metabolism,Acidobacteriota,8,22995,0.3,0.91,1,1,FALSE,soil
+Glycolysis,Pseudomonadota,41,75389,0.5,0.9,0.639814877559687,0.7233727906738253,FALSE,soil
+Heme / porphyrin / chlorophyll metabolism,Bacteroidota,12,15021,0.8,0.9,0.8862520208597197,0.9275798353039553,FALSE,soil
+Carbohydrate metabolism (other),Bacteroidota,7,15021,0.5,0.89,0.9999999999999999,1,FALSE,soil
+Fatty acid biosynthesis,Thermoplasmatota,7,910,7.7,0.89,1,1,FALSE,soil
+"Other amino-acid-related metabolism (β-Ala, taurine, glutathione, Se)",Bacteroidota,20,15021,1.3,0.89,0.7408603001532649,0.8207702776835074,FALSE,soil
+Pantothenate / CoA metabolism,Acidobacteriota,10,22995,0.4,0.89,0.8738591480449076,0.9177792785358995,FALSE,soil
+Polyketide / antibiotic biosynthesis,Planctomycetota,21,3184,6.6,0.89,0.6768693075982369,0.7567948346947077,FALSE,soil
+Aromatic amino acid metabolism (Phe / Tyr / Trp),Thermoproteota,5,1608,3.1,0.88,1,1,FALSE,soil
+Iron uptake / siderophore / Fe homeostasis,Verrucomicrobiota,3,3581,0.8,0.88,1,1,FALSE,soil
+Nitroaromatic / nitrotoluene degradation,Actinomycetota,3,58870,0.1,0.88,1,1,FALSE,soil
+Pentose phosphate pathway,Myxococcota,4,1466,2.7,0.87,1,1,FALSE,soil
+Biotin metabolism,Bacteroidota,8,15021,0.5,0.85,0.8642417070905434,0.9108356078206422,FALSE,soil
+Heme / porphyrin / chlorophyll metabolism,Actinomycetota,46,58870,0.8,0.85,0.370182762866012,0.4762861025409835,FALSE,soil
+Fatty acid biosynthesis,Desulfobacterota_B,5,712,7,0.82,0.8386070178566428,0.8896387493945515,FALSE,soil
+Polyketide / antibiotic biosynthesis,Pseudomonadota,486,75389,6.4,0.82,1.9409863632382357e-4,7.260726766187475e-4,FALSE,soil
+Folate / one-carbon pool metabolism,Halobacteriota,3,873,3.4,0.81,1,1,FALSE,soil
+Glycine / serine / threonine metabolism,Chloroflexota,5,4951,1,0.81,0.8377739921912963,0.8896387493945515,FALSE,soil
+Polysaccharide / complex carbon degradation,Planctomycetota,20,3184,6.3,0.81,0.4136561211039483,0.5189971208881835,FALSE,soil
+Pentose phosphate pathway,Verrucomicrobiota,9,3581,2.5,0.8,0.6491018200451372,0.7297879460989855,FALSE,soil
+Sugar interconversion,Desulfobacterota_B,5,712,7,0.8,0.839241846470082,0.8896387493945515,FALSE,soil
+Folate / one-carbon pool metabolism,Pseudomonadota,272,75389,3.6,0.79,8.325176205307855e-4,0.002641390984511288,FALSE,soil
+Glycolysis / EMP,Pseudomonadota,117,75389,1.6,0.79,0.029839649464878146,0.06171613507070361,FALSE,soil
+Alkaloid biosynthesis,Actinomycetota,10,58870,0.2,0.78,0.6124168989637495,0.7028875772197579,FALSE,soil
+Pyruvate metabolism,Chloroflexota,5,4951,1,0.78,0.8397250241809958,0.8896387493945515,FALSE,soil
+Sugar interconversion,Planctomycetota,22,3184,6.9,0.78,0.2919169976145838,0.38670360654843683,FALSE,soil
+Polysaccharide / complex carbon degradation,Nitrospirota,4,669,6,0.77,0.8240645818802007,0.8854310932968115,FALSE,soil
+Glycolysis,Actinomycetota,28,58870,0.5,0.76,0.22944172340096616,0.3256245535854461,FALSE,soil
+Methanotrophy / methane oxidation,Pseudomonadota,66,75389,0.9,0.76,0.06963879766850961,0.12126756145723226,FALSE,soil
+Oxidative phosphorylation / ETC,Bacteroidota,4,15021,0.3,0.76,0.818861517788051,0.8829716722056209,FALSE,soil
+Aliphatic hydrocarbon degradation,Actinomycetota,11,58870,0.2,0.75,0.43259402401249497,0.5360981156473864,FALSE,soil
+Aminotransferase / transamination,Nitrospirota,3,669,4.5,0.75,1,1,FALSE,soil
+Aromatic amino acid metabolism (Phe / Tyr / Trp),Desulfobacterota,4,1513,2.6,0.75,0.8257052246945397,0.8856236569290108,FALSE,soil
+Lipid metabolism (other),Bacteroidota,41,15021,2.7,0.75,0.07613589114799188,0.13106288385806897,FALSE,soil
+Gluconeogenesis,Pseudomonadota,81,75389,1.1,0.74,0.02468244829356053,0.052482679529465545,FALSE,soil
+Fatty acid degradation (β-oxidation),Actinomycetota,23,58870,0.4,0.73,0.23038706501915823,0.3262022462654437,FALSE,soil
+Oxygenase / monooxygenase / dioxygenase,Acidobacteriota,4,22995,0.2,0.73,0.8175111783615947,0.8829716722056209,FALSE,soil
+Aromatic amino acid metabolism (Phe / Tyr / Trp),Acidobacteriota,60,22995,2.6,0.72,0.011337074527633245,0.02642410447594518,FALSE,soil
+Pyruvate metabolism,Planctomycetota,3,3184,0.9,0.72,0.8034528704090917,0.8772581624798046,FALSE,soil
+Aromatic amino acid metabolism (Phe / Tyr / Trp),Verrucomicrobiota,9,3581,2.5,0.71,0.39184012025326154,0.49676801856375835,FALSE,soil
+Fermentation,Planctomycetota,3,3184,0.9,0.71,0.8039045982055161,0.8772581624798046,FALSE,soil
+Polyketide / antibiotic biosynthesis,Desulfobacterota,8,1513,5.3,0.71,0.44868269104535347,0.5492963854009781,FALSE,soil
+Branched-chain amino acid metabolism (Val/Leu/Ile),Acidobacteriota,13,22995,0.6,0.7,0.25978976989554137,0.3514120548140582,FALSE,soil
+Glycine / serine / threonine metabolism,Bacillota,13,14558,0.9,0.7,0.2711990479490694,0.3644049291732507,FALSE,soil
+Histidine metabolism,Actinomycetota,17,58870,0.3,0.7,0.21436985906122435,0.30955933542534136,FALSE,soil
+Phosphatase / phosphate liberation,Planctomycetota,3,3184,0.9,0.7,0.8048771259715698,0.8772581624798046,FALSE,soil
+CAZy: polysaccharide lyase (PL),Bacteroidota,12,15021,0.8,0.69,0.25609072184975634,0.3471833947224885,FALSE,soil
+Cysteine / methionine metabolism,Pseudomonadota,79,75389,1,0.69,0.00386518498908534,0.01031851146865954,FALSE,soil
+Fatty acid biosynthesis,Desulfobacterota,9,1513,5.9,0.69,0.326503331209248,0.4255075671243103,FALSE,soil
+Histidine metabolism,Bacteroidota,4,15021,0.3,0.69,0.6613653170289252,0.7421988557769049,FALSE,soil
+Photosynthesis,Actinomycetota,6,58870,0.1,0.69,0.5340600169245335,0.630877914729566,FALSE,soil
+Denitrification (NO3 → N2),Bacillota,13,14558,0.9,0.68,0.22801985498864846,0.32436627258948586,FALSE,soil
+PAH / polycyclic aromatic degradation,Bacteroidota,7,15021,0.5,0.68,0.41233547096360695,0.5184134759417963,FALSE,soil
+Pentose phosphate pathway,Pseudomonadota,181,75389,2.4,0.68,9.371106490354817e-6,4.237978009817179e-5,FALSE,soil
+Polyketide / antibiotic biosynthesis,Bacillota,75,14558,5.2,0.68,7.645165168580261e-4,0.002438405311662968,FALSE,soil
+Substrate transport (other),Acidobacteriota,33,22995,1.4,0.68,0.030291783121094797,0.06243816520878723,FALSE,soil
+Lipoic acid metabolism,Pseudomonadota,4,75389,0.1,0.67,0.5966839029681387,0.6900581015242214,FALSE,soil
+Lysine metabolism,Bacteroidota,8,15021,0.5,0.66,0.29226114158281197,0.38670360654843683,FALSE,soil
+Pentose phosphate pathway,Gemmatimonadota,3,1450,2.1,0.66,0.6377415863944533,0.7233727906738253,FALSE,soil
+Fatty acid biosynthesis,Acidobacteriota,133,22995,5.8,0.65,3.7494280909975964e-7,2.028708413521914e-6,FALSE,soil
+Phosphatase / phosphate liberation,Bacillota,13,14558,0.9,0.65,0.1574578115455153,0.24095816615298554,FALSE,soil
+Aminotransferase / transamination,Bacillota,57,14558,3.9,0.64,6.38353096834059e-4,0.002068673672093261,FALSE,soil
+Aromatic amino acid metabolism (Phe / Tyr / Trp),Pseudomonadota,196,75389,2.6,0.64,4.6285605373077334e-8,2.9839443463920066e-7,FALSE,soil
+Cysteine / methionine metabolism,Actinomycetota,57,58870,1,0.64,0.0020058932753941796,0.005816130741095085,FALSE,soil
+Fatty acid biosynthesis,Gemmatimonadota,8,1450,5.5,0.64,0.25162818708084056,0.3457747876893183,FALSE,soil
+Folate / one-carbon pool metabolism,Myxococcota,4,1466,2.7,0.64,0.5413450327552467,0.6382394744157189,FALSE,soil
+Methanotrophy / methane oxidation,Bacillota,10,14558,0.7,0.64,0.18499005265034973,0.27611815740421664,FALSE,soil
+Starch,Pseudomonadota,115,75389,1.5,0.64,1.9484631695852418e-5,8.68212265271071e-5,FALSE,soil
+Terpenoid / carotenoid metabolism,Actinomycetota,12,58870,0.2,0.64,0.1991022402168692,0.2921451757177306,FALSE,soil
+"Other amino-acid-related metabolism (β-Ala, taurine, glutathione, Se)",Planctomycetota,3,3184,0.9,0.63,0.6388798208830554,0.7233727906738253,FALSE,soil
+Sugar interconversion,Gemmatimonadota,8,1450,5.5,0.63,0.2547407364243442,0.3471833947224885,FALSE,soil
+Denitrification (NO3 → N2),Acidobacteriota,19,22995,0.8,0.62,0.04018914157157604,0.07756248341520726,FALSE,soil
+Glyoxylate / dicarboxylate metabolism,Acidobacteriota,6,22995,0.3,0.62,0.3002580994907807,0.3946993672264926,FALSE,soil
+Polyketide / antibiotic biosynthesis,Halobacteriota,4,873,4.6,0.62,0.42916296981980595,0.5329359830139394,FALSE,soil
+Polysaccharide / complex carbon degradation,Gemmatimonadota,7,1450,4.8,0.62,0.288053624265252,0.3828081059314533,FALSE,soil
+ABC-type transport,Acidobacteriota,19,22995,0.8,0.61,0.04070711759767777,0.07831274052124676,FALSE,soil
+Alanine / aspartate / glutamate metabolism,Actinomycetota,57,58870,1,0.61,4.0570109064555813e-4,0.0013969026189273195,FALSE,soil
+Cysteine / methionine metabolism,Acidobacteriota,20,22995,0.9,0.61,0.03644494776614315,0.07194019005303827,FALSE,soil
+Cysteine / methionine metabolism,Verrucomicrobiota,3,3581,0.8,0.61,0.6422463528757846,0.7247696272676452,FALSE,soil
+Reactive oxygen species detoxification,Pseudomonadota,24,75389,0.3,0.61,0.03326774807997813,0.06697759247995597,FALSE,soil
+Thiol cofactor metabolism,Actinomycetota,3,58870,0.1,0.61,0.5807927790588666,0.6755478389820982,FALSE,soil
+Benzoate / aromatic carboxylic acid degradation,Bacillota,8,14558,0.5,0.6,0.19254425594261995,0.28389737007597976,FALSE,soil
+Branched-chain amino acid metabolism (Val/Leu/Ile),Bacillota,7,14558,0.5,0.6,0.2179334155685852,0.3129565161956461,FALSE,soil
+Pyruvate metabolism,Bacteroidota,12,15021,0.8,0.6,0.0977423392162606,0.16227906182206556,FALSE,soil
+Fatty acid degradation (β-oxidation),Acidobacteriota,7,22995,0.3,0.59,0.20828152294474547,0.30341010313585515,FALSE,soil
+Sugar interconversion,Pseudomonadota,460,75389,6.1,0.59,1.090521001702121e-23,2.0025931122166222e-22,FALSE,soil
+ABC-type transport,Actinomycetota,50,58870,0.8,0.58,3.416085768002183e-4,0.0011897402157524843,FALSE,soil
+Formaldehyde oxidation / fixation,Acidobacteriota,3,22995,0.1,0.58,0.477726074398903,0.5755506979835691,FALSE,soil
+Oxygenase / monooxygenase / dioxygenase,Pseudomonadota,12,75389,0.2,0.58,0.10517633825773312,0.17226178644374668,FALSE,soil
+Glycerolipid / glycerophospholipid metabolism,Bacillota,9,14558,0.6,0.57,0.11016555827489358,0.17831933938049324,FALSE,soil
+Methanotrophy / methane oxidation,Chloroflexota,3,4951,0.6,0.57,0.5009673791769752,0.5961202992792028,FALSE,soil
+Polysaccharide / complex carbon degradation,Verrucomicrobiota,16,3581,4.5,0.57,0.02067940251524211,0.045642522616973054,FALSE,soil
+Cobalamin (B12) metabolism,Actinomycetota,84,58870,1.4,0.56,5.676950044375267e-7,3.0444528556561164e-6,FALSE,soil
+Glycerolipid / glycerophospholipid metabolism,Bacteroidota,9,15021,0.6,0.55,0.08774016831262357,0.1472868199375343,FALSE,soil
+Glycolysis,Bacteroidota,5,15021,0.3,0.55,0.221465791487668,0.3172772331950989,FALSE,soil
+Halogenated aromatic / chlorinated degradation,Bacteroidota,3,15021,0.2,0.55,0.49211715138503537,0.5882110330164328,FALSE,soil
+Lipid metabolism (other),Desulfobacterota,3,1513,2,0.55,0.3891387160208148,0.49437748827801625,FALSE,soil
+Alanine / aspartate / glutamate metabolism,Pseudomonadota,69,75389,0.9,0.54,2.557395196556062e-6,1.2299853088198202e-5,FALSE,soil
+Lipid degradation,Pseudomonadota,9,75389,0.1,0.54,0.10015473365531595,0.16537811606300126,FALSE,soil
+"Other amino-acid-related metabolism (β-Ala, taurine, glutathione, Se)",Chloroflexota,4,4951,0.8,0.54,0.2626224376217043,0.35445255500835815,FALSE,soil
+CAZy: polysaccharide lyase (PL),Bacillota,9,14558,0.6,0.53,0.055123408869610924,0.09971577843278871,FALSE,soil
+Fatty acid biosynthesis,Bacteroidota,71,15021,4.7,0.53,1.1259807063326412e-8,7.934236139971867e-8,FALSE,soil
+Heme / porphyrin / chlorophyll metabolism,Pseudomonadota,42,75389,0.6,0.53,1.7047625092288972e-4,6.416683730389514e-4,FALSE,soil
+Histidine metabolism,Bacillota,3,14558,0.2,0.53,0.37550234801817967,0.4800726221498246,FALSE,soil
+Starch,Acidobacteriota,27,22995,1.2,0.53,7.360802316991018e-4,0.0023601302667177553,FALSE,soil
+Iron uptake / siderophore / Fe homeostasis,Pseudomonadota,45,75389,0.6,0.52,6.696894262027831e-5,2.705545281859244e-4,FALSE,soil
+Pentose phosphate pathway,Acidobacteriota,39,22995,1.7,0.52,1.4100609185859438e-5,6.329606790096904e-5,FALSE,soil
+TCA cycle,Acidobacteriota,5,22995,0.2,0.52,0.2157636353392295,0.3105766342412662,FALSE,soil
+Folate / one-carbon pool metabolism,Planctomycetota,7,3184,2.2,0.51,0.07379962010646489,0.12747751670495303,FALSE,soil
+PAH / polycyclic aromatic degradation,Pseudomonadota,31,75389,0.4,0.51,4.5454804836400614e-4,0.0015245689043739117,FALSE,soil
+Polysaccharide / complex carbon degradation,Desulfobacterota,6,1513,4,0.51,0.1035916476857121,0.17012612058954343,FALSE,soil
+Sugar interconversion,Nitrospirota,3,669,4.5,0.51,0.2999344560411286,0.3946993672264926,FALSE,soil
+Cobalamin (B12) metabolism,Acidobacteriota,27,22995,1.2,0.5,1.4708883086922168e-4,5.713835352996688e-4,FALSE,soil
+Folate / one-carbon pool metabolism,Bacillota,32,14558,2.2,0.5,2.8611928866780653e-5,1.2297041768275942e-4,FALSE,soil
+Calvin-Benson-Bassham (CBB) cycle,Acidobacteriota,5,22995,0.2,0.49,0.12578333518616727,0.20112058343751282,FALSE,soil
+Folate / one-carbon pool metabolism,Acidobacteriota,51,22995,2.2,0.49,8.927168517550535e-8,5.252295263723907e-7,FALSE,soil
+Iron-sulfur cluster assembly,Pseudomonadota,4,75389,0.1,0.49,0.23684827686966742,0.33224549949772786,FALSE,soil
+Cobalamin (B12) metabolism,Bacillota,16,14558,1.1,0.48,0.0018209209593879575,0.005356689812568457,FALSE,soil
+Aminotransferase / transamination,Planctomycetota,9,3184,2.8,0.47,0.01925365417259705,0.04289600892865372,FALSE,soil
+Denitrification (NO3 → N2),Pseudomonadota,56,75389,0.7,0.47,1.2089523081238023e-7,6.977381892600231e-7,FALSE,soil
+Ubiquinone / quinone biosynthesis,Actinomycetota,3,58870,0.1,0.47,0.31562631019246795,0.4140033419407697,FALSE,soil
+Aminotransferase / transamination,Gemmatimonadota,4,1450,2.8,0.46,0.12313968430571391,0.1979380601837205,FALSE,soil
+Pyruvate metabolism,Actinomycetota,41,58870,0.7,0.46,7.305997969648425e-7,3.816754111730125e-6,FALSE,soil
+CAZy: carbohydrate esterase (CE),Acidobacteriota,7,22995,0.3,0.45,0.036226587250338914,0.07174284926047511,FALSE,soil
+Polysaccharide / complex carbon degradation,Pseudomonadota,327,75389,4.3,0.45,4.815320857435174e-43,1.7165202585915975e-41,FALSE,soil
+Cysteine / methionine metabolism,Chloroflexota,3,4951,0.6,0.44,0.1721430354914023,0.2601463329371317,FALSE,soil
+Fermentation,Acidobacteriota,14,22995,0.6,0.44,9.666840132412763e-4,0.0030510964167927783,FALSE,soil
+Fermentation,Actinomycetota,40,58870,0.7,0.44,1.4712819242642942e-7,8.411291000982664e-7,FALSE,soil
+Benzoate / aromatic carboxylic acid degradation,Bacteroidota,6,15021,0.4,0.43,0.03263946474347706,0.06593171878182366,FALSE,soil
+CAZy: polysaccharide lyase (PL),Acidobacteriota,12,22995,0.5,0.43,0.002408162663624075,0.006916334474673884,FALSE,soil
+Lipid metabolism (other),Acidobacteriota,38,22995,1.7,0.43,1.62077048217954e-8,1.1161214911372741e-7,FALSE,soil
+Polysaccharide / complex carbon degradation,Acidobacteriota,82,22995,3.6,0.43,6.453444835009857e-17,8.888153568218123e-16,FALSE,soil
+Alanine / aspartate / glutamate metabolism,Chloroflexota,3,4951,0.6,0.42,0.17624799532630683,0.2650280028976227,FALSE,soil
+Aminotransferase / transamination,Verrucomicrobiota,9,3581,2.5,0.42,0.004133858420299953,0.010797923287507635,FALSE,soil
+Glycolysis / EMP,Bacteroidota,12,15021,0.8,0.42,0.0010119928627379535,0.0031611735815422672,FALSE,soil
+ABC transporters,Actinomycetota,4,58870,0.1,0.41,0.10117543903303082,0.16660955449461054,FALSE,soil
+Sugar interconversion,Verrucomicrobiota,13,3581,3.6,0.41,2.780065018930115e-4,9.910114126303823e-4,FALSE,soil
+Aromatic amino acid metabolism (Phe / Tyr / Trp),Bacteroidota,22,15021,1.5,0.4,1.043102788699856e-6,5.3033546725090895e-6,FALSE,soil
+CAZy: carbohydrate esterase (CE),Bacteroidota,4,15021,0.3,0.4,0.06371252972123735,0.11295664400031713,FALSE,soil
+Gluconeogenesis,Bacillota,8,14558,0.5,0.4,0.006009513309480112,0.01504861597332623,FALSE,soil
+Lipid metabolism (other),Actinomycetota,101,58870,1.7,0.4,1.9937062021391705e-21,3.179436732885098e-20,FALSE,soil
+Starch,Verrucomicrobiota,3,3581,0.8,0.4,0.134563185540734,0.21125722911317305,FALSE,soil
+ABC-type transport,Bacteroidota,8,15021,0.5,0.39,0.004434024886613242,0.011490137503178179,FALSE,soil
+Carbohydrate metabolism (other),Acidobacteriota,5,22995,0.2,0.39,0.030892225531323578,0.0628211029261144,FALSE,soil
+Fermentation,Bacteroidota,8,15021,0.5,0.39,0.0033364127709385478,0.009107505131480901,FALSE,soil
+Glycerolipid / glycerophospholipid metabolism,Acidobacteriota,10,22995,0.4,0.39,0.001122178019496093,0.003451979085353464,FALSE,soil
+NAD(P) / nicotinamide metabolism,Chloroflexota,3,4951,0.6,0.39,0.13402266406424745,0.21095515434528303,FALSE,soil
+Sugar interconversion,Acidobacteriota,85,22995,3.7,0.39,2.945916612744073e-22,4.82493369546732e-21,FALSE,soil
+Carbohydrate metabolism (other),Actinomycetota,14,58870,0.2,0.38,2.563489354105683e-4,9.302242805916429e-4,FALSE,soil
+Starch,Chloroflexota,4,4951,0.8,0.38,0.04005941713635372,0.07755912710744522,FALSE,soil
+Aminotransferase / transamination,Pseudomonadota,214,75389,2.8,0.37,3.007472291579521e-48,1.518773507247658e-46,FALSE,soil
+Sulfur metabolism (other),Pseudomonadota,13,75389,0.2,0.37,4.921218692881155e-4,0.0016386035867505385,FALSE,soil
+Bile / wax / mycolic / lipopolysaccharide,Bacteroidota,3,15021,0.2,0.36,0.06639497757079181,0.11662422147217344,FALSE,soil
+Cobalamin (B12) metabolism,Chloroflexota,4,4951,0.8,0.36,0.03071669640142199,0.06267447144532567,FALSE,soil
+Fatty acid biosynthesis,Planctomycetota,10,3184,3.1,0.36,2.1277979404239877e-4,7.814821526648101e-4,FALSE,soil
+Lysine metabolism,Actinomycetota,20,58870,0.3,0.36,1.5162572436234887e-6,7.593817269717637e-6,FALSE,soil
+Lipid metabolism (other),Planctomycetota,4,3184,1.3,0.35,0.023388132628096678,0.05030284697572253,FALSE,soil
+Gluconeogenesis,Bacteroidota,7,15021,0.5,0.34,0.001446628608386375,0.004339885825159125,FALSE,soil
+Lipid metabolism (other),Patescibacteriota,3,2411,1.2,0.34,0.05638892560704497,0.10109967135464276,FALSE,soil
+Organosulfur metabolism,Actinomycetota,10,58870,0.2,0.34,3.099426546008576e-4,0.0010920072598146495,FALSE,soil
+Aminotransferase / transamination,Desulfobacterota,3,1513,2,0.33,0.04191631404445643,0.08013024072851924,FALSE,soil
+NAD(P) / nicotinamide metabolism,Actinomycetota,36,58870,0.6,0.33,6.55850248504653e-13,6.515495911374094e-12,FALSE,soil
+Phosphatase / phosphate liberation,Bacteroidota,7,15021,0.5,0.33,0.0010644214865154656,0.0032910174532059804,FALSE,soil
+Aminotransferase / transamination,Acidobacteriota,48,22995,2.1,0.32,9.518722789845089e-20,1.3734157168205057e-18,FALSE,soil
+Folate / one-carbon pool metabolism,Verrucomicrobiota,5,3581,1.4,0.32,0.004091815311880626,0.010734372636362162,FALSE,soil
+Manganese cycling,Acidobacteriota,3,22995,0.1,0.32,0.044741892221626306,0.0844660021380235,FALSE,soil
+Glyoxylate / dicarboxylate metabolism,Actinomycetota,9,58870,0.2,0.31,1.5669306452309556e-4,5.972075289370812e-4,FALSE,soil
+Sugar interconversion,Desulfobacterota,4,1513,2.6,0.3,0.005306831164450779,0.013399748690238217,FALSE,soil
+Glycine / serine / threonine metabolism,Actinomycetota,26,58870,0.4,0.29,1.6160146489335224e-12,1.530163870708929e-11,FALSE,soil
+Organosulfur metabolism,Acidobacteriota,3,22995,0.1,0.29,0.023854250540215234,0.05090026699778321,FALSE,soil
+CAZy: carbohydrate esterase (CE),Pseudomonadota,18,75389,0.2,0.28,1.2928103082238015e-8,9.00509249176579e-8,FALSE,soil
+Glycolysis,Acidobacteriota,4,22995,0.2,0.28,0.0034588931235491308,0.009399503286416023,FALSE,soil
+Methanotrophy / methane oxidation,Actinomycetota,21,58870,0.4,0.27,2.2014626659797296e-11,1.8789948951883325e-10,FALSE,soil
+"Other amino-acid-related metabolism (β-Ala, taurine, glutathione, Se)",Acidobacteriota,10,22995,0.4,0.27,1.0501692420810078e-6,5.3033546725090895e-6,FALSE,soil
+Reactive oxygen species detoxification,Acidobacteriota,3,22995,0.1,0.27,0.012390598559205346,0.028334727271239396,FALSE,soil
+Biotin metabolism,Actinomycetota,12,58870,0.2,0.26,2.5201440943994605e-7,1.4140808529685861e-6,FALSE,soil
+Fatty acid biosynthesis,Verrucomicrobiota,8,3581,2.2,0.26,2.312425345738591e-6,1.1210638076140689e-5,FALSE,soil
+Pyruvate metabolism,Acidobacteriota,8,22995,0.3,0.25,2.1829468983257057e-6,1.0686070676775275e-5,FALSE,soil
+Branched-chain amino acid metabolism (Val/Leu/Ile),Actinomycetota,14,58870,0.2,0.24,1.6026698893569144e-9,1.199034509815173e-8,FALSE,soil
+Fatty acid biosynthesis,Myxococcota,3,1466,2,0.24,0.0025608801970544728,0.007285884504295824,FALSE,soil
+Fatty acid biosynthesis,Patescibacteriota,5,2411,2.1,0.24,8.09274579968732e-5,3.24682973850586e-4,FALSE,soil
+PAH / polycyclic aromatic degradation,Acidobacteriota,4,22995,0.2,0.24,6.509615985887144e-4,0.002098312386940218,FALSE,soil
+Fatty acid biosynthesis,Actinomycetota,150,58870,2.5,0.23,1.1244502122319948e-96,3.4070841430629445e-94,FALSE,soil
+Aromatic amino acid metabolism (Phe / Tyr / Trp),Chloroflexota,4,4951,0.8,0.22,2.2529260056793253e-4,8.224537105070308e-4,FALSE,soil
+3HP / 4HB / DC4HB cycle,Actinomycetota,8,58870,0.1,0.21,3.634704271268473e-7,1.9843520616114367e-6,FALSE,soil
+Ammonia assimilation (GS-GOGAT),Pseudomonadota,21,75389,0.3,0.21,2.523272242751526e-16,3.3241369111030975e-15,FALSE,soil
+Bile / wax / mycolic / lipopolysaccharide,Actinomycetota,8,58870,0.1,0.2,4.731570210211978e-8,2.986803695196311e-7,FALSE,soil
+Glycolysis / EMP,Actinomycetota,28,58870,0.5,0.2,4.164438248120415e-24,8.140805091487004e-23,FALSE,soil
+Lysine metabolism,Acidobacteriota,4,22995,0.2,0.2,8.512260644788781e-5,3.371522843622223e-4,FALSE,soil
+D-amino acid metabolism,Actinomycetota,3,58870,0.1,0.17,2.0799401012916996e-4,7.719988697634964e-4,FALSE,soil
+Gluconeogenesis,Actinomycetota,17,58870,0.3,0.17,5.735222301832149e-20,8.476938329049469e-19,FALSE,soil
+Iron uptake / siderophore / Fe homeostasis,Acidobacteriota,4,22995,0.2,0.17,3.634007605821434e-6,1.7204754758810853e-5,FALSE,soil
+Lipid metabolism (other),Chloroflexota,3,4951,0.6,0.17,3.2838327283142305e-5,1.4014103051819885e-4,FALSE,soil
+Riboflavin / FAD metabolism,Acidobacteriota,3,22995,0.1,0.17,6.436017472230715e-5,2.617601737028063e-4,FALSE,soil
+Arginine / proline metabolism,Actinomycetota,16,58870,0.3,0.16,1.1369046412183656e-20,1.722410531445824e-19,FALSE,soil
+NAD(P) / nicotinamide metabolism,Acidobacteriota,6,22995,0.3,0.16,8.692204055123156e-10,6.667690705575485e-9,FALSE,soil
+Iron uptake / siderophore / Fe homeostasis,Actinomycetota,11,58870,0.2,0.15,9.396372700990077e-16,1.162082011591834e-14,FALSE,soil
+Substrate transport (other),Actinomycetota,24,58870,0.4,0.15,1.469896444962315e-32,4.453786228235815e-31,FALSE,soil
+Riboflavin / FAD metabolism,Pseudomonadota,11,75389,0.1,0.14,5.945961155672858e-16,7.506775959036983e-15,FALSE,soil
+Pantothenate / CoA metabolism,Actinomycetota,5,58870,0.1,0.13,3.836866433211798e-9,2.801374769308855e-8,FALSE,soil
+Calvin-Benson-Bassham (CBB) cycle,Actinomycetota,4,58870,0.1,0.12,3.5608298251108727e-8,2.3202826602335365e-7,FALSE,soil
+Phosphate starvation response,Actinomycetota,12,58870,0.2,0.12,6.190083958321229e-24,1.1722471496070826e-22,FALSE,soil
+Phosphonate / phosphite metabolism,Pseudomonadota,14,75389,0.2,0.12,1.856971671764716e-26,3.8804304589290275e-25,FALSE,soil
+Oxidative phosphorylation / ETC,Actinomycetota,3,58870,0.1,0.11,3.040547622850451e-7,1.6750653267703393e-6,FALSE,soil
+Manganese cycling,Pseudomonadota,4,75389,0.1,0.1,1.909745596187359e-10,1.585350453821287e-9,FALSE,soil
+Arginine / proline metabolism,Acidobacteriota,3,22995,0.1,0.09,2.0267642928089215e-10,1.6597556235705493e-9,FALSE,soil
+MFS transport,Actinomycetota,3,58870,0.1,0.09,5.857675731625969e-9,4.225894634958735e-8,FALSE,soil
+"Other amino-acid-related metabolism (β-Ala, taurine, glutathione, Se)",Actinomycetota,11,58870,0.2,0.09,1.419599847478847e-29,3.5844896148840885e-28,FALSE,soil
+Fatty acid biosynthesis,Chloroflexota,3,4951,0.6,0.07,4.626773511450806e-15,5.391970669113824e-14,FALSE,soil
+Polysaccharide metabolism,Bacteroidota,48,67194,0.7,Inf,1.2634738487965016e-25,9.872725888270337e-25,TRUE,gut
+TonB-dependent / outer membrane transport,Bacteroidota,48,67194,0.7,Inf,1.2634738487965016e-25,9.872725888270337e-25,TRUE,gut
+Vitamin / cofactor transport,Pseudomonadota,54,25865,2.1,Inf,3.840309711884069e-51,6.791284543121301e-50,TRUE,gut
+PAH / polycyclic aromatic degradation,Bacillota,319,106914,3,28.65,7.802136523181585e-84,3.745025531127161e-82,TRUE,gut
+Sterol / isoprenoid metabolism,Pseudomonadota,21,25865,0.8,22.74,1.3008393756227505e-14,6.334522176945568e-14,TRUE,gut
+Sulfur amino acid metabolism,Actinomycetota,100,10619,9.4,19.67,1.7449458385903762e-75,6.514464464070738e-74,TRUE,gut
+"Other amino-acid-related metabolism (β-Ala, taurine, glutathione, Se)",Bacillota,2079,106914,19.4,19.29,0,0,TRUE,gut
+Aromatic / xenobiotic degradation (other),Bacteroidota,80,67194,1.2,16.75,2.989846553605417e-30,3.044207400034606e-29,TRUE,gut
+Calvin-Benson-Bassham (CBB) cycle,Campylobacterota,22,1329,16.6,15.38,1.7224063487917627e-18,1.0153132161298812e-17,TRUE,gut
+Glycerolipid / glycerophospholipid metabolism,Pseudomonadota,112,25865,4.3,15.21,4.6392249320490807e-63,1.1134139836917794e-61,TRUE,gut
+Halogenated aromatic / chlorinated degradation,Bacillota,14,106914,0.1,15.04,3.535275723676589e-4,7.332423723181073e-4,TRUE,gut
+Heme / porphyrin / chlorophyll metabolism,Desulfobacterota_I,9,920,9.8,14.73,2.5590780789911957e-8,8.864435407639606e-8,TRUE,gut
+Iron reduction,Bacteroidota,20,67194,0.3,11.51,1.1562017201680234e-7,3.84637403937085e-7,TRUE,gut
+Pantothenate / CoA metabolism,Campylobacterota,5,1329,3.8,11.1,1.270613301878999e-4,2.8846356042658354e-4,TRUE,gut
+CAZy: polysaccharide lyase (PL),Verrucomicrobiota,5,1292,3.9,10.32,1.7479775885288762e-4,3.8895395347397505e-4,TRUE,gut
+Sugar transport,Bacillota,43,106914,0.4,9.24,1.9620727037935335e-9,7.325071427495858e-9,TRUE,gut
+Arsenic (As) cycling / detoxification,Bacillota,25,106914,0.2,8.96,9.598799009303448e-6,2.580157173700767e-5,TRUE,gut
+Thiamine metabolism,Bacillota,551,106914,5.2,8.88,8.012496690338757e-104,6.730497219884556e-102,TRUE,gut
+Polyketide / antibiotic biosynthesis,Campylobacterota,23,1329,17.3,8.33,7.127412415786017e-14,3.3261257940334746e-13,TRUE,gut
+Organosulfur metabolism,Bacillota,152,106914,1.4,8.18,1.3160065919170587e-28,1.2282728191225882e-27,TRUE,gut
+CAZy: polysaccharide lyase (PL),Actinomycetota,25,10619,2.4,7.91,3.0807727534892616e-13,1.3801861935631893e-12,TRUE,gut
+ABC transporters,Bacillota,104,106914,1,7.46,3.1902900659081326e-19,1.9141740395448797e-18,TRUE,gut
+Phosphate starvation response,Campylobacterota,13,1329,9.8,7.45,5.945050107210927e-8,1.9975368360228714e-7,TRUE,gut
+Wood-Ljungdahl pathway / homoacetogenesis,Bacteroidota,19,67194,0.3,7.29,3.253677311710046e-6,9.186853586004837e-6,TRUE,gut
+Iron-sulfur cluster assembly,Bacillota,19,106914,0.2,6.81,3.493984184287593e-4,7.291793080252368e-4,TRUE,gut
+Lipid metabolism (other),Verrucomicrobiota,3,1292,2.3,6.49,0.012417957136338207,0.021243515539007017,TRUE,gut
+BTEX / monoaromatic hydrocarbon degradation,Bacillota,12,106914,0.1,6.45,0.005832046196862358,0.010368082127755302,TRUE,gut
+Cobalamin (B12) metabolism,Patescibacteriota,25,1630,15.3,6.37,1.855000101808649e-12,7.990769669329564e-12,TRUE,gut
+Methanotrophy / methane oxidation,Bacillota,260,106914,2.4,6.36,4.0380817525778284e-42,5.65331445360896e-41,TRUE,gut
+Thiol cofactor metabolism,Bacillota,23,106914,0.2,6.18,1.2802311855517997e-4,2.886964284197347e-4,TRUE,gut
+Methanogenesis,Bacillota,17,106914,0.2,6.09,0.0011152687899693438,0.002191405341694149,TRUE,gut
+CAZy: polysaccharide lyase (PL),Pseudomonadota,39,25865,1.5,6.04,1.614960773795165e-14,7.751811714216792e-14,TRUE,gut
+Bile / wax / mycolic / lipopolysaccharide,Actinomycetota,9,10619,0.8,5.12,2.0283884929025504e-4,4.3688367539439547e-4,TRUE,gut
+MFS transport,Pseudomonadota,92,25865,3.6,4.92,2.4197489206358723e-27,2.032589093334133e-26,TRUE,gut
+ABC-type transport,Bacillota,721,106914,6.7,4.87,3.1274371505029675e-95,2.1016377651379944e-93,TRUE,gut
+Pentose phosphate pathway,Campylobacterota,23,1329,17.3,4.71,3.560474316182269e-9,1.286364914233594e-8,TRUE,gut
+Glyoxylate / dicarboxylate metabolism,Bacillota,184,106914,1.7,4.6,2.642962183267149e-24,1.973411763506138e-23,TRUE,gut
+Arginine / proline metabolism,Pseudomonadota,102,25865,3.9,4.48,1.0244055343654196e-27,9.302709717480567e-27,TRUE,gut
+Photosynthesis,Actinomycetota,6,10619,0.6,4.42,0.004362282632060485,0.007880252496625393,TRUE,gut
+Phosphate starvation response,Bacillota,245,106914,2.3,4.4,7.06222359257224e-31,7.415334772200853e-30,TRUE,gut
+Reactive oxygen species detoxification,Verrucomicrobiota,7,1292,5.4,4.39,0.0014104099457808283,0.002723550240128496,TRUE,gut
+Phosphatase / phosphate liberation,Actinomycetota,22,10619,2.1,4.25,1.2601946272577274e-7,4.151229360378396e-7,TRUE,gut
+Ammonia assimilation (GS-GOGAT),Bacteroidota,135,67194,2,4.2,3.021218528601423e-24,2.2068030991523435e-23,TRUE,gut
+Amino-acid / peptide transport,Bacillota,39,106914,0.4,4.19,9.583981482155797e-6,2.580157173700767e-5,TRUE,gut
+Reactive oxygen species detoxification,Bacteroidota,176,67194,2.6,3.9,2.8966008830011546e-29,2.7807368476811084e-28,TRUE,gut
+Riboflavin / FAD metabolism,Pseudomonadota,54,25865,2.1,3.9,1.3684180429408318e-13,6.298472088056432e-13,TRUE,gut
+Iron uptake / siderophore / Fe homeostasis,Bacteroidota,231,67194,3.4,3.89,9.81950926016232e-38,1.2219833745979775e-36,TRUE,gut
+Lipid degradation,Fusobacteriota,5,4713,1.1,3.84,0.012455275479715424,0.021243515539007017,TRUE,gut
+Arginine / proline metabolism,Verrucomicrobiota,6,1292,4.6,3.82,0.005864005782163776,0.01037003127793173,TRUE,gut
+Aromatic amino acid metabolism (Phe / Tyr / Trp),Bacillota,509,106914,4.8,3.79,1.8690370400427748e-54,3.48886914141318e-53,TRUE,gut
+Nitroaromatic / nitrotoluene degradation,Bacillota,21,106914,0.2,3.76,0.003054815408441805,0.005639659215584871,TRUE,gut
+Sulfur metabolism (other),Bacteroidota,39,67194,0.6,3.74,2.683227449626014e-7,8.425835729666735e-7,TRUE,gut
+Denitrification (NO3 → N2),Bacteroidota,108,67194,1.6,3.66,2.4140577360590033e-17,1.3518723321930417e-16,TRUE,gut
+Glycan / glycoside metabolism,Bacillota,17,106914,0.2,3.65,0.008895101250001135,0.015485772124354308,TRUE,gut
+Polyketide / antibiotic biosynthesis,Pseudomonadota,158,25865,6.1,3.64,7.2080316716852325e-34,7.812576263503993e-33,TRUE,gut
+Formaldehyde oxidation / fixation,Bacillota,266,106914,2.5,3.58,1.5850629340321036e-27,1.401529331144176e-26,TRUE,gut
+Cobalamin (B12) metabolism,Desulfobacterota_I,8,920,8.7,3.49,0.0026959625129189613,0.005032463357448728,TRUE,gut
+Fatty acid biosynthesis,Pseudomonadota,239,25865,9.2,3.49,8.810188319050796e-48,1.4801116376005338e-46,TRUE,gut
+PTS / phosphotransferase transport,Bacillota,78,106914,0.7,3.49,6.88122626654213e-9,2.459672367615059e-8,TRUE,gut
+Cobalamin (B12) metabolism,Bacteroidota,335,67194,5,3.41,9.88129444068989e-47,1.5810071105103823e-45,TRUE,gut
+Reactive oxygen species detoxification,Pseudomonadota,86,25865,3.3,3.37,1.3646799865085819e-17,7.77173687232006e-17,TRUE,gut
+Fatty acid biosynthesis,Verrucomicrobiota,14,1292,10.8,3.22,1.981425916649668e-4,4.295220051576055e-4,TRUE,gut
+Folate / one-carbon pool metabolism,Patescibacteriota,27,1630,16.6,3.21,3.6194245458119624e-7,1.1055696794480176e-6,TRUE,gut
+Riboflavin / FAD metabolism,Campylobacterota,3,1329,2.3,3.2,0.0712011781760995,0.10539029016374199,FALSE,gut
+Fatty acid degradation (β-oxidation),Bacteroidota,120,67194,1.8,3.07,8.586005942002918e-16,4.507653119551532e-15,TRUE,gut
+Glycolysis / EMP,Bacillota,942,106914,8.8,3.07,2.344604560105435e-78,9.847339152442827e-77,TRUE,gut
+Reductive TCA (rTCA) cycle,Bacteroidota,37,67194,0.6,3.04,9.355031782350112e-6,2.555520877129787e-5,TRUE,gut
+Sphingolipid / ceramide metabolism,Bacteroidota,10,67194,0.1,2.88,0.035784935269890836,0.05725589643182534,FALSE,gut
+Pyridoxal (B6) metabolism,Bacillota,48,106914,0.4,2.87,6.318523253785795e-5,1.4846320372531656e-4,TRUE,gut
+polysaccharide biosynthetic process,Bacillota,13,106914,0.1,2.79,0.05701521144180705,0.08643348024509366,FALSE,gut
+Cysteine / methionine metabolism,Bacillota,2101,106914,19.7,2.78,3.447881116296357e-150,3.86162685025192e-148,TRUE,gut
+Folate / one-carbon pool metabolism,Bacteroidota,635,67194,9.5,2.71,7.802096586033248e-64,2.0165418868516704e-62,TRUE,gut
+Branched-chain amino acid metabolism (Val/Leu/Ile),Fusobacteriota,5,4713,1.1,2.65,0.04675604936600753,0.07306991900920247,FALSE,gut
+Phosphatase / phosphate liberation,Pseudomonadota,32,25865,1.2,2.61,1.6221876261238834e-5,4.129204866497158e-5,TRUE,gut
+Lipid degradation,Bacillota,46,106914,0.4,2.6,2.721419447136581e-4,5.750924114703718e-4,TRUE,gut
+Oxidative phosphorylation / ETC,Actinomycetota,6,10619,0.6,2.59,0.03728191857487059,0.05908832377904019,FALSE,gut
+Benzoate / aromatic carboxylic acid degradation,Bacteroidota,149,67194,2.2,2.54,7.734771285096373e-15,3.8789300773020614e-14,TRUE,gut
+Ubiquinone / quinone biosynthesis,Pseudomonadota,3,25865,0.1,2.53,0.15666468101259418,0.21225537427512758,FALSE,gut
+CAZy: carbohydrate esterase (CE),Pseudomonadota,33,25865,1.3,2.45,3.626317134500372e-5,8.829293892696558e-5,TRUE,gut
+Heme / porphyrin / chlorophyll metabolism,Bacteroidota,81,67194,1.2,2.45,2.6894732535846556e-8,9.221051155147391e-8,TRUE,gut
+Glycine / serine / threonine metabolism,Bacillota,272,106914,2.5,2.44,2.4587153110568132e-17,1.3543087615001462e-16,TRUE,gut
+Pantothenate / CoA metabolism,Fusobacteriota,4,4713,0.8,2.43,0.09105063968096135,0.13073938005471372,FALSE,gut
+Aliphatic hydrocarbon degradation,Pseudomonadota,8,25865,0.3,2.42,0.04931754881497715,0.07636265622964204,FALSE,gut
+Calvin-Benson-Bassham (CBB) cycle,Bacteroidota,134,67194,2,2.39,3.226622788819972e-12,1.372335768409507e-11,TRUE,gut
+PTS / phosphotransferase transport,Fusobacteriota,5,4713,1.1,2.38,0.06690625199975521,0.0994712419111405,FALSE,gut
+Denitrification (NO3 → N2),Patescibacteriota,3,1630,1.8,2.34,0.14072218094207575,0.19299041957770388,FALSE,gut
+Terpenoid / carotenoid metabolism,Bacillota,76,106914,0.7,2.33,2.2942267712555966e-5,5.752688023446869e-5,TRUE,gut
+Fatty acid degradation (β-oxidation),Fusobacteriota,10,4713,2.1,2.31,0.015124313407878134,0.025282434353467925,TRUE,gut
+Alanine / aspartate / glutamate metabolism,Bacillota,694,106914,6.5,2.27,7.81572602314591e-37,9.378871227775093e-36,TRUE,gut
+Alkaloid biosynthesis,Bacteroidota,39,67194,0.6,2.24,5.041593382916831e-4,0.0010266517434303363,TRUE,gut
+TCA cycle,Pseudomonadota,32,25865,1.2,2.23,1.9127458712682503e-4,4.1960995023333547e-4,TRUE,gut
+Pantothenate / CoA metabolism,Actinomycetota,8,10619,0.8,2.21,0.05736507766266633,0.08643348024509366,FALSE,gut
+polysaccharide biosynthetic process,Pseudomonadota,4,25865,0.2,2.16,0.150038881758696,0.20410147478106014,FALSE,gut
+CAZy: glycoside hydrolase (GH),Bacillota,8,106914,0.1,2.15,0.25296764850064335,0.3219588253644552,FALSE,gut
+Manganese cycling,Bacillota,44,106914,0.4,2.15,0.002927677180116099,0.00543480404706635,TRUE,gut
+NAD(P) / nicotinamide metabolism,Bacillota,949,106914,8.9,2.14,4.923937209719401e-44,7.193230010720515e-43,TRUE,gut
+Plant / glucosinolate / mycotoxin secondary metabolites,Bacteroidota,9,67194,0.1,2.07,0.13225699825699772,0.18362955129897204,FALSE,gut
+3HP / 4HB / DC4HB cycle,Bacteroidota,85,67194,1.3,2.04,3.0965875469988103e-6,8.817401828742374e-6,TRUE,gut
+CAZy: carbohydrate esterase (CE),Bacteroidota,63,67194,0.9,2.01,7.082445973745847e-5,1.6411736877093827e-4,TRUE,gut
+Aminotransferase / transamination,Pseudomonadota,68,25865,2.6,1.93,5.156519402101725e-6,1.4438254325884828e-5,TRUE,gut
+Bile / wax / mycolic / lipopolysaccharide,Bacillota,28,106914,0.3,1.88,0.049082604985429774,0.07635071886622409,FALSE,gut
+Photosynthesis,Bacillota,21,106914,0.2,1.88,0.08303927495502733,0.12078439993458522,FALSE,gut
+Starch,Bacteroidota,256,67194,3.8,1.86,6.0168888716594e-13,2.6600982379967875e-12,TRUE,gut
+MFS transport,Fusobacteriota,9,4713,1.9,1.84,0.10397031310390241,0.14802553052081022,FALSE,gut
+Fatty acid biosynthesis,Fusobacteriota,29,4713,6.2,1.83,0.003340929251933869,0.0061341651838785795,TRUE,gut
+Cysteine / methionine metabolism,Actinomycetota,240,10619,22.6,1.8,1.7818872549467262e-15,9.21098642557077e-15,TRUE,gut
+Glycolysis,Bacillota,119,106914,1.1,1.8,7.944234823172676e-5,1.8282622606753554e-4,TRUE,gut
+Phosphate starvation response,Patescibacteriota,4,1630,2.5,1.8,0.2934656996292872,0.36385415156989115,FALSE,gut
+Sugar interconversion,Bacteroidota,508,67194,7.6,1.76,5.4912413207053975e-21,3.61775898775885e-20,TRUE,gut
+Carbohydrate metabolism (other),Bacillota,26,106914,0.2,1.75,0.08911643815466318,0.12851125845479325,FALSE,gut
+Substrate transport (other),Bacillota,1317,106914,12.3,1.74,5.823065324045058e-36,6.746723961652206e-35,TRUE,gut
+Biotin metabolism,Bacteroidota,44,67194,0.7,1.72,0.007287456340123361,0.012753048595215883,TRUE,gut
+D-amino acid metabolism,Pseudomonadota,5,25865,0.2,1.72,0.23563974746934283,0.30219448530419535,FALSE,gut
+PTS / phosphotransferase transport,Actinomycetota,8,10619,0.8,1.69,0.15733090952145717,0.21230195019762893,FALSE,gut
+Cobalamin (B12) metabolism,Pseudomonadota,100,25865,3.9,1.64,2.2716562869209335e-5,5.7389211459055157e-5,TRUE,gut
+Histidine metabolism,Bacillota,56,106914,0.5,1.58,0.029993743175311807,0.048451431283196,TRUE,gut
+Inorganic ion transport,Bacteroidota,40,67194,0.6,1.56,0.036976953615546024,0.058882731823807884,FALSE,gut
+Lipid metabolism (other),Bacteroidota,33,67194,0.5,1.55,0.05460014620242986,0.0833893142000747,FALSE,gut
+Gluconeogenesis,Bacillota,132,106914,1.2,1.53,0.0020705255941799935,0.0039304892635281235,TRUE,gut
+Polysaccharide / complex carbon degradation,Bacteroidota,416,67194,6.2,1.53,5.0029612790989434e-11,2.0252951684063192e-10,TRUE,gut
+Ubiquinone / quinone biosynthesis,Bacillota,7,106914,0.1,1.5,0.5699846507078322,0.644831119992699,FALSE,gut
+Pentose phosphate pathway,Bacteroidota,332,67194,4.9,1.49,2.5107403998257803e-8,8.787591399390231e-8,FALSE,gut
+Branched-chain amino acid metabolism (Val/Leu/Ile),Bacillota,53,106914,0.5,1.46,0.07629287908909502,0.11243161128919266,FALSE,gut
+Nitrogen fixation,Bacteroidota,7,67194,0.1,1.46,0.44586730379414313,0.520178521093167,FALSE,gut
+Gluconeogenesis,Bacteroidota,86,67194,1.3,1.42,0.011006684667203384,0.018965364349642754,FALSE,gut
+Plant / glucosinolate / mycotoxin secondary metabolites,Pseudomonadota,3,25865,0.1,1.42,0.47968418996910644,0.5576951135973003,FALSE,gut
+3HP / 4HB / DC4HB cycle,Pseudomonadota,28,25865,1.1,1.39,0.13045032659279024,0.1818726545028113,FALSE,gut
+Aromatic amino acid metabolism (Phe / Tyr / Trp),Actinomycetota,42,10619,4,1.37,0.05386550859357112,0.08264297208876664,FALSE,gut
+Formaldehyde oxidation / fixation,Fusobacteriota,10,4713,2.1,1.37,0.34503830073796693,0.41110946470906695,FALSE,gut
+Photosynthesis,Pseudomonadota,5,25865,0.2,1.35,0.5826251530195836,0.654385312130113,FALSE,gut
+Nitrogen fixation,Bacillota,10,106914,0.1,1.34,0.6393709017096088,0.6997675015453698,FALSE,gut
+Fermentation,Bacteroidota,133,67194,2,1.33,0.010011537083887892,0.017339569382403774,FALSE,gut
+Nitroaromatic / nitrotoluene degradation,Pseudomonadota,4,25865,0.2,1.32,0.5483457240142771,0.6224464975297199,FALSE,gut
+Fermentation,Pseudomonadota,53,25865,2,1.3,0.08541248311994301,0.12370083762198643,FALSE,gut
+TCA cycle,Bacteroidota,51,67194,0.8,1.3,0.14216600035670784,0.19417795170672292,FALSE,gut
+Substrate transport (other),Pseudomonadota,310,25865,12,1.29,6.287363977861368e-5,1.4846320372531656e-4,FALSE,gut
+Lysine metabolism,Bacteroidota,183,67194,2.7,1.25,0.016833015276235264,0.027861542526182503,FALSE,gut
+Fatty acid biosynthesis,Bacteroidota,267,67194,4,1.24,0.004425967593674568,0.007952540703073021,FALSE,gut
+Cysteine / methionine metabolism,Patescibacteriota,26,1630,16,1.22,0.3249266444765111,0.3927170954824019,FALSE,gut
+Fatty acid degradation (β-oxidation),Actinomycetota,12,10619,1.1,1.21,0.5152765795207396,0.5908973744674693,FALSE,gut
+Biotin metabolism,Pseudomonadota,14,25865,0.5,1.19,0.5379178323700173,0.6126792938180536,FALSE,gut
+Pyruvate metabolism,Bacillota,248,106914,2.3,1.19,0.06502653556435484,0.09710629310943657,FALSE,gut
+Aminotransferase / transamination,Bacteroidota,113,67194,1.7,1.17,0.17155353272833138,0.22783394069849544,FALSE,gut
+D-amino acid metabolism,Bacillota,14,106914,0.1,1.16,0.7059816129776897,0.7627325464967967,FALSE,gut
+Oxidative phosphorylation / ETC,Bacillota,27,106914,0.3,1.16,0.6776023623390265,0.7368103357472909,FALSE,gut
+Lysine metabolism,Bacillota,268,106914,2.5,1.14,0.13521315442264928,0.18696139870786072,FALSE,gut
+Histidine metabolism,Actinomycetota,5,10619,0.5,1.12,0.8062771876163634,0.8546029496501517,FALSE,gut
+Aromatic amino acid metabolism (Phe / Tyr / Trp),Desulfobacterota_I,3,920,3.3,1.11,0.7553781163523828,0.8083026977528682,FALSE,gut
+Inorganic ion transport,Bacillota,50,106914,0.5,1.1,0.6878793562949665,0.7455724635971251,FALSE,gut
+Pyruvate metabolism,Bacteroidota,153,67194,2.3,1.1,0.31626290714446453,0.3892466549470333,FALSE,gut
+Glycolysis,Bacteroidota,61,67194,0.9,1.09,0.5811002242902664,0.654385312130113,FALSE,gut
+Methanotrophy / methane oxidation,Fusobacteriota,7,4713,1.5,1.09,0.8404264536697728,0.8824477763532614,FALSE,gut
+Riboflavin / FAD metabolism,Bacillota,80,106914,0.7,1.09,0.6340638238630341,0.6985096551409162,FALSE,gut
+Lipid degradation,Pseudomonadota,8,25865,0.3,1.06,0.8462709712956815,0.8830653613520155,FALSE,gut
+Formaldehyde oxidation / fixation,Pseudomonadota,42,25865,1.6,1.05,0.7379601083998972,0.792187209017142,FALSE,gut
+Starch,Bacillota,283,106914,2.6,1.05,0.6158560949239613,0.6829295310047888,FALSE,gut
+Pyruvate metabolism,Pseudomonadota,57,25865,2.2,1.04,0.7739009187161393,0.8254943132972152,FALSE,gut
+Carbohydrate metabolism (other),Bacteroidota,13,67194,0.2,1.03,1,1,FALSE,gut
+Wood-Ljungdahl pathway / homoacetogenesis,Pseudomonadota,3,25865,0.1,1.03,1,1,FALSE,gut
+Lipid metabolism (other),Bacillota,40,106914,0.4,1.02,1,1,FALSE,gut
+Lipoic acid metabolism,Bacteroidota,4,67194,0.1,1.02,0.9999999999999999,1,FALSE,gut
+Pantothenate / CoA metabolism,Bacillota,39,106914,0.4,1.02,0.9999999999999999,1,FALSE,gut
+Aliphatic hydrocarbon degradation,Bacteroidota,10,67194,0.1,1,1,1,FALSE,gut
+Pentose phosphate pathway,Bacillota,407,106914,3.8,1,1,1,FALSE,gut
+Pentose phosphate pathway,Actinomycetota,40,10619,3.8,0.99,1,1,FALSE,gut
+Lysine metabolism,Campylobacterota,3,1329,2.3,0.96,1,1,FALSE,gut
+Polysaccharide / complex carbon degradation,Actinomycetota,48,10619,4.5,0.96,0.8276172784954837,0.8734990712420815,FALSE,gut
+Polysaccharide / complex carbon degradation,Bacillota,493,106914,4.6,0.96,0.5347713060584748,0.6111672069239712,FALSE,gut
+Sulfur amino acid metabolism,Bacillota,95,106914,0.9,0.95,0.7782620105083692,0.8275190997810506,FALSE,gut
+Thiol cofactor metabolism,Pseudomonadota,3,25865,0.1,0.95,0.9999999999999999,1,FALSE,gut
+Sugar interconversion,Bacillota,547,106914,5.1,0.94,0.29161098077612624,0.36385415156989115,FALSE,gut
+Alanine / aspartate / glutamate metabolism,Bacteroidota,295,67194,4.4,0.93,0.3227706973528378,0.3927170954824019,FALSE,gut
+Phosphatase / phosphate liberation,Bacillota,58,106914,0.5,0.93,0.7207140084716769,0.7761535475848828,FALSE,gut
+Branched-chain amino acid metabolism (Val/Leu/Ile),Pseudomonadota,10,25865,0.4,0.92,1,1,FALSE,gut
+Fermentation,Bacillota,165,106914,1.5,0.9,0.3179410350264319,0.38988389696671943,FALSE,gut
+Folate / one-carbon pool metabolism,Fusobacteriota,22,4713,4.7,0.88,0.6126122703115505,0.681581863657884,FALSE,gut
+MFS transport,Bacteroidota,64,67194,1,0.87,0.3550693440287826,0.42008204082278505,FALSE,gut
+Aminotransferase / transamination,Bacillota,149,106914,1.4,0.86,0.1890711777676068,0.24719033357943923,FALSE,gut
+Glycolysis / EMP,Fusobacteriota,23,4713,4.9,0.85,0.49489389665255246,0.573394307845716,FALSE,gut
+Arginine / proline metabolism,Bacillota,121,106914,1.1,0.84,0.16540594446807133,0.2214199097261831,FALSE,gut
+Inorganic ion transport,Actinomycetota,4,10619,0.4,0.84,1,1,FALSE,gut
+Pantothenate / CoA metabolism,Pseudomonadota,8,25865,0.3,0.84,0.8610650794620864,0.8957209495333159,FALSE,gut
+Glyoxylate / dicarboxylate metabolism,Fusobacteriota,4,4713,0.8,0.83,1,1,FALSE,gut
+PTS / phosphotransferase transport,Pseudomonadota,10,25865,0.4,0.82,0.645497225663276,0.7041787916326647,FALSE,gut
+Oxidative phosphorylation / ETC,Pseudomonadota,5,25865,0.2,0.81,0.829304177756619,0.8734990712420815,FALSE,gut
+Histidine metabolism,Pseudomonadota,9,25865,0.3,0.8,0.6309318242407677,0.697345700476638,FALSE,gut
+Sulfur metabolism (other),Pseudomonadota,6,25865,0.2,0.8,0.8434433894698592,0.8828566319684507,FALSE,gut
+Starch,Actinomycetota,22,10619,2.1,0.79,0.32725098089313015,0.3941087081723718,FALSE,gut
+NAD(P) / nicotinamide metabolism,Bacteroidota,362,67194,5.4,0.78,3.568371348282344e-5,8.751626080458887e-5,FALSE,gut
+Biotin metabolism,Bacillota,43,106914,0.4,0.77,0.20070671629602274,0.26138549099016917,FALSE,gut
+Iron uptake / siderophore / Fe homeostasis,Pseudomonadota,34,25865,1.3,0.77,0.16655045196503093,0.2220672692867079,FALSE,gut
+Thiamine metabolism,Actinomycetota,23,10619,2.2,0.77,0.2564671686679163,0.32395852884368376,FALSE,gut
+Benzoate / aromatic carboxylic acid degradation,Pseudomonadota,26,25865,1,0.76,0.22820148031238877,0.29377661833319013,FALSE,gut
+Reductive TCA (rTCA) cycle,Bacillota,27,106914,0.3,0.76,0.32117252636101234,0.3924144322083642,FALSE,gut
+Glycine / serine / threonine metabolism,Bacteroidota,96,67194,1.4,0.75,0.013188865804913666,0.022381105608338343,FALSE,gut
+Manganese cycling,Bacteroidota,16,67194,0.2,0.74,0.3483669527373757,0.41360882021115986,FALSE,gut
+Terpenoid / carotenoid metabolism,Bacteroidota,27,67194,0.4,0.74,0.18062739387606325,0.23800315428375393,FALSE,gut
+Glycine / serine / threonine metabolism,Fusobacteriota,6,4713,1.3,0.72,0.5957764213863946,0.66505274945458,FALSE,gut
+Lysine metabolism,Pseudomonadota,45,25865,1.7,0.72,0.03364579298388578,0.05409084422289771,FALSE,gut
+Aliphatic hydrocarbon degradation,Bacillota,13,106914,0.1,0.7,0.3844023758415525,0.45038503986328043,FALSE,gut
+Alkaloid biosynthesis,Bacillota,31,106914,0.3,0.69,0.11599898717150309,0.1630780740151675,FALSE,gut
+Oxidative phosphorylation / ETC,Bacteroidota,12,67194,0.2,0.69,0.2931165146318486,0.36385415156989115,FALSE,gut
+Branched-chain amino acid metabolism (Val/Leu/Ile),Bacteroidota,21,67194,0.3,0.68,0.13977379477394944,0.19247538952478283,FALSE,gut
+Pyridoxal (B6) metabolism,Bacteroidota,15,67194,0.2,0.68,0.2273898408501337,0.29377661833319013,FALSE,gut
+Lipoic acid metabolism,Bacillota,5,106914,0,0.67,0.5842726001161722,0.654385312130113,FALSE,gut
+Fatty acid biosynthesis,Campylobacterota,3,1329,2.3,0.66,0.6380480576945321,0.6997675015453698,FALSE,gut
+Histidine metabolism,Bacteroidota,21,67194,0.3,0.66,0.11528940317954756,0.16276151037112596,FALSE,gut
+Polyketide / antibiotic biosynthesis,Bacillota,186,106914,1.7,0.66,8.275469564066449e-6,2.279145716005186e-5,FALSE,gut
+ABC-type transport,Actinomycetota,28,10619,2.6,0.65,0.0217743627787111,0.03534389320602382,FALSE,gut
+TCA cycle,Bacillota,53,106914,0.5,0.65,0.014210936053172113,0.023874372569329148,FALSE,gut
+Aromatic / xenobiotic degradation (other),Pseudomonadota,7,25865,0.3,0.63,0.3247504358290906,0.3927170954824019,FALSE,gut
+Polyketide / antibiotic biosynthesis,Bacteroidota,104,67194,1.5,0.62,1.0601709098768831e-5,2.7401340439894825e-5,FALSE,gut
+Glycerolipid / glycerophospholipid metabolism,Actinomycetota,5,10619,0.5,0.61,0.36399203300281757,0.42912744943490067,FALSE,gut
+Benzoate / aromatic carboxylic acid degradation,Bacillota,102,106914,1,0.6,3.8041034488101906e-5,9.195530638850533e-5,FALSE,gut
+3HP / 4HB / DC4HB cycle,Bacillota,64,106914,0.6,0.59,5.848550435624035e-4,0.0011767143391435183,FALSE,gut
+Lysine metabolism,Actinomycetota,15,10619,1.4,0.59,0.0393934481817763,0.06214177741350627,FALSE,gut
+Pyruvate metabolism,Fusobacteriota,6,4713,1.3,0.59,0.26045686213905134,0.32776593887161515,FALSE,gut
+Heme / porphyrin / chlorophyll metabolism,Bacillota,55,106914,0.5,0.58,0.0010033023160964819,0.0020066046321929637,FALSE,gut
+Pantothenate / CoA metabolism,Bacteroidota,16,67194,0.2,0.58,0.050895078881244414,0.0784437913032024,FALSE,gut
+ABC-type transport,Campylobacterota,3,1329,2.3,0.57,0.505691627422809,0.5820944125313552,FALSE,gut
+Calvin-Benson-Bassham (CBB) cycle,Bacillota,91,106914,0.9,0.57,1.0388847414647457e-5,2.7059323498616634e-5,FALSE,gut
+Denitrification (NO3 → N2),Bacillota,61,106914,0.6,0.57,3.6249745188680373e-4,7.426777063046711e-4,FALSE,gut
+Glycolysis / EMP,Desulfobacterota_I,3,920,3.3,0.57,0.5058677632712968,0.5820944125313552,FALSE,gut
+Sugar interconversion,Campylobacterota,4,1329,3,0.57,0.34013227474931873,0.40708396866160657,FALSE,gut
+Folate / one-carbon pool metabolism,Campylobacterota,4,1329,3,0.56,0.3404481999818793,0.40708396866160657,FALSE,gut
+Polysaccharide / complex carbon degradation,Pseudomonadota,72,25865,2.8,0.56,3.4942241981912104e-7,1.0771186519194924e-6,FALSE,gut
+Substrate transport (other),Actinomycetota,59,10619,5.6,0.56,2.5980564293330495e-6,7.461085130392347e-6,FALSE,gut
+Substrate transport (other),Bacteroidota,418,67194,6.2,0.56,1.758848694879748e-29,1.7381563572929274e-28,FALSE,gut
+Folate / one-carbon pool metabolism,Bacillota,399,106914,3.7,0.55,3.2772101264526794e-23,2.3428566010385113e-22,FALSE,gut
+NAD(P) / nicotinamide metabolism,Pseudomonadota,96,25865,3.7,0.54,4.677468158974283e-10,1.8064704613969648e-9,FALSE,gut
+Phosphate starvation response,Actinomycetota,8,10619,0.8,0.54,0.08030973877404395,0.11783437654182868,FALSE,gut
+Sphingolipid / ceramide metabolism,Bacillota,6,106914,0.1,0.54,0.24332732585049102,0.3108668497557604,FALSE,gut
+Substrate transport (other),Campylobacterota,7,1329,5.3,0.54,0.11923003259491753,0.16692204563288454,FALSE,gut
+Sugar interconversion,Actinomycetota,31,10619,2.9,0.54,2.6300465737077143e-4,5.593010435226532e-4,FALSE,gut
+ABC-type transport,Pseudomonadota,58,25865,2.2,0.53,5.254210691873626e-7,1.5904637769995842e-6,FALSE,gut
+Ammonia assimilation (GS-GOGAT),Bacillota,68,106914,0.6,0.52,5.732570022030489e-6,1.591854154877888e-5,FALSE,gut
+Aromatic amino acid metabolism (Phe / Tyr / Trp),Pseudomonadota,42,25865,1.6,0.52,1.0032980155522605e-5,2.633657290824684e-5,FALSE,gut
+D-amino acid metabolism,Bacteroidota,5,67194,0.1,0.52,0.21389158352135593,0.2774809732168942,FALSE,gut
+Glycolysis / EMP,Bacteroidota,237,67194,3.5,0.52,1.9416876645551236e-21,1.3314429699806561e-20,FALSE,gut
+ABC transporters,Actinomycetota,3,10619,0.3,0.51,0.38470388821655205,0.45038503986328043,FALSE,gut
+Alkaloid biosynthesis,Pseudomonadota,5,25865,0.2,0.51,0.1616403246884538,0.2172445963812819,FALSE,gut
+Fermentation,Fusobacteriota,4,4713,0.8,0.51,0.2687372018971354,0.3369242531247668,FALSE,gut
+Glycan / glycoside metabolism,Bacteroidota,4,67194,0.1,0.51,0.25420869725100514,0.32231744255221784,FALSE,gut
+Terpenoid / carotenoid metabolism,Pseudomonadota,7,25865,0.3,0.51,0.1012876539742217,0.14481979461846167,FALSE,gut
+Alanine / aspartate / glutamate metabolism,Fusobacteriota,11,4713,2.3,0.5,0.016276665763067362,0.02707405790292393,FALSE,gut
+Folate / one-carbon pool metabolism,Pseudomonadota,73,25865,2.8,0.5,3.5160596079502105e-10,1.373716311943338e-9,FALSE,gut
+Plant / glucosinolate / mycotoxin secondary metabolites,Bacillota,6,106914,0.1,0.5,0.17224350170208544,0.2278496715429162,FALSE,gut
+Manganese cycling,Pseudomonadota,4,25865,0.2,0.49,0.18179086696193514,0.23860051288753986,FALSE,gut
+Sugar interconversion,Pseudomonadota,72,25865,2.8,0.49,1.8464106940079513e-10,7.298752861019667e-10,FALSE,gut
+Polyketide / antibiotic biosynthesis,Fusobacteriota,5,4713,1.1,0.48,0.11289433233700719,0.1600527243258836,FALSE,gut
+Polysaccharide / complex carbon degradation,Campylobacterota,3,1329,2.3,0.48,0.3076510675496537,0.3800395540319252,FALSE,gut
+ABC transporters,Pseudomonadota,7,25865,0.3,0.47,0.045765905616812826,0.07185674900583695,FALSE,gut
+Calvin-Benson-Bassham (CBB) cycle,Actinomycetota,6,10619,0.6,0.46,0.058878964530817327,0.088318446796226,FALSE,gut
+Polyketide / antibiotic biosynthesis,Actinomycetota,11,10619,1,0.46,0.005588789006659475,0.009988473969348849,FALSE,gut
+Cysteine / methionine metabolism,Bacteroidota,477,67194,7.1,0.44,8.705577656457312e-69,2.9250740925696568e-67,FALSE,gut
+Fatty acid degradation (β-oxidation),Bacillota,60,106914,0.6,0.43,9.555364555512237e-9,3.3795815691074856e-8,FALSE,gut
+Sulfur metabolism (other),Bacillota,18,106914,0.2,0.43,0.002215465295722171,0.004182001906531738,FALSE,gut
+CAZy: carbohydrate esterase (CE),Bacillota,38,106914,0.4,0.42,2.502005574568529e-6,7.27235948860466e-6,FALSE,gut
+Glycerolipid / glycerophospholipid metabolism,Bacillota,46,106914,0.4,0.4,4.292571278521188e-8,1.456872676346585e-7,FALSE,gut
+MFS transport,Bacillota,63,106914,0.6,0.4,3.200101159833428e-11,1.3274493700049775e-10,FALSE,gut
+Polysaccharide / complex carbon degradation,Fusobacteriota,9,4713,1.9,0.4,0.0024100406531001044,0.004523875192411369,FALSE,gut
+Glyoxylate / dicarboxylate metabolism,Pseudomonadota,11,25865,0.4,0.39,5.837378915601192e-4,0.0011767143391435183,FALSE,gut
+Lipid metabolism (other),Pseudomonadota,4,25865,0.2,0.39,0.05726312737156106,0.08643348024509366,FALSE,gut
+Arginine / proline metabolism,Bacteroidota,39,67194,0.6,0.38,6.358550300879052e-10,2.4278101148810927e-9,FALSE,gut
+Iron uptake / siderophore / Fe homeostasis,Bacillota,97,106914,0.9,0.38,1.2757862087574448e-17,7.390761485215542e-17,FALSE,gut
+Thiamine metabolism,Fusobacteriota,5,4713,1.1,0.38,0.017003418773689008,0.02800563092137013,FALSE,gut
+Fatty acid biosynthesis,Actinomycetota,14,10619,1.3,0.37,2.6477884624701184e-5,6.590051284370072e-5,FALSE,gut
+Fatty acid biosynthesis,Bacillota,194,106914,1.8,0.37,9.48593833767312e-38,1.2219833745979775e-36,FALSE,gut
+Substrate transport (other),Fusobacteriota,17,4713,3.6,0.37,1.7185120772919543e-6,5.109912017434484e-6,FALSE,gut
+Bile / wax / mycolic / lipopolysaccharide,Bacteroidota,6,67194,0.1,0.36,0.013768052240509943,0.02324656056689116,FALSE,gut
+"Other amino-acid-related metabolism (β-Ala, taurine, glutathione, Se)",Fusobacteriota,17,4713,3.6,0.36,7.558283351937086e-7,2.267485005581126e-6,FALSE,gut
+Pyridoxal (B6) metabolism,Pseudomonadota,3,25865,0.1,0.36,0.08221497898465414,0.12010536060366866,FALSE,gut
+Glycolysis / EMP,Pseudomonadota,57,25865,2.2,0.35,2.7810110020568803e-19,1.6989449030747487e-18,FALSE,gut
+MFS transport,Actinomycetota,4,10619,0.4,0.35,0.02095162298302511,0.03417352098202153,FALSE,gut
+Pentose phosphate pathway,Pseudomonadota,37,25865,1.4,0.35,1.5475907013191132e-13,7.026898319503e-13,FALSE,gut
+Methanotrophy / methane oxidation,Pseudomonadota,13,25865,0.5,0.34,9.692961980507552e-6,2.5847898614686804e-5,FALSE,gut
+Methanotrophy / methane oxidation,Actinomycetota,5,10619,0.5,0.33,0.0065935819858269264,0.011599180875590824,FALSE,gut
+Riboflavin / FAD metabolism,Bacteroidota,20,67194,0.3,0.33,2.3211841171437056e-7,7.499210224618126e-7,FALSE,gut
+Inorganic ion transport,Pseudomonadota,4,25865,0.2,0.32,0.017276522203837984,0.02831664127068079,FALSE,gut
+ABC-type transport,Fusobacteriota,6,4713,1.3,0.31,0.0013724241837265922,0.002665517489781127,FALSE,gut
+Glyoxylate / dicarboxylate metabolism,Bacteroidota,26,67194,0.4,0.3,2.2358700047961548e-11,9.390654020143851e-11,FALSE,gut
+Heme / porphyrin / chlorophyll metabolism,Pseudomonadota,6,25865,0.2,0.3,0.0010483437826423858,0.0020842811299872283,FALSE,gut
+Glycolysis,Pseudomonadota,7,25865,0.3,0.29,1.6080476632312045e-4,3.6020267656378986e-4,FALSE,gut
+Aromatic amino acid metabolism (Phe / Tyr / Trp),Fusobacteriota,4,4713,0.8,0.28,0.003862312140369429,0.00701479394142772,FALSE,gut
+CAZy: polysaccharide lyase (PL),Bacteroidota,9,67194,0.1,0.26,1.2044161732017656e-5,3.089189574013689e-5,FALSE,gut
+Fatty acid degradation (β-oxidation),Pseudomonadota,7,25865,0.3,0.26,3.296356602358549e-5,8.143939841121121e-5,FALSE,gut
+Folate / one-carbon pool metabolism,Actinomycetota,15,10619,1.4,0.26,4.641601729771451e-11,1.901924611223424e-10,FALSE,gut
+Glycine / serine / threonine metabolism,Actinomycetota,5,10619,0.5,0.26,3.1325901252554584e-4,6.578439263036463e-4,FALSE,gut
+Phosphate starvation response,Pseudomonadota,10,25865,0.4,0.26,2.429132855194837e-7,7.699892824013824e-7,FALSE,gut
+Glycine / serine / threonine metabolism,Pseudomonadota,12,25865,0.5,0.24,1.1855882737550445e-9,4.475928763839269e-9,FALSE,gut
+Organosulfur metabolism,Bacteroidota,16,67194,0.2,0.24,5.890985794627385e-11,2.356394317850954e-10,FALSE,gut
+Substrate transport (other),Verrucomicrobiota,3,1292,2.3,0.24,0.0036781317356765993,0.006716588386887703,FALSE,gut
+Sugar interconversion,Fusobacteriota,6,4713,1.3,0.24,9.881544020339793e-6,2.614329756562339e-5,FALSE,gut
+Formaldehyde oxidation / fixation,Actinomycetota,4,10619,0.4,0.23,3.590501577392057e-4,7.401279325176264e-4,FALSE,gut
+Sterol / isoprenoid metabolism,Bacillota,5,106914,0,0.23,0.0011001655559294199,0.00217444486348403,FALSE,gut
+Arginine / proline metabolism,Actinomycetota,3,10619,0.3,0.22,0.001585023636784552,0.00304324538262634,FALSE,gut
+Cysteine / methionine metabolism,Campylobacterota,4,1329,3,0.22,2.3910294954606202e-4,5.117107710030372e-4,FALSE,gut
+Fermentation,Actinomycetota,4,10619,0.4,0.22,0.00018689586528007789,4.131382285138564e-4,FALSE,gut
+Benzoate / aromatic carboxylic acid degradation,Actinomycetota,3,10619,0.3,0.21,0.001145229619621271,0.0022371927453066686,FALSE,gut
+Calvin-Benson-Bassham (CBB) cycle,Pseudomonadota,7,25865,0.3,0.21,2.072561620940098e-7,6.760977714911388e-7,FALSE,gut
+Cobalamin (B12) metabolism,Bacillota,91,106914,0.9,0.21,4.0929115477189965e-57,8.089519294315193e-56,FALSE,gut
+Iron reduction,Bacillota,4,106914,0,0.21,0.0017919705582867046,0.003421034702183709,FALSE,gut
+Phosphate starvation response,Bacteroidota,25,67194,0.4,0.21,8.111949237378634e-21,5.2415671995369633e-20,FALSE,gut
+Phosphatase / phosphate liberation,Bacteroidota,10,67194,0.1,0.2,2.0630793409151147e-9,7.617523720301963e-9,FALSE,gut
+Aromatic amino acid metabolism (Phe / Tyr / Trp),Bacteroidota,51,67194,0.8,0.19,7.449806293587796e-45,1.1377885975661362e-43,FALSE,gut
+ABC-type transport,Bacteroidota,62,67194,0.9,0.17,4.38141181720223e-65,1.2267953088166243e-63,FALSE,gut
+Cysteine / methionine metabolism,Verrucomicrobiota,3,1292,2.3,0.17,6.931252532887977e-5,1.6172922576738612e-4,FALSE,gut
+Gluconeogenesis,Pseudomonadota,5,25865,0.2,0.17,3.479035107656668e-7,1.0771186519194924e-6,FALSE,gut
+Glycolysis / EMP,Actinomycetota,11,10619,1,0.17,2.589207855343861e-15,1.3181421809023292e-14,FALSE,gut
+NAD(P) / nicotinamide metabolism,Actinomycetota,12,10619,1.1,0.17,3.376286100242221e-17,1.8297292414215908e-16,FALSE,gut
+Pyruvate metabolism,Actinomycetota,4,10619,0.4,0.17,2.394183013624525e-6,7.056539408577547e-6,FALSE,gut
+Cysteine / methionine metabolism,Fusobacteriota,10,4713,2.1,0.16,3.2907203813325387e-16,1.7550508700440206e-15,FALSE,gut
+Cysteine / methionine metabolism,Pseudomonadota,61,25865,2.4,0.16,9.123267946859127e-85,5.1090300502411116e-83,FALSE,gut
+Formaldehyde oxidation / fixation,Bacteroidota,23,67194,0.3,0.16,2.294664515667439e-27,1.9769417365750245e-26,FALSE,gut
+Iron uptake / siderophore / Fe homeostasis,Actinomycetota,3,10619,0.3,0.16,3.914266378491902e-5,9.394239308380563e-5,FALSE,gut
+Amino-acid / peptide transport,Bacteroidota,3,67194,0,0.15,6.28824295524831e-5,1.4846320372531656e-4,FALSE,gut
+Ammonia assimilation (GS-GOGAT),Pseudomonadota,4,25865,0.2,0.15,2.3913574045593223e-7,7.652343694589832e-7,FALSE,gut
+Lipid degradation,Bacteroidota,4,67194,0.1,0.15,2.5106955377325613e-6,7.27235948860466e-6,FALSE,gut
+Sugar transport,Bacteroidota,3,67194,0,0.15,1.0146482246731257e-4,2.3191959421100015e-4,FALSE,gut
+Wood-Ljungdahl pathway / homoacetogenesis,Bacillota,3,106914,0,0.15,1.9232122719027876e-4,4.1960995023333547e-4,FALSE,gut
+Methanotrophy / methane oxidation,Bacteroidota,18,67194,0.3,0.14,5.031706003238941e-26,4.1235444319226445e-25,FALSE,gut
+"Other amino-acid-related metabolism (β-Ala, taurine, glutathione, Se)",Pseudomonadota,41,25865,1.6,0.14,7.967093749906797e-68,2.433584999971531e-66,FALSE,gut
+Alanine / aspartate / glutamate metabolism,Pseudomonadota,17,25865,0.7,0.13,6.926568059430294e-34,7.757756226561929e-33,FALSE,gut
+NAD(P) / nicotinamide metabolism,Fusobacteriota,4,4713,0.8,0.13,3.417170619378199e-9,1.2480101392511684e-8,FALSE,gut
+Alanine / aspartate / glutamate metabolism,Actinomycetota,6,10619,0.6,0.12,9.860713183159607e-15,4.872352396384747e-14,FALSE,gut
+CAZy: polysaccharide lyase (PL),Bacillota,9,106914,0.1,0.12,3.459083328006649e-14,1.6369746453665266e-13,FALSE,gut
+Thiamine metabolism,Pseudomonadota,10,25865,0.4,0.12,2.9720838320984657e-21,1.997240335170169e-20,FALSE,gut
+Thiamine metabolism,Bacteroidota,28,67194,0.4,0.11,4.010838345677711e-59,8.422760525923193e-58,FALSE,gut
+ABC transporters,Bacteroidota,5,67194,0.1,0.1,1.3851814969937359e-12,6.044428350518119e-12,FALSE,gut
+Starch,Pseudomonadota,7,25865,0.3,0.09,7.98507473191769e-22,5.589552312342383e-21,FALSE,gut
+Glycerolipid / glycerophospholipid metabolism,Bacteroidota,5,67194,0.1,0.07,1.0599031463428106e-19,6.594952910577488e-19,FALSE,gut
+"Other amino-acid-related metabolism (β-Ala, taurine, glutathione, Se)",Bacteroidota,56,67194,0.8,0.06,6.092159588418296e-255,1.0234828108542737e-252,FALSE,gut
+PAH / polycyclic aromatic degradation,Bacteroidota,9,67194,0.1,0.06,1.158736364402696e-38,1.5573416737572233e-37,FALSE,gut
+Sulfur amino acid metabolism,Bacteroidota,5,67194,0.1,0.06,2.016389256882364e-24,1.5397881598010778e-23,FALSE,gut
+Aromatic / xenobiotic degradation (other),Bacillota,4,106914,0,0.05,3.643376781794235e-20,2.309763393741251e-19,FALSE,gut
+Reactive oxygen species detoxification,Bacillota,11,106914,0.1,0.04,1.0971221247561323e-61,2.4575535594537362e-60,FALSE,gut

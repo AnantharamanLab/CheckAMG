@@ -1,0 +1,8 @@
+metric,value
+shared_functions,1111
+sign_agreement,0.9945994599459946
+call_agreement,0.9846984698469847
+spearman_log_OR,0.9988354540138508
+tested_propagated_inclusive,1140
+tested_annotate_only,1111
+added_by_propagation,29

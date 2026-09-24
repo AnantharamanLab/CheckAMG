@@ -1,0 +1,3 @@
+min_seq_id,n,distinct_clusters_spanned,universe_singleton_clusters,universe_singleton_share,clusters_holding_exactly_one_residual,residuals_alone_in_their_cluster_among_the_30412,median_universe_cluster_size,largest_cluster_share_of_residual
+id30,30412,13419,8740,0.2874,9579,9579,5.0,189
+id50,30412,15974,11458,0.3768,12003,12003,3.0,102

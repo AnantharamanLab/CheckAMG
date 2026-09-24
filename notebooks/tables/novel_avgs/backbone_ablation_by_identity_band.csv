@@ -1,0 +1,163 @@
+band,band_lo,band_hi,depth,n_truth_classes,embedding,metric,value
+no recorded identity,,,category,3,CheckAMG-PST,micro_precision,0.7881944444444444
+no recorded identity,,,category,3,CheckAMG-PST,macro_precision,0.7766911362246048
+no recorded identity,,,category,3,CheckAMG-PST,n,288.0
+no recorded identity,,,category,3,ESM-2,micro_precision,0.9409722222222222
+no recorded identity,,,category,3,ESM-2,macro_precision,0.9381580218294214
+no recorded identity,,,category,3,ESM-2,n,288.0
+no recorded identity,,,category,3,ESM-2 minus CheckAMG-PST,micro_precision_gap,0.1527777777777778
+no recorded identity,,,category,3,ESM-2 minus CheckAMG-PST,macro_precision_gap,0.1614668856048166
+no recorded identity,,,category,3,ESM-2 minus CheckAMG-PST,n,288.0
+no recorded identity,,,L1,24,CheckAMG-PST,micro_precision,0.5431654676258992
+no recorded identity,,,L1,24,CheckAMG-PST,macro_precision,0.368450214389912
+no recorded identity,,,L1,24,CheckAMG-PST,n,278.0
+no recorded identity,,,L1,24,ESM-2,micro_precision,0.8633093525179856
+no recorded identity,,,L1,24,ESM-2,macro_precision,0.7141258629989654
+no recorded identity,,,L1,24,ESM-2,n,278.0
+no recorded identity,,,L1,24,ESM-2 minus CheckAMG-PST,micro_precision_gap,0.32014388489208634
+no recorded identity,,,L1,24,ESM-2 minus CheckAMG-PST,macro_precision_gap,0.3456756486090534
+no recorded identity,,,L1,24,ESM-2 minus CheckAMG-PST,n,278.0
+no recorded identity,,,specific,197,CheckAMG-PST,micro_precision,0.3333333333333333
+no recorded identity,,,specific,197,CheckAMG-PST,macro_precision,0.2643743453388124
+no recorded identity,,,specific,197,CheckAMG-PST,n,288.0
+no recorded identity,,,specific,197,ESM-2,micro_precision,0.6666666666666666
+no recorded identity,,,specific,197,ESM-2,macro_precision,0.6048062202884538
+no recorded identity,,,specific,197,ESM-2,n,288.0
+no recorded identity,,,specific,197,ESM-2 minus CheckAMG-PST,micro_precision_gap,0.3333333333333333
+no recorded identity,,,specific,197,ESM-2 minus CheckAMG-PST,macro_precision_gap,0.3404318749496414
+no recorded identity,,,specific,197,ESM-2 minus CheckAMG-PST,n,288.0
+"[0.00, 0.30)",0.0,0.3,category,3,CheckAMG-PST,micro_precision,0.8113207547169812
+"[0.00, 0.30)",0.0,0.3,category,3,CheckAMG-PST,macro_precision,0.7405302517622423
+"[0.00, 0.30)",0.0,0.3,category,3,CheckAMG-PST,n,848.0
+"[0.00, 0.30)",0.0,0.3,category,3,ESM-2,micro_precision,0.9587264150943396
+"[0.00, 0.30)",0.0,0.3,category,3,ESM-2,macro_precision,0.9482832624702663
+"[0.00, 0.30)",0.0,0.3,category,3,ESM-2,n,848.0
+"[0.00, 0.30)",0.0,0.3,category,3,ESM-2 minus CheckAMG-PST,micro_precision_gap,0.14740566037735847
+"[0.00, 0.30)",0.0,0.3,category,3,ESM-2 minus CheckAMG-PST,macro_precision_gap,0.207753010708024
+"[0.00, 0.30)",0.0,0.3,category,3,ESM-2 minus CheckAMG-PST,n,848.0
+"[0.00, 0.30)",0.0,0.3,L1,28,CheckAMG-PST,micro_precision,0.5378250591016549
+"[0.00, 0.30)",0.0,0.3,L1,28,CheckAMG-PST,macro_precision,0.4067540600540854
+"[0.00, 0.30)",0.0,0.3,L1,28,CheckAMG-PST,n,846.0
+"[0.00, 0.30)",0.0,0.3,L1,28,ESM-2,micro_precision,0.8333333333333334
+"[0.00, 0.30)",0.0,0.3,L1,28,ESM-2,macro_precision,0.7709616642045277
+"[0.00, 0.30)",0.0,0.3,L1,28,ESM-2,n,846.0
+"[0.00, 0.30)",0.0,0.3,L1,28,ESM-2 minus CheckAMG-PST,micro_precision_gap,0.29550827423167847
+"[0.00, 0.30)",0.0,0.3,L1,28,ESM-2 minus CheckAMG-PST,macro_precision_gap,0.36420760415044234
+"[0.00, 0.30)",0.0,0.3,L1,28,ESM-2 minus CheckAMG-PST,n,846.0
+"[0.00, 0.30)",0.0,0.3,specific,417,CheckAMG-PST,micro_precision,0.35141509433962265
+"[0.00, 0.30)",0.0,0.3,specific,417,CheckAMG-PST,macro_precision,0.25315955028185244
+"[0.00, 0.30)",0.0,0.3,specific,417,CheckAMG-PST,n,848.0
+"[0.00, 0.30)",0.0,0.3,specific,417,ESM-2,micro_precision,0.6898584905660378
+"[0.00, 0.30)",0.0,0.3,specific,417,ESM-2,macro_precision,0.5953424273568159
+"[0.00, 0.30)",0.0,0.3,specific,417,ESM-2,n,848.0
+"[0.00, 0.30)",0.0,0.3,specific,417,ESM-2 minus CheckAMG-PST,micro_precision_gap,0.3384433962264151
+"[0.00, 0.30)",0.0,0.3,specific,417,ESM-2 minus CheckAMG-PST,macro_precision_gap,0.3421828770749634
+"[0.00, 0.30)",0.0,0.3,specific,417,ESM-2 minus CheckAMG-PST,n,848.0
+"[0.30, 0.50)",0.3,0.5,category,3,CheckAMG-PST,micro_precision,0.8584470304975923
+"[0.30, 0.50)",0.3,0.5,category,3,CheckAMG-PST,macro_precision,0.7993017220468549
+"[0.30, 0.50)",0.3,0.5,category,3,CheckAMG-PST,n,19936.0
+"[0.30, 0.50)",0.3,0.5,category,3,ESM-2,micro_precision,0.9776785714285714
+"[0.30, 0.50)",0.3,0.5,category,3,ESM-2,macro_precision,0.9698442401970965
+"[0.30, 0.50)",0.3,0.5,category,3,ESM-2,n,19936.0
+"[0.30, 0.50)",0.3,0.5,category,3,ESM-2 minus CheckAMG-PST,micro_precision_gap,0.1192315409309791
+"[0.30, 0.50)",0.3,0.5,category,3,ESM-2 minus CheckAMG-PST,macro_precision_gap,0.17054251815024157
+"[0.30, 0.50)",0.3,0.5,category,3,ESM-2 minus CheckAMG-PST,n,19936.0
+"[0.30, 0.50)",0.3,0.5,L1,28,CheckAMG-PST,micro_precision,0.5515474276527331
+"[0.30, 0.50)",0.3,0.5,L1,28,CheckAMG-PST,macro_precision,0.5027900905497462
+"[0.30, 0.50)",0.3,0.5,L1,28,CheckAMG-PST,n,19904.0
+"[0.30, 0.50)",0.3,0.5,L1,28,ESM-2,micro_precision,0.8770096463022508
+"[0.30, 0.50)",0.3,0.5,L1,28,ESM-2,macro_precision,0.8409194321396904
+"[0.30, 0.50)",0.3,0.5,L1,28,ESM-2,n,19904.0
+"[0.30, 0.50)",0.3,0.5,L1,28,ESM-2 minus CheckAMG-PST,micro_precision_gap,0.32546221864951763
+"[0.30, 0.50)",0.3,0.5,L1,28,ESM-2 minus CheckAMG-PST,macro_precision_gap,0.33812934158994423
+"[0.30, 0.50)",0.3,0.5,L1,28,ESM-2 minus CheckAMG-PST,n,19904.0
+"[0.30, 0.50)",0.3,0.5,specific,3016,CheckAMG-PST,micro_precision,0.3243378812199037
+"[0.30, 0.50)",0.3,0.5,specific,3016,CheckAMG-PST,macro_precision,0.1968494113350277
+"[0.30, 0.50)",0.3,0.5,specific,3016,CheckAMG-PST,n,19936.0
+"[0.30, 0.50)",0.3,0.5,specific,3016,ESM-2,micro_precision,0.7113262439807384
+"[0.30, 0.50)",0.3,0.5,specific,3016,ESM-2,macro_precision,0.5760103111401607
+"[0.30, 0.50)",0.3,0.5,specific,3016,ESM-2,n,19936.0
+"[0.30, 0.50)",0.3,0.5,specific,3016,ESM-2 minus CheckAMG-PST,micro_precision_gap,0.3869883627608347
+"[0.30, 0.50)",0.3,0.5,specific,3016,ESM-2 minus CheckAMG-PST,macro_precision_gap,0.37916089980513296
+"[0.30, 0.50)",0.3,0.5,specific,3016,ESM-2 minus CheckAMG-PST,n,19936.0
+"[0.50, 0.90)",0.5,0.9,category,3,CheckAMG-PST,micro_precision,0.9001629448959305
+"[0.50, 0.90)",0.5,0.9,category,3,CheckAMG-PST,macro_precision,0.8454723330196615
+"[0.50, 0.90)",0.5,0.9,category,3,CheckAMG-PST,n,97579.0
+"[0.50, 0.90)",0.5,0.9,category,3,ESM-2,micro_precision,0.9895981717377714
+"[0.50, 0.90)",0.5,0.9,category,3,ESM-2,macro_precision,0.9846920524020094
+"[0.50, 0.90)",0.5,0.9,category,3,ESM-2,n,97579.0
+"[0.50, 0.90)",0.5,0.9,category,3,ESM-2 minus CheckAMG-PST,micro_precision_gap,0.08943522684184091
+"[0.50, 0.90)",0.5,0.9,category,3,ESM-2 minus CheckAMG-PST,macro_precision_gap,0.1392197193823479
+"[0.50, 0.90)",0.5,0.9,category,3,ESM-2 minus CheckAMG-PST,n,97579.0
+"[0.50, 0.90)",0.5,0.9,L1,28,CheckAMG-PST,micro_precision,0.5715839146491588
+"[0.50, 0.90)",0.5,0.9,L1,28,CheckAMG-PST,macro_precision,0.54348159168468
+"[0.50, 0.90)",0.5,0.9,L1,28,CheckAMG-PST,n,97480.0
+"[0.50, 0.90)",0.5,0.9,L1,28,ESM-2,micro_precision,0.9272876487484613
+"[0.50, 0.90)",0.5,0.9,L1,28,ESM-2,macro_precision,0.9119645244943598
+"[0.50, 0.90)",0.5,0.9,L1,28,ESM-2,n,97480.0
+"[0.50, 0.90)",0.5,0.9,L1,28,ESM-2 minus CheckAMG-PST,micro_precision_gap,0.35570373409930245
+"[0.50, 0.90)",0.5,0.9,L1,28,ESM-2 minus CheckAMG-PST,macro_precision_gap,0.3684829328096798
+"[0.50, 0.90)",0.5,0.9,L1,28,ESM-2 minus CheckAMG-PST,n,97480.0
+"[0.50, 0.90)",0.5,0.9,specific,5157,CheckAMG-PST,micro_precision,0.36411522971131083
+"[0.50, 0.90)",0.5,0.9,specific,5157,CheckAMG-PST,macro_precision,0.2079384355536983
+"[0.50, 0.90)",0.5,0.9,specific,5157,CheckAMG-PST,n,97579.0
+"[0.50, 0.90)",0.5,0.9,specific,5157,ESM-2,micro_precision,0.8283954539398846
+"[0.50, 0.90)",0.5,0.9,specific,5157,ESM-2,macro_precision,0.6764720157480848
+"[0.50, 0.90)",0.5,0.9,specific,5157,ESM-2,n,97579.0
+"[0.50, 0.90)",0.5,0.9,specific,5157,ESM-2 minus CheckAMG-PST,micro_precision_gap,0.46428022422857373
+"[0.50, 0.90)",0.5,0.9,specific,5157,ESM-2 minus CheckAMG-PST,macro_precision_gap,0.4685335801943865
+"[0.50, 0.90)",0.5,0.9,specific,5157,ESM-2 minus CheckAMG-PST,n,97579.0
+"[0.90, 1.00]",0.9,,category,3,CheckAMG-PST,micro_precision,0.9227571873917562
+"[0.90, 1.00]",0.9,,category,3,CheckAMG-PST,macro_precision,0.92008264674116
+"[0.90, 1.00]",0.9,,category,3,CheckAMG-PST,n,14435.0
+"[0.90, 1.00]",0.9,,category,3,ESM-2,micro_precision,0.9962590924835469
+"[0.90, 1.00]",0.9,,category,3,ESM-2,macro_precision,0.9961230653940095
+"[0.90, 1.00]",0.9,,category,3,ESM-2,n,14435.0
+"[0.90, 1.00]",0.9,,category,3,ESM-2 minus CheckAMG-PST,micro_precision_gap,0.07350190509179078
+"[0.90, 1.00]",0.9,,category,3,ESM-2 minus CheckAMG-PST,macro_precision_gap,0.0760404186528495
+"[0.90, 1.00]",0.9,,category,3,ESM-2 minus CheckAMG-PST,n,14435.0
+"[0.90, 1.00]",0.9,,L1,28,CheckAMG-PST,micro_precision,0.7462386466061153
+"[0.90, 1.00]",0.9,,L1,28,CheckAMG-PST,macro_precision,0.6416626923640644
+"[0.90, 1.00]",0.9,,L1,28,CheckAMG-PST,n,14423.0
+"[0.90, 1.00]",0.9,,L1,28,ESM-2,micro_precision,0.9791305553629619
+"[0.90, 1.00]",0.9,,L1,28,ESM-2,macro_precision,0.962170732825653
+"[0.90, 1.00]",0.9,,L1,28,ESM-2,n,14423.0
+"[0.90, 1.00]",0.9,,L1,28,ESM-2 minus CheckAMG-PST,micro_precision_gap,0.23289190875684662
+"[0.90, 1.00]",0.9,,L1,28,ESM-2 minus CheckAMG-PST,macro_precision_gap,0.32050804046158865
+"[0.90, 1.00]",0.9,,L1,28,ESM-2 minus CheckAMG-PST,n,14423.0
+"[0.90, 1.00]",0.9,,specific,2381,CheckAMG-PST,micro_precision,0.5887772774506408
+"[0.90, 1.00]",0.9,,specific,2381,CheckAMG-PST,macro_precision,0.34179061344308187
+"[0.90, 1.00]",0.9,,specific,2381,CheckAMG-PST,n,14435.0
+"[0.90, 1.00]",0.9,,specific,2381,ESM-2,micro_precision,0.9545549012816072
+"[0.90, 1.00]",0.9,,specific,2381,ESM-2,macro_precision,0.8885040988111501
+"[0.90, 1.00]",0.9,,specific,2381,ESM-2,n,14435.0
+"[0.90, 1.00]",0.9,,specific,2381,ESM-2 minus CheckAMG-PST,micro_precision_gap,0.36577762383096646
+"[0.90, 1.00]",0.9,,specific,2381,ESM-2 minus CheckAMG-PST,macro_precision_gap,0.5467134853680682
+"[0.90, 1.00]",0.9,,specific,2381,ESM-2 minus CheckAMG-PST,n,14435.0
+pooled (all matched),,,category,3,CheckAMG-PST,micro_precision,0.8955562568564688
+pooled (all matched),,,category,3,CheckAMG-PST,macro_precision,0.8524176012601332
+pooled (all matched),,,category,3,CheckAMG-PST,n,133086.0
+pooled (all matched),,,category,3,ESM-2,micro_precision,0.9882331725350525
+pooled (all matched),,,category,3,ESM-2,macro_precision,0.9839246802139178
+pooled (all matched),,,category,3,ESM-2,n,133086.0
+pooled (all matched),,,category,3,ESM-2 minus CheckAMG-PST,micro_precision_gap,0.09267691567858372
+pooled (all matched),,,category,3,ESM-2 minus CheckAMG-PST,macro_precision_gap,0.13150707895378455
+pooled (all matched),,,category,3,ESM-2 minus CheckAMG-PST,n,133086.0
+pooled (all matched),,,L1,28,CheckAMG-PST,micro_precision,0.587259555709353
+pooled (all matched),,,L1,28,CheckAMG-PST,macro_precision,0.5522413858016046
+pooled (all matched),,,L1,28,CheckAMG-PST,n,132931.0
+pooled (all matched),,,L1,28,ESM-2,micro_precision,0.924652639339206
+pooled (all matched),,,L1,28,ESM-2,macro_precision,0.9078022748347297
+pooled (all matched),,,L1,28,ESM-2,n,132931.0
+pooled (all matched),,,L1,28,ESM-2 minus CheckAMG-PST,micro_precision_gap,0.3373930836298531
+pooled (all matched),,,L1,28,ESM-2 minus CheckAMG-PST,macro_precision_gap,0.3555608890331251
+pooled (all matched),,,L1,28,ESM-2 minus CheckAMG-PST,n,132931.0
+pooled (all matched),,,specific,5770,CheckAMG-PST,micro_precision,0.3823768089806591
+pooled (all matched),,,specific,5770,CheckAMG-PST,macro_precision,0.2054954247147074
+pooled (all matched),,,specific,5770,CheckAMG-PST,n,133086.0
+pooled (all matched),,,specific,5770,ESM-2,micro_precision,0.8233097395668966
+pooled (all matched),,,specific,5770,ESM-2,macro_precision,0.6490480384172048
+pooled (all matched),,,specific,5770,ESM-2,n,133086.0
+pooled (all matched),,,specific,5770,ESM-2 minus CheckAMG-PST,micro_precision_gap,0.44093293058623745
+pooled (all matched),,,specific,5770,ESM-2 minus CheckAMG-PST,macro_precision_gap,0.44355261370249743
+pooled (all matched),,,specific,5770,ESM-2 minus CheckAMG-PST,n,133086.0

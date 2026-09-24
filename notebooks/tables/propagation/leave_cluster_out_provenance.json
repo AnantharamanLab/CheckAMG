@@ -1,0 +1,6 @@
+{
+ "n_report": 41957,
+ "n_all_neighbors_masked": 54,
+ "clustering_used": "clu_id30.tsv",
+ "cached_neighbors_per_query": 50
+}

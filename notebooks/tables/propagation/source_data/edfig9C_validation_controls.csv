@@ -1,0 +1,19 @@
+panel,condition,value,metric
+"Unseen held-out proteins
+(category precision)",True labels,0.8952146856087985,category precision
+"Unseen held-out proteins
+(category precision)",Shuffled labels,0.5154338414733963,category precision
+"Unseen held-out proteins
+(category precision)",Majority class,0.6681634678103806,category precision
+"Unseen genomic context
+(category precision)",Viral context,0.8903775809789671,category precision
+"Unseen genomic context
+(category precision)",Bacterial context,0.9200922072497176,category precision
+"Specificity
+(confident-call rate)",Auxiliary genes,0.07235897682932704,confident-call rate
+"Specificity
+(confident-call rate)",Structural genes,3.480702405745479e-5,confident-call rate
+"Embedding space
+(category precision)",CheckAMG-PST,0.8955562568564688,category precision
+"Embedding space
+(category precision)",ESM-2 backbone only,0.9882331725350525,category precision

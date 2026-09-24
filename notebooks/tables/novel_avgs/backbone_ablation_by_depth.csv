@@ -1,0 +1,7 @@
+rule,level,backbone,n_matched_evaluable,n_true_classes,micro_precision,macro_precision
+nearest_avglike_1nn,category,CheckAMG-PST,133086,3,0.8955562568564688,0.8524176012601332
+nearest_avglike_1nn,category,ESM-2 backbone,133086,3,0.9882331725350525,0.9839246802139178
+nearest_avglike_1nn,L1,CheckAMG-PST,132931,28,0.587259555709353,0.5522413858016046
+nearest_avglike_1nn,L1,ESM-2 backbone,132931,28,0.924652639339206,0.9078022748347297
+nearest_avglike_1nn,specific,CheckAMG-PST,133086,5770,0.3823768089806591,0.2054954247147074
+nearest_avglike_1nn,specific,ESM-2 backbone,133086,5770,0.8233097395668966,0.6490480384172048

@@ -1,0 +1,30 @@
+avg_category,top_train_function,n_avgs,genomes,lab
+metabolic,Other,2403,2378,Other___metabolic
+metabolic,Amino acid metabolism,1821,1808,Amino acid metabolism___metabolic
+metabolic,Carbohydrate metabolism,960,956,Carbohydrate metabolism___metabolic
+metabolic,Lipid & fatty acid metabolism,446,446,Lipid & fatty acid metabolism___metabolic
+metabolic,Cofactor & vitamin metabolism,345,344,Cofactor & vitamin metabolism___metabolic
+metabolic,Aromatic & xenobiotic degradation,205,205,Aromatic & xenobiotic degradation___metabolic
+metabolic,Metabolic substrate transport,135,135,Metabolic substrate transport___metabolic
+metabolic,Energy metabolism,109,109,Energy metabolism___metabolic
+metabolic,Secondary metabolite metabolism,104,104,Secondary metabolite metabolism___metabolic
+metabolic,Phosphorus metabolism,70,70,Phosphorus metabolism___metabolic
+metabolic,Other inorganic element cycling,57,57,Other inorganic element cycling___metabolic
+metabolic,Sulfur metabolism,41,41,Sulfur metabolism___metabolic
+metabolic,Carbon fixation & C1 metabolism,10,10,Carbon fixation & C1 metabolism___metabolic
+metabolic,Oxygen metabolism,9,9,Oxygen metabolism___metabolic
+physiological,Defense & anti-defense systems,5601,5535,Defense & anti-defense systems___physiological
+physiological,Toxin-antitoxin systems,4094,3963,Toxin-antitoxin systems___physiological
+physiological,Stress response & homeostasis,286,286,Stress response & homeostasis___physiological
+physiological,Sporulation & developmental,174,174,Sporulation & developmental___physiological
+physiological,Virulence & host interaction,141,141,Virulence & host interaction___physiological
+physiological,Secretion & extracellular processes,62,62,Secretion & extracellular processes___physiological
+physiological,Motility & cell-surface dynamics,2,2,Motility & cell-surface dynamics___physiological
+physiological,Lysogeny & lytic switch,1,1,Lysogeny & lytic switch___physiological
+regulatory,Transcriptional regulation,45605,42201,Transcriptional regulation___regulatory
+regulatory,Regulatory chaperones & coregulators,1888,1879,Regulatory chaperones & coregulators___regulatory
+regulatory,Signal transduction & two-component systems,635,633,Signal transduction & two-component systems___regulatory
+regulatory,Other,357,357,Other___regulatory
+regulatory,Chromatin/nucleoid organization & epigenetic regulation,298,298,Chromatin/nucleoid organization & epigenetic regulation___regulatory
+regulatory,Post-transcriptional / RNA-mediated regulation,183,183,Post-transcriptional / RNA-mediated regulation___regulatory
+regulatory,Quorum sensing & cell-cell signalling,1,1,Quorum sensing & cell-cell signalling___regulatory

@@ -1,0 +1,128 @@
+{
+  "schema_version": "propagation-1.2",
+  "git_commit": "df67226b536956de9424de15128aa443c9420ad9",
+  "generated": "2026-09-23T22:03:58",
+  "db_stamp": "v1.1_20260714",
+  "n_proteins": 541199,
+  "levels": [
+    "specific",
+    "L1",
+    "category"
+  ],
+  "l2_dropped": true,
+  "l2_reason": "21.4% of training function names map to more than one L2 parent",
+  "l1_canonical_parent_rule": "L1 assigned by the most HMM ids for that name, ties broken alphabetically",
+  "hierarchy_stats": {
+    "training_functions": 9906,
+    "labeled_training_proteins": 959449,
+    "multi_L1_functions": 1848,
+    "multi_L1_proteins": 225369,
+    "multi_L2_functions": 2115,
+    "multi_L2_proteins": 278856,
+    "multi_L1_function_pct": 18.655360387643853,
+    "multi_L2_function_pct": 21.350696547546942,
+    "multi_L1_protein_pct": 23.489419448037363,
+    "multi_L2_protein_pct": 29.06418162924762
+  },
+  "precision_targets": [
+    0.9,
+    0.8,
+    0.7
+  ],
+  "target_semantics": "realized precision on held-out data, not the calibrated probability cutoff",
+  "probability_thresholds": {
+    "0.9": {
+      "specific": 0.7774798927613943,
+      "L1": 0.851258581235698,
+      "category": 0.9129392971246006
+    },
+    "0.8": {
+      "specific": 0.7092360319270239,
+      "L1": 0.7050610820244329,
+      "category": 0.8093245666467423
+    },
+    "0.7": {
+      "specific": 0.5698924731182796,
+      "L1": 0.51380042462845,
+      "category": 0.3888888888888889
+    }
+  },
+  "primary_target": 0.9,
+  "sequence_clustering": {
+    "mmseqs_version": "18.8cc5c",
+    "command": {
+      "cluster_all.sh": [
+        "\"$MM\" cluster db/universe_all \"db/${out}\" \"tmp_${out}\" --min-seq-id \"0.${pct}\" -c 0.8 --cov-mode 0 -s 7.5 --threads 50 -v 1"
+      ],
+      "run_cluster.sh": [
+        "\"$MM\" cluster db/universe \"db/clu_id${pct}\" \"tmp_id${pct}\" --min-seq-id \"0.${pct}\" -c 0.8 --cov-mode 0 -s 7.5 --threads 128 -v 1"
+      ],
+      "run_cluster_hi.sh": [
+        "\"$MM\" cluster db/universe_hi \"db/clu_hi_id${pct}\" \"tmp_hi_id${pct}\" --min-seq-id \"0.${pct}\" -c 0.8 --cov-mode 0 -s 7.5 --threads 96 -v 1"
+      ]
+    },
+    "min_seq_ids": [
+      0.3,
+      0.5,
+      0.7,
+      0.9
+    ],
+    "shared_universe_sequences": 1500646,
+    "training_sequences": 959449,
+    "applied_sequences_total": 541199,
+    "applied_sequences_clustered": 541197,
+    "applied_sequences_unclustered": 2,
+    "unclustered_reason": "absent from the biome-filtered protein FASTAs the clustering input was drawn from; cause is upstream of this notebook and not diagnosed here",
+    "id_collisions_train_vs_applied": 0,
+    "tier1_min_seq_id": {
+      "specific": 0.5,
+      "L1": 0.3,
+      "category": 0.3
+    },
+    "tier2_threshold_refit_on_tier1_unreachable": {
+      "specific": 0.7774798927613943,
+      "L1": 0.851258581235698,
+      "category": 0.9129392971246006
+    },
+    "tier2_threshold_unmasked": {
+      "specific": 0.6894736842105263,
+      "L1": 0.7272727272727273,
+      "category": 0.7980997624703088
+    },
+    "threshold_fit_order": "tier 1 identity chosen first on the calibration slice, then the tier 2 probability inverted on the calibration proteins tier 1 does not reach at that granularity"
+  },
+  "label_source_vocabulary": [
+    "cluster",
+    "embedding",
+    "none"
+  ],
+  "tier_definitions": {
+    "cluster": "MMseqs2 cluster majority over labeled training members, ties abstain",
+    "embedding": "CheckAMG-PST 1-NN label gated on the calibrated correctness probability",
+    "none": "no tier reached the protein at any granularity"
+  },
+  "consensus_structure_populated": false,
+  "consensus_structure_reason": "structural search depends on novel_avgs clustering and stays in stage 3",
+  "inputs_sha256": {
+    "/storage2/scratch/kosmopoulos/software/CheckAMG/notebooks/CheckAMG_denovo_db_v1.1_20260714/checkAMG-PST_TL-P__large_5.20260714.PST-EMBED.index.faiss": "de0d92d5d7babbb6a7298c0e9aebe1df0612dae047ca9fe858d94d9f037fefcb",
+    "/storage2/scratch/kosmopoulos/projects/checkAMG/applied_runs_for_manuscript/novel_avgs/train_ref_index_order.parquet": "1dc7a74490301666e803127de9a7fad3facd21a18b893996879c2ba65b3687cc",
+    "/storage2/scratch/kosmopoulos/projects/checkAMG/applied_runs_for_manuscript/novel_avgs/test_avglike_meta.parquet": "7b9eeef357d7667fbaeae8fc91ff7b741a3957bb09f441a8489a96204a45da73",
+    "/storage2/scratch/kosmopoulos/software/CheckAMG/CheckAMG/files/AMGs_categorized.tsv": "f8a4416211db46df791c3a83c8e3465f40de63eb063edbd5dae9282a65d6fe16",
+    "/storage2/scratch/kosmopoulos/software/CheckAMG/CheckAMG/files/APGs_categorized.tsv": "05f0aa061322612abcdbf41ac3afca6c9508a09b7dad64058e491351221b65e7",
+    "/storage2/scratch/kosmopoulos/software/CheckAMG/CheckAMG/files/AReGs_categorized.tsv": "b10dd535361b4f7f2633e07b17348861470c9151b275eb37fbc488f96fd3fac8",
+    "/storage2/scratch/kosmopoulos/software/CheckAMG/CheckAMG/files/pst_thresholds.json": "1cc8c4c1b91fe1c0a2ee81457725fa43b5e8e43b55dd7f1146552383ced2c66e",
+    "/storage2/scratch/kosmopoulos/projects/checkAMG/applied_runs_for_manuscript/CheckAMG_aggregate_v1.1_MetaVRsoil/aggregated_results_detailed.parquet": "0096ad5b55c340beb6d508b6649826dd25a2beb1987720af5892befb5cfe1c4a",
+    "/storage2/scratch/kosmopoulos/projects/checkAMG/applied_runs_for_manuscript/CheckAMG_aggregate_v1.1_MetaVRgut/aggregated_results_detailed.parquet": "66d0c053f296d8ee88437dacd76e3d0967cb6ca8f06c2906a914bec439023004",
+    "/storage2/scratch/kosmopoulos/projects/checkAMG/applied_runs_for_manuscript/CheckAMG_denovo_v1.1_MetaVRsoil/predictions.tsv": "cc41a123d14ac27947819a45ea41c9444f874aab2177178060306c8f969ae15c",
+    "/storage2/scratch/kosmopoulos/projects/checkAMG/applied_runs_for_manuscript/CheckAMG_denovo_v1.1_MetaVRgut/predictions.tsv": "d00730b4122d65d2d43fa784ceee5b2bd8269b2490ab6997d206718ccab138bc"
+  },
+  "headline": {
+    "split_gate_passed": false,
+    "category_micro": 0.8952,
+    "specific_micro": 0.3813,
+    "specific_macro": 0.2255,
+    "majority_baseline": 0.6688300035889461,
+    "frequency_gate_passed": false,
+    "ece_gate_passed": true
+  }
+}

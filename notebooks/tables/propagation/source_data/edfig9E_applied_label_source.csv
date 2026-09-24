@@ -1,0 +1,21 @@
+subset,final_level,label_source,n,n_subset,frac
+All invisible AVGs,L1,cluster,12935,109107,0.11855334671469292
+All invisible AVGs,L1,embedding,7716,109107,0.07071956886359262
+All invisible AVGs,category,cluster,59,109107,5.407535721814366e-4
+All invisible AVGs,category,embedding,5048,109107,0.046266509023252404
+All invisible AVGs,specific,cluster,13550,109107,0.1241900153060757
+All invisible AVGs,specific,embedding,31842,109107,0.2918419533118865
+All invisible AVGs,unassigned,none,37957,109107,0.34788785320831844
+Already identified,L1,cluster,11474,78695,0.14580341826037232
+Already identified,L1,embedding,4926,78695,0.06259609886269776
+Already identified,category,cluster,59,78695,7.497299701378741e-4
+Already identified,category,embedding,3175,78695,0.04034563822352119
+Already identified,specific,cluster,11902,78695,0.15124213736577927
+Already identified,specific,embedding,21651,78695,0.27512548446534085
+Already identified,unassigned,none,25508,78695,0.3241374928521507
+Unresolved,L1,cluster,1461,30412,0.04804024727081415
+Unresolved,L1,embedding,2790,30412,0.09174010259108246
+Unresolved,category,embedding,1873,30412,0.061587531237669343
+Unresolved,specific,cluster,1648,30412,0.05418913586742075
+Unresolved,specific,embedding,10191,30412,0.3350979876364593
+Unresolved,unassigned,none,12449,30412,0.409344995396554

@@ -1,0 +1,214 @@
+section,level,stratum_type,stratum,metric,value,n
+performance,category,overall,all,micro_precision,0.8952,133744
+performance,category,overall,all,macro_precision,0.8491,133744
+performance,L1,overall,all,micro_precision,0.5866,133744
+performance,L1,overall,all,macro_precision,0.5595,133744
+performance,specific,overall,all,micro_precision,0.3813,133744
+performance,specific,overall,all,macro_precision,0.2255,133744
+performance,category,overall,all,n_distinct_labels,3,133744
+performance,L1,overall,all,n_distinct_labels,28,133744
+performance,specific,overall,all,n_distinct_labels,6181,133744
+performance,L1,reference_frequency_tercile,common,precision,0.6004039238315061,124776
+performance,L1,reference_frequency_tercile,mid,precision,0.4043608826217522,7659
+performance,L1,reference_frequency_tercile,rare,precision,0.2975352112676056,1136
+performance,L1,reference_frequency_tercile,unseen,precision,NA,173
+performance,category,reference_frequency_tercile,common,precision,0.8974241841379752,124776
+performance,category,reference_frequency_tercile,mid,precision,0.8672150411280846,7659
+performance,category,reference_frequency_tercile,rare,precision,0.8573943661971831,1136
+performance,category,reference_frequency_tercile,unseen,precision,0.815028901734104,173
+performance,specific,reference_frequency_tercile,common,precision,0.39898698467654037,124776
+performance,specific,reference_frequency_tercile,mid,precision,0.15028071549810681,7659
+performance,specific,reference_frequency_tercile,rare,precision,0.05369718309859155,1136
+performance,specific,reference_frequency_tercile,unseen,precision,0.011560693641618497,173
+performance,category,identity_to_training,0%-30%,precision,0.8043,1170
+performance,L1,identity_to_training,0%-30%,precision,0.5377,1170
+performance,specific,identity_to_training,0%-30%,precision,0.3419,1170
+performance,category,identity_to_training,30%-40%,precision,0.8492,4158
+performance,L1,identity_to_training,30%-40%,precision,0.5529,4158
+performance,specific,identity_to_training,30%-40%,precision,0.342,4158
+performance,category,identity_to_training,40%-50%,precision,0.8607,15862
+performance,L1,identity_to_training,40%-50%,precision,0.5512,15862
+performance,specific,identity_to_training,40%-50%,precision,0.3193,15862
+performance,category,identity_to_training,50%-60%,precision,0.8741,30168
+performance,L1,identity_to_training,50%-60%,precision,0.5501,30168
+performance,specific,identity_to_training,50%-60%,precision,0.3221,30168
+performance,category,identity_to_training,60%-70%,precision,0.8999,32464
+performance,L1,identity_to_training,60%-70%,precision,0.5521,32464
+performance,specific,identity_to_training,60%-70%,precision,0.3443,32464
+performance,category,identity_to_training,70%-80%,precision,0.9201,23540
+performance,L1,identity_to_training,70%-80%,precision,0.585,23540
+performance,specific,identity_to_training,70%-80%,precision,0.3894,23540
+performance,category,identity_to_training,80%-90%,precision,0.925,11901
+performance,L1,identity_to_training,80%-90%,precision,0.6469,11901
+performance,specific,identity_to_training,80%-90%,precision,0.4659,11901
+performance,category,identity_to_training,90%-101%,precision,0.9226,14481
+performance,L1,identity_to_training,90%-101%,precision,0.7452,14481
+performance,specific,identity_to_training,90%-101%,precision,0.5873,14481
+performance,specific,overall,all,expected_calibration_error,0.0077,NA
+performance,L1,overall,all,expected_calibration_error,0.0055,NA
+performance,category,overall,all,expected_calibration_error,0.0057,NA
+performance,specific,operating_point,target_0.90_tier1_cluster,min_seq_id,0.5,41957
+performance,specific,operating_point,target_0.90_tier1_cluster,p_threshold,NA,41957
+performance,specific,operating_point,target_0.90_tier1_cluster,coverage,0.5796410610863503,41957
+performance,specific,operating_point,target_0.90_tier1_cluster,precision,0.9501644736842105,41957
+performance,specific,operating_point,target_0.90_tier2_embedding,min_seq_id,0.5,41957
+performance,specific,operating_point,target_0.90_tier2_embedding,p_threshold,0.7774798927613943,41957
+performance,specific,operating_point,target_0.90_tier2_embedding,coverage,0.055366208260838476,41957
+performance,specific,operating_point,target_0.90_tier2_embedding,precision,0.8945329315540249,41957
+performance,L1,operating_point,target_0.90_tier1_cluster,min_seq_id,0.3,41957
+performance,L1,operating_point,target_0.90_tier1_cluster,p_threshold,NA,41957
+performance,L1,operating_point,target_0.90_tier1_cluster,coverage,0.8902924422623162,41957
+performance,L1,operating_point,target_0.90_tier1_cluster,precision,0.9455747711088505,41957
+performance,L1,operating_point,target_0.90_tier2_embedding,min_seq_id,0.3,41957
+performance,L1,operating_point,target_0.90_tier2_embedding,p_threshold,0.851258581235698,41957
+performance,L1,operating_point,target_0.90_tier2_embedding,coverage,0.011035107371833067,41957
+performance,L1,operating_point,target_0.90_tier2_embedding,precision,0.9157667386609071,41957
+performance,category,operating_point,target_0.90_tier1_cluster,min_seq_id,0.3,41957
+performance,category,operating_point,target_0.90_tier1_cluster,p_threshold,NA,41957
+performance,category,operating_point,target_0.90_tier1_cluster,coverage,0.8928903401101127,41957
+performance,category,operating_point,target_0.90_tier1_cluster,precision,0.9942343111870379,41957
+performance,category,operating_point,target_0.90_tier2_embedding,min_seq_id,0.3,41957
+performance,category,operating_point,target_0.90_tier2_embedding,p_threshold,0.9129392971246006,41957
+performance,category,operating_point,target_0.90_tier2_embedding,coverage,0.028815215577853517,41957
+performance,category,operating_point,target_0.90_tier2_embedding,precision,0.8866832092638545,41957
+performance,L1,risk_coverage,calibrated,aurc,0.8065,NA
+performance,L1,risk_coverage,calibrated,cov@0.90,0.3364,NA
+performance,L1,risk_coverage,calibrated,cov@0.80,0.5079,NA
+performance,L1,risk_coverage,calibrated,cov@0.70,0.6993,NA
+performance,L1,risk_coverage,d1_only,aurc,0.6595,NA
+performance,L1,risk_coverage,d1_only,cov@0.90,0.0276,NA
+performance,L1,risk_coverage,d1_only,cov@0.80,0.0613,NA
+performance,L1,risk_coverage,d1_only,cov@0.70,0.1692,NA
+performance,category,risk_coverage,calibrated,aurc,0.9501,NA
+performance,category,risk_coverage,calibrated,cov@0.90,0.9182,NA
+performance,category,risk_coverage,calibrated,cov@0.80,1,NA
+performance,category,risk_coverage,calibrated,cov@0.70,1,NA
+performance,category,risk_coverage,d1_only,aurc,0.9179,NA
+performance,category,risk_coverage,d1_only,cov@0.90,0.8162,NA
+performance,category,risk_coverage,d1_only,cov@0.80,1,NA
+performance,category,risk_coverage,d1_only,cov@0.70,1,NA
+performance,specific,risk_coverage,calibrated,aurc,0.6801,NA
+performance,specific,risk_coverage,calibrated,cov@0.90,0.2339,NA
+performance,specific,risk_coverage,calibrated,cov@0.80,0.3424,NA
+performance,specific,risk_coverage,calibrated,cov@0.70,0.4462,NA
+performance,specific,risk_coverage,d1_only,aurc,0.461,NA
+performance,specific,risk_coverage,d1_only,cov@0.90,1e-4,NA
+performance,specific,risk_coverage,d1_only,cov@0.80,0.0232,NA
+performance,specific,risk_coverage,d1_only,cov@0.70,0.0414,NA
+validation_control,NA,Unseen held-out proteins,True labels,category precision,0.8952146856087985,NA
+validation_control,NA,Unseen held-out proteins,Shuffled labels,category precision,0.5154338414733963,NA
+validation_control,NA,Unseen held-out proteins,Majority class,category precision,0.6681634678103806,NA
+validation_control,NA,Unseen genomic context,Viral context,category precision,0.8903775809789671,NA
+validation_control,NA,Unseen genomic context,Bacterial context,category precision,0.9200922072497176,NA
+validation_control,NA,Specificity,Auxiliary genes,confident-call rate,0.07235897682932704,NA
+validation_control,NA,Specificity,Structural genes,confident-call rate,3.480702405745479e-5,NA
+validation_control,NA,Contribution of finetuning,CheckAMG-PST,category precision,0.8955562568564688,NA
+validation_control,NA,Contribution of finetuning,ESM-2 backbone only,category precision,0.9882331725350525,NA
+target_sweep,specific,held-out test proteins,target_0.50,rate_heldout,0.9214195485854565,38660
+target_sweep,specific,held-out test proteins,target_0.50,realized_precision,0.846456285566477,38660
+target_sweep,L1,held-out test proteins,target_0.50,rate_heldout,0.06418476058822127,2693
+target_sweep,L1,held-out test proteins,target_0.50,realized_precision,0.43594504270330486,2693
+target_sweep,category,held-out test proteins,target_0.50,rate_heldout,0.014348022975903901,602
+target_sweep,category,held-out test proteins,target_0.50,realized_precision,0.6926910299003323,602
+target_sweep,unassigned,held-out test proteins,target_0.50,rate_heldout,4.766785041828539e-5,2
+target_sweep,unassigned,held-out test proteins,target_0.50,realized_precision,NA,2
+target_sweep,specific,held-out test proteins,target_0.60,rate_heldout,0.9102414376623686,38191
+target_sweep,specific,held-out test proteins,target_0.60,realized_precision,0.8541017517216098,38191
+target_sweep,L1,held-out test proteins,target_0.60,rate_heldout,0.041256524537026,1731
+target_sweep,L1,held-out test proteins,target_0.60,realized_precision,0.561525129982669,1731
+target_sweep,category,held-out test proteins,target_0.60,rate_heldout,0.0484543699501871,2033
+target_sweep,category,held-out test proteins,target_0.60,realized_precision,0.7304476143630103,2033
+target_sweep,unassigned,held-out test proteins,target_0.60,rate_heldout,4.766785041828539e-5,2
+target_sweep,unassigned,held-out test proteins,target_0.60,realized_precision,NA,2
+target_sweep,specific,held-out test proteins,target_0.70,rate_heldout,0.9025907476702338,37870
+target_sweep,specific,held-out test proteins,target_0.70,realized_precision,0.8580406654343807,37870
+target_sweep,L1,held-out test proteins,target_0.70,rate_heldout,0.028338537073670664,1189
+target_sweep,L1,held-out test proteins,target_0.70,realized_precision,0.6812447434819175,1189
+target_sweep,category,held-out test proteins,target_0.70,rate_heldout,0.06902304740567725,2896
+target_sweep,category,held-out test proteins,target_0.70,realized_precision,0.7372237569060773,2896
+target_sweep,unassigned,held-out test proteins,target_0.70,rate_heldout,4.766785041828539e-5,2
+target_sweep,unassigned,held-out test proteins,target_0.70,realized_precision,NA,2
+target_sweep,specific,held-out test proteins,target_0.75,rate_heldout,0.8993970016922087,37736
+target_sweep,specific,held-out test proteins,target_0.75,realized_precision,0.8595505617977528,37736
+target_sweep,L1,held-out test proteins,target_0.75,rate_heldout,0.020902352408418142,877
+target_sweep,L1,held-out test proteins,target_0.75,realized_precision,0.7571265678449259,877
+target_sweep,category,held-out test proteins,target_0.75,rate_heldout,0.07965297804895488,3342
+target_sweep,category,held-out test proteins,target_0.75,realized_precision,0.7471573907839617,3342
+target_sweep,unassigned,held-out test proteins,target_0.75,rate_heldout,4.766785041828539e-5,2
+target_sweep,unassigned,held-out test proteins,target_0.75,realized_precision,NA,2
+target_sweep,specific,held-out test proteins,target_0.80,rate_heldout,0.895440570107491,37570
+target_sweep,specific,held-out test proteins,target_0.80,realized_precision,0.8610859728506788,37570
+target_sweep,L1,held-out test proteins,target_0.80,rate_heldout,0.01847129203708559,775
+target_sweep,L1,held-out test proteins,target_0.80,realized_precision,0.8025806451612904,775
+target_sweep,category,held-out test proteins,target_0.80,rate_heldout,0.060657339657268154,2545
+target_sweep,category,held-out test proteins,target_0.80,realized_precision,0.7827111984282907,2545
+target_sweep,unassigned,held-out test proteins,target_0.80,rate_heldout,0.025430798198155254,1067
+target_sweep,unassigned,held-out test proteins,target_0.80,realized_precision,NA,1067
+target_sweep,specific,held-out test proteins,target_0.85,rate_heldout,0.8934146864647139,37485
+target_sweep,specific,held-out test proteins,target_0.85,realized_precision,0.8617313592103508,37485
+target_sweep,L1,held-out test proteins,target_0.85,rate_heldout,0.015730390638034178,660
+target_sweep,L1,held-out test proteins,target_0.85,realized_precision,0.8454545454545455,660
+target_sweep,category,held-out test proteins,target_0.85,rate_heldout,0.03911147126820316,1641
+target_sweep,category,held-out test proteins,target_0.85,realized_precision,0.8129189518586228,1641
+target_sweep,unassigned,held-out test proteins,target_0.85,rate_heldout,0.05174345162904879,2171
+target_sweep,unassigned,held-out test proteins,target_0.85,realized_precision,NA,2171
+target_sweep,specific,held-out test proteins,target_0.90,rate_heldout,0.6350072693471888,26643
+target_sweep,specific,held-out test proteins,target_0.90,realized_precision,0.9453139661449537,26643
+target_sweep,L1,held-out test proteins,target_0.90,rate_heldout,0.268083990752437,11248
+target_sweep,L1,held-out test proteins,target_0.90,realized_precision,0.9245199146514936,11248
+target_sweep,category,held-out test proteins,target_0.90,rate_heldout,0.019210143718569012,806
+target_sweep,category,held-out test proteins,target_0.90,realized_precision,0.8498759305210918,806
+target_sweep,unassigned,held-out test proteins,target_0.90,rate_heldout,0.07769859618180518,3260
+target_sweep,unassigned,held-out test proteins,target_0.90,realized_precision,NA,3260
+target_sweep,specific,held-out test proteins,target_0.95,rate_heldout,0.6147961007698358,25795
+target_sweep,specific,held-out test proteins,target_0.95,realized_precision,0.9501066098081024,25795
+target_sweep,L1,held-out test proteins,target_0.95,rate_heldout,0.02867221202659866,1203
+target_sweep,L1,held-out test proteins,target_0.95,realized_precision,0.8935993349958438,1203
+target_sweep,category,held-out test proteins,target_0.95,rate_heldout,0.26653478561384275,11183
+target_sweep,category,held-out test proteins,target_0.95,realized_precision,0.9891800053652866,11183
+target_sweep,unassigned,held-out test proteins,target_0.95,rate_heldout,0.08999690158972282,3776
+target_sweep,unassigned,held-out test proteins,target_0.95,realized_precision,NA,3776
+target_sweep,specific,held-out test proteins,target_0.99,rate_heldout,0.17410682365278737,7305
+target_sweep,specific,held-out test proteins,target_0.99,realized_precision,0.9872689938398357,7305
+target_sweep,L1,held-out test proteins,target_0.99,rate_heldout,0.13442333817956478,5640
+target_sweep,L1,held-out test proteins,target_0.99,realized_precision,0.9833333333333333,5640
+target_sweep,category,held-out test proteins,target_0.99,rate_heldout,0.5916533593917582,24824
+target_sweep,category,held-out test proteins,target_0.99,realized_precision,0.9937963261359974,24824
+target_sweep,unassigned,held-out test proteins,target_0.99,rate_heldout,0.0998164787758896,4188
+target_sweep,unassigned,held-out test proteins,target_0.99,realized_precision,NA,4188
+target_sweep,specific,sequence-similarity invisible AVGs,target_0.50,rate,0.7989129936667675,87167
+target_sweep,L1,sequence-similarity invisible AVGs,target_0.50,rate,0.18179401871557277,19835
+target_sweep,category,sequence-similarity invisible AVGs,target_0.50,rate,0.019128011951570476,2087
+target_sweep,unassigned,sequence-similarity invisible AVGs,target_0.50,rate,1.6497566608925183e-4,18
+target_sweep,specific,sequence-similarity invisible AVGs,target_0.60,rate,0.7270752563996811,79329
+target_sweep,L1,sequence-similarity invisible AVGs,target_0.60,rate,0.1972650700688315,21523
+target_sweep,category,sequence-similarity invisible AVGs,target_0.60,rate,0.07543970597670177,8231
+target_sweep,unassigned,sequence-similarity invisible AVGs,target_0.60,rate,2.1996755478566912e-4,24
+target_sweep,specific,sequence-similarity invisible AVGs,target_0.70,rate,0.6549625596891125,71461
+target_sweep,L1,sequence-similarity invisible AVGs,target_0.70,rate,0.20631123575939217,22510
+target_sweep,category,sequence-similarity invisible AVGs,target_0.70,rate,0.13850623699670966,15112
+target_sweep,unassigned,sequence-similarity invisible AVGs,target_0.70,rate,2.1996755478566912e-4,24
+target_sweep,specific,sequence-similarity invisible AVGs,target_0.75,rate,0.6130679058172253,66890
+target_sweep,L1,sequence-similarity invisible AVGs,target_0.75,rate,0.19332398471225495,21093
+target_sweep,category,sequence-similarity invisible AVGs,target_0.75,rate,0.19338814191573409,21100
+target_sweep,unassigned,sequence-similarity invisible AVGs,target_0.75,rate,2.1996755478566912e-4,24
+target_sweep,specific,sequence-similarity invisible AVGs,target_0.80,rate,0.5659031959452647,61744
+target_sweep,L1,sequence-similarity invisible AVGs,target_0.80,rate,0.1917200546252761,20918
+target_sweep,category,sequence-similarity invisible AVGs,target_0.80,rate,0.069803037385319,7616
+target_sweep,unassigned,sequence-similarity invisible AVGs,target_0.80,rate,0.17257371204414018,18829
+target_sweep,specific,sequence-similarity invisible AVGs,target_0.85,rate,0.5345486540735241,58323
+target_sweep,L1,sequence-similarity invisible AVGs,target_0.85,rate,0.16725782947015314,18249
+target_sweep,category,sequence-similarity invisible AVGs,target_0.85,rate,0.05071168669287947,5533
+target_sweep,unassigned,sequence-similarity invisible AVGs,target_0.85,rate,0.2474818297634432,27002
+target_sweep,specific,sequence-similarity invisible AVGs,target_0.90,rate,0.4160319686179622,45392
+target_sweep,L1,sequence-similarity invisible AVGs,target_0.90,rate,0.18927291557828554,20651
+target_sweep,category,sequence-similarity invisible AVGs,target_0.90,rate,0.04680726259543384,5107
+target_sweep,unassigned,sequence-similarity invisible AVGs,target_0.90,rate,0.34788785320831844,37957
+target_sweep,specific,sequence-similarity invisible AVGs,target_0.95,rate,0.3253136828984391,35494
+target_sweep,L1,sequence-similarity invisible AVGs,target_0.95,rate,0.16109873793615442,17577
+target_sweep,category,sequence-similarity invisible AVGs,target_0.95,rate,0.10910390717369188,11904
+target_sweep,unassigned,sequence-similarity invisible AVGs,target_0.95,rate,0.4044836719917146,44132
+target_sweep,specific,sequence-similarity invisible AVGs,target_0.99,rate,0.21773121797868147,23756
+target_sweep,L1,sequence-similarity invisible AVGs,target_0.99,rate,0.08211205513853374,8959
+target_sweep,category,sequence-similarity invisible AVGs,target_0.99,rate,0.1797501535190226,19612
+target_sweep,unassigned,sequence-similarity invisible AVGs,target_0.99,rate,0.5204065733637622,56780

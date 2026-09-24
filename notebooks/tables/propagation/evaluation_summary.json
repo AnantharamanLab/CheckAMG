@@ -1,0 +1,2482 @@
+{
+  "schema_version": "propagation-1.2",
+  "split_integrity": {
+    "criterion": "fewer than 5% of held-out proteins above 50% identity to any training protein",
+    "passed": false,
+    "frac_above_50pct": 0.8350660679556114,
+    "frac_above_90pct": 0.1085187621553598,
+    "median_max_identity": 0.6449999809265137,
+    "applied_median_max_identity": 0.5830000042915344,
+    "note": "split is genome-cluster-atomic, not family-disjoint; all precision reported stratified by identity"
+  },
+  "ladder": {
+    "category": {
+      "n": 133744,
+      "micro": 0.8952,
+      "macro": 0.8491,
+      "n_labels": 3
+    },
+    "L1": {
+      "n": 133744,
+      "micro": 0.5866,
+      "macro": 0.5595,
+      "n_labels": 28
+    },
+    "specific": {
+      "n": 133744,
+      "micro": 0.3813,
+      "macro": 0.2255,
+      "n_labels": 6181
+    }
+  },
+  "majority_baseline": 0.6688300035889461,
+  "ladder_by_frequency": [
+    {
+      "level": "L1",
+      "freq_tercile": "common",
+      "precision": 0.6004039238315061,
+      "n": 124776
+    },
+    {
+      "level": "L1",
+      "freq_tercile": "mid",
+      "precision": 0.4043608826217522,
+      "n": 7659
+    },
+    {
+      "level": "L1",
+      "freq_tercile": "rare",
+      "precision": 0.2975352112676056,
+      "n": 1136
+    },
+    {
+      "level": "L1",
+      "freq_tercile": "unseen",
+      "precision": null,
+      "n": 173
+    },
+    {
+      "level": "category",
+      "freq_tercile": "common",
+      "precision": 0.8974241841379752,
+      "n": 124776
+    },
+    {
+      "level": "category",
+      "freq_tercile": "mid",
+      "precision": 0.8672150411280846,
+      "n": 7659
+    },
+    {
+      "level": "category",
+      "freq_tercile": "rare",
+      "precision": 0.8573943661971831,
+      "n": 1136
+    },
+    {
+      "level": "category",
+      "freq_tercile": "unseen",
+      "precision": 0.815028901734104,
+      "n": 173
+    },
+    {
+      "level": "specific",
+      "freq_tercile": "common",
+      "precision": 0.39898698467654037,
+      "n": 124776
+    },
+    {
+      "level": "specific",
+      "freq_tercile": "mid",
+      "precision": 0.15028071549810681,
+      "n": 7659
+    },
+    {
+      "level": "specific",
+      "freq_tercile": "rare",
+      "precision": 0.05369718309859155,
+      "n": 1136
+    },
+    {
+      "level": "specific",
+      "freq_tercile": "unseen",
+      "precision": 0.011560693641618497,
+      "n": 173
+    }
+  ],
+  "ladder_by_identity": [
+    {
+      "band": "0%-30%",
+      "lo": 0.0,
+      "n": 1170,
+      "category": 0.8043,
+      "L1": 0.5377,
+      "specific": 0.3419
+    },
+    {
+      "band": "30%-40%",
+      "lo": 0.3,
+      "n": 4158,
+      "category": 0.8492,
+      "L1": 0.5529,
+      "specific": 0.342
+    },
+    {
+      "band": "40%-50%",
+      "lo": 0.4,
+      "n": 15862,
+      "category": 0.8607,
+      "L1": 0.5512,
+      "specific": 0.3193
+    },
+    {
+      "band": "50%-60%",
+      "lo": 0.5,
+      "n": 30168,
+      "category": 0.8741,
+      "L1": 0.5501,
+      "specific": 0.3221
+    },
+    {
+      "band": "60%-70%",
+      "lo": 0.6,
+      "n": 32464,
+      "category": 0.8999,
+      "L1": 0.5521,
+      "specific": 0.3443
+    },
+    {
+      "band": "70%-80%",
+      "lo": 0.7,
+      "n": 23540,
+      "category": 0.9201,
+      "L1": 0.585,
+      "specific": 0.3894
+    },
+    {
+      "band": "80%-90%",
+      "lo": 0.8,
+      "n": 11901,
+      "category": 0.925,
+      "L1": 0.6469,
+      "specific": 0.4659
+    },
+    {
+      "band": "90%-101%",
+      "lo": 0.9,
+      "n": 14481,
+      "category": 0.9226,
+      "L1": 0.7452,
+      "specific": 0.5873
+    }
+  ],
+  "score_auroc": [
+    {
+      "score": "vote_purity_k50",
+      "auroc_specific": 0.8726,
+      "direction_specific": "higher_better",
+      "auroc_L1": 0.7723,
+      "direction_L1": "higher_better"
+    },
+    {
+      "score": "vote_purity_k20",
+      "auroc_specific": 0.871,
+      "direction_specific": "higher_better",
+      "auroc_L1": 0.7692,
+      "direction_L1": "higher_better"
+    },
+    {
+      "score": "vote_purity_k5",
+      "auroc_specific": 0.8555,
+      "direction_specific": "higher_better",
+      "auroc_L1": 0.7544,
+      "direction_L1": "higher_better"
+    },
+    {
+      "score": "ratio",
+      "auroc_specific": 0.7868,
+      "direction_specific": "lower_better",
+      "auroc_L1": 0.7144,
+      "direction_L1": "lower_better"
+    },
+    {
+      "score": "margin",
+      "auroc_specific": 0.6962,
+      "direction_specific": "higher_better",
+      "auroc_L1": 0.6318,
+      "direction_L1": "higher_better"
+    },
+    {
+      "score": "density_norm_d1",
+      "auroc_specific": 0.6086,
+      "direction_specific": "lower_better",
+      "auroc_L1": 0.6046,
+      "direction_L1": "lower_better"
+    },
+    {
+      "score": "d1",
+      "auroc_specific": 0.5813,
+      "direction_specific": "lower_better",
+      "auroc_L1": 0.5847,
+      "direction_L1": "lower_better"
+    },
+    {
+      "score": "hub_count",
+      "auroc_specific": 0.5387,
+      "direction_specific": "higher_better",
+      "auroc_L1": 0.5318,
+      "direction_L1": "higher_better"
+    },
+    {
+      "score": "d2",
+      "auroc_specific": 0.5381,
+      "direction_specific": "lower_better",
+      "auroc_L1": 0.5543,
+      "direction_L1": "lower_better"
+    }
+  ],
+  "score_gate_passed": true,
+  "calibration_ece": {
+    "specific": 0.0077,
+    "L1": 0.0055,
+    "category": 0.0057
+  },
+  "ece_gate_passed": true,
+  "risk_coverage": [
+    {
+      "level": "L1",
+      "ranking": "calibrated",
+      "aurc": 0.8065,
+      "cov@0.90": 0.3364,
+      "cov@0.80": 0.5079,
+      "cov@0.70": 0.6993
+    },
+    {
+      "level": "L1",
+      "ranking": "d1_only",
+      "aurc": 0.6595,
+      "cov@0.90": 0.0276,
+      "cov@0.80": 0.0613,
+      "cov@0.70": 0.1692
+    },
+    {
+      "level": "category",
+      "ranking": "calibrated",
+      "aurc": 0.9501,
+      "cov@0.90": 0.9182,
+      "cov@0.80": 1.0,
+      "cov@0.70": 1.0
+    },
+    {
+      "level": "category",
+      "ranking": "d1_only",
+      "aurc": 0.9179,
+      "cov@0.90": 0.8162,
+      "cov@0.80": 1.0,
+      "cov@0.70": 1.0
+    },
+    {
+      "level": "specific",
+      "ranking": "calibrated",
+      "aurc": 0.6801,
+      "cov@0.90": 0.2339,
+      "cov@0.80": 0.3424,
+      "cov@0.70": 0.4462
+    },
+    {
+      "level": "specific",
+      "ranking": "d1_only",
+      "aurc": 0.461,
+      "cov@0.90": 0.0001,
+      "cov@0.80": 0.0232,
+      "cov@0.70": 0.0414
+    }
+  ],
+  "assignment_depth": {
+    "specific": 374304,
+    "category": 9378,
+    "unassigned": 77301,
+    "L1": 80216
+  },
+  "information_bits": {
+    "adaptive": 7.304788571036384,
+    "category_only": 1.99563888864903,
+    "gain": 5.309149682387353
+  },
+  "frequency_recovery": {
+    "spearman": {
+      "old_raw_specific": 0.7109,
+      "adaptive": 0.6969
+    },
+    "min_overlap_at_12": {
+      "old_raw_specific": 8,
+      "adaptive": 9
+    },
+    "slopes": [
+      {
+        "method": "old_raw_specific",
+        "log_log_slope": 1.0453,
+        "n_labels": 538
+      },
+      {
+        "method": "adaptive",
+        "log_log_slope": 1.0627,
+        "n_labels": 536
+      }
+    ],
+    "gate_passed": false
+  },
+  "defensefinder": {
+    "positive_proteins": 23297,
+    "category_breakdown": [
+      {
+        "emitted_category": "regulatory",
+        "n": 10569,
+        "pct": 69.7
+      },
+      {
+        "emitted_category": "physiological",
+        "n": 2563,
+        "pct": 16.9
+      },
+      {
+        "emitted_category": "metabolic",
+        "n": 2032,
+        "pct": 13.4
+      }
+    ],
+    "regulatory_pred_over_true_heldout": 0.997
+  },
+  "sequence_clustering": {
+    "mmseqs_version": "18.8cc5c",
+    "command": {
+      "cluster_all.sh": [
+        "\"$MM\" cluster db/universe_all \"db/${out}\" \"tmp_${out}\" --min-seq-id \"0.${pct}\" -c 0.8 --cov-mode 0 -s 7.5 --threads 50 -v 1"
+      ],
+      "run_cluster.sh": [
+        "\"$MM\" cluster db/universe \"db/clu_id${pct}\" \"tmp_id${pct}\" --min-seq-id \"0.${pct}\" -c 0.8 --cov-mode 0 -s 7.5 --threads 128 -v 1"
+      ],
+      "run_cluster_hi.sh": [
+        "\"$MM\" cluster db/universe_hi \"db/clu_hi_id${pct}\" \"tmp_hi_id${pct}\" --min-seq-id \"0.${pct}\" -c 0.8 --cov-mode 0 -s 7.5 --threads 96 -v 1"
+      ]
+    },
+    "min_seq_ids": [
+      0.3,
+      0.5,
+      0.7,
+      0.9
+    ],
+    "cluster_stats": [
+      {
+        "min_seq_id": 0.3,
+        "universe_members": 1099305,
+        "n_clusters": 144517,
+        "singleton_frac": 0.5964281018842074,
+        "mean_size": 7.606752146806258,
+        "max_size": 2852,
+        "queries": 139856,
+        "with_labeled_member": 0.8931114860999886,
+        "vote_available": 0.8825005720169317,
+        "tie_frac_of_reached": 0.011880839344472288
+      },
+      {
+        "min_seq_id": 0.5,
+        "universe_members": 1099305,
+        "n_clusters": 468639,
+        "singleton_frac": 0.7593499474008779,
+        "mean_size": 2.345739471106758,
+        "max_size": 1135,
+        "queries": 139856,
+        "with_labeled_member": 0.5845441025054342,
+        "vote_available": 0.5779158563093467,
+        "tie_frac_of_reached": 0.011339172130345436
+      },
+      {
+        "min_seq_id": 0.7,
+        "universe_members": 1099305,
+        "n_clusters": 820717,
+        "singleton_frac": 0.8801121458432078,
+        "mean_size": 1.3394446563188043,
+        "max_size": 378,
+        "queries": 139856,
+        "with_labeled_member": 0.22898552797162797,
+        "vote_available": 0.22765558860542273,
+        "tie_frac_of_reached": 0.005807962529274005
+      },
+      {
+        "min_seq_id": 0.9,
+        "universe_members": 1099305,
+        "n_clusters": 977661,
+        "singleton_frac": 0.9380255528245476,
+        "mean_size": 1.1244234964880464,
+        "max_size": 398,
+        "queries": 139856,
+        "with_labeled_member": 0.09330311177210845,
+        "vote_available": 0.09313865690424436,
+        "tie_frac_of_reached": 0.001762587171430761
+      }
+    ],
+    "tier1_min_seq_id_chosen": {
+      "specific": 0.5,
+      "L1": 0.3,
+      "category": 0.3
+    },
+    "tier2_threshold_refit": {
+      "specific": 0.7774798927613943,
+      "L1": 0.851258581235698,
+      "category": 0.9129392971246006
+    },
+    "tier2_threshold_unmasked": {
+      "specific": 0.6894736842105263,
+      "L1": 0.7272727272727273,
+      "category": 0.7980997624703088
+    },
+    "ablation_primary_target": [
+      {
+        "target": 0.9,
+        "method": "cluster_only",
+        "level": "specific",
+        "n_report": 41957,
+        "n_assigned": 24320,
+        "coverage": 0.5796410610863503,
+        "precision": 0.9501644736842105,
+        "lo": 0.9473577575945057,
+        "hi": 0.9528289958005666,
+        "recall": 0.5507543437328694,
+        "mean_depth": null
+      },
+      {
+        "target": 0.9,
+        "method": "cluster_only",
+        "level": "L1",
+        "n_report": 41957,
+        "n_assigned": 13103,
+        "coverage": 0.31229592201539674,
+        "precision": 0.9323818972754331,
+        "lo": 0.9279546156357096,
+        "hi": 0.9365557176546538,
+        "recall": 0.29117906428009627,
+        "mean_depth": null
+      },
+      {
+        "target": 0.9,
+        "method": "cluster_only",
+        "level": "category",
+        "n_report": 41957,
+        "n_assigned": 70,
+        "coverage": 0.0016683747646399885,
+        "precision": 0.9857142857142858,
+        "lo": 0.9234163029607309,
+        "hi": 0.997473818596765,
+        "recall": 0.001644540839430846,
+        "mean_depth": null
+      },
+      {
+        "target": 0.9,
+        "method": "cluster_only",
+        "level": "any",
+        "n_report": 41957,
+        "n_assigned": 37493,
+        "coverage": 0.8936053578663871,
+        "precision": 0.9440162163603872,
+        "lo": 0.9416433717544687,
+        "hi": 0.9462980808931057,
+        "recall": 0.8435779488523965,
+        "mean_depth": 2.3651834020544844
+      },
+      {
+        "target": 0.9,
+        "method": "embedding_only",
+        "level": "specific",
+        "n_report": 41957,
+        "n_assigned": 9714,
+        "coverage": 0.23152274948161214,
+        "precision": 0.9018941733580399,
+        "lo": 0.8958189606266858,
+        "hi": 0.9076516372064791,
+        "recall": 0.20880901875729915,
+        "mean_depth": null
+      },
+      {
+        "target": 0.9,
+        "method": "embedding_only",
+        "level": "L1",
+        "n_report": 41957,
+        "n_assigned": 4089,
+        "coverage": 0.09745692018018448,
+        "precision": 0.7935925654194179,
+        "lo": 0.7809144079185026,
+        "hi": 0.8057195825100543,
+        "recall": 0.07734108730366804,
+        "mean_depth": null
+      },
+      {
+        "target": 0.9,
+        "method": "embedding_only",
+        "level": "category",
+        "n_report": 41957,
+        "n_assigned": 23947,
+        "coverage": 0.5707510069833401,
+        "precision": 0.8615275399841317,
+        "lo": 0.857094834089683,
+        "hi": 0.8658442713152813,
+        "recall": 0.4917177109898229,
+        "mean_depth": null
+      },
+      {
+        "target": 0.9,
+        "method": "embedding_only",
+        "level": "any",
+        "n_report": 41957,
+        "n_assigned": 37750,
+        "coverage": 0.8997306766451367,
+        "precision": 0.8645562913907284,
+        "lo": 0.8610671499390214,
+        "hi": 0.8679712428056257,
+        "recall": 0.77786781705079,
+        "mean_depth": 1.4602330957885454
+      },
+      {
+        "target": 0.9,
+        "method": "tiered",
+        "level": "specific",
+        "n_report": 41957,
+        "n_assigned": 26643,
+        "coverage": 0.6350072693471888,
+        "precision": 0.9453139661449537,
+        "lo": 0.9425190317993575,
+        "hi": 0.9479805011734359,
+        "recall": 0.6002812403174679,
+        "mean_depth": null
+      },
+      {
+        "target": 0.9,
+        "method": "tiered",
+        "level": "L1",
+        "n_report": 41957,
+        "n_assigned": 11248,
+        "coverage": 0.268083990752437,
+        "precision": 0.9245199146514936,
+        "lo": 0.9194917137869724,
+        "hi": 0.9292582366211458,
+        "recall": 0.24784898824987486,
+        "mean_depth": null
+      },
+      {
+        "target": 0.9,
+        "method": "tiered",
+        "level": "category",
+        "n_report": 41957,
+        "n_assigned": 806,
+        "coverage": 0.019210143718569012,
+        "precision": 0.8498759305210918,
+        "lo": 0.8235589722813882,
+        "hi": 0.8728735152569155,
+        "recall": 0.016326238768262745,
+        "mean_depth": null
+      },
+      {
+        "target": 0.9,
+        "method": "tiered",
+        "level": "any",
+        "n_report": 41957,
+        "n_assigned": 38697,
+        "coverage": 0.9223014038181948,
+        "precision": 0.9372819598418483,
+        "lo": 0.9348225512187606,
+        "hi": 0.939654555759709,
+        "recall": 0.8644564673356055,
+        "mean_depth": 2.4603999332650095
+      }
+    ],
+    "tier_overlap": [
+      {
+        "level": "specific",
+        "reachable_by": "both",
+        "n": 6888,
+        "pct_of_slice": 16.41680768405749,
+        "tier1_precision": 0.9824332171893148,
+        "tier2_precision": 0.9234901277584204
+      },
+      {
+        "level": "specific",
+        "reachable_by": "cluster_only",
+        "n": 17432,
+        "pct_of_slice": 41.54729842457754,
+        "tier1_precision": 0.937413951353832,
+        "tier2_precision": 0.2440339605323543
+      },
+      {
+        "level": "specific",
+        "reachable_by": "embedding_only",
+        "n": 2826,
+        "pct_of_slice": 6.735467264103725,
+        "tier1_precision": 0.0,
+        "tier2_precision": 0.8492569002123143
+      },
+      {
+        "level": "specific",
+        "reachable_by": "neither",
+        "n": 14811,
+        "pct_of_slice": 35.300426627261245,
+        "tier1_precision": 0.0,
+        "tier2_precision": 0.18148673283370467
+      },
+      {
+        "level": "L1",
+        "reachable_by": "both",
+        "n": 12899,
+        "pct_of_slice": 30.74338012727316,
+        "tier1_precision": 0.9739514691061323,
+        "tier2_precision": 0.9103031242731995
+      },
+      {
+        "level": "L1",
+        "reachable_by": "cluster_only",
+        "n": 24455,
+        "pct_of_slice": 58.285864098958456,
+        "tier1_precision": 0.9306072377836844,
+        "tier2_precision": 0.42281741975056225
+      },
+      {
+        "level": "L1",
+        "reachable_by": "embedding_only",
+        "n": 899,
+        "pct_of_slice": 2.142669876301928,
+        "tier1_precision": 0.0,
+        "tier2_precision": 0.8197997775305895
+      },
+      {
+        "level": "L1",
+        "reachable_by": "neither",
+        "n": 3704,
+        "pct_of_slice": 8.828085897466453,
+        "tier1_precision": 0.0,
+        "tier2_precision": 0.39011879049676024
+      },
+      {
+        "level": "category",
+        "reachable_by": "both",
+        "n": 34157,
+        "pct_of_slice": 81.40953833686869,
+        "tier1_precision": 0.9942617911409082,
+        "tier2_precision": 0.9114676347454401
+      },
+      {
+        "level": "category",
+        "reachable_by": "cluster_only",
+        "n": 3306,
+        "pct_of_slice": 7.879495674142574,
+        "tier1_precision": 0.9939503932244405,
+        "tier2_precision": 0.7664851784633999
+      },
+      {
+        "level": "category",
+        "reachable_by": "embedding_only",
+        "n": 3581,
+        "pct_of_slice": 8.534928617393998,
+        "tier1_precision": 0.0,
+        "tier2_precision": 0.8101089081262217
+      },
+      {
+        "level": "category",
+        "reachable_by": "neither",
+        "n": 913,
+        "pct_of_slice": 2.176037371594728,
+        "tier1_precision": 0.0,
+        "tier2_precision": 0.6812705366922235
+      }
+    ],
+    "recall_at_matched_precision": [
+      {
+        "target": 0.5,
+        "method": "cluster_only",
+        "level": "specific",
+        "coverage": 0.8829277593726911,
+        "precision": 0.8619246861924686,
+        "recall": 0.7610172319279263,
+        "met": true
+      },
+      {
+        "target": 0.5,
+        "method": "cluster_only",
+        "level": "L1",
+        "coverage": 0.0083180398979908,
+        "precision": 0.9197707736389685,
+        "recall": 0.0076506899921348044,
+        "met": true
+      },
+      {
+        "target": 0.5,
+        "method": "cluster_only",
+        "level": "category",
+        "coverage": 0.0017398765402674165,
+        "precision": 1.0,
+        "recall": 0.0017398765402674165,
+        "met": true
+      },
+      {
+        "target": 0.5,
+        "method": "cluster_only",
+        "level": "any",
+        "coverage": 0.8929856758109493,
+        "precision": 0.8627325379667441,
+        "recall": 0.7704077984603285,
+        "met": true
+      },
+      {
+        "target": 0.5,
+        "method": "embedding_only",
+        "level": "specific",
+        "coverage": 0.7188311843077436,
+        "precision": 0.5008620689655172,
+        "recall": 0.36003527420930953,
+        "met": true
+      },
+      {
+        "target": 0.5,
+        "method": "embedding_only",
+        "level": "L1",
+        "coverage": 0.2811688156922564,
+        "precision": 0.29888954819021785,
+        "recall": 0.08403842028743713,
+        "met": false
+      },
+      {
+        "target": 0.5,
+        "method": "embedding_only",
+        "level": "category",
+        "coverage": 0.0,
+        "precision": null,
+        "recall": 0.0,
+        "met": false
+      },
+      {
+        "target": 0.5,
+        "method": "embedding_only",
+        "level": "any",
+        "coverage": 1.0,
+        "precision": 0.44407369449674666,
+        "recall": 0.44407369449674666,
+        "met": false
+      },
+      {
+        "target": 0.5,
+        "method": "tiered",
+        "level": "specific",
+        "coverage": 0.9214195485854565,
+        "precision": 0.846456285566477,
+        "recall": 0.7799413685439855,
+        "met": true
+      },
+      {
+        "target": 0.5,
+        "method": "tiered",
+        "level": "L1",
+        "coverage": 0.06418476058822127,
+        "precision": 0.43594504270330486,
+        "recall": 0.02798102819553352,
+        "met": false
+      },
+      {
+        "target": 0.5,
+        "method": "tiered",
+        "level": "category",
+        "coverage": 0.014348022975903901,
+        "precision": 0.6926910299003323,
+        "recall": 0.009938746812212504,
+        "met": true
+      },
+      {
+        "target": 0.5,
+        "method": "tiered",
+        "level": "any",
+        "coverage": 0.9999523321495817,
+        "precision": 0.8179001310928375,
+        "recall": 0.8178611435517316,
+        "met": true
+      },
+      {
+        "target": 0.6,
+        "method": "cluster_only",
+        "level": "specific",
+        "coverage": 0.8829277593726911,
+        "precision": 0.8619246861924686,
+        "recall": 0.7610172319279263,
+        "met": true
+      },
+      {
+        "target": 0.6,
+        "method": "cluster_only",
+        "level": "L1",
+        "coverage": 0.0083180398979908,
+        "precision": 0.9197707736389685,
+        "recall": 0.0076506899921348044,
+        "met": true
+      },
+      {
+        "target": 0.6,
+        "method": "cluster_only",
+        "level": "category",
+        "coverage": 0.0017398765402674165,
+        "precision": 1.0,
+        "recall": 0.0017398765402674165,
+        "met": true
+      },
+      {
+        "target": 0.6,
+        "method": "cluster_only",
+        "level": "any",
+        "coverage": 0.8929856758109493,
+        "precision": 0.8627325379667441,
+        "recall": 0.7704077984603285,
+        "met": true
+      },
+      {
+        "target": 0.6,
+        "method": "embedding_only",
+        "level": "specific",
+        "coverage": 0.5680816073599161,
+        "precision": 0.5989511222991399,
+        "recall": 0.3402531162857211,
+        "met": false
+      },
+      {
+        "target": 0.6,
+        "method": "embedding_only",
+        "level": "L1",
+        "coverage": 0.354934814214553,
+        "precision": 0.3590518399140478,
+        "recall": 0.127439998093286,
+        "met": false
+      },
+      {
+        "target": 0.6,
+        "method": "embedding_only",
+        "level": "category",
+        "coverage": 0.0769835784255309,
+        "precision": 0.7594427244582044,
+        "recall": 0.05846461853802703,
+        "met": true
+      },
+      {
+        "target": 0.6,
+        "method": "embedding_only",
+        "level": "any",
+        "coverage": 1.0,
+        "precision": 0.5261577329170342,
+        "recall": 0.5261577329170342,
+        "met": false
+      },
+      {
+        "target": 0.6,
+        "method": "tiered",
+        "level": "specific",
+        "coverage": 0.9102414376623686,
+        "precision": 0.8541017517216098,
+        "recall": 0.7774388063970256,
+        "met": true
+      },
+      {
+        "target": 0.6,
+        "method": "tiered",
+        "level": "L1",
+        "coverage": 0.041256524537026,
+        "precision": 0.561525129982669,
+        "recall": 0.0231665753032867,
+        "met": false
+      },
+      {
+        "target": 0.6,
+        "method": "tiered",
+        "level": "category",
+        "coverage": 0.0484543699501871,
+        "precision": 0.7304476143630103,
+        "recall": 0.0353933789355769,
+        "met": true
+      },
+      {
+        "target": 0.6,
+        "method": "tiered",
+        "level": "any",
+        "coverage": 0.9999523321495817,
+        "precision": 0.8360386127994279,
+        "recall": 0.8359987606358891,
+        "met": true
+      },
+      {
+        "target": 0.7,
+        "method": "cluster_only",
+        "level": "specific",
+        "coverage": 0.8829277593726911,
+        "precision": 0.8619246861924686,
+        "recall": 0.7610172319279263,
+        "met": true
+      },
+      {
+        "target": 0.7,
+        "method": "cluster_only",
+        "level": "L1",
+        "coverage": 0.0083180398979908,
+        "precision": 0.9197707736389685,
+        "recall": 0.0076506899921348044,
+        "met": true
+      },
+      {
+        "target": 0.7,
+        "method": "cluster_only",
+        "level": "category",
+        "coverage": 0.0017398765402674165,
+        "precision": 1.0,
+        "recall": 0.0017398765402674165,
+        "met": true
+      },
+      {
+        "target": 0.7,
+        "method": "cluster_only",
+        "level": "any",
+        "coverage": 0.8929856758109493,
+        "precision": 0.8627325379667441,
+        "recall": 0.7704077984603285,
+        "met": true
+      },
+      {
+        "target": 0.7,
+        "method": "embedding_only",
+        "level": "specific",
+        "coverage": 0.4504611864527969,
+        "precision": 0.6961904761904761,
+        "recall": 0.31360678790189955,
+        "met": false
+      },
+      {
+        "target": 0.7,
+        "method": "embedding_only",
+        "level": "L1",
+        "coverage": 0.27735538765879353,
+        "precision": 0.45441264930824093,
+        "recall": 0.12603379650594657,
+        "met": false
+      },
+      {
+        "target": 0.7,
+        "method": "embedding_only",
+        "level": "category",
+        "coverage": 0.27218342588840955,
+        "precision": 0.8013134851138354,
+        "recall": 0.2181042495888648,
+        "met": true
+      },
+      {
+        "target": 0.7,
+        "method": "embedding_only",
+        "level": "any",
+        "coverage": 1.0,
+        "precision": 0.6577448339967109,
+        "recall": 0.6577448339967109,
+        "met": false
+      },
+      {
+        "target": 0.7,
+        "method": "tiered",
+        "level": "specific",
+        "coverage": 0.9025907476702338,
+        "precision": 0.8580406654343807,
+        "recall": 0.7744595657458827,
+        "met": true
+      },
+      {
+        "target": 0.7,
+        "method": "tiered",
+        "level": "L1",
+        "coverage": 0.028338537073670664,
+        "precision": 0.6812447434819175,
+        "recall": 0.019305479419405584,
+        "met": false
+      },
+      {
+        "target": 0.7,
+        "method": "tiered",
+        "level": "category",
+        "coverage": 0.06902304740567725,
+        "precision": 0.7372237569060773,
+        "recall": 0.050885430321519654,
+        "met": true
+      },
+      {
+        "target": 0.7,
+        "method": "tiered",
+        "level": "any",
+        "coverage": 0.9999523321495817,
+        "precision": 0.8446907400786557,
+        "recall": 0.8446504754868079,
+        "met": true
+      },
+      {
+        "target": 0.75,
+        "method": "cluster_only",
+        "level": "specific",
+        "coverage": 0.8829277593726911,
+        "precision": 0.8619246861924686,
+        "recall": 0.7610172319279263,
+        "met": true
+      },
+      {
+        "target": 0.75,
+        "method": "cluster_only",
+        "level": "L1",
+        "coverage": 0.0083180398979908,
+        "precision": 0.9197707736389685,
+        "recall": 0.0076506899921348044,
+        "met": true
+      },
+      {
+        "target": 0.75,
+        "method": "cluster_only",
+        "level": "category",
+        "coverage": 0.0017398765402674165,
+        "precision": 1.0,
+        "recall": 0.0017398765402674165,
+        "met": true
+      },
+      {
+        "target": 0.75,
+        "method": "cluster_only",
+        "level": "any",
+        "coverage": 0.8929856758109493,
+        "precision": 0.8627325379667441,
+        "recall": 0.7704077984603285,
+        "met": true
+      },
+      {
+        "target": 0.75,
+        "method": "embedding_only",
+        "level": "specific",
+        "coverage": 0.3842982100722168,
+        "precision": 0.7583726122550236,
+        "recall": 0.29144123745739686,
+        "met": true
+      },
+      {
+        "target": 0.75,
+        "method": "embedding_only",
+        "level": "L1",
+        "coverage": 0.20068165026098148,
+        "precision": 0.5431116389548694,
+        "recall": 0.10899253998140954,
+        "met": false
+      },
+      {
+        "target": 0.75,
+        "method": "embedding_only",
+        "level": "category",
+        "coverage": 0.41502013966680174,
+        "precision": 0.8155975420662723,
+        "recall": 0.33848940582024456,
+        "met": true
+      },
+      {
+        "target": 0.75,
+        "method": "embedding_only",
+        "level": "any",
+        "coverage": 1.0,
+        "precision": 0.7389231832590509,
+        "recall": 0.7389231832590509,
+        "met": false
+      },
+      {
+        "target": 0.75,
+        "method": "tiered",
+        "level": "specific",
+        "coverage": 0.8993970016922087,
+        "precision": 0.8595505617977528,
+        "recall": 0.7730771980837524,
+        "met": true
+      },
+      {
+        "target": 0.75,
+        "method": "tiered",
+        "level": "L1",
+        "coverage": 0.020902352408418142,
+        "precision": 0.7571265678449259,
+        "recall": 0.01582572633887075,
+        "met": true
+      },
+      {
+        "target": 0.75,
+        "method": "tiered",
+        "level": "category",
+        "coverage": 0.07965297804895488,
+        "precision": 0.7471573907839617,
+        "recall": 0.059513311247229306,
+        "met": false
+      },
+      {
+        "target": 0.75,
+        "method": "tiered",
+        "level": "any",
+        "coverage": 0.9999523321495817,
+        "precision": 0.8484566797759504,
+        "recall": 0.8484162356698525,
+        "met": true
+      },
+      {
+        "target": 0.8,
+        "method": "cluster_only",
+        "level": "specific",
+        "coverage": 0.8829277593726911,
+        "precision": 0.8619246861924686,
+        "recall": 0.7610172319279263,
+        "met": true
+      },
+      {
+        "target": 0.8,
+        "method": "cluster_only",
+        "level": "L1",
+        "coverage": 0.0083180398979908,
+        "precision": 0.9197707736389685,
+        "recall": 0.0076506899921348044,
+        "met": true
+      },
+      {
+        "target": 0.8,
+        "method": "cluster_only",
+        "level": "category",
+        "coverage": 0.0017398765402674165,
+        "precision": 1.0,
+        "recall": 0.0017398765402674165,
+        "met": true
+      },
+      {
+        "target": 0.8,
+        "method": "cluster_only",
+        "level": "any",
+        "coverage": 0.8929856758109493,
+        "precision": 0.8627325379667441,
+        "recall": 0.7704077984603285,
+        "met": true
+      },
+      {
+        "target": 0.8,
+        "method": "embedding_only",
+        "level": "specific",
+        "coverage": 0.3499773577710513,
+        "precision": 0.7929719422500681,
+        "recall": 0.27752222513525754,
+        "met": false
+      },
+      {
+        "target": 0.8,
+        "method": "embedding_only",
+        "level": "L1",
+        "coverage": 0.15971113282646518,
+        "precision": 0.597671989255335,
+        "recall": 0.09545487046261648,
+        "met": false
+      },
+      {
+        "target": 0.8,
+        "method": "embedding_only",
+        "level": "category",
+        "coverage": 0.49031150940248347,
+        "precision": 0.8233521291075248,
+        "recall": 0.4036990251924589,
+        "met": true
+      },
+      {
+        "target": 0.8,
+        "method": "embedding_only",
+        "level": "any",
+        "coverage": 1.0,
+        "precision": 0.776676120790333,
+        "recall": 0.776676120790333,
+        "met": false
+      },
+      {
+        "target": 0.8,
+        "method": "tiered",
+        "level": "specific",
+        "coverage": 0.895440570107491,
+        "precision": 0.8610859728506788,
+        "recall": 0.7710513144409753,
+        "met": true
+      },
+      {
+        "target": 0.8,
+        "method": "tiered",
+        "level": "L1",
+        "coverage": 0.01847129203708559,
+        "precision": 0.8025806451612904,
+        "recall": 0.014824701480086756,
+        "met": true
+      },
+      {
+        "target": 0.8,
+        "method": "tiered",
+        "level": "category",
+        "coverage": 0.060657339657268154,
+        "precision": 0.7827111984282907,
+        "recall": 0.04747717901661225,
+        "met": false
+      },
+      {
+        "target": 0.8,
+        "method": "tiered",
+        "level": "any",
+        "coverage": 0.9745692018018447,
+        "precision": 0.8550990462215701,
+        "recall": 0.8333531949376742,
+        "met": true
+      },
+      {
+        "target": 0.85,
+        "method": "cluster_only",
+        "level": "specific",
+        "coverage": 0.8829277593726911,
+        "precision": 0.8619246861924686,
+        "recall": 0.7610172319279263,
+        "met": true
+      },
+      {
+        "target": 0.85,
+        "method": "cluster_only",
+        "level": "L1",
+        "coverage": 0.0083180398979908,
+        "precision": 0.9197707736389685,
+        "recall": 0.0076506899921348044,
+        "met": true
+      },
+      {
+        "target": 0.85,
+        "method": "cluster_only",
+        "level": "category",
+        "coverage": 0.0017398765402674165,
+        "precision": 1.0,
+        "recall": 0.0017398765402674165,
+        "met": true
+      },
+      {
+        "target": 0.85,
+        "method": "cluster_only",
+        "level": "any",
+        "coverage": 0.8929856758109493,
+        "precision": 0.8627325379667441,
+        "recall": 0.7704077984603285,
+        "met": true
+      },
+      {
+        "target": 0.85,
+        "method": "embedding_only",
+        "level": "specific",
+        "coverage": 0.2914889053078151,
+        "precision": 0.8488143908421913,
+        "recall": 0.2474199775961103,
+        "met": false
+      },
+      {
+        "target": 0.85,
+        "method": "embedding_only",
+        "level": "L1",
+        "coverage": 0.1266534785613843,
+        "precision": 0.6945803537824614,
+        "recall": 0.08797101794694569,
+        "met": false
+      },
+      {
+        "target": 0.85,
+        "method": "embedding_only",
+        "level": "category",
+        "coverage": 0.5818576161308006,
+        "precision": 0.8332445828042436,
+        "recall": 0.4848297066043807,
+        "met": false
+      },
+      {
+        "target": 0.85,
+        "method": "embedding_only",
+        "level": "any",
+        "coverage": 1.0,
+        "precision": 0.8202207021474367,
+        "recall": 0.8202207021474367,
+        "met": false
+      },
+      {
+        "target": 0.85,
+        "method": "tiered",
+        "level": "specific",
+        "coverage": 0.8934146864647139,
+        "precision": 0.8617313592103508,
+        "recall": 0.7698834521057273,
+        "met": true
+      },
+      {
+        "target": 0.85,
+        "method": "tiered",
+        "level": "L1",
+        "coverage": 0.015730390638034178,
+        "precision": 0.8454545454545455,
+        "recall": 0.013299330266701622,
+        "met": false
+      },
+      {
+        "target": 0.85,
+        "method": "tiered",
+        "level": "category",
+        "coverage": 0.03911147126820316,
+        "precision": 0.8129189518586228,
+        "recall": 0.031794456228996355,
+        "met": false
+      },
+      {
+        "target": 0.85,
+        "method": "tiered",
+        "level": "any",
+        "coverage": 0.9482565483709512,
+        "precision": 0.8594480470517267,
+        "recall": 0.8149772386014252,
+        "met": true
+      },
+      {
+        "target": 0.9,
+        "method": "cluster_only",
+        "level": "specific",
+        "coverage": 0.5796410610863503,
+        "precision": 0.9501644736842105,
+        "recall": 0.5507543437328694,
+        "met": true
+      },
+      {
+        "target": 0.9,
+        "method": "cluster_only",
+        "level": "L1",
+        "coverage": 0.31229592201539674,
+        "precision": 0.9323818972754331,
+        "recall": 0.29117906428009627,
+        "met": true
+      },
+      {
+        "target": 0.9,
+        "method": "cluster_only",
+        "level": "category",
+        "coverage": 0.0016683747646399885,
+        "precision": 0.9857142857142858,
+        "recall": 0.001644540839430846,
+        "met": true
+      },
+      {
+        "target": 0.9,
+        "method": "cluster_only",
+        "level": "any",
+        "coverage": 0.8936053578663871,
+        "precision": 0.9440162163603872,
+        "recall": 0.8435779488523965,
+        "met": true
+      },
+      {
+        "target": 0.9,
+        "method": "embedding_only",
+        "level": "specific",
+        "coverage": 0.23152274948161214,
+        "precision": 0.9018941733580399,
+        "recall": 0.20880901875729915,
+        "met": true
+      },
+      {
+        "target": 0.9,
+        "method": "embedding_only",
+        "level": "L1",
+        "coverage": 0.09745692018018448,
+        "precision": 0.7935925654194179,
+        "recall": 0.07734108730366804,
+        "met": false
+      },
+      {
+        "target": 0.9,
+        "method": "embedding_only",
+        "level": "category",
+        "coverage": 0.5707510069833401,
+        "precision": 0.8615275399841317,
+        "recall": 0.4917177109898229,
+        "met": false
+      },
+      {
+        "target": 0.9,
+        "method": "embedding_only",
+        "level": "any",
+        "coverage": 0.8997306766451367,
+        "precision": 0.8645562913907284,
+        "recall": 0.7778678170507901,
+        "met": false
+      },
+      {
+        "target": 0.9,
+        "method": "tiered",
+        "level": "specific",
+        "coverage": 0.6350072693471888,
+        "precision": 0.9453139661449537,
+        "recall": 0.6002812403174679,
+        "met": true
+      },
+      {
+        "target": 0.9,
+        "method": "tiered",
+        "level": "L1",
+        "coverage": 0.268083990752437,
+        "precision": 0.9245199146514936,
+        "recall": 0.24784898824987486,
+        "met": true
+      },
+      {
+        "target": 0.9,
+        "method": "tiered",
+        "level": "category",
+        "coverage": 0.019210143718569012,
+        "precision": 0.8498759305210918,
+        "recall": 0.016326238768262745,
+        "met": false
+      },
+      {
+        "target": 0.9,
+        "method": "tiered",
+        "level": "any",
+        "coverage": 0.9223014038181948,
+        "precision": 0.9372819598418483,
+        "recall": 0.8644564673356055,
+        "met": true
+      },
+      {
+        "target": 0.95,
+        "method": "cluster_only",
+        "level": "specific",
+        "coverage": 0.5796410610863503,
+        "precision": 0.9501644736842105,
+        "recall": 0.5507543437328694,
+        "met": true
+      },
+      {
+        "target": 0.95,
+        "method": "cluster_only",
+        "level": "L1",
+        "coverage": 0.004123269061181686,
+        "precision": 0.9595375722543352,
+        "recall": 0.003956431584717687,
+        "met": true
+      },
+      {
+        "target": 0.95,
+        "method": "cluster_only",
+        "level": "category",
+        "coverage": 0.30981719379364586,
+        "precision": 0.9919224555735057,
+        "recall": 0.3073146316466859,
+        "met": true
+      },
+      {
+        "target": 0.95,
+        "method": "cluster_only",
+        "level": "any",
+        "coverage": 0.8935815239411778,
+        "precision": 0.964685799637256,
+        "recall": 0.862025406964273,
+        "met": true
+      },
+      {
+        "target": 0.95,
+        "method": "embedding_only",
+        "level": "specific",
+        "coverage": 0.18273470457849703,
+        "precision": 0.9436546237120125,
+        "recall": 0.17243844888814738,
+        "met": false
+      },
+      {
+        "target": 0.95,
+        "method": "embedding_only",
+        "level": "L1",
+        "coverage": 0.063302905355483,
+        "precision": 0.8738704819277109,
+        "recall": 0.05531854041042019,
+        "met": false
+      },
+      {
+        "target": 0.95,
+        "method": "embedding_only",
+        "level": "category",
+        "coverage": 0.2703005457968873,
+        "precision": 0.9172912441583635,
+        "recall": 0.24794432395071145,
+        "met": false
+      },
+      {
+        "target": 0.95,
+        "method": "embedding_only",
+        "level": "any",
+        "coverage": 0.5163381557308673,
+        "precision": 0.9212980059084195,
+        "recall": 0.475701313249279,
+        "met": false
+      },
+      {
+        "target": 0.95,
+        "method": "tiered",
+        "level": "specific",
+        "coverage": 0.6147961007698358,
+        "precision": 0.9501066098081024,
+        "recall": 0.5841218390256692,
+        "met": true
+      },
+      {
+        "target": 0.95,
+        "method": "tiered",
+        "level": "L1",
+        "coverage": 0.02867221202659866,
+        "precision": 0.8935993349958438,
+        "recall": 0.025621469599828396,
+        "met": false
+      },
+      {
+        "target": 0.95,
+        "method": "tiered",
+        "level": "category",
+        "coverage": 0.26653478561384275,
+        "precision": 0.9891800053652866,
+        "recall": 0.2636508806635365,
+        "met": true
+      },
+      {
+        "target": 0.95,
+        "method": "tiered",
+        "level": "any",
+        "coverage": 0.9100030984102772,
+        "precision": 0.9597705665121395,
+        "recall": 0.873394189289034,
+        "met": true
+      },
+      {
+        "target": 0.99,
+        "method": "cluster_only",
+        "level": "specific",
+        "coverage": 0.09481135448196963,
+        "precision": 0.9909502262443439,
+        "recall": 0.0939533331744405,
+        "met": true
+      },
+      {
+        "target": 0.99,
+        "method": "cluster_only",
+        "level": "L1",
+        "coverage": 0.1350430202350025,
+        "precision": 0.9897635015884222,
+        "recall": 0.1336606525728722,
+        "met": false
+      },
+      {
+        "target": 0.99,
+        "method": "cluster_only",
+        "level": "category",
+        "coverage": 0.6632743046452321,
+        "precision": 0.9940349994609939,
+        "recall": 0.6593178730605144,
+        "met": true
+      },
+      {
+        "target": 0.99,
+        "method": "cluster_only",
+        "level": "any",
+        "coverage": 0.8931286793622042,
+        "precision": 0.993061671069837,
+        "recall": 0.8869318588078271,
+        "met": true
+      },
+      {
+        "target": 0.99,
+        "method": "embedding_only",
+        "level": "specific",
+        "coverage": 0.10768167409490668,
+        "precision": 0.9849490925188137,
+        "recall": 0.10606096718068499,
+        "met": false
+      },
+      {
+        "target": 0.99,
+        "method": "embedding_only",
+        "level": "L1",
+        "coverage": 0.035965393140596325,
+        "precision": 0.9675281643472499,
+        "recall": 0.03479753080534833,
+        "met": false
+      },
+      {
+        "target": 0.99,
+        "method": "embedding_only",
+        "level": "category",
+        "coverage": 0.08716066448983482,
+        "precision": 0.9701941482089144,
+        "recall": 0.08456276664203828,
+        "met": false
+      },
+      {
+        "target": 0.99,
+        "method": "embedding_only",
+        "level": "any",
+        "coverage": 0.23080773172533783,
+        "precision": 0.9766625361420901,
+        "recall": 0.2254212646280716,
+        "met": false
+      },
+      {
+        "target": 0.99,
+        "method": "tiered",
+        "level": "specific",
+        "coverage": 0.17410682365278737,
+        "precision": 0.9872689938398357,
+        "recall": 0.17189026860833712,
+        "met": false
+      },
+      {
+        "target": 0.99,
+        "method": "tiered",
+        "level": "L1",
+        "coverage": 0.13442333817956478,
+        "precision": 0.9833333333333333,
+        "recall": 0.1321829492099054,
+        "met": false
+      },
+      {
+        "target": 0.99,
+        "method": "tiered",
+        "level": "category",
+        "coverage": 0.5916533593917582,
+        "precision": 0.9937963261359974,
+        "recall": 0.5879829349095502,
+        "met": true
+      },
+      {
+        "target": 0.99,
+        "method": "tiered",
+        "level": "any",
+        "coverage": 0.9001835212241104,
+        "precision": 0.9909714315973417,
+        "recall": 0.8920561527277927,
+        "met": true
+      }
+    ],
+    "tiered_reach_by_identity": [
+      {
+        "stratum": "<50%",
+        "ident_lo": 0.0,
+        "ident_hi": 0.5,
+        "method": "cluster_only",
+        "n_report": 6879,
+        "n_assigned": 4824,
+        "coverage": 0.7012647187091147,
+        "precision": 0.9409203980099502,
+        "lo": 0.9339094883208976,
+        "hi": 0.9472296111889122,
+        "recall": 0.659834278238116
+      },
+      {
+        "stratum": "<50%",
+        "ident_lo": 0.0,
+        "ident_hi": 0.5,
+        "method": "embedding_only",
+        "n_report": 6879,
+        "n_assigned": 5878,
+        "coverage": 0.8544846634685274,
+        "precision": 0.8298741068390609,
+        "lo": 0.8200535981722515,
+        "hi": 0.8392637149631447,
+        "recall": 0.7091146969036197
+      },
+      {
+        "stratum": "<50%",
+        "ident_lo": 0.0,
+        "ident_hi": 0.5,
+        "method": "tiered",
+        "n_report": 6879,
+        "n_assigned": 5402,
+        "coverage": 0.7852885593836313,
+        "precision": 0.9200296186597556,
+        "lo": 0.9124941120542155,
+        "hi": 0.9269681466993521,
+        "recall": 0.7224887338275913
+      },
+      {
+        "stratum": "50-90%",
+        "ident_lo": 0.5,
+        "ident_hi": 0.9,
+        "method": "cluster_only",
+        "n_report": 30434,
+        "n_assigned": 28213,
+        "coverage": 0.9270224091476638,
+        "precision": 0.9405593166270868,
+        "lo": 0.9377397787292963,
+        "hi": 0.9432588940633382,
+        "recall": 0.8719195636459223
+      },
+      {
+        "stratum": "50-90%",
+        "ident_lo": 0.5,
+        "ident_hi": 0.9,
+        "method": "embedding_only",
+        "n_report": 30434,
+        "n_assigned": 27643,
+        "coverage": 0.9082933561148715,
+        "precision": 0.8691169554679304,
+        "lo": 0.8650896302281279,
+        "hi": 0.8730417012003417,
+        "recall": 0.7894131563383059
+      },
+      {
+        "stratum": "50-90%",
+        "ident_lo": 0.5,
+        "ident_hi": 0.9,
+        "method": "tiered",
+        "n_report": 30434,
+        "n_assigned": 28785,
+        "coverage": 0.9458171781560097,
+        "precision": 0.9359388570435991,
+        "lo": 0.9330515291946714,
+        "hi": 0.9387098410162095,
+        "recall": 0.8852270486955379
+      },
+      {
+        "stratum": ">=90%",
+        "ident_lo": 0.9,
+        "ident_hi": 1.0,
+        "method": "cluster_only",
+        "n_report": 4644,
+        "n_assigned": 4456,
+        "coverage": 0.9595176571920758,
+        "precision": 0.9692549371633752,
+        "lo": 0.9637681921588461,
+        "hi": 0.9739332723954106,
+        "recall": 0.9300172265288544
+      },
+      {
+        "stratum": ">=90%",
+        "ident_lo": 0.9,
+        "ident_hi": 1.0,
+        "method": "embedding_only",
+        "n_report": 4644,
+        "n_assigned": 4229,
+        "coverage": 0.9106373815676141,
+        "precision": 0.882951052258217,
+        "lo": 0.8729124301672415,
+        "hi": 0.8922945645854088,
+        "recall": 0.8040482342807924
+      },
+      {
+        "stratum": ">=90%",
+        "ident_lo": 0.9,
+        "ident_hi": 1.0,
+        "method": "tiered",
+        "n_report": 4644,
+        "n_assigned": 4510,
+        "coverage": 0.97114556416882,
+        "precision": 0.9665188470066519,
+        "lo": 0.9608588753901379,
+        "hi": 0.9713847372346383,
+        "recall": 0.9386304909560723
+      },
+      {
+        "stratum": "all",
+        "ident_lo": 0.0,
+        "ident_hi": 1.0,
+        "method": "cluster_only",
+        "n_report": 41957,
+        "n_assigned": 37493,
+        "coverage": 0.8936053578663871,
+        "precision": 0.9440162163603872,
+        "lo": 0.9416433717544687,
+        "hi": 0.9462980808931057,
+        "recall": 0.8435779488523965
+      },
+      {
+        "stratum": "all",
+        "ident_lo": 0.0,
+        "ident_hi": 1.0,
+        "method": "embedding_only",
+        "n_report": 41957,
+        "n_assigned": 37750,
+        "coverage": 0.8997306766451367,
+        "precision": 0.8645562913907284,
+        "lo": 0.8610671499390214,
+        "hi": 0.8679712428056257,
+        "recall": 0.7778678170507901
+      },
+      {
+        "stratum": "all",
+        "ident_lo": 0.0,
+        "ident_hi": 1.0,
+        "method": "tiered",
+        "n_report": 41957,
+        "n_assigned": 38697,
+        "coverage": 0.9223014038181948,
+        "precision": 0.9372819598418483,
+        "lo": 0.9348225512187606,
+        "hi": 0.939654555759709,
+        "recall": 0.8644564673356055
+      }
+    ],
+    "tier1_reach_by_identity": [
+      {
+        "stratum": "<50%",
+        "min_seq_id": 0.3,
+        "level": "specific",
+        "n_report": 6879,
+        "n_covered": 4736,
+        "reach": 0.6884721616514028,
+        "precision": 0.8566300675675675
+      },
+      {
+        "stratum": "<50%",
+        "min_seq_id": 0.3,
+        "level": "L1",
+        "n_report": 6879,
+        "n_covered": 4801,
+        "reach": 0.6979212094781219,
+        "precision": 0.9410539470943553
+      },
+      {
+        "stratum": "<50%",
+        "min_seq_id": 0.3,
+        "level": "category",
+        "n_report": 6879,
+        "n_covered": 4823,
+        "reach": 0.7011193487425498,
+        "precision": 0.9925357661206717
+      },
+      {
+        "stratum": "<50%",
+        "min_seq_id": 0.5,
+        "level": "specific",
+        "n_report": 6879,
+        "n_covered": 126,
+        "reach": 0.01831661578717837,
+        "precision": 0.9523809523809523
+      },
+      {
+        "stratum": "<50%",
+        "min_seq_id": 0.5,
+        "level": "L1",
+        "n_report": 6879,
+        "n_covered": 127,
+        "reach": 0.018461985753743276,
+        "precision": 0.9921259842519685
+      },
+      {
+        "stratum": "<50%",
+        "min_seq_id": 0.5,
+        "level": "category",
+        "n_report": 6879,
+        "n_covered": 127,
+        "reach": 0.018461985753743276,
+        "precision": 1.0
+      },
+      {
+        "stratum": "<50%",
+        "min_seq_id": 0.7,
+        "level": "specific",
+        "n_report": 6879,
+        "n_covered": 0,
+        "reach": 0.0,
+        "precision": null
+      },
+      {
+        "stratum": "<50%",
+        "min_seq_id": 0.7,
+        "level": "L1",
+        "n_report": 6879,
+        "n_covered": 0,
+        "reach": 0.0,
+        "precision": null
+      },
+      {
+        "stratum": "<50%",
+        "min_seq_id": 0.7,
+        "level": "category",
+        "n_report": 6879,
+        "n_covered": 0,
+        "reach": 0.0,
+        "precision": null
+      },
+      {
+        "stratum": "<50%",
+        "min_seq_id": 0.9,
+        "level": "specific",
+        "n_report": 6879,
+        "n_covered": 0,
+        "reach": 0.0,
+        "precision": null
+      },
+      {
+        "stratum": "<50%",
+        "min_seq_id": 0.9,
+        "level": "L1",
+        "n_report": 6879,
+        "n_covered": 0,
+        "reach": 0.0,
+        "precision": null
+      },
+      {
+        "stratum": "<50%",
+        "min_seq_id": 0.9,
+        "level": "category",
+        "n_report": 6879,
+        "n_covered": 0,
+        "reach": 0.0,
+        "precision": null
+      },
+      {
+        "stratum": "50-90%",
+        "min_seq_id": 0.3,
+        "level": "specific",
+        "n_report": 30434,
+        "n_covered": 27884,
+        "reach": 0.9162121311690872,
+        "precision": 0.8578754841486157
+      },
+      {
+        "stratum": "50-90%",
+        "min_seq_id": 0.3,
+        "level": "L1",
+        "n_report": 30434,
+        "n_covered": 28110,
+        "reach": 0.9236380364066504,
+        "precision": 0.9435076485236571
+      },
+      {
+        "stratum": "50-90%",
+        "min_seq_id": 0.3,
+        "level": "category",
+        "n_report": 30434,
+        "n_covered": 28188,
+        "reach": 0.9262009594532431,
+        "precision": 0.9945366822761459
+      },
+      {
+        "stratum": "50-90%",
+        "min_seq_id": 0.5,
+        "level": "specific",
+        "n_report": 30434,
+        "n_covered": 20037,
+        "reach": 0.6583755010843136,
+        "precision": 0.9452013774517143
+      },
+      {
+        "stratum": "50-90%",
+        "min_seq_id": 0.5,
+        "level": "L1",
+        "n_report": 30434,
+        "n_covered": 20186,
+        "reach": 0.6632713412630611,
+        "precision": 0.9803329039928663
+      },
+      {
+        "stratum": "50-90%",
+        "min_seq_id": 0.5,
+        "level": "category",
+        "n_report": 30434,
+        "n_covered": 20265,
+        "reach": 0.6658671222974305,
+        "precision": 0.9970885763631878
+      },
+      {
+        "stratum": "50-90%",
+        "min_seq_id": 0.7,
+        "level": "specific",
+        "n_report": 30434,
+        "n_covered": 5772,
+        "reach": 0.18965630544785436,
+        "precision": 0.9731462231462231
+      },
+      {
+        "stratum": "50-90%",
+        "min_seq_id": 0.7,
+        "level": "L1",
+        "n_report": 30434,
+        "n_covered": 5799,
+        "reach": 0.19054347111782874,
+        "precision": 0.9899982755647525
+      },
+      {
+        "stratum": "50-90%",
+        "min_seq_id": 0.7,
+        "level": "category",
+        "n_report": 30434,
+        "n_covered": 5814,
+        "reach": 0.19103634093448119,
+        "precision": 0.9977640178878568
+      },
+      {
+        "stratum": "50-90%",
+        "min_seq_id": 0.9,
+        "level": "specific",
+        "n_report": 30434,
+        "n_covered": 518,
+        "reach": 0.017020437668397188,
+        "precision": 0.974903474903475
+      },
+      {
+        "stratum": "50-90%",
+        "min_seq_id": 0.9,
+        "level": "L1",
+        "n_report": 30434,
+        "n_covered": 520,
+        "reach": 0.017086153643950844,
+        "precision": 0.9903846153846154
+      },
+      {
+        "stratum": "50-90%",
+        "min_seq_id": 0.9,
+        "level": "category",
+        "n_report": 30434,
+        "n_covered": 520,
+        "reach": 0.017086153643950844,
+        "precision": 0.9980769230769231
+      },
+      {
+        "stratum": ">=90%",
+        "min_seq_id": 0.3,
+        "level": "specific",
+        "n_report": 4644,
+        "n_covered": 4425,
+        "reach": 0.9528423772609819,
+        "precision": 0.8931073446327683
+      },
+      {
+        "stratum": ">=90%",
+        "min_seq_id": 0.3,
+        "level": "L1",
+        "n_report": 4644,
+        "n_covered": 4443,
+        "reach": 0.9567183462532299,
+        "precision": 0.9635381498987171
+      },
+      {
+        "stratum": ">=90%",
+        "min_seq_id": 0.3,
+        "level": "category",
+        "n_report": 4644,
+        "n_covered": 4452,
+        "reach": 0.958656330749354,
+        "precision": 0.9941599281221922
+      },
+      {
+        "stratum": ">=90%",
+        "min_seq_id": 0.5,
+        "level": "specific",
+        "n_report": 4644,
+        "n_covered": 4157,
+        "reach": 0.8951335055986219,
+        "precision": 0.9740197257637719
+      },
+      {
+        "stratum": ">=90%",
+        "min_seq_id": 0.5,
+        "level": "L1",
+        "n_report": 4644,
+        "n_covered": 4168,
+        "reach": 0.8975021533161068,
+        "precision": 0.9889635316698656
+      },
+      {
+        "stratum": ">=90%",
+        "min_seq_id": 0.5,
+        "level": "category",
+        "n_report": 4644,
+        "n_covered": 4171,
+        "reach": 0.8981481481481481,
+        "precision": 0.9983217453847998
+      },
+      {
+        "stratum": ">=90%",
+        "min_seq_id": 0.7,
+        "level": "specific",
+        "n_report": 4644,
+        "n_covered": 3826,
+        "reach": 0.8238587424633936,
+        "precision": 0.9903293256664925
+      },
+      {
+        "stratum": ">=90%",
+        "min_seq_id": 0.7,
+        "level": "L1",
+        "n_report": 4644,
+        "n_covered": 3829,
+        "reach": 0.8245047372954349,
+        "precision": 0.9963436928702011
+      },
+      {
+        "stratum": ">=90%",
+        "min_seq_id": 0.7,
+        "level": "category",
+        "n_report": 4644,
+        "n_covered": 3843,
+        "reach": 0.8275193798449613,
+        "precision": 0.9992193598750976
+      },
+      {
+        "stratum": ">=90%",
+        "min_seq_id": 0.9,
+        "level": "specific",
+        "n_report": 4644,
+        "n_covered": 3460,
+        "reach": 0.7450473729543498,
+        "precision": 0.9933526011560694
+      },
+      {
+        "stratum": ">=90%",
+        "min_seq_id": 0.9,
+        "level": "L1",
+        "n_report": 4644,
+        "n_covered": 3465,
+        "reach": 0.7461240310077519,
+        "precision": 0.9974025974025974
+      },
+      {
+        "stratum": ">=90%",
+        "min_seq_id": 0.9,
+        "level": "category",
+        "n_report": 4644,
+        "n_covered": 3466,
+        "reach": 0.7463393626184324,
+        "precision": 0.9997114829774957
+      },
+      {
+        "stratum": "all",
+        "min_seq_id": 0.3,
+        "level": "specific",
+        "n_report": 41957,
+        "n_covered": 37045,
+        "reach": 0.8829277593726911,
+        "precision": 0.8619246861924686
+      },
+      {
+        "stratum": "all",
+        "min_seq_id": 0.3,
+        "level": "L1",
+        "n_report": 41957,
+        "n_covered": 37354,
+        "reach": 0.8902924422623162,
+        "precision": 0.9455747711088505
+      },
+      {
+        "stratum": "all",
+        "min_seq_id": 0.3,
+        "level": "category",
+        "n_report": 41957,
+        "n_covered": 37463,
+        "reach": 0.8928903401101127,
+        "precision": 0.9942343111870379
+      },
+      {
+        "stratum": "all",
+        "min_seq_id": 0.5,
+        "level": "specific",
+        "n_report": 41957,
+        "n_covered": 24320,
+        "reach": 0.5796410610863503,
+        "precision": 0.9501644736842105
+      },
+      {
+        "stratum": "all",
+        "min_seq_id": 0.5,
+        "level": "L1",
+        "n_report": 41957,
+        "n_covered": 24481,
+        "reach": 0.5834783230450223,
+        "precision": 0.9818634859687104
+      },
+      {
+        "stratum": "all",
+        "min_seq_id": 0.5,
+        "level": "category",
+        "n_report": 41957,
+        "n_covered": 24563,
+        "reach": 0.585432704912172,
+        "precision": 0.9973130317957905
+      },
+      {
+        "stratum": "all",
+        "min_seq_id": 0.7,
+        "level": "specific",
+        "n_report": 41957,
+        "n_covered": 9598,
+        "reach": 0.22875801415735159,
+        "precision": 0.9799958324650969
+      },
+      {
+        "stratum": "all",
+        "min_seq_id": 0.7,
+        "level": "L1",
+        "n_report": 41957,
+        "n_covered": 9628,
+        "reach": 0.22947303191362586,
+        "precision": 0.9925218113834648
+      },
+      {
+        "stratum": "all",
+        "min_seq_id": 0.7,
+        "level": "category",
+        "n_report": 41957,
+        "n_covered": 9657,
+        "reach": 0.23016421574469098,
+        "precision": 0.9983431707569639
+      },
+      {
+        "stratum": "all",
+        "min_seq_id": 0.9,
+        "level": "specific",
+        "n_report": 41957,
+        "n_covered": 3978,
+        "reach": 0.09481135448196963,
+        "precision": 0.9909502262443439
+      },
+      {
+        "stratum": "all",
+        "min_seq_id": 0.9,
+        "level": "L1",
+        "n_report": 41957,
+        "n_covered": 3985,
+        "reach": 0.09497819195843363,
+        "precision": 0.9964868255959849
+      },
+      {
+        "stratum": "all",
+        "min_seq_id": 0.9,
+        "level": "category",
+        "n_report": 41957,
+        "n_covered": 3986,
+        "reach": 0.09500202588364277,
+        "precision": 0.9994982438534872
+      }
+    ],
+    "applied_reach": [
+      {
+        "min_seq_id": 0.3,
+        "level": "specific",
+        "scope": "all",
+        "n": 541199,
+        "n_voted": 388312,
+        "reach": 0.7175031735091898
+      },
+      {
+        "min_seq_id": 0.3,
+        "level": "specific",
+        "scope": "sequence_similarity_invisible",
+        "n": 109107,
+        "n_voted": 34409,
+        "reach": 0.31536931635917037
+      },
+      {
+        "min_seq_id": 0.3,
+        "level": "L1",
+        "scope": "all",
+        "n": 541199,
+        "n_voted": 391410,
+        "reach": 0.723227500420363
+      },
+      {
+        "min_seq_id": 0.3,
+        "level": "L1",
+        "scope": "sequence_similarity_invisible",
+        "n": 109107,
+        "n_voted": 34905,
+        "reach": 0.31991531249140753
+      },
+      {
+        "min_seq_id": 0.3,
+        "level": "category",
+        "scope": "all",
+        "n": 541199,
+        "n_voted": 391868,
+        "reach": 0.7240737695376377
+      },
+      {
+        "min_seq_id": 0.3,
+        "level": "category",
+        "scope": "sequence_similarity_invisible",
+        "n": 109107,
+        "n_voted": 35011,
+        "reach": 0.3208868358583776
+      },
+      {
+        "min_seq_id": 0.5,
+        "level": "specific",
+        "scope": "all",
+        "n": 541199,
+        "n_voted": 269676,
+        "reach": 0.49829360364671776
+      },
+      {
+        "min_seq_id": 0.5,
+        "level": "specific",
+        "scope": "sequence_similarity_invisible",
+        "n": 109107,
+        "n_voted": 13550,
+        "reach": 0.1241900153060757
+      },
+      {
+        "min_seq_id": 0.5,
+        "level": "L1",
+        "scope": "all",
+        "n": 541199,
+        "n_voted": 271382,
+        "reach": 0.5014458637211081
+      },
+      {
+        "min_seq_id": 0.5,
+        "level": "L1",
+        "scope": "sequence_similarity_invisible",
+        "n": 109107,
+        "n_voted": 13650,
+        "reach": 0.12510654678434932
+      },
+      {
+        "min_seq_id": 0.5,
+        "level": "category",
+        "scope": "all",
+        "n": 541199,
+        "n_voted": 271493,
+        "reach": 0.5016509638783516
+      },
+      {
+        "min_seq_id": 0.5,
+        "level": "category",
+        "scope": "sequence_similarity_invisible",
+        "n": 109107,
+        "n_voted": 13662,
+        "reach": 0.12521653056174215
+      },
+      {
+        "min_seq_id": 0.7,
+        "level": "specific",
+        "scope": "all",
+        "n": 541199,
+        "n_voted": 182566,
+        "reach": 0.3373361739397153
+      },
+      {
+        "min_seq_id": 0.7,
+        "level": "specific",
+        "scope": "sequence_similarity_invisible",
+        "n": 109107,
+        "n_voted": 4758,
+        "reach": 0.0436085677362589
+      },
+      {
+        "min_seq_id": 0.7,
+        "level": "L1",
+        "scope": "all",
+        "n": 541199,
+        "n_voted": 183236,
+        "reach": 0.33857416587983347
+      },
+      {
+        "min_seq_id": 0.7,
+        "level": "L1",
+        "scope": "sequence_similarity_invisible",
+        "n": 109107,
+        "n_voted": 4797,
+        "reach": 0.04396601501278562
+      },
+      {
+        "min_seq_id": 0.7,
+        "level": "category",
+        "scope": "all",
+        "n": 541199,
+        "n_voted": 183221,
+        "reach": 0.33854644964236813
+      },
+      {
+        "min_seq_id": 0.7,
+        "level": "category",
+        "scope": "sequence_similarity_invisible",
+        "n": 109107,
+        "n_voted": 4797,
+        "reach": 0.04396601501278562
+      },
+      {
+        "min_seq_id": 0.9,
+        "level": "specific",
+        "scope": "all",
+        "n": 541199,
+        "n_voted": 134369,
+        "reach": 0.24828020746527618
+      },
+      {
+        "min_seq_id": 0.9,
+        "level": "specific",
+        "scope": "sequence_similarity_invisible",
+        "n": 109107,
+        "n_voted": 1983,
+        "reach": 0.01817481921416591
+      },
+      {
+        "min_seq_id": 0.9,
+        "level": "L1",
+        "scope": "all",
+        "n": 541199,
+        "n_voted": 134538,
+        "reach": 0.24859247707405224
+      },
+      {
+        "min_seq_id": 0.9,
+        "level": "L1",
+        "scope": "sequence_similarity_invisible",
+        "n": 109107,
+        "n_voted": 1946,
+        "reach": 0.01783570256720467
+      },
+      {
+        "min_seq_id": 0.9,
+        "level": "category",
+        "scope": "all",
+        "n": 541199,
+        "n_voted": 134586,
+        "reach": 0.2486811690339413
+      },
+      {
+        "min_seq_id": 0.9,
+        "level": "category",
+        "scope": "sequence_similarity_invisible",
+        "n": 109107,
+        "n_voted": 1985,
+        "reach": 0.018193149843731382
+      }
+    ],
+    "applied_unclustered": 2,
+    "applied_label_source": {
+      "embedding": 127461,
+      "cluster": 336437,
+      "none": 77301
+    }
+  },
+  "controls": {
+    "real": 0.8952146856087985,
+    "permuted_mean": 0.5154338414733963,
+    "permuted_sd": 0.0011465682062119583,
+    "majority": 0.6681634678103806,
+    "cross_domain": {
+      "genomad": 0.8903775809789671,
+      "progenomes": 0.9200922072497176
+    },
+    "specificity": {
+      "n_struct": 172379,
+      "struct_any": 0.004884585709396156,
+      "struct_conf": 3.480702405745479e-05,
+      "struct_median": 148.08795166015625,
+      "n_avg": 415180,
+      "avg_any": 0.9563779565489667,
+      "avg_conf": 0.07235897682932704,
+      "avg_median": 57.13384246826172
+    },
+    "esm2_baseline": {
+      "pst_prec": 0.8955562568564688,
+      "esm_prec": 0.9882331725350525,
+      "n_matched": 133086.0
+    }
+  }
+}
