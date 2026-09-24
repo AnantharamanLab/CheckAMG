@@ -1,0 +1,5 @@
+input_base: /storage2/scratch/kosmopoulos/projects/checkAMG/benchmarks/metabolism_benchmark/dramv_genes_reformatted
+output_base: /storage2/scratch/kosmopoulos/projects/checkAMG/benchmarks/metabolism_benchmark/vibrant_outputs
+vibrant_db: /storage2/databases/VIBRANT/databases/
+vibrant_files: /storage2/scratch/kosmopoulos/software/VIBRANT/files/
+threads: 16

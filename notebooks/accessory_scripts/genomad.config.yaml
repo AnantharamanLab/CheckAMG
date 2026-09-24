@@ -1,0 +1,4 @@
+input_base: /storage2/scratch/kosmopoulos/projects/checkAMG/benchmarks/benchmark_genomes
+output_base: /storage2/scratch/kosmopoulos/projects/checkAMG/benchmarks/benchmark_genomes/genomad_outputs
+genomad_db: /storage2/scratch/kosmopoulos/databases/genomad/genomad_db/
+threads: 32

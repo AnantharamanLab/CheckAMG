@@ -1,0 +1,1899 @@
+---
+title: "AMG benchmark comparisons: CheckAMG vs DRAM-V vs VIBRANT"
+author: "James C. Kosmopoulos"
+date: "`r Sys.Date()`"
+output:
+  github_document
+---
+
+# Setup and helpers
+
+```{r setup, include=TRUE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, fig.width = 10, fig.height = 6, dpi = 150)
+
+# A UTF-8 locale keeps the "≥" and "≤" literals used as scale_fill_manual keys from being re-encoded
+Sys.setlocale("LC_ALL", "en_US.UTF-8")
+Sys.setenv(LANG = "en_US.UTF-8", LC_ALL = "en_US.UTF-8")
+options(encoding = "UTF-8")
+
+library(tidyverse)
+library(arrow)
+library(ComplexUpset)
+library(patchwork)
+library(cowplot)
+library(ggrepel)
+library(scales)
+library(RColorBrewer)
+library(svglite)
+
+TBL_DIR  <- file.path("./tables/amg_benchmark")
+PLOT_DIR <- file.path("./plots/amg_benchmark")
+dir.create(PLOT_DIR, showWarnings = FALSE, recursive = TRUE)
+
+save_plot_both <- function(p, stem, w, h, dpi = 600) {
+  ggsave(file.path(PLOT_DIR, paste0(stem, ".png")), p,
+         width = w, height = h, units = "in", dpi = dpi, bg = "white")
+  invisible(p)
+}
+
+# Collapse the per-patch margins that ComplexUpset resets via theme_minimal()
+tighten_upset <- function(p, inner = 4, outer = 4) {
+  (p & theme(plot.margin = margin(inner, inner, 0, inner))) +
+    plot_annotation(theme = theme(plot.margin = margin(outer, outer, outer, outer)))
+}
+```
+
+# Palettes, themes, and naming conventions
+
+```{r set-pal-theme-names}
+# Palettes
+tool_pal <- c("CheckAMG" = "#377EB8",
+              "VIBRANT"  = "#4DAF4A",
+              "DRAM-V"   = "#984EA3")
+
+source_pal <- c("Viral genomes"       = "#E31A1C",
+                "Viromes"             = "#FB9A99",
+                "Mixed metagenomes"   = "#FDBF6F")
+
+eco_pal <- c("Human gut" = "#66A61E",
+             "Aquatic"   = "#5BBCD6",
+             "Soil"      = "#8C510A")
+
+amg_weight_pal <- c(
+  "Likely AMG (weight \u2265 0.6)" = "#1A9850",
+  "Unlikely AMG (weight < 0.6)"    = "#FC8D59",
+  "Other (no AMG weight)"          = "#BDBDBD"
+)
+
+db_source_levels <- c(
+  "Pfam",
+  "KEGG",
+  "FOAM",
+  "METABOLIC (custom)",
+  "CAMPER (custom)",
+  "dbCAN",
+  "PHROG",
+  "Multiple DBs",
+  "No annotation",
+  "None"
+)
+
+set2_colors <- RColorBrewer::brewer.pal(8, "Set2")
+# "No annotation" keeps the weight panel's dark grey so the same gene reads the same in both panels
+db_source_pal <- setNames(
+  c(set2_colors[1:6], "#BC80BD", set2_colors[7], "#636363", set2_colors[8]),
+  db_source_levels
+)
+
+# Tier label maps for raw tier codes and set/pairwise labels
+tier_pretty_map <- c(
+  "CheckAMG_high"       = "CheckAMG (high)",
+  "CheckAMG_medium"     = "CheckAMG (medium)",
+  "CheckAMG_low"        = "CheckAMG (low)",
+  "DRAMV_default"       = "DRAM-V (default)",
+  "DRAMV_allow_T"       = "DRAM-V (allow T)",
+  "DRAMV_aux_4"         = "DRAM-V (aux \u2264 4)",
+  "DRAMV_aux_4_allow_T" = "DRAM-V (aux \u2264 4, allow T)",
+  "VIBRANT_high"        = "VIBRANT (high)",
+  "VIBRANT_medium"      = "VIBRANT (medium)",
+  "VIBRANT_low"         = "VIBRANT (low)"
+)
+
+tier_order <- names(tier_pretty_map)
+tier_order_pretty <- unname(tier_pretty_map)
+
+tool_pretty_map <- c("CheckAMG" = "CheckAMG",
+                     "DRAMV"    = "DRAM-V",
+                     "VIBRANT"  = "VIBRANT")
+tool_order <- names(tool_pretty_map)
+
+pretty_tier   <- function(x) ifelse(as.character(x) %in% names(tier_pretty_map),
+                                     tier_pretty_map[as.character(x)],
+                                     as.character(x))
+pretty_tool   <- function(x) ifelse(as.character(x) %in% names(tool_pretty_map),
+                                     tool_pretty_map[as.character(x)],
+                                     as.character(x))
+
+tool_tier_cols <- list(
+  "CheckAMG" = c("CheckAMG_high", "CheckAMG_medium", "CheckAMG_low"),
+  "DRAM-V" = c("DRAMV_default", "DRAMV_allow_T", "DRAMV_aux_4", "DRAMV_aux_4_allow_T"),
+  "VIBRANT" = c("VIBRANT_high", "VIBRANT_medium", "VIBRANT_low")
+)
+
+tool_tier_cols_pretty <- list(
+  "CheckAMG" = c("CheckAMG (high)", "CheckAMG (medium)", "CheckAMG (low)"),
+  "DRAM-V" = c("DRAM-V (default)", "DRAM-V (allow T)", "DRAM-V (aux \u2264 4)", "DRAM-V (aux \u2264 4, allow T)"),
+  "VIBRANT" = c("VIBRANT (high)", "VIBRANT (medium)", "VIBRANT (low)")
+)
+
+# AMG weight bin palette & display labels (match notebook ordering)
+weight_bin_order <- c("weight_ge_0.8", "weight_0.6_0.8", "weight_0.4_0.6",
+                      "weight_lt_0.4", "no_reference", "no_annotation", "not_called")
+weight_bin_label <- c(
+  "weight_ge_0.8"  = "AMG weight \u2265 0.8",
+  "weight_0.6_0.8" = "AMG weight 0.6 to 0.8",
+  "weight_0.4_0.6" = "AMG weight 0.4 to 0.6",
+  "weight_lt_0.4"  = "AMG weight < 0.4",
+  "no_reference"   = "Annotated, no AMG weight",
+  "no_annotation"  = "No annotation",
+  "not_called"     = "Not called at that tier"
+)
+weight_pal_raw <- c(
+  "weight_ge_0.8"  = "#1A9850",
+  "weight_0.6_0.8" = "#91CF60",
+  "weight_0.4_0.6" = "#FEE08B",
+  "weight_lt_0.4"  = "#FC8D59",
+  "no_reference"   = "#BDBDBD",
+  "no_annotation"  = "#636363",
+  "not_called"     = "#F0F0F0"
+)
+weight_pal <- setNames(
+  weight_pal_raw[weight_bin_order], # enforce consistent order
+  unname(weight_bin_label[weight_bin_order]) # names = pretty labels in order
+)
+
+category_order <- c("essential", "nucleotide", "glucan", "lipid", "methyl",
+                     "none_likely", "none_unlikely", "none_no_weight")
+
+category_label <- c(
+  "essential"       = "Essential gene",
+  "nucleotide"      = "Nucleotide metabolism",
+  "glucan"          = "Glucan metabolism",
+  "lipid"           = "Lipid metabolism",
+  "methyl"          = "Methylation",
+  "none_likely"     = "Not cautious (weight \u2265 0.6)",
+  "none_unlikely"   = "Not cautious (weight < 0.6)",
+  "none_no_weight"  = "Not cautious (no weight)",
+  "none"            = "Not cautious (no weight)"
+)
+
+category_pal_raw <- c(
+  "essential"      = "#B85450",
+  "nucleotide"     = "#7570B3",
+  "glucan"         = "#E7298A",
+  "lipid"          = "#E6AB02",
+  "methyl"         = "#A6761D",
+  "none_likely"    = "#1A9850",
+  "none_unlikely"  = "#BDBDBD",
+  "none_no_weight" = "#636363",
+  "none"           = "#636363"
+)
+
+category_pal <- setNames(category_pal_raw, category_label[names(category_pal_raw)])
+
+nonoverlap_category_map <- c(
+  "a. other tool called at different tier" = "Called only at lower stringency",
+  "agrees at default/high" = "Agrees at default/high",
+  "d. same db hit_id, not flagged AMG" = "Shared-database hit, not flagged as AMG",
+  "c. source tool's best-hit db not used by other tool" = "Best-hit database not queried",
+  "e. other tool annotated different hit in shared db" = "Different top hit in a shared database",
+  "f. other tool produced no hits for this gene" = "No annotation available"
+)
+nonoverlap_category_levels <- unname(nonoverlap_category_map)
+nonoverlap_category_pal <- setNames(
+  c("#B85450", "#1B9E77", "#E7298A", "#66A61E", "#E6AB02", "#A6761D"),
+  nonoverlap_category_levels
+)
+
+base_theme <- theme_cowplot(font_size = 11) +
+  theme(plot.title    = element_text(face = "bold", size = 12),
+        strip.background = element_rect(fill = "grey92", color = NA),
+        strip.text    = element_text(face = "bold"),
+        legend.position = "right",
+        legend.title    = element_text(face = "bold"),
+        panel.grid.major.y = element_line(color = "grey92")
+        )
+theme_set(base_theme)
+```
+
+
+# Data loading
+
+`AMG_predictions_gene_level.parquet` holds one row per gene called as an AMG at any tier by any tool, with its tier flags and genomic context. `AMG_final_annotations_all_tiers_part*.parquet` hold the final annotations behind those calls, one row per gene, tool, and annotation. `AMG_nonoverlap_per_gene.parquet` holds, for every default/high call, the reason each other tool did not make the same call. That classification needs every raw annotation set, so it is made in `amg_benchmark_comparisons.ipynb`. `AMG_reference_overlap_combined.tsv` holds one row per reference HMM with its database and tool memberships.
+
+```{r load-tables}
+gene_calls <- read_parquet(file.path(TBL_DIR, "AMG_predictions_gene_level.parquet")) %>%
+  mutate(gene_key = paste(gene, sample, source, ecosystem, sep = "~")) # Gene names repeat across samples, sources, and ecosystems, so all four key columns are needed
+
+final_annotations <- list.files(TBL_DIR, pattern = "^AMG_final_annotations_all_tiers_part[0-9]+\\.parquet$", full.names = TRUE) %>%
+  lapply(read_parquet) %>%
+  bind_rows() %>%
+  mutate(gene_key = paste(gene, sample, source, ecosystem, sep = "~")) %>%
+  filter(tool != "VIBRANT" | database == "KEGG") # Only keep KEGG annotations for VIBRANT for AMG purposes, since VIBRANT only uses its KEGG annotations
+
+nonoverlap_calls <- read_parquet(file.path(TBL_DIR, "AMG_nonoverlap_per_gene.parquet"))
+
+reference_hmms <- read_tsv(file.path(TBL_DIR, "AMG_reference_overlap_combined.tsv"), show_col_types = FALSE)
+
+stopifnot(
+  !any(duplicated(gene_calls$gene_key)),
+  all(final_annotations$gene_key %in% gene_calls$gene_key)
+)
+```
+
+# UpSet of AMG predictions
+
+## Format UpSet data
+
+The UpSet plots are restricted to genes called as an AMG by at least one tool's primary tier (CheckAMG high, DRAM-V default, or VIBRANT high). Total calls per tier, including genes called only at lower tiers, are shown in the tier totals below.
+
+```{r calculate-upset-amg-predictions}
+prediction_cols <- c(
+  "CheckAMG_high", "CheckAMG_medium", "CheckAMG_low",
+  "DRAMV_default", "DRAMV_allow_T", "DRAMV_aux_4", "DRAMV_aux_4_allow_T",
+  "VIBRANT_high", "VIBRANT_medium", "VIBRANT_low"
+)
+prediction_cols_pretty <- unname(tier_pretty_map)
+primary_tier_cols <- c("CheckAMG_high", "DRAMV_default", "VIBRANT_high")
+
+upset_data_amg_calls <- gene_calls %>%
+  filter(if_any(all_of(primary_tier_cols))) %>%
+  select(c(gene_key, gene, source, sample, ecosystem, all_of(prediction_cols))) %>%
+  dplyr::rename(!!!setNames(names(tier_pretty_map), tier_pretty_map)) %>%
+  arrange(gene_key)
+```
+
+## Construct the UpSet plot
+
+```{r plot-upset-amg-predictions, fig.width=12, fig.height=5}
+p_upset_amg_calls <- ComplexUpset::upset(
+  data = upset_data_amg_calls,
+  intersect = rev(prediction_cols_pretty),
+  name = NULL,
+  sort_sets = FALSE,
+  sort_intersections = FALSE,
+  # sort_intersections_by = "degree",
+  n_intersections = Inf,
+  height_ratio = 0.85, width_ratio = 0.4, guides = "over",
+  
+  base_annotations = list(
+    "AVGs" = ComplexUpset::intersection_size(
+      mapping = aes(fill = source),
+      bar_number_threshold = 1,
+      text = list(size = 4, vjust = 0, hjust = 0, angle = 45),
+      text_colors = c(on_background = "black", on_bar = "black")
+    ) +
+    scale_fill_manual(
+      values = source_pal,
+      name = "Sequence source",
+      drop = TRUE,
+      labels = function(x) str_wrap(x, 18)
+    ) +
+    guides(
+      fill = guide_legend(
+        ncol = 1,
+        title.position = "top",
+        order = 1,
+        keywidth = unit(0.3, "cm")
+      )
+    ) +
+    scale_y_continuous(expand = expansion(mult = c(0, 0.08)), labels = scales::comma) +
+    labs(y = "AMG calls\n(number of proteins)") +
+    coord_cartesian(clip = "off") +
+    theme(
+      panel.grid = element_blank(),
+      axis.title.y = element_text(size = 16, margin = margin(r = -30)),
+      axis.text.y = element_text(size = 14),
+      legend.position = "right",
+      legend.key.size = unit(1.25, "lines"),
+      legend.key.spacing.y = unit(0.125, "lines"),
+      legend.title = element_text(size = 16),
+      legend.text = element_text(size = 14),
+      legend.margin = margin(0, 0, 0, 0),
+      legend.box.margin = margin(0, 0, 0, 0),
+      legend.justification = c(0, 1)
+    )
+  ),
+  
+  matrix = ComplexUpset::intersection_matrix(
+    geom = geom_point(size = 3),
+    segment = geom_segment(linetype = "solid", color = "black"),
+    outline_color = list(active = "grey60", inactive = "grey90")
+  ),
+  
+  themes = ComplexUpset::upset_modify_themes(
+    list(
+      "intersections_matrix" = theme(
+        axis.text.y = element_text(size = 14, lineheight = 0.85),
+        axis.title.y = element_blank(),
+        axis.title.x = element_blank()
+      )
+    )
+  ),
+  
+  queries = list(
+    upset_query(
+      set = c("CheckAMG (high)"),
+      color = tool_pal["CheckAMG"],
+      fill = tool_pal["CheckAMG"],
+    ),
+    upset_query(
+      set = c("DRAM-V (default)"),
+      color = tool_pal["DRAM-V"],
+      fill = tool_pal["DRAM-V"],
+    ),
+    upset_query(
+      set = c("VIBRANT (high)"),
+      color = tool_pal["VIBRANT"],
+      fill = tool_pal["VIBRANT"],
+    )
+  ),
+  
+  set_sizes = ComplexUpset::upset_set_size(geom = geom_bar(aes(x = group), width = 0.8), position = "right") +
+    geom_text(aes(label = ..count..), hjust = 1.1, stat = "count", color = "white") +
+    scale_fill_manual(values = eco_pal, name = "Ecosystem") +
+    scale_y_continuous(labels = scales::comma, breaks = c(0, 2000, 4000)) +
+    labs(y = "AMGs called per tier") +
+    theme(
+      axis.text.x = element_text(size = 14, angle = 0, vjust = 0, hjust = 0.5),
+      axis.title.x = element_text(size = 16)
+    )
+)
+
+p_upset_amg_calls <- tighten_upset(p_upset_amg_calls, 4, 10)
+
+print(p_upset_amg_calls)
+```
+
+# UpSet for AMG predictions (separated by groups of each tools best tier)
+
+## Intersetcions with CheckAMG (high)
+
+```{r plot-upset-amg-predictions-checkamg-high, fig.width=5, fig.height=4}
+prediction_cols_pretty_checkamg_group <- prediction_cols_pretty[prediction_cols_pretty != "CheckAMG (medium)"]
+prediction_cols_pretty_checkamg_group <- prediction_cols_pretty_checkamg_group[prediction_cols_pretty_checkamg_group != "CheckAMG (low)"]
+
+p_upset_amg_calls_checkamg_high <- ComplexUpset::upset(
+  data = upset_data_amg_calls %>%
+    filter(`CheckAMG (high)`),
+  intersect = rev(prediction_cols_pretty_checkamg_group),
+  name = NULL,
+  sort_sets = FALSE,
+  sort_intersections = "descending",
+  min_size = 10, # Don't show intersections that are smaller than 10, to reduce width
+  height_ratio = 0.75, width_ratio = 0.65, guides = NULL,
+  
+  base_annotations = list(
+    "AVGs" = ComplexUpset::intersection_size(
+      mapping = aes(fill = source),
+      bar_number_threshold = 1,
+      text = list(size = 4, vjust = 0, hjust = 0, angle = 45),
+      text_colors = c(on_background = "black", on_bar = "black"),
+    ) +
+    scale_fill_manual(
+      values = source_pal,
+      name = "Sequence source",
+      drop = TRUE,
+      labels = function(x) str_wrap(x, 18)
+    ) +
+    guides(
+      fill = guide_legend(
+        ncol = 1,
+        title.position = "top",
+        order = 1,
+        keywidth = unit(0.3, "cm")
+      )
+    ) +
+    scale_y_continuous(expand = expansion(mult = c(0, 0.08)), labels = scales::comma) +
+    labs(y = "AMG calls\n(number of proteins)") +
+    coord_cartesian(clip = "off") +
+    ggtitle("CheckAMG\n(high)") +
+    theme(
+      panel.grid = element_blank(),
+      axis.title.y = element_text(size = 16, margin = margin(r = -30)),
+      axis.text.y = element_text(size = 14),
+      legend.position = "none",
+      legend.key.size = unit(1.25, "lines"),
+      legend.key.spacing.y = unit(0.125, "lines"),
+      legend.title = element_text(size = 16),
+      legend.text = element_text(size = 14),
+      plot.title = element_text(size = 16, face = "bold", hjust = 0.5, lineheight = 0.9, margin = margin(b = 10))
+    )
+  ),
+  
+  matrix = ComplexUpset::intersection_matrix(
+    geom = geom_point(size = 3),
+    segment = geom_segment(linetype = "solid", color = "black"),
+    outline_color = list(active = "grey60", inactive = "grey90")
+  ),
+  
+  themes = ComplexUpset::upset_modify_themes(
+    list(
+      "intersections_matrix" = theme(
+        axis.text.y = element_text(size = 14, lineheight = 0.85),
+        axis.title.y = element_blank()
+      )
+    )
+  ),
+  
+  queries = list(
+    upset_query(
+      set = c("CheckAMG (high)"),
+      color = tool_pal["CheckAMG"],
+      fill = tool_pal["CheckAMG"],
+    ),
+    upset_query(
+      set = c("VIBRANT (high)"),
+      color = tool_pal["VIBRANT"],
+      fill = tool_pal["VIBRANT"],
+    )
+  ),
+  
+  set_sizes = FALSE
+)
+
+p_upset_amg_calls_checkamg_high <- tighten_upset(p_upset_amg_calls_checkamg_high)
+
+print(p_upset_amg_calls_checkamg_high)
+```
+
+## Intersetcions with DRAM-V (default)
+
+```{r plot-upset-amg-predictions-dramv-default, fig.width=3.24, fig.height=4}
+prediction_cols_pretty_dramv_group <- prediction_cols_pretty[prediction_cols_pretty != "DRAM-V (allow T)"]
+prediction_cols_pretty_dramv_group <- prediction_cols_pretty_dramv_group[prediction_cols_pretty_dramv_group != "DRAM-V (aux \u2264 4)"]
+prediction_cols_pretty_dramv_group <- prediction_cols_pretty_dramv_group[prediction_cols_pretty_dramv_group != "DRAM-V (aux \u2264 4, allow T)"]
+
+p_upset_amg_calls_dramv_default <- ComplexUpset::upset(
+  data = upset_data_amg_calls %>%
+    filter(`DRAM-V (default)`),
+  intersect = rev(c("DRAM-V (default)", prediction_cols_pretty_dramv_group[prediction_cols_pretty_dramv_group != "DRAM-V (default)"])),
+  name = NULL,
+  sort_sets = FALSE,
+  sort_intersections = "descending",
+  min_size = 1, # Show all intersections, since there are so few
+  height_ratio = 0.75, width_ratio = 0.65, guides = NULL,
+  
+  base_annotations = list(
+    " " = ComplexUpset::intersection_size(
+      mapping = aes(fill = source),
+      bar_number_threshold = 1,
+      text = list(size = 4, vjust = 0, hjust = 0, angle = 45),
+      text_colors = c(on_background = "black", on_bar = "black")
+    ) +
+    scale_fill_manual(
+      values = source_pal,
+      name = "Sequence source",
+      drop = TRUE,
+      labels = function(x) str_wrap(x, 18)
+    ) +
+    guides(
+      fill = guide_legend(
+        ncol = 1,
+        title.position = "top",
+        order = 1,
+        keywidth = unit(0.3, "cm")
+      )
+    ) +
+    scale_y_continuous(expand = expansion(mult = c(0, 0.08)), labels = scales::comma) +
+    labs(y = NULL) +
+    coord_cartesian(clip = "off") +
+    ggtitle("DRAM-V\n(default)") +
+    theme(
+      panel.grid = element_blank(),
+      axis.title.y = element_text(size = 16, margin = margin(r = -30)),
+      axis.text.y = element_text(size = 14),
+      legend.position = "none",
+      legend.key.size = unit(1.25, "lines"),
+      legend.key.spacing.y = unit(0.125, "lines"),
+      legend.title = element_text(size = 16),
+      legend.text = element_text(size = 14),
+      plot.title = element_text(size = 16, face = "bold", hjust = 0.5, lineheight = 0.9, margin = margin(b = 10))
+    )
+  ),
+  
+  matrix = ComplexUpset::intersection_matrix(
+    geom = geom_point(size = 3),
+    segment = geom_segment(linetype = "solid", color = "black"),
+    outline_color = list(active = "grey60", inactive = "grey90")
+  ),
+  
+  themes = ComplexUpset::upset_modify_themes(
+    list(
+      "intersections_matrix" = theme(
+        axis.text.y = element_text(size = 14, lineheight = 0.85),
+        axis.title.y = element_blank()
+      )
+    )
+  ),
+  
+  queries = list(
+    upset_query(
+      set = c("DRAM-V (default)"),
+      color = tool_pal["DRAM-V"],
+      fill = tool_pal["DRAM-V"],
+    ),
+    upset_query(
+      set = c("VIBRANT (high)"),
+      color = tool_pal["VIBRANT"],
+      fill = tool_pal["VIBRANT"],
+    )
+  ),
+  
+  set_sizes = FALSE
+)
+
+p_upset_amg_calls_dramv_default <- tighten_upset(p_upset_amg_calls_dramv_default)
+  
+print(p_upset_amg_calls_dramv_default)
+```
+
+## Intersetcions with VIBRANT (high)
+
+```{r plot-upset-amg-predictions-vibrant-high, fig.width=3.96, fig.height=4}
+prediction_cols_pretty_vibrant_high <- prediction_cols_pretty[prediction_cols_pretty != "VIBRANT (medium)"]
+prediction_cols_pretty_vibrant_high <- prediction_cols_pretty_vibrant_high[prediction_cols_pretty_vibrant_high != "VIBRANT (low)"]
+
+p_upset_amg_calls_vibrant_high <- ComplexUpset::upset(
+  data = upset_data_amg_calls %>%
+    filter(`VIBRANT (high)`),
+  intersect = rev(c("VIBRANT (high)", prediction_cols_pretty_vibrant_high[prediction_cols_pretty_vibrant_high != "VIBRANT (high)"])),
+  name = NULL,
+  sort_sets = FALSE,
+  sort_intersections = "descending",
+  min_size = 10, # Don't show intersections that are smaller than 10, to reduce width
+  height_ratio = 0.75, width_ratio = 0.65, guides = NULL,
+  
+  base_annotations = list(
+    " " = ComplexUpset::intersection_size(
+      mapping = aes(fill = source),
+      bar_number_threshold = 1,
+      text = list(size = 4, vjust = 0, hjust = 0, angle = 45),
+      text_colors = c(on_background = "black", on_bar = "black")
+    ) +
+    scale_fill_manual(
+      values = source_pal,
+      name = "Sequence source",
+      drop = TRUE,
+      labels = function(x) str_wrap(x, 18)
+    ) +
+    guides(
+      fill = guide_legend(
+        ncol = 1,
+        title.position = "top",
+        order = 1,
+        keywidth = unit(0.3, "cm")
+      )
+    ) +
+    scale_y_continuous(expand = expansion(mult = c(0, 0.08)), labels = scales::comma) +
+    labs(y = NULL) +
+    coord_cartesian(clip = "off") +
+    ggtitle("VIBRANT\n(high)") +
+    theme(
+      panel.grid = element_blank(),
+      axis.title.y = element_text(size = 16, margin = margin(r = -30)),
+      axis.text.y = element_text(size = 14),
+      legend.position = "none",
+      legend.key.size = unit(1.25, "lines"),
+      legend.key.spacing.y = unit(0.125, "lines"),
+      legend.title = element_text(size = 16),
+      legend.text = element_text(size = 14),
+      plot.title = element_text(size = 16, face = "bold", hjust = 0.5, lineheight = 0.9, margin = margin(b = 10))
+    )
+  ),
+  
+  matrix = ComplexUpset::intersection_matrix(
+    geom = geom_point(size = 3),
+    segment = geom_segment(linetype = "solid", color = "black"),
+    outline_color = list(active = "grey60", inactive = "grey90")
+  ),
+  
+  themes = ComplexUpset::upset_modify_themes(
+    list(
+      "intersections_matrix" = theme(
+        axis.text.y = element_text(size = 14, lineheight = 0.85),
+        axis.title.y = element_blank()
+      )
+    )
+  ),
+  
+  queries = list(
+    upset_query(
+      set = c("CheckAMG (high)"),
+      color = tool_pal["CheckAMG"],
+      fill = tool_pal["CheckAMG"],
+    ),
+    upset_query(
+      set = c("VIBRANT (high)"),
+      color = tool_pal["VIBRANT"],
+      fill = tool_pal["VIBRANT"],
+    )
+  ),
+  
+  set_sizes = FALSE
+)
+
+p_upset_amg_calls_vibrant_high <- tighten_upset(p_upset_amg_calls_vibrant_high)
+  
+print(p_upset_amg_calls_vibrant_high)
+```
+
+## Combine the three separate UpSet plots
+
+```{r upset-indiv-combined, fig.height=4, fig.width=12}
+p_upset_groups_combined <- cowplot::plot_grid(
+  p_upset_amg_calls_checkamg_high,
+  p_upset_amg_calls_dramv_default,
+  p_upset_amg_calls_vibrant_high,
+  ncol = 3,
+  rel_widths = c(4.8, 3.24, 3.96)
+)
+
+print(p_upset_groups_combined)
+```
+
+# Combine the main and combined UpSet plots
+
+```{r combine-combined-upsets, fig.height=9, fig.width=12}
+p_upset_amg_calls_composite <- cowplot::plot_grid(
+  p_upset_amg_calls,
+  p_upset_groups_combined,
+  nrow = 2,
+  rel_heights = c(5, 4),
+  labels = c("A", "B"),
+  label_size = 20
+)
+
+print(p_upset_amg_calls_composite)
+```
+
+# Prediction tier composition
+
+## AMG weight composition
+
+Each call can carry several annotations and AMG weights. The annotation with the highest AMG weight represents each tool and tier, or the strongest hit by bitscore where no annotation carries a weight, so the database panel always reports a real database. Calls with no final annotation from the calling tool are kept and labeled "No annotation".
+
+```{r amg-weight-composition-data}
+tier_calls <- gene_calls %>%
+  select(gene_key, all_of(prediction_cols)) %>%
+  pivot_longer(
+    cols = all_of(prediction_cols),
+    names_to = "tier",
+    values_to = "Predicted AMG"
+  ) %>%
+  filter(`Predicted AMG`) %>%
+  mutate(
+    tool = case_when(
+      tier %in% tool_tier_cols$CheckAMG ~ "CheckAMG",
+      tier %in% tool_tier_cols$`DRAM-V` ~ "DRAM-V",
+      tier %in% tool_tier_cols$VIBRANT ~ "VIBRANT"
+    ),
+    tier = factor(recode(tier, !!!tier_pretty_map), levels = tier_order_pretty)
+  )
+
+# Evidence order matches _best_hit_per_gene in amg_benchmark_comparisons.ipynb, so a call with no weighted annotation still resolves to its strongest hit
+best_annotation_per_call <- final_annotations %>%
+  arrange(gene_key, tool, desc(AMG_weight), desc(bitscore), evalue, hit_id) %>%
+  distinct(gene_key, tool, .keep_all = TRUE) %>%
+  select(gene_key, tool, AMG_weight, database, hit_id)
+
+amg_weight_comp <- tier_calls %>%
+  left_join(best_annotation_per_call, by = c("gene_key", "tool")) %>%
+  rename(`AMG weight` = AMG_weight) %>%
+  mutate(
+    database = case_when(
+      is.na(hit_id) ~ "No annotation",
+      database == "METABOLIC" ~ "METABOLIC (custom)",
+      database == "CAMPER" ~ "CAMPER (custom)",
+      TRUE ~ database
+    ),
+    database = factor(database, levels = db_source_levels),
+    `AMG weight bin` = case_when(
+      `AMG weight` >= 0.8 ~ "AMG weight \u2265 0.8",
+      `AMG weight` >= 0.6 ~ "AMG weight 0.6 to 0.8",
+      `AMG weight` >= 0.4 ~ "AMG weight 0.4 to 0.6",
+      `AMG weight` <  0.4 ~ "AMG weight < 0.4",
+      is.na(`AMG weight`) & !is.na(hit_id) ~ "Annotated, no AMG weight",
+      is.na(hit_id) ~ "No annotation"
+    ),
+    `Likely AMG` = case_when(
+      `AMG weight` >= 0.6 ~ "Likely AMG (weight \u2265 0.6)",
+      `AMG weight` < 0.6 ~ "Unlikely AMG (weight < 0.6)",
+      is.na(`AMG weight`) ~ "No mapped AMG weight"
+    ),
+    `AMG weight bin` = factor(
+      `AMG weight bin`,
+      levels = c(
+        "AMG weight \u2265 0.8",
+        "AMG weight 0.6 to 0.8",
+        "AMG weight 0.4 to 0.6",
+        "AMG weight < 0.4",
+        "Annotated, no AMG weight",
+        "No annotation"
+      )
+    )
+  )
+
+head(amg_weight_comp)
+```
+
+```{r amg-weight-comp-plot, fig.width=4, fig.height=5}
+p_weight_composition <- ggplot(
+  amg_weight_comp %>%
+    filter(`Predicted AMG`) %>%
+    filter(tier %in% c("CheckAMG (high)", "DRAM-V (default)", "VIBRANT (high)")),
+  aes(
+    x = tier,,
+    fill = `AMG weight bin`
+  )
+) +
+  geom_bar(
+    position = "fill"
+  ) +
+  geom_text(
+    stat = "count",
+    size = 4.5,
+    color = "white",
+    aes(
+      label = after_stat(
+        ifelse(
+          count / tapply(count, x, sum)[x] >= 0.05,
+          paste0(round(100 * count / tapply(count, x, sum)[x], 0), "%"),
+          ""
+        )
+      )
+    ),
+    position = position_fill(vjust = 0.5),
+  ) +
+  scale_fill_manual(
+    values = weight_pal,
+    name = "AMG weight",
+    drop = TRUE
+  ) +
+  scale_y_continuous(
+    labels = label_percent(scale = 100),
+    expand = expansion(mult = c(0, 0.02))
+  ) +
+  labs(
+    x = "Confidence tier",
+    y = "Percent of tier"
+  ) +
+  coord_cartesian(clip = "off") +
+  theme(
+    legend.position = c(-0.20, -0.25),
+    legend.justification = c(0, 1),
+    legend.margin = margin(40, 0, 5, 0),
+    plot.margin = margin(t = 30, r = 2, b = 131, l = 10),
+    legend.key.size = unit(0.7, "lines"),
+    legend.title.position = "top",
+    legend.title = element_text(size = 16),
+    legend.text = element_text(size = 14),
+    axis.title.y = element_text(size = 16),
+    axis.text.y = element_text(size = 14),
+    axis.title.x = element_text(size = 16),
+    axis.text.x = element_text(size = 14, angle = 22.5, hjust = 1)
+  ) +
+  guides(
+    fill = guide_legend(
+      ncol = 1,
+      title.position = "top"
+    )
+  )
+
+print(p_weight_composition)
+```
+
+```{r amg-weight-comp-plot-all-tiers, fig.width=12, fig.height=6}
+# Keep one row per gene_key and tool, at its highest-priority tier in tier_order_pretty, before computing composition percentages
+weight_comp_plot <- amg_weight_comp %>%
+  filter(`Predicted AMG`) %>%
+  arrange(gene_key, tool, tier) %>%
+  distinct(gene_key, tool, .keep_all = TRUE) %>%
+  count(tool, tier, `AMG weight bin`) %>%
+  group_by(tool, tier) %>%
+  mutate(
+    pct = n / sum(n)
+  ) %>%
+  ungroup()
+
+p_weight_composition_all_tiers <- ggplot(
+  weight_comp_plot,
+  aes(
+    x = tier,
+    y = pct,
+    fill = `AMG weight bin`
+  )
+) +
+  geom_col() +
+  geom_text(
+    aes(
+      label = ifelse(pct >= 0.05, paste0(round(100 * pct, 0), "%"), "")
+    ),
+    position = position_stack(vjust = 0.5),
+    size = 5.0,
+    color = "white"
+  ) +
+  facet_grid(
+    . ~ tool,
+    scales = "free_x",
+    space = "free_x"
+  ) +
+  scale_fill_manual(
+    values = weight_pal,
+    name = "AMG weight",
+    labels = function(x) str_wrap(x, 20),
+    drop = TRUE
+  ) +
+  scale_y_continuous(
+    labels = label_percent(scale = 100),
+    expand = expansion(mult = c(0, 0.02))
+  ) +
+  guides(
+    fill = guide_legend(ncol = 1)
+  ) +
+  labs(
+    x = "Confidence tier",
+    y = "Percent of tier"
+  ) +
+  coord_cartesian(clip = "off") +
+  theme(
+    legend.position = "bottom",
+    legend.title.position = "top",
+    legend.title = element_text(size = 16),
+    legend.text = element_text(size = 14),
+    axis.title.y = element_text(size = 16),
+    axis.text.y = element_text(size = 14),
+    axis.title.x = element_text(size = 16),
+    axis.text.x = element_text(size = 14, angle = 22.5, hjust = 1),
+    strip.text.x = element_text(size = 16)
+  ) +
+  guides(
+    fill = guide_legend(
+      ncol = 3,
+      title.position = "top"
+    )
+  )
+
+print(p_weight_composition_all_tiers)
+```
+
+## Database composition
+
+```{r amg-db-comp-plot, fig.width=4, fig.height=5}
+p_db_composition <- ggplot(
+  amg_weight_comp %>%
+    filter(`Predicted AMG`) %>%
+    filter(tier %in% c("CheckAMG (high)", "DRAM-V (default)", "VIBRANT (high)")),
+  aes(
+    x = tier,,
+    fill = database
+  )
+) +
+  geom_bar(
+    position = "fill"
+  ) +
+  geom_text(
+    stat = "count",
+    size = 4.5,
+    color = "white",
+    aes(
+      label = after_stat(
+        ifelse(
+          count / tapply(count, x, sum)[x] >= 0.05,
+          paste0(round(100 * count / tapply(count, x, sum)[x], 0), "%"),
+          ""
+        )
+      )
+    ),
+    position = position_fill(vjust = 0.5),
+  ) +
+  scale_fill_manual(
+    values = db_source_pal,
+    name = "Database source",
+    drop = TRUE
+  ) +
+  scale_y_continuous(
+    labels = label_percent(scale = 100),
+    expand = expansion(mult = c(0, 0.02))
+  ) +
+  labs(
+    x = "Confidence tier",
+    y = "Percent of tier"
+  ) +
+  coord_cartesian(clip = "off") +
+  theme(
+    legend.position = c(-0.20, -0.25),
+    legend.justification = c(0, 1),
+    legend.margin = margin(40, 0, 5, 0),
+    plot.margin = margin(t = 30, r = 2, b = 131, l = 2),
+    legend.key.size = unit(0.7, "lines"),
+    legend.title.position = "top",
+    legend.title = element_text(size = 16),
+    legend.text = element_text(size = 14),
+    axis.title.y = element_text(size = 16),
+    axis.text.y = element_text(size = 14),
+    axis.title.x = element_text(size = 16),
+    axis.text.x = element_text(size = 14, angle = 22.5, hjust = 1)
+  ) +
+  guides(
+    fill = guide_legend(
+      ncol = 1,
+      title.position = "top"
+    )
+  )
+
+print(p_db_composition)
+```
+
+```{r amg-db-comp-plot-all-tiers, fig.width=12, fig.height=6}
+# Keep one row per gene_key and tool, at its highest-priority tier in tier_order_pretty, before computing composition percentages
+db_comp_plot <- amg_weight_comp %>%
+  filter(`Predicted AMG`) %>%
+  arrange(gene_key, tool, tier) %>%
+  distinct(gene_key, tool, .keep_all = TRUE) %>%
+  count(tool, tier, database) %>%
+  group_by(tool, tier) %>%
+  mutate(
+    pct = n / sum(n)
+  ) %>%
+  ungroup()
+
+p_db_composition_all_tiers <- ggplot(
+  db_comp_plot,
+  aes(
+    x = tier,
+    y = pct,
+    fill = database
+  )
+) +
+  geom_col() +
+  geom_text(
+    aes(
+      label = ifelse(pct >= 0.05, paste0(round(100 * pct, 0), "%"), "")
+    ),
+    position = position_stack(vjust = 0.5),
+    size = 5.0,
+    color = "white"
+  ) +
+  facet_grid(
+    . ~ tool,
+    scales = "free_x",
+    space = "free_x"
+  ) +
+  scale_fill_manual(
+    values = db_source_pal,
+    name = "Database source",
+    drop = TRUE
+  ) +
+  scale_y_continuous(
+    labels = label_percent(scale = 100),
+    expand = expansion(mult = c(0, 0.02))
+  ) +
+  guides(
+    fill = guide_legend(ncol = 1)
+  ) +
+  labs(
+    x = "Confidence tier",
+    y = "Percent of tier"
+  ) +
+  coord_cartesian(clip = "off") +
+  theme(
+    legend.position = "right",
+    legend.title.position = "top",
+    legend.title = element_text(size = 16),
+    legend.text = element_text(size = 14),
+    axis.title.y = element_text(size = 16),
+    axis.text.y = element_text(size = 14),
+    axis.title.x = element_text(size = 16),
+    axis.text.x = element_text(size = 14, angle = 22.5, hjust = 1),
+    strip.text.x = element_text(size = 16),
+    plot.margin = margin(t = 5.5, r = 5.5, b = 5.5, l = 24)
+  ) +
+  guides(
+    fill = guide_legend(
+      ncol = 1,
+      title.position = "top"
+    )
+  )
+
+print(p_db_composition_all_tiers)
+```
+
+## Cautious function composition across all tiers
+
+For cautious function flags, we similarly need to pick one flag per AMG call per tier x tool, but instaed of picking by AMG weight, the rarest flag for that tooll x tier combinaton is preferred.
+
+```{r amg-cautious-composition-data}
+amg_weight_status <- amg_weight_comp %>%
+  distinct(gene_key, tool, `Likely AMG`)
+
+cautious_functions <- final_annotations %>%
+  filter(if_any(starts_with("filter_"))) %>%
+  select(
+    gene_key, tool,
+    filter_essential,
+    filter_glucan,
+    filter_lipid,
+    filter_methyl,
+    filter_nucleotide
+  ) %>%
+  pivot_longer(
+    cols = c(
+      filter_essential,
+      filter_glucan,
+      filter_lipid,
+      filter_methyl,
+      filter_nucleotide
+    ),
+    names_to = "Cautious functions",
+    values_to = "Cautious function flag"
+  ) %>%
+  filter(`Cautious function flag`) %>%
+  distinct(gene_key, tool, `Cautious functions`) %>%
+  inner_join(
+    tier_calls %>% select(gene_key, tool, tier),
+    by = c("gene_key", "tool"),
+    relationship = "many-to-many"
+  )
+
+cautious_function_frequency <- cautious_functions %>%
+  count(
+    tool,
+    tier,
+    `Cautious functions`,
+    name = "function_frequency"
+  )
+
+cautious_functions_selected <- cautious_functions %>%
+  left_join(
+    cautious_function_frequency,
+    by = c("tool", "tier", "Cautious functions")
+  ) %>%
+  arrange(gene_key, tool, tier, function_frequency, `Cautious functions`) %>%
+  distinct(gene_key, tool, tier, .keep_all = TRUE) %>%
+  select(gene_key, tool, tier, `Cautious functions`)
+
+amg_cautious_comp <- tier_calls %>%
+  left_join(
+    cautious_functions_selected,
+    by = c("gene_key", "tool", "tier")
+  ) %>%
+  left_join(
+    amg_weight_status,
+    by = c("gene_key", "tool")
+  ) %>%
+  mutate(
+    `Cautious functions` = case_when(
+      `Cautious functions` == "filter_essential" ~ "Essential gene",
+      `Cautious functions` == "filter_nucleotide" ~ "Nucleotide metabolism",
+      `Cautious functions` == "filter_glucan" ~ "Glucan metabolism",
+      `Cautious functions` == "filter_lipid" ~ "Lipid metabolism",
+      `Cautious functions` == "filter_methyl" ~ "Methylation",
+      is.na(`Cautious functions`) &
+        `Likely AMG` == "Likely AMG (weight \u2265 0.6)" ~
+        "Not cautious (weight \u2265 0.6)",
+      is.na(`Cautious functions`) &
+        `Likely AMG` == "Unlikely AMG (weight < 0.6)" ~
+        "Not cautious (weight < 0.6)",
+      is.na(`Cautious functions`) &
+        `Likely AMG` == "No mapped AMG weight" ~
+        "Not cautious (no weight)",
+      TRUE ~ "Not cautious (no weight)"
+    ),
+    `Cautious functions` = factor(
+      `Cautious functions`,
+      levels = c(
+        "Essential gene",
+        "Nucleotide metabolism",
+        "Glucan metabolism",
+        "Lipid metabolism",
+        "Methylation",
+        "Not cautious (weight \u2265 0.6)",
+        "Not cautious (weight < 0.6)",
+        "Not cautious (no weight)"
+      )
+    )
+  )
+
+head(amg_cautious_comp)
+```
+
+
+```{r amg-cautious-comp-plot, fig.height=5, fig.width=4}
+p_category_composition <- ggplot(
+  amg_cautious_comp %>%
+    filter(`Predicted AMG`) %>%
+    filter(tier %in% c("CheckAMG (high)", "DRAM-V (default)", "VIBRANT (high)")),
+  aes(
+    x = tier,,
+    fill = `Cautious functions`
+  )
+) +
+  geom_bar(
+    position = "fill"
+  ) +
+  geom_text(
+    stat = "count",
+    aes(
+      label = after_stat(
+        ifelse(
+          count / tapply(count, x, sum)[x] >= 0.05,
+          paste0(round(100 * count / tapply(count, x, sum)[x], 0), "%"),
+          ""
+        )
+      )
+    ),
+    position = position_fill(vjust = 0.5),
+    size = 4.5,
+    color = "white"
+  ) +
+  scale_fill_manual(
+    values = category_pal,
+    name = "Cautious functions",
+    drop = TRUE
+  ) +
+  scale_y_continuous(
+    labels = label_percent(scale = 100),
+    expand = expansion(mult = c(0, 0.02))
+  ) +
+  labs(
+    x = "Confidence tier",
+    y = "Percent of tier"
+  ) +
+  coord_cartesian(clip = "off") +
+  theme(
+    legend.position = c(-0.6, -0.25),
+    legend.justification = c(0, 1),
+    legend.margin = margin(40, 0, 5, 0),
+    plot.margin = margin(t = 30, r = 10, b = 131, l = 2),
+    legend.key.size = unit(0.7, "lines"),
+    legend.title.position = "top",
+    legend.title = element_text(size = 16),
+    legend.text = element_text(size = 14),
+    axis.title.y = element_text(size = 16),
+    axis.text.y = element_text(size = 14),
+    axis.title.x = element_text(size = 16),
+    axis.text.x = element_text(size = 14, angle = 22.5, hjust = 1)
+  ) +
+  guides(
+    fill = guide_legend(
+      ncol = 2,
+      title.position = "top"
+    )
+  )
+print(p_category_composition)
+```
+
+```{r amg-cautious-comp-plot-all-tiers, fig.width=12, fig.height=6}
+# Keep one row per gene_key and tool, at its highest-priority tier in tier_order_pretty, before computing composition percentages
+cautious_comp_plot <- amg_cautious_comp %>%
+  filter(`Predicted AMG`) %>%
+  arrange(gene_key, tool, tier) %>%
+  distinct(gene_key, tool, .keep_all = TRUE) %>%
+  count(tool, tier, `Cautious functions`) %>%
+  group_by(tool, tier) %>%
+  mutate(
+    pct = n / sum(n)
+  ) %>%
+  ungroup()
+
+p_category_composition_all_tiers <- ggplot(
+  cautious_comp_plot,
+  aes(
+    x = tier,
+    y = pct,
+    fill = `Cautious functions`
+  )
+) +
+  geom_col() +
+  geom_text(
+    aes(
+      label = ifelse(pct >= 0.05, paste0(round(100 * pct, 0), "%"), "")
+    ),
+    position = position_stack(vjust = 0.5),
+    size = 5.0,
+    color = "white"
+  ) +
+  facet_grid(
+    . ~ tool,
+    scales = "free_x",
+    space = "free_x"
+  ) +
+  scale_fill_manual(
+    values = category_pal,
+    name = "Cautious functions",
+    labels = function(x) str_wrap(x, 20),
+    drop = TRUE
+  ) +
+  scale_y_continuous(
+    labels = label_percent(scale = 100),
+    expand = expansion(mult = c(0, 0.02))
+  ) +
+  guides(
+    fill = guide_legend(ncol = 1)
+  ) +
+  labs(
+    x = "Confidence tier",
+    y = "Percent of tier"
+  ) +
+  coord_cartesian(clip = "off") +
+  theme(
+    legend.position = "bottom",
+    legend.title.position = "top",
+    legend.title = element_text(size = 16),
+    legend.text = element_text(size = 14),
+    axis.title.y = element_text(size = 16),
+    axis.text.y = element_text(size = 14),
+    axis.title.x = element_text(size = 16),
+    axis.text.x = element_text(size = 14, angle = 22.5, hjust = 1),
+    strip.text.x = element_text(size = 16)
+  ) +
+  guides(
+    fill = guide_legend(
+      ncol = 3,
+      title.position = "top"
+    )
+  )
+
+print(p_category_composition_all_tiers)
+```
+
+# AMG calls per tier
+
+Tier totals count every gene called at each tier, so a gene called at CheckAMG (high) is also counted at CheckAMG (medium) and CheckAMG (low). The composition plots above instead count each gene once, at the highest-confidence tier that called it.
+
+```{r tier-call-totals, fig.width=12, fig.height=5}
+# AMG annotations are the rows each tool calls with: CheckAMG weight-passing rows, all DRAM-V rows, and VIBRANT KEGG rows (filtered at load)
+threshold_support <- final_annotations %>%
+  filter(tool != "CheckAMG" | AMG_weight >= 0.6) %>%
+  group_by(gene_key, tool) %>%
+  summarise(threshold_supported = any(passes_db_threshold, na.rm = TRUE), .groups = "drop")
+
+tier_call_totals <- amg_weight_comp %>%
+  left_join(threshold_support, by = c("gene_key", "tool")) %>%
+  group_by(tool, tier) %>%
+  summarise(
+    all_calls = n(),
+    likely_amgs = sum(`Likely AMG` == "Likely AMG (weight \u2265 0.6)"),
+    threshold_supported = sum(threshold_supported, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  pivot_longer(
+    cols = c(all_calls, likely_amgs, threshold_supported),
+    names_to = "Call set",
+    values_to = "AMG calls"
+  )
+
+tier_call_totals
+
+p_tier_call_totals <- ggplot(
+  tier_call_totals %>%
+    filter(`AMG calls` > 0),
+  aes(
+    x = tier,
+    y = `AMG calls`,
+    fill = `Call set`
+  )
+) +
+  geom_col(
+    position = position_dodge(width = 0.85),
+    width = 0.8
+  ) +
+  geom_text(
+    aes(label = scales::comma(`AMG calls`)),
+    position = position_dodge(width = 0.85),
+    angle = 90,
+    hjust = -0.1,
+    size = 4
+  ) +
+  facet_grid(
+    . ~ tool,
+    scales = "free_x",
+    space = "free_x"
+  ) +
+  scale_fill_manual(
+    values = c(
+      "all_calls" = "#BDBDBD",
+      "likely_amgs" = "#1A9850",
+      "threshold_supported" = "#4575B4"
+    ),
+    labels = c(
+      "all_calls" = "All calls",
+      "likely_amgs" = "Likely AMGs (weight \u2265 0.6)",
+      "threshold_supported" = "Meets database bitscore threshold"
+    ),
+    name = NULL
+  ) +
+  scale_y_log10(
+    labels = scales::comma,
+    expand = expansion(mult = c(0, 0.45))
+  ) +
+  labs(
+    x = "Confidence tier",
+    y = "AMG calls"
+  ) +
+  theme(
+    legend.position = "bottom",
+    legend.text = element_text(size = 14),
+    axis.title.y = element_text(size = 16),
+    axis.text.y = element_text(size = 14),
+    axis.title.x = element_text(size = 16),
+    axis.text.x = element_text(size = 14, angle = 22.5, hjust = 1),
+    strip.text.x = element_text(size = 16)
+  )
+
+print(p_tier_call_totals)
+```
+
+# Reference AMG sets
+
+## Reference set sizes
+
+```{r reference-set-sizes, fig.width=10, fig.height=4}
+reference_set_sizes <- bind_rows(
+  reference_hmms %>%
+    filter(`CheckAMG (all)`) %>%
+    summarise(tool = "CheckAMG", `Reference set` = "All references", KO = sum(KEGG), Pfam = sum(Pfam)),
+  reference_hmms %>%
+    filter(`CheckAMG (AMG weight >= 0.6)`) %>%
+    summarise(tool = "CheckAMG", `Reference set` = "AMG weight \u2265 0.6", KO = sum(KEGG), Pfam = sum(Pfam)),
+  reference_hmms %>%
+    filter(DRAMV) %>%
+    summarise(tool = "DRAM-V", `Reference set` = "Curated AMG reference", KO = sum(KEGG), Pfam = sum(Pfam)),
+  reference_hmms %>%
+    filter(VIBRANT) %>%
+    summarise(tool = "VIBRANT", `Reference set` = "Curated AMG reference", KO = sum(KEGG), Pfam = sum(Pfam))
+) %>%
+  pivot_longer(
+    cols = c(KO, Pfam),
+    names_to = "Entry type",
+    values_to = "Reference entries"
+  ) %>%
+  mutate(
+    tool = factor(tool, levels = c("CheckAMG", "DRAM-V", "VIBRANT")),
+    `Reference set` = factor(
+      `Reference set`,
+      levels = c("All references", "AMG weight \u2265 0.6", "Curated AMG reference")
+    )
+  )
+
+reference_set_sizes
+
+p_reference_set_sizes <- ggplot(
+  reference_set_sizes %>%
+    filter(`Reference entries` > 0),
+  aes(
+    x = `Entry type`,
+    y = `Reference entries`,
+    fill = tool
+  )
+) +
+  geom_col(width = 0.75) +
+  geom_text(
+    aes(label = scales::comma(`Reference entries`)),
+    vjust = -0.3,
+    size = 4.5
+  ) +
+  facet_grid(
+    . ~ tool + `Reference set`,
+    scales = "free_x",
+    space = "free_x",
+    labeller = labeller(`Reference set` = label_wrap_gen(12))
+  ) +
+  scale_fill_manual(
+    values = tool_pal,
+    guide = "none"
+  ) +
+  scale_y_log10(
+    labels = scales::comma,
+    expand = expansion(mult = c(0, 0.2))
+  ) +
+  labs(
+    x = NULL,
+    y = "Reference entries"
+  ) +
+  theme(
+    axis.title.y = element_text(size = 16),
+    axis.text.y = element_text(size = 14),
+    axis.text.x = element_text(size = 14),
+    strip.text.x = element_text(size = 12)
+  )
+
+print(p_reference_set_sizes)
+```
+
+## Reference HMM overlap
+
+Pfam, KEGG, and dbCAN profiles are colored by that database even when METABOLIC or CAMPER also include them, so only profiles custom built by METABOLIC or CAMPER carry those colors.
+
+```{r reference-hmm-upset, fig.width=10, fig.height=5}
+reference_upset_data <- reference_hmms %>%
+  mutate(
+    n_databases = Pfam + KEGG + FOAM + METABOLIC + CAMPER + dbCAN,
+    `Database source` = case_when(
+      Pfam ~ "Pfam",
+      KEGG ~ "KEGG",
+      dbCAN ~ "dbCAN",
+      n_databases == 0 ~ "None",
+      n_databases > 1 ~ "Multiple DBs",
+      FOAM ~ "FOAM",
+      METABOLIC ~ "METABOLIC (custom)",
+      CAMPER ~ "CAMPER (custom)"
+    ),
+    `Database source` = factor(`Database source`, levels = db_source_levels),
+    !!"CheckAMG (AMG weight \u2265 0.6)" := `CheckAMG (AMG weight >= 0.6)`,
+    `CheckAMG (AMG weight < 0.6)` = `CheckAMG (all)` & !`CheckAMG (AMG weight >= 0.6)`,
+    `DRAM-V` = DRAMV
+  )
+
+stopifnot(all(reference_upset_data$Pfam + reference_upset_data$KEGG + reference_upset_data$dbCAN <= 1))
+
+reference_sets <- c(
+  "CheckAMG (AMG weight \u2265 0.6)",
+  "CheckAMG (AMG weight < 0.6)",
+  "DRAM-V",
+  "VIBRANT"
+)
+
+p_reference_upset <- ComplexUpset::upset(
+  data = as.data.frame(reference_upset_data),
+  intersect = rev(reference_sets),
+  name = NULL,
+  sort_sets = FALSE,
+  sort_intersections = "descending",
+  min_size = 1,
+  height_ratio = 0.6,
+  width_ratio = 0.3,
+  guides = "over",
+
+  base_annotations = list(
+    "Reference HMMs" = ComplexUpset::intersection_size(
+      mapping = aes(fill = `Database source`),
+      text = list(size = 4),
+      text_colors = c(on_background = "black", on_bar = "black")
+    ) +
+      coord_trans(y = scales::pseudo_log_trans(base = 10)) +
+      scale_y_continuous(
+        breaks = c(0, 10, 100, 1000, 10000, 100000),
+        labels = scales::comma,
+        expand = expansion(mult = c(0, 0.1))
+      ) +
+      scale_fill_manual(
+        values = db_source_pal,
+        name = "Database source",
+        drop = TRUE
+      ) +
+      theme(
+        panel.grid = element_blank(),
+        axis.title.y = element_text(size = 16),
+        axis.text.y = element_text(size = 14),
+        legend.title = element_text(size = 16),
+        legend.text = element_text(size = 14)
+      )
+  ),
+
+  matrix = ComplexUpset::intersection_matrix(
+    geom = geom_point(size = 3),
+    segment = geom_segment(linetype = "solid", color = "black"),
+    outline_color = list(active = "grey60", inactive = "grey90")
+  ),
+
+  themes = ComplexUpset::upset_modify_themes(
+    list(
+      "intersections_matrix" = theme(
+        axis.text.y = element_text(size = 14),
+        axis.title.y = element_blank(),
+        axis.title.x = element_blank()
+      )
+    )
+  ),
+
+  set_sizes = ComplexUpset::upset_set_size(position = "right") +
+    geom_text(
+      aes(label = scales::comma(after_stat(count))),
+      stat = "count",
+      hjust = -0.1,
+      size = 4
+    ) +
+    scale_y_continuous(
+      labels = scales::comma,
+      expand = expansion(mult = c(0, 0.6))
+    ) +
+    labs(y = "Reference HMMs per set") +
+    theme(
+      axis.text.x = element_text(size = 12),
+      axis.title.x = element_text(size = 14)
+    )
+)
+
+print(p_reference_upset)
+```
+
+# Reasons for non-overlapping calls
+
+Each default/high call is classified by what each other tool did with the same gene, using the precedence order in `classify_nonoverlap` in `amg_benchmark_comparisons.ipynb`. For DRAM-V, "Called only at lower stringency" means the gene carried DRAM-V's metabolism (M) flag and passed only a relaxed auxiliary-score or T-flag configuration. It does not mean DRAM-V found viral support or annotated the same function.
+
+```{r nonoverlap-classification, fig.width=13, fig.height=6}
+nonoverlap_source_tiers <- c("CheckAMG_high", "DRAMV_default", "VIBRANT_high")
+
+nonoverlap_summary <- nonoverlap_calls %>%
+  count(source_tier, other_tool, category) %>%
+  group_by(source_tier, other_tool) %>%
+  mutate(pct = n / sum(n)) %>%
+  ungroup() %>%
+  mutate(
+    Classification = factor(
+      recode(category, !!!nonoverlap_category_map),
+      levels = nonoverlap_category_levels
+    ),
+    `Other tool` = factor(
+      recode(other_tool, !!!tool_pretty_map),
+      levels = c("CheckAMG", "DRAM-V", "VIBRANT")
+    ),
+    source_tier = factor(source_tier, levels = nonoverlap_source_tiers)
+  )
+
+nonoverlap_summary
+
+source_tier_facet_labels <- nonoverlap_calls %>%
+  distinct(gene, sample, source, ecosystem, source_tier, likely_false_positive) %>%
+  group_by(source_tier) %>%
+  summarise(
+    n_calls = n(),
+    n_without_viral_evidence = sum(likely_false_positive),
+    .groups = "drop"
+  ) %>%
+  mutate(
+    facet_label = paste0(
+      recode(source_tier, !!!tier_pretty_map),
+      "\nn = ", scales::comma(n_calls)
+    )
+  )
+
+source_tier_facet_labels
+
+p_nonoverlap <- ggplot(
+  nonoverlap_summary,
+  aes(
+    x = `Other tool`,
+    y = pct,
+    fill = Classification
+  )
+) +
+  geom_col(width = 0.75) +
+  geom_text(
+    aes(label = ifelse(pct >= 0.05, paste0(round(100 * pct, 0), "%"), "")),
+    position = position_stack(vjust = 0.5),
+    size = 5,
+    color = "white"
+  ) +
+  facet_wrap(
+    ~ source_tier,
+    nrow = 1,
+    scales = "free_x",
+    labeller = labeller(
+      source_tier = setNames(
+        source_tier_facet_labels$facet_label,
+        source_tier_facet_labels$source_tier
+      )
+    )
+  ) +
+  scale_fill_manual(
+    values = nonoverlap_category_pal,
+    name = "Classification",
+    labels = function(x) str_wrap(x, 22),
+    drop = TRUE
+  ) +
+  scale_y_continuous(
+    labels = label_percent(scale = 100),
+    expand = expansion(mult = c(0, 0.02))
+  ) +
+  labs(
+    x = "Other tool",
+    y = "Percent of source tier calls"
+  ) +
+  theme(
+    legend.position = "right",
+    legend.title = element_text(size = 13),
+    legend.text = element_text(size = 11),
+    legend.key.size = unit(0.9, "lines"),
+    legend.key.spacing.y = unit(0.25, "lines"),
+    axis.title = element_text(size = 14),
+    axis.text = element_text(size = 12),
+    strip.text.x = element_text(size = 11)
+  ) +
+  guides(
+    fill = guide_legend(
+      ncol = 1,
+      title.position = "top"
+    )
+  )
+
+print(p_nonoverlap)
+```
+
+# Independent viral evidence in tier-conflict scenarios
+
+Scenario definitions and context flags follow `CONFLICT_SCENARIOS` and `context_flags` in `amg_benchmark_comparisons.ipynb`. A nearby viral gene means a gene with V-score at least 10 within 10 kb. The MGE flags use the nearest MGE-annotated gene on each side, with no distance limit, and a gene can carry both flags when its two sides differ.
+
+```{r tier-conflict-context, fig.width=13, fig.height=8}
+context_distance_max_bp <- 10000
+viral_v_score_min <- 10
+
+context_signals <- c(
+  "geNomad viral region",
+  "CheckAMG strict viral region",
+  "Viral gene within 10 kb (at least one side)",
+  "Viral gene within 10 kb (both sides)",
+  "Virus-like MGE flank",
+  "Bacteria-like MGE flank"
+)
+
+gene_context <- gene_calls %>%
+  mutate(
+    viral_gene_left_near = !is.na(viral_gene_left_dist) & viral_gene_left_dist <= context_distance_max_bp,
+    viral_gene_right_near = !is.na(viral_gene_right_dist) & viral_gene_right_dist <= context_distance_max_bp,
+    `geNomad viral region` = genomad_viral,
+    `CheckAMG strict viral region` = in_strict_viral_region,
+    `Viral gene within 10 kb (at least one side)` = viral_gene_left_near | viral_gene_right_near,
+    `Viral gene within 10 kb (both sides)` = viral_gene_left_near & viral_gene_right_near,
+    `Virus-like MGE flank` =
+      (!is.na(MGE_gene_left_V_score) & MGE_gene_left_V_score >= viral_v_score_min) |
+      (!is.na(MGE_gene_right_V_score) & MGE_gene_right_V_score >= viral_v_score_min),
+    `Bacteria-like MGE flank` =
+      (!is.na(MGE_gene_left_V_score) & MGE_gene_left_V_score < viral_v_score_min) |
+      (!is.na(MGE_gene_right_V_score) & MGE_gene_right_V_score < viral_v_score_min)
+  )
+
+conflict_scenario_levels <- c(
+  "CheckAMG (high) vs DRAM-V (allow T)",
+  "CheckAMG (high) vs DRAM-V (aux \u2264 4)",
+  "CheckAMG (high) vs DRAM-V (aux \u2264 4, allow T)",
+  "VIBRANT (high) vs DRAM-V (allow T)",
+  "VIBRANT (high) vs DRAM-V (aux \u2264 4, allow T)",
+  "DRAM-V (default) vs CheckAMG (low)",
+  "DRAM-V (default) vs VIBRANT (low)",
+  "CheckAMG (high) vs VIBRANT (low)",
+  "VIBRANT (high) vs CheckAMG (low)"
+)
+
+conflict_scenario_genes <- bind_rows(
+  gene_context %>%
+    filter(CheckAMG_high, DRAMV_allow_T, !DRAMV_default) %>%
+    mutate(Scenario = "CheckAMG (high) vs DRAM-V (allow T)"),
+  gene_context %>%
+    filter(CheckAMG_high, DRAMV_aux_4, !DRAMV_default) %>%
+    mutate(Scenario = "CheckAMG (high) vs DRAM-V (aux \u2264 4)"),
+  gene_context %>%
+    filter(CheckAMG_high, DRAMV_aux_4_allow_T, !DRAMV_default, !DRAMV_allow_T, !DRAMV_aux_4) %>%
+    mutate(Scenario = "CheckAMG (high) vs DRAM-V (aux \u2264 4, allow T)"),
+  gene_context %>%
+    filter(VIBRANT_high, DRAMV_allow_T, !DRAMV_default) %>%
+    mutate(Scenario = "VIBRANT (high) vs DRAM-V (allow T)"),
+  gene_context %>%
+    filter(VIBRANT_high, DRAMV_aux_4_allow_T, !DRAMV_default, !DRAMV_allow_T, !DRAMV_aux_4) %>%
+    mutate(Scenario = "VIBRANT (high) vs DRAM-V (aux \u2264 4, allow T)"),
+  gene_context %>%
+    filter(DRAMV_default, CheckAMG_low) %>%
+    mutate(Scenario = "DRAM-V (default) vs CheckAMG (low)"),
+  gene_context %>%
+    filter(DRAMV_default, VIBRANT_low) %>%
+    mutate(Scenario = "DRAM-V (default) vs VIBRANT (low)"),
+  gene_context %>%
+    filter(CheckAMG_high, VIBRANT_low, !VIBRANT_high) %>%
+    mutate(Scenario = "CheckAMG (high) vs VIBRANT (low)"),
+  gene_context %>%
+    filter(VIBRANT_high, CheckAMG_low, !CheckAMG_high) %>%
+    mutate(Scenario = "VIBRANT (high) vs CheckAMG (low)")
+)
+
+tier_conflict_context <- conflict_scenario_genes %>%
+  select(Scenario, all_of(context_signals)) %>%
+  pivot_longer(
+    cols = all_of(context_signals),
+    names_to = "Context signal",
+    values_to = "signal_present"
+  ) %>%
+  group_by(Scenario, `Context signal`) %>%
+  summarise(
+    n_genes = n(),
+    n_with_signal = sum(signal_present),
+    pct = n_with_signal / n_genes,
+    .groups = "drop"
+  ) %>%
+  mutate(
+    Scenario = factor(Scenario, levels = conflict_scenario_levels),
+    `Context signal` = factor(`Context signal`, levels = context_signals)
+  )
+
+tier_conflict_context %>%
+  select(Scenario, `Context signal`, n_genes, n_with_signal) %>%
+  pivot_wider(names_from = `Context signal`, values_from = n_with_signal)
+
+scenario_facet_labels <- tier_conflict_context %>%
+  distinct(Scenario, n_genes) %>%
+  mutate(facet_label = paste0(Scenario, "\nn = ", scales::comma(n_genes)))
+
+p_tier_conflict <- ggplot(
+  tier_conflict_context,
+  aes(
+    x = `Context signal`,
+    y = pct,
+    fill = `Context signal`
+  )
+) +
+  geom_col(width = 0.75) +
+  geom_text(
+    aes(label = paste0(round(100 * pct, 0), "%")),
+    vjust = -0.3,
+    size = 4
+  ) +
+  facet_wrap(
+    ~ Scenario,
+    ncol = 3,
+    labeller = labeller(
+      Scenario = setNames(
+        scenario_facet_labels$facet_label,
+        as.character(scenario_facet_labels$Scenario)
+      )
+    )
+  ) +
+  scale_fill_brewer(
+    palette = "Set2",
+    guide = "none"
+  ) +
+  scale_y_continuous(
+    limits = c(0, 1.15),
+    breaks = c(0, 0.25, 0.5, 0.75, 1),
+    labels = label_percent(scale = 100)
+  ) +
+  labs(
+    x = NULL,
+    y = "Percent of genes in scenario"
+  ) +
+  theme(
+    axis.title.y = element_text(size = 16),
+    axis.text.y = element_text(size = 12),
+    axis.text.x = element_text(size = 9, angle = 30, hjust = 1),
+    strip.text.x = element_text(size = 11),
+    plot.margin = margin(t = 6, r = 6, b = 6, l = 24)
+  )
+
+print(p_tier_conflict)
+```
+
+# Combine the UpSet plots and composition plots
+
+```{r combine-upsets-composition, fig.height=14.5, fig.width=12}
+p_upset_comp_composite <- cowplot::plot_grid(
+  p_upset_amg_calls_composite,
+  cowplot::plot_grid(
+    p_weight_composition, p_category_composition, p_db_composition,
+    ncol = 3,
+    rel_widths = c(1, 1, 1),
+    labels = c("C", "D", "E"),
+    label_size = 20
+    ),
+  nrow = 2,
+  rel_heights = c(9, 5.5),
+  labels = c("", ""),
+  label_size = 20
+)
+
+save_plot_both(p_upset_comp_composite, "amg_comparisons_composite", 12, 14.5, 300)
+print(p_upset_comp_composite)
+```
+
+# Extended Data composites
+
+Composite file names describe content rather than figure numbers, because Extended Data numbering is set during renumbering.
+
+## All-tier totals and composition
+
+```{r composite-all-tiers, fig.width=12, fig.height=18}
+p_all_tiers_composite <- cowplot::plot_grid(
+  p_tier_call_totals,
+  p_weight_composition_all_tiers,
+  p_category_composition_all_tiers,
+  ncol = 1,
+  rel_heights = c(1, 1.2, 1.2),
+  labels = c("A", "B", "C"),
+  label_size = 20
+)
+
+save_plot_both(p_all_tiers_composite, "amg_all_tiers_composite", 12, 18, 300)
+print(p_all_tiers_composite)
+```
+
+## Reference AMG sets
+
+```{r composite-reference-sets, fig.width=12, fig.height=16}
+p_reference_sets_composite <- cowplot::plot_grid(
+  p_reference_set_sizes,
+  p_reference_upset,
+  p_db_composition_all_tiers,
+  ncol = 1,
+  rel_heights = c(0.8, 1.1, 1),
+  labels = c("A", "B", "C"),
+  label_size = 20
+)
+
+save_plot_both(p_reference_sets_composite, "amg_reference_sets_composite", 12, 16, 300)
+print(p_reference_sets_composite)
+```
+
+## Non-overlapping calls and viral evidence
+
+```{r composite-nonoverlap, fig.width=13, fig.height=14}
+p_nonoverlap_composite <- cowplot::plot_grid(
+  p_nonoverlap,
+  p_tier_conflict,
+  ncol = 1,
+  rel_heights = c(1, 1.5),
+  labels = c("A", "B"),
+  label_size = 20
+)
+
+save_plot_both(p_nonoverlap_composite, "amg_nonoverlap_composite", 13, 14, 300)
+print(p_nonoverlap_composite)
+```
+
+# Source data export
+
+Each panel's plotted data frame is written out here, so the .xlsx source data is assembled from the same objects the figures are drawn from rather than recomputed elsewhere.
+
+```{r source-data-export}
+SRC_DIR <- file.path(TBL_DIR, "source_data")
+dir.create(SRC_DIR, showWarnings = FALSE, recursive = TRUE)
+primary_tiers <- c("CheckAMG (high)", "DRAM-V (default)", "VIBRANT (high)")
+
+readr::write_csv(upset_data_amg_calls,
+                 file.path(SRC_DIR, "fig3AB_call_membership.csv"))
+
+readr::write_csv(amg_weight_comp %>%
+                   filter(tier %in% primary_tiers) %>%
+                   select(gene_key, tool, tier, `AMG weight`, `AMG weight bin`,
+                          `Likely AMG`, database, hit_id),
+                 file.path(SRC_DIR, "fig3CE_weight_and_database.csv"))
+
+readr::write_csv(amg_cautious_comp %>%
+                   filter(tier %in% primary_tiers),
+                 file.path(SRC_DIR, "fig3D_cautious_functions.csv"))
+
+readr::write_csv(reference_set_sizes,
+                 file.path(SRC_DIR, "edfig4A_reference_set_sizes.csv"))
+readr::write_csv(reference_upset_data,
+                 file.path(SRC_DIR, "edfig4B_reference_hmm_membership.csv"))
+readr::write_csv(db_comp_plot,
+                 file.path(SRC_DIR, "edfig4C_database_composition_all_tiers.csv"))
+
+readr::write_csv(tier_call_totals,
+                 file.path(SRC_DIR, "edfig5A_tier_call_totals.csv"))
+readr::write_csv(weight_comp_plot,
+                 file.path(SRC_DIR, "edfig5B_weight_composition_all_tiers.csv"))
+readr::write_csv(cautious_comp_plot,
+                 file.path(SRC_DIR, "edfig5C_cautious_composition_all_tiers.csv"))
+
+readr::write_csv(nonoverlap_summary,
+                 file.path(SRC_DIR, "edfig6A_nonoverlap_reasons.csv"))
+readr::write_csv(source_tier_facet_labels,
+                 file.path(SRC_DIR, "edfig6A_no_viral_evidence_counts.csv"))
+readr::write_csv(tier_conflict_context,
+                 file.path(SRC_DIR, "edfig6B_tier_conflict_context.csv"))
+readr::write_csv(scenario_facet_labels,
+                 file.path(SRC_DIR, "edfig6B_scenario_sizes.csv"))
+
+tibble::tibble(file = list.files(SRC_DIR, pattern = "[.]csv$")) %>%
+  mutate(rows = vapply(file, function(f) nrow(readr::read_csv(file.path(SRC_DIR, f), show_col_types = FALSE)), integer(1)))
+```
+

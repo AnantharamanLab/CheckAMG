@@ -1,0 +1,250 @@
+---
+title: "CheckAMG AMG reference weights (Figure 2)"
+author: "James C. Kosmopoulos"
+date: "`r Sys.Date()`"
+output:
+  github_document
+---
+
+```{r setup, include=TRUE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE,
+                      fig.width = 10, fig.height = 6, dpi = 150)
+
+# the "≥" literals in the bin labels are corrupted under a C/POSIX locale
+Sys.setlocale("LC_ALL", "en_US.UTF-8")
+Sys.setenv(LANG = "en_US.UTF-8", LC_ALL = "en_US.UTF-8")
+options(encoding = "UTF-8")
+
+library(tidyverse)
+library(cowplot)
+library(ggrepel)
+library(akima)
+library(scales)
+library(RColorBrewer)
+library(svglite)
+
+AMG_REFERENCE_TSV <- file.path("../CheckAMG/files/AMGs.tsv")
+PLOT_DIR <- file.path("./plots/amg_benchmark")
+dir.create(PLOT_DIR, showWarnings = FALSE, recursive = TRUE)
+
+save_plot_both <- function(p, stem, w, h, dpi = 600) {
+  ggsave(file.path(PLOT_DIR, paste0(stem, ".png")), p,
+         width = w, height = h, units = "in", dpi = dpi, bg = "white")
+  invisible(p)
+}
+
+base_theme <- theme_cowplot(font_size = 11) +
+  theme(plot.title    = element_text(face = "bold", size = 12),
+        strip.background = element_rect(fill = "grey92", color = NA),
+        strip.text    = element_text(face = "bold"),
+        legend.position = "right",
+        legend.title    = element_text(face = "bold"),
+        panel.grid.major.y = element_line(color = "grey92")
+        )
+theme_set(base_theme)
+```
+
+# Data
+
+The scored AMG reference table is the only input. Every summary below is computed from it in this file.
+
+```{r load-reference}
+amgs_raw <- read_tsv(AMG_REFERENCE_TSV, show_col_types = FALSE)
+glimpse(amgs_raw)
+```
+
+# AMG weight distribution per source database (Figure 2B)
+
+```{r reference-weight-distribution, fig.width=10, fig.height=5}
+weight_order_ref <- c("very_low", "low", "medium", "high", "very_high")
+bin_label_ref <- c(very_low = "< 0.2", low = "0.2 to 0.4", medium = "0.4 to 0.6",
+                   high = "0.6 to 0.8", very_high = "≥ 0.8")
+
+ref_weight_plot <- amgs_raw %>%
+  mutate(bin = case_when(
+    AMG_weight >= 0.8 ~ "very_high",
+    AMG_weight >= 0.6 ~ "high",
+    AMG_weight >= 0.4 ~ "medium",
+    AMG_weight >= 0.2 ~ "low",
+    TRUE              ~ "very_low"
+  )) %>%
+  count(db, bin) %>%
+  filter(!is.na(db)) %>%
+  mutate(bin = factor(bin_label_ref[bin], levels = unname(bin_label_ref[weight_order_ref])),
+         db  = factor(db, levels = c("KEGG", "Pfam", "FOAM", "METABOLIC", "CAMPER", "dbCAN")))
+
+p_reference_weight_distribution <- ggplot(ref_weight_plot,
+                                          aes(x = bin, y = n, fill = bin)) +
+  geom_col(width = 0.8) +
+  geom_text(aes(label = comma(n)), vjust = -0.3, size = 2.6) +
+  facet_wrap(~ db, scales = "free_y", ncol = 3) +
+  scale_fill_brewer(palette = "RdYlGn") +
+  scale_y_continuous(labels = comma, expand = expansion(mult = c(0, 0.2))) +
+  scale_x_discrete(expand = expansion(mult = c(0, 0.2))) +
+  labs(x = "AMG weight bin", y = "Reference source database", fill = NULL) +
+  theme(legend.position = "none",
+        axis.text.x = element_text(angle = 30, hjust = 1, size = 8))
+save_plot_both(p_reference_weight_distribution, "reference_weight_distribution", 10, 5)
+p_reference_weight_distribution
+```
+
+```{r reference-weight-counts}
+ref_weight_plot %>%
+  pivot_wider(names_from = bin, values_from = n, values_fill = 0) %>%
+  arrange(db)
+```
+
+# AMG weight against VL-score and metabolic ratio (Figure 2A)
+
+```{r weight-vl-metabolic, fig.width=5.67, fig.height=4}
+VIRIDIS_DARK <- "#440154"
+
+highlight_ids <- c(
+  "K00390"     = "K00390: CysH",
+  "K02703"     = "K02703: PsbA",
+  "K17226"     = "K17226: SoxY",
+  "K06217"     = "K06217: PhoH",
+  "K10946"     = "K10946: AmoC/PmoC",
+  "K00558"     = "K00558: dcm methyltransferase",
+  "K00956"     = "K00956: CysN",
+  "K01184"     = "K01184: polygalacturonase",
+  "K00789"     = "K00789: S-adenosylmethionine synthetase",
+  "K00370"     = "K00370: nitrate reductase",
+  "K00845"     = "K00845: glucokinase",
+  "PF13442.12" = "PF13442: cytochrome c oxidase III",
+  "K01084"     = "K01084: glucose-6-phosphatase",
+  "PF00186.25" = "PF00186: dihydrofolate reductase",
+  "TIGR02188"  = "TIGR02188: acetyl-CoA synthetase",
+  "PF04724.19" = "PF04724: Glycosyl transferase",
+  "K01114"     = "K01114: phospholipase C",
+  "PF00709.28" = "PF00709: Adenylosuccinate synthetase",
+  "K03083"     = "K03083: glycogen synthase kinase"
+)
+
+gauss_blur_2d <- function(mat, sigma) {
+  r <- ceiling(4 * sigma)
+  ks <- seq(-r, r)
+  kernel <- exp(-ks^2 / (2 * sigma^2))
+  kernel <- kernel / sum(kernel)
+  tmp <- matrix(NA_real_, nrow(mat), ncol(mat))
+  for (i in seq_len(nrow(mat)))
+    tmp[i, ] <- as.numeric(stats::filter(mat[i, ], kernel, sides = 2))
+  tmp[is.na(tmp)] <- mat[is.na(tmp)] # filter() returns NA at the edges, keep the input there
+  out <- matrix(NA_real_, nrow(mat), ncol(mat))
+  for (j in seq_len(ncol(mat)))
+    out[, j] <- as.numeric(stats::filter(tmp[, j], kernel, sides = 2))
+  out[is.na(out)] <- tmp[is.na(out)]
+  out
+}
+
+plot_amg_vs_vl <- function(df, highlight_ids = NULL, grid_res = 300L, smooth_sigma = 8) {
+  plot_df <- df %>%
+    filter(!is.na(`VL-score`), !is.na(AMG_weight), !is.na(metabolic_ratio))
+
+  x <- plot_df$`VL-score`
+  y <- plot_df$metabolic_ratio
+  z <- plot_df$AMG_weight
+
+  x_rng <- range(x)
+  y_rng <- range(y)
+  xmin_pad <- diff(x_rng) * 0.010
+  xmax_pad <- diff(x_rng) * 0.075
+  ymin_pad <- diff(y_rng) * 0.010
+  ymax_pad <- diff(y_rng) * 0.075
+  xi <- seq(x_rng[1] - xmin_pad, x_rng[2] + xmax_pad, length.out = grid_res)
+  yi <- seq(y_rng[1] - ymin_pad, y_rng[2] + ymax_pad, length.out = grid_res)
+
+  # linear + extrap mirror scipy griddata "linear" with a nearest-neighbor fallback
+  interp_res <- akima::interp(x, y, z, xo = xi, yo = yi,
+                              linear = TRUE, extrap = TRUE, duplicate = "mean")
+  Zi <- interp_res$z
+  Zi[is.na(Zi)] <- 0.0 # 0 renders as the darkest viridis color, so there are no grey patches
+
+  Xi_mat <- matrix(rep(xi, times = grid_res), nrow = grid_res)
+  Yi_mat <- matrix(rep(yi, each = grid_res), nrow = grid_res)
+  Zi[Xi_mat > 3.8 & Yi_mat < 0.15] <- 0.0 # no reference profiles sit here, so do not extrapolate into it
+
+  Zi <- gauss_blur_2d(Zi, sigma = smooth_sigma)
+  Zi <- pmin(pmax(Zi, 0.0), 1.0)
+
+  grid_df <- expand.grid(x = xi, y = yi)
+  grid_df$z <- as.vector(Zi)
+
+  if (!is.null(highlight_ids)) {
+    hi_df <- plot_df %>%
+      filter(id %in% names(highlight_ids)) %>%
+      distinct(id, .keep_all = TRUE) %>%
+      mutate(label = highlight_ids[id])
+    bg_df <- plot_df %>%
+      filter(!id %in% names(highlight_ids))
+  } else {
+    bg_df <- plot_df
+    hi_df <- NULL
+  }
+
+  p <- ggplot() +
+    geom_raster(data = grid_df, aes(x = x, y = y, fill = z), interpolate = TRUE) +
+    scale_fill_viridis_c(name = "AMG weight", limits = c(0, 1),
+                         breaks = seq(0, 1, 0.2), labels = sprintf("%.1f", seq(0, 1, 0.2)),
+                         option = "D", na.value = VIRIDIS_DARK) +
+    geom_contour(data = grid_df, aes(x = x, y = y, z = z),
+                 breaks = seq(0.2, 1.0, 0.2), colour = "white",
+                 linewidth = 0.6, alpha = 0.7) +
+    geom_point(data = bg_df, aes(x = `VL-score`, y = metabolic_ratio),
+               colour = "white", alpha = 0.45, size = 1.0, shape = 16) +
+    labs(x = expression(V[L] * "-score"), y = "Metabolic ratio") +
+    coord_cartesian(xlim = range(xi), ylim = range(yi), expand = FALSE) +
+    theme_minimal(base_size = 12) +
+    theme(
+      panel.grid.major  = element_line(colour = "white", linewidth = 0.4, linetype = "solid"),
+      panel.grid.minor  = element_blank(),
+      panel.background  = element_rect(fill = VIRIDIS_DARK, colour = NA),
+      plot.background   = element_rect(fill = "white", colour = NA),
+      panel.border      = element_blank(),
+      legend.position   = "right",
+      legend.key.height = unit(1.6, "cm")
+    )
+
+  if (!is.null(hi_df) && nrow(hi_df) > 0) {
+    p <- p +
+      geom_point(data = hi_df, aes(x = `VL-score`, y = metabolic_ratio),
+                 shape = 21, size = 3.5, colour = "black", fill = "white", stroke = 1.2) +
+      ggrepel::geom_text_repel(
+        data = hi_df,
+        aes(x = `VL-score`, y = metabolic_ratio, label = label),
+        colour = "white", fontface = "bold", size = 2.5,
+        bg.color = "black", bg.r = 0.15,
+        segment.color = "black", segment.size = 0.5, segment.alpha = 0.9,
+        box.padding = 0.5, point.padding = 0.4,
+        force = 3, force_pull = 0.4,
+        max.overlaps = Inf, min.segment.length = 0,
+        seed = 20260401,
+        xlim = range(xi), ylim = range(yi)
+      )
+  }
+  p
+}
+
+p_reference_weight_ratio_vl <- plot_amg_vs_vl(amgs_raw, highlight_ids = highlight_ids)
+save_plot_both(p_reference_weight_ratio_vl, "reference_weight_ratio_vl", 5.67, 4)
+p_reference_weight_ratio_vl
+```
+
+# Composite (Figure 2)
+
+```{r reference-weight-composite, fig.width=12, fig.height=4}
+p_reference_weight_composite <- cowplot::plot_grid(
+  p_reference_weight_ratio_vl,
+  p_reference_weight_distribution + theme(legend.position = "none"),
+  ncol = 2, rel_widths = c(1, 1),
+  labels = c("A", "B"), label_size = 16, label_fontface = "bold"
+)
+save_plot_both(p_reference_weight_composite, "reference_weight_ratio_vl_composite", 12, 4)
+p_reference_weight_composite
+```
+
+# Session info
+
+```{r session-info}
+sessionInfo()
+```

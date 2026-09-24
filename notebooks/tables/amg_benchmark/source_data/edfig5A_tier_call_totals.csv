@@ -1,0 +1,31 @@
+tool,tier,Call set,AMG calls
+CheckAMG,CheckAMG (high),all_calls,3218
+CheckAMG,CheckAMG (high),likely_amgs,3176
+CheckAMG,CheckAMG (high),threshold_supported,2217
+CheckAMG,CheckAMG (medium),all_calls,6706
+CheckAMG,CheckAMG (medium),likely_amgs,6633
+CheckAMG,CheckAMG (medium),threshold_supported,4666
+CheckAMG,CheckAMG (low),all_calls,169511
+CheckAMG,CheckAMG (low),likely_amgs,168720
+CheckAMG,CheckAMG (low),threshold_supported,134969
+DRAM-V,DRAM-V (default),all_calls,664
+DRAM-V,DRAM-V (default),likely_amgs,524
+DRAM-V,DRAM-V (default),threshold_supported,20
+DRAM-V,DRAM-V (allow T),all_calls,10736
+DRAM-V,DRAM-V (allow T),likely_amgs,8367
+DRAM-V,DRAM-V (allow T),threshold_supported,195
+DRAM-V,DRAM-V (aux ≤ 4),all_calls,116657
+DRAM-V,DRAM-V (aux ≤ 4),likely_amgs,97459
+DRAM-V,DRAM-V (aux ≤ 4),threshold_supported,10487
+DRAM-V,"DRAM-V (aux ≤ 4, allow T)",all_calls,1900029
+DRAM-V,"DRAM-V (aux ≤ 4, allow T)",likely_amgs,1569451
+DRAM-V,"DRAM-V (aux ≤ 4, allow T)",threshold_supported,129804
+VIBRANT,VIBRANT (high),all_calls,1270
+VIBRANT,VIBRANT (high),likely_amgs,398
+VIBRANT,VIBRANT (high),threshold_supported,547
+VIBRANT,VIBRANT (medium),all_calls,3720
+VIBRANT,VIBRANT (medium),likely_amgs,1091
+VIBRANT,VIBRANT (medium),threshold_supported,1460
+VIBRANT,VIBRANT (low),all_calls,12641
+VIBRANT,VIBRANT (low),likely_amgs,3369
+VIBRANT,VIBRANT (low),threshold_supported,4768

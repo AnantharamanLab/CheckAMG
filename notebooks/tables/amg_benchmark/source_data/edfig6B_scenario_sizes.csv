@@ -1,0 +1,19 @@
+Scenario,n_genes,facet_label
+CheckAMG (high) vs DRAM-V (allow T),21,"CheckAMG (high) vs DRAM-V (allow T)
+n = 21"
+CheckAMG (high) vs DRAM-V (aux ≤ 4),118,"CheckAMG (high) vs DRAM-V (aux ≤ 4)
+n = 118"
+"CheckAMG (high) vs DRAM-V (aux ≤ 4, allow T)",2849,"CheckAMG (high) vs DRAM-V (aux ≤ 4, allow T)
+n = 2,849"
+CheckAMG (high) vs VIBRANT (low),1053,"CheckAMG (high) vs VIBRANT (low)
+n = 1,053"
+DRAM-V (default) vs CheckAMG (low),5,"DRAM-V (default) vs CheckAMG (low)
+n = 5"
+DRAM-V (default) vs VIBRANT (low),5,"DRAM-V (default) vs VIBRANT (low)
+n = 5"
+VIBRANT (high) vs CheckAMG (low),54,"VIBRANT (high) vs CheckAMG (low)
+n = 54"
+VIBRANT (high) vs DRAM-V (allow T),8,"VIBRANT (high) vs DRAM-V (allow T)
+n = 8"
+"VIBRANT (high) vs DRAM-V (aux ≤ 4, allow T)",1135,"VIBRANT (high) vs DRAM-V (aux ≤ 4, allow T)
+n = 1,135"

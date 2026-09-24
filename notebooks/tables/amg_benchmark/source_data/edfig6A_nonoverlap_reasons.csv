@@ -1,0 +1,26 @@
+source_tier,other_tool,category,n,pct,Classification,Other tool
+CheckAMG_high,DRAMV,a. other tool called at different tier,2988,0.9285270354257302,Called only at lower stringency,DRAM-V
+CheckAMG_high,DRAMV,c. source tool's best-hit db not used by other tool,14,0.00435052827843381,Best-hit database not queried,DRAM-V
+CheckAMG_high,DRAMV,"d. same db hit_id, not flagged AMG",188,0.058421379738968306,"Shared-database hit, not flagged as AMG",DRAM-V
+CheckAMG_high,DRAMV,e. other tool annotated different hit in shared db,28,0.00870105655686762,Different top hit in a shared database,DRAM-V
+CheckAMG_high,VIBRANT,a. other tool called at different tier,1053,0.3272218769422001,Called only at lower stringency,VIBRANT
+CheckAMG_high,VIBRANT,agrees at default/high,221,0.06867619639527657,Agrees at default/high,VIBRANT
+CheckAMG_high,VIBRANT,c. source tool's best-hit db not used by other tool,117,0.036357986326911125,Best-hit database not queried,VIBRANT
+CheckAMG_high,VIBRANT,"d. same db hit_id, not flagged AMG",1577,0.4900559353635799,"Shared-database hit, not flagged as AMG",VIBRANT
+CheckAMG_high,VIBRANT,e. other tool annotated different hit in shared db,191,0.05935363579863269,Different top hit in a shared database,VIBRANT
+CheckAMG_high,VIBRANT,f. other tool produced no hits for this gene,59,0.018334369173399628,No annotation available,VIBRANT
+DRAMV_default,CheckAMG,a. other tool called at different tier,5,0.007530120481927711,Called only at lower stringency,CheckAMG
+DRAMV_default,CheckAMG,"d. same db hit_id, not flagged AMG",18,0.02710843373493976,"Shared-database hit, not flagged as AMG",CheckAMG
+DRAMV_default,CheckAMG,e. other tool annotated different hit in shared db,287,0.4322289156626506,Different top hit in a shared database,CheckAMG
+DRAMV_default,CheckAMG,f. other tool produced no hits for this gene,354,0.5331325301204819,No annotation available,CheckAMG
+DRAMV_default,VIBRANT,a. other tool called at different tier,5,0.007530120481927711,Called only at lower stringency,VIBRANT
+DRAMV_default,VIBRANT,"d. same db hit_id, not flagged AMG",12,0.018072289156626505,"Shared-database hit, not flagged as AMG",VIBRANT
+DRAMV_default,VIBRANT,e. other tool annotated different hit in shared db,214,0.32228915662650603,Different top hit in a shared database,VIBRANT
+DRAMV_default,VIBRANT,f. other tool produced no hits for this gene,433,0.6521084337349398,No annotation available,VIBRANT
+VIBRANT_high,CheckAMG,a. other tool called at different tier,54,0.04251968503937008,Called only at lower stringency,CheckAMG
+VIBRANT_high,CheckAMG,agrees at default/high,221,0.17401574803149605,Agrees at default/high,CheckAMG
+VIBRANT_high,CheckAMG,"d. same db hit_id, not flagged AMG",991,0.7803149606299212,"Shared-database hit, not flagged as AMG",CheckAMG
+VIBRANT_high,CheckAMG,e. other tool annotated different hit in shared db,4,0.0031496062992125984,Different top hit in a shared database,CheckAMG
+VIBRANT_high,DRAMV,a. other tool called at different tier,1145,0.9015748031496063,Called only at lower stringency,DRAM-V
+VIBRANT_high,DRAMV,"d. same db hit_id, not flagged AMG",111,0.08740157480314961,"Shared-database hit, not flagged as AMG",DRAM-V
+VIBRANT_high,DRAMV,e. other tool annotated different hit in shared db,14,0.011023622047244094,Different top hit in a shared database,DRAM-V

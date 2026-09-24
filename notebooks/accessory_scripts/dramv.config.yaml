@@ -1,0 +1,3 @@
+input_base: /storage2/scratch/kosmopoulos/projects/checkAMG/benchmarks/metabolism_benchmark/virsorter_outputs
+output_base: /storage2/scratch/kosmopoulos/projects/checkAMG/benchmarks/metabolism_benchmark/dramv_outputs
+threads: 4

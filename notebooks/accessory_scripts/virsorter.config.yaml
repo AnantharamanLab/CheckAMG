@@ -1,0 +1,4 @@
+input_base: /storage2/scratch/kosmopoulos/projects/checkAMG/benchmarks/benchmark_genomes
+output_base: /storage2/scratch/kosmopoulos/projects/checkAMG/benchmarks/metabolism_benchmark/virsorter_outputs
+virsorter_db: /storage2/scratch/kosmopoulos/databases/VirSorter2_db
+threads: 16

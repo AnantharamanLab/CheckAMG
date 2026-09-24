@@ -1,0 +1,4 @@
+input_base: /storage2/scratch/kosmopoulos/projects/checkAMG/benchmarks/metabolism_benchmark/dramv_genes_reformatted
+output_base: /storage2/scratch/kosmopoulos/projects/checkAMG/benchmarks/metabolism_benchmark/checkamg_annotate_v1.1_outputs
+checkamg_db: /storage2/scratch/kosmopoulos/software/CheckAMG/notebooks/CheckAMG_annotate_db_v1.1_20260316
+threads: 32

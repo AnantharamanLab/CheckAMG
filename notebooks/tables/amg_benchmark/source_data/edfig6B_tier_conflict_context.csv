@@ -1,0 +1,55 @@
+Scenario,Context signal,n_genes,n_with_signal,pct
+CheckAMG (high) vs DRAM-V (allow T),Bacteria-like MGE flank,21,0,0
+CheckAMG (high) vs DRAM-V (allow T),CheckAMG strict viral region,21,19,0.9047619047619048
+CheckAMG (high) vs DRAM-V (allow T),Viral gene within 10 kb (at least one side),21,19,0.9047619047619048
+CheckAMG (high) vs DRAM-V (allow T),Viral gene within 10 kb (both sides),21,16,0.7619047619047619
+CheckAMG (high) vs DRAM-V (allow T),Virus-like MGE flank,21,5,0.23809523809523808
+CheckAMG (high) vs DRAM-V (allow T),geNomad viral region,21,21,1
+CheckAMG (high) vs DRAM-V (aux ≤ 4),Bacteria-like MGE flank,118,0,0
+CheckAMG (high) vs DRAM-V (aux ≤ 4),CheckAMG strict viral region,118,89,0.7542372881355932
+CheckAMG (high) vs DRAM-V (aux ≤ 4),Viral gene within 10 kb (at least one side),118,113,0.9576271186440678
+CheckAMG (high) vs DRAM-V (aux ≤ 4),Viral gene within 10 kb (both sides),118,72,0.6101694915254238
+CheckAMG (high) vs DRAM-V (aux ≤ 4),Virus-like MGE flank,118,6,0.05084745762711865
+CheckAMG (high) vs DRAM-V (aux ≤ 4),geNomad viral region,118,111,0.940677966101695
+"CheckAMG (high) vs DRAM-V (aux ≤ 4, allow T)",Bacteria-like MGE flank,2849,30,0.01053001053001053
+"CheckAMG (high) vs DRAM-V (aux ≤ 4, allow T)",CheckAMG strict viral region,2849,2610,0.9161109161109161
+"CheckAMG (high) vs DRAM-V (aux ≤ 4, allow T)",Viral gene within 10 kb (at least one side),2849,2815,0.9880659880659881
+"CheckAMG (high) vs DRAM-V (aux ≤ 4, allow T)",Viral gene within 10 kb (both sides),2849,2218,0.7785187785187785
+"CheckAMG (high) vs DRAM-V (aux ≤ 4, allow T)",Virus-like MGE flank,2849,1006,0.35310635310635313
+"CheckAMG (high) vs DRAM-V (aux ≤ 4, allow T)",geNomad viral region,2849,2800,0.9828009828009828
+CheckAMG (high) vs VIBRANT (low),Bacteria-like MGE flank,1053,10,0.00949667616334283
+CheckAMG (high) vs VIBRANT (low),CheckAMG strict viral region,1053,958,0.9097815764482431
+CheckAMG (high) vs VIBRANT (low),Viral gene within 10 kb (at least one side),1053,1043,0.9905033238366572
+CheckAMG (high) vs VIBRANT (low),Viral gene within 10 kb (both sides),1053,782,0.7426400759734093
+CheckAMG (high) vs VIBRANT (low),Virus-like MGE flank,1053,313,0.2972459639126306
+CheckAMG (high) vs VIBRANT (low),geNomad viral region,1053,1050,0.9971509971509972
+DRAM-V (default) vs CheckAMG (low),Bacteria-like MGE flank,5,0,0
+DRAM-V (default) vs CheckAMG (low),CheckAMG strict viral region,5,2,0.4
+DRAM-V (default) vs CheckAMG (low),Viral gene within 10 kb (at least one side),5,5,1
+DRAM-V (default) vs CheckAMG (low),Viral gene within 10 kb (both sides),5,2,0.4
+DRAM-V (default) vs CheckAMG (low),Virus-like MGE flank,5,0,0
+DRAM-V (default) vs CheckAMG (low),geNomad viral region,5,3,0.6
+DRAM-V (default) vs VIBRANT (low),Bacteria-like MGE flank,5,0,0
+DRAM-V (default) vs VIBRANT (low),CheckAMG strict viral region,5,4,0.8
+DRAM-V (default) vs VIBRANT (low),Viral gene within 10 kb (at least one side),5,5,1
+DRAM-V (default) vs VIBRANT (low),Viral gene within 10 kb (both sides),5,3,0.6
+DRAM-V (default) vs VIBRANT (low),Virus-like MGE flank,5,0,0
+DRAM-V (default) vs VIBRANT (low),geNomad viral region,5,5,1
+VIBRANT (high) vs CheckAMG (low),Bacteria-like MGE flank,54,0,0
+VIBRANT (high) vs CheckAMG (low),CheckAMG strict viral region,54,30,0.5555555555555556
+VIBRANT (high) vs CheckAMG (low),Viral gene within 10 kb (at least one side),54,54,1
+VIBRANT (high) vs CheckAMG (low),Viral gene within 10 kb (both sides),54,30,0.5555555555555556
+VIBRANT (high) vs CheckAMG (low),Virus-like MGE flank,54,30,0.5555555555555556
+VIBRANT (high) vs CheckAMG (low),geNomad viral region,54,51,0.9444444444444444
+VIBRANT (high) vs DRAM-V (allow T),Bacteria-like MGE flank,8,0,0
+VIBRANT (high) vs DRAM-V (allow T),CheckAMG strict viral region,8,8,1
+VIBRANT (high) vs DRAM-V (allow T),Viral gene within 10 kb (at least one side),8,8,1
+VIBRANT (high) vs DRAM-V (allow T),Viral gene within 10 kb (both sides),8,7,0.875
+VIBRANT (high) vs DRAM-V (allow T),Virus-like MGE flank,8,5,0.625
+VIBRANT (high) vs DRAM-V (allow T),geNomad viral region,8,8,1
+"VIBRANT (high) vs DRAM-V (aux ≤ 4, allow T)",Bacteria-like MGE flank,1135,15,0.013215859030837005
+"VIBRANT (high) vs DRAM-V (aux ≤ 4, allow T)",CheckAMG strict viral region,1135,1086,0.9568281938325991
+"VIBRANT (high) vs DRAM-V (aux ≤ 4, allow T)",Viral gene within 10 kb (at least one side),1135,1132,0.9973568281938326
+"VIBRANT (high) vs DRAM-V (aux ≤ 4, allow T)",Viral gene within 10 kb (both sides),1135,1015,0.8942731277533039
+"VIBRANT (high) vs DRAM-V (aux ≤ 4, allow T)",Virus-like MGE flank,1135,781,0.6881057268722467
+"VIBRANT (high) vs DRAM-V (aux ≤ 4, allow T)",geNomad viral region,1135,1128,0.9938325991189427
