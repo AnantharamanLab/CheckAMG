@@ -1,0 +1,28 @@
+universe = vanilla
+executable = run.sh
+get_env = GRPSTAG, STAGING, USER
+arguments = $(train_data) $(outdir) $(margins) $(lr) $(model_ckpt) $(epochs) $(batch_size) $(ap_pairs) $(pos_mining) $(neg_mining) $(opposite_class_neg) $(class_weight) $(context_size)
+
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+
+Requirements = (Target.HasCHTCStaging == true)
+
+require_gpus = (DriverVersion >= 11.6) && (GlobalMemoryMB >= 141000)
+request_gpus = 1
+
++WantGPULab = true
+
++GPUJobLength = "long" 
+
+request_cpus = 1
+
+request_memory = 64GB 
+
+request_disk = 200GB
+
+output = $(Cluster)_$(Process).out
+log = $(Cluster)_$(Process).log
+error = $(Cluster)_$(Process).err
+
+queue train_data,outdir,margins,lr,model_ckpt,epochs,batch_size,ap_pairs,pos_mining,neg_mining,opposite_class_neg,class_weight,context_size from inputs.csv

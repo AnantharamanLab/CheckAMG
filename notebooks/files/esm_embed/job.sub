@@ -1,0 +1,24 @@
+universe = vanilla
+executable = run.sh
+get_env = GRPSTAG, STAGING, USER
+arguments = $(faa) $(outdir) $(model_esm) $(accelerator) $(devices)
+
+Requirements = (Target.HasCHTCStaging == true)
+
+require_gpus = (DriverVersion >= 11.6) && (GlobalMemoryMB >= 50000)
+request_gpus = 1
+
++WantGPULab = true
+
++GPUJobLength = "short" 
+
+request_cpus = 1
+
+request_memory = 8GB
+request_disk = 32GB
+
+output = $(Cluster)_$(Process).out
+log = $(Cluster)_$(Process).log
+error = $(Cluster)_$(Process).err
+
+queue faa,outdir,model_esm,accelerator,devices from inputs.csv

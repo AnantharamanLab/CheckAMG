@@ -1,0 +1,13 @@
+target	confidence	threshold
+viral	Very High Confidence	0.622
+viral	High Confidence	0.051
+viral	Medium Confidence	0.001
+viral	Low Confidence	0.0
+AVG	Very High Confidence	0.89
+AVG	High Confidence	0.201
+AVG	Medium Confidence	0.034
+AVG	Low Confidence	0.0
+AVG (AND gate)	Very High Confidence	0.956
+AVG (AND gate)	High Confidence	0.512
+AVG (AND gate)	Medium Confidence	0.096
+AVG (AND gate)	Low Confidence	0.0

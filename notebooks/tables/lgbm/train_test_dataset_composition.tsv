@@ -1,0 +1,67 @@
+dataset_key	dataset	split	unit	source	count	total	percent
+train	Training	train	Proteins	Virus	5495314	13999957	39.252363417973356
+train	Training	train	Proteins	MGE	1941190	13999957	13.865685444605294
+train	Training	train	Proteins	Host	6563453	13999957	46.88195113742135
+train	Training	train	Scaffolds	Virus	544679	1196497	45.52280532253737
+train	Training	train	Scaffolds	MGE	95001	1196497	7.9399279730747345
+train	Training	train	Scaffolds	Host	582564	1196497	48.689131690259146
+test_virus_enriched	Virus enriched	test	Proteins	Virus	300471	427977	70.207277493884
+test_virus_enriched	Virus enriched	test	Proteins	MGE	53511	427977	12.503241996649352
+test_virus_enriched	Virus enriched	test	Proteins	Host	73995	427977	17.28948050946663
+test_virus_enriched	Virus enriched	test	Scaffolds	Virus	27425	45345	60.48075862829418
+test_virus_enriched	Virus enriched	test	Scaffolds	MGE	4422	45345	9.751902084022495
+test_virus_enriched	Virus enriched	test	Scaffolds	Host	14689	45345	32.393869224831846
+test_near_all_virus	Near all virus	test	Proteins	Virus	750650	846398	88.68759141680391
+test_near_all_virus	Near all virus	test	Proteins	MGE	30098	846398	3.556010293029993
+test_near_all_virus	Near all virus	test	Proteins	Host	65650	846398	7.756398290166092
+test_near_all_virus	Near all virus	test	Scaffolds	Virus	73034	83846	87.10493046776233
+test_near_all_virus	Near all virus	test	Scaffolds	MGE	2123	83846	2.5320229945376047
+test_near_all_virus	Near all virus	test	Scaffolds	Host	10305	83846	12.290389523650502
+test_half_virus_host	Half viral/host	test	Proteins	Virus	317882	635737	50.002123519631546
+test_half_virus_host	Half viral/host	test	Proteins	MGE	29475	635737	4.636351195541553
+test_half_virus_host	Half viral/host	test	Proteins	Host	288380	635737	45.361525284826904
+test_half_virus_host	Half viral/host	test	Scaffolds	Virus	31446	71335	44.082147613373515
+test_half_virus_host	Half viral/host	test	Scaffolds	MGE	2989	71335	4.190089016611761
+test_half_virus_host	Half viral/host	test	Scaffolds	Host	39365	71335	55.18329011004416
+test_equal_pos	Equal viral/nonviral	test	Proteins	Virus	191974	383948	50.0
+test_equal_pos	Equal viral/nonviral	test	Proteins	MGE	79930	383948	20.817923260441518
+test_equal_pos	Equal viral/nonviral	test	Proteins	Host	112044	383948	29.182076739558482
+test_equal_pos	Equal viral/nonviral	test	Scaffolds	Virus	20648	45115	45.76748309874765
+test_equal_pos	Equal viral/nonviral	test	Scaffolds	MGE	6297	45115	13.957663748199048
+test_equal_pos	Equal viral/nonviral	test	Scaffolds	Host	19288	45115	42.75296464590491
+test_input	Training distribution	test	Proteins	Virus	376917	960240	39.2523744063984
+test_input	Training distribution	test	Proteins	MGE	133144	960240	13.865700241606266
+test_input	Training distribution	test	Proteins	Host	450179	960240	46.881925351995335
+test_input	Training distribution	test	Scaffolds	Virus	43408	114890	37.78222647750022
+test_input	Training distribution	test	Scaffolds	MGE	10825	114890	9.422055879536948
+test_input	Training distribution	test	Scaffolds	Host	63379	114890	55.164940377752636
+test_equal_source	Equal viral/MGE/host	test	Proteins	Virus	63880	191832	33.29997080779015
+test_equal_source	Equal viral/MGE/host	test	Proteins	MGE	63880	191832	33.29997080779015
+test_equal_source	Equal viral/MGE/host	test	Proteins	Host	64072	191832	33.4000583844197
+test_equal_source	Equal viral/MGE/host	test	Scaffolds	Virus	8141	22427	36.29999554108886
+test_equal_source	Equal viral/MGE/host	test	Scaffolds	MGE	4573	22427	20.39060061532974
+test_equal_source	Equal viral/MGE/host	test	Scaffolds	Host	10075	22427	44.9235296740536
+test_host_enriched	Host enriched	test	Proteins	Virus	53071	313192	16.945196556744744
+test_host_enriched	Host enriched	test	Proteins	MGE	39149	313192	12.5
+test_host_enriched	Host enriched	test	Proteins	Host	220972	313192	70.55480344325525
+test_host_enriched	Host enriched	test	Scaffolds	Virus	7987	36853	21.672591105201747
+test_host_enriched	Host enriched	test	Scaffolds	MGE	3103	36853	8.419938675277454
+test_host_enriched	Host enriched	test	Scaffolds	Host	26530	36853	71.9887119094782
+test_provirus	Integrated proviruses	test	Proteins	Virus	43276	75260	57.50199309061919
+test_provirus	Integrated proviruses	test	Proteins	MGE	314	75260	0.41722030294977414
+test_provirus	Integrated proviruses	test	Proteins	Host	31670	75260	42.08078660643103
+test_provirus	Integrated proviruses	test	Scaffolds	Virus	3069	3069	100.0
+test_provirus	Integrated proviruses	test	Scaffolds	MGE	6	3069	0.19550342130987292
+test_provirus	Integrated proviruses	test	Scaffolds	Host	3069	3069	100.0
+test_mge_enriched	MGE enriched	test	Proteins	Virus	21038	203839	10.320890506723442
+test_mge_enriched	MGE enriched	test	Proteins	MGE	152885	203839	75.00282085371298
+test_mge_enriched	MGE enriched	test	Proteins	Host	29916	203839	14.676288639563579
+test_mge_enriched	MGE enriched	test	Scaffolds	Virus	1759	19919	8.830764596616296
+test_mge_enriched	MGE enriched	test	Scaffolds	MGE	12514	19919	62.82443897786033
+test_mge_enriched	MGE enriched	test	Scaffolds	Host	5858	19919	29.409106882875648
+test_near_all_host	Near all host	test	Proteins	Virus	36500	667539	5.467845324393031
+test_near_all_host	Near all host	test	Proteins	MGE	33373	667539	4.999408274273113
+test_near_all_host	Near all host	test	Proteins	Host	597666	667539	89.53274640133385
+test_near_all_host	Near all host	test	Scaffolds	Virus	3384	90609	3.7347283382445453
+test_near_all_host	Near all host	test	Scaffolds	MGE	2817	90609	3.108962685825911
+test_near_all_host	Near all host	test	Scaffolds	Host	85778	90609	94.66830005849309

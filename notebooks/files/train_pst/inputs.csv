@@ -1,0 +1,8 @@
+checkAMG_train_esm2_t30_150M.graphfmt.h5,checkAMG-PST_TL-P__large_0,1.0,0.0001,PST-TL-P__large.ckpt,20,32,10000,esm_easy,semihard,opposite-class-negatives,class_freq,7
+checkAMG_train_esm2_t30_150M.graphfmt.h5,checkAMG-PST_TL-P__large_1,1.0,0.0001,PST-TL-P__large.ckpt,20,32,10000,esm_easy,semihard,no-opposite-class-negatives,class_freq,7
+checkAMG_train_esm2_t30_150M.graphfmt.h5,checkAMG-PST_TL-P__large_2,1.0,0.0001,PST-TL-P__large.ckpt,20,32,10000,esm_easy,hard,opposite-class-negatives,class_freq,7
+checkAMG_train_esm2_t30_150M.graphfmt.h5,checkAMG-PST_TL-P__large_3,1.0,0.0001,PST-TL-P__large.ckpt,20,32,10000,esm_easy,hard,no-opposite-class-negatives,class_freq,7
+checkAMG_train_esm2_t30_150M.graphfmt.h5,checkAMG-PST_TL-P__large_4,1.0,0.0001,PST-TL-P__large.ckpt,20,32,10000,all,semihard,opposite-class-negatives,class_freq,7
+checkAMG_train_esm2_t30_150M.graphfmt.h5,checkAMG-PST_TL-P__large_5,1.0,0.0001,PST-TL-P__large.ckpt,20,32,10000,all,semihard,no-opposite-class-negatives,class_freq,7
+checkAMG_train_esm2_t30_150M.graphfmt.h5,checkAMG-PST_TL-P__large_6,1.0,0.0001,PST-TL-P__large.ckpt,20,32,10000,all,hard,opposite-class-negatives,class_freq,7
+checkAMG_train_esm2_t30_150M.graphfmt.h5,checkAMG-PST_TL-P__large_7,1.0,0.0001,PST-TL-P__large.ckpt,20,32,10000,all,hard,no-opposite-class-negatives,class_freq,7
