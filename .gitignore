@@ -3,6 +3,9 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
+CheckAMG.wiki
+CheckAMG.wiki/**
+
 # Build artifacts
 build/
 dist/
@@ -18,6 +21,10 @@ dist/
 .conda
 CheckAMG_db*
 CheckAMG_db*/**
+CheckAMG_*_db*
+CheckAMG_*_db*/**
+.snakemake
+notebooks/*.html
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
