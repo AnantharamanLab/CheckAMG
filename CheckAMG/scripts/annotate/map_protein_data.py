@@ -21,7 +21,9 @@ def parse_faa_file(faa_file, is_bin=False):
     Parses an amino-acid fasta file to obtain protein names and their genomes.
     """ 
     try:
-        for header in Parser(faa_file).all_prodigal_headers():
+        # Per-record parsing avoids pyfastatools' file-level check, which rejects files whose first protein is nucleotide-like
+        for record in Parser(faa_file):
+            header = record.header.to_prodigal()
             seq_id, scaffold, gene_number, start, stop, frame = str(header.name()), str(header.scaffold), str(header.id), str(header.start), str(header.end), str(header.strand.value)
             if is_bin:
                 genome = os.path.splitext(os.path.basename(faa_file))[0]

@@ -1,3 +1,7 @@
+# 1.1.2
+
+* Fixed `annotate` failing at step "Map gene- and genome-level metadata" with "File is not a Prodigal-formatted protein FASTA file" when the first protein of a genome consisted only of letters that are also IUPAC nucleotide codes and lacked a stop codon (e.g., a truncated low-complexity repeat protein). Prodigal headers are now parsed per record instead of relying on file-level format detection
+
 # 1.1.1
 
 * Updated the database download script as was required for the 1.1 release
