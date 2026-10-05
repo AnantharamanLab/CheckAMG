@@ -92,10 +92,10 @@ To report bugs or request features, please use the [GitHub Issues page](https://
 
 ## Citation
 
-A manuscript describing CheckAMG is in preparation. Until then, please cite the GitHub repository and the [CheckAMG database on Zenodo](https://zenodo.org/records/18407279).
+A preprint of the manuscript describing CheckAMG is now available on [bioRxiv](https://doi.org/10.64898/2026.09.23.753886). If you use CheckAMG in your work, please cite:
+>Kosmopoulos, J. C., Martin, C., Wainaina, J. M., Bolduc, B., Urvoy, M., Sullivan, M. B., & Anantharaman, K. (2026). *CheckAMG: Accurate Identification of Auxiliary Viral Genes with Genome-Language Models.* bioRxiv, [https://doi.org/10.64898/2026.09.23.753886](https://doi.org/10.64898/2026.09.23.753886).
 
-Authors:
+## Contact:
 
 * James C. Kosmopoulos (**kosmopoulos [at] wisc [dot] edu**)
-* Cody Martin
 * Karthik Anantharaman (**karthik [at] bact [dot] wisc [dot] edu**)
