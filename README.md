@@ -1,6 +1,9 @@
 # CheckAMG
 [![PyPI](https://img.shields.io/pypi/v/checkamg)](https://pypi.org/project/checkamg/)
-[![CheckAMG DB v1.1.1](https://img.shields.io/badge/CheckAMG%20DB-v1.1.1-blue)](https://zenodo.org/records/21776005)
+[![CheckAMG DB v1.1.1](https://img.shields.io/badge/CheckAMG%20DB-v1.1.1-green)](https://zenodo.org/records/21776005)
+[![CheckAMG Wiki](https://img.shields.io/badge/CheckAMG%20Wiki-orange?logo=github)](https://github.com/AnantharamanLab/CheckAMG/wiki)
+[![Frequently Asked Questions](https://img.shields.io/badge/Frequently%20Asked%20Questions-purple?logo=github)](https://github.com/AnantharamanLab/CheckAMG/wiki/FAQ)
+[![Issues](https://img.shields.io/badge/Issues-brown?logo=github)](https://github.com/AnantharamanLab/CheckAMG/issues)
 
 **Automated discovery and curation of Auxiliary Metabolic Genes (AMGs), Auxiliary Regulatory Genes (AReGs), and Auxiliary Physiology Genes (APGs) encoded by viral genomes**
 
