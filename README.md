@@ -84,7 +84,7 @@ checkamg annotate \
   -o CheckAMG_annotate_out
 ```
 
-Run `checkamg -h` or `checkamg <module> -h` for all options, and see the **[Wiki](https://github.com/AnantharamanLab/CheckAMG/wiki)** for detailed descriptions of every parameter and output.
+Run `checkamg -h` or `checkamg <module> -h` for all options, and see the **[Wiki](https://github.com/AnantharamanLab/CheckAMG/wiki)** for detailed descriptions of every parameter and output. By default, CheckAMG runs only on scaffolds that are at least 5 kb long, but this threshold can be adjusted using the `--min-len` argument.
 
 ## Error reporting
 
