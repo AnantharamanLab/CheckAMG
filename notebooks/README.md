@@ -29,10 +29,10 @@ Each file depends only on files above it. The database builds, protein embedding
 | 17 | amg_benchmark_predictions.ipynb | CheckAMG, DRAM-V, VIBRANT, and geNomad runs on the benchmark datasets |
 | 18 | amg_benchmark_data.ipynb | compiled benchmark predictions |
 | 19 | amg_annotations.ipynb | compiled per-gene benchmark annotations |
-| 20 | dramv_pfam_analysis.ipynb | DRAM-V Pfam analysis tables in `tables/DRAMV_pfam/` |
-| 21 | dramv_pfam_analysis_figures.Rmd | Extended Data Figure 7 |
-| 22 | amg_benchmark_comparisons.ipynb | benchmark comparison tables in `tables/amg_benchmark/` |
-| 23 | amg_benchmark_figures.Rmd | Figure 3 and Extended Data Figures 4, 5, and 6 |
+| 20 | amg_shared_kegg.ipynb | shared KofamScan KO class per gene in `tables/amg_benchmark/` |
+| 21 | amg_benchmark_comparisons.ipynb | benchmark comparison tables in `tables/amg_benchmark/` |
+| 22 | amg_fig3_fill_sensitivity.ipynb | Figure 3 fill sensitivity counts in `tables/amg_benchmark/` |
+| 23 | amg_benchmark_figures.Rmd | Figure 3 and Extended Data Figures 4, 5, 6, and 7 |
 | 24 | amg_reference_weights_figures.Rmd | Figure 2 |
 | 25 | run_pipeline.ipynb | CheckAMG annotate and de-novo runs on the MetaVR soil and human-gut genomes |
 | 26 | functional_propagation.ipynb | functional label propagation, its evaluation, and the sequence clustering comparison in `tables/propagation/` |
