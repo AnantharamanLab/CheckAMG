@@ -1,0 +1,6 @@
+tier,step_order,step,n_calls,share_of_all_calls
+DRAMV_default,1,all_calls,47308,1.0
+DRAMV_default,2,genomad_viral,16746,0.3539781855077365
+DRAMV_default,3,genomad_viral_with_dram_category,4187,0.08850511541388349
+CheckAMG_high,1,all_calls,3221,1.0
+CheckAMG_high,2,genomad_viral,3153,0.9788885439304564

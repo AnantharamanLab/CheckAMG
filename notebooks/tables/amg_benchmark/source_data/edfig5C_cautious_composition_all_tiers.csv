@@ -1,76 +1,92 @@
-tool,tier,Cautious functions,n,pct
-CheckAMG,CheckAMG (high),Nucleotide metabolism,465,0.14449968924798012
-CheckAMG,CheckAMG (high),Glucan metabolism,514,0.15972653822249844
-CheckAMG,CheckAMG (high),Lipid metabolism,131,0.040708514605344935
-CheckAMG,CheckAMG (high),Methylation,466,0.14481044126786824
-CheckAMG,CheckAMG (high),Not cautious (weight ≥ 0.6),1601,0.49751398384089496
-CheckAMG,CheckAMG (high),Not cautious (no weight),41,0.0127408328154133
-CheckAMG,CheckAMG (medium),Nucleotide metabolism,314,0.09002293577981652
-CheckAMG,CheckAMG (medium),Glucan metabolism,801,0.22964449541284404
-CheckAMG,CheckAMG (medium),Lipid metabolism,204,0.058486238532110095
-CheckAMG,CheckAMG (medium),Methylation,416,0.11926605504587157
-CheckAMG,CheckAMG (medium),Not cautious (weight ≥ 0.6),1722,0.49369266055045874
-CheckAMG,CheckAMG (medium),Not cautious (no weight),31,0.008887614678899083
-CheckAMG,CheckAMG (low),Nucleotide metabolism,17468,0.10729400202696478
-CheckAMG,CheckAMG (low),Glucan metabolism,10862,0.06671785264580327
-CheckAMG,CheckAMG (low),Lipid metabolism,10438,0.06411351002733331
-CheckAMG,CheckAMG (low),Methylation,5805,0.03565615306655201
-CheckAMG,CheckAMG (low),Not cautious (weight ≥ 0.6),117528,0.7218942907158871
-CheckAMG,CheckAMG (low),Not cautious (weight < 0.6),2,1.2284634992782776e-5
-CheckAMG,CheckAMG (low),Not cautious (no weight),702,0.004311906882466755
-DRAM-V,DRAM-V (default),Essential gene,144,0.21686746987951808
-DRAM-V,DRAM-V (default),Nucleotide metabolism,158,0.23795180722891565
-DRAM-V,DRAM-V (default),Glucan metabolism,31,0.046686746987951805
-DRAM-V,DRAM-V (default),Lipid metabolism,16,0.024096385542168676
-DRAM-V,DRAM-V (default),Methylation,57,0.0858433734939759
-DRAM-V,DRAM-V (default),Not cautious (weight ≥ 0.6),195,0.2936746987951807
-DRAM-V,DRAM-V (default),Not cautious (weight < 0.6),19,0.0286144578313253
-DRAM-V,DRAM-V (default),Not cautious (no weight),44,0.06626506024096386
-DRAM-V,DRAM-V (allow T),Essential gene,1908,0.18943606036536934
-DRAM-V,DRAM-V (allow T),Nucleotide metabolism,2310,0.22934868943606038
-DRAM-V,DRAM-V (allow T),Glucan metabolism,494,0.04904686258935663
-DRAM-V,DRAM-V (allow T),Lipid metabolism,388,0.03852263701350278
-DRAM-V,DRAM-V (allow T),Methylation,840,0.08339952343129468
-DRAM-V,DRAM-V (allow T),Not cautious (weight ≥ 0.6),3144,0.31215250198570293
-DRAM-V,DRAM-V (allow T),Not cautious (weight < 0.6),310,0.03077839555202542
-DRAM-V,DRAM-V (allow T),Not cautious (no weight),678,0.06731532962668785
-DRAM-V,DRAM-V (aux ≤ 4),Essential gene,23212,0.200115524212668
-DRAM-V,DRAM-V (aux ≤ 4),Nucleotide metabolism,28297,0.24395437655720603
-DRAM-V,DRAM-V (aux ≤ 4),Glucan metabolism,6245,0.053839455829231074
-DRAM-V,DRAM-V (aux ≤ 4),Lipid metabolism,6472,0.05579647047666669
-DRAM-V,DRAM-V (aux ≤ 4),Methylation,11124,0.09590233893424603
-DRAM-V,DRAM-V (aux ≤ 4),Not cautious (weight ≥ 0.6),32653,0.28150836688420855
-DRAM-V,DRAM-V (aux ≤ 4),Not cautious (weight < 0.6),2433,0.020975403688153597
-DRAM-V,DRAM-V (aux ≤ 4),Not cautious (no weight),5557,0.04790806341762003
-DRAM-V,"DRAM-V (aux ≤ 4, allow T)",Essential gene,350393,0.19759375176225116
-DRAM-V,"DRAM-V (aux ≤ 4, allow T)",Nucleotide metabolism,423501,0.23882084249703942
-DRAM-V,"DRAM-V (aux ≤ 4, allow T)",Glucan metabolism,92834,0.0523509840410534
-DRAM-V,"DRAM-V (aux ≤ 4, allow T)",Lipid metabolism,89267,0.05033948006541476
-DRAM-V,"DRAM-V (aux ≤ 4, allow T)",Methylation,165247,0.09318615011560367
-DRAM-V,"DRAM-V (aux ≤ 4, allow T)",Not cautious (weight ≥ 0.6),518249,0.29225117013477697
-DRAM-V,"DRAM-V (aux ≤ 4, allow T)",Not cautious (weight < 0.6),39528,0.022290644560987987
-DRAM-V,"DRAM-V (aux ≤ 4, allow T)",Not cautious (no weight),94281,0.05316697682287261
-VIBRANT,VIBRANT (high),Essential gene,110,0.08661417322834646
-VIBRANT,VIBRANT (high),Nucleotide metabolism,265,0.20866141732283464
-VIBRANT,VIBRANT (high),Glucan metabolism,276,0.2173228346456693
-VIBRANT,VIBRANT (high),Lipid metabolism,47,0.03700787401574803
-VIBRANT,VIBRANT (high),Methylation,313,0.24645669291338582
-VIBRANT,VIBRANT (high),Not cautious (weight ≥ 0.6),239,0.18818897637795276
-VIBRANT,VIBRANT (high),Not cautious (weight < 0.6),13,0.010236220472440945
-VIBRANT,VIBRANT (high),Not cautious (no weight),7,0.005511811023622047
-VIBRANT,VIBRANT (medium),Essential gene,217,0.08857142857142856
-VIBRANT,VIBRANT (medium),Nucleotide metabolism,548,0.2236734693877551
-VIBRANT,VIBRANT (medium),Glucan metabolism,571,0.2330612244897959
-VIBRANT,VIBRANT (medium),Lipid metabolism,126,0.05142857142857143
-VIBRANT,VIBRANT (medium),Methylation,610,0.24897959183673468
-VIBRANT,VIBRANT (medium),Not cautious (weight ≥ 0.6),328,0.13387755102040816
-VIBRANT,VIBRANT (medium),Not cautious (weight < 0.6),44,0.017959183673469388
-VIBRANT,VIBRANT (medium),Not cautious (no weight),6,0.0024489795918367346
-VIBRANT,VIBRANT (low),Essential gene,1185,0.13283264208048426
-VIBRANT,VIBRANT (low),Nucleotide metabolism,1277,0.14314538728842058
-VIBRANT,VIBRANT (low),Glucan metabolism,2454,0.2750812689160408
-VIBRANT,VIBRANT (low),Lipid metabolism,499,0.05593543324739379
-VIBRANT,VIBRANT (low),Methylation,2156,0.24167694204685575
-VIBRANT,VIBRANT (low),Not cautious (weight ≥ 0.6),1197,0.1341777827597803
-VIBRANT,VIBRANT (low),Not cautious (weight < 0.6),128,0.01434816724582446
-VIBRANT,VIBRANT (low),Not cautious (no weight),25,0.0028023764152000897
+tool,tier,Cautious functions,n,pct,n_tier
+CheckAMG,CheckAMG (high),Nucleotide metabolism,465,0.1443651040049674,3221
+CheckAMG,CheckAMG (high),Glucan metabolism,514,0.15957777087860914,3221
+CheckAMG,CheckAMG (high),Lipid metabolism,131,0.040670599192797266,3221
+CheckAMG,CheckAMG (high),Methylation,467,0.14498602918348338,3221
+CheckAMG,CheckAMG (high),Not cautious (weight ≥ 0.6),1602,0.497361067991307,3221
+CheckAMG,CheckAMG (high),Not cautious (no weight),42,0.013039428748835765,3221
+CheckAMG,CheckAMG (medium),Nucleotide metabolism,783,0.11637931034482758,6728
+CheckAMG,CheckAMG (medium),Glucan metabolism,1319,0.1960463733650416,6728
+CheckAMG,CheckAMG (medium),Lipid metabolism,335,0.04979191438763377,6728
+CheckAMG,CheckAMG (medium),Methylation,885,0.1315398335315101,6728
+CheckAMG,CheckAMG (medium),Not cautious (weight ≥ 0.6),3333,0.4953923900118906,6728
+CheckAMG,CheckAMG (medium),Not cautious (no weight),73,0.010850178359096314,6728
+CheckAMG,CheckAMG (low),Nucleotide metabolism,18322,0.10767449650624997,170161
+CheckAMG,CheckAMG (low),Glucan metabolism,12220,0.07181434053631561,170161
+CheckAMG,CheckAMG (low),Lipid metabolism,10810,0.06352807047443304,170161
+CheckAMG,CheckAMG (low),Methylation,6712,0.039444996209472206,170161
+CheckAMG,CheckAMG (low),Not cautious (weight ≥ 0.6),121319,0.712965955771299,170161
+CheckAMG,CheckAMG (low),Not cautious (weight < 0.6),2,1.1753574555861802e-5,170161
+CheckAMG,CheckAMG (low),Not cautious (no weight),776,0.004560386927674379,170161
+DRAM-V,DRAM-V (aux 1),Essential gene,572,0.16923076923076924,3380
+DRAM-V,DRAM-V (aux 1),Nucleotide metabolism,456,0.1349112426035503,3380
+DRAM-V,DRAM-V (aux 1),Glucan metabolism,587,0.17366863905325444,3380
+DRAM-V,DRAM-V (aux 1),Lipid metabolism,52,0.015384615384615385,3380
+DRAM-V,DRAM-V (aux 1),Methylation,270,0.07988165680473373,3380
+DRAM-V,DRAM-V (aux 1),Not cautious (weight ≥ 0.6),683,0.20207100591715976,3380
+DRAM-V,DRAM-V (aux 1),Not cautious (weight < 0.6),16,0.004733727810650888,3380
+DRAM-V,DRAM-V (aux 1),Not cautious (no weight),744,0.22011834319526627,3380
+DRAM-V,DRAM-V (aux 2),Essential gene,1996,0.14713253722541647,13566
+DRAM-V,DRAM-V (aux 2),Nucleotide metabolism,1985,0.1463216865693646,13566
+DRAM-V,DRAM-V (aux 2),Glucan metabolism,1661,0.12243844906383607,13566
+DRAM-V,DRAM-V (aux 2),Lipid metabolism,274,0.020197552705292644,13566
+DRAM-V,DRAM-V (aux 2),Methylation,1037,0.07644110275689223,13566
+DRAM-V,DRAM-V (aux 2),Not cautious (weight ≥ 0.6),3008,0.22173079758219078,13566
+DRAM-V,DRAM-V (aux 2),Not cautious (weight < 0.6),204,0.015037593984962405,13566
+DRAM-V,DRAM-V (aux 2),Not cautious (no weight),3401,0.2507002801120448,13566
+DRAM-V,DRAM-V (aux 3),Essential gene,4661,0.0985245624418703,47308
+DRAM-V,DRAM-V (aux 3),Nucleotide metabolism,6080,0.12851948930413462,47308
+DRAM-V,DRAM-V (aux 3),Glucan metabolism,4242,0.08966770947831233,47308
+DRAM-V,DRAM-V (aux 3),Lipid metabolism,1412,0.029846960344973365,47308
+DRAM-V,DRAM-V (aux 3),Methylation,2152,0.045489135030016066,47308
+DRAM-V,DRAM-V (aux 3),Not cautious (weight ≥ 0.6),14209,0.30035089202671855,47308
+DRAM-V,DRAM-V (aux 3),Not cautious (weight < 0.6),1028,0.021729939967870128,47308
+DRAM-V,DRAM-V (aux 3),Not cautious (no weight),13524,0.28587131140610467,47308
+DRAM-V,DRAM-V (allow T),Essential gene,5005,0.09622779358609551,52012
+DRAM-V,DRAM-V (allow T),Nucleotide metabolism,6623,0.12733599938475737,52012
+DRAM-V,DRAM-V (allow T),Glucan metabolism,4640,0.089210182265631,52012
+DRAM-V,DRAM-V (allow T),Lipid metabolism,1580,0.030377605168038144,52012
+DRAM-V,DRAM-V (allow T),Methylation,2253,0.04331692686303161,52012
+DRAM-V,DRAM-V (allow T),Not cautious (weight ≥ 0.6),15821,0.30417980466046296,52012
+DRAM-V,DRAM-V (allow T),Not cautious (weight < 0.6),1127,0.02166807659770822,52012
+DRAM-V,DRAM-V (allow T),Not cautious (no weight),14963,0.2876836114742752,52012
+DRAM-V,DRAM-V (aux 4),Essential gene,9768,0.06069304900553619,160941
+DRAM-V,DRAM-V (aux 4),Nucleotide metabolism,16670,0.10357832994699921,160941
+DRAM-V,DRAM-V (aux 4),Glucan metabolism,10396,0.06459510006772669,160941
+DRAM-V,DRAM-V (aux 4),Lipid metabolism,6153,0.03823140156951926,160941
+DRAM-V,DRAM-V (aux 4),Methylation,4632,0.02878073331220758,160941
+DRAM-V,DRAM-V (aux 4),Not cautious (weight ≥ 0.6),63528,0.3947285029917796,160941
+DRAM-V,DRAM-V (aux 4),Not cautious (weight < 0.6),3508,0.021796807525739245,160941
+DRAM-V,DRAM-V (aux 4),Not cautious (no weight),46286,0.2875960755804922,160941
+DRAM-V,"DRAM-V (aux 4, allow T)",Essential gene,10394,0.06048896312116998,171833
+DRAM-V,"DRAM-V (aux 4, allow T)",Nucleotide metabolism,17747,0.10328051072843983,171833
+DRAM-V,"DRAM-V (aux 4, allow T)",Glucan metabolism,11156,0.06492350130650108,171833
+DRAM-V,"DRAM-V (aux 4, allow T)",Lipid metabolism,6541,0.038066029226050874,171833
+DRAM-V,"DRAM-V (aux 4, allow T)",Methylation,4885,0.02842876513824469,171833
+DRAM-V,"DRAM-V (aux 4, allow T)",Not cautious (weight ≥ 0.6),67705,0.3940162832517619,171833
+DRAM-V,"DRAM-V (aux 4, allow T)",Not cautious (weight < 0.6),3724,0.0216722049897284,171833
+DRAM-V,"DRAM-V (aux 4, allow T)",Not cautious (no weight),49681,0.2891237422381033,171833
+VIBRANT,VIBRANT (high),Essential gene,110,0.08661417322834646,1270
+VIBRANT,VIBRANT (high),Nucleotide metabolism,297,0.23385826771653542,1270
+VIBRANT,VIBRANT (high),Glucan metabolism,276,0.2173228346456693,1270
+VIBRANT,VIBRANT (high),Lipid metabolism,48,0.03779527559055118,1270
+VIBRANT,VIBRANT (high),Methylation,332,0.2614173228346457,1270
+VIBRANT,VIBRANT (high),Not cautious (weight ≥ 0.6),191,0.15039370078740158,1270
+VIBRANT,VIBRANT (high),Not cautious (weight < 0.6),11,0.008661417322834646,1270
+VIBRANT,VIBRANT (high),Not cautious (no weight),5,0.003937007874015748,1270
+VIBRANT,VIBRANT (medium),Essential gene,327,0.08790322580645162,3720
+VIBRANT,VIBRANT (medium),Nucleotide metabolism,876,0.23548387096774193,3720
+VIBRANT,VIBRANT (medium),Glucan metabolism,874,0.2349462365591398,3720
+VIBRANT,VIBRANT (medium),Lipid metabolism,174,0.0467741935483871,3720
+VIBRANT,VIBRANT (medium),Methylation,957,0.25725806451612904,3720
+VIBRANT,VIBRANT (medium),Not cautious (weight ≥ 0.6),463,0.12446236559139785,3720
+VIBRANT,VIBRANT (medium),Not cautious (weight < 0.6),40,0.010752688172043012,3720
+VIBRANT,VIBRANT (medium),Not cautious (no weight),9,0.0024193548387096775,3720
+VIBRANT,VIBRANT (low),Essential gene,1696,0.13378559596118955,12677
+VIBRANT,VIBRANT (low),Nucleotide metabolism,2334,0.18411296047960873,12677
+VIBRANT,VIBRANT (low),Glucan metabolism,3129,0.24682495858641634,12677
+VIBRANT,VIBRANT (low),Lipid metabolism,675,0.05324603612842155,12677
+VIBRANT,VIBRANT (low),Methylation,3291,0.25960400725723753,12677
+VIBRANT,VIBRANT (low),Not cautious (weight ≥ 0.6),1373,0.10830638163603376,12677
+VIBRANT,VIBRANT (low),Not cautious (weight < 0.6),153,0.012069101522442218,12677
+VIBRANT,VIBRANT (low),Not cautious (no weight),26,0.0020509584286503117,12677

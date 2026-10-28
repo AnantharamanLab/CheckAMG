@@ -1,0 +1,19 @@
+level,matched_level,rule,n_calls,n_genomad_viral,n_shared_ko,"fill class: geNomad viral, Metabolism KO","fill class: geNomad viral, other KO","fill class: geNomad viral, no KO",fill class: Not geNomad viral,"Class I/II: geNomad viral, Class I","Class I/II: geNomad viral, Class II","Class I/II: geNomad viral, other KO","Class I/II: geNomad viral, no KO",Class I/II: Not geNomad viral
+CheckAMG (high),true,"primary, best hit at e-value <= 1e-5",3221,3153,3137,1751,1319,83,68,1751,997,322,83,68
+CheckAMG (high),true,"sensitivity, KofamScan adaptive threshold",3221,3153,1532,841,656,1656,68,841,577,79,1656,68
+CheckAMG (medium),true,"primary, best hit at e-value <= 1e-5",6728,5843,6540,3475,2216,152,885,3475,1581,635,152,885
+CheckAMG (medium),true,"sensitivity, KofamScan adaptive threshold",6728,5843,3063,1536,1079,3228,885,1536,891,188,3228,885
+CheckAMG (low),true,"primary, best hit at e-value <= 1e-5",170161,8879,168257,5456,3240,183,161282,5456,2183,1057,183,161282
+CheckAMG (low),true,"sensitivity, KofamScan adaptive threshold",170161,8879,109715,2401,1564,4914,161282,2401,1202,362,4914,161282
+DRAM-V (aux 1),true,"primary, best hit at e-value <= 1e-5",3380,3135,2746,1637,870,628,245,1637,316,554,628,245
+DRAM-V (aux 1),true,"sensitivity, KofamScan adaptive threshold",3380,3135,1129,723,237,2175,245,723,75,162,2175,245
+DRAM-V (aux 2),true,"primary, best hit at e-value <= 1e-5",13566,9490,11967,5404,2592,1494,4076,5404,1013,1579,1494,4076
+DRAM-V (aux 2),true,"sensitivity, KofamScan adaptive threshold",13566,9490,6669,2855,740,5895,4076,2855,278,462,5895,4076
+DRAM-V (aux 3),true,"primary, best hit at e-value <= 1e-5",47308,16746,44599,10244,4400,2102,30562,10244,1897,2503,2102,30562
+DRAM-V (aux 3),true,"sensitivity, KofamScan adaptive threshold",47308,16746,29318,5324,1218,10204,30562,5324,498,720,10204,30562
+VIBRANT (high),true,"primary, best hit at e-value <= 1e-5",1270,1263,1266,1161,98,4,7,1161,16,82,4,7
+VIBRANT (high),true,"sensitivity, KofamScan adaptive threshold",1270,1263,585,534,44,685,7,534,0,44,685,7
+VIBRANT (medium),true,"primary, best hit at e-value <= 1e-5",3720,3708,3713,3442,259,7,12,3442,50,209,7,12
+VIBRANT (medium),true,"sensitivity, KofamScan adaptive threshold",3720,3708,1556,1466,79,2163,12,1466,2,77,2163,12
+VIBRANT (low),true,"primary, best hit at e-value <= 1e-5",12677,12531,12630,11599,885,47,146,11599,257,628,47,146
+VIBRANT (low),true,"sensitivity, KofamScan adaptive threshold",12677,12531,4926,4695,148,7688,146,4695,4,144,7688,146

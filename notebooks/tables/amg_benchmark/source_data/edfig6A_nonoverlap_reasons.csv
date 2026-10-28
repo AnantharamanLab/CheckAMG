@@ -1,26 +1,58 @@
-source_tier,other_tool,category,n,pct,Classification,Other tool
-CheckAMG_high,DRAMV,a. other tool called at different tier,2988,0.9285270354257302,Called only at lower stringency,DRAM-V
-CheckAMG_high,DRAMV,c. source tool's best-hit db not used by other tool,14,0.00435052827843381,Best-hit database not queried,DRAM-V
-CheckAMG_high,DRAMV,"d. same db hit_id, not flagged AMG",188,0.058421379738968306,"Shared-database hit, not flagged as AMG",DRAM-V
-CheckAMG_high,DRAMV,e. other tool annotated different hit in shared db,28,0.00870105655686762,Different top hit in a shared database,DRAM-V
-CheckAMG_high,VIBRANT,a. other tool called at different tier,1053,0.3272218769422001,Called only at lower stringency,VIBRANT
-CheckAMG_high,VIBRANT,agrees at default/high,221,0.06867619639527657,Agrees at default/high,VIBRANT
-CheckAMG_high,VIBRANT,c. source tool's best-hit db not used by other tool,117,0.036357986326911125,Best-hit database not queried,VIBRANT
-CheckAMG_high,VIBRANT,"d. same db hit_id, not flagged AMG",1577,0.4900559353635799,"Shared-database hit, not flagged as AMG",VIBRANT
-CheckAMG_high,VIBRANT,e. other tool annotated different hit in shared db,191,0.05935363579863269,Different top hit in a shared database,VIBRANT
-CheckAMG_high,VIBRANT,f. other tool produced no hits for this gene,59,0.018334369173399628,No annotation available,VIBRANT
-DRAMV_default,CheckAMG,a. other tool called at different tier,5,0.007530120481927711,Called only at lower stringency,CheckAMG
-DRAMV_default,CheckAMG,"d. same db hit_id, not flagged AMG",18,0.02710843373493976,"Shared-database hit, not flagged as AMG",CheckAMG
-DRAMV_default,CheckAMG,e. other tool annotated different hit in shared db,287,0.4322289156626506,Different top hit in a shared database,CheckAMG
-DRAMV_default,CheckAMG,f. other tool produced no hits for this gene,354,0.5331325301204819,No annotation available,CheckAMG
-DRAMV_default,VIBRANT,a. other tool called at different tier,5,0.007530120481927711,Called only at lower stringency,VIBRANT
-DRAMV_default,VIBRANT,"d. same db hit_id, not flagged AMG",12,0.018072289156626505,"Shared-database hit, not flagged as AMG",VIBRANT
-DRAMV_default,VIBRANT,e. other tool annotated different hit in shared db,214,0.32228915662650603,Different top hit in a shared database,VIBRANT
-DRAMV_default,VIBRANT,f. other tool produced no hits for this gene,433,0.6521084337349398,No annotation available,VIBRANT
-VIBRANT_high,CheckAMG,a. other tool called at different tier,54,0.04251968503937008,Called only at lower stringency,CheckAMG
-VIBRANT_high,CheckAMG,agrees at default/high,221,0.17401574803149605,Agrees at default/high,CheckAMG
-VIBRANT_high,CheckAMG,"d. same db hit_id, not flagged AMG",991,0.7803149606299212,"Shared-database hit, not flagged as AMG",CheckAMG
-VIBRANT_high,CheckAMG,e. other tool annotated different hit in shared db,4,0.0031496062992125984,Different top hit in a shared database,CheckAMG
-VIBRANT_high,DRAMV,a. other tool called at different tier,1145,0.9015748031496063,Called only at lower stringency,DRAM-V
-VIBRANT_high,DRAMV,"d. same db hit_id, not flagged AMG",111,0.08740157480314961,"Shared-database hit, not flagged as AMG",DRAM-V
-VIBRANT_high,DRAMV,e. other tool annotated different hit in shared db,14,0.011023622047244094,Different top hit in a shared database,DRAM-V
+source_tier,n,pct,Classification,Other tool
+CheckAMG_high,204,0.06333436820863086,Called only at lower stringency,DRAM-V
+CheckAMG_high,1332,0.41353616889164857,Agrees at default/high,DRAM-V
+CheckAMG_high,130,0.04036013660353927,Best-hit database not queried,DRAM-V
+CheckAMG_high,1531,0.47531822415398944,"Shared-database hit, not flagged as AMG",DRAM-V
+CheckAMG_high,22,0.006830176963675877,Different top hit in a shared database,DRAM-V
+CheckAMG_high,2,6.209251785159888e-4,No annotation available,DRAM-V
+CheckAMG_high,1053,0.3269171064886681,Called only at lower stringency,VIBRANT
+CheckAMG_high,221,0.06861223222601677,Agrees at default/high,VIBRANT
+CheckAMG_high,119,0.03694504812170134,Best-hit database not queried,VIBRANT
+CheckAMG_high,1578,0.48990996584911517,"Shared-database hit, not flagged as AMG",VIBRANT
+CheckAMG_high,191,0.059298354548276935,Different top hit in a shared database,VIBRANT
+CheckAMG_high,59,0.018317292766221672,No annotation available,VIBRANT
+DRAMV_aux1,185,0.05473372781065089,Called only at lower stringency,CheckAMG
+DRAMV_aux1,325,0.09615384615384616,Agrees at default/high,CheckAMG
+DRAMV_aux1,92,0.027218934911242602,Best-hit database not queried,CheckAMG
+DRAMV_aux1,2412,0.7136094674556213,"Shared-database hit, not flagged as AMG",CheckAMG
+DRAMV_aux1,338,0.1,Different top hit in a shared database,CheckAMG
+DRAMV_aux1,28,0.008284023668639054,No annotation available,CheckAMG
+DRAMV_aux1,639,0.18905325443786983,Called only at lower stringency,VIBRANT
+DRAMV_aux1,219,0.06479289940828402,Agrees at default/high,VIBRANT
+DRAMV_aux1,140,0.04142011834319527,Best-hit database not queried,VIBRANT
+DRAMV_aux1,1663,0.4920118343195266,"Shared-database hit, not flagged as AMG",VIBRANT
+DRAMV_aux1,510,0.15088757396449703,Different top hit in a shared database,VIBRANT
+DRAMV_aux1,209,0.06183431952662722,No annotation available,VIBRANT
+DRAMV_aux_le2,1873,0.1380657526168362,Called only at lower stringency,CheckAMG
+DRAMV_aux_le2,897,0.06612118531623176,Agrees at default/high,CheckAMG
+DRAMV_aux_le2,536,0.03951054105852867,Best-hit database not queried,CheckAMG
+DRAMV_aux_le2,9201,0.6782397169394073,"Shared-database hit, not flagged as AMG",CheckAMG
+DRAMV_aux_le2,974,0.07179713990859501,Different top hit in a shared database,CheckAMG
+DRAMV_aux_le2,85,0.006265664160401002,No annotation available,CheckAMG
+DRAMV_aux_le2,2249,0.16578210231461005,Called only at lower stringency,VIBRANT
+DRAMV_aux_le2,492,0.0362671384343211,Agrees at default/high,VIBRANT
+DRAMV_aux_le2,771,0.05683325961963733,Best-hit database not queried,VIBRANT
+DRAMV_aux_le2,6641,0.4895326551673301,"Shared-database hit, not flagged as AMG",VIBRANT
+DRAMV_aux_le2,2810,0.20713548577325666,Different top hit in a shared database,VIBRANT
+DRAMV_aux_le2,603,0.04444935869084476,No annotation available,VIBRANT
+DRAMV_aux_le3,11390,0.2407626617062653,Called only at lower stringency,CheckAMG
+DRAMV_aux_le3,1332,0.02815591443307686,Agrees at default/high,CheckAMG
+DRAMV_aux_le3,2617,0.055318339392914515,Best-hit database not queried,CheckAMG
+DRAMV_aux_le3,28951,0.6119683774414475,"Shared-database hit, not flagged as AMG",CheckAMG
+DRAMV_aux_le3,2844,0.06011668216792086,Different top hit in a shared database,CheckAMG
+DRAMV_aux_le3,174,0.003678024858374905,No annotation available,CheckAMG
+DRAMV_aux_le3,4071,0.08605309884163355,Called only at lower stringency,VIBRANT
+DRAMV_aux_le3,492,0.010399932358163524,Agrees at default/high,VIBRANT
+DRAMV_aux_le3,3993,0.08440432907753445,Best-hit database not queried,VIBRANT
+DRAMV_aux_le3,22383,0.47313350807474425,"Shared-database hit, not flagged as AMG",VIBRANT
+DRAMV_aux_le3,14717,0.31108903356726136,Different top hit in a shared database,VIBRANT
+DRAMV_aux_le3,1652,0.03492009808066289,No annotation available,VIBRANT
+VIBRANT_high,54,0.04251968503937008,Called only at lower stringency,CheckAMG
+VIBRANT_high,221,0.17401574803149605,Agrees at default/high,CheckAMG
+VIBRANT_high,991,0.7803149606299212,"Shared-database hit, not flagged as AMG",CheckAMG
+VIBRANT_high,4,0.0031496062992125984,Different top hit in a shared database,CheckAMG
+VIBRANT_high,106,0.08346456692913386,Called only at lower stringency,DRAM-V
+VIBRANT_high,492,0.38740157480314963,Agrees at default/high,DRAM-V
+VIBRANT_high,667,0.5251968503937008,"Shared-database hit, not flagged as AMG",DRAM-V
+VIBRANT_high,3,0.002362204724409449,Different top hit in a shared database,DRAM-V
+VIBRANT_high,2,0.0015748031496062992,No annotation available,DRAM-V

@@ -1,0 +1,127 @@
+panel,set,calls,geNomad viral calls,rule,"viral, Metabolism KO calls","viral, Metabolism KO share"
+"A, primary-tier filter",CheckAMG (high),3221,3153,primary,1751,0.5436199937907482
+"A, primary-tier filter",CheckAMG (medium),4176,4044,primary,2370,0.5675287356321839
+"A, primary-tier filter",CheckAMG (low),14644,4931,primary,3010,0.2055449330783939
+"A, primary-tier filter",DRAM-V (aux 1),3380,3135,primary,1637,0.48431952662721894
+"A, primary-tier filter",DRAM-V (aux 2),13566,9490,primary,5404,0.39834881320949433
+"A, primary-tier filter",DRAM-V (aux 3),47308,16746,primary,10244,0.21653842901834786
+"A, primary-tier filter",VIBRANT (high),1270,1263,primary,1161,0.9141732283464566
+"A, primary-tier filter",VIBRANT (medium),2331,2324,primary,2206,0.9463749463749463
+"A, primary-tier filter",VIBRANT (low),5801,5773,primary,5536,0.95431822099638
+"A, primary-tier filter",CheckAMG (high),3221,3153,"nucleotide excluded, strict",1736,0.5389630549518784
+"A, primary-tier filter",CheckAMG (medium),4176,4044,"nucleotide excluded, strict",2351,0.5629789272030651
+"A, primary-tier filter",CheckAMG (low),14644,4931,"nucleotide excluded, strict",2983,0.20370117454247474
+"A, primary-tier filter",DRAM-V (aux 1),3380,3135,"nucleotide excluded, strict",1285,0.3801775147928994
+"A, primary-tier filter",DRAM-V (aux 2),13566,9490,"nucleotide excluded, strict",4059,0.29920389208314907
+"A, primary-tier filter",DRAM-V (aux 3),47308,16746,"nucleotide excluded, strict",7929,0.16760378794284264
+"A, primary-tier filter",VIBRANT (high),1270,1263,"nucleotide excluded, strict",1134,0.8929133858267716
+"A, primary-tier filter",VIBRANT (medium),2331,2324,"nucleotide excluded, strict",2148,0.9214929214929215
+"A, primary-tier filter",VIBRANT (low),5801,5773,"nucleotide excluded, strict",5407,0.9320806757455611
+"A, primary-tier filter",CheckAMG (high),3221,3153,"nucleotide excluded, lenient",1751,0.5436199937907482
+"A, primary-tier filter",CheckAMG (medium),4176,4044,"nucleotide excluded, lenient",2368,0.5670498084291188
+"A, primary-tier filter",CheckAMG (low),14644,4931,"nucleotide excluded, lenient",3008,0.2054083583720295
+"A, primary-tier filter",DRAM-V (aux 1),3380,3135,"nucleotide excluded, lenient",1421,0.420414201183432
+"A, primary-tier filter",DRAM-V (aux 2),13566,9490,"nucleotide excluded, lenient",4598,0.3389355742296919
+"A, primary-tier filter",DRAM-V (aux 3),47308,16746,"nucleotide excluded, lenient",8835,0.1867548828950706
+"A, primary-tier filter",VIBRANT (high),1270,1263,"nucleotide excluded, lenient",1156,0.9102362204724409
+"A, primary-tier filter",VIBRANT (medium),2331,2324,"nucleotide excluded, lenient",2195,0.9416559416559417
+"A, primary-tier filter",VIBRANT (low),5801,5773,"nucleotide excluded, lenient",5515,0.9506981554904327
+"A, primary-tier filter",CheckAMG (high),3221,3153,"cautious excluded, CheckAMG list on shared KO",582,0.18068922694815276
+"A, primary-tier filter",CheckAMG (medium),4176,4044,"cautious excluded, CheckAMG list on shared KO",762,0.1824712643678161
+"A, primary-tier filter",CheckAMG (low),14644,4931,"cautious excluded, CheckAMG list on shared KO",995,0.0679459164162797
+"A, primary-tier filter",DRAM-V (aux 1),3380,3135,"cautious excluded, CheckAMG list on shared KO",216,0.06390532544378698
+"A, primary-tier filter",DRAM-V (aux 2),13566,9490,"cautious excluded, CheckAMG list on shared KO",595,0.043859649122807015
+"A, primary-tier filter",DRAM-V (aux 3),47308,16746,"cautious excluded, CheckAMG list on shared KO",1188,0.025112031791663145
+"A, primary-tier filter",VIBRANT (high),1270,1263,"cautious excluded, CheckAMG list on shared KO",190,0.14960629921259844
+"A, primary-tier filter",VIBRANT (medium),2331,2324,"cautious excluded, CheckAMG list on shared KO",334,0.14328614328614328
+"A, primary-tier filter",VIBRANT (low),5801,5773,"cautious excluded, CheckAMG list on shared KO",742,0.1279089812101362
+"A, primary-tier filter",CheckAMG (high),3221,3153,"cautious excluded, calling tool's own flag",649,0.20149022042843837
+"A, primary-tier filter",CheckAMG (medium),4176,4044,"cautious excluded, calling tool's own flag",844,0.2021072796934866
+"A, primary-tier filter",CheckAMG (low),14644,4931,"cautious excluded, calling tool's own flag",1077,0.07354547937721934
+"A, primary-tier filter",DRAM-V (aux 1),3380,3135,"cautious excluded, calling tool's own flag",667,0.19733727810650886
+"A, primary-tier filter",DRAM-V (aux 2),13566,9490,"cautious excluded, calling tool's own flag",1993,0.14691139613740234
+"A, primary-tier filter",DRAM-V (aux 3),47308,16746,"cautious excluded, calling tool's own flag",4283,0.0905343705081593
+"A, primary-tier filter",VIBRANT (high),1270,1263,"cautious excluded, calling tool's own flag",139,0.1094488188976378
+"A, primary-tier filter",VIBRANT (medium),2331,2324,"cautious excluded, calling tool's own flag",242,0.10381810381810382
+"A, primary-tier filter",VIBRANT (low),5801,5773,"cautious excluded, calling tool's own flag",515,0.08877779693156353
+"A, primary-tier filter",CheckAMG (high),3221,3153,KofamScan adaptive threshold,841,0.2610990375659733
+"A, primary-tier filter",CheckAMG (medium),4176,4044,KofamScan adaptive threshold,1223,0.2928639846743295
+"A, primary-tier filter",CheckAMG (low),14644,4931,KofamScan adaptive threshold,1570,0.10721114449603933
+"A, primary-tier filter",DRAM-V (aux 1),3380,3135,KofamScan adaptive threshold,723,0.213905325443787
+"A, primary-tier filter",DRAM-V (aux 2),13566,9490,KofamScan adaptive threshold,2855,0.21045260209346897
+"A, primary-tier filter",DRAM-V (aux 3),47308,16746,KofamScan adaptive threshold,5324,0.11253910543671261
+"A, primary-tier filter",VIBRANT (high),1270,1263,KofamScan adaptive threshold,534,0.4204724409448819
+"A, primary-tier filter",VIBRANT (medium),2331,2324,KofamScan adaptive threshold,1199,0.5143715143715144
+"A, primary-tier filter",VIBRANT (low),5801,5773,KofamScan adaptive threshold,3109,0.5359420789519048
+"B focal, full tier",CheckAMG (high),3221,3153,primary,1751,0.5436199937907482
+"B focal, full tier",DRAM-V (default),47308,16746,primary,10244,0.21653842901834786
+"B focal, full tier",VIBRANT (high),1270,1263,primary,1161,0.9141732283464566
+"B focal, full tier",CheckAMG (high),3221,3153,"nucleotide excluded, strict",1736,0.5389630549518784
+"B focal, full tier",DRAM-V (default),47308,16746,"nucleotide excluded, strict",7929,0.16760378794284264
+"B focal, full tier",VIBRANT (high),1270,1263,"nucleotide excluded, strict",1134,0.8929133858267716
+"B focal, full tier",CheckAMG (high),3221,3153,"nucleotide excluded, lenient",1751,0.5436199937907482
+"B focal, full tier",DRAM-V (default),47308,16746,"nucleotide excluded, lenient",8835,0.1867548828950706
+"B focal, full tier",VIBRANT (high),1270,1263,"nucleotide excluded, lenient",1156,0.9102362204724409
+"B focal, full tier",CheckAMG (high),3221,3153,"cautious excluded, CheckAMG list on shared KO",582,0.18068922694815276
+"B focal, full tier",DRAM-V (default),47308,16746,"cautious excluded, CheckAMG list on shared KO",1188,0.025112031791663145
+"B focal, full tier",VIBRANT (high),1270,1263,"cautious excluded, CheckAMG list on shared KO",190,0.14960629921259844
+"B focal, full tier",CheckAMG (high),3221,3153,"cautious excluded, calling tool's own flag",649,0.20149022042843837
+"B focal, full tier",DRAM-V (default),47308,16746,"cautious excluded, calling tool's own flag",4283,0.0905343705081593
+"B focal, full tier",VIBRANT (high),1270,1263,"cautious excluded, calling tool's own flag",139,0.1094488188976378
+"B focal, full tier",CheckAMG (high),3221,3153,KofamScan adaptive threshold,841,0.2610990375659733
+"B focal, full tier",DRAM-V (default),47308,16746,KofamScan adaptive threshold,5324,0.11253910543671261
+"B focal, full tier",VIBRANT (high),1270,1263,KofamScan adaptive threshold,534,0.4204724409448819
+"matched level, full tier",CheckAMG (high),3221,3153,primary,1751,0.5436199937907482
+"matched level, full tier",DRAM-V (aux 1),3380,3135,primary,1637,0.48431952662721894
+"matched level, full tier",VIBRANT (high),1270,1263,primary,1161,0.9141732283464566
+"matched level, full tier",CheckAMG (medium),6728,5843,primary,3475,0.5164982164090368
+"matched level, full tier",DRAM-V (aux 2),13566,9490,primary,5404,0.39834881320949433
+"matched level, full tier",VIBRANT (medium),3720,3708,primary,3442,0.9252688172043011
+"matched level, full tier",CheckAMG (low),170161,8879,primary,5456,0.032063751388390994
+"matched level, full tier",DRAM-V (aux 3),47308,16746,primary,10244,0.21653842901834786
+"matched level, full tier",VIBRANT (low),12677,12531,primary,11599,0.9149641082274986
+"matched level, full tier",CheckAMG (high),3221,3153,"nucleotide excluded, strict",1736,0.5389630549518784
+"matched level, full tier",DRAM-V (aux 1),3380,3135,"nucleotide excluded, strict",1285,0.3801775147928994
+"matched level, full tier",VIBRANT (high),1270,1263,"nucleotide excluded, strict",1134,0.8929133858267716
+"matched level, full tier",CheckAMG (medium),6728,5843,"nucleotide excluded, strict",3445,0.5120392390011891
+"matched level, full tier",DRAM-V (aux 2),13566,9490,"nucleotide excluded, strict",4059,0.29920389208314907
+"matched level, full tier",VIBRANT (medium),3720,3708,"nucleotide excluded, strict",3329,0.8948924731182796
+"matched level, full tier",CheckAMG (low),170161,8879,"nucleotide excluded, strict",5412,0.03180517274816203
+"matched level, full tier",DRAM-V (aux 3),47308,16746,"nucleotide excluded, strict",7929,0.16760378794284264
+"matched level, full tier",VIBRANT (low),12677,12531,"nucleotide excluded, strict",11288,0.8904314901001814
+"matched level, full tier",CheckAMG (high),3221,3153,"nucleotide excluded, lenient",1751,0.5436199937907482
+"matched level, full tier",DRAM-V (aux 1),3380,3135,"nucleotide excluded, lenient",1421,0.420414201183432
+"matched level, full tier",VIBRANT (high),1270,1263,"nucleotide excluded, lenient",1156,0.9102362204724409
+"matched level, full tier",CheckAMG (medium),6728,5843,"nucleotide excluded, lenient",3473,0.5162009512485137
+"matched level, full tier",DRAM-V (aux 2),13566,9490,"nucleotide excluded, lenient",4598,0.3389355742296919
+"matched level, full tier",VIBRANT (medium),3720,3708,"nucleotide excluded, lenient",3409,0.9163978494623656
+"matched level, full tier",CheckAMG (low),170161,8879,"nucleotide excluded, lenient",5451,0.03203436745200134
+"matched level, full tier",DRAM-V (aux 3),47308,16746,"nucleotide excluded, lenient",8835,0.1867548828950706
+"matched level, full tier",VIBRANT (low),12677,12531,"nucleotide excluded, lenient",11534,0.9098367121558728
+"matched level, full tier",CheckAMG (high),3221,3153,"cautious excluded, CheckAMG list on shared KO",582,0.18068922694815276
+"matched level, full tier",DRAM-V (aux 1),3380,3135,"cautious excluded, CheckAMG list on shared KO",216,0.06390532544378698
+"matched level, full tier",VIBRANT (high),1270,1263,"cautious excluded, CheckAMG list on shared KO",190,0.14960629921259844
+"matched level, full tier",CheckAMG (medium),6728,5843,"cautious excluded, CheckAMG list on shared KO",1202,0.1786563614744352
+"matched level, full tier",DRAM-V (aux 2),13566,9490,"cautious excluded, CheckAMG list on shared KO",595,0.043859649122807015
+"matched level, full tier",VIBRANT (medium),3720,3708,"cautious excluded, CheckAMG list on shared KO",478,0.128494623655914
+"matched level, full tier",CheckAMG (low),170161,8879,"cautious excluded, CheckAMG list on shared KO",2038,0.011976892472423176
+"matched level, full tier",DRAM-V (aux 3),47308,16746,"cautious excluded, CheckAMG list on shared KO",1188,0.025112031791663145
+"matched level, full tier",VIBRANT (low),12677,12531,"cautious excluded, CheckAMG list on shared KO",1474,0.11627356630117536
+"matched level, full tier",CheckAMG (high),3221,3153,"cautious excluded, calling tool's own flag",649,0.20149022042843837
+"matched level, full tier",DRAM-V (aux 1),3380,3135,"cautious excluded, calling tool's own flag",667,0.19733727810650886
+"matched level, full tier",VIBRANT (high),1270,1263,"cautious excluded, calling tool's own flag",139,0.1094488188976378
+"matched level, full tier",CheckAMG (medium),6728,5843,"cautious excluded, calling tool's own flag",1285,0.19099286563614745
+"matched level, full tier",DRAM-V (aux 2),13566,9490,"cautious excluded, calling tool's own flag",1993,0.14691139613740234
+"matched level, full tier",VIBRANT (medium),3720,3708,"cautious excluded, calling tool's own flag",381,0.10241935483870968
+"matched level, full tier",CheckAMG (low),170161,8879,"cautious excluded, calling tool's own flag",2102,0.012353006858210754
+"matched level, full tier",DRAM-V (aux 3),47308,16746,"cautious excluded, calling tool's own flag",4283,0.0905343705081593
+"matched level, full tier",VIBRANT (low),12677,12531,"cautious excluded, calling tool's own flag",1134,0.0894533406957482
+"matched level, full tier",CheckAMG (high),3221,3153,KofamScan adaptive threshold,841,0.2610990375659733
+"matched level, full tier",DRAM-V (aux 1),3380,3135,KofamScan adaptive threshold,723,0.213905325443787
+"matched level, full tier",VIBRANT (high),1270,1263,KofamScan adaptive threshold,534,0.4204724409448819
+"matched level, full tier",CheckAMG (medium),6728,5843,KofamScan adaptive threshold,1536,0.22829964328180738
+"matched level, full tier",DRAM-V (aux 2),13566,9490,KofamScan adaptive threshold,2855,0.21045260209346897
+"matched level, full tier",VIBRANT (medium),3720,3708,KofamScan adaptive threshold,1466,0.39408602150537636
+"matched level, full tier",CheckAMG (low),170161,8879,KofamScan adaptive threshold,2401,0.014110166254312093
+"matched level, full tier",DRAM-V (aux 3),47308,16746,KofamScan adaptive threshold,5324,0.11253910543671261
+"matched level, full tier",VIBRANT (low),12677,12531,KofamScan adaptive threshold,4695,0.37035576240435436

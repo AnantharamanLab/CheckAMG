@@ -1,0 +1,17 @@
+set,definition,n_calls,calls_without_weight_row,gv_from_rebuild,genomad_viral,genomad_viral_rate,viral_weight_ge_0.6,viral_weight_ge_0.6_rate,viral_weight_ge_0.6_not_cautious,viral_weight_ge_0.6_not_cautious_rate,gv_weight_ge_0.6,gv_weight_gt0_lt0.6,gv_weight_eq0,gv_no_reference,gv_no_annotation,calls_in_top_3221,viral_weight_ge_0.6_in_top_3221,calls_in_top_6728,viral_weight_ge_0.6_in_top_6728,tie_note
+CheckAMG (high),CheckAMG tier column,3221,0,0,3153,0.9789,3111,0.9658,1565,0.4859,3111,0,0,9,33,325,323,690,688,
+CheckAMG (medium),CheckAMG tier column,6728,0,0,5843,0.8685,5778,0.8588,2859,0.4249,5778,0,0,18,47,413,410,922,919,
+CheckAMG (low),CheckAMG tier column,170161,0,0,8879,0.0522,8796,0.0517,4528,0.0266,8796,0,0,31,52,463,436,1066,992,
+VIBRANT (high),VIBRANT tier column,1270,0,0,1263,0.9945,446,0.3512,187,0.1472,446,670,0,147,0,219,75,384,128,
+VIBRANT (medium),VIBRANT tier column,3720,0,0,3708,0.9968,1219,0.3277,454,0.122,1219,1939,0,550,0,482,130,995,281,
+DRAM-V (aux 1),default with aux 1,3380,0,0,3135,0.9275,828,0.245,612,0.1811,828,367,0,1940,0,3221,828,3380,828,
+DRAM-V (aux 2),default with aux <= 2,13566,0,0,9490,0.6995,2275,0.1677,1673,0.1233,2275,1503,0,5712,0,3221,828,6728,1577,
+DRAM-V (aux 3),"aux <= 3, no A/V/P/T",47308,0,0,16746,0.354,4459,0.0943,3385,0.0716,4459,2695,0,9592,0,3221,828,6728,1577,
+DRAM-V (allow T),"aux <= 3, no A/V/P",52012,0,0,17049,0.3278,4499,0.0865,3418,0.0657,4499,2757,0,9793,0,3221,828,6728,1577,
+DRAM-V (aux 4),"aux <= 4, no A/V/P/T",160941,0,0,21014,0.1306,5546,0.0345,4262,0.0265,5546,3356,0,12112,0,3221,828,6728,1577,
+"DRAM-V (aux 4, allow T)","aux <= 4, no A/V/P",171833,0,0,21352,0.1243,5590,0.0325,4298,0.025,5590,3424,0,12338,0,3221,828,6728,1577,
+DRAMV_default_VS2_ge_0.7,default with VS2 max_score >= 0.7,16005,0,0,15478,0.9671,4016,0.2509,3051,0.1906,4016,2498,0,8964,0,3172,828,6520,1577,
+DRAMV_default_VS2_ge_0.9,default with VS2 max_score >= 0.9,13039,0,0,12897,0.9891,3222,0.2471,2412,0.185,3222,2088,0,7587,0,3133,825,6481,1574,
+DRAMV_default_aux_le2_VS2_ge_0.7,default with aux <= 2 and VS2 >= 0.7,9910,0,0,9464,0.955,2272,0.2293,1671,0.1686,2272,1499,0,5693,0,3172,828,6520,1577,
+DRAMV_default_top_3221,"first 3221 default calls by aux ascending, VS2 descending, then sample, gene",3221,0,0,3134,0.973,828,0.2571,612,0.19,828,367,0,1939,0,3221,828,3221,828,"aux 1, VS2 0.487: 26 of 27 tied calls taken; exact range over tie orders gv 3134-3134, vw 828-828, vwnc 612-612"
+DRAMV_default_top_6728,"first 6728 default calls by aux ascending, VS2 descending, then sample, gene",6728,0,0,6482,0.9634,1577,0.2344,1182,0.1757,1577,938,0,3967,0,3221,828,6728,1577,"aux 2, VS2 1.0: 3348 of 3352 tied calls taken; exact range over tie orders gv 6482-6483, vw 1573-1577, vwnc 1178-1182"

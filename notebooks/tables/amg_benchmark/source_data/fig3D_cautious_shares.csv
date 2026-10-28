@@ -1,0 +1,23 @@
+tool,tier,Cautious functions,n,pct,n_tier
+CheckAMG,CheckAMG (high),Nucleotide metabolism,465,0.1443651040049674,3221
+CheckAMG,CheckAMG (high),Glucan metabolism,514,0.15957777087860914,3221
+CheckAMG,CheckAMG (high),Lipid metabolism,131,0.040670599192797266,3221
+CheckAMG,CheckAMG (high),Methylation,467,0.14498602918348338,3221
+CheckAMG,CheckAMG (high),Not cautious (weight ≥ 0.6),1602,0.497361067991307,3221
+CheckAMG,CheckAMG (high),Not cautious (no weight),42,0.013039428748835765,3221
+DRAM-V,DRAM-V (default),Essential gene,4661,0.0985245624418703,47308
+DRAM-V,DRAM-V (default),Nucleotide metabolism,6080,0.12851948930413462,47308
+DRAM-V,DRAM-V (default),Glucan metabolism,4242,0.08966770947831233,47308
+DRAM-V,DRAM-V (default),Lipid metabolism,1412,0.029846960344973365,47308
+DRAM-V,DRAM-V (default),Methylation,2152,0.045489135030016066,47308
+DRAM-V,DRAM-V (default),Not cautious (weight ≥ 0.6),14209,0.30035089202671855,47308
+DRAM-V,DRAM-V (default),Not cautious (weight < 0.6),1028,0.021729939967870128,47308
+DRAM-V,DRAM-V (default),Not cautious (no weight),13524,0.28587131140610467,47308
+VIBRANT,VIBRANT (high),Essential gene,110,0.08661417322834646,1270
+VIBRANT,VIBRANT (high),Nucleotide metabolism,297,0.23385826771653542,1270
+VIBRANT,VIBRANT (high),Glucan metabolism,276,0.2173228346456693,1270
+VIBRANT,VIBRANT (high),Lipid metabolism,48,0.03779527559055118,1270
+VIBRANT,VIBRANT (high),Methylation,332,0.2614173228346457,1270
+VIBRANT,VIBRANT (high),Not cautious (weight ≥ 0.6),191,0.15039370078740158,1270
+VIBRANT,VIBRANT (high),Not cautious (weight < 0.6),11,0.008661417322834646,1270
+VIBRANT,VIBRANT (high),Not cautious (no weight),5,0.003937007874015748,1270

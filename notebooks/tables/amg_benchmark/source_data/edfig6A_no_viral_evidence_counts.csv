@@ -1,7 +1,6 @@
-source_tier,n_calls,n_without_viral_evidence,facet_label
-CheckAMG_high,3218,0,"CheckAMG (high)
-n = 3,218"
-DRAMV_default,664,2,"DRAM-V (default)
-n = 664"
-VIBRANT_high,1270,0,"VIBRANT (high)
-n = 1,270"
+source_tier,n_calls,n_without_viral_evidence,n_not_genomad_viral,pct_not_genomad_viral,facet_label
+CheckAMG_high,3221,1,68,0.02111145606954362,"CheckAMG (high), n = 3,221"
+DRAMV_aux1,3380,0,245,0.07248520710059171,"DRAM-V (aux 1), n = 3,380"
+DRAMV_aux_le2,13566,5,4076,0.30045702491522924,"DRAM-V (aux 2), n = 13,566"
+DRAMV_aux_le3,47308,222,30562,0.6460218144922635,"DRAM-V (aux 3), n = 47,308"
+VIBRANT_high,1270,0,7,0.005511811023622047,"VIBRANT (high), n = 1,270"

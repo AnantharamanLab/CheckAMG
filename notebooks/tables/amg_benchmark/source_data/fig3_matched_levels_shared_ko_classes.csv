@@ -1,0 +1,162 @@
+level,n_level,rule,classes,class,n_calls
+CheckAMG (high),3221,"primary, best hit at e-value <= 1e-5",Class I/II,Not geNomad viral,68
+CheckAMG (high),3221,"primary, best hit at e-value <= 1e-5",Class I/II,"geNomad viral, Class I",1751
+CheckAMG (high),3221,"primary, best hit at e-value <= 1e-5",Class I/II,"geNomad viral, Class II",997
+CheckAMG (high),3221,"primary, best hit at e-value <= 1e-5",Class I/II,"geNomad viral, no KO",83
+CheckAMG (high),3221,"primary, best hit at e-value <= 1e-5",Class I/II,"geNomad viral, other KO",322
+CheckAMG (high),3221,"primary, best hit at e-value <= 1e-5",four-class,Not geNomad viral,68
+CheckAMG (high),3221,"primary, best hit at e-value <= 1e-5",four-class,"geNomad viral, Metabolism KO",1751
+CheckAMG (high),3221,"primary, best hit at e-value <= 1e-5",four-class,"geNomad viral, no KO",83
+CheckAMG (high),3221,"primary, best hit at e-value <= 1e-5",four-class,"geNomad viral, other KO",1319
+CheckAMG (high),3221,"sensitivity, KofamScan adaptive threshold",Class I/II,Not geNomad viral,68
+CheckAMG (high),3221,"sensitivity, KofamScan adaptive threshold",Class I/II,"geNomad viral, Class I",841
+CheckAMG (high),3221,"sensitivity, KofamScan adaptive threshold",Class I/II,"geNomad viral, Class II",577
+CheckAMG (high),3221,"sensitivity, KofamScan adaptive threshold",Class I/II,"geNomad viral, no KO",1656
+CheckAMG (high),3221,"sensitivity, KofamScan adaptive threshold",Class I/II,"geNomad viral, other KO",79
+CheckAMG (high),3221,"sensitivity, KofamScan adaptive threshold",four-class,Not geNomad viral,68
+CheckAMG (high),3221,"sensitivity, KofamScan adaptive threshold",four-class,"geNomad viral, Metabolism KO",841
+CheckAMG (high),3221,"sensitivity, KofamScan adaptive threshold",four-class,"geNomad viral, no KO",1656
+CheckAMG (high),3221,"sensitivity, KofamScan adaptive threshold",four-class,"geNomad viral, other KO",656
+DRAM-V (aux 1),3380,"primary, best hit at e-value <= 1e-5",Class I/II,Not geNomad viral,245
+DRAM-V (aux 1),3380,"primary, best hit at e-value <= 1e-5",Class I/II,"geNomad viral, Class I",1637
+DRAM-V (aux 1),3380,"primary, best hit at e-value <= 1e-5",Class I/II,"geNomad viral, Class II",316
+DRAM-V (aux 1),3380,"primary, best hit at e-value <= 1e-5",Class I/II,"geNomad viral, no KO",628
+DRAM-V (aux 1),3380,"primary, best hit at e-value <= 1e-5",Class I/II,"geNomad viral, other KO",554
+DRAM-V (aux 1),3380,"primary, best hit at e-value <= 1e-5",four-class,Not geNomad viral,245
+DRAM-V (aux 1),3380,"primary, best hit at e-value <= 1e-5",four-class,"geNomad viral, Metabolism KO",1637
+DRAM-V (aux 1),3380,"primary, best hit at e-value <= 1e-5",four-class,"geNomad viral, no KO",628
+DRAM-V (aux 1),3380,"primary, best hit at e-value <= 1e-5",four-class,"geNomad viral, other KO",870
+DRAM-V (aux 1),3380,"sensitivity, KofamScan adaptive threshold",Class I/II,Not geNomad viral,245
+DRAM-V (aux 1),3380,"sensitivity, KofamScan adaptive threshold",Class I/II,"geNomad viral, Class I",723
+DRAM-V (aux 1),3380,"sensitivity, KofamScan adaptive threshold",Class I/II,"geNomad viral, Class II",75
+DRAM-V (aux 1),3380,"sensitivity, KofamScan adaptive threshold",Class I/II,"geNomad viral, no KO",2175
+DRAM-V (aux 1),3380,"sensitivity, KofamScan adaptive threshold",Class I/II,"geNomad viral, other KO",162
+DRAM-V (aux 1),3380,"sensitivity, KofamScan adaptive threshold",four-class,Not geNomad viral,245
+DRAM-V (aux 1),3380,"sensitivity, KofamScan adaptive threshold",four-class,"geNomad viral, Metabolism KO",723
+DRAM-V (aux 1),3380,"sensitivity, KofamScan adaptive threshold",four-class,"geNomad viral, no KO",2175
+DRAM-V (aux 1),3380,"sensitivity, KofamScan adaptive threshold",four-class,"geNomad viral, other KO",237
+VIBRANT (high),1270,"primary, best hit at e-value <= 1e-5",Class I/II,Not geNomad viral,7
+VIBRANT (high),1270,"primary, best hit at e-value <= 1e-5",Class I/II,"geNomad viral, Class I",1161
+VIBRANT (high),1270,"primary, best hit at e-value <= 1e-5",Class I/II,"geNomad viral, Class II",16
+VIBRANT (high),1270,"primary, best hit at e-value <= 1e-5",Class I/II,"geNomad viral, no KO",4
+VIBRANT (high),1270,"primary, best hit at e-value <= 1e-5",Class I/II,"geNomad viral, other KO",82
+VIBRANT (high),1270,"primary, best hit at e-value <= 1e-5",four-class,Not geNomad viral,7
+VIBRANT (high),1270,"primary, best hit at e-value <= 1e-5",four-class,"geNomad viral, Metabolism KO",1161
+VIBRANT (high),1270,"primary, best hit at e-value <= 1e-5",four-class,"geNomad viral, no KO",4
+VIBRANT (high),1270,"primary, best hit at e-value <= 1e-5",four-class,"geNomad viral, other KO",98
+VIBRANT (high),1270,"sensitivity, KofamScan adaptive threshold",Class I/II,Not geNomad viral,7
+VIBRANT (high),1270,"sensitivity, KofamScan adaptive threshold",Class I/II,"geNomad viral, Class I",534
+VIBRANT (high),1270,"sensitivity, KofamScan adaptive threshold",Class I/II,"geNomad viral, no KO",685
+VIBRANT (high),1270,"sensitivity, KofamScan adaptive threshold",Class I/II,"geNomad viral, other KO",44
+VIBRANT (high),1270,"sensitivity, KofamScan adaptive threshold",four-class,Not geNomad viral,7
+VIBRANT (high),1270,"sensitivity, KofamScan adaptive threshold",four-class,"geNomad viral, Metabolism KO",534
+VIBRANT (high),1270,"sensitivity, KofamScan adaptive threshold",four-class,"geNomad viral, no KO",685
+VIBRANT (high),1270,"sensitivity, KofamScan adaptive threshold",four-class,"geNomad viral, other KO",44
+CheckAMG (medium),6728,"primary, best hit at e-value <= 1e-5",Class I/II,Not geNomad viral,885
+CheckAMG (medium),6728,"primary, best hit at e-value <= 1e-5",Class I/II,"geNomad viral, Class I",3475
+CheckAMG (medium),6728,"primary, best hit at e-value <= 1e-5",Class I/II,"geNomad viral, Class II",1581
+CheckAMG (medium),6728,"primary, best hit at e-value <= 1e-5",Class I/II,"geNomad viral, no KO",152
+CheckAMG (medium),6728,"primary, best hit at e-value <= 1e-5",Class I/II,"geNomad viral, other KO",635
+CheckAMG (medium),6728,"primary, best hit at e-value <= 1e-5",four-class,Not geNomad viral,885
+CheckAMG (medium),6728,"primary, best hit at e-value <= 1e-5",four-class,"geNomad viral, Metabolism KO",3475
+CheckAMG (medium),6728,"primary, best hit at e-value <= 1e-5",four-class,"geNomad viral, no KO",152
+CheckAMG (medium),6728,"primary, best hit at e-value <= 1e-5",four-class,"geNomad viral, other KO",2216
+CheckAMG (medium),6728,"sensitivity, KofamScan adaptive threshold",Class I/II,Not geNomad viral,885
+CheckAMG (medium),6728,"sensitivity, KofamScan adaptive threshold",Class I/II,"geNomad viral, Class I",1536
+CheckAMG (medium),6728,"sensitivity, KofamScan adaptive threshold",Class I/II,"geNomad viral, Class II",891
+CheckAMG (medium),6728,"sensitivity, KofamScan adaptive threshold",Class I/II,"geNomad viral, no KO",3228
+CheckAMG (medium),6728,"sensitivity, KofamScan adaptive threshold",Class I/II,"geNomad viral, other KO",188
+CheckAMG (medium),6728,"sensitivity, KofamScan adaptive threshold",four-class,Not geNomad viral,885
+CheckAMG (medium),6728,"sensitivity, KofamScan adaptive threshold",four-class,"geNomad viral, Metabolism KO",1536
+CheckAMG (medium),6728,"sensitivity, KofamScan adaptive threshold",four-class,"geNomad viral, no KO",3228
+CheckAMG (medium),6728,"sensitivity, KofamScan adaptive threshold",four-class,"geNomad viral, other KO",1079
+DRAM-V (aux 2),13566,"primary, best hit at e-value <= 1e-5",Class I/II,Not geNomad viral,4076
+DRAM-V (aux 2),13566,"primary, best hit at e-value <= 1e-5",Class I/II,"geNomad viral, Class I",5404
+DRAM-V (aux 2),13566,"primary, best hit at e-value <= 1e-5",Class I/II,"geNomad viral, Class II",1013
+DRAM-V (aux 2),13566,"primary, best hit at e-value <= 1e-5",Class I/II,"geNomad viral, no KO",1494
+DRAM-V (aux 2),13566,"primary, best hit at e-value <= 1e-5",Class I/II,"geNomad viral, other KO",1579
+DRAM-V (aux 2),13566,"primary, best hit at e-value <= 1e-5",four-class,Not geNomad viral,4076
+DRAM-V (aux 2),13566,"primary, best hit at e-value <= 1e-5",four-class,"geNomad viral, Metabolism KO",5404
+DRAM-V (aux 2),13566,"primary, best hit at e-value <= 1e-5",four-class,"geNomad viral, no KO",1494
+DRAM-V (aux 2),13566,"primary, best hit at e-value <= 1e-5",four-class,"geNomad viral, other KO",2592
+DRAM-V (aux 2),13566,"sensitivity, KofamScan adaptive threshold",Class I/II,Not geNomad viral,4076
+DRAM-V (aux 2),13566,"sensitivity, KofamScan adaptive threshold",Class I/II,"geNomad viral, Class I",2855
+DRAM-V (aux 2),13566,"sensitivity, KofamScan adaptive threshold",Class I/II,"geNomad viral, Class II",278
+DRAM-V (aux 2),13566,"sensitivity, KofamScan adaptive threshold",Class I/II,"geNomad viral, no KO",5895
+DRAM-V (aux 2),13566,"sensitivity, KofamScan adaptive threshold",Class I/II,"geNomad viral, other KO",462
+DRAM-V (aux 2),13566,"sensitivity, KofamScan adaptive threshold",four-class,Not geNomad viral,4076
+DRAM-V (aux 2),13566,"sensitivity, KofamScan adaptive threshold",four-class,"geNomad viral, Metabolism KO",2855
+DRAM-V (aux 2),13566,"sensitivity, KofamScan adaptive threshold",four-class,"geNomad viral, no KO",5895
+DRAM-V (aux 2),13566,"sensitivity, KofamScan adaptive threshold",four-class,"geNomad viral, other KO",740
+VIBRANT (medium),3720,"primary, best hit at e-value <= 1e-5",Class I/II,Not geNomad viral,12
+VIBRANT (medium),3720,"primary, best hit at e-value <= 1e-5",Class I/II,"geNomad viral, Class I",3442
+VIBRANT (medium),3720,"primary, best hit at e-value <= 1e-5",Class I/II,"geNomad viral, Class II",50
+VIBRANT (medium),3720,"primary, best hit at e-value <= 1e-5",Class I/II,"geNomad viral, no KO",7
+VIBRANT (medium),3720,"primary, best hit at e-value <= 1e-5",Class I/II,"geNomad viral, other KO",209
+VIBRANT (medium),3720,"primary, best hit at e-value <= 1e-5",four-class,Not geNomad viral,12
+VIBRANT (medium),3720,"primary, best hit at e-value <= 1e-5",four-class,"geNomad viral, Metabolism KO",3442
+VIBRANT (medium),3720,"primary, best hit at e-value <= 1e-5",four-class,"geNomad viral, no KO",7
+VIBRANT (medium),3720,"primary, best hit at e-value <= 1e-5",four-class,"geNomad viral, other KO",259
+VIBRANT (medium),3720,"sensitivity, KofamScan adaptive threshold",Class I/II,Not geNomad viral,12
+VIBRANT (medium),3720,"sensitivity, KofamScan adaptive threshold",Class I/II,"geNomad viral, Class I",1466
+VIBRANT (medium),3720,"sensitivity, KofamScan adaptive threshold",Class I/II,"geNomad viral, Class II",2
+VIBRANT (medium),3720,"sensitivity, KofamScan adaptive threshold",Class I/II,"geNomad viral, no KO",2163
+VIBRANT (medium),3720,"sensitivity, KofamScan adaptive threshold",Class I/II,"geNomad viral, other KO",77
+VIBRANT (medium),3720,"sensitivity, KofamScan adaptive threshold",four-class,Not geNomad viral,12
+VIBRANT (medium),3720,"sensitivity, KofamScan adaptive threshold",four-class,"geNomad viral, Metabolism KO",1466
+VIBRANT (medium),3720,"sensitivity, KofamScan adaptive threshold",four-class,"geNomad viral, no KO",2163
+VIBRANT (medium),3720,"sensitivity, KofamScan adaptive threshold",four-class,"geNomad viral, other KO",79
+CheckAMG (low),170161,"primary, best hit at e-value <= 1e-5",Class I/II,Not geNomad viral,161282
+CheckAMG (low),170161,"primary, best hit at e-value <= 1e-5",Class I/II,"geNomad viral, Class I",5456
+CheckAMG (low),170161,"primary, best hit at e-value <= 1e-5",Class I/II,"geNomad viral, Class II",2183
+CheckAMG (low),170161,"primary, best hit at e-value <= 1e-5",Class I/II,"geNomad viral, no KO",183
+CheckAMG (low),170161,"primary, best hit at e-value <= 1e-5",Class I/II,"geNomad viral, other KO",1057
+CheckAMG (low),170161,"primary, best hit at e-value <= 1e-5",four-class,Not geNomad viral,161282
+CheckAMG (low),170161,"primary, best hit at e-value <= 1e-5",four-class,"geNomad viral, Metabolism KO",5456
+CheckAMG (low),170161,"primary, best hit at e-value <= 1e-5",four-class,"geNomad viral, no KO",183
+CheckAMG (low),170161,"primary, best hit at e-value <= 1e-5",four-class,"geNomad viral, other KO",3240
+CheckAMG (low),170161,"sensitivity, KofamScan adaptive threshold",Class I/II,Not geNomad viral,161282
+CheckAMG (low),170161,"sensitivity, KofamScan adaptive threshold",Class I/II,"geNomad viral, Class I",2401
+CheckAMG (low),170161,"sensitivity, KofamScan adaptive threshold",Class I/II,"geNomad viral, Class II",1202
+CheckAMG (low),170161,"sensitivity, KofamScan adaptive threshold",Class I/II,"geNomad viral, no KO",4914
+CheckAMG (low),170161,"sensitivity, KofamScan adaptive threshold",Class I/II,"geNomad viral, other KO",362
+CheckAMG (low),170161,"sensitivity, KofamScan adaptive threshold",four-class,Not geNomad viral,161282
+CheckAMG (low),170161,"sensitivity, KofamScan adaptive threshold",four-class,"geNomad viral, Metabolism KO",2401
+CheckAMG (low),170161,"sensitivity, KofamScan adaptive threshold",four-class,"geNomad viral, no KO",4914
+CheckAMG (low),170161,"sensitivity, KofamScan adaptive threshold",four-class,"geNomad viral, other KO",1564
+DRAM-V (aux 3),47308,"primary, best hit at e-value <= 1e-5",Class I/II,Not geNomad viral,30562
+DRAM-V (aux 3),47308,"primary, best hit at e-value <= 1e-5",Class I/II,"geNomad viral, Class I",10244
+DRAM-V (aux 3),47308,"primary, best hit at e-value <= 1e-5",Class I/II,"geNomad viral, Class II",1897
+DRAM-V (aux 3),47308,"primary, best hit at e-value <= 1e-5",Class I/II,"geNomad viral, no KO",2102
+DRAM-V (aux 3),47308,"primary, best hit at e-value <= 1e-5",Class I/II,"geNomad viral, other KO",2503
+DRAM-V (aux 3),47308,"primary, best hit at e-value <= 1e-5",four-class,Not geNomad viral,30562
+DRAM-V (aux 3),47308,"primary, best hit at e-value <= 1e-5",four-class,"geNomad viral, Metabolism KO",10244
+DRAM-V (aux 3),47308,"primary, best hit at e-value <= 1e-5",four-class,"geNomad viral, no KO",2102
+DRAM-V (aux 3),47308,"primary, best hit at e-value <= 1e-5",four-class,"geNomad viral, other KO",4400
+DRAM-V (aux 3),47308,"sensitivity, KofamScan adaptive threshold",Class I/II,Not geNomad viral,30562
+DRAM-V (aux 3),47308,"sensitivity, KofamScan adaptive threshold",Class I/II,"geNomad viral, Class I",5324
+DRAM-V (aux 3),47308,"sensitivity, KofamScan adaptive threshold",Class I/II,"geNomad viral, Class II",498
+DRAM-V (aux 3),47308,"sensitivity, KofamScan adaptive threshold",Class I/II,"geNomad viral, no KO",10204
+DRAM-V (aux 3),47308,"sensitivity, KofamScan adaptive threshold",Class I/II,"geNomad viral, other KO",720
+DRAM-V (aux 3),47308,"sensitivity, KofamScan adaptive threshold",four-class,Not geNomad viral,30562
+DRAM-V (aux 3),47308,"sensitivity, KofamScan adaptive threshold",four-class,"geNomad viral, Metabolism KO",5324
+DRAM-V (aux 3),47308,"sensitivity, KofamScan adaptive threshold",four-class,"geNomad viral, no KO",10204
+DRAM-V (aux 3),47308,"sensitivity, KofamScan adaptive threshold",four-class,"geNomad viral, other KO",1218
+VIBRANT (low),12677,"primary, best hit at e-value <= 1e-5",Class I/II,Not geNomad viral,146
+VIBRANT (low),12677,"primary, best hit at e-value <= 1e-5",Class I/II,"geNomad viral, Class I",11599
+VIBRANT (low),12677,"primary, best hit at e-value <= 1e-5",Class I/II,"geNomad viral, Class II",257
+VIBRANT (low),12677,"primary, best hit at e-value <= 1e-5",Class I/II,"geNomad viral, no KO",47
+VIBRANT (low),12677,"primary, best hit at e-value <= 1e-5",Class I/II,"geNomad viral, other KO",628
+VIBRANT (low),12677,"primary, best hit at e-value <= 1e-5",four-class,Not geNomad viral,146
+VIBRANT (low),12677,"primary, best hit at e-value <= 1e-5",four-class,"geNomad viral, Metabolism KO",11599
+VIBRANT (low),12677,"primary, best hit at e-value <= 1e-5",four-class,"geNomad viral, no KO",47
+VIBRANT (low),12677,"primary, best hit at e-value <= 1e-5",four-class,"geNomad viral, other KO",885
+VIBRANT (low),12677,"sensitivity, KofamScan adaptive threshold",Class I/II,Not geNomad viral,146
+VIBRANT (low),12677,"sensitivity, KofamScan adaptive threshold",Class I/II,"geNomad viral, Class I",4695
+VIBRANT (low),12677,"sensitivity, KofamScan adaptive threshold",Class I/II,"geNomad viral, Class II",4
+VIBRANT (low),12677,"sensitivity, KofamScan adaptive threshold",Class I/II,"geNomad viral, no KO",7688
+VIBRANT (low),12677,"sensitivity, KofamScan adaptive threshold",Class I/II,"geNomad viral, other KO",144
+VIBRANT (low),12677,"sensitivity, KofamScan adaptive threshold",four-class,Not geNomad viral,146
+VIBRANT (low),12677,"sensitivity, KofamScan adaptive threshold",four-class,"geNomad viral, Metabolism KO",4695
+VIBRANT (low),12677,"sensitivity, KofamScan adaptive threshold",four-class,"geNomad viral, no KO",7688
+VIBRANT (low),12677,"sensitivity, KofamScan adaptive threshold",four-class,"geNomad viral, other KO",148

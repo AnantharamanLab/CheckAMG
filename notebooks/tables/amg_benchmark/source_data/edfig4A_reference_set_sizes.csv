@@ -4,6 +4,6 @@ CheckAMG,All references,Pfam,1611
 CheckAMG,AMG weight ≥ 0.6,KO,8633
 CheckAMG,AMG weight ≥ 0.6,Pfam,1069
 DRAM-V,Curated AMG reference,KO,34
-DRAM-V,Curated AMG reference,Pfam,251
+DRAM-V,Curated AMG reference,Pfam,261
 VIBRANT,Curated AMG reference,KO,2826
 VIBRANT,Curated AMG reference,Pfam,0
