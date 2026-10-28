@@ -1,3 +1,4 @@
-input_base: /storage2/scratch/kosmopoulos/projects/checkAMG/benchmarks/metabolism_benchmark/virsorter_outputs
-output_base: /storage2/scratch/kosmopoulos/projects/checkAMG/benchmarks/metabolism_benchmark/dramv_outputs
+# Relative to the benchmark data root, passed with --config data_root=PATH or DRAMV_DATA_ROOT
+input_base: virsorter_outputs
+output_base: dramv_outputs_mm13
 threads: 4

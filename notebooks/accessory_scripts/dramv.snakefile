@@ -1,14 +1,18 @@
 import os
 from pathlib import Path
 
+# The DRAM_1.5.0_mm13 env pins mmseqs2 13.45111, which matches the MMseqs2 build of the DRAM Pfam profile database
 configfile: "./accessory_scripts/dramv.config.yaml"
 
-INPUT_BASE = Path(config["input_base"]).resolve()
-OUTPUT_BASE = Path(config["output_base"]).resolve()
+BENCHMARK_SUBSETS = ("complete_virus_genomes", "metagenomes", "viromes")
+DATA_ROOT = Path(config.get("data_root") or os.environ.get("DRAMV_DATA_ROOT", ""))
+assert DATA_ROOT.is_absolute(), "pass the benchmark data root with --config data_root=PATH or DRAMV_DATA_ROOT"
+INPUT_BASE = (DATA_ROOT / config["input_base"]).resolve()
+OUTPUT_BASE = (DATA_ROOT / config["output_base"]).resolve()
 
 def discover_samples():
     for subset_dir in INPUT_BASE.iterdir():
-        if not subset_dir.is_dir():
+        if not subset_dir.is_dir() or subset_dir.name not in BENCHMARK_SUBSETS:
             continue
         for sample_dir in subset_dir.iterdir():
             if not sample_dir.is_dir():
@@ -25,11 +29,6 @@ ALL_DISTILLED = [
     str(OUTPUT_BASE / subset / sample / "distilled")
     for subset, sample in SAMPLES
 ]
-
-# remove complete host genomes
-for i, path in enumerate(ALL_DISTILLED):
-    if "host_genomes" in path:
-        ALL_DISTILLED.pop(i)
 
 rule all:
     input:
@@ -52,11 +51,11 @@ rule dramv_annotate:
         fa=fa_input,
         tab=tab_input
     output:
-        ann_tsv=os.path.join(config["output_base"], "{subset}", "{sample}", "annotations.tsv")
+        ann_tsv=os.path.join(OUTPUT_BASE, "{subset}", "{sample}", "annotations.tsv")
     threads:
         config.get("threads", 4)
     conda:
-        "DRAM"
+        "DRAM_1.5.0_mm13"
     log:
         "logs/{subset}/{sample}_annotate.log"
     shell:
@@ -75,13 +74,13 @@ rule dramv_annotate:
 
 rule dramv_distill:
     input:
-        ann_tsv=os.path.join(config["output_base"], "{subset}", "{sample}", "annotations.tsv")
+        ann_tsv=os.path.join(OUTPUT_BASE, "{subset}", "{sample}", "annotations.tsv")
     output:
-        distilled=directory(os.path.join(config["output_base"], "{subset}", "{sample}", "distilled"))
+        distilled=directory(os.path.join(OUTPUT_BASE, "{subset}", "{sample}", "distilled"))
     threads:
         config.get("threads", 4)
     conda:
-        "DRAM"
+        "DRAM_1.5.0_mm13"
     log:
         "logs/{subset}/{sample}_distill.log"
     shell:
