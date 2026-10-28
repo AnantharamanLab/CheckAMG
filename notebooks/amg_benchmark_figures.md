@@ -440,7 +440,8 @@ upset_queries <- list(
 
 # Plain geom_bar intersection bars, because intersection_size bars are dropped on a log10 axis
 log_upset <- function(data, sets, track, label_angle, label_size, height_ratio, width_ratio, min_size = 0,
-                      queries = upset_queries, count_breaks = waiver()) {
+                      queries = upset_queries, count_breaks = waiver(), point_size = 2.5,
+                      set_size_lab = "Calls per tier among\nthe genes shown") {
   ComplexUpset::upset(
     data = data,
     intersect = rev(sets),
@@ -458,11 +459,11 @@ log_upset <- function(data, sets, track, label_angle, label_size, height_ratio, 
         scale_y_log10(labels = scales::comma, breaks = count_breaks,
                       expand = expansion(mult = c(0, if (label_angle == 0) 0.15 else 0.35))) +
         labs(y = "AMG calls\n(proteins, log10)") +
-        theme(panel.grid = element_blank(), axis.title.y = element_text(size = 12), axis.text.y = element_text(size = 11))
+        theme(panel.grid = element_blank(), axis.title.y = element_text(size = 14), axis.text.y = element_text(size = 12))
     ),
     annotations = track,
     matrix = ComplexUpset::intersection_matrix(
-      geom = geom_point(size = 2.5),
+      geom = geom_point(size = point_size),
       segment = geom_segment(linetype = "solid", color = "black"),
       outline_color = list(active = "grey60", inactive = "grey90")
     ),
@@ -471,11 +472,11 @@ log_upset <- function(data, sets, track, label_angle, label_size, height_ratio, 
     ),
     queries = queries,
     set_sizes = ComplexUpset::upset_set_size(geom = geom_bar(aes(x = group), width = 0.8), position = "right") +
-      geom_text(aes(label = scales::comma(after_stat(count))), hjust = -0.1, stat = "count", size = 3.2) +
+      geom_text(aes(label = scales::comma(after_stat(count))), hjust = -0.1, stat = "count", size = 3.5) +
       scale_y_continuous(labels = scales::comma, expand = expansion(mult = c(0, 0.7)),
                          breaks = function(lim) Filter(function(b) b <= 0.8 * lim[2], scales::breaks_extended(3)(lim))) +
-      labs(y = "Calls per tier among\nthe genes shown") +
-      theme(axis.text.x = element_text(size = 10), axis.title.x = element_text(size = 11))
+      labs(y = set_size_lab) +
+      theme(axis.text.x = element_text(size = 12), axis.title.x = element_text(size = 12))
   )
 }
 ```
@@ -588,7 +589,7 @@ fig3_min_size <- 12
 
 # Stacked fill segments stay proportional only on a linear axis, so both bar axes are linear
 fill_upset <- function(data, sets, label_angle, label_size, height_ratio, width_ratio, mat_text, show_legend, set_sizes,
-                       bar_lab, title = NULL, min_size = fig3_min_size) {
+                       bar_lab, title = NULL, min_size = fig3_min_size, point_size = 3.5, ytitle_inset = 0) {
   bars <- ComplexUpset::intersection_size(
     mapping = aes(fill = fill_primary),
     bar_number_threshold = 1,
@@ -606,6 +607,8 @@ fill_upset <- function(data, sets, label_angle, label_size, height_ratio, width_
           legend.title = element_text(size = 14), legend.text = element_text(size = 12),
           plot.title = element_text(size = 14, face = "bold", hjust = 0.5, lineheight = 0.9))
   if (!is.null(title)) bars <- bars + ggtitle(title)
+  # A negative right margin draws the y title over the empty space above the set labels
+  if (ytitle_inset > 0) bars <- bars + theme(axis.title.y = element_text(size = 14, margin = margin(r = -ytitle_inset)))
   ComplexUpset::upset(
     data = data,
     intersect = rev(sets),
@@ -617,7 +620,7 @@ fill_upset <- function(data, sets, label_angle, label_size, height_ratio, width_
     height_ratio = height_ratio, width_ratio = width_ratio, guides = if (show_legend) "over" else NULL,
     base_annotations = list("AMG calls (proteins)" = bars),
     matrix = ComplexUpset::intersection_matrix(
-      geom = geom_point(size = 3.5),
+      geom = geom_point(size = point_size),
       segment = geom_segment(linetype = "solid", color = "black"),
       outline_color = list(active = "grey60", inactive = "grey90")
     ),
@@ -744,10 +747,10 @@ p_fig3_focal <- lapply(names(fig3_focal), function(tool) {
   tighten_upset(fill_upset(fig3_focal_data[[tool]], unname(fig3_tier_map[fig3_focal[[tool]]$sets]), label_angle = 90, label_size = 3.5,
                            height_ratio = 0.9, width_ratio = 0.3, mat_text = 12, show_legend = FALSE, set_sizes = FALSE,
                            bar_lab = "AMG calls\n(number of proteins)", title = fig3_focal[[tool]]$title,
-                           min_size = fig3_focal[[tool]]$min_size), 2, 4)
+                           min_size = fig3_focal[[tool]]$min_size, point_size = 1.5, ytitle_inset = 30), 2, 4)
 })
 # A constant ratio overplots DRAM-V counts, so width is a label column plus one unit per bar
-fig3_focal_widths <- vapply(fig3_focal_intersections, function(x) sum(x$shown), integer(1)) + 26
+fig3_focal_widths <- vapply(fig3_focal_intersections, function(x) sum(x$shown), integer(1)) + 16
 p_fig3_upset_per_tool <- cowplot::plot_grid(plotlist = p_fig3_focal, nrow = 1, rel_widths = fig3_focal_widths)
 print(p_fig3_upset_per_tool)
 ```
@@ -771,8 +774,8 @@ source_track <- list(
     scale_fill_manual(values = source_pal, name = "Sequence source", drop = FALSE) +
     scale_y_continuous(breaks = c(0, 0.5, 1), labels = label_percent(scale = 100), expand = expansion(mult = c(0, 0))) +
     labs(y = "Share by sequence source") +
-    theme(panel.grid = element_blank(), axis.title.y = element_text(size = 12), axis.text.y = element_text(size = 10),
-          legend.title = element_text(size = 12), legend.text = element_text(size = 11))
+    theme(panel.grid = element_blank(), axis.title.y = element_text(size = 14), axis.text.y = element_text(size = 12),
+          legend.title = element_text(size = 14), legend.text = element_text(size = 12))
 )
 
 ed7_tier_map <- c(
@@ -797,7 +800,8 @@ cat("intersections:", nrow(ed7_intersections), "shown:", sum(ed7_intersections$s
 ``` r
 # Count ticks stop at the largest bar, so the top count tick cannot meet the 0% tick of the share track
 p_upset_all_tiers <- tighten_upset(log_upset(ed7_upset_data, unname(ed7_tier_map), source_track,
-                                             label_angle = 90, label_size = 2.8, height_ratio = 0.8, width_ratio = 0.22,
+                                             label_angle = 90, label_size = 3, height_ratio = 0.8, width_ratio = 0.22, point_size = 1.5,
+                                             set_size_lab = "Calls per tier",
                                              queries = lapply(unname(ed7_tier_map), function(s) {
                                                upset_query(set = s, color = tool_pal[fig3_tool_of(s)], fill = tool_pal[fig3_tool_of(s)],
                                                            only_components = c("intersections_matrix"))
@@ -1049,7 +1053,7 @@ p_weight_composition <- ggplot(
   ) +
   guides(
     fill = guide_legend(
-      ncol = 1,
+      nrow = 6,
       title.position = "top"
     )
   )
@@ -1187,7 +1191,7 @@ p_db_composition <- ggplot(
   ) +
   guides(
     fill = guide_legend(
-      ncol = 1,
+      nrow = 6,
       title.position = "top"
     )
   )
@@ -1364,7 +1368,7 @@ p_category_composition <- ggplot(
   ) +
   guides(
     fill = guide_legend(
-      ncol = 1,
+      nrow = 6,
       title.position = "top"
     )
   )
@@ -1642,6 +1646,7 @@ METABOLIC or CAMPER carry those colors.
 
 ``` r
 reference_upset_data <- reference_hmms %>%
+  dplyr::rename(`CheckAMG (AMG weight ≥ 0.6)` = `CheckAMG (AMG weight >= 0.6)`) %>%
   mutate(
     n_databases = Pfam + KEGG + FOAM + METABOLIC + CAMPER + dbCAN,
     `Database source` = case_when(
@@ -1655,7 +1660,7 @@ reference_upset_data <- reference_hmms %>%
       CAMPER ~ "CAMPER (custom)"
     ),
     `Database source` = factor(`Database source`, levels = db_source_levels),
-    `CheckAMG (AMG weight < 0.6)` = `CheckAMG (all)` & !`CheckAMG (AMG weight >= 0.6)`,
+    `CheckAMG (AMG weight < 0.6)` = `CheckAMG (all)` & !`CheckAMG (AMG weight ≥ 0.6)`,
     `DRAM-V` = DRAMV
   )
 
@@ -1663,7 +1668,7 @@ stopifnot(all(reference_upset_data$Pfam + reference_upset_data$KEGG + reference_
           !anyDuplicated(reference_upset_data$HMM))
 
 reference_sets <- c(
-  "CheckAMG (AMG weight >= 0.6)",
+  "CheckAMG (AMG weight ≥ 0.6)",
   "CheckAMG (AMG weight < 0.6)",
   "DRAM-V",
   "VIBRANT"
@@ -1684,14 +1689,14 @@ p_reference_upset <- ComplexUpset::upset(
     "Reference HMMs" = ComplexUpset::intersection_size(
       mapping = aes(fill = `Database source`),
       text_mapping = aes(label = scales::comma(!!ComplexUpset::get_size_mode("exclusive_intersection"))),
-      text = list(size = 4),
+      text = list(size = 4, angle = 90, vjust = 0.5, hjust = -0.1),
       text_colors = c(on_background = "black", on_bar = "black")
     ) +
       coord_trans(y = scales::pseudo_log_trans(base = 10)) +
       scale_y_continuous(
         breaks = c(0, 10, 100, 1000, 10000, 100000),
         labels = scales::comma,
-        expand = expansion(mult = c(0, 0.1))
+        expand = expansion(mult = c(0, 0.25))
       ) +
       scale_fill_manual(
         values = db_source_pal,
@@ -1703,7 +1708,8 @@ p_reference_upset <- ComplexUpset::upset(
         axis.title.y = element_text(size = 16),
         axis.text.y = element_text(size = 14),
         legend.title = element_text(size = 16),
-        legend.text = element_text(size = 14)
+        legend.text = element_text(size = 14),
+        legend.margin = margin(0, 18, 0, 0)
       )
   ),
 
@@ -1740,7 +1746,7 @@ p_reference_upset <- ComplexUpset::upset(
       axis.text.x = element_text(size = 12),
       axis.title.x = element_text(size = 14)
     )
-)
+) & theme(legend.margin = margin(0, 18, 0, 0))
 
 print(p_reference_upset)
 ```
@@ -2286,9 +2292,10 @@ curation steps counted above.
 fig3_height <- 14.5
 p_fig3_bottom <- cowplot::plot_grid(
   p_weight_composition,
-  p_category_composition,
-  p_db_composition + guides(fill = guide_legend(ncol = 2, title.position = "top")),
-  ncol = 3, rel_widths = c(1, 1, 1), align = "h", axis = "t",
+  # The two-column cautious legend is wider than its panel, so it starts under the narrow weight legend
+  p_category_composition + theme(legend.box.margin = margin(l = -45)),
+  p_db_composition,
+  ncol = 3, rel_widths = c(1, 1, 1), align = "h", axis = "tb",
   labels = c("C", "D", "E"), label_size = 18
 )
 p_upset_comp_composite <- cowplot::plot_grid(
@@ -2376,7 +2383,7 @@ are not drawn here.
 
 ``` r
 ed_upset_height <- 8.5
-save_plot_both(p_upset_all_tiers, "amg_all_tier_upset_by_sequence_source", 12, ed_upset_height, 300)
+save_plot_both(p_upset_all_tiers, "amg_all_tier_upset_by_sequence_source", 15, ed_upset_height, 300)
 print(p_upset_all_tiers)
 ```
 
@@ -2639,7 +2646,7 @@ tibble::tibble(file = list.files(SRC_DIR, pattern = "[.]csv$")) %>%
   mutate(rows = vapply(file, function(f) nrow(readr::read_csv(file.path(SRC_DIR, f), show_col_types = FALSE)), integer(1)))
 ```
 
-    ## # A tibble: 26 × 2
+    ## # A tibble: 24 × 2
     ##    file                                        rows
     ##    <chr>                                      <int>
     ##  1 caution_shares_by_basis.csv                   20
@@ -2652,4 +2659,4 @@ tibble::tibble(file = list.files(SRC_DIR, pattern = "[.]csv$")) %>%
     ##  8 edfig6A_no_viral_evidence_counts.csv           5
     ##  9 edfig6A_nonoverlap_reasons.csv                57
     ## 10 edfig6B_scenario_sizes.csv                     8
-    ## # ℹ 16 more rows
+    ## # ℹ 14 more rows
