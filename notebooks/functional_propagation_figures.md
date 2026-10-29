@@ -1,13 +1,15 @@
 Functional label propagation
 ================
 James C. Kosmopoulos
-2026-09-22
+2026-10-29
 
 ``` r
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, fig.width = 10, fig.height = 6, dpi = 150)
 
 library("arrow");packageVersion("arrow")
 ```
+
+    ## Warning: package 'arrow' was built under R version 4.4.3
 
     ## 
     ## Attaching package: 'arrow'
@@ -16,20 +18,26 @@ library("arrow");packageVersion("arrow")
     ## 
     ##     timestamp
 
-    ## [1] '13.0.0'
+    ## [1] '22.0.0.1'
 
 ``` r
 library("tidyverse");packageVersion("tidyverse")
 ```
 
-    ## ── Attaching core tidyverse packages ──────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 2.0.0 ──
+    ## Warning: package 'tibble' was built under R version 4.4.3
+
+    ## Warning: package 'tidyr' was built under R version 4.4.3
+
+    ## Warning: package 'purrr' was built under R version 4.4.3
+
+    ## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
     ## ✔ dplyr     1.1.4     ✔ readr     2.1.5
     ## ✔ forcats   1.0.0     ✔ stringr   1.5.1
-    ## ✔ ggplot2   3.5.2     ✔ tibble    3.2.1
-    ## ✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-    ## ✔ purrr     1.0.4
+    ## ✔ ggplot2   3.5.2     ✔ tibble    3.3.1
+    ## ✔ lubridate 1.9.3     ✔ tidyr     1.3.2
+    ## ✔ purrr     1.2.1
 
-    ## ── Conflicts ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+    ## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
     ## ✖ lubridate::duration() masks arrow::duration()
     ## ✖ dplyr::filter()       masks stats::filter()
     ## ✖ dplyr::lag()          masks stats::lag()
@@ -54,6 +62,8 @@ library("cowplot");packageVersion("cowplot")
 library("scales");packageVersion("scales")
 ```
 
+    ## Warning: package 'scales' was built under R version 4.4.1
+
     ## 
     ## Attaching package: 'scales'
     ## 
@@ -71,6 +81,8 @@ library("scales");packageVersion("scales")
 library("patchwork");packageVersion("patchwork")
 ```
 
+    ## Warning: package 'patchwork' was built under R version 4.4.1
+
     ## 
     ## Attaching package: 'patchwork'
     ## 
@@ -83,6 +95,8 @@ library("patchwork");packageVersion("patchwork")
 ``` r
 library("jsonlite");packageVersion("jsonlite")
 ```
+
+    ## Warning: package 'jsonlite' was built under R version 4.4.1
 
     ## 
     ## Attaching package: 'jsonlite'
@@ -107,8 +121,8 @@ TARGET <- MANIFEST$primary_target
 
 prop  <- function(name) read_parquet(file.path(PROP_DIR, paste0(name, ".parquet")))
 novel <- function(name) read_parquet(file.path(NOVEL_DIR, paste0(name, ".parquet")))
-save_plot_both <- function(p, stem, w, h, dpi = 600, bg = "white") {
-  ggsave(file.path(PLOT_DIR, paste0(stem, ".png")), p, width = w, height = h, units = "in", dpi = dpi, bg = bg)
+save_plot_both <- function(p, stem, w, h, dpi = 600, bg = "white", ...) {
+  ggsave(file.path(PLOT_DIR, paste0(stem, ".png")), p, width = w, height = h, units = "in", dpi = dpi, bg = bg, ...)
   invisible(p)
 }
 ```
@@ -301,9 +315,6 @@ app <- app %>% mutate(subset = factor(subset, levels = SUB_LVL))
 p_tier_assignment_depth <- ggplot(app, aes(frac, fct_rev(final_level), fill = label_source)) +
   geom_col(width = 0.72, color = "black", linewidth = 0.2) +
   geom_text(aes(label = ifelse(frac >= 0.02, comma(n), ""),
-                # vjust = case_when(label_source == "cluster" ~ -0.28,
-                #                   label_source == "embedding" ~ 1.28,
-                #                   TRUE ~ 0.5)
                 ),
             position = position_stack(vjust = 0.5), size = 2.6) +
   facet_wrap(~ subset, nrow = 1, labeller = as_labeller(sub_labs)) +
@@ -340,7 +351,6 @@ p_precision_vs_seq_id <- strat %>%
   theme(
     axis.text.x = element_text(angle = 45, hjust = 1),
     legend.position = "bottom",
-    # legend.location = "plot",
     legend.direction = "vertical",
     legend.text = element_text(size = 9.5),
     legend.key.size = unit(0.32, "cm"),
@@ -431,7 +441,9 @@ p_comp <- p_comp +
   theme(plot.tag = element_text(size = 16, face = "bold", hjust = 0, vjust = 1),
         plot.tag.position = "topleft", plot.tag.location = "margin")
 
-save_plot_both(p_comp, "functional_propagation_supplement", w = 16, h = 16)
+# ggsave defaults to ragg, whose text metrics differ from the knitr png device and clip the H and I strip labels
+save_plot_both(p_comp, "functional_propagation_supplement", w = 16, h = 16,
+               device = grDevices::png, type = getOption("bitmapType"))
 print(p_comp)
 ```
 
@@ -474,15 +486,15 @@ knitr::kable(supp, digits = 4)
 SRC_DIR <- file.path(PROP_DIR, "source_data")
 dir.create(SRC_DIR, showWarnings = FALSE, recursive = TRUE)
 
-readr::write_csv(sweep,    file.path(SRC_DIR, "edfig9A_target_sweep.csv"))
-readr::write_csv(rc,       file.path(SRC_DIR, "edfig9B_risk_coverage.csv"))
-readr::write_csv(rel,      file.path(SRC_DIR, "edfig9C_reliability.csv"))
+readr::write_csv(tstrat,   file.path(SRC_DIR, "edfig9A_tier_by_identity.csv"))
+readr::write_csv(ovl,      file.path(SRC_DIR, "edfig9B_tier_reach_overlap.csv"))
+readr::write_csv(ctrl,     file.path(SRC_DIR, "edfig9C_validation_controls.csv"))
+readr::write_csv(hi_sweep, file.path(SRC_DIR, "edfig9D_applied_target_sweep.csv"))
+readr::write_csv(app,      file.path(SRC_DIR, "edfig9E_applied_label_source.csv"))
 readr::write_csv(strat,    file.path(SRC_DIR, "edfig9F_precision_by_identity_band.csv"))
-readr::write_csv(ovl,      file.path(SRC_DIR, "edfig9D_tier_reach_overlap.csv"))
-readr::write_csv(tstrat,   file.path(SRC_DIR, "edfig9E_tier_by_identity.csv"))
-readr::write_csv(app,      file.path(SRC_DIR, "edfig9G_applied_label_source.csv"))
-readr::write_csv(hi_sweep, file.path(SRC_DIR, "edfig9H_applied_target_sweep.csv"))
-readr::write_csv(ctrl,     file.path(SRC_DIR, "edfig9I_validation_controls.csv"))
+readr::write_csv(sweep,    file.path(SRC_DIR, "edfig9G_target_sweep.csv"))
+readr::write_csv(rc,       file.path(SRC_DIR, "edfig9H_risk_coverage.csv"))
+readr::write_csv(rel,      file.path(SRC_DIR, "edfig9I_reliability.csv"))
 
 readr::write_csv(joint,    file.path(SRC_DIR, "edfig9_extra_identity_by_distance.csv"))
 cat(sprintf("source data written to %s\n", SRC_DIR))
@@ -501,15 +513,15 @@ print(tibble::tibble(
     ##    file                                    rows
     ##    <chr>                                  <int>
     ##  1 edfig9_extra_identity_by_distance.csv     23
-    ##  2 edfig9A_target_sweep.csv                  36
-    ##  3 edfig9B_risk_coverage.csv               2424
-    ##  4 edfig9C_reliability.csv                   51
-    ##  5 edfig9D_tier_reach_overlap.csv            12
-    ##  6 edfig9E_tier_by_identity.csv              12
+    ##  2 edfig9A_tier_by_identity.csv              12
+    ##  3 edfig9B_tier_reach_overlap.csv            12
+    ##  4 edfig9C_validation_controls.csv            9
+    ##  5 edfig9D_applied_target_sweep.csv          36
+    ##  6 edfig9E_applied_label_source.csv          20
     ##  7 edfig9F_precision_by_identity_band.csv     8
-    ##  8 edfig9G_applied_label_source.csv          20
-    ##  9 edfig9H_applied_target_sweep.csv          36
-    ## 10 edfig9I_validation_controls.csv            9
+    ##  8 edfig9G_target_sweep.csv                  36
+    ##  9 edfig9H_risk_coverage.csv               2424
+    ## 10 edfig9I_reliability.csv                   51
 
 ``` r
 supp_dir <- PROP_DIR
@@ -562,42 +574,37 @@ readr::write_csv(summary_table, file.path(PROP_DIR, "propagation_evaluation.csv"
 sessionInfo()
 ```
 
-    ## R version 4.3.3 (2024-02-29)
-    ## Platform: x86_64-conda-linux-gnu (64-bit)
-    ## Running under: Ubuntu 20.04.6 LTS
+    ## R version 4.4.0 (2024-04-24)
+    ## Platform: aarch64-apple-darwin20
+    ## Running under: macOS 26.6.2
     ## 
     ## Matrix products: default
-    ## BLAS/LAPACK: /storage2/scratch/kosmopoulos/miniconda3/envs/peatlands_env/lib/libopenblasp-r0.3.21.so;  LAPACK version 3.9.0
+    ## BLAS:   /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/lib/libRblas.0.dylib 
+    ## LAPACK: /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.12.0
     ## 
     ## locale:
-    ##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
-    ##  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
-    ##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
-    ##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
-    ##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-    ## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+    ## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
     ## 
     ## time zone: America/Chicago
-    ## tzcode source: system (glibc)
+    ## tzcode source: internal
     ## 
     ## attached base packages:
     ## [1] stats     graphics  grDevices utils     datasets  methods   base     
     ## 
     ## other attached packages:
     ##  [1] jsonlite_2.0.0  patchwork_1.3.2 scales_1.4.0    cowplot_1.1.3  
-    ##  [5] lubridate_1.9.4 forcats_1.0.0   stringr_1.5.1   dplyr_1.1.4    
-    ##  [9] purrr_1.0.4     readr_2.1.5     tidyr_1.3.1     tibble_3.2.1   
-    ## [13] ggplot2_3.5.2   tidyverse_2.0.0 arrow_13.0.0   
+    ##  [5] lubridate_1.9.3 forcats_1.0.0   stringr_1.5.1   dplyr_1.1.4    
+    ##  [9] purrr_1.2.1     readr_2.1.5     tidyr_1.3.2     tibble_3.3.1   
+    ## [13] ggplot2_3.5.2   tidyverse_2.0.0 arrow_22.0.0.1 
     ## 
     ## loaded via a namespace (and not attached):
-    ##  [1] utf8_1.2.4         generics_0.1.3     stringi_1.8.7      hms_1.1.3         
-    ##  [5] digest_0.6.37      magrittr_2.0.3     evaluate_1.0.3     grid_4.3.3        
-    ##  [9] timechange_0.3.0   RColorBrewer_1.1-3 fastmap_1.2.0      textshaping_0.3.7 
-    ## [13] cli_3.6.4          rlang_1.2.0        crayon_1.5.3       bit64_4.6.0-1     
-    ## [17] withr_3.0.2        yaml_2.3.10        parallel_4.3.3     tools_4.3.3       
-    ## [21] tzdb_0.5.0         assertthat_0.2.1   vctrs_0.6.5        R6_2.6.1          
-    ## [25] lifecycle_1.0.4    bit_4.6.0          vroom_1.6.5        ragg_1.3.3        
-    ## [29] pkgconfig_2.0.3    pillar_1.10.2      gtable_0.3.6       glue_1.8.0        
-    ## [33] systemfonts_1.2.1  xfun_0.52          tidyselect_1.2.1   knitr_1.50        
-    ## [37] farver_2.1.2       htmltools_0.5.8.1  rmarkdown_2.29     labeling_0.4.3    
-    ## [41] compiler_4.3.3
+    ##  [1] utf8_1.2.4         generics_0.1.3     stringi_1.8.4      hms_1.1.3         
+    ##  [5] digest_0.6.37      magrittr_2.0.4     evaluate_1.0.5     grid_4.4.0        
+    ##  [9] timechange_0.3.0   RColorBrewer_1.1-3 fastmap_1.2.0      fansi_1.0.6       
+    ## [13] cli_3.6.5          rlang_1.1.7        crayon_1.5.3       bit64_4.5.2       
+    ## [17] withr_3.0.2        yaml_2.3.10        parallel_4.4.0     tools_4.4.0       
+    ## [21] tzdb_0.4.0         assertthat_0.2.1   vctrs_0.6.5        R6_2.6.1          
+    ## [25] lifecycle_1.0.5    bit_4.5.0          vroom_1.6.5        pkgconfig_2.0.3   
+    ## [29] pillar_1.9.0       gtable_0.3.6       glue_1.8.0         xfun_0.48         
+    ## [33] tidyselect_1.2.1   highr_0.11         knitr_1.48         farver_2.1.2      
+    ## [37] htmltools_0.5.8.1  rmarkdown_2.28     labeling_0.4.3     compiler_4.4.0

@@ -29,8 +29,8 @@ TARGET <- MANIFEST$primary_target
 
 prop  <- function(name) read_parquet(file.path(PROP_DIR, paste0(name, ".parquet")))
 novel <- function(name) read_parquet(file.path(NOVEL_DIR, paste0(name, ".parquet")))
-save_plot_both <- function(p, stem, w, h, dpi = 600, bg = "white") {
-  ggsave(file.path(PLOT_DIR, paste0(stem, ".png")), p, width = w, height = h, units = "in", dpi = dpi, bg = bg)
+save_plot_both <- function(p, stem, w, h, dpi = 600, bg = "white", ...) {
+  ggsave(file.path(PLOT_DIR, paste0(stem, ".png")), p, width = w, height = h, units = "in", dpi = dpi, bg = bg, ...)
   invisible(p)
 }
 ```
@@ -383,7 +383,9 @@ p_comp <- p_comp +
   theme(plot.tag = element_text(size = 16, face = "bold", hjust = 0, vjust = 1),
         plot.tag.position = "topleft", plot.tag.location = "margin")
 
-save_plot_both(p_comp, "functional_propagation_supplement", w = 16, h = 16)
+# ggsave defaults to ragg, whose text metrics differ from the knitr png device and clip the H and I strip labels
+save_plot_both(p_comp, "functional_propagation_supplement", w = 16, h = 16,
+               device = grDevices::png, type = getOption("bitmapType"))
 print(p_comp)
 ```
 
