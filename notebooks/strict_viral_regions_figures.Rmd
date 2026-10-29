@@ -881,7 +881,7 @@ composite <- cowplot::plot_grid(
   rel_heights = c(1, 0.05)
 )
 
-save_plot_both(composite, "genome_maps_combined", 12, 12)
+save_plot_both(composite, "genome_maps_combined", 12, 16)
 print(composite)
 ```
 

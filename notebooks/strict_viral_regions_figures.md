@@ -1,13 +1,15 @@
 Visualize strict/ambiguous viral regions
 ================
 James C. Kosmopoulos
-2026-08-04
+2026-10-29
 
 ``` r
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, fig.width = 10, fig.height = 6, dpi = 150)
 
 library("arrow");packageVersion("arrow")
 ```
+
+    ## Warning: package 'arrow' was built under R version 4.4.3
 
     ## 
     ## Attaching package: 'arrow'
@@ -16,20 +18,26 @@ library("arrow");packageVersion("arrow")
     ## 
     ##     timestamp
 
-    ## [1] '13.0.0'
+    ## [1] '22.0.0.1'
 
 ``` r
 library("tidyverse");packageVersion("tidyverse")
 ```
 
-    ## ── Attaching core tidyverse packages ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 2.0.0 ──
+    ## Warning: package 'tibble' was built under R version 4.4.3
+
+    ## Warning: package 'tidyr' was built under R version 4.4.3
+
+    ## Warning: package 'purrr' was built under R version 4.4.3
+
+    ## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
     ## ✔ dplyr     1.1.4     ✔ readr     2.1.5
     ## ✔ forcats   1.0.0     ✔ stringr   1.5.1
-    ## ✔ ggplot2   3.5.2     ✔ tibble    3.2.1
-    ## ✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-    ## ✔ purrr     1.0.4
+    ## ✔ ggplot2   3.5.2     ✔ tibble    3.3.1
+    ## ✔ lubridate 1.9.3     ✔ tidyr     1.3.2
+    ## ✔ purrr     1.2.1
 
-    ## ── Conflicts ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+    ## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
     ## ✖ lubridate::duration() masks arrow::duration()
     ## ✖ dplyr::filter()       masks stats::filter()
     ## ✖ dplyr::lag()          masks stats::lag()
@@ -54,6 +62,8 @@ library("cowplot");packageVersion("cowplot")
 library("patchwork");packageVersion("patchwork")
 ```
 
+    ## Warning: package 'patchwork' was built under R version 4.4.1
+
     ## 
     ## Attaching package: 'patchwork'
     ## 
@@ -66,6 +76,8 @@ library("patchwork");packageVersion("patchwork")
 ``` r
 library("scales");packageVersion("scales")
 ```
+
+    ## Warning: package 'scales' was built under R version 4.4.1
 
     ## 
     ## Attaching package: 'scales'
@@ -90,11 +102,13 @@ library("RColorBrewer");packageVersion("RColorBrewer")
 library("svglite");packageVersion("svglite")
 ```
 
-    ## [1] '2.1.2'
+    ## [1] '2.1.3'
 
 ``` r
 library("gggenomes");packageVersion("gggenomes")
 ```
+
+    ## Warning: package 'gggenomes' was built under R version 4.4.3
 
     ## gggenomes v1.1.3
     ## 
@@ -120,6 +134,8 @@ library("gggenomes");packageVersion("gggenomes")
 ``` r
 library("ggnewscale");packageVersion("ggnewscale")
 ```
+
+    ## Warning: package 'ggnewscale' was built under R version 4.4.1
 
     ## [1] '0.5.2'
 
@@ -1017,7 +1033,7 @@ composite <- cowplot::plot_grid(
   rel_heights = c(1, 0.05)
 )
 
-save_plot_both(composite, "genome_maps_combined", 12, 12)
+save_plot_both(composite, "genome_maps_combined", 12, 16)
 print(composite)
 ```
 
@@ -1029,43 +1045,40 @@ print(composite)
 sessionInfo()
 ```
 
-    ## R version 4.3.3 (2024-02-29)
-    ## Platform: x86_64-conda-linux-gnu (64-bit)
-    ## Running under: Ubuntu 20.04.6 LTS
+    ## R version 4.4.0 (2024-04-24)
+    ## Platform: aarch64-apple-darwin20
+    ## Running under: macOS 26.6.2
     ## 
     ## Matrix products: default
-    ## BLAS/LAPACK: /storage2/scratch/kosmopoulos/miniconda3/envs/peatlands_env/lib/libopenblasp-r0.3.21.so;  LAPACK version 3.9.0
+    ## BLAS:   /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/lib/libRblas.0.dylib 
+    ## LAPACK: /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.12.0
     ## 
     ## locale:
-    ##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
-    ##  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
-    ##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
-    ##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
-    ##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-    ## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+    ## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
     ## 
     ## time zone: America/Chicago
-    ## tzcode source: system (glibc)
+    ## tzcode source: internal
     ## 
     ## attached base packages:
     ## [1] stats     graphics  grDevices utils     datasets  methods   base     
     ## 
     ## other attached packages:
-    ##  [1] ggnewscale_0.5.2   gggenomes_1.1.3    svglite_2.1.2      RColorBrewer_1.1-3
-    ##  [5] scales_1.4.0       patchwork_1.3.2    cowplot_1.1.3      lubridate_1.9.4   
-    ##  [9] forcats_1.0.0      stringr_1.5.1      dplyr_1.1.4        purrr_1.0.4       
-    ## [13] readr_2.1.5        tidyr_1.3.1        tibble_3.2.1       ggplot2_3.5.2     
-    ## [17] tidyverse_2.0.0    arrow_13.0.0      
+    ##  [1] ggnewscale_0.5.2   gggenomes_1.1.3    svglite_2.1.3      RColorBrewer_1.1-3
+    ##  [5] scales_1.4.0       patchwork_1.3.2    cowplot_1.1.3      lubridate_1.9.3   
+    ##  [9] forcats_1.0.0      stringr_1.5.1      dplyr_1.1.4        purrr_1.2.1       
+    ## [13] readr_2.1.5        tidyr_1.3.2        tibble_3.3.1       ggplot2_3.5.2     
+    ## [17] tidyverse_2.0.0    arrow_22.0.0.1    
     ## 
     ## loaded via a namespace (and not attached):
-    ##  [1] generics_0.1.3    stringi_1.8.7     hms_1.1.3         digest_0.6.37    
-    ##  [5] magrittr_2.0.3    evaluate_1.0.3    grid_4.3.3        timechange_0.3.0 
-    ##  [9] fastmap_1.2.0     jsonlite_2.0.0    ggrepel_0.9.8     viridisLite_0.4.2
-    ## [13] textshaping_0.3.7 cli_3.6.4         rlang_1.2.0       bit64_4.6.0-1    
-    ## [17] withr_3.0.2       yaml_2.3.10       tools_4.3.3       tzdb_0.5.0       
-    ## [21] colorspace_2.1-1  assertthat_0.2.1  vctrs_0.6.5       R6_2.6.1         
-    ## [25] lifecycle_1.0.4   bit_4.6.0         ragg_1.3.3        pkgconfig_2.0.3  
-    ## [29] pillar_1.10.2     gtable_0.3.6      Rcpp_1.0.14       glue_1.8.0       
-    ## [33] systemfonts_1.2.1 xfun_0.52         tidyselect_1.2.1  knitr_1.50       
-    ## [37] farver_2.1.2      htmltools_0.5.8.1 labeling_0.4.3    rmarkdown_2.29   
-    ## [41] compiler_4.3.3    S7_0.2.2
+    ##  [1] utf8_1.2.4        generics_0.1.3    stringi_1.8.4     hms_1.1.3        
+    ##  [5] digest_0.6.37     magrittr_2.0.4    evaluate_1.0.5    grid_4.4.0       
+    ##  [9] timechange_0.3.0  fastmap_1.2.0     jsonlite_2.0.0    ggrepel_0.9.8    
+    ## [13] fansi_1.0.6       viridisLite_0.4.2 textshaping_0.4.0 cli_3.6.5        
+    ## [17] rlang_1.1.7       bit64_4.5.2       withr_3.0.2       yaml_2.3.10      
+    ## [21] tools_4.4.0       tzdb_0.4.0        colorspace_2.1-1  assertthat_0.2.1 
+    ## [25] vctrs_0.6.5       R6_2.6.1          lifecycle_1.0.5   bit_4.5.0        
+    ## [29] ragg_1.5.1        pkgconfig_2.0.3   pillar_1.9.0      gtable_0.3.6     
+    ## [33] Rcpp_1.1.0        glue_1.8.0        systemfonts_1.3.1 highr_0.11       
+    ## [37] xfun_0.48         tidyselect_1.2.1  knitr_1.48        farver_2.1.2     
+    ## [41] htmltools_0.5.8.1 labeling_0.4.3    rmarkdown_2.28    compiler_4.4.0   
+    ## [45] S7_0.2.0
