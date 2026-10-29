@@ -294,7 +294,7 @@ stopifnot(
 
 ## UpSet data
 
-The compact UpSet and Figure 3A are restricted to genes called as an AMG by at least one tool's primary tier (CheckAMG high, DRAM-V default, or VIBRANT high). Intersection sizes are drawn on a log10 axis with no truncated bars. The compact UpSet shows the three primary tiers only, with the geNomad-viral share of each intersection as an annotation track, and is not a Figure 3 panel. Figure 3A is the all-tier UpSet of the same genes with DRAM-V split by auxiliary score and the shared KO class as its track. The Extended Data all-tier UpSet uses the nine Figure 3 sets and the DRAM-V (allow T), DRAM-V (aux 4) and DRAM-V (aux 4, allow T) configurations, with the sequence-source composition of each intersection as its annotation track. It covers every gene called as an AMG at any tier by any tool, so its set-size bars are the tier totals.
+The compact UpSet and Figure 3A are restricted to genes called as an AMG by at least one tool's primary tier (CheckAMG high, DRAM-V default, or VIBRANT high). Intersection sizes are drawn on a log10 axis with no truncated bars. The compact UpSet shows the three primary tiers only, with the geNomad-viral share of each intersection as an annotation track, and is not a Figure 3 panel. Figure 3A is the all-tier UpSet of the same genes with DRAM-V split by auxiliary score and the shared KO class as its track. The Extended Data all-tier UpSet uses the nine Figure 3 sets and the DRAM-V (allow T), DRAM-V (aux 4) and DRAM-V (aux 4, allow T) configurations, with the sequence-source composition of each intersection as its annotation track and intersection and set-size bars split by the four shared KO classes of Figure 3A. It covers every gene called as an AMG at any tier by any tool, so its set-size bars are the tier totals.
 
 DRAM-V (default) is the documented DRAM-V default: an M flag, an auxiliary score of at most 3, and none of the A, V, P, or T flags. It is applied as DRAM-v distill run with `--remove_transposons`. The DRAM-v distill command-line default keeps T-flagged genes, which is DRAM-V (allow T). DRAM-V (aux 4) and DRAM-V (aux 4, allow T) relax the auxiliary score to at most 4.
 
@@ -325,7 +325,43 @@ upset_queries <- list(
 # Plain geom_bar intersection bars, because intersection_size bars are dropped on a log10 axis
 log_upset <- function(data, sets, track, label_angle, label_size, height_ratio, width_ratio, min_size = 0,
                       queries = upset_queries, count_breaks = waiver(), point_size = 2.5,
-                      set_size_lab = "Calls per tier among\nthe genes shown") {
+                      set_size_lab = "Calls per tier among\nthe genes shown", class_col = NULL, class_pal = NULL, class_name = NULL,
+                      set_label_size = 3.5, set_size_expand = 0.7) {
+  count_bars <- if (is.null(class_col)) {
+    ggplot(mapping = aes(x = intersection)) +
+      geom_bar(fill = "grey30", width = 0.8) +
+      geom_text(aes(label = after_stat(scales::comma(count))), stat = "count", angle = label_angle,
+                hjust = if (label_angle == 0) 0.5 else -0.15, vjust = if (label_angle == 0) -0.4 else 0.5, size = label_size) +
+      scale_y_log10(labels = scales::comma, breaks = count_breaks,
+                    expand = expansion(mult = c(0, if (label_angle == 0) 0.15 else 0.35)))
+  } else {
+    # Heights are log10 counts on a linear axis and each call weighs log10(n) / n, so a class takes its share of the bar's drawn length
+    n_intersection <- ave(rep(1, nrow(data)), do.call(paste, data[sets]), FUN = length)
+    data$bar_weight <- log10(n_intersection) / n_intersection
+    data$bar_n <- n_intersection
+    ggplot(mapping = aes(x = intersection)) +
+      geom_bar(aes(fill = .data[[class_col]], weight = bar_weight), width = 0.8) +
+      stat_summary(aes(y = bar_n), fun.data = function(v) data.frame(y = log10(v[1]), label = scales::comma(v[1])), geom = "text",
+                   angle = label_angle, hjust = if (label_angle == 0) 0.5 else -0.15, vjust = if (label_angle == 0) -0.4 else 0.5,
+                   size = label_size) +
+      scale_fill_manual(values = class_pal, name = class_name, drop = FALSE) +
+      scale_y_continuous(breaks = log10(count_breaks), labels = scales::comma(count_breaks),
+                         expand = expansion(mult = c(0, if (label_angle == 0) 0.15 else 0.35))) +
+      theme(legend.title = element_text(size = 14), legend.text = element_text(size = 12))
+  }
+  set_size_bar <- if (is.null(class_col)) geom_bar(aes(x = group), width = 0.8) else
+    geom_bar(aes(x = group, fill = .data[[class_col]]), width = 0.8, show.legend = FALSE)
+  set_size_text <- if (is.null(class_col)) {
+    geom_text(aes(label = scales::comma(after_stat(count))), hjust = -0.1, stat = "count", size = set_label_size)
+  } else {
+    stat_summary(aes(x = group, y = as.integer(.data[[class_col]])),
+                 fun.data = function(v) {
+                   n <- tabulate(v, length(class_pal))
+                   data.frame(y = length(v), label = paste0(scales::comma(length(v)),
+                                                            paste0(" | ", scales::comma(n), " (", round(100 * n / length(v)), "%)", collapse = "")))
+                 },
+                 geom = "text", hjust = -0.05, size = set_label_size)
+  }
   ComplexUpset::upset(
     data = data,
     intersect = rev(sets),
@@ -336,12 +372,7 @@ log_upset <- function(data, sets, track, label_angle, label_size, height_ratio, 
     min_size = min_size,
     height_ratio = height_ratio, width_ratio = width_ratio, guides = "over",
     base_annotations = list(
-      "AMG calls (proteins)" = ggplot(mapping = aes(x = intersection)) +
-        geom_bar(fill = "grey30", width = 0.8) +
-        geom_text(aes(label = after_stat(scales::comma(count))), stat = "count", angle = label_angle,
-                  hjust = if (label_angle == 0) 0.5 else -0.15, vjust = if (label_angle == 0) -0.4 else 0.5, size = label_size) +
-        scale_y_log10(labels = scales::comma, breaks = count_breaks,
-                      expand = expansion(mult = c(0, if (label_angle == 0) 0.15 else 0.35))) +
+      "AMG calls (proteins)" = count_bars +
         labs(y = "AMG calls\n(proteins, log10)") +
         theme(panel.grid = element_blank(), axis.title.y = element_text(size = 14), axis.text.y = element_text(size = 12))
     ),
@@ -355,10 +386,20 @@ log_upset <- function(data, sets, track, label_angle, label_size, height_ratio, 
       list("intersections_matrix" = theme(axis.text.y = element_text(size = 12), axis.title.y = element_blank(), axis.title.x = element_blank()))
     ),
     queries = queries,
-    set_sizes = ComplexUpset::upset_set_size(geom = geom_bar(aes(x = group), width = 0.8), position = "right") +
-      geom_text(aes(label = scales::comma(after_stat(count))), hjust = -0.1, stat = "count", size = 3.5) +
-      scale_y_continuous(labels = scales::comma, expand = expansion(mult = c(0, 0.7)),
-                         breaks = function(lim) Filter(function(b) b <= 0.8 * lim[2], scales::breaks_extended(3)(lim))) +
+    set_sizes = ComplexUpset::upset_set_size(geom = set_size_bar, position = "right") +
+      (if (!is.null(class_col)) scale_fill_manual(values = class_pal, drop = FALSE, guide = "none")) +
+      set_size_text +
+      (if (is.null(class_col)) {
+        scale_y_continuous(labels = scales::comma, expand = expansion(mult = c(0, set_size_expand)),
+                           breaks = function(lim) Filter(function(b) b <= 0.8 * lim[2], scales::breaks_extended(3)(lim)))
+      } else {
+        # Ticks span the bars rather than the label space added by the expansion
+        scale_y_continuous(labels = function(b) ifelse(b == 0, "0", paste0(scales::comma(b / 1e3), "k")), expand = expansion(mult = c(0, set_size_expand)),
+                           breaks = function(lim) {
+                             top <- lim[2] / (1 + set_size_expand)
+                             Filter(function(b) b <= 1.2 * top, scales::breaks_extended(3)(c(0, top)))
+                           })
+      }) +
       labs(y = set_size_lab) +
       theme(axis.text.x = element_text(size = 12), axis.title.x = element_text(size = 12))
   )
@@ -392,7 +433,7 @@ four_class_map <- c(
   "viral, no KO"                 = "geNomad viral, no KO",
   "not geNomad viral"            = "Not geNomad viral"
 )
-four_class_pal <- setNames(c("#1A9850", "#91CF60", "#FDB462", "#BDBDBD"), unname(four_class_map))
+four_class_pal <- setNames(c("#8A1257", "#C77B85", "#FDB462", "#BDBDBD"), unname(four_class_map))
 
 fig3_tier_map <- c(
   "CheckAMG_high" = "CheckAMG (high)", "CheckAMG_medium" = "CheckAMG (medium)", "CheckAMG_low" = "CheckAMG (low)",
@@ -519,14 +560,14 @@ cat("intersections:", nrow(fig3_all_intersections), "shown:", sum(fig3_all_inter
 print(p_fig3_upset_all)
 ```
 
-Figure 3B holds one UpSet per tool: each one holds one tool's primary-tier calls, its own primary tier as the top row and the other tools' tiers below, with DRAM-V (default) shown as the cumulative sets DRAM-V (aux 1), (aux 2) and (aux 3). Intersections with fewer than `r fig3_min_size` calls are omitted from Figure 3A and from all three panels of Figure 3B, which keeps Figure 3 at 12 x 14.5 in. Omitted intersections are kept in Source Data.
+Figure 3B holds one UpSet per tool: each one holds one tool's primary-tier calls, its own primary tier as the top row and the other tools' tiers below. Intersections with fewer than `r fig3_min_size` calls are omitted from Figure 3A and from all three panels of Figure 3B. Omitted intersections are kept in Source Data.
 
 ```{r plot-fig3-upset-per-tool, fig.width=12, fig.height=4}
 fig3_focal <- list(
   "CheckAMG" = list(filter = "CheckAMG_high", title = "CheckAMG\n(high)", min_size = fig3_min_size,
                     sets = c("CheckAMG_high", "DRAMV_aux1", "DRAMV_aux2", "DRAMV_aux3", "VIBRANT_high", "VIBRANT_medium", "VIBRANT_low")),
-  "DRAM-V" = list(filter = "DRAMV_default", title = "DRAM-V\n(default)", min_size = fig3_min_size,
-                  sets = c("DRAMV_aux1", "DRAMV_aux2", "DRAMV_aux3", "CheckAMG_high", "CheckAMG_medium", "CheckAMG_low",
+  "DRAM-V" = list(filter = "DRAMV_aux1", title = "DRAM-V\n(aux 1)", min_size = fig3_min_size,
+                  sets = c("DRAMV_aux1", "CheckAMG_high", "CheckAMG_medium", "CheckAMG_low",
                            "VIBRANT_high", "VIBRANT_medium", "VIBRANT_low")),
   "VIBRANT" = list(filter = "VIBRANT_high", title = "VIBRANT\n(high)", min_size = fig3_min_size,
                    sets = c("VIBRANT_high", "CheckAMG_high", "CheckAMG_medium", "CheckAMG_low", "DRAMV_aux1", "DRAMV_aux2", "DRAMV_aux3"))
@@ -559,9 +600,9 @@ print(p_fig3_upset_per_tool)
 
 ## All-tier UpSet by sequence source
 
-The Extended Data all-tier UpSet holds the same genes on twelve sets: the nine Figure 3 sets, with DRAM-V (default) shown as the cumulative sets DRAM-V (aux 1), (aux 2) and (aux 3), and the DRAM-V (allow T), DRAM-V (aux 4) and DRAM-V (aux 4, allow T) configurations in full. Intersection bars are drawn on a log10 axis, no intersection is omitted, and the annotation track gives the sequence-source composition of each intersection.
+The Extended Data all-tier UpSet holds the same genes on twelve sets: the nine Figure 3 sets, with DRAM-V (default) shown as the cumulative sets DRAM-V (aux 1), (aux 2) and (aux 3), and the DRAM-V (allow T), DRAM-V (aux 4) and DRAM-V (aux 4, allow T) configurations in full. Intersection bars are drawn on a log10 axis, no intersection is omitted, and the annotation track gives the sequence-source composition of each intersection. Intersection and set-size bars are split by the four shared KO classes of Figure 3A under the primary rule, with the same order and colors. Because intersection bars are on a log10 axis, each class takes its share of the bar's drawn length rather than ending at its count. Each set-size bar is labeled 'calls | n (x%) | n (x%) | n (x%) | n (x%)', the calls of the set, then the calls and share of the set in each class in legend order: geNomad viral with a Metabolism KO, geNomad viral with another KO, geNomad viral with no KO, and not geNomad viral.
 
-```{r plot-upset-all-tiers, fig.width=15, fig.height=8.5}
+```{r plot-upset-all-tiers, fig.width=17, fig.height=8.5}
 source_track <- list(
   "Share by sequence source" = ggplot(mapping = aes(x = intersection, fill = source)) +
     geom_bar(position = "fill", width = 0.8) +
@@ -578,26 +619,68 @@ ed7_tier_map <- c(
 )
 ed7_upset_data <- gene_calls %>%
   select(gene_key, source, all_of(names(ed7_tier_map))) %>%
+  left_join(select(fig3_genes, gene_key, shared_ko_class = fill_primary), by = "gene_key") %>%
   dplyr::rename(!!!setNames(names(ed7_tier_map), ed7_tier_map)) %>%
   mutate(source = factor(source, levels = names(source_pal))) %>%
   arrange(gene_key) %>%
   as.data.frame()
 # Every gene of gene_calls is called at one of these twelve sets, so the primary-tier filter of the other UpSets would drop nothing it should keep
-stopifnot(nrow(ed7_upset_data) == nrow(gene_calls), !anyNA(ed7_upset_data$source),
+stopifnot(nrow(ed7_upset_data) == nrow(gene_calls), !anyNA(ed7_upset_data$source), !anyNA(ed7_upset_data$shared_ko_class),
           all(rowSums(ed7_upset_data[unname(ed7_tier_map)]) > 0))
 ed7_intersections <- intersection_counts(ed7_upset_data, unname(ed7_tier_map), min_size = 1)
 cat("intersections:", nrow(ed7_intersections), "shown:", sum(ed7_intersections$shown), "largest:", max(ed7_intersections$n_calls), "\n")
 
 # Count ticks stop at the largest bar, so the top count tick cannot meet the 0% tick of the share track
 p_upset_all_tiers <- tighten_upset(log_upset(ed7_upset_data, unname(ed7_tier_map), source_track,
-                                             label_angle = 90, label_size = 3, height_ratio = 0.8, width_ratio = 0.22, point_size = 1.5,
-                                             set_size_lab = "Calls per tier",
+                                             label_angle = 90, label_size = 3, height_ratio = 0.8, width_ratio = 0.32, point_size = 1.5,
+                                             set_size_lab = "Calls | viral, Metabolism KO | viral, other KO |\nviral, no KO | not viral (%) per tier",
+                                             class_col = "shared_ko_class", class_pal = four_class_pal, class_name = "Shared KO class",
+                                             set_label_size = 3, set_size_expand = 3.8,
                                              queries = lapply(unname(ed7_tier_map), function(s) {
                                                upset_query(set = s, color = tool_pal[fig3_tool_of(s)], fill = tool_pal[fig3_tool_of(s)],
                                                            only_components = c("intersections_matrix"))
                                              }),
                                              count_breaks = 10^(0:floor(log10(max(ed7_intersections$n_calls))))), 4, 10)
 print(p_upset_all_tiers)
+```
+
+## Primary-tier calls also called by the other tools
+
+For each tool, the calls of its primary tier (CheckAMG (high), DRAM-V (aux 1), VIBRANT (high)) and how many of them each other tool also called, either at that tool's primary tier or at any of its Figure 3 tiers. 'Any tier' is CheckAMG (low), DRAM-V (aux 3), which is DRAM-V (default), or VIBRANT (high), (medium) or (low) as VIBRANT (low), and a 'not' in a row applies at the same level as the column, so 'DRAM-V, not VIBRANT' at the primary tier counts calls of DRAM-V (aux 1) that are not in VIBRANT (high).
+
+```{r primary-tier-overlap}
+overlap_primary_sets <- c("CheckAMG" = "CheckAMG (high)", "DRAM-V" = "DRAM-V (aux 1)", "VIBRANT" = "VIBRANT (high)")
+overlap_tool_sets <- lapply(fig3_tool_sets, function(x) unname(fig3_tier_map[x]))
+overlap_levels <- c("primary tier", "any tier")
+called_by <- function(tool, level) {
+  if (level == "primary tier") ed7_upset_data[[overlap_primary_sets[[tool]]]] else rowSums(ed7_upset_data[overlap_tool_sets[[tool]]]) > 0
+}
+
+primary_tier_overlap <- map_dfr(names(overlap_primary_sets), function(focal) {
+  focal_calls <- ed7_upset_data[[overlap_primary_sets[[focal]]]]
+  others <- setdiff(names(overlap_primary_sets), focal)
+  map_dfr(overlap_levels, function(level) {
+    a <- called_by(others[1], level)[focal_calls]
+    b <- called_by(others[2], level)[focal_calls]
+    combos <- list(a | b, a, b, a & !b, b & !a, a & b)
+    names(combos) <- c(paste(others[1], "or", others[2]), others[1], others[2],
+                       paste0(others[1], ", not ", others[2]), paste0(others[2], ", not ", others[1]), paste(others[1], "and", others[2]))
+    stopifnot(sum(combos[[1]]) == sum(combos[[4]]) + sum(combos[[5]]) + sum(combos[[6]]))
+    tibble(focal_tier = overlap_primary_sets[[focal]], n_primary = sum(focal_calls), also_called_by = names(combos),
+           row = seq_along(combos), other_tier = level, n = vapply(combos, sum, integer(1)))
+  })
+}) %>%
+  mutate(pct = n / n_primary)
+
+primary_tier_overlap_table <- primary_tier_overlap %>%
+  mutate(cell = paste0(scales::comma(n), " (", sprintf("%.1f", 100 * pct), "%)")) %>%
+  select(focal_tier, n_primary, row, also_called_by, other_tier, cell) %>%
+  pivot_wider(names_from = other_tier, values_from = cell) %>%
+  arrange(factor(focal_tier, levels = overlap_primary_sets), row) %>%
+  select(primary_tier = focal_tier, calls = n_primary, also_called_by,
+         at_other_primary_tier = `primary tier`, at_any_other_tier = `any tier`) %>%
+  as.data.frame()
+print(primary_tier_overlap_table, right = FALSE)
 ```
 
 # Prediction tier composition
@@ -709,6 +792,8 @@ to_ed_sets <- function(calls) {
   out
 }
 amg_weight_comp_sets <- to_ed_sets(amg_weight_comp)
+fig3_comp_tiers <- c("CheckAMG (high)", "DRAM-V (aux 1)", "VIBRANT (high)")
+amg_weight_comp_fig3 <- amg_weight_comp_sets %>% filter(tier %in% fig3_comp_tiers) %>% mutate(tier = droplevels(tier))
 
 # Shares of a tool and tier on all calls, without the scorable share
 composition_shares <- function(calls, category) {
@@ -726,9 +811,8 @@ composition_shares <- function(calls, category) {
 
 ```{r amg-weight-comp-plot, fig.width=4, fig.height=5}
 p_weight_composition <- ggplot(
-  amg_weight_comp %>%
-    filter(`Predicted AMG`) %>%
-    filter(tier %in% c("CheckAMG (high)", "DRAM-V (default)", "VIBRANT (high)")),
+  amg_weight_comp_fig3 %>%
+    filter(`Predicted AMG`),
   aes(
     x = tier,,
     fill = `AMG weight bin`
@@ -860,9 +944,8 @@ print(p_weight_composition_all_tiers)
 
 ```{r amg-db-comp-plot, fig.width=4, fig.height=5}
 p_db_composition <- ggplot(
-  amg_weight_comp %>%
-    filter(`Predicted AMG`) %>%
-    filter(tier %in% c("CheckAMG (high)", "DRAM-V (default)", "VIBRANT (high)")),
+  amg_weight_comp_fig3 %>%
+    filter(`Predicted AMG`),
   aes(
     x = tier,,
     fill = database
@@ -1010,6 +1093,7 @@ amg_cautious_comp <- amg_weight_comp %>%
   mutate(`Cautious functions` = factor(recode(cautious_category, !!!category_label),
                                        levels = unname(category_label[category_order]))) %>%
   select(gene_key, tier, `Predicted AMG`, tool, `Cautious functions`, `Likely AMG`)
+amg_cautious_comp_fig3 <- to_ed_sets(amg_cautious_comp) %>% filter(tier %in% fig3_comp_tiers) %>% mutate(tier = droplevels(tier))
 
 stopifnot(!any(is.na(amg_cautious_comp$`Cautious functions`)))
 
@@ -1019,9 +1103,8 @@ head(amg_cautious_comp)
 
 ```{r amg-cautious-comp-plot, fig.height=5, fig.width=4}
 p_category_composition <- ggplot(
-  amg_cautious_comp %>%
-    filter(`Predicted AMG`) %>%
-    filter(tier %in% c("CheckAMG (high)", "DRAM-V (default)", "VIBRANT (high)")),
+  amg_cautious_comp_fig3 %>%
+    filter(`Predicted AMG`),
   aes(
     x = tier,,
     fill = `Cautious functions`
@@ -1147,6 +1230,97 @@ p_category_composition_all_tiers <- ggplot(
   )
 
 print(p_category_composition_all_tiers)
+```
+
+# Tier trade-offs
+
+Each tool and tier is one point: its geNomad-viral share of calls on a logit axis against three measures of what its calls are, with point area giving the number of calls on a log scale. All three measures are shares of the tier's geNomad-viral calls, so the panels share one denominator and none is bounded by the viral share on the x axis. The left panel is the share with a Metabolism KO, from the shared KO classes of Figure 3A. The middle panel is the share with an AMG weight of at least 0.6, the two upper bins of Figure 3C. The right panel is the share that is not cautious, the three 'Not cautious' categories of Figure 3D, where a viral call with no annotation has no cautious assignment and counts as not 'not cautious'. Marker shape gives the tier, and the tiers are cumulative: high, medium and low for CheckAMG and VIBRANT, and aux 1, aux 2, aux 3 and aux 4 for DRAM-V, joined by solid lines. The DRAM-V configurations that keep T-flagged genes, DRAM-V (allow T) and DRAM-V (aux 4, allow T), are open squares joined by dashed lines to DRAM-V (aux 3) and DRAM-V (aux 4), which they contain and nearly coincide with. CheckAMG tiers are defined from AMG weights, so its share in the middle panel is high by construction.
+
+```{r tier-tradeoffs-data}
+tradeoff_sets <- c(fig3_tier_map[fig3_tool_sets$CheckAMG], fig3_tier_map[fig3_tool_sets$`DRAM-V`],
+                   tier_pretty_map[c("DRAMV_allow_T", "DRAMV_aux_4", "DRAMV_aux_4_allow_T")], fig3_tier_map[fig3_tool_sets$VIBRANT])
+tradeoff_levels <- c("high / aux 1", "medium / aux 2", "low / aux 3", "aux 4")
+
+tradeoff_ko <- gene_calls %>%
+  select(gene_key, all_of(names(tradeoff_sets))) %>%
+  left_join(select(fig3_genes, gene_key, fill_primary), by = "gene_key") %>%
+  pivot_longer(all_of(names(tradeoff_sets)), names_to = "set_code", values_to = "called") %>%
+  filter(called) %>%
+  group_by(set = unname(tradeoff_sets[set_code])) %>%
+  summarise(n = n(), viral = sum(fill_primary != "Not geNomad viral"),
+            metabolism = sum(fill_primary == "geNomad viral, Metabolism KO"), .groups = "drop")
+
+# Every measure is a share of the tier's geNomad-viral calls, and a viral call with no annotation has no cautious assignment
+tradeoff_function <- amg_weight_comp_sets %>%
+  select(gene_key, tool, tier, `AMG weight bin`) %>%
+  inner_join(select(to_ed_sets(amg_cautious_comp), gene_key, tool, tier, `Cautious functions`), by = c("gene_key", "tool", "tier")) %>%
+  inner_join(select(filter(fig3_genes, fill_primary != "Not geNomad viral"), gene_key), by = "gene_key") %>%
+  group_by(set = as.character(tier)) %>%
+  summarise(n_viral_function = n(),
+            n_viral_unannotated = sum(`AMG weight bin` == "No annotation"),
+            weight_ge_0.6_among_viral = mean(`AMG weight bin` %in% c("AMG weight ≥ 0.8", "AMG weight 0.6 to 0.8")),
+            not_cautious_among_viral = mean(startsWith(as.character(`Cautious functions`), "Not cautious") &
+                                              `AMG weight bin` != "No annotation"))
+
+tradeoff <- tradeoff_ko %>%
+  left_join(tradeoff_function, by = "set") %>%
+  mutate(tool = fig3_tool_of(set),
+         tier = str_remove(str_remove(set, "^\\S+ \\("), "\\)$"),
+         level = factor(case_when(tier %in% c("high", "aux 1") ~ "high / aux 1", tier %in% c("medium", "aux 2") ~ "medium / aux 2",
+                                  tier %in% c("low", "aux 3", "allow T") ~ "low / aux 3", TRUE ~ "aux 4"), levels = tradeoff_levels),
+         allow_T = str_detect(tier, "allow T"),
+         viral_share = viral / n,
+         metabolism_among_viral = metabolism / viral,
+         label = paste0(tier, " (", scales::comma(n), ")")) %>%
+  arrange(match(set, tradeoff_sets))
+stopifnot(nrow(tradeoff) == 12, all(tradeoff$viral == tradeoff$n_viral_function))
+tradeoff %>% select(set, n, viral, viral_share, metabolism_among_viral, weight_ge_0.6_among_viral, not_cautious_among_viral, n_viral_unannotated)
+```
+
+```{r tier-tradeoffs-long}
+tradeoff_panels <- c("Metabolism KO share of viral calls",
+                     "AMG weight ≥ 0.6 share of viral calls",
+                     "Not cautious share of viral calls")
+tradeoff_long <- tradeoff %>%
+  pivot_longer(c(metabolism_among_viral, weight_ge_0.6_among_viral, not_cautious_among_viral), names_to = "measure", values_to = "y") %>%
+  mutate(panel = factor(tradeoff_panels[match(measure, c("metabolism_among_viral", "weight_ge_0.6_among_viral", "not_cautious_among_viral"))],
+                        levels = tradeoff_panels))
+tradeoff_allow_T_steps <- bind_rows(
+  tradeoff_long %>% filter(set %in% c("DRAM-V (aux 3)", "DRAM-V (allow T)")) %>% mutate(path = "aux 3"),
+  tradeoff_long %>% filter(set %in% c("DRAM-V (aux 4)", "DRAM-V (aux 4, allow T)")) %>% mutate(path = "aux 4")
+)
+```
+
+```{r plot-tier-tradeoffs, fig.width=13, fig.height=6.5}
+p_tier_tradeoffs <- ggplot(tradeoff_long, aes(viral_share, y)) +
+  geom_path(data = filter(tradeoff_long, !allow_T), aes(group = tool, color = tool), linewidth = 0.6) +
+  geom_path(data = tradeoff_allow_T_steps, aes(group = path, color = tool), linetype = "22", linewidth = 0.6) +
+  # Open allow T squares around the nearly coincident aux 3 and aux 4 points keep both visible
+  geom_point(aes(color = tool, shape = if_else(allow_T, "DRAM-V allow T", as.character(level)), size = n), stroke = 1.1, alpha = 0.9) +
+  ggrepel::geom_text_repel(aes(label = label, color = tool, point.size = 2 * log10(n)), size = 3.5, seed = 3, box.padding = 0.5,
+                           point.padding = 0.2, force = 3, min.segment.length = 0, segment.size = 0.3, max.overlaps = Inf,
+                           show.legend = FALSE) +
+  facet_wrap(~panel, nrow = 1) +
+  scale_color_manual(values = tool_pal, name = "Tool") +
+  scale_shape_manual(values = c("high / aux 1" = 16, "medium / aux 2" = 17, "low / aux 3" = 15, "aux 4" = 18, "DRAM-V allow T" = 0),
+                     limits = c(tradeoff_levels, "DRAM-V allow T"), name = "Tier") +
+  # Log-scaled sizes keep the 1,270-call and 171,833-call tiers both legible
+  scale_size(trans = "log10", range = c(2, 9), limits = c(1e3, 2e5), breaks = c(1e3, 1e4, 1e5), labels = scales::comma,
+             name = "Calls in tier") +
+  guides(color = guide_legend(override.aes = list(shape = 16, size = 4), order = 1),
+         shape = guide_legend(override.aes = list(color = "grey40", size = 4), order = 2),
+         size = guide_legend(override.aes = list(shape = 16, color = "grey60"), order = 3)) +
+  scale_x_continuous(trans = "logit", breaks = c(0.05, 0.25, 0.5, 0.75, 0.95, 0.99), labels = scales::percent,
+                     limits = c(0.03, 0.998)) +
+  scale_y_continuous(labels = scales::percent, limits = c(0, 1)) +
+  labs(x = "geNomad-viral share of calls", y = "Share") +
+  theme(axis.title = element_text(size = 14), axis.text = element_text(size = 12), strip.text = element_text(size = 14),
+        legend.title = element_text(size = 14), legend.text = element_text(size = 12),
+        legend.position = "bottom", legend.direction = "horizontal", legend.box = "vertical", legend.box.just = "left",
+        panel.spacing.x = unit(1.2, "lines"))
+
+save_plot_both(p_tier_tradeoffs, "amg_tier_tradeoffs", 13, 6.5, 300)
+print(p_tier_tradeoffs)
 ```
 
 # AMG calls per tier
@@ -1819,7 +1993,7 @@ print(p_curation_steps)
 
 # Figure 3 composite
 
-The layout: the all-tier UpSet by shared KO class (A), the per-tool UpSets of each tool's primary-tier calls (B), then the AMG weight (C), cautious function (D) and database source (E) composition of the primary tiers. The geNomad-viral share per tier and the curation steps are not figure panels, and their counts are cited from the table `level_grid_measures` of `amg_benchmark_comparisons.ipynb` and from the curation steps counted above.
+The layout: the all-tier UpSet by shared KO class (A), the per-tool UpSets of each tool's primary-tier calls (B), then the AMG weight (C), cautious function (D) and database source (E) composition of CheckAMG (high), DRAM-V (aux 1) and VIBRANT (high). The geNomad-viral share per tier and the curation steps are not figure panels, and their counts are cited from the table `level_grid_measures` of `amg_benchmark_comparisons.ipynb` and from the curation steps counted above.
 
 ```{r combine-figure-3, fig.height=14.5, fig.width=12}
 fig3_height <- 14.5
@@ -1901,11 +2075,11 @@ print(p_nonoverlap_composite)
 
 ## All-tier UpSet by sequence source
 
-The all-tier UpSet with the sequence-source track as a single panel. The DRAM-V (default) function groups are no longer part of this figure and are not drawn here.
+The all-tier UpSet with the sequence-source track and bars split by shared KO class as a single panel. The DRAM-V (default) function groups are no longer part of this figure and are not drawn here.
 
-```{r composite-all-tier-upset, fig.width=15, fig.height=8.5}
+```{r composite-all-tier-upset, fig.width=17, fig.height=8.5}
 ed_upset_height <- 8.5
-save_plot_both(p_upset_all_tiers, "amg_all_tier_upset_by_sequence_source", 15, ed_upset_height, 300)
+save_plot_both(p_upset_all_tiers, "amg_all_tier_upset_by_sequence_source", 17, ed_upset_height, 300)
 print(p_upset_all_tiers)
 ```
 
@@ -1936,10 +2110,10 @@ writeLines(c(
   "1. fig3A_all_tier_upset_by_intersection.csv (panel A intersection bars). One row per intersection of the nine panel A sets, fill class and rule, 256 rows. Columns: intersection, one Boolean column per set (CheckAMG (high), CheckAMG (medium), CheckAMG (low), DRAM-V (aux 1), DRAM-V (aux 2), DRAM-V (aux 3), VIBRANT (high), VIBRANT (medium), VIBRANT (low)), rule, shared_ko_class, n_calls, n_intersection, shown.",
   "2. fig3A_all_tier_upset_by_set.csv (panel A set-size bars and their labels). One row per set, rule and fill class, 72 rows. Set sizes count every gene kept by the primary-tier filter, including genes of omitted intersections. Columns: set, rule, shared_ko_class, n_calls, set_calls, set_viral_metabolism_ko, set_viral_metabolism_ko_share, set_label.",
   "3. fig3B_per_tool_upsets.csv (panel B). One row per focal tool, intersection, rule and fill class, 343 rows (CheckAMG 75, DRAM-V 214, VIBRANT 54). Columns: focal_tool, n_focal_calls, intersection, rule, shared_ko_class, n_calls, n_intersection, shown.",
-  "4. fig3C_weight_shares.csv (panel C). One row per primary tier and AMG weight bin, with 'Annotated, no AMG weight' and 'No annotation' as their own bins, 14 rows. Columns: tool, tier, AMG weight bin, n, pct, n_tier.",
-  "5. fig3CE_weight_and_database.csv (panels C and E, per call). One row per call at a primary tier, 51,799 rows, giving its AMG weight, weight bin, likely-AMG status and the database and hit of the annotation that represents it (highest AMG weight, otherwise strongest hit). Panel E is the share of each database within each tier. Columns: gene_key, tool, tier, AMG weight, AMG weight bin, Likely AMG, database, hit_id.",
-  "6. fig3D_cautious_shares.csv (panel D). One row per primary tier and cautious-function category, with not cautious split by AMG weight, all calls, 22 rows. Columns: tool, tier, Cautious functions, n, pct, n_tier.",
-  "7. fig3D_cautious_functions_per_call.csv (panel D, per call). One row per call at a primary tier, 51,799 rows, with the category assigned to it (the category least common within its tier when several match). Columns: gene_key, tier, Predicted AMG, tool, Cautious functions, Likely AMG.",
+  "4. fig3C_weight_shares.csv (panel C). One row per panel C tier (CheckAMG (high), DRAM-V (aux 1), VIBRANT (high)) and AMG weight bin, with 'Annotated, no AMG weight' and 'No annotation' as their own bins, 14 rows. Columns: tool, tier, AMG weight bin, n, pct, n_tier.",
+  "5. fig3CE_weight_and_database.csv (panels C and E, per call). One row per call at CheckAMG (high), DRAM-V (aux 1) or VIBRANT (high), 7,871 rows, giving its AMG weight, weight bin, likely-AMG status and the database and hit of the annotation that represents it (highest AMG weight, otherwise strongest hit). Panel E is the share of each database within each tier. Columns: gene_key, tool, tier, AMG weight, AMG weight bin, Likely AMG, database, hit_id.",
+  "6. fig3D_cautious_shares.csv (panel D). One row per panel D tier and cautious-function category, with not cautious split by AMG weight, all calls, 22 rows. Columns: tool, tier, Cautious functions, n, pct, n_tier.",
+  "7. fig3D_cautious_functions_per_call.csv (panel D, per call). One row per call at CheckAMG (high), DRAM-V (aux 1) or VIBRANT (high), 7,871 rows, with the category assigned to it (the category least common within its tier when several match). Columns: gene_key, tier, Predicted AMG, tool, Cautious functions, Likely AMG.",
   "8. caution_shares_by_basis.csv (panel D basis, cited in the Results). One row per tool tier and population (all calls, geNomad-viral calls), 20 rows over ten tiers, giving the cautious share on all calls and on the calls with any weight, a scorable annotation or a weight of at least 0.6. Columns: tier, population, n_all_calls, cautious_all_calls, share_all_calls, n_any_weight, cautious_any_weight, share_any_weight, n_scorable, cautious_scorable, share_scorable, n_weight_ge_0.6, cautious_weight_ge_0.6, share_weight_ge_0.6, no_weight_cautious, no_weight_not_cautious.",
   "9. fig3_matched_levels_shared_ko_classes.csv (matched-level comparison cited in the Results). One row per matched level, rule, class scheme and class, 161 rows (72 for the four fill classes, 89 for the Class I/II split, a class with no call has no row). Levels: the nine sets of panel A, CheckAMG (high), (medium) and (low), DRAM-V (aux 1), (aux 2) and (aux 3), and VIBRANT (high), (medium) and (low), each counted over all calls of the tier rather than after the primary-tier filter. The first, second and third level of each tool are matched. classes is 'four-class' or 'Class I/II'. Class labels follow Figure 3: 'geNomad viral, Metabolism KO', 'geNomad viral, other KO', 'geNomad viral, no KO' and 'Not geNomad viral' for the fill classes, and 'geNomad viral, Class I', 'geNomad viral, Class II', 'geNomad viral, other KO', 'geNomad viral, no KO' and 'Not geNomad viral' for the Class I/II split. Columns: level, n_level, rule, classes, class, n_calls.",
   "10. fig3_shared_ko_level_counts.csv (matched-level and Class I/II counts cited in the Results and in Supplemental Table 9). One row per level and rule, 18 rows over the nine levels of fig3_matched_levels_shared_ko_classes.csv, counted over all calls of each tier (matched_level is 'true' on every row), giving the calls, the geNomad-viral calls, the calls with a shared KO and the count in each fill class and each Class I/II class. Columns: level, matched_level, rule, n_calls, n_genomad_viral, n_shared_ko, and one count column per class. The four fill-class columns are named 'fill class: ' plus the class label (for example 'fill class: geNomad viral, other KO'), and the five Class I/II columns are named 'Class I/II: ' plus the class label (for example 'Class I/II: geNomad viral, other KO'), with the same labels as in fig3_matched_levels_shared_ko_classes.csv.",
@@ -2015,7 +2189,7 @@ stopifnot(nrow(fig3_label_check) == nrow(fig3_set_labels),
           all(fig3_label_check$`viral, Metabolism KO calls` == fig3_label_check$set_viral_metabolism_ko))
 readr::write_csv(fig3_fill_sensitivity_long, file.path(SRC_DIR, "fig3_fill_sensitivity.csv"))
 writeLines(c(
-  "fig3_fill_sensitivity.csv: calls of each Figure 3 set that are geNomad viral with a Metabolism KO, the dark-green fill, under the primary rule and five sensitivity variants.",
+  "fig3_fill_sensitivity.csv: calls of each Figure 3 set that are geNomad viral with a Metabolism KO, the deep magenta fill, under the primary rule and five sensitivity variants.",
   "",
   "Sets: the nine tiers of panel A after the primary-tier filter (panel 'A, primary-tier filter'), the three focal tiers of panel B in full (panel 'B focal, full tier') and the nine matched levels in full (panel 'matched level, full tier'), 21 sets and 126 rows. Tiers are cumulative, so each tier includes the calls of the stricter tiers of the same tool, and DRAM-V (aux 1), (aux 2) and (aux 3) hold the calls of the default DRAM-V configuration at auxiliary score 1, at most 2 and at most 3, so DRAM-V (aux 3) is DRAM-V (default).",
   "",
@@ -2035,20 +2209,18 @@ writeLines(c(
 ), file.path(SRC_DIR, "fig3_fill_sensitivity_README.txt"))
 
 
-readr::write_csv(amg_weight_comp %>%
-                   filter(tier %in% primary_tiers) %>%
+readr::write_csv(amg_weight_comp_fig3 %>%
                    select(gene_key, tool, tier, `AMG weight`, `AMG weight bin`,
                           `Likely AMG`, database, hit_id),
                  file.path(SRC_DIR, "fig3CE_weight_and_database.csv"))
-readr::write_csv(amg_weight_comp %>%
-                   filter(`Predicted AMG`, tier %in% primary_tiers) %>%
+readr::write_csv(amg_weight_comp_fig3 %>%
+                   filter(`Predicted AMG`) %>%
                    composition_shares(`AMG weight bin`),
                  file.path(SRC_DIR, "fig3C_weight_shares.csv"))
-readr::write_csv(amg_cautious_comp %>%
-                   filter(tier %in% primary_tiers),
+readr::write_csv(amg_cautious_comp_fig3,
                  file.path(SRC_DIR, "fig3D_cautious_functions_per_call.csv"))
-readr::write_csv(amg_cautious_comp %>%
-                   filter(`Predicted AMG`, tier %in% primary_tiers) %>%
+readr::write_csv(amg_cautious_comp_fig3 %>%
+                   filter(`Predicted AMG`) %>%
                    composition_shares(`Cautious functions`),
                  file.path(SRC_DIR, "fig3D_cautious_shares.csv"))
 
@@ -2118,7 +2290,7 @@ readr::write_csv(flatten_breaks(tier_conflict_context),
 readr::write_csv(flatten_breaks(scenario_facet_labels),
                  file.path(SRC_DIR, "edfig6B_scenario_sizes.csv"))
 
-readr::write_csv(ed7_upset_data %>% count(source, across(all_of(unname(ed7_tier_map))), name = "n_calls"),
+readr::write_csv(ed7_upset_data %>% count(source, shared_ko_class, across(all_of(unname(ed7_tier_map))), name = "n_calls"),
                  file.path(SRC_DIR, "edfig7A_all_tier_upset_by_sequence_source.csv"))
 
 # Read as text so the cells keep the written values, since write_csv can print a double as 0.86240000000000006
@@ -2150,7 +2322,7 @@ readr::write_csv(shared_ko_level_counts_fig3, file.path(SRC_DIR, "fig3_shared_ko
 writeLines(c(
   "Source Data Extended Data Figure 7",
   "",
-  "edfig7A_all_tier_upset_by_sequence_source.csv (Extended Data Figure 7). One row per combination of sequence source and membership in the 12 sets of the figure, 236 rows covering the 306,534 genes called as an AMG at any tier by any tool, which form 92 intersections. Sources: Viromes (87 rows, 189,143 genes), Mixed metagenomes (74 rows, 114,550 genes) and Viral genomes (75 rows, 2,841 genes). The sets are the nine tiers of Figure 3 and three further DRAM-V configurations. Tiers are cumulative, so each tier includes the calls of the stricter tiers of the same tool and a gene is TRUE in every set that contains it. DRAM-V (aux 1), (aux 2) and (aux 3) hold the calls of the default DRAM-V configuration at auxiliary score 1, at most 2 and at most 3, and DRAM-V (allow T), (aux 4) and (aux 4, allow T) are full configurations that include the default calls. Columns: source, one Boolean column per set (CheckAMG (high), CheckAMG (medium), CheckAMG (low), DRAM-V (aux 1), DRAM-V (aux 2), DRAM-V (aux 3), DRAM-V (allow T), DRAM-V (aux 4), DRAM-V (aux 4, allow T), VIBRANT (high), VIBRANT (medium), VIBRANT (low)), n_calls. Set sizes from this file are the tier totals, matching Extended Data Figure 5A."
+  "edfig7A_all_tier_upset_by_sequence_source.csv (Extended Data Figure 7). One row per combination of sequence source, shared KO class and membership in the 12 sets of the figure, 464 rows covering the 306,534 genes called as an AMG at any tier by any tool, which form 92 intersections. Sources: Viromes (198 rows, 189,143 genes), Mixed metagenomes (151 rows, 114,550 genes) and Viral genomes (115 rows, 2,841 genes). Shared KO classes under the primary rule, as in Figure 3: geNomad viral, Metabolism KO (222 rows, 21,125 genes), geNomad viral, other KO (119 rows, 8,339 genes), geNomad viral, no KO (48 rows, 2,886 genes) and Not geNomad viral (75 rows, 274,184 genes). The annotation track is the sequence-source share of each intersection, and the intersection and set-size bars are split by shared_ko_class. Set-size labels give the calls of the set, then the calls and share of the set in each class. The sets are the nine tiers of Figure 3 and three further DRAM-V configurations. Tiers are cumulative, so each tier includes the calls of the stricter tiers of the same tool and a gene is TRUE in every set that contains it. DRAM-V (aux 1), (aux 2) and (aux 3) hold the calls of the default DRAM-V configuration at auxiliary score 1, at most 2 and at most 3, and DRAM-V (allow T), (aux 4) and (aux 4, allow T) are full configurations that include the default calls. Columns: source, shared_ko_class, one Boolean column per set (CheckAMG (high), CheckAMG (medium), CheckAMG (low), DRAM-V (aux 1), DRAM-V (aux 2), DRAM-V (aux 3), DRAM-V (allow T), DRAM-V (aux 4), DRAM-V (aux 4, allow T), VIBRANT (high), VIBRANT (medium), VIBRANT (low)), n_calls. Set sizes from this file are the tier totals, matching Extended Data Figure 5A."
 ), file.path(SRC_DIR, "edfig7_README.txt"))
 
 tibble::tibble(file = list.files(SRC_DIR, pattern = "[.]csv$")) %>%

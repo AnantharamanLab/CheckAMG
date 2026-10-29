@@ -1,4 +1,4 @@
-fig3_fill_sensitivity.csv: calls of each Figure 3 set that are geNomad viral with a Metabolism KO, the dark-green fill, under the primary rule and five sensitivity variants.
+fig3_fill_sensitivity.csv: calls of each Figure 3 set that are geNomad viral with a Metabolism KO, the deep magenta fill, under the primary rule and five sensitivity variants.
 
 Sets: the nine tiers of panel A after the primary-tier filter (panel 'A, primary-tier filter'), the three focal tiers of panel B in full (panel 'B focal, full tier') and the nine matched levels in full (panel 'matched level, full tier'), 21 sets and 126 rows. Tiers are cumulative, so each tier includes the calls of the stricter tiers of the same tool, and DRAM-V (aux 1), (aux 2) and (aux 3) hold the calls of the default DRAM-V configuration at auxiliary score 1, at most 2 and at most 3, so DRAM-V (aux 3) is DRAM-V (default).
 
