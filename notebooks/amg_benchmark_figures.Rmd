@@ -613,34 +613,34 @@ source_track <- list(
           legend.title = element_text(size = 14), legend.text = element_text(size = 12))
 )
 
-ed7_tier_map <- c(
+ed4_tier_map <- c(
   fig3_tier_map[fig3_tool_sets$CheckAMG], fig3_tier_map[fig3_tool_sets$`DRAM-V`],
   tier_pretty_map[c("DRAMV_allow_T", "DRAMV_aux_4", "DRAMV_aux_4_allow_T")], fig3_tier_map[fig3_tool_sets$VIBRANT]
 )
-ed7_upset_data <- gene_calls %>%
-  select(gene_key, source, all_of(names(ed7_tier_map))) %>%
+ed4_upset_data <- gene_calls %>%
+  select(gene_key, source, all_of(names(ed4_tier_map))) %>%
   left_join(select(fig3_genes, gene_key, shared_ko_class = fill_primary), by = "gene_key") %>%
-  dplyr::rename(!!!setNames(names(ed7_tier_map), ed7_tier_map)) %>%
+  dplyr::rename(!!!setNames(names(ed4_tier_map), ed4_tier_map)) %>%
   mutate(source = factor(source, levels = names(source_pal))) %>%
   arrange(gene_key) %>%
   as.data.frame()
 # Every gene of gene_calls is called at one of these twelve sets, so the primary-tier filter of the other UpSets would drop nothing it should keep
-stopifnot(nrow(ed7_upset_data) == nrow(gene_calls), !anyNA(ed7_upset_data$source), !anyNA(ed7_upset_data$shared_ko_class),
-          all(rowSums(ed7_upset_data[unname(ed7_tier_map)]) > 0))
-ed7_intersections <- intersection_counts(ed7_upset_data, unname(ed7_tier_map), min_size = 1)
-cat("intersections:", nrow(ed7_intersections), "shown:", sum(ed7_intersections$shown), "largest:", max(ed7_intersections$n_calls), "\n")
+stopifnot(nrow(ed4_upset_data) == nrow(gene_calls), !anyNA(ed4_upset_data$source), !anyNA(ed4_upset_data$shared_ko_class),
+          all(rowSums(ed4_upset_data[unname(ed4_tier_map)]) > 0))
+ed4_intersections <- intersection_counts(ed4_upset_data, unname(ed4_tier_map), min_size = 1)
+cat("intersections:", nrow(ed4_intersections), "shown:", sum(ed4_intersections$shown), "largest:", max(ed4_intersections$n_calls), "\n")
 
 # Count ticks stop at the largest bar, so the top count tick cannot meet the 0% tick of the share track
-p_upset_all_tiers <- tighten_upset(log_upset(ed7_upset_data, unname(ed7_tier_map), source_track,
+p_upset_all_tiers <- tighten_upset(log_upset(ed4_upset_data, unname(ed4_tier_map), source_track,
                                              label_angle = 90, label_size = 3, height_ratio = 0.8, width_ratio = 0.32, point_size = 1.5,
                                              set_size_lab = "Calls | viral, Metabolism KO | viral, other KO |\nviral, no KO | not viral (%) per tier",
                                              class_col = "shared_ko_class", class_pal = four_class_pal, class_name = "Shared KO class",
                                              set_label_size = 3, set_size_expand = 3.8,
-                                             queries = lapply(unname(ed7_tier_map), function(s) {
+                                             queries = lapply(unname(ed4_tier_map), function(s) {
                                                upset_query(set = s, color = tool_pal[fig3_tool_of(s)], fill = tool_pal[fig3_tool_of(s)],
                                                            only_components = c("intersections_matrix"))
                                              }),
-                                             count_breaks = 10^(0:floor(log10(max(ed7_intersections$n_calls))))), 4, 10)
+                                             count_breaks = 10^(0:floor(log10(max(ed4_intersections$n_calls))))), 4, 10)
 print(p_upset_all_tiers)
 ```
 
@@ -653,11 +653,11 @@ overlap_primary_sets <- c("CheckAMG" = "CheckAMG (high)", "DRAM-V" = "DRAM-V (au
 overlap_tool_sets <- lapply(fig3_tool_sets, function(x) unname(fig3_tier_map[x]))
 overlap_levels <- c("primary tier", "any tier")
 called_by <- function(tool, level) {
-  if (level == "primary tier") ed7_upset_data[[overlap_primary_sets[[tool]]]] else rowSums(ed7_upset_data[overlap_tool_sets[[tool]]]) > 0
+  if (level == "primary tier") ed4_upset_data[[overlap_primary_sets[[tool]]]] else rowSums(ed4_upset_data[overlap_tool_sets[[tool]]]) > 0
 }
 
 primary_tier_overlap <- map_dfr(names(overlap_primary_sets), function(focal) {
-  focal_calls <- ed7_upset_data[[overlap_primary_sets[[focal]]]]
+  focal_calls <- ed4_upset_data[[overlap_primary_sets[[focal]]]]
   others <- setdiff(names(overlap_primary_sets), focal)
   map_dfr(overlap_levels, function(level) {
     a <- called_by(others[1], level)[focal_calls]
@@ -671,6 +671,7 @@ primary_tier_overlap <- map_dfr(names(overlap_primary_sets), function(focal) {
   })
 }) %>%
   mutate(pct = n / n_primary)
+readr::write_tsv(primary_tier_overlap, file.path(TBL_DIR, "primary_tier_overlap.tsv"))
 
 primary_tier_overlap_table <- primary_tier_overlap %>%
   mutate(cell = paste0(scales::comma(n), " (", sprintf("%.1f", 100 * pct), "%)")) %>%
@@ -1323,83 +1324,6 @@ save_plot_both(p_tier_tradeoffs, "amg_tier_tradeoffs", 13, 6.5, 300)
 print(p_tier_tradeoffs)
 ```
 
-# AMG calls per tier
-
-Tier totals count every gene called in each of the twelve Extended Data sets, so a gene called at CheckAMG (high) is also counted at CheckAMG (medium) and CheckAMG (low), and each DRAM-V call is counted once, in its one DRAM-V set. The all-tier composition plots above count calls the same way.
-
-```{r tier-call-totals, fig.width=12, fig.height=5}
-tier_call_totals <- amg_weight_comp_sets %>%
-  group_by(tool, tier) %>%
-  summarise(
-    all_calls = n(),
-    likely_amgs = sum(`Likely AMG` == "Likely AMG (weight ≥ 0.6)"),
-    .groups = "drop"
-  ) %>%
-  pivot_longer(
-    cols = c(all_calls, likely_amgs),
-    names_to = "Call set",
-    values_to = "AMG calls"
-  )
-
-tier_call_totals
-
-p_tier_call_totals <- ggplot(
-  tier_call_totals %>%
-    filter(`AMG calls` > 0),
-  aes(
-    x = tier,
-    y = `AMG calls`,
-    fill = `Call set`
-  )
-) +
-  geom_col(
-    position = position_dodge(width = 0.85),
-    width = 0.8
-  ) +
-  geom_text(
-    aes(label = scales::comma(`AMG calls`)),
-    position = position_dodge(width = 0.85),
-    angle = 90,
-    hjust = -0.1,
-    size = 4.5
-  ) +
-  facet_grid(
-    . ~ tool,
-    scales = "free_x",
-    space = "free_x"
-  ) +
-  scale_fill_manual(
-    values = c(
-      "all_calls" = "#BDBDBD",
-      "likely_amgs" = "#1A9850"
-    ),
-    labels = c(
-      "all_calls" = "All calls",
-      "likely_amgs" = "Likely AMGs (weight ≥ 0.6)"
-    ),
-    name = NULL
-  ) +
-  scale_y_log10(
-    labels = scales::comma,
-    expand = expansion(mult = c(0, 0.45))
-  ) +
-  labs(
-    x = "Confidence tier",
-    y = "AMG calls"
-  ) +
-  theme(
-    legend.position = "bottom",
-    legend.text = element_text(size = 14),
-    axis.title.y = element_text(size = 16),
-    axis.text.y = element_text(size = 14),
-    axis.title.x = element_text(size = 16),
-    axis.text.x = element_text(size = 14, angle = 45, hjust = 1),
-    strip.text.x = element_text(size = 16)
-  )
-
-print(p_tier_call_totals)
-```
-
 # Reference AMG sets
 
 ## Reference set sizes
@@ -2023,11 +1947,11 @@ print(p_upset_comp_composite)
 
 Composite file names describe content rather than figure numbers, because Extended Data numbering is set during renumbering.
 
-## All-tier totals and composition
+## Tier trade-offs and all-tier composition
 
 ```{r composite-all-tiers, fig.width=12, fig.height=18}
 p_all_tiers_composite <- cowplot::plot_grid(
-  p_tier_call_totals,
+  p_tier_tradeoffs,
   p_weight_composition_all_tiers,
   p_category_composition_all_tiers,
   ncol = 1,
@@ -2119,6 +2043,7 @@ writeLines(c(
   "10. fig3_shared_ko_level_counts.csv (matched-level and Class I/II counts cited in the Results and in Supplemental Table 9). One row per level and rule, 18 rows over the nine levels of fig3_matched_levels_shared_ko_classes.csv, counted over all calls of each tier (matched_level is 'true' on every row), giving the calls, the geNomad-viral calls, the calls with a shared KO and the count in each fill class and each Class I/II class. Columns: level, matched_level, rule, n_calls, n_genomad_viral, n_shared_ko, and one count column per class. The four fill-class columns are named 'fill class: ' plus the class label (for example 'fill class: geNomad viral, other KO'), and the five Class I/II columns are named 'Class I/II: ' plus the class label (for example 'Class I/II: geNomad viral, other KO'), with the same labels as in fig3_matched_levels_shared_ko_classes.csv.",
   "11. fig3_fill_sensitivity.csv with fig3_fill_sensitivity_README.txt (sensitivity analyses cited in Methods). One row per Figure 3 set and rule, 126 rows (21 sets under the primary rule and five sensitivity variants), giving the calls, the geNomad-viral calls and the number and share that are geNomad viral with a Metabolism KO. The panel column gives the group of each set: 'A, primary-tier filter' for the nine panel A tiers after the primary-tier filter, 'B focal, full tier' for the three panel B focal tiers in full and 'matched level, full tier' for the nine matched levels in full. Columns: panel, set, calls, geNomad viral calls, rule, viral, Metabolism KO calls, viral, Metabolism KO share. The variant definitions are in fig3_fill_sensitivity_README.txt, and all variants were compared after the primary counts had been seen.",
   "12. fig3_curation_steps.csv (curation steps cited in the Results, no panel). One row per step, 5 rows: all calls, geNomad-viral calls and geNomad-viral calls that also carry a DRAM distillate category for DRAM-V (default), and the first two steps for CheckAMG (high). Columns: tier, step_order, step, n_calls, share_of_all_calls.",
+  "13. fig3_primary_tier_overlap.csv (primary-tier overlap cited in the Results, no panel). One row per primary tier, other-tool combination and level, 36 rows: for each of CheckAMG (high), DRAM-V (aux 1) and VIBRANT (high), six combinations of the two other tools (either, each one, each one without the other, and both) at the other tools' primary tiers and at any of their Figure 3 tiers (CheckAMG (low), DRAM-V (aux 3) and VIBRANT (low), as the tiers are cumulative). A 'not' applies at the same level as the call it qualifies. row is the display order of the combinations, and pct is n over n_primary, from 0 to 1. Columns: focal_tier, n_primary, also_called_by, row, other_tier, n, pct.",
   "",
   "The level grid of measures is the second sheet of Supplemental Table 9, and the Extended Data Figure Source Data files are described in their own README files."
 ), file.path(SRC_DIR, "fig3_README.txt"))
@@ -2225,53 +2150,53 @@ readr::write_csv(amg_cautious_comp_fig3 %>%
                  file.path(SRC_DIR, "fig3D_cautious_shares.csv"))
 
 writeLines(c(
-  "Source Data Extended Data Figure 4",
-  "",
-  "What it is. The values behind Extended Data Figure 4: the size of each tool's AMG reference (panel A), the reference HMM profiles shared between the tools (panel B), and the source database of the calls at every tool tier (panel C), one file per panel.",
-  "",
-  "Files:",
-  "",
-  "1. edfig4A_reference_set_sizes.csv (panel A). Number of KO and Pfam entries in each tool's AMG reference, with CheckAMG shown for all references and for the subset at AMG weight at least 0.6, 8 rows. Columns: tool, Reference set, Entry type, Reference entries.",
-  "2. edfig4B_reference_hmm_membership.csv (panel B). One row per reference HMM profile in the reference of at least one of the three tools, 60,859 rows, with the databases that hold the profile and its membership in each tool's reference. Database source is one of dbCAN, CAMPER (custom), METABOLIC (custom), FOAM, KEGG or Pfam, and n_databases counts the databases that hold the profile. Panel B counts HMM profiles, so its totals differ from the entry counts of panel A. Columns: HMM, CAMPER, FOAM, KEGG, METABOLIC, Pfam, dbCAN, CheckAMG (AMG weight >= 0.6), CheckAMG (all), DRAMV, VIBRANT, n_databases, Database source, CheckAMG (AMG weight < 0.6), DRAM-V. The columns DRAMV and DRAM-V hold the same values.",
-  "3. edfig4C_database_composition_all_tiers.csv (panel C). One row per tool tier and source database of the annotation that represents each call (highest AMG weight, otherwise strongest hit), 51 rows over 12 tiers (CheckAMG (high), CheckAMG (medium), CheckAMG (low), DRAM-V (aux 1), DRAM-V (aux 2), DRAM-V (aux 3), DRAM-V (allow T), DRAM-V (aux 4), DRAM-V (aux 4, allow T), VIBRANT (high), VIBRANT (medium), VIBRANT (low)), with the number of calls and their share of the tier. Databases: KEGG, Pfam, FOAM, METABOLIC (custom), CAMPER (custom), PHROG, dbCAN, MEROPS and No annotation. dbCAN and MEROPS occur only for DRAM-V, and No annotation only for CheckAMG. Each call is counted at every tier it belongs to. CheckAMG and VIBRANT tiers are cumulative, as in Figure 3, so each tier includes the calls of the tiers above it. DRAM-V (aux 1), (aux 2) and (aux 3) hold the calls of the default DRAM-V configuration at auxiliary score 1, at most 2 and at most 3, as in Figure 3, so DRAM-V (aux 3) holds all 47,308 default calls. DRAM-V (allow T), (aux 4) and (aux 4, allow T) are full configurations that include the default calls, 52,012, 160,941 and 171,833 calls. The shares of each tier sum to 1. Columns: tool, tier, database, n, pct."
-), file.path(SRC_DIR, "edfig4_README.txt"))
-readr::write_csv(reference_set_sizes,
-                 file.path(SRC_DIR, "edfig4A_reference_set_sizes.csv"))
-readr::write_csv(dplyr::rename(reference_upset_data, `CheckAMG (AMG weight >= 0.6)` = `CheckAMG (AMG weight ≥ 0.6)`),
-                 file.path(SRC_DIR, "edfig4B_reference_hmm_membership.csv"))
-readr::write_csv(db_comp_plot,
-                 file.path(SRC_DIR, "edfig4C_database_composition_all_tiers.csv"))
-
-writeLines(c(
   "Source Data Extended Data Figure 5",
   "",
-  "What it is. The values behind Extended Data Figure 5: the number of calls at every tool tier (panel A), and the AMG-weight composition (panel B) and cautious-function composition (panel C) of the calls at every tier, one file per panel. All three files use the 12 tiers of Extended Data Figure 4C (CheckAMG (high), CheckAMG (medium), CheckAMG (low), DRAM-V (aux 1), DRAM-V (aux 2), DRAM-V (aux 3), DRAM-V (allow T), DRAM-V (aux 4), DRAM-V (aux 4, allow T), VIBRANT (high), VIBRANT (medium), VIBRANT (low)). Each call is counted at every tier it belongs to. CheckAMG and VIBRANT tiers are cumulative, as in Figure 3, so each tier includes the calls of the tiers above it. DRAM-V (aux 1), (aux 2) and (aux 3) hold the calls of the default DRAM-V configuration at auxiliary score 1, at most 2 and at most 3, as in Figure 3, so DRAM-V (aux 3) holds all 47,308 default calls. DRAM-V (allow T), (aux 4) and (aux 4, allow T) are full configurations that include the default calls, 52,012, 160,941 and 171,833 calls. In the panel B and C files pct is a share of n_tier, from 0 to 1.",
+  "What it is. The values behind Extended Data Figure 5: the size of each tool's AMG reference (panel A), the reference HMM profiles shared between the tools (panel B), and the source database of the calls at every tool tier (panel C), one file per panel.",
   "",
   "Files:",
   "",
-  "1. edfig5A_tier_call_totals.csv (panel A). Number of calls at each tier, for all calls and for likely AMGs (best annotation at AMG weight at least 0.6), 24 rows. Call set is 'all_calls' or 'likely_amgs'. Columns: tool, tier, Call set, AMG calls.",
-  "2. edfig5B_weight_composition_all_tiers.csv (panel B). One row per tier and AMG weight bin, 58 rows, with the bins 'AMG weight ≥ 0.8', 'AMG weight 0.6 to 0.8', 'AMG weight 0.4 to 0.6', 'AMG weight < 0.4', 'Annotated, no AMG weight' and 'No annotation'. n_tier is the number of calls of the tier, for example 6,728 for CheckAMG (medium), 170,161 for CheckAMG (low) and 160,941 for DRAM-V (aux 4). Columns: tool, tier, AMG weight bin, n, pct, n_tier.",
-  "3. edfig5C_cautious_composition_all_tiers.csv (panel C). One row per tier and cautious-function category, with not cautious split by AMG weight, 91 rows. Categories: Essential gene, Nucleotide metabolism, Glucan metabolism, Lipid metabolism, Methylation, Not cautious (weight ≥ 0.6), Not cautious (weight < 0.6) and Not cautious (no weight). n_tier is as in panel B. Columns: tool, tier, Cautious functions, n, pct, n_tier."
+  "1. edfig5A_reference_set_sizes.csv (panel A). Number of KO and Pfam entries in each tool's AMG reference, with CheckAMG shown for all references and for the subset at AMG weight at least 0.6, 8 rows. Columns: tool, Reference set, Entry type, Reference entries.",
+  "2. edfig5B_reference_hmm_membership.csv (panel B). One row per reference HMM profile in the reference of at least one of the three tools, 60,859 rows, with the databases that hold the profile and its membership in each tool's reference. Database source is one of dbCAN, CAMPER (custom), METABOLIC (custom), FOAM, KEGG or Pfam, and n_databases counts the databases that hold the profile. Panel B counts HMM profiles, so its totals differ from the entry counts of panel A. Columns: HMM, CAMPER, FOAM, KEGG, METABOLIC, Pfam, dbCAN, CheckAMG (AMG weight >= 0.6), CheckAMG (all), DRAMV, VIBRANT, n_databases, Database source, CheckAMG (AMG weight < 0.6), DRAM-V. The columns DRAMV and DRAM-V hold the same values.",
+  "3. edfig5C_database_composition_all_tiers.csv (panel C). One row per tool tier and source database of the annotation that represents each call (highest AMG weight, otherwise strongest hit), 51 rows over 12 tiers (CheckAMG (high), CheckAMG (medium), CheckAMG (low), DRAM-V (aux 1), DRAM-V (aux 2), DRAM-V (aux 3), DRAM-V (allow T), DRAM-V (aux 4), DRAM-V (aux 4, allow T), VIBRANT (high), VIBRANT (medium), VIBRANT (low)), with the number of calls and their share of the tier. Databases: KEGG, Pfam, FOAM, METABOLIC (custom), CAMPER (custom), PHROG, dbCAN, MEROPS and No annotation. dbCAN and MEROPS occur only for DRAM-V, and No annotation only for CheckAMG. Each call is counted at every tier it belongs to. CheckAMG and VIBRANT tiers are cumulative, as in Figure 3, so each tier includes the calls of the tiers above it. DRAM-V (aux 1), (aux 2) and (aux 3) hold the calls of the default DRAM-V configuration at auxiliary score 1, at most 2 and at most 3, as in Figure 3, so DRAM-V (aux 3) holds all 47,308 default calls. DRAM-V (allow T), (aux 4) and (aux 4, allow T) are full configurations that include the default calls, 52,012, 160,941 and 171,833 calls. The shares of each tier sum to 1. Columns: tool, tier, database, n, pct."
 ), file.path(SRC_DIR, "edfig5_README.txt"))
-readr::write_csv(tier_call_totals,
-                 file.path(SRC_DIR, "edfig5A_tier_call_totals.csv"))
-readr::write_csv(weight_comp_plot,
-                 file.path(SRC_DIR, "edfig5B_weight_composition_all_tiers.csv"))
-readr::write_csv(cautious_comp_plot,
-                 file.path(SRC_DIR, "edfig5C_cautious_composition_all_tiers.csv"))
+readr::write_csv(reference_set_sizes,
+                 file.path(SRC_DIR, "edfig5A_reference_set_sizes.csv"))
+readr::write_csv(dplyr::rename(reference_upset_data, `CheckAMG (AMG weight >= 0.6)` = `CheckAMG (AMG weight ≥ 0.6)`),
+                 file.path(SRC_DIR, "edfig5B_reference_hmm_membership.csv"))
+readr::write_csv(db_comp_plot,
+                 file.path(SRC_DIR, "edfig5C_database_composition_all_tiers.csv"))
 
 writeLines(c(
   "Source Data Extended Data Figure 6",
   "",
-  "What it is. The values behind Extended Data Figure 6: the reasons the other tools did not match each call of a primary tier (panel A), and the genomic context of the genes in each tier-conflict scenario (panel B). Panel A is counted per gene. In edfig6A_nonoverlap_reasons.csv and edfig6B_tier_conflict_context.csv pct is a share, from 0 to 1.",
+  "What it is. The values behind Extended Data Figure 6: the geNomad-viral share of calls and the Metabolism KO, AMG-weight and not-cautious shares of geNomad-viral calls at every tool tier (panel A), and the AMG-weight composition (panel B) and cautious-function composition (panel C) of the calls at every tier, one file per panel. All three files use the 12 tiers of Extended Data Figure 5C (CheckAMG (high), CheckAMG (medium), CheckAMG (low), DRAM-V (aux 1), DRAM-V (aux 2), DRAM-V (aux 3), DRAM-V (allow T), DRAM-V (aux 4), DRAM-V (aux 4, allow T), VIBRANT (high), VIBRANT (medium), VIBRANT (low)). Each call is counted at every tier it belongs to. CheckAMG and VIBRANT tiers are cumulative, as in Figure 3, so each tier includes the calls of the tiers above it. DRAM-V (aux 1), (aux 2) and (aux 3) hold the calls of the default DRAM-V configuration at auxiliary score 1, at most 2 and at most 3, as in Figure 3, so DRAM-V (aux 3) holds all 47,308 default calls. DRAM-V (allow T), (aux 4) and (aux 4, allow T) are full configurations that include the default calls, 52,012, 160,941 and 171,833 calls. In the panel A file every share is from 0 to 1, and in the panel B and C files pct is a share of n_tier, from 0 to 1.",
   "",
   "Files:",
   "",
-  "1. edfig6A_nonoverlap_reasons.csv (panel A). One row per source tier, other tool and reason, 57 rows. A reason with no gene has no row. source_tier is CheckAMG_high, DRAMV_aux1, DRAMV_aux_le2, DRAMV_aux_le3 or VIBRANT_high, drawn in the panel as CheckAMG (high), DRAM-V (aux 1), DRAM-V (aux 2), DRAM-V (aux 3) and VIBRANT (high). The DRAM-V levels are cumulative, as in Figure 3: DRAM-V (aux 1), (aux 2) and (aux 3) hold the calls of the default DRAM-V configuration at auxiliary score 1, at most 2 and at most 3, so DRAMV_aux_le3 holds all default calls. For each source tier and other tool, every gene of the source tier takes one reason, so n sums to the calls of the source tier (3,221 for CheckAMG high, 3,380, 13,566 and 47,308 for DRAM-V (aux 1), (aux 2) and (aux 3), and 1,270 for VIBRANT high). Classification gives the reason: Called only at lower stringency, Agrees at default/high, Best-hit database not queried, Shared-database hit, not flagged as AMG, Different top hit in a shared database, or No annotation available. Other tool is the tool whose response is classified (CheckAMG, DRAM-V or VIBRANT). Columns: source_tier, n, pct, Classification, Other tool.",
-  "2. edfig6A_no_viral_evidence_counts.csv (panel A facet labels and legend counts). One row per source tier, 5 rows, giving the calls of the tier, the calls not on a geNomad-viral region, and the calls with no viral evidence (not on a geNomad-viral region, not in a CheckAMG strict viral region and with no gene of V-score at least 10 within 10 kb on either side). The DRAMV_aux_le3 row, which holds all default DRAM-V calls, has 30,562 calls not on a geNomad-viral region and 222 with no viral evidence. facet_label is the panel label, for example 'CheckAMG (high), n = 3,221' or 'DRAM-V (aux 3), n = 47,308'. Columns: source_tier, n_calls, n_without_viral_evidence, n_not_genomad_viral, pct_not_genomad_viral, facet_label.",
-  "3. edfig6B_scenario_sizes.csv (panel B facet labels). One row per tier-conflict scenario, 8 rows, giving the number of genes in the scenario. A scenario holds the genes in the first tool's primary tier that the second tool clears only at the named weaker configuration and not at its own primary tier. facet_label is the panel label, for example 'CheckAMG (high) vs DRAM-V (aux 4), n = 181'. Columns: Scenario, n_genes, facet_label.",
-  "4. edfig6B_tier_conflict_context.csv (panel B). One row per scenario and genomic-context signal, 48 rows (8 scenarios and 6 signals), giving the genes of the scenario and the number and share with the signal. Signals: geNomad viral region, CheckAMG strict viral region, Viral gene within 10 kb (at least one side), Viral gene within 10 kb (both sides), Virus-like MGE flank and Bacteria-like MGE flank. Columns: Scenario, Context signal, n_genes, n_with_signal, pct."
+  "1. edfig6A_tier_tradeoffs.csv (panel A). One row per tier, 12 rows. n is the calls of the tier, which sets point size, viral the geNomad-viral calls and viral_share their share of n, the x axis. The three y axes are shares of the viral calls: metabolism_among_viral (metabolism, the viral calls with a KEGG Metabolism KO under the primary rule, over viral), weight_ge_0.6_among_viral (AMG weight at least 0.6) and not_cautious_among_viral (not cautious, where the n_viral_unannotated viral calls with no annotation have no cautious assignment and are not counted as not cautious). level is the marker shape, high / aux 1, medium / aux 2, low / aux 3 or aux 4, and allow_T marks the DRAM-V configurations that keep T-flagged genes, drawn as open squares. Columns: set, n, viral, metabolism, n_viral_unannotated, weight_ge_0.6_among_viral, not_cautious_among_viral, tool, tier, level, allow_T, viral_share, metabolism_among_viral.",
+  "2. edfig6B_weight_composition_all_tiers.csv (panel B). One row per tier and AMG weight bin, 58 rows, with the bins 'AMG weight ≥ 0.8', 'AMG weight 0.6 to 0.8', 'AMG weight 0.4 to 0.6', 'AMG weight < 0.4', 'Annotated, no AMG weight' and 'No annotation'. n_tier is the number of calls of the tier, for example 6,728 for CheckAMG (medium), 170,161 for CheckAMG (low) and 160,941 for DRAM-V (aux 4). Columns: tool, tier, AMG weight bin, n, pct, n_tier.",
+  "3. edfig6C_cautious_composition_all_tiers.csv (panel C). One row per tier and cautious-function category, with not cautious split by AMG weight, 91 rows. Categories: Essential gene, Nucleotide metabolism, Glucan metabolism, Lipid metabolism, Methylation, Not cautious (weight ≥ 0.6), Not cautious (weight < 0.6) and Not cautious (no weight). n_tier is as in panel B. Columns: tool, tier, Cautious functions, n, pct, n_tier."
 ), file.path(SRC_DIR, "edfig6_README.txt"))
+readr::write_csv(select(tradeoff, -n_viral_function, -label),
+                 file.path(SRC_DIR, "edfig6A_tier_tradeoffs.csv"))
+readr::write_csv(weight_comp_plot,
+                 file.path(SRC_DIR, "edfig6B_weight_composition_all_tiers.csv"))
+readr::write_csv(cautious_comp_plot,
+                 file.path(SRC_DIR, "edfig6C_cautious_composition_all_tiers.csv"))
+
+writeLines(c(
+  "Source Data Extended Data Figure 7",
+  "",
+  "What it is. The values behind Extended Data Figure 7: the reasons the other tools did not match each call of a primary tier (panel A), and the genomic context of the genes in each tier-conflict scenario (panel B). Panel A is counted per gene. In edfig7A_nonoverlap_reasons.csv and edfig7B_tier_conflict_context.csv pct is a share, from 0 to 1.",
+  "",
+  "Files:",
+  "",
+  "1. edfig7A_nonoverlap_reasons.csv (panel A). One row per source tier, other tool and reason, 57 rows. A reason with no gene has no row. source_tier is CheckAMG_high, DRAMV_aux1, DRAMV_aux_le2, DRAMV_aux_le3 or VIBRANT_high, drawn in the panel as CheckAMG (high), DRAM-V (aux 1), DRAM-V (aux 2), DRAM-V (aux 3) and VIBRANT (high). The DRAM-V levels are cumulative, as in Figure 3: DRAM-V (aux 1), (aux 2) and (aux 3) hold the calls of the default DRAM-V configuration at auxiliary score 1, at most 2 and at most 3, so DRAMV_aux_le3 holds all default calls. For each source tier and other tool, every gene of the source tier takes one reason, so n sums to the calls of the source tier (3,221 for CheckAMG high, 3,380, 13,566 and 47,308 for DRAM-V (aux 1), (aux 2) and (aux 3), and 1,270 for VIBRANT high). Classification gives the reason: Called only at lower stringency, Agrees at default/high, Best-hit database not queried, Shared-database hit, not flagged as AMG, Different top hit in a shared database, or No annotation available. Other tool is the tool whose response is classified (CheckAMG, DRAM-V or VIBRANT). Columns: source_tier, n, pct, Classification, Other tool.",
+  "2. edfig7A_no_viral_evidence_counts.csv (panel A facet labels and legend counts). One row per source tier, 5 rows, giving the calls of the tier, the calls not on a geNomad-viral region, and the calls with no viral evidence (not on a geNomad-viral region, not in a CheckAMG strict viral region and with no gene of V-score at least 10 within 10 kb on either side). The DRAMV_aux_le3 row, which holds all default DRAM-V calls, has 30,562 calls not on a geNomad-viral region and 222 with no viral evidence. facet_label is the panel label, for example 'CheckAMG (high), n = 3,221' or 'DRAM-V (aux 3), n = 47,308'. Columns: source_tier, n_calls, n_without_viral_evidence, n_not_genomad_viral, pct_not_genomad_viral, facet_label.",
+  "3. edfig7B_scenario_sizes.csv (panel B facet labels). One row per tier-conflict scenario, 8 rows, giving the number of genes in the scenario. A scenario holds the genes in the first tool's primary tier that the second tool clears only at the named weaker configuration and not at its own primary tier. facet_label is the panel label, for example 'CheckAMG (high) vs DRAM-V (aux 4), n = 181'. Columns: Scenario, n_genes, facet_label.",
+  "4. edfig7B_tier_conflict_context.csv (panel B). One row per scenario and genomic-context signal, 48 rows (8 scenarios and 6 signals), giving the genes of the scenario and the number and share with the signal. Signals: geNomad viral region, CheckAMG strict viral region, Viral gene within 10 kb (at least one side), Viral gene within 10 kb (both sides), Virus-like MGE flank and Bacteria-like MGE flank. Columns: Scenario, Context signal, n_genes, n_with_signal, pct."
+), file.path(SRC_DIR, "edfig7_README.txt"))
 # Line breaks are for the facet strips only
 flatten_breaks <- function(data) mutate(data, across(where(function(x) is.character(x) || is.factor(x)),
                                                      function(x) str_replace_all(as.character(x), "\n", ", ")))
@@ -2281,17 +2206,17 @@ stopifnot(identical(unname(nonoverlap_category_map[nonoverlap_summary$category])
 cumulative_export_codes <- c(DRAMV_aux2 = "DRAMV_aux_le2", DRAMV_aux3 = "DRAMV_aux_le3")
 readr::write_csv(nonoverlap_summary %>% select(-category, -other_tool) %>%
                    mutate(source_tier = recode(as.character(source_tier), !!!cumulative_export_codes)) %>% flatten_breaks(),
-                 file.path(SRC_DIR, "edfig6A_nonoverlap_reasons.csv"))
+                 file.path(SRC_DIR, "edfig7A_nonoverlap_reasons.csv"))
 readr::write_csv(source_tier_facet_labels %>% mutate(source_tier = recode(as.character(source_tier), !!!cumulative_export_codes)) %>%
                    flatten_breaks(),
-                 file.path(SRC_DIR, "edfig6A_no_viral_evidence_counts.csv"))
+                 file.path(SRC_DIR, "edfig7A_no_viral_evidence_counts.csv"))
 readr::write_csv(flatten_breaks(tier_conflict_context),
-                 file.path(SRC_DIR, "edfig6B_tier_conflict_context.csv"))
+                 file.path(SRC_DIR, "edfig7B_tier_conflict_context.csv"))
 readr::write_csv(flatten_breaks(scenario_facet_labels),
-                 file.path(SRC_DIR, "edfig6B_scenario_sizes.csv"))
+                 file.path(SRC_DIR, "edfig7B_scenario_sizes.csv"))
 
-readr::write_csv(ed7_upset_data %>% count(source, shared_ko_class, across(all_of(unname(ed7_tier_map))), name = "n_calls"),
-                 file.path(SRC_DIR, "edfig7A_all_tier_upset_by_sequence_source.csv"))
+readr::write_csv(ed4_upset_data %>% count(source, shared_ko_class, across(all_of(unname(ed4_tier_map))), name = "n_calls"),
+                 file.path(SRC_DIR, "edfig4A_all_tier_upset_by_sequence_source.csv"))
 
 # Read as text so the cells keep the written values, since write_csv can print a double as 0.86240000000000006
 read_tsv_as_text <- function(path) readr::read_tsv(path, col_types = readr::cols(.default = "c"), na = character())
@@ -2319,11 +2244,12 @@ stopifnot(!any(grepl("NA$", names(shared_ko_level_counts_fig3))), !anyDuplicated
           sum(startsWith(names(shared_ko_level_counts_fig3), "fill class: ")) == 4,
           sum(startsWith(names(shared_ko_level_counts_fig3), "Class I/II: ")) == 5)
 readr::write_csv(shared_ko_level_counts_fig3, file.path(SRC_DIR, "fig3_shared_ko_level_counts.csv"))
+readr::write_csv(primary_tier_overlap, file.path(SRC_DIR, "fig3_primary_tier_overlap.csv"))
 writeLines(c(
-  "Source Data Extended Data Figure 7",
+  "Source Data Extended Data Figure 4",
   "",
-  "edfig7A_all_tier_upset_by_sequence_source.csv (Extended Data Figure 7). One row per combination of sequence source, shared KO class and membership in the 12 sets of the figure, 464 rows covering the 306,534 genes called as an AMG at any tier by any tool, which form 92 intersections. Sources: Viromes (198 rows, 189,143 genes), Mixed metagenomes (151 rows, 114,550 genes) and Viral genomes (115 rows, 2,841 genes). Shared KO classes under the primary rule, as in Figure 3: geNomad viral, Metabolism KO (222 rows, 21,125 genes), geNomad viral, other KO (119 rows, 8,339 genes), geNomad viral, no KO (48 rows, 2,886 genes) and Not geNomad viral (75 rows, 274,184 genes). The annotation track is the sequence-source share of each intersection, and the intersection and set-size bars are split by shared_ko_class. Set-size labels give the calls of the set, then the calls and share of the set in each class. The sets are the nine tiers of Figure 3 and three further DRAM-V configurations. Tiers are cumulative, so each tier includes the calls of the stricter tiers of the same tool and a gene is TRUE in every set that contains it. DRAM-V (aux 1), (aux 2) and (aux 3) hold the calls of the default DRAM-V configuration at auxiliary score 1, at most 2 and at most 3, and DRAM-V (allow T), (aux 4) and (aux 4, allow T) are full configurations that include the default calls. Columns: source, shared_ko_class, one Boolean column per set (CheckAMG (high), CheckAMG (medium), CheckAMG (low), DRAM-V (aux 1), DRAM-V (aux 2), DRAM-V (aux 3), DRAM-V (allow T), DRAM-V (aux 4), DRAM-V (aux 4, allow T), VIBRANT (high), VIBRANT (medium), VIBRANT (low)), n_calls. Set sizes from this file are the tier totals, matching Extended Data Figure 5A."
-), file.path(SRC_DIR, "edfig7_README.txt"))
+  "edfig4A_all_tier_upset_by_sequence_source.csv (Extended Data Figure 4). One row per combination of sequence source, shared KO class and membership in the 12 sets of the figure, 464 rows covering the 306,534 genes called as an AMG at any tier by any tool, which form 92 intersections. Sources: Viromes (198 rows, 189,143 genes), Mixed metagenomes (151 rows, 114,550 genes) and Viral genomes (115 rows, 2,841 genes). Shared KO classes under the primary rule, as in Figure 3: geNomad viral, Metabolism KO (222 rows, 21,125 genes), geNomad viral, other KO (119 rows, 8,339 genes), geNomad viral, no KO (48 rows, 2,886 genes) and Not geNomad viral (75 rows, 274,184 genes). The annotation track is the sequence-source share of each intersection, and the intersection and set-size bars are split by shared_ko_class. Set-size labels give the calls of the set, then the calls and share of the set in each class. The sets are the nine tiers of Figure 3 and three further DRAM-V configurations. Tiers are cumulative, so each tier includes the calls of the stricter tiers of the same tool and a gene is TRUE in every set that contains it. DRAM-V (aux 1), (aux 2) and (aux 3) hold the calls of the default DRAM-V configuration at auxiliary score 1, at most 2 and at most 3, and DRAM-V (allow T), (aux 4) and (aux 4, allow T) are full configurations that include the default calls. Columns: source, shared_ko_class, one Boolean column per set (CheckAMG (high), CheckAMG (medium), CheckAMG (low), DRAM-V (aux 1), DRAM-V (aux 2), DRAM-V (aux 3), DRAM-V (allow T), DRAM-V (aux 4), DRAM-V (aux 4, allow T), VIBRANT (high), VIBRANT (medium), VIBRANT (low)), n_calls. Set sizes from this file are the tier totals, matching Extended Data Figure 6A."
+), file.path(SRC_DIR, "edfig4_README.txt"))
 
 tibble::tibble(file = list.files(SRC_DIR, pattern = "[.]csv$")) %>%
   mutate(rows = vapply(file, function(f) nrow(readr::read_csv(file.path(SRC_DIR, f), show_col_types = FALSE)), integer(1)))
