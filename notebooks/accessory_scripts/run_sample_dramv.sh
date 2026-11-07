@@ -1,5 +1,5 @@
 #!/bin/bash
-# Per-sample runner of the DRAM-V mm13 re-run, usage: run_sample_mm13.sh SUBSET SAMPLE THREADS
+# Per-sample runner of the DRAM-V run, usage: run_sample_dramv.sh SUBSET SAMPLE THREADS
 set -euo pipefail
 SUBSET="$1"; SAMPLE="$2"; THREADS="$3"
 : "${DATA_ROOT:?set DATA_ROOT to the benchmark data root}"
@@ -7,10 +7,10 @@ SUBSET="$1"; SAMPLE="$2"; THREADS="$3"
 : "${DRAM_ENV:?set DRAM_ENV to the prefix of the DRAM_1.5.0_mm13 environment}"
 # Directories appended to PATH after the DRAM env, the run used the peatlands_env and base conda bin directories for pigz
 EXTRA_PATH="${EXTRA_PATH:-}"
-WORK=$TMP_ROOT/dramv_mm13_rerun
+WORK=$TMP_ROOT/dramv_run
 IN=$DATA_ROOT/virsorter_outputs/$SUBSET/$SAMPLE/for-dramv
-OUT=$DATA_ROOT/dramv_outputs_mm13/$SUBSET/$SAMPLE
-ANN=$DATA_ROOT/dramv_annotations_mm13/$SUBSET/$SAMPLE
+OUT=$DATA_ROOT/dramv_outputs/$SUBSET/$SAMPLE
+ANN=$DATA_ROOT/dramv_annotations/$SUBSET/$SAMPLE
 ARCH=$WORK/working_dir_archives/$SUBSET
 LOGD=$WORK/logs/$SUBSET
 export PATH=$DRAM_ENV/bin:$PATH${EXTRA_PATH:+:$EXTRA_PATH} TMPDIR=$TMP_ROOT OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONWARNINGS=ignore
