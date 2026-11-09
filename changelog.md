@@ -1,3 +1,39 @@
+# 1.2
+
+This release reorganizes the outputs of `annotate`, `aggregate`, and `end-to-end` so that each results directory starts with a `README.txt` and two summary tables, and adds the evidence behind each prediction. The prediction methods, command-line options, and results are unchanged from 1.1.2: every column present in the 1.1.2 outputs has identical values. Only the output files are reorganized, so scripts that read 1.1.2 outputs by file path or column name may need to be updated.
+
+## Output reorganization
+
+* `annotate` and `aggregate` now write a `README.txt` that summarizes the run and describes every output file and column, alongside two main tables:
+  * `avg_predictions.tsv`: one row per predicted AVG, with its function, confidence, AMG weight, functional categories, and the HMM hit that supports the call.
+  * `genome_summary.tsv`: one row per genome, with AVG counts by type and confidence and the functions of high-confidence AVGs.
+* Moved all other `annotate` tables to `results/detailed/` and all other `aggregate` tables to `detailed/`. The AVG filter audit tables (`*_genes_filter_reasons.tsv`) were moved from `wdir/` to `results/detailed/`.
+* Renamed `annotate`'s `final_results.tsv` to `results/detailed/all_proteins.tsv` and `aggregate`'s `aggregated_results.tsv` to `detailed/all_proteins.tsv`. Both still contain one row per protein.
+* Removed `aggregated_results_categories.tsv`. Functional categories are now reported in `avg_predictions.tsv` and `detailed/all_proteins.tsv`.
+* Merged the `faa_metabolic/`, `faa_physiology/`, and `faa_regulatory/` folders into a single `results/faa/` folder. File names and contents are unchanged.
+* `end-to-end` now writes a `README.txt` to the top of the output directory pointing to `03_aggregate/avg_predictions.tsv`.
+* `aggregate` accepts `annotate` outputs from both 1.2 and earlier versions. With outputs from earlier versions, the AMG weight and supporting HMM columns are left empty.
+
+## New information in the outputs
+
+* Added `results/detailed/filtered_candidates.tsv` to `annotate`, listing proteins that matched an AVG reference but were removed during curation, with the reason (e.g., an AMG weight below the minimum, or an annotation matching an essential function).
+* Added `run_summary.tsv` to `annotate` and `aggregate` (under `detailed/`), recording the CheckAMG version, database, parameters, input counts before and after the length and ORF filters, and the number of predictions.
+* Added the "Supporting HMM Database", "Supporting HMM ID", "Supporting HMM Bit Score", and "AMG Weight" columns to `avg_predictions.tsv` and the `*_genes_curated.tsv` tables, identifying the HMM hit that supplies each AVG's function.
+* Added the "Annotation Status" (AVG; AVG candidate, filtered; Annotated, not an AVG; or Unannotated) and "Protein Viral Origin Probability" columns to `annotate`'s `all_proteins.tsv`.
+* Added the "Evidence Class" column to the `aggregate` outputs, indicating whether an AVG is supported by `annotate` (high or medium viral-origin confidence), `de-novo` (medium final AVG confidence or higher), or both, and the "AVG Type" column (AMG, APG, or AReG). Removed the redundant "Classification" column.
+* Functional categories in the one-row-per-protein tables are now reported as "Functional Categories (Level 1)" and "Functional Category Paths (L1 > L2 > L3)", which keep each level 1 category paired with its level 2 and level 3 categories. The long-format `*_gene_categories.tsv` tables are unchanged.
+* Removed the internal filtering columns (`FILTER_*`, `protein_in_ambig_region`, `nonviral_region_pos`) from the `*_genes_curated.tsv` tables. The same information is in the `*_genes_filter_reasons.tsv` and `gene_annotations.tsv` tables.
+
+## Bug fixes
+
+* Fixed `de-novo` failing when given only single contigs (`-c`), only bins (`-C`), or only bin proteins (`-P`) instead of a combination of inputs.
+
+## Other changes
+
+* Protein FASTA files (sorted by protein name, with numbers in natural order) and the `*_gene_categories.tsv` tables are now written in a consistent order, so repeated runs produce identical files.
+* Updated the example outputs in `examples/example_outputs` to the 1.2 format.
+* Minor edits to log messages.
+
 # 1.1.2
 
 * Fixed `annotate` failing at step "Map gene- and genome-level metadata" with "File is not a Prodigal-formatted protein FASTA file" when the first protein of a genome consisted only of letters that are also IUPAC nucleotide codes and lacked a stop codon (e.g., a truncated low-complexity repeat protein). Prodigal headers are now parsed per record instead of relying on file-level format detection
