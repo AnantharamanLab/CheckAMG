@@ -1,0 +1,44 @@
+Section	Metric	Value
+run	CheckAMG version	1.2
+run	Module	annotate
+run	Date (UTC)	2026-11-09 22:00
+run	Annotate database	CheckAMG_annotate_db_v1.1_20260316
+run	Input type	nucl
+parameters	Minimum contig length (bp)	5000
+parameters	Minimum ORFs per contig	4
+parameters	Minimum annotated fraction for context analysis	0.2
+parameters	Minimum HMM and query coverage	0.4
+parameters	Fallback maximum E-value	1e-05
+parameters	Fallback minimum bit score	60
+parameters	Bit score fraction heuristic	0.5
+parameters	VL-score window size (bp)	5000
+parameters	Minimum flank V-score	10.0
+parameters	Minimum window average VL-score	3.0
+parameters	Use hallmark genes for flanks	False
+parameters	Minimum AMG weight	0.6
+parameters	Filter presets	allow_glucan,allow_nucleotide,allow_methyl,allow_lipid
+parameters	Filter predictions outside strict viral regions	False
+parameters	Filter AVG arrays	True
+parameters	AVG array length limit	3
+inputs	Input genomes	118
+inputs	Input contigs	163
+inputs	Contigs passing minimum length	163
+inputs	Genomes passing minimum length	118
+inputs	Contigs passing minimum ORFs	161
+inputs	Genomes passing minimum ORFs	116
+inputs	Genomes analyzed	116
+inputs	Contigs analyzed	161
+inputs	Proteins analyzed	3840
+predictions	AMGs (all confidence levels)	25
+predictions	AMGs (high confidence)	2
+predictions	AMGs (medium confidence)	7
+predictions	AMGs (low confidence)	16
+predictions	APGs (all confidence levels)	15
+predictions	APGs (high confidence)	4
+predictions	APGs (medium confidence)	6
+predictions	APGs (low confidence)	5
+predictions	AReGs (all confidence levels)	30
+predictions	AReGs (high confidence)	18
+predictions	AReGs (medium confidence)	7
+predictions	AReGs (low confidence)	5
+predictions	AVG candidates removed by curation	44

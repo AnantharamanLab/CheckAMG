@@ -1,0 +1,117 @@
+Genome	Contigs	Proteins	AMGs (high)	AMGs (medium)	AMGs (low)	APGs (high)	APGs (medium)	APGs (low)	AReGs (high)	AReGs (medium)	AReGs (low)	High-Confidence AVG Functions
+BAr2D2E2F_vRhyme_bin_1	8	274	0	1	0	0	0	0	1	1	0	AReG: lexA; repressor LexA [EC:3.4.21.88]
+LABRr1A1B1C_vRhyme_bin_11	21	497	0	1	2	0	1	0	0	0	0	
+LABRr1A1B1C_vRhyme_bin_12	5	101	0	0	0	0	1	0	0	1	0	
+MGr3G3H3I_vRhyme_bin_11	3	62	0	0	1	0	0	0	1	0	0	AReG: 'Cold-shock' DNA-binding domain
+MHr2D2E2F_vRhyme_bin_11	13	470	0	1	2	0	0	0	3	0	1	AReG: Global regulator protein family; AReG: RNA-binding protein; AReG: groES, HSPE1; chaperonin GroES
+vRhyme_unbinned_100__MGr3G3H3I_000000103162|provirus_6091_24599	1	16	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_101__MGr3G3H3I_000000108711|provirus_5759_27215	1	26	0	0	0	1	0	0	0	0	0	APG: Thoeris anti-defense 2-like domain
+vRhyme_unbinned_102__MGr3G3H3I_000000116715|provirus_7273_33742	1	32	0	1	0	0	0	0	0	0	0	
+vRhyme_unbinned_103__MGr3G3H3I_000000120995|provirus_27569_54970	1	23	0	0	2	0	0	0	0	0	0	
+vRhyme_unbinned_104__MGr3G3H3I_000000125775|provirus_133_9664	1	9	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_105__MGr3G3H3I_000000182691|provirus_17376_26434	1	9	0	0	1	0	0	0	0	0	0	
+vRhyme_unbinned_106__MGr3G3H3I_000000184658|provirus_15737_33807	1	16	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_107__MGr3G3H3I_000000207831|provirus_30197_56997	1	19	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_108__MGr3G3H3I_000000219853|provirus_7900_28337	1	29	0	0	0	0	0	0	0	2	0	
+vRhyme_unbinned_109__MGr3G3H3I_000000235412|provirus_119_8951	1	10	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_10__MGr3G3H3I_000000026731	1	57	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_110__MGr3G3H3I_000000249059|provirus_16350_47090	1	25	0	0	2	0	0	0	0	0	0	
+vRhyme_unbinned_111__MGr3G3H3I_000000255312|provirus_3194_13139	1	16	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_112__MGr3G3H3I_000000261563|provirus_41_8855	1	11	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_113__MGr3G3H3I_000000274427|provirus_10798_21788	1	8	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_11__MGr3G3H3I_000000030488	1	10	0	0	0	0	0	1	0	0	0	
+vRhyme_unbinned_12__MGr3G3H3I_000000034564	1	15	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_13__MGr3G3H3I_000000037801	1	24	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_14__MGr3G3H3I_000000040482	1	21	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_15__MGr3G3H3I_000000045479	1	14	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_16__MGr3G3H3I_000000046301	1	14	0	0	0	0	0	0	1	1	0	AReG: late transcriptional activator
+vRhyme_unbinned_17__MGr3G3H3I_000000049710	1	16	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_18__MGr3G3H3I_000000052374	1	20	0	1	0	0	0	0	0	0	0	
+vRhyme_unbinned_19__MGr3G3H3I_000000052512	1	24	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_1__MGr3G3H3I_000000002691	1	11	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_20__MGr3G3H3I_000000054425	1	11	0	0	0	0	1	1	0	0	0	
+vRhyme_unbinned_21__MGr3G3H3I_000000062622	1	11	0	0	0	0	0	0	0	1	0	
+vRhyme_unbinned_22__MGr3G3H3I_000000064551	1	26	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_23__MGr3G3H3I_000000065081	1	6	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_24__MGr3G3H3I_000000069672	1	17	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_25__MGr3G3H3I_000000077196	1	28	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_26__MGr3G3H3I_000000077400	1	11	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_27__MGr3G3H3I_000000077811	1	23	0	0	0	0	0	1	0	0	0	
+vRhyme_unbinned_28__MGr3G3H3I_000000090299	1	18	0	0	1	0	0	0	0	0	0	
+vRhyme_unbinned_29__MGr3G3H3I_000000101571	1	9	0	0	2	0	0	0	0	0	1	
+vRhyme_unbinned_2__MGr3G3H3I_000000004931	1	31	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_30__MGr3G3H3I_000000102693	1	26	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_31__MGr3G3H3I_000000103998	1	28	0	0	2	0	0	1	0	0	1	
+vRhyme_unbinned_32__MGr3G3H3I_000000112980	1	11	0	0	0	0	0	0	1	0	0	AReG: transcriptional regulator
+vRhyme_unbinned_33__MGr3G3H3I_000000117414	1	5	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_34__MGr3G3H3I_000000119619	1	22	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_35__MGr3G3H3I_000000124827	1	29	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_36__MGr3G3H3I_000000133197	1	18	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_37__MGr3G3H3I_000000135683	1	22	0	0	0	0	0	0	2	0	0	AReG: SMARCAL1, HARP; SWI/SNF-related matrix-associated actin-dependent regulator of chromatin subfamily A-like protein 1 [EC:5.6.2.-]; AReG: parB, spo0J; ParB family transcriptional regulator, chromosome partitioning protein
+vRhyme_unbinned_38__MGr3G3H3I_000000137840	1	27	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_39__MGr3G3H3I_000000139510	1	17	0	0	0	0	0	0	1	0	0	AReG: SMARCAL1, HARP; SWI/SNF-related matrix-associated actin-dependent regulator of chromatin subfamily A-like protein 1 [EC:5.6.2.-]
+vRhyme_unbinned_3__MGr3G3H3I_000000009885	1	50	0	0	0	0	0	0	2	0	0	AReG: RNA-binding protein; AReG: parB, spo0J; ParB family transcriptional regulator, chromosome partitioning protein
+vRhyme_unbinned_40__MGr3G3H3I_000000139685	1	65	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_41__MGr3G3H3I_000000142568	1	24	0	0	0	1	2	0	1	0	0	APG: anti-restriction protein; AReG: repA; regulatory protein RepA
+vRhyme_unbinned_42__MGr3G3H3I_000000144901	1	10	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_43__MGr3G3H3I_000000145042	1	21	0	0	0	0	0	1	0	0	0	
+vRhyme_unbinned_44__MGr3G3H3I_000000146975	1	18	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_45__MGr3G3H3I_000000148917	1	12	0	0	0	0	0	0	0	0	1	
+vRhyme_unbinned_46__MGr3G3H3I_000000153998	1	25	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_47__MGr3G3H3I_000000154348	1	11	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_48__MGr3G3H3I_000000154912	1	20	0	1	0	0	0	0	0	0	0	
+vRhyme_unbinned_49__MGr3G3H3I_000000157758	1	8	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_4__MGr3G3H3I_000000010128	1	13	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_50__MGr3G3H3I_000000159176	1	25	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_51__MGr3G3H3I_000000159918	1	18	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_52__MGr3G3H3I_000000162741	1	21	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_53__MGr3G3H3I_000000162938	1	26	0	1	0	0	0	0	0	0	1	
+vRhyme_unbinned_54__MGr3G3H3I_000000165910	1	16	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_55__MGr3G3H3I_000000165953	1	10	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_56__MGr3G3H3I_000000166676	1	32	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_57__MGr3G3H3I_000000170145	1	14	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_58__MGr3G3H3I_000000175243	1	21	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_59__MGr3G3H3I_000000178285	1	13	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_5__MGr3G3H3I_000000011984	1	16	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_60__MGr3G3H3I_000000180455	1	19	0	0	0	0	1	0	0	0	0	
+vRhyme_unbinned_62__MGr3G3H3I_000000188077	1	29	0	0	0	0	0	0	1	0	0	AReG: late transcriptional activator
+vRhyme_unbinned_63__MGr3G3H3I_000000188717	1	24	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_64__MGr3G3H3I_000000189417	1	12	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_65__MGr3G3H3I_000000190758	1	20	1	0	0	0	0	0	0	0	0	AMG: meT1; MMP 1-O-methyltransferase [EC:2.1.1.365]
+vRhyme_unbinned_66__MGr3G3H3I_000000191734	1	22	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_67__MGr3G3H3I_000000195259	1	20	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_68__MGr3G3H3I_000000196642	1	21	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_69__MGr3G3H3I_000000199029	1	4	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_6__MGr3G3H3I_000000012933	1	44	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_71__MGr3G3H3I_000000200092	1	9	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_72__MGr3G3H3I_000000211191	1	24	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_73__MGr3G3H3I_000000214235	1	13	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_74__MGr3G3H3I_000000216859	1	27	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_75__MGr3G3H3I_000000218818	1	13	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_76__MGr3G3H3I_000000223668	1	32	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_77__MGr3G3H3I_000000224979	1	29	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_78__MGr3G3H3I_000000231783	1	20	0	0	0	2	0	0	0	0	0	APG: Virulence-associated protein E-like domain; APG: cspA; cold shock protein
+vRhyme_unbinned_79__MGr3G3H3I_000000232172	1	16	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_7__MGr3G3H3I_000000013374	1	11	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_80__MGr3G3H3I_000000240298	1	19	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_81__MGr3G3H3I_000000246984	1	17	0	0	0	0	0	0	1	0	0	AReG: groES, HSPE1; chaperonin GroES
+vRhyme_unbinned_82__MGr3G3H3I_000000255661	1	69	0	0	0	0	0	0	2	0	0	AReG: groEL, HSPD1, HSP60, CPN60; chaperonin GroEL [EC:5.6.1.7]; AReG: groES, HSPE1; chaperonin GroES
+vRhyme_unbinned_83__MGr3G3H3I_000000264560	1	44	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_84__MGr3G3H3I_000000268864	1	18	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_85__MGr3G3H3I_000000273023	1	11	0	0	0	0	0	0	0	1	0	
+vRhyme_unbinned_86__MGr3G3H3I_000000274656	1	21	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_87__MGr3G3H3I_000000274731	1	13	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_88__MGr3G3H3I_000000288833	1	156	1	0	1	0	0	0	0	0	0	AMG: gpmB; 2,3-bisphosphoglycerate-dependent phosphoglycerate mutase [EC:5.4.2.11]
+vRhyme_unbinned_89__MGr3G3H3I_000000289364	1	33	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_8__MGr3G3H3I_000000017652	1	24	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_90__MGr3G3H3I_000000290477	1	16	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_91__MGr3G3H3I_000000294607	1	20	0	0	0	0	0	0	1	0	0	AReG: groES, HSPE1; chaperonin GroES
+vRhyme_unbinned_92__MGr3G3H3I_000000298215	1	13	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_93__MGr3G3H3I_000000010460|provirus_1_14105	1	14	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_94__MGr3G3H3I_000000010503|provirus_24055_37973	1	20	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_95__MGr3G3H3I_000000016731|provirus_134_18976	1	29	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_96__MGr3G3H3I_000000020223|provirus_35327_48594	1	16	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_97__MGr3G3H3I_000000021262|provirus_50810_75077	1	38	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_98__MGr3G3H3I_000000054290|provirus_3_6002	1	11	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_99__MGr3G3H3I_000000077756|provirus_33272_71474	1	39	0	0	0	0	0	0	0	0	0	
+vRhyme_unbinned_9__MGr3G3H3I_000000020590	1	26	0	0	0	0	0	0	0	0	0	

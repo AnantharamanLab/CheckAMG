@@ -1,0 +1,25 @@
+Section	Metric	Value
+run	CheckAMG version	1.2
+run	Module	aggregate
+run	Annotate all-protein table	CheckAMG_example_out/01_annotate/results/detailed/all_proteins.tsv
+run	De-novo predictions	CheckAMG_example_out/02_denovo/predictions.tsv
+definitions	Annotate support	classified as AMG, APG, or AReG with viral-origin confidence high or medium
+definitions	De-novo support	Final AVG confidence very high, high, medium
+inputs	Proteins	3840
+predictions	AVGs supported by annotate and de-novo	33
+predictions	AVGs supported by annotate and de-novo: AMG	7
+predictions	AVGs supported by annotate and de-novo: APG	8
+predictions	AVGs supported by annotate and de-novo: AReG	18
+predictions	AVGs supported by annotate only	11
+predictions	AVGs supported by annotate only: AMG	2
+predictions	AVGs supported by annotate only: APG	2
+predictions	AVGs supported by annotate only: AReG	7
+predictions	AVGs supported by de-novo only	39
+predictions	AVGs supported by de-novo only: AMG	8
+predictions	AVGs supported by de-novo only: APG	2
+predictions	AVGs supported by de-novo only: AReG	2
+predictions	AVGs supported by de-novo only: no annotate AVG type	27
+predictions	Supported AVGs with very high final AVG confidence	18
+predictions	Supported AVGs with high final AVG confidence	25
+predictions	Supported AVGs with medium final AVG confidence	29
+predictions	Supported AVGs with low final AVG confidence	11
