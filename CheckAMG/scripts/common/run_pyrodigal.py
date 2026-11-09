@@ -126,7 +126,7 @@ def main():
         if folder_files[0].stat().st_size == 0:
             logger.error(f"The first file {folder_files[0]} in the directory {bin_proteins_subdir} is empty.")
             raise RuntimeError(f"Error: The first file in {bin_proteins_subdir} is empty.")
-    elif os.path.exists(input_single_contigs) and not os.path.exists(input_bins):
+    elif has_single_contig and not has_bin_files:
         logger.info(f"Running metapyrodigal-GV on contigs with {n_cpus} CPUs")
         run_metapyrodigal(
             input_fasta=input_single_contigs,
@@ -139,7 +139,7 @@ def main():
         if not os.path.exists(output_single_contig_prots) or os.path.getsize(output_single_contig_prots) == 0:
             logger.error(f"The output file {output_single_contig_prots} was not created or is empty.")
             raise RuntimeError(f"Error: The output file {output_single_contig_prots} does not exist or is empty.")
-    elif not os.path.exists(input_single_contigs) and os.path.exists(input_bins):
+    elif has_bin_files and not has_single_contig:
         logger.info(f"Running metapyrodigal-GV on bins with {n_cpus} CPUs")
         run_metapyrodigal(
             input_fasta=None,

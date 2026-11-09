@@ -11,7 +11,7 @@ if config["query_input"] == "fna":
         output:
             touch(os.path.join(config["paths"]["output_dir"], "snakemake", "run_pyrodigal_gv.done"))
         params:
-            input_single_contigs = Path(config["paths"]["input_single_contig_fna"]),
+            input_single_contigs = config["paths"]["input_single_contig_fna"],
             input_bins = config["paths"]["input_bin_fna_dir"],
             wdir = os.path.join(config["paths"]["output_dir"]),
             output_dir = os.path.join(config["paths"]["output_dir"], "pyrodigal-gv"),
@@ -152,7 +152,7 @@ elif config["query_input"] == "faa":
         output:
             touch(os.path.join(config["paths"]["output_dir"], "snakemake", "filter_prots.done"))
         params:
-            input_single_contig_prots = Path(config["paths"]["input_single_contig_faa"]),
+            input_single_contig_prots = config["paths"]["input_single_contig_faa"],
             input_bin_prots = config["paths"]["input_bin_faa"],
             output_filtered_faa = Path(Path(config["paths"]["output_dir"]).joinpath("combined_proteins.filtered.faa")),
             contig_to_genome = Path(Path(config["paths"]["output_dir"]).joinpath("contig_to_genome.tsv")),
