@@ -17,6 +17,7 @@ from CheckAMG.scripts.common.set_up_snakemake import create_output_dir, run_snak
 from CheckAMG.scripts.annotate import annotate
 from CheckAMG.scripts.denovo import denovo
 from CheckAMG.scripts.aggregate import aggregate
+from CheckAMG.scripts.annotate.summaries import write_end_to_end_readme
 
 _STEP_RE = re.compile(r"Step\s+(\d+)\s*/\s*(\d+)\s*:\s*(.+?)\s*$")
 
@@ -367,8 +368,10 @@ def run_end_to_end(common, annotate_ns, denovo_ns, aggregate_ns, scripts_dir, ch
         )
         finish_module("aggregate")
 
+        write_end_to_end_readme(os.path.join(output, "README.txt"))
         emit_banner("The CheckAMG end-to-end pipeline is complete.")
         logger.info(f"Aggregated results -> {aggregate_ns.output}")
+        logger.info(f"Start with {os.path.join(aggregate_ns.output, 'avg_predictions.tsv')} (see {os.path.join(output, 'README.txt')})")
     except Exception:
         if current_module_log:
             logger.error(

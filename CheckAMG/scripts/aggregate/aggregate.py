@@ -30,19 +30,24 @@ def check_inputs(args, logger):
 
     # Map each config path key to the candidate file names (tsv preferred, parquet fallback)
     required_annotate_files = {
-        "annotate_final_results": ["final_results.tsv", "final_results.parquet"],
+        "annotate_final_results": ["all_proteins.tsv", "all_proteins.parquet", "final_results.tsv", "final_results.parquet"],
         "annotate_genomic_context": ["genes_genomic_context.tsv", "genes_genomic_context.parquet"],
         "annotate_metab_cats": ["metabolic_gene_categories.tsv", "metabolic_gene_categories.parquet"],
         "annotate_phys_cats": ["physiology_gene_categories.tsv", "physiology_gene_categories.parquet"],
         "annotate_reg_cats": ["regulation_gene_categories.tsv", "regulation_gene_categories.parquet"],
     }
 
+    # Search both locations so annotate outputs with either results layout are accepted
+    search_dirs = [results_dir, results_dir.joinpath("detailed")]
     for config_key, file_options in required_annotate_files.items():
         found_path = None
-        for filename in file_options:
-            filepath = results_dir.joinpath(filename)
-            if filepath.exists() and filepath.is_file():
-                found_path = os.path.abspath(filepath)
+        for search_dir in search_dirs:
+            for filename in file_options:
+                filepath = search_dir.joinpath(filename)
+                if filepath.exists() and filepath.is_file():
+                    found_path = os.path.abspath(filepath)
+                    break
+            if found_path is not None:
                 break
         if found_path is None:
             logger.error(
@@ -52,6 +57,18 @@ def check_inputs(args, logger):
             valid = False
         else:
             resolved_paths[config_key] = found_path
+
+    # Optional input that provides the supporting HMM and AMG weight of each AVG
+    for filename in ["avg_predictions.tsv", "avg_predictions.parquet"]:
+        filepath = results_dir.joinpath(filename)
+        if filepath.exists() and filepath.is_file():
+            resolved_paths["annotate_avg_predictions"] = os.path.abspath(filepath)
+            break
+    if "annotate_avg_predictions" not in resolved_paths:
+        logger.warning(
+            "No avg_predictions table found in the annotate results. "
+            "AMG weight and supporting HMM columns will be empty in the aggregated results."
+        )
 
     # Check de-novo directory
     if not Path(args.denovo_dir).exists() or not Path(args.denovo_dir).is_dir():

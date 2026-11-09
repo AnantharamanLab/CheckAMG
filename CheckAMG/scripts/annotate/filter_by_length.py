@@ -65,7 +65,14 @@ def parallel_processing(input_files, single_contig_path, min_length, num_workers
     grouped = {}
     for name, seq in filtered:
         grouped.setdefault(name_to_source[name], []).append((name, seq))
-    return list(grouped.items())
+    return list(grouped.items()), len(all_records), len(genome_names)
+
+
+def write_counts(path, counts):
+    with open(path, "w") as fh:
+        fh.write("metric\tvalue\n")
+        for k, v in counts.items():
+            fh.write(f"{k}\t{v}\n")
 
 
 def main():
@@ -89,7 +96,7 @@ def main():
         os.makedirs(output_bins_folder, exist_ok=True)
 
     single_contig_path = input_files[0] if has_single_contig else None
-    filtered_genomes = parallel_processing(input_files, single_contig_path, min_length, num_workers)
+    filtered_genomes, n_input_seqs, n_input_genomes = parallel_processing(input_files, single_contig_path, min_length, num_workers)
 
     genome_names_filtered = set()
     for input_file, records in filtered_genomes:
@@ -112,6 +119,12 @@ def main():
         f"{sum(len(records) for _, records in filtered_genomes):,} "
         f"({len(genome_names_filtered):,} genomes)"
     )
+    write_counts(snakemake.params.counts_out, {
+        "input_contigs": n_input_seqs,
+        "input_genomes": n_input_genomes,
+        "contigs_passing_min_length": sum(len(records) for _, records in filtered_genomes),
+        "genomes_passing_min_length": len(genome_names_filtered),
+    })
     logger.info("Contig length filtering completed.")
 
 

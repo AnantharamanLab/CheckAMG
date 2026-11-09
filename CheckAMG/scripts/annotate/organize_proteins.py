@@ -101,6 +101,10 @@ def adjust_sequence_header(record, protein):
     desc = f'"{func}"' if func else ""
     return seq_name, desc
 
+def _natural_key(name):
+    # Numeric runs compare as numbers, so protein _2 sorts before _10
+    return [int(part) if part.isdigit() else part for part in re.split(r"(\d+)", name)]
+
 def write_fasta_str(name, desc, seq):
     if desc:
         return f">{name} {desc}\n{seq}\n"
@@ -200,14 +204,14 @@ def write_organized_files(organized_dict, category, category_table_path, prot_re
     }
 
     # Create output directory if it doesn't exist
-    output_subdir = os.path.join(output_dir, f"faa_{category}")
+    output_subdir = output_dir
     os.makedirs(output_subdir, exist_ok=True)
 
     def write_fasta_file(key, protein_names):
         output_fasta = os.path.join(output_subdir, filename_dict[key])
         fasta_lines = []
 
-        for protein_name in protein_names:
+        for protein_name in sorted(protein_names, key=_natural_key):
             record = prot_records.get(protein_name)
             if record is None:
                 logger.warning(f"Protein '{protein_name}' not found in the loaded protein records.")

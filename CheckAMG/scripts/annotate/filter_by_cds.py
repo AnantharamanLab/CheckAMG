@@ -265,6 +265,18 @@ def main():
     logger.info(f"Total contigs after filtering: {f_contigs:,} ({f_genomes:,} genomes)")
     logger.info(f"Total amino-acid sequences after filtering: {f_orfs:,}")
 
+    with open(snakemake.params.counts_out, "w") as fh:
+        fh.write("metric\tvalue\n")
+        for k, v in {
+            "genomes_before_min_orf": total_genomes,
+            "contigs_before_min_orf": total_contigs,
+            "proteins_before_min_orf": total_orfs,
+            "genomes_passing_min_orf": f_genomes,
+            "contigs_passing_min_orf": f_contigs,
+            "proteins_passing_min_orf": f_orfs,
+        }.items():
+            fh.write(f"{k}\t{v}\n")
+
     if input_type == "nucl":
         logger.debug(f"Removing original pyrodigal-gv directory: {pyrodigal_dir}")
         shutil.rmtree(pyrodigal_dir)

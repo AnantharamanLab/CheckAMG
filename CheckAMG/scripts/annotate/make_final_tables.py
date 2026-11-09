@@ -13,6 +13,7 @@ import gc
 from CheckAMG.scripts.common.snakemake_logging import init_snakemake_logger, emit_step_banner
 from CheckAMG.scripts.common.mem_limit import set_memory_limit
 from CheckAMG.scripts.annotate.utils import as_parquet_path_if_enabled
+from CheckAMG.scripts.annotate import summaries
 
 log_file = snakemake.params.log
 logger = init_snakemake_logger(snakemake, redirect_streams=False)
@@ -177,6 +178,37 @@ def main():
     regulatory_path = as_parquet_path_if_enabled(snakemake.params.regulation_table, save_to_parquet)
     reg_cat_out_path = as_parquet_path_if_enabled(snakemake.params.regulation_categories_out, save_to_parquet)
     final_table_path = as_parquet_path_if_enabled(snakemake.params.final_table, save_to_parquet)
+    context_path = as_parquet_path_if_enabled(snakemake.params.context_table, save_to_parquet)
+    metab_audit_path = as_parquet_path_if_enabled(snakemake.params.metabolism_table_audit, save_to_parquet)
+    phys_audit_path = as_parquet_path_if_enabled(snakemake.params.physiology_table_audit, save_to_parquet)
+    reg_audit_path = as_parquet_path_if_enabled(snakemake.params.regulation_table_audit, save_to_parquet)
+    amg_ref_path = snakemake.params.amg_ref
+    avg_predictions_path = as_parquet_path_if_enabled(snakemake.params.avg_predictions, save_to_parquet)
+    genome_summary_path = as_parquet_path_if_enabled(snakemake.params.genome_summary, save_to_parquet)
+    filtered_candidates_path = as_parquet_path_if_enabled(snakemake.params.filtered_candidates, save_to_parquet)
+    run_summary_path = snakemake.params.run_summary
+    readme_path = snakemake.params.readme
+    min_amg_weight = float(snakemake.params.min_amg_weight)
+    run_params = {
+        "input_type": snakemake.params.input_type,
+        "db_dir": snakemake.params.db_dir,
+        "min_len": snakemake.params.min_len,
+        "min_cds": snakemake.params.min_cds,
+        "annotation_percent_threshold": snakemake.params.annotation_percent_threshold,
+        "cov_fraction": snakemake.params.cov_fraction,
+        "max_evalue": snakemake.params.max_evalue,
+        "min_bitscore": snakemake.params.min_bitscore,
+        "min_bitscore_fraction_heuristic": snakemake.params.min_bitscore_fraction_heuristic,
+        "window_size": snakemake.params.window_size,
+        "minimum_flank_vscore": snakemake.params.minimum_flank_vscore,
+        "minimum_window_avg_vlscore": snakemake.params.minimum_window_avg_vlscore,
+        "use_hallmark": snakemake.params.use_hallmark,
+        "min_amg_weight": snakemake.params.min_amg_weight,
+        "filter_presets": snakemake.params.filter_presets,
+        "filter_nonviral_regions": snakemake.params.filter_nonviral_regions,
+        "filter_avg_arrays": snakemake.params.filter_avg_arrays,
+        "avg_array_len_limit": snakemake.params.avg_array_len_limit,
+    }
     mem_limit = snakemake.resources.mem
     threads = snakemake.threads
     set_memory_limit(mem_limit)
@@ -211,6 +243,36 @@ def main():
     final_df = merge_dataframes(all_genes_df, metabolism_df, physiology_df, regulatory_df)
     final_df = final_df.join(gene_index_df, on="Protein", how="left")
 
+    logger.debug("Adding viral-origin probabilities and annotation status...")
+    context_df = summaries.read_table(context_path).select(
+        pl.col("protein").alias("Protein"), pl.col("contig").alias("Contig"), pl.col("genome").alias("Genome"),
+        pl.col("LGBM_viral_prob").cast(pl.Float64).alias("Protein Viral Origin Probability"),
+    ).unique(subset=["Protein", "Contig", "Genome"], keep="first")
+    final_df = final_df.join(context_df, on=["Protein", "Contig", "Genome"], how="left")
+
+    amg_ref_df = pl.read_csv(amg_ref_path, separator="\t", schema_overrides={"id": pl.Utf8, "AMG_weight": pl.Float64})
+    audits = {
+        "AMG": summaries.read_table(metab_audit_path),
+        "APG": summaries.read_table(phys_audit_path),
+        "AReG": summaries.read_table(reg_audit_path),
+    }
+    filtered_df = summaries.build_filtered_candidates(audits, final_df, amg_ref_df, min_amg_weight)
+    filtered_keys = filtered_df.select(["Protein", "Contig", "Genome"]).unique().with_columns(pl.lit(True).alias("_filtered"))
+    final_df = (
+        final_df.join(filtered_keys, on=["Protein", "Contig", "Genome"], how="left")
+        .with_columns(
+            pl.when(pl.col("Protein Classification") != "unclassified").then(pl.lit("AVG"))
+            .when(pl.col("_filtered").fill_null(False)).then(pl.lit("AVG candidate, filtered"))
+            .when(pl.col("Best Scoring HMM").is_not_null()).then(pl.lit("Annotated, not an AVG"))
+            .otherwise(pl.lit("Unannotated"))
+            .alias("Annotation Status")
+        )
+        .drop("_filtered")
+    )
+    lead = ["Protein", "Contig", "Genome", "Protein Classification", "Annotation Status",
+            "Protein Viral Origin Confidence", "Protein Viral Origin Probability", "Protein in Strict Viral Region"]
+    final_df = final_df.select(lead + [c for c in final_df.columns if c not in lead])
+
     # Sort and write the final table output
     confidence_order = {"high": 0, "medium": 1, "low": 2}
     final_df = final_df.with_columns(
@@ -225,7 +287,7 @@ def main():
         final_df.write_parquet(final_table_path)
     else:
         final_df.write_csv(final_table_path, separator='\t')
-    logger.info(f"Final table written to {final_table_path}")
+    logger.info(f"All-protein table written to {final_table_path}")
 
     logger.debug(f"Joining categories to metabolic proteins...")
     metab_cat_df = (
@@ -239,14 +301,14 @@ def main():
         .join(
             metab_cat_ref_df
             .select(["name", "category_L1", "category_L2", "category_L3"])
-            .unique(),
-            left_on="Function", right_on="name", how="left"
+            .unique(maintain_order=True),
+            left_on="Function", right_on="name", how="left", maintain_order="left_right"
             )
     )
     logger.info(f"{metab_cat_df.get_column('Protein').n_unique():,} metabolic proteins span:")
-    logger.info(f"\t{metab_cat_df.get_column('category_L1').n_unique():2,} level 1 AMG categories")
-    logger.info(f"\t{metab_cat_df.get_column('category_L2').n_unique():2,} level 2 AMG cateogires")
-    logger.info(f"\t{metab_cat_df.get_column('category_L3').n_unique():2,} level 3 AMG cateogires")
+    logger.info(f"\t{metab_cat_df.get_column('category_L1').drop_nulls().n_unique():2,} level 1 AMG categories")
+    logger.info(f"\t{metab_cat_df.get_column('category_L2').drop_nulls().n_unique():2,} level 2 AMG categories")
+    logger.info(f"\t{metab_cat_df.get_column('category_L3').drop_nulls().n_unique():2,} level 3 AMG categories")
     logger.debug(f"Writing metabolic category table to {metab_cat_out_path}...")
     if save_to_parquet:
         metab_cat_df.write_parquet(metab_cat_out_path)
@@ -265,14 +327,14 @@ def main():
         .join(
             phys_cat_ref_df
             .select(["name", "category_L1", "category_L2", "category_L3"])
-            .unique(),
-            left_on="Function", right_on="name", how="left"
+            .unique(maintain_order=True),
+            left_on="Function", right_on="name", how="left", maintain_order="left_right"
             )
     )
     logger.info(f"{phys_cat_df.get_column('Protein').n_unique():,} physiological proteins span:")
-    logger.info(f"\t{phys_cat_df.get_column('category_L1').n_unique():2,} level 1 APG categories")
-    logger.info(f"\t{phys_cat_df.get_column('category_L2').n_unique():2,} level 2 APG cateogires")
-    logger.info(f"\t{phys_cat_df.get_column('category_L3').n_unique():2,} level 3 APG cateogires")
+    logger.info(f"\t{phys_cat_df.get_column('category_L1').drop_nulls().n_unique():2,} level 1 APG categories")
+    logger.info(f"\t{phys_cat_df.get_column('category_L2').drop_nulls().n_unique():2,} level 2 APG categories")
+    logger.info(f"\t{phys_cat_df.get_column('category_L3').drop_nulls().n_unique():2,} level 3 APG categories")
     logger.debug(f"Writing physiological category table to {phys_cat_out_path}...")
     if save_to_parquet:
         phys_cat_df.write_parquet(phys_cat_out_path)
@@ -291,14 +353,14 @@ def main():
         .join(
             reg_cat_ref_df
             .select(["name", "category_L1", "category_L2", "category_L3"])
-            .unique(),
-            left_on="Function", right_on="name", how="left"
+            .unique(maintain_order=True),
+            left_on="Function", right_on="name", how="left", maintain_order="left_right"
             )
     )
     logger.info(f"{reg_cat_df.get_column('Protein').n_unique():,} regulatory proteins span:")
-    logger.info(f"\t{reg_cat_df.get_column('category_L1').n_unique():2,} level 1 AReG categories")
-    logger.info(f"\t{reg_cat_df.get_column('category_L2').n_unique():2,} level 2 AReG cateogires")
-    logger.info(f"\t{reg_cat_df.get_column('category_L3').n_unique():2,} level 3 AReG cateogires")
+    logger.info(f"\t{reg_cat_df.get_column('category_L1').drop_nulls().n_unique():2,} level 1 AReG categories")
+    logger.info(f"\t{reg_cat_df.get_column('category_L2').drop_nulls().n_unique():2,} level 2 AReG categories")
+    logger.info(f"\t{reg_cat_df.get_column('category_L3').drop_nulls().n_unique():2,} level 3 AReG categories")
     logger.debug(f"Writing regulatory category table to {reg_cat_out_path}...")
 
     # # Intentional polars error to test logger
@@ -308,6 +370,24 @@ def main():
         reg_cat_df.write_parquet(reg_cat_out_path)
     else:
         reg_cat_df.write_csv(reg_cat_out_path, separator='\t')
+
+    logger.info("Writing the AVG prediction, genome summary, filtered candidate, and run summary tables...")
+    curated = {"metabolic": metabolism_df, "physiological": physiology_df, "regulatory": regulatory_df}
+    categories = {"metabolic": metab_cat_df, "physiological": phys_cat_df, "regulatory": reg_cat_df}
+    avg_pred_df = summaries.build_avg_predictions(final_df, curated, categories)
+    summaries.write_table(avg_pred_df, avg_predictions_path)
+    summaries.write_table(summaries.build_genome_summary(final_df, avg_pred_df), genome_summary_path)
+    summaries.write_table(filtered_df, filtered_candidates_path)
+    run_summary_df = summaries.build_run_summary(
+        run_params,
+        summaries.read_counts(snakemake.params.counts_length),
+        summaries.read_counts(snakemake.params.counts_cds),
+        final_df, avg_pred_df, filtered_df.height,
+    )
+    run_summary_df.write_csv(run_summary_path, separator="\t")
+    summaries.write_readme(readme_path, min_amg_weight, final_df, avg_pred_df, filtered_df.height, summaries.read_counts(snakemake.params.counts_length), summaries.read_counts(snakemake.params.counts_cds))
+    logger.info(f"{avg_pred_df.height:,} AVGs written to {avg_predictions_path}")
+    logger.info(f"See {readme_path} for a guide to the output files.")
 
     # Log classification summary
     logger.debug(f"Columns in final_df after classification: {final_df.columns}")

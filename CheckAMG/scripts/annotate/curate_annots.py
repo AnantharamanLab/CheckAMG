@@ -508,6 +508,61 @@ def _best_desc_for_ref_ids(df: pl.DataFrame, ref_ids: list[str]) -> pl.Expr:
     return out.otherwise(pl.lit(None, dtype=pl.Utf8))
 
 
+def add_supporting_hit_columns(df: pl.DataFrame, ref_ids: list[str], amg_weights: dict | None = None) -> pl.DataFrame:
+    # Mirrors the source order and max-score rule of _best_desc_for_ref_ids so the hit matches Function
+    def _clean_id(col, pattern):
+        if f"{col}_clean" in df.columns:
+            return pl.col(f"{col}_clean").cast(pl.Utf8, strict=False)
+        if col in df.columns:
+            return pl.col(col).cast(pl.Utf8, strict=False).str.replace(pattern, "", literal=False)
+        return pl.lit(None, dtype=pl.Utf8)
+
+    def _raw_id(col):
+        return pl.col(col).cast(pl.Utf8, strict=False) if col in df.columns else pl.lit(None, dtype=pl.Utf8)
+
+    sources = [
+        ("KEGG", "KEGG_score", _raw_id("KEGG_hmm_id")),
+        ("FOAM", "FOAM_score", _raw_id("FOAM_hmm_id")),
+        ("Pfam", "Pfam_score", _clean_id("Pfam_hmm_id", r"\.\d+$")),
+        ("dbCAN", "dbCAN_score", _clean_id("dbCAN_hmm_id", r"_(.*)")),
+        ("METABOLIC", "METABOLIC_score", _raw_id("METABOLIC_hmm_id")),
+        ("CAMPER", "CAMPER_score", _raw_id("CAMPER_hmm_id")),
+        ("PHROG", "PHROG_score", _raw_id("PHROG_hmm_id")),
+    ]
+    cands = []
+    for db, score_col, id_expr in sources:
+        if score_col not in df.columns:
+            continue
+        cond = _is_in_ids(id_expr, ref_ids)
+        score = pl.col(score_col).cast(pl.Float64, strict=False).fill_null(float("-inf"))
+        cands.append((db, pl.when(cond).then(score).otherwise(pl.lit(float("-inf"))), id_expr, score_col))
+
+    if not cands:
+        out = df.with_columns([
+            pl.lit(None, dtype=pl.Utf8).alias("Supporting_HMM_db"),
+            pl.lit(None, dtype=pl.Utf8).alias("Supporting_HMM_id"),
+            pl.lit(None, dtype=pl.Float64).alias("Supporting_HMM_bitscore"),
+        ])
+    else:
+        max_expr = pl.max_horizontal([c[1] for c in cands])
+        db_out = pl.when(max_expr == float("-inf")).then(pl.lit(None, dtype=pl.Utf8))
+        id_out = pl.when(max_expr == float("-inf")).then(pl.lit(None, dtype=pl.Utf8))
+        for db, cand, id_expr, _ in cands:
+            db_out = db_out.when(cand == max_expr).then(pl.lit(db))
+            id_out = id_out.when(cand == max_expr).then(id_expr)
+        out = df.with_columns([
+            db_out.otherwise(pl.lit(None, dtype=pl.Utf8)).alias("Supporting_HMM_db"),
+            id_out.otherwise(pl.lit(None, dtype=pl.Utf8)).alias("Supporting_HMM_id"),
+            pl.when(max_expr == float("-inf")).then(pl.lit(None, dtype=pl.Float64)).otherwise(max_expr).alias("Supporting_HMM_bitscore"),
+        ])
+
+    if amg_weights is not None:
+        out = out.with_columns(
+            pl.col("Supporting_HMM_id").replace_strict(amg_weights, default=None, return_dtype=pl.Float64).alias("AMG_weight")
+        )
+    return out
+
+
 def add_function_column_for_category(df: pl.DataFrame, ref_ids: list[str]) -> pl.DataFrame:
     top_desc_expr = _clean_text_expr(pl.col("top_hit_description")) if "top_hit_description" in df.columns else pl.lit(None, dtype=pl.Utf8)
     restricted_best_expr = _best_desc_for_ref_ids(df, ref_ids)
@@ -1362,6 +1417,15 @@ def main():
     physiology_table_out = add_function_column_for_category(physiology_table_out, phys_ids)
     regulation_table_out = add_function_column_for_category(regulation_table_out, reg_ids)
 
+    amg_weights = {
+        r["id"]: r["AMG_weight"]
+        for r in metabolism_table.group_by("id").agg(pl.col("AMG_weight").cast(pl.Float64, strict=False).max()).iter_rows(named=True)
+        if r["id"] is not None
+    }
+    metabolism_table_out = add_supporting_hit_columns(metabolism_table_out, metab_ids, amg_weights)
+    physiology_table_out = add_supporting_hit_columns(physiology_table_out, phys_ids)
+    regulation_table_out = add_supporting_hit_columns(regulation_table_out, reg_ids)
+
     metabolism_filter_audit = add_function_column_for_category(metabolism_filter_audit, metab_ids)
     physiology_filter_audit = add_function_column_for_category(physiology_filter_audit, phys_ids)
     regulation_filter_audit = add_function_column_for_category(regulation_filter_audit, reg_ids)
@@ -1499,12 +1563,22 @@ def main():
         "filtered_from_final_reason",
     ]
 
+    # Internal filter flags and region bookkeeping are kept in gene_annotations and the audit tables only
+    drop_cols_curated = drop_cols_final + [
+        "FILTER_MATCH_ALL",
+        "FILTER_REMOVE_TOKEN_ALL",
+        "FILTER_EXCEPTION_ALL",
+        "FILTER_EXCEPTION_TOKEN_ALL",
+        "protein_in_ambig_region",
+        "nonviral_region_pos",
+    ]
+
     annot_table = out_dfs["annot_table"].drop(drop_cols_final, strict=False)
-    metabolism_table_out = out_dfs["metabolism_table_out"].drop(drop_cols_final, strict=False)
+    metabolism_table_out = out_dfs["metabolism_table_out"].drop(drop_cols_curated, strict=False)
     metabolism_filter_audit = out_dfs["metabolism_filter_audit"]
-    physiology_table_out = out_dfs["physiology_table_out"].drop(drop_cols_final, strict=False)
+    physiology_table_out = out_dfs["physiology_table_out"].drop(drop_cols_curated, strict=False)
     physiology_filter_audit = out_dfs["physiology_filter_audit"]
-    regulation_table_out = out_dfs["regulation_table_out"].drop(drop_cols_final, strict=False)
+    regulation_table_out = out_dfs["regulation_table_out"].drop(drop_cols_curated, strict=False)
     regulation_filter_audit = out_dfs["regulation_filter_audit"]
 
     if save_to_parquet:
