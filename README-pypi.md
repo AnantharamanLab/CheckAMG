@@ -25,7 +25,7 @@ checkamg end-to-end \
 * Reference-based annotation and genome-context curation (`annotate`)
 * Reference-independent prediction with a protein genome language model (`de-novo`)
 * Combined reporting (`aggregate`) and one-command runs (`end-to-end`)
-* Outputs curated lists and amino-acid sequences of AMGs, AReGs, and APGs
+* Outputs a `README.txt`, a table with one row per predicted AVG, a per-genome summary, and amino-acid sequences of AMGs, AReGs, and APGs
 
 ## Modules
 

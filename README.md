@@ -18,7 +18,7 @@ CheckAMG supports:
 * Running on viral genomes or viromes/metagenomes directly
 * CPU-only or GPU-accelerated execution
 
-Full documentation, detailed installation instructions, parameter descriptions, an FAQ, and notebooks to reproduce the analyses in the manuscript are locaed in the **[CheckAMG Wiki](https://github.com/AnantharamanLab/CheckAMG/wiki)**.
+Full documentation, detailed installation instructions, parameter descriptions, an FAQ, and notebooks to reproduce the analyses in the manuscript are located in the **[CheckAMG Wiki](https://github.com/AnantharamanLab/CheckAMG/wiki)**.
 
 ## Installation
 
@@ -88,6 +88,8 @@ checkamg annotate \
 ```
 
 Run `checkamg -h` or `checkamg <module> -h` for all options, and see the **[Wiki](https://github.com/AnantharamanLab/CheckAMG/wiki)** for detailed descriptions of every parameter and output. By default, CheckAMG runs only on scaffolds that are at least 5 kb long, but this threshold can be adjusted using the `--min-len` argument.
+
+Each results folder includes a `README.txt` describing its files. Start with `avg_predictions.tsv` (one row per predicted AVG) and `genome_summary.tsv` (one row per genome), found in `03_aggregate/` for `end-to-end` runs and in `results/` for `annotate` runs. Example outputs are in [`examples/example_outputs`](https://github.com/AnantharamanLab/CheckAMG/tree/main/examples/example_outputs).
 
 ## Error reporting
 
